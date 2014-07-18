@@ -1,4 +1,4 @@
-﻿using Easy.CMS.Web.Filter;
+﻿using Easy.CMS.Filter;
 using Easy.Web.Route;
 using System;
 using System.Collections.Generic;

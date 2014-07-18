@@ -102,3 +102,8 @@ E:\产品\MVCPlugSupport\CMS\Easy.CMS.Web\Modules\Easy.CMS.News\bin\zh-Hant\Syst
 E:\产品\MVCPlugSupport\CMS\Easy.CMS.Web\Modules\Easy.CMS.News\bin\Easy.CMS.News.dll.config
 E:\产品\MVCPlugSupport\CMS\Easy.CMS.Web\Modules\Easy.CMS.News\bin\Easy.CMS.News.dll
 E:\产品\MVCPlugSupport\CMS\Easy.CMS.Web\Modules\Easy.CMS.News\bin\Easy.CMS.News.pdb
+E:\产品\MVCPlugSupport\CMS\Easy.CMS.Web\bin\Easy.CMS.News.dll.config
+E:\产品\MVCPlugSupport\CMS\Easy.CMS.Web\bin\Easy.CMS.News.dll
+E:\产品\MVCPlugSupport\CMS\Easy.CMS.Web\bin\Easy.CMS.News.pdb
+E:\产品\MVCPlugSupport\CMS\Easy.CMS.Web\Modules\Easy.CMS.News\obj\Debug\Easy.CMS.News.dll
+E:\产品\MVCPlugSupport\CMS\Easy.CMS.Web\Modules\Easy.CMS.News\obj\Debug\Easy.CMS.News.pdb

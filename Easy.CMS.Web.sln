@@ -19,7 +19,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Easy.CMS.Page", "Easy.CMS.W
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Easy.CMS.Product", "Easy.CMS.Web\Modules\Easy.CMS.Product\Easy.CMS.Product.csproj", "{A333A4DA-7A52-4E32-B7CA-6ADC1990B09E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Easy.CMS.Web", "..\..\MyFrameWork\EasyFrameWork\EasyFrameWork.CMS.Web\Easy.CMS.Web\Easy.CMS.Web.csproj", "{2E8362AE-80D6-43E0-B3BF-CAB6D888D154}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Easy.CMS", "..\..\MyFrameWork\EasyFrameWork\EasyFrameWork.CMS\Easy.CMS.csproj", "{2E8362AE-80D6-43E0-B3BF-CAB6D888D154}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

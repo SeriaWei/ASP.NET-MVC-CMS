@@ -314,10 +314,6 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\MyFrameWork\EasyFrameWork\EasyFrameWork.CMS.Web\Easy.CMS.Web\Easy.CMS.Web.csproj">
-      <Project>{2e8362ae-80d6-43e0-b3bf-cab6d888d154}</Project>
-      <Name>Easy.CMS.Web</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\..\MyFrameWork\EasyFrameWork\EasyFrameWork.Web\Easy.Web.csproj">
       <Project>{a1228125-f5c4-4001-ac7d-1accf1679828}</Project>
       <Name>Easy.Web</Name>

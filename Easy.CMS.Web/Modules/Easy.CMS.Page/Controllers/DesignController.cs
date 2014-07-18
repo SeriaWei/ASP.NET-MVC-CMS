@@ -1,4 +1,4 @@
-﻿using Easy.CMS.Web.Layout;
+﻿using Easy.CMS.Layout;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,7 +27,7 @@ namespace Easy.CMS.Page.Controllers
         public ActionResult SaveLayout(string[] html, LayoutEntity layout)
         {
             LayoutHtmlCollection htmls;
-            var zones = Easy.CMS.Web.Zone.Helper.GetZones(html, out htmls);
+            var zones = Easy.CMS.Zone.Helper.GetZones(html, out htmls);
             layout.Zones = zones;
             layout.Html = htmls;
             if (layout.LayoutId.IsNullOrEmpty())

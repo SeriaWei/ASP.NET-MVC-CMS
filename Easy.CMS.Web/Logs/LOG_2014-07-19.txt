@@ -1,0 +1,20 @@
+----------------------------------------------------------------
+时间：2014/7/19 星期六 0:29:35
+详细信息:
+INSERT INTO [WidgetBase] ([Position],[AssemblyName],[FullTypeName]) VALUES (@Position,@AssemblyName,@FullTypeName)
+----------------------------------------------------------------
+
+----------------------------------------------------------------
+时间：2014/7/19 星期六 0:29:35
+详细信息:
+找不到输出表 'WidgetBase' 。
+System.Data.OleDb.OleDbException (0x80040E37): 找不到输出表 'WidgetBase' 。
+   在 System.Data.OleDb.OleDbCommand.ExecuteCommandTextErrorHandling(OleDbHResult hr)
+   在 System.Data.OleDb.OleDbCommand.ExecuteCommandTextForSingleResult(tagDBPARAMS dbParams, Object& executeResult)
+   在 System.Data.OleDb.OleDbCommand.ExecuteCommandText(Object& executeResult)
+   在 System.Data.OleDb.OleDbCommand.ExecuteCommand(CommandBehavior behavior, Object& executeResult)
+   在 System.Data.OleDb.OleDbCommand.ExecuteReaderInternal(CommandBehavior behavior, String method)
+   在 System.Data.OleDb.OleDbCommand.ExecuteNonQuery()
+   在 Easy.Data.DataBase.Access.Insert(String tableName, Dictionary`2 values) 位置 e:\产品\MyFrameWork\EasyFrameWork\EasyFrameWork\Data\DataBase\Access.cs:行号 182
+----------------------------------------------------------------
+
