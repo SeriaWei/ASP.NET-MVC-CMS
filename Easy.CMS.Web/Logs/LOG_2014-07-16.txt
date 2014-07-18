@@ -1,0 +1,48 @@
+----------------------------------------------------------------
+时间：2014/7/16 星期三 19:19:58
+详细信息:
+SELECT [T0].[LayoutId],[T0].[LayoutName],[T0].[StylePath],[T0].[CreateBy],[T0].[CreatebyName],[T0].[CreateDate],[T0].[LastUpdateBy],[T0].[LastUpdateByName],[T0].[LastUpdateDate] FROM [CMS_Layout] T0 WHERE  [LayoutId]=@833ad105b505449886091304aba35bb5  
+----------------------------------------------------------------
+
+----------------------------------------------------------------
+时间：2014/7/16 星期三 19:19:58
+详细信息:
+至少一个参数没有被指定值。
+System.Data.OleDb.OleDbException (0x80040E10): 至少一个参数没有被指定值。
+   在 System.Data.OleDb.OleDbCommand.ExecuteCommandTextErrorHandling(OleDbHResult hr)
+   在 System.Data.OleDb.OleDbCommand.ExecuteCommandTextForSingleResult(tagDBPARAMS dbParams, Object& executeResult)
+   在 System.Data.OleDb.OleDbCommand.ExecuteCommandText(Object& executeResult)
+   在 System.Data.OleDb.OleDbCommand.ExecuteCommand(CommandBehavior behavior, Object& executeResult)
+   在 System.Data.OleDb.OleDbCommand.ExecuteReaderInternal(CommandBehavior behavior, String method)
+   在 System.Data.OleDb.OleDbCommand.ExecuteReader(CommandBehavior behavior)
+   在 System.Data.OleDb.OleDbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   在 Easy.Data.DataBase.Access.GetTable(OleDbCommand Comm) 位置 e:\产品\MyFrameWork\EasyFrameWork\EasyFrameWork\Data\DataBase\Access.cs:行号 99
+----------------------------------------------------------------
+
+----------------------------------------------------------------
+时间：2014/7/16 星期三 19:21:16
+详细信息:
+SELECT [T0].[LayoutId],[T0].[LayoutName],[T0].[StylePath],[T0].[CreateBy],[T0].[CreatebyName],[T0].[CreateDate],[T0].[LastUpdateBy],[T0].[LastUpdateByName],[T0].[LastUpdateDate] FROM [CMS_Layout] T0 WHERE  [LayoutId]=@9e849fdc820447d38e67d1003e4070da  
+----------------------------------------------------------------
+
+----------------------------------------------------------------
+时间：2014/7/16 星期三 19:21:16
+详细信息:
+至少一个参数没有被指定值。
+System.Data.OleDb.OleDbException (0x80040E10): 至少一个参数没有被指定值。
+   在 System.Data.OleDb.OleDbCommand.ExecuteCommandTextErrorHandling(OleDbHResult hr)
+   在 System.Data.OleDb.OleDbCommand.ExecuteCommandTextForSingleResult(tagDBPARAMS dbParams, Object& executeResult)
+   在 System.Data.OleDb.OleDbCommand.ExecuteCommandText(Object& executeResult)
+   在 System.Data.OleDb.OleDbCommand.ExecuteCommand(CommandBehavior behavior, Object& executeResult)
+   在 System.Data.OleDb.OleDbCommand.ExecuteReaderInternal(CommandBehavior behavior, String method)
+   在 System.Data.OleDb.OleDbCommand.ExecuteReader(CommandBehavior behavior)
+   在 System.Data.OleDb.OleDbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   在 Easy.Data.DataBase.Access.GetTable(OleDbCommand Comm) 位置 e:\产品\MyFrameWork\EasyFrameWork\EasyFrameWork\Data\DataBase\Access.cs:行号 99
+----------------------------------------------------------------
+

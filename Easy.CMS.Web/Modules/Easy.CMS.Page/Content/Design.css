@@ -1,0 +1,76 @@
+﻿.white {
+    color: white;
+}
+
+.ui-draggable-dragging {
+    color: red;
+    word-break: keep-all;
+    word-wrap: normal;
+    white-space: nowrap;
+}
+
+.navbar-fixed-top {
+    z-index: 1;
+}
+
+.iconLeft {
+    padding-right: 4px;
+}
+
+.AddRow,
+.AddCol,
+.AddZone {
+    cursor: move;
+}
+
+.design {
+}
+
+    .design .row {
+        min-height: 100px;
+        border: 1px dashed #46b8da;
+        background-color: white;
+        margin: 4px -11px;
+        cursor: move;
+    }
+
+    .design .zone {
+        min-height: 80px;
+        border: 1px dashed red;
+        margin: 4px;
+        background-color: white;
+        cursor: move;
+    }
+
+        .design .zone input {
+            border: none;
+        }
+
+    .design #container {
+        min-height: 500px;
+        border: 1px dashed #CCC;
+        margin-top: 100px;
+    }
+
+    .design .colContent {
+        border: 1px dotted #eea236;
+        min-height: 90px;
+        margin: 4px auto;
+        background-color: white;
+        cursor: move;
+    }
+
+
+
+.dropInfo {
+    background-color: #92daef !important;
+}
+
+.dropWarning {
+    background-color: #46b8da !important;
+}
+
+
+.dropDanger {
+    background-color: #d9534f !important;
+}

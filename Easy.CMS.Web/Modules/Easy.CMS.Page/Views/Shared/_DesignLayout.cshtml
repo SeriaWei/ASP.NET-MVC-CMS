@@ -1,0 +1,212 @@
+﻿@{
+    Layout = null;
+    Script.Reqiured("jQueryUi").AtFoot();
+    Style.Reqiured("jQueryUi").AtFoot();
+    Style.Reqiured("Design").AtHead();
+}
+@model Easy.CMS.Web.Layout.LayoutEntity
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+    @StyleAtHead()
+    @ScriptAtHead()
+</head>
+<body>
+    <div class="navbar-inverse white navbar-fixed-top" role="navigation">
+        <div class="navbar-inner">
+            <div id="tools" class="container">
+                <div class="row">
+                    <div class="col-md-2">
+                        <div>
+                            <label class="radio-inline">
+                                <input type="radio" name="layoutOption" value="container" checked="checked"> 定宽
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="layoutOption" value="container-fluid"> 全屏
+                            </label>
+                        </div>
+                        <div class="AddRow"><i class="iconLeft glyphicon glyphicon-align-justify"></i>添加一行</div>
+                        <div class="AddZone"><i class="iconLeft glyphicon glyphicon-pushpin"></i>内容区域</div>
+
+                    </div>
+                    <div class="col-md-6">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    @for (int i = 1; i <= 4; i++)
+                                    {
+                                        <div class="AddCol" data-col="col-md-@i"><i class="iconLeft glyphicon glyphicon-list"></i>添加一列(@i/12)</div>
+                                    }
+                                </div>
+                                <div class="col-md-4">
+                                    @for (int i = 5; i <= 8; i++)
+                                    {
+                                        <div class="AddCol" data-col="col-md-@i"><i class="iconLeft glyphicon glyphicon-list"></i>添加一列(@i/12)</div>
+                                    }
+                                </div>
+                                <div class="col-md-4">
+                                    @for (int i = 9; i <= 12; i++)
+                                    {
+                                        <div class="AddCol" data-col="col-md-@i"><i class="iconLeft glyphicon glyphicon-list"></i>添加一列(@i/12)</div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        @using (Html.BeginForm("SaveLayout", "Design", FormMethod.Post, new { id = "LayoutInfo" }))
+                        {
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="input-group input-group-sm">
+                                            <span class="input-group-addon">布局名称</span>
+                                            <input type="text" class="form-control" name="LayoutName" placeholder="输入布局名称" value="@Model.LayoutName">
+                                            <input id="LayoutId" type="hidden" name="LayoutId" value="@Model.LayoutId" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <input type="button" class="btn btn-info" id="save" value="Save" />
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="design">
+        <div id="container" class="container RowDroppable">
+            @RenderBody()
+        </div>
+    </div>
+    @StyleAtFoot()
+    @ScriptAtFoot()
+    <script type="text/javascript">
+        $(function () {
+            $("input[type=radio][name=layoutOption").click(function () {
+                $("#container").removeClass("container").removeClass("container-fluid").addClass($(this).val());
+            });
+            $(".AddRow,.AddCol,.AddZone").draggable({ helper: "clone", revert: "invalid" });
+            $("#tools").droppable({
+                activeClass: "dropWarning",
+                hoverClass: "dropDanger",
+                accept: ".delable",
+                drop: function (event, ui) {
+                    ui.draggable.remove();
+                }
+            });
+            $(".RowDroppable").droppable({
+                hoverClass: "dropWarning",
+                accept: ".AddRow",
+                greedy: true,
+                drop: rowDropToContent
+            }).sortable();
+
+            var opRowDrop = {
+                hoverClass: "dropWarning",
+                accept: ".AddCol",
+                greedy: true,
+                drop: colDroped
+            };
+            var opColDrop = {
+                hoverClass: "dropWarning",
+                accept: ".AddRow,.AddZone",
+                greedy: true,
+                drop: function (evn, uirz) {
+                    if (uirz.draggable.hasClass("AddRow")) {
+                        rowDroped(evn, uirz, this);
+                    }
+                    else if (uirz.draggable.hasClass("AddZone")) {
+                        zoneDropable(evn, uirz, this);
+                    }
+                }
+            };
+            $("#container .row").droppable(opRowDrop).sortable();
+            $("#container .colContent").droppable(opColDrop).sortable();
+
+            $(".zone input").live("blur", function () {
+                $(this).attr("value", $(this).val());
+            });
+            function rowDropToContent(event, ui, obj) {
+                if (obj == null)
+                    obj = this;
+                var row = $("<div class=\"delable row\"></div>");
+                row.droppable(opRowDrop);
+                row.sortable();
+                $(obj).append(row);
+                $(".dropWarning").removeClass("dropWarning");
+            }
+            function rowDroped(event, ui, obj) {
+                if (obj == null)
+                    obj = this;
+                var row = $("<div class=\"delable container-fluid\"><div class=\"row\"></div></div>");
+                row.children(".row").droppable(opRowDrop).sortable();
+                $(obj).append(row);
+                $(".dropWarning").removeClass("dropWarning");
+            }
+            function colDroped(event, ui, obj) {
+                if (obj == null)
+                    obj = this;
+                var col = $("<div class=\"delable " + ui.draggable.data("col") + "\"><div class=\"colContent\"></div></div>");
+                col.children(".colContent").droppable(opColDrop).sortable();
+                $(obj).append(col);
+                $(".dropWarning").removeClass("dropWarning");
+            }
+            function zoneDropable(event, ui, obj) {
+                if (obj == null) {
+                    obj = this;
+                }
+                var zoneParent = $('<div class="delable zone"></div>');
+
+                var zone = $("<zone></zone>");
+                zone.append('<input class="form-control" type="text" name="ZoneName" placeholder="Enter Zone Name" value="Zone' + ($("#container input[type=text]").size() + 1) + '" />');
+                zone.append('<input class="form-control" type="hidden" name="LayoutId" value="' + $("#LayoutId").val() + '" />');
+                zone.append('<input class="form-control" type="hidden" name="ZoneId" value="" />');
+                zoneParent.append(zone);
+                $(obj).append(zoneParent);
+                $(".dropWarning").removeClass("dropWarning");
+            }
+
+            $("#save").click(function () {
+                $("#container .ui-droppable").removeClass("ui-droppable");
+                $("#container .ui-sortable").removeClass("ui-sortable");
+                var html = $.trim($("#container").html());
+                var htmlArray = html.split("<zone>");
+                var form = $("#LayoutInfo");
+                var zoneArray = [];
+                for (var i = 0; i < htmlArray.length; i++) {
+                    zoneArray.push(htmlArray[i]);
+                    if (i < htmlArray.length - 1) {
+                        zoneArray.push("<zone>");
+                    }
+                }
+                var allZoneResult = [];
+                for (var i = 0; i < zoneArray.length; i++) {
+                    var zoneEnd = zoneArray[i].split("</zone>");
+                    for (var j = 0; j < zoneEnd.length; j++) {
+                        allZoneResult.push(zoneEnd[j]);
+                        if (j < zoneEnd.length - 1) {
+                            allZoneResult.push("</zone>");
+                        }
+                    }
+                }
+                for (var i = 0; i < allZoneResult.length; i++) {
+                    form.append($('<input type="hidden" name="html"/>').val($.trim(allZoneResult[i])));
+                }
+                form.submit();
+            });
+        });
+    </script>
+</body>
+</html>
