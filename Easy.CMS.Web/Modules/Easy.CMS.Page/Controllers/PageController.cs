@@ -10,7 +10,7 @@ namespace Easy.CMS.Page.Controllers
 {
     public class PageController : Controller
     {
-        [WidgetActionFilter]
+        [Widget]
         public ActionResult PreView(string path)
         {
             

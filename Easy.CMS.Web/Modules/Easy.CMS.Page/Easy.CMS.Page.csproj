@@ -281,12 +281,13 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Page\PreView.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Partial_T1.cshtml" />
     <Content Include="Views\Design\Layout.cshtml" />
     <Content Include="Views\Shared\_DesignLayout.cshtml" />
+    <Content Include="Views\Shared\_DesignPageLayout.cshtml" />
+    <Content Include="Views\Design\Page.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Filters\" />

@@ -108,9 +108,9 @@ E:\产品\MVCPlugSupport\CMS\Easy.CMS.Web\Modules\Easy.CMS.Page\bin\zh-Hant\Syst
 E:\产品\MVCPlugSupport\CMS\Easy.CMS.Web\Modules\Easy.CMS.Page\bin\Easy.CMS.Page.dll.config
 E:\产品\MVCPlugSupport\CMS\Easy.CMS.Web\Modules\Easy.CMS.Page\bin\Easy.CMS.Page.dll
 E:\产品\MVCPlugSupport\CMS\Easy.CMS.Web\Modules\Easy.CMS.Page\bin\Easy.CMS.Page.pdb
-E:\产品\MVCPlugSupport\CMS\Easy.CMS.Web\Modules\Easy.CMS.Page\obj\Debug\Easy.CMS.Page.csprojResolveAssemblyReference.cache
 E:\产品\MVCPlugSupport\CMS\Easy.CMS.Web\bin\Easy.CMS.Page.dll.config
 E:\产品\MVCPlugSupport\CMS\Easy.CMS.Web\bin\Easy.CMS.Page.dll
 E:\产品\MVCPlugSupport\CMS\Easy.CMS.Web\bin\Easy.CMS.Page.pdb
+E:\产品\MVCPlugSupport\CMS\Easy.CMS.Web\Modules\Easy.CMS.Page\obj\Debug\Easy.CMS.Page.csprojResolveAssemblyReference.cache
 E:\产品\MVCPlugSupport\CMS\Easy.CMS.Web\Modules\Easy.CMS.Page\obj\Debug\Easy.CMS.Page.dll
 E:\产品\MVCPlugSupport\CMS\Easy.CMS.Web\Modules\Easy.CMS.Page\obj\Debug\Easy.CMS.Page.pdb

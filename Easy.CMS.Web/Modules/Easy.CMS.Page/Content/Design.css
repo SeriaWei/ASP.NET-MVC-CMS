@@ -74,3 +74,23 @@
 .dropDanger {
     background-color: #d9534f !important;
 }
+
+.zoneToolbar {
+    cursor: move;
+    background-color: #eee;
+    background-color: rgba(86,61,124,.15);
+    border: 1px solid #ddd;
+    border: 1px solid rgba(86,61,124,.2);
+}
+
+    .zoneToolbar a {
+        color: black;
+    }
+
+        .zoneToolbar a:hover {
+            color: #727272;
+        }
+
+    .zoneToolbar .glyphicon {
+        font-size: 12px;
+    }
