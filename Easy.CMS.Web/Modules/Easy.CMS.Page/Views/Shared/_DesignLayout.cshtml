@@ -15,77 +15,66 @@
 </head>
 <body>
     <div class="navbar-inverse white navbar-fixed-top" role="navigation">
-        <div class="navbar-inner">
-            <div id="tools" class="container">
-                <div class="row">
-                    <div class="col-md-2">
-                        <div>
-                            <label class="radio-inline">
-                                <input type="radio" name="layoutOption" value="container" checked="checked"> 定宽
-                            </label>
-                            <label class="radio-inline">
-                                <input type="radio" name="layoutOption" value="container-fluid"> 全屏
-                            </label>
-                        </div>
-                        <div class="AddRow"><i class="iconLeft glyphicon glyphicon-align-justify"></i>添加一行</div>
-                        <div class="AddZone"><i class="iconLeft glyphicon glyphicon-pushpin"></i>内容区域</div>
-
-                    </div>
-                    <div class="col-md-6">
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    @for (int i = 1; i <= 4; i++)
-                                    {
-                                        <div class="AddCol" data-col="col-md-@i"><i class="iconLeft glyphicon glyphicon-list"></i>添加一列(@i/12)</div>
-                                    }
-                                </div>
-                                <div class="col-md-4">
-                                    @for (int i = 5; i <= 8; i++)
-                                    {
-                                        <div class="AddCol" data-col="col-md-@i"><i class="iconLeft glyphicon glyphicon-list"></i>添加一列(@i/12)</div>
-                                    }
-                                </div>
-                                <div class="col-md-4">
-                                    @for (int i = 9; i <= 12; i++)
-                                    {
-                                        <div class="AddCol" data-col="col-md-@i"><i class="iconLeft glyphicon glyphicon-list"></i>添加一列(@i/12)</div>
-                                    }
-                                </div>
+        @using (Html.BeginForm("SaveLayout", "Design", FormMethod.Post, new { id = "LayoutInfo" }))
+        {
+            <div class="navbar-inner">
+                <div id="tools" class="container">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="AddRow input-group input-group-sm" data-container="container-fluid">
+                                <span class="input-group-addon"><i class="iconLeft glyphicon glyphicon-align-justify"></i>添加行</span>
+                                <input type="text" class="form-control input-sm" placeholder="行宽" value="">
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        @using (Html.BeginForm("SaveLayout", "Design", FormMethod.Post, new { id = "LayoutInfo" }))
-                        {
-                            <div class="container-fluid">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="input-group input-group-sm">
-                                            <span class="input-group-addon">布局名称</span>
-                                            <input type="text" class="form-control" name="LayoutName" placeholder="输入布局名称" value="@Model.LayoutName">
-                                            <input id="LayoutId" type="hidden" name="LayoutId" value="@Model.LayoutId" />
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="AddCol input-group input-group-sm" data-col="col-md-">
+                                <span class="input-group-addon"><i class="iconLeft glyphicon glyphicon-list"></i>添加列</span>
+                                <select class="form-control input-sm">
+                                    <option value="1">1/12</option>
+                                    <option value="2">2/12</option>
+                                    <option value="3">3/12</option>
+                                    <option value="4">4/12</option>
+                                    <option value="5">5/12</option>
+                                    <option value="6" selected="selected">6/12</option>
+                                    <option value="7">7/12</option>
+                                    <option value="8">8/12</option>
+                                    <option value="9">9/12</option>
+                                    <option value="10">10/12</option>
+                                    <option value="11">11/12</option>
+                                    <option value="12">12/12</option>
+                                </select>
                             </div>
-                        }
-
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <input type="button" class="btn btn-info" id="save" value="Save" />
-                                </div>
+                            <div class="AddZone input-group input-group-sm">
+                                <span class="input-group-addon"><i class="iconLeft glyphicon glyphicon-pushpin"></i>内容区域</span>
                             </div>
                         </div>
 
+                        <div class="col-md-7">
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="ContainerClass" value="container" @(Model.ContainerClass == "container" || Model.ContainerClass.IsNullOrEmpty() ? "checked=\"checked\"" : "")>
+                                    定宽
+                                </label>
+                                <label>
+                                    <input type="radio" name="ContainerClass" value="container-fluid" @(Model.ContainerClass == "container-fluid" ? "checked=\"checked\"" : "")>
+                                    宽100%
+                                </label>
+                            </div>
+                            
+                            <div class="input-group input-group-sm">
+                                <span class="input-group-addon">布局名称</span>
+                                <input type="text" class="form-control input-sm" name="LayoutName" placeholder="输入布局名称" value="@Model.LayoutName">
+                                <input id="LayoutId" type="hidden" name="LayoutId" value="@Model.LayoutId" />
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <input type="button" class="btn btn-info" id="save" value="Save" />
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        }
     </div>
     <div class="design">
-        <div id="container" class="container RowDroppable">
+        <div id="container" class="@(Model.ContainerClass??"container") RowDroppable">
             @RenderBody()
         </div>
     </div>
@@ -93,7 +82,7 @@
     @ScriptAtFoot()
     <script type="text/javascript">
         $(function () {
-            $("input[type=radio][name=layoutOption").click(function () {
+            $("input[type=radio][name=ContainerClass]").click(function () {
                 $("#container").removeClass("container").removeClass("container-fluid").addClass($(this).val());
             });
             $(".AddRow,.AddCol,.AddZone").draggable({ helper: "clone", revert: "invalid" });
@@ -114,7 +103,7 @@
 
             var opRowDrop = {
                 hoverClass: "dropWarning",
-                accept: ".AddCol",
+                accept: ".AddCol,.AddZone",
                 greedy: true,
                 drop: colDroped
             };
@@ -141,6 +130,9 @@
                 if (obj == null)
                     obj = this;
                 var row = $("<div class=\"delable row\"></div>");
+                if (ui.draggable.find("input").val()) {
+                    row.css("width", ui.draggable.find("input").val());
+                }
                 row.droppable(opRowDrop);
                 row.sortable();
                 $(obj).append(row);
@@ -149,7 +141,10 @@
             function rowDroped(event, ui, obj) {
                 if (obj == null)
                     obj = this;
-                var row = $("<div class=\"delable container-fluid\"><div class=\"row\"></div></div>");
+                var row = $("<div class=\"delable " + ui.draggable.data("container") + "\"><div class=\"row\"></div></div>");
+                if (ui.draggable.find("input").val()) {
+                    row.css("width", ui.draggable.find("input").val());
+                }
                 row.children(".row").droppable(opRowDrop).sortable();
                 $(obj).append(row);
                 $(".dropWarning").removeClass("dropWarning");
@@ -157,7 +152,11 @@
             function colDroped(event, ui, obj) {
                 if (obj == null)
                     obj = this;
-                var col = $("<div class=\"delable " + ui.draggable.data("col") + "\"><div class=\"colContent\"></div></div>");
+                if (ui.draggable.hasClass("AddZone")) {
+                    zoneDropable(event, ui, obj);
+                    return;
+                }
+                var col = $("<div class=\"delable " + ui.draggable.data("col") + ui.draggable.find("select").val() + "\"><div class=\"colContent\"></div></div>");
                 col.children(".colContent").droppable(opColDrop).sortable();
                 $(obj).append(col);
                 $(".dropWarning").removeClass("dropWarning");
@@ -167,7 +166,6 @@
                     obj = this;
                 }
                 var zoneParent = $('<div class="delable zone"></div>');
-
                 var zone = $("<zone></zone>");
                 zone.append('<input class="form-control" type="text" name="ZoneName" placeholder="Enter Zone Name" value="Zone' + ($("#container input[type=text]").size() + 1) + '" />');
                 zone.append('<input class="form-control" type="hidden" name="LayoutId" value="' + $("#LayoutId").val() + '" />');

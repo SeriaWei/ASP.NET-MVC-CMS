@@ -1,9 +1,11 @@
 ﻿.white {
     color: white;
 }
-
+.input-group {
+    margin:2px 0;
+}
 .ui-draggable-dragging {
-    color: red;
+    z-index: 10000;
     word-break: keep-all;
     word-wrap: normal;
     white-space: nowrap;

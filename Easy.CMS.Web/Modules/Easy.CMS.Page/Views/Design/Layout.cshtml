@@ -10,7 +10,7 @@
 
 @foreach (var item in Model.Html)
 {
-    if (item.Html == Easy.CMS.Web.Zone.ZoneEntity.ZoneTag)
+    if (item.Html == Easy.CMS.Zone.ZoneEntity.ZoneTag)
     {
         @Html.Raw(item.Html)
         zoneStart = true;
@@ -28,7 +28,7 @@
             continue;
         }
     }
-    if (item.Html == Easy.CMS.Web.Zone.ZoneEntity.ZoneEndTag)
+    if (item.Html == Easy.CMS.Zone.ZoneEntity.ZoneEndTag)
     {
         @Html.Raw(item.Html)
         zoneStart = false;

@@ -31,6 +31,14 @@ namespace PlugWeb.Page
                 Namespaces = new string[] { "PlugWeb.Page.Controllers" },
                 Priority = 1
             });
+            routes.Add(new RouteDescriptor()
+            {
+                RouteName = "pageAdmin",
+                Url = "page/admin/{action}",
+                Defaults = new { controller = "admin", action = "index" },
+                Namespaces = new string[] { "PlugWeb.Page.Controllers" },
+                Priority = 1
+            });
             return routes;
         }
     }
