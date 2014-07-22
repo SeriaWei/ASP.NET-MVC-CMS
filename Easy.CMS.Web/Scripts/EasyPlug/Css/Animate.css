@@ -1,0 +1,11 @@
+﻿* {
+    transition: all 200ms linear;
+    -webkit-transition: all 200ms linear;
+    -moz-transition: all 200ms linear;
+}
+
+    *:hover {
+        transition: all 200ms linear;
+        -webkit-transition: all 200ms linear;
+        -moz-transition: all 200ms linear;
+    }

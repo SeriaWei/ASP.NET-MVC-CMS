@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@{
+    Style.Reqiured("admin").AtHead();
+    Script.Reqiured("jQueryUi").AtFoot();
+}
+<!DOCTYPE html>
 <html lang="zh">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -8,13 +12,42 @@
     <meta name="viewport" content="width=device-width" />
     @StyleAtHead()
     @ScriptAtHead()
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="~/Content/themes/assets/js/html5.js"></script>
+    <![endif]-->
+
 </head>
 <body>
-    <div id="container" class="container">
-        @RenderBody()
-    </div>
 
+    <div class="container-fluid">
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    @Html.ActionLink("应用程序名称", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </div>
+
+            </div>
+        </div>
+        <div class="navbar-collapse navbar-inverse">
+            <div class="beforNav"></div>
+            <div class="userInfo">
+                <img src="http://www.qqtouxiang888.com/uploads/allimg/110711/0T6091021-9.jpg" class="img-circle" />
+                <strong>#E28271</strong>
+                <a>settings</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("主页", "Index", "Home")</li>
+                <li>@Html.ActionLink("关于", "About", "Home")</li>
+                <li>@Html.ActionLink("联系方式", "Contact", "Home")</li>
+            </ul>
+        </div>
+        <div class="main-container">
+            @RenderBody()
+        </div>
+    </div>
     @StyleAtFoot()
     @ScriptAtFoot()
+
 </body>
 </html>

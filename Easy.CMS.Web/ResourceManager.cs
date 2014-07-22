@@ -10,7 +10,7 @@ namespace PlugWeb
         public override void InitScript()
         {
             Script("jQuery").Include("~/Scripts/jquery-1.8.2.js", "~/Scripts/jquery-1.8.2.min.js").RequiredAtHead();
-            Script("bootStrap").Include("~/Content/bootstrap/js/bootstrap.js", "~/Content/bootstrap/js/bootstrap.min.js").RequiredAtHead();
+            Script("bootStrap").Include("~/Content/bootstrap/js/bootstrap.js", "~/Content/bootstrap/js/bootstrap.min.js").RequiredAtFoot();
             Script("jQueryUi").Include("~/Scripts/jquery-ui-1.8.24.js", "~/Scripts/jquery-ui-1.8.24.min.js");
         }
 
@@ -20,6 +20,8 @@ namespace PlugWeb
             Style("bootStrapTheme").Include("~/Content/bootstrap/css/bootstrap-theme.css", "~/Content/bootstrap/css/bootstrap-theme.min.css").RequiredAtHead();
             Style("Site").Include("~/Content/Site.css").RequiredAtHead();
             Style("jQueryUi").Include("~/Content/themes/base/jquery-ui.css");
+            Style("admin")
+                .Include("~/Content/themes/admin/admin.css");
         }
     }
 }

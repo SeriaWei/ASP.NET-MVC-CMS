@@ -1,0 +1,238 @@
+﻿/*Grid*/
+.EasyGrid {
+    border: 1px solid #DDD;
+    padding: 1px;
+    overflow: hidden;
+    position: relative;
+    background-color: white;
+}
+
+    .EasyGrid .Busy {
+        background: url(Images/lightbox-loader.gif) center center no-repeat;
+        width: 100%;
+        height: 100%;
+        display: block;
+        position: absolute;
+        left: 0px;
+        top: 0px;
+    }
+
+.Gridfoot a:hover {
+    color: orange;
+}
+
+.EasyGrid .GridContent {
+}
+
+.EasyGrid .GridToolBar {
+    background: url(images/tool_bg.gif) #b6b7b8 repeat-x;
+    display: none;
+}
+
+.EasyGrid .GridContent .GridBody {
+    overflow: auto;
+    position:relative;
+}
+
+.EasyGrid .GridContent table td, th {
+    padding: 2px 0px 2px 0px;
+}
+
+.EasyGrid .GridContent table th > .DropDownList {
+    display: block;
+}
+
+.EasyGrid .GridContent table th > span {
+    display: block;
+}
+
+.EasyGrid .NumAdd, .EasyGrid .NumClear, .EasyGrid .ClearSearch {
+    width: 16px;
+    height: 16px;
+    line-height: 14px;
+    border: none;
+    cursor: pointer;
+    margin: 0px 2px 0px 2px;
+    float: left;
+}
+
+.EasyGrid .NumAdd {
+    background: url(Images/add.png);
+}
+
+.EasyGrid .NumClear, .EasyGrid .ClearSearch {
+    background: url(Images/undo.png);
+}
+
+.EasyGrid button:active {
+    background-color: #CCC;
+}
+
+.EasyGrid .GridContent .GridHeader {
+    background: #F0F0EE;
+    border-bottom: 1px solid #D7D7D7;
+    overflow: hidden;
+}
+
+    .EasyGrid .GridContent .GridHeader .trTitle {
+    }
+
+    .EasyGrid .GridContent .GridHeader th {
+        font-weight: normal;
+        text-align: left;
+        cursor: pointer;
+    }
+
+.EasyGrid .GridContent .GridSearch {
+    border-bottom: 1px solid #D7D7D7;
+    overflow: hidden;
+}
+
+    .EasyGrid .GridContent .GridSearch input[type='text'] {
+        display: block;
+    }
+
+.EasyGrid input[type='text'], .NumConditionBox input[type='text'] {
+    border: 1px solid #DDD;
+    outline: none;
+    margin: 0px auto 0px auto;
+    padding: 2px;
+}
+
+.EasyGrid .GridSearch input[type='text'] {
+    width: 90%;
+}
+
+.EasyGrid .GridContent .GridSearch th {
+    text-align: left;
+}
+
+    .EasyGrid .GridContent .GridSearch th > select {
+        width: 90%;
+        border: 1px solid #DDD;
+        outline: none;
+        margin: 0px auto 0px auto;
+    }
+
+.EasyGrid .GridContent .GridBody td {
+    border-bottom: 1px solid #D7D7D7;
+    overflow: hidden;
+}
+
+.EasyGrid .GridContent .coData {
+    overflow: hidden;
+    padding: 0px 1px;
+    word-break: keep-all;
+    word-wrap: normal;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.EasyGrid .GridContent table tr {
+}
+
+.EasyGrid .GridContent table .trBe:hover {
+    background-color: #FFFFCC;
+}
+
+.EasyGrid .GridContent table .trAf:hover {
+    background-color: #FFFFCC;
+}
+
+.EasyGrid .Gridfoot {
+    font-size: 13px;
+    margin-top: 0px;
+    background: #F0F0EE;
+    padding: 2px;
+    border-top: 1px solid #D7D7D7;
+    color: #535353;
+    clear: both;
+}
+
+    .EasyGrid .Gridfoot > label {
+        margin: 0px 2px;
+    }
+
+.EasyGrid #GridPageIdex {
+    width: 26px;
+}
+
+#PagePre, #PageFirst, #PageNext, #PageLast, #PageGo {
+    overflow: visible;
+    margin: 0px 2px;
+    height: 22px;
+    text-decoration: none;
+    padding: 1px 3px;
+    border: 1px solid #CCC;
+    color: #535353;
+    cursor:pointer;
+}
+
+    #PagePre:active, #PageFirst:active, #PageNext:active, #PageLast:active, #PageGo:active {
+        color: #ccc;
+    }
+
+.EasyGrid .CheckBox {
+    padding: 2px;
+}
+
+.EasyGrid .OrderUp {
+    background-image: url(Images/Grid/triangle.png);
+    background-position: right center;
+    background-repeat: no-repeat;
+}
+
+.EasyGrid .OrderDown {
+    background-image: url(Images/Grid/triangle2.png);
+    background-position: right center;
+    background-repeat: no-repeat;
+}
+
+.NumConditionBox {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    border: 1px solid #CCC;
+    background-color: white;
+    padding: 2px;
+}
+
+    .NumConditionBox > div {
+        padding: 2px;
+    }
+
+    .NumConditionBox input[type='text'] {
+        width: 160px;
+        float: left;
+    }
+
+    .NumConditionBox label {
+        display: block;
+        float: left;
+        width: 25px;
+        text-align: center;
+        line-height: 29px;
+    }
+
+.GridDelete {
+    background: url(Images/Grid/remove.png) center center no-repeat;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    border: 1px solid #F0F0EE;
+    display: none;
+    float: left;
+}
+
+.InnerLonding {
+    background: url(Images/Grid/ajax-loader.gif) center center no-repeat;
+    color:#ccc;
+}
+
+.GridDelete:hover {
+    border: 1px solid #fff;
+}
+
+.GridDelete:active {
+    background: none;
+}
