@@ -152,6 +152,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\DesignController.cs" />
     <Compile Include="Controllers\PageController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -260,6 +261,8 @@
     <Content Include="Views\Shared\_DesignLayout.cshtml" />
     <Content Include="Views\Shared\_DesignPageLayout.cshtml" />
     <Content Include="Views\Design\Page.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\Form.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Filters\" />
