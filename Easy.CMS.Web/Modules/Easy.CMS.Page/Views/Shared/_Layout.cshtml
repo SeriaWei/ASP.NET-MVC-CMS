@@ -1,5 +1,5 @@
 ﻿@{
-    Easy.CMS.Layout.LayoutEntity layOut = ViewData[Easy.CMS.Layout.LayoutEntity.LayoutKey] as Easy.CMS.Layout.LayoutEntity;
+    var layOut = ViewData[Easy.CMS.Layout.LayoutEntity.LayoutKey] as Easy.CMS.Layout.LayoutEntity;
 }
 <!DOCTYPE html>
 <html lang="zh">
@@ -20,7 +20,7 @@
             bool zoneStart = false;
             foreach (var item in layOut.Html)
             {
-                if (item.Html == Easy.CMS.Web.Zone.ZoneEntity.ZoneTag)
+                if (item.Html == Easy.CMS.Zone.ZoneEntity.ZoneTag)
                 {
                     zoneStart = true;
                     continue;
@@ -39,7 +39,7 @@
                     zoneStart = false;
                     continue;
                 }
-                if (item.Html == Easy.CMS.Web.Zone.ZoneEntity.ZoneEndTag)
+                if (item.Html == Easy.CMS.Zone.ZoneEntity.ZoneEndTag)
                 {
                     zoneStart = false;
                     continue;
