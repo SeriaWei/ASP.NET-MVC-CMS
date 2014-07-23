@@ -302,7 +302,11 @@ Easy.Grid = (function (json) {
         });
         if (!constHeight) {
             $(window).resize(function () {
-                Height(Grid.parent().height());
+                Easy.Processor(function () { Height(Grid.parent().height()); }, 200);
+                
+            });
+            $(function () {
+                setTimeout(function () { Height(Grid.parent().height()); }, 100);
             });
         }
         var pheight = Grid.parent().height();

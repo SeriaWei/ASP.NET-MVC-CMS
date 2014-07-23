@@ -22,5 +22,12 @@ namespace Easy.CMS.Page.Controllers
         {
             return View("Form");
         }
+
+        public JsonResult GetPageTree(string id)
+        {
+            id = id ?? string.Empty;
+            var pages = new PageService().Get(new Data.DataFilter().Where("ParentId", Constant.DataEnumerate.OperatorType.Equal, id));
+            return Json(new Easy.HTML.zTree.Tree<PageEntity>().Source(pages).Parent(m => m.ParentId).Value(m => m.PageId).Text(m => m.PageName).ToNode(true));
+        }
     }
 }

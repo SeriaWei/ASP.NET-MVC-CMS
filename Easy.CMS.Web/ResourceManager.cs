@@ -12,6 +12,11 @@ namespace PlugWeb
             Script("jQuery").Include("~/Scripts/jquery-1.8.2.js", "~/Scripts/jquery-1.8.2.min.js").RequiredAtHead();
             Script("bootStrap").Include("~/Content/bootstrap/js/bootstrap.js", "~/Content/bootstrap/js/bootstrap.min.js").RequiredAtFoot();
             Script("jQueryUi").Include("~/Scripts/jquery-ui-1.8.24.js", "~/Scripts/jquery-ui-1.8.24.min.js");
+            Script("admin")
+                .Include("~/Content/themes/admin/script/admin.js")
+                .Include("~/Scripts/EasyPlug/Easy.js")
+                .Include("~/Scripts/EasyPlug/Easy.Grid.js")
+                .Include("~/Scripts/zTree/js/jquery.ztree.all-3.5.min.js");
         }
 
         public override void InitStyle()
@@ -21,7 +26,9 @@ namespace PlugWeb
             Style("Site").Include("~/Content/Site.css").RequiredAtHead();
             Style("jQueryUi").Include("~/Content/themes/base/jquery-ui.css");
             Style("admin")
-                .Include("~/Content/themes/admin/admin.css");
+                .Include("~/Content/themes/admin/admin.css")
+                .Include("~/Scripts/EasyPlug/Css/Easy.Grid.css")
+                .Include("~/Scripts/zTree/css/zTreeStyle.css");
         }
     }
 }

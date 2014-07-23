@@ -1,1 +1,7 @@
-﻿
+﻿@using Easy.CMS.Page
+@{
+    
+}
+@(
+ Html.Tree<PageEntity>().Source(Url.Action("GetPageTree", "Admin", new { })).Value(m => m.PageId).Text(m => m.PageName).Root("站点")
+)

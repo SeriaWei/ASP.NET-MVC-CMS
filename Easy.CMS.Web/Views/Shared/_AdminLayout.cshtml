@@ -1,6 +1,6 @@
 ﻿@{
     Style.Reqiured("admin").AtHead();
-    Script.Reqiured("jQueryUi").AtFoot();
+    Script.Reqiured("admin").AtFoot();
 }
 <!DOCTYPE html>
 <html lang="zh">
@@ -20,7 +20,7 @@
 </head>
 <body>
 
-    <div class="container-fluid">
+    <div id="wrap" class="container-fluid">
         <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -37,9 +37,53 @@
                 <a>settings</a>
             </div>
             <ul class="nav navbar-nav">
-                <li>@Html.ActionLink("主页", "Index", "Home")</li>
-                <li>@Html.ActionLink("关于", "About", "Home")</li>
-                <li>@Html.ActionLink("联系方式", "Contact", "Home")</li>
+                <li>
+                    <a class="b_F5C294 active" href="~/page/admin/edit">
+                        <i class="glyphicon glyphicon-align-justify"></i>
+                        布局列表
+                    </a>
+                </li>
+                <li>
+                    <a class="b_F5C294" href="~/page/admin/edit">
+                        <i class="glyphicon glyphicon-th-list"></i>
+                        页面
+                    </a>
+                </li>
+
+                <li class="accordion-group">
+                    <a class="b_F5C294" href="~/page/admin/edit">
+                        <i class="glyphicon glyphicon-th-list"></i>
+                        产品管理
+                        <i class="glyphicon group"></i>
+                    </a>
+                    <div class="accordion-inner">
+                        <a id="PageList" href="~/page/admin/index">
+                            <i class="glyphicon glyphicon-th-list"></i>
+                            页面列表
+                        </a>
+                        <a href="~/page/admin/edit">
+                            <i class="glyphicon glyphicon-th-list"></i>
+                            UI Features
+                        </a>
+                    </div>
+                </li>
+                <li class="accordion-group">
+                    <a class="b_F5C294" href="~/page/admin/edit">
+                        <i class="glyphicon glyphicon-th-list"></i>
+                        产品管理
+                        <i class="glyphicon group"></i>
+                    </a>
+                    <div class="accordion-inner">
+                        <a href="~/page/admin/edit">
+                            <i class="glyphicon glyphicon-th-list"></i>
+                            页面列表
+                        </a>
+                        <a href="~/page/admin/edit">
+                            <i class="glyphicon glyphicon-th-list"></i>
+                            UI Features
+                        </a>
+                    </div>
+                </li>
             </ul>
         </div>
         <div class="main-container">
