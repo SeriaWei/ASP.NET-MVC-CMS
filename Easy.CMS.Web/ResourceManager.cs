@@ -16,7 +16,7 @@ namespace PlugWeb
                 .Include("~/Content/themes/admin/script/admin.js")
                 .Include("~/Scripts/EasyPlug/Easy.js")
                 .Include("~/Scripts/EasyPlug/Easy.Grid.js")
-                .Include("~/Scripts/zTree/js/jquery.ztree.all-3.5.min.js");
+                .Include("~/Scripts/jstree/src/jstree.js");
         }
 
         public override void InitStyle()
@@ -28,7 +28,7 @@ namespace PlugWeb
             Style("admin")
                 .Include("~/Content/themes/admin/admin.css")
                 .Include("~/Scripts/EasyPlug/Css/Easy.Grid.css")
-                .Include("~/Scripts/zTree/css/zTreeStyle.css");
+                .Include("~/Scripts/jstree/src/themes/default/style.css");
         }
     }
 }
