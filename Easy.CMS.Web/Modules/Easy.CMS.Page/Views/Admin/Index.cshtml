@@ -1,7 +1,7 @@
 ﻿@using Easy.CMS.Page
 @{
-    
+    var pages = new PageService().Get(new Easy.Data.DataFilter());
 }
 @(
- Html.Tree<PageEntity>().Source(Url.Action("GetPageTree", "Admin", new { })).Value(m => m.PageId).Text(m => m.PageName).Root("站点")
+ Html.Tree<PageEntity>().Source("GetPageTree", "Admin")
 )
