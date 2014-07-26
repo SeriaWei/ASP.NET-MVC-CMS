@@ -1,6 +1,6 @@
 ﻿@model Easy.CMS.Layout.LayoutEntity
 @{
-    Layout = "~/Modules/Easy.CMS.Page/Views/Shared/_DesignLayout.cshtml";
+    Layout = "~/Modules/Page/Views/Shared/_DesignLayout.cshtml";
     if (Model == null || Model.Html == null)
     {
         return;
@@ -18,12 +18,12 @@
     }
     if (zoneStart)
     {
-        var zone = Model.Zones.Where(m => m.ZoneId == item.Html);
+        var zone = Model.Zones.Where(m => m.ID == item.Html);
         if (zone.Any())
         {
             <input class="form-control" type="text" name="ZoneName" placeholder="Enter Zone Name" value="@zone.First().ZoneName" />
             <input class="form-control" type="hidden" name="LayoutId" value="@zone.First().LayoutId" />
-            <input class="form-control" type="hidden" name="ZoneId" value="@zone.First().ZoneId" />
+            <input class="form-control" type="hidden" name="ID" value="@zone.First().ID" />
             zoneStart = false;
             continue;
         }

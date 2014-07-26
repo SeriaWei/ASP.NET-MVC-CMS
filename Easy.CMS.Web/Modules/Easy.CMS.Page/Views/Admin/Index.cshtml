@@ -1,7 +1,0 @@
-﻿@using Easy.CMS.Page
-@{
-    var pages = new PageService().Get(new Easy.Data.DataFilter());
-}
-@(
- Html.Tree<PageEntity>().Source("GetPageTree", "Admin")
-)

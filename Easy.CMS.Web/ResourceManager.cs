@@ -16,7 +16,16 @@ namespace PlugWeb
                 .Include("~/Content/themes/admin/script/admin.js")
                 .Include("~/Scripts/EasyPlug/Easy.js")
                 .Include("~/Scripts/EasyPlug/Easy.Grid.js")
-                .Include("~/Scripts/jstree/src/jstree.js");
+                .Include("~/Scripts/jstree/src/jstree.js")
+                .Include("~/Scripts/jstree/src/jstree.checkbox.js")
+                .Include("~/Scripts/jstree/src/jstree.contextmenu.js")
+                .Include("~/Scripts/jstree/src/jstree.dnd.js")
+                .Include("~/Scripts/jstree/src/jstree.search.js")
+                .Include("~/Scripts/jstree/src/jstree.sort.js")
+                .Include("~/Scripts/jstree/src/jstree.state.js")
+                .Include("~/Scripts/jstree/src/jstree.types.js")
+                .Include("~/Scripts/jstree/src/jstree.unique.js")
+                .Include("~/Scripts/jstree/src/jstree.wholerow.js");
         }
 
         public override void InitStyle()

@@ -20,7 +20,7 @@ namespace Easy.CMS.Product.Entities
         protected override void DataConfigure()
         {
             DataTable("ProductListWidget");
-            DataConfig(m => m.WidgetId).AsPrimaryKey();
+            DataConfig(m => m.ID).AsPrimaryKey();
         }
 
         protected override void ViewConfigure()

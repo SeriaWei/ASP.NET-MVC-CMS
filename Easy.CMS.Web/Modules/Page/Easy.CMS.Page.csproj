@@ -256,13 +256,13 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
-    <Content Include="Views\Partial_T1.cshtml" />
     <Content Include="Views\Design\Layout.cshtml" />
     <Content Include="Views\Shared\_DesignLayout.cshtml" />
     <Content Include="Views\Shared\_DesignPageLayout.cshtml" />
     <Content Include="Views\Design\Page.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
-    <Content Include="Views\Admin\Form.cshtml" />
+    <Content Include="Views\Admin\Edit.cshtml" />
+    <Content Include="Views\Admin\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Filters\" />

@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using Easy.Extend;
 using Easy.CMS.Filter;
 using Easy.CMS.Widget;
+using Easy.Constant;
 
 namespace Easy.CMS.Page.Controllers
 {
@@ -38,7 +39,7 @@ namespace Easy.CMS.Page.Controllers
             var zones = Easy.CMS.Zone.Helper.GetZones(html, out htmls);
             layout.Zones = zones;
             layout.Html = htmls;
-            if (layout.LayoutId.IsNullOrEmpty())
+            if (layout.ID.IsNullOrEmpty())
             {
                 new LayoutService().Add(layout);
             }
@@ -46,14 +47,14 @@ namespace Easy.CMS.Page.Controllers
             {
                 new LayoutService().Update(layout);
             }
-            return RedirectToAction("Layout", new { layoutId = layout.LayoutId });
+            return RedirectToAction("Layout", new { layoutId = layout.ID });
         }
         public JsonResult SaveWidgetPosition(List<WidgetBase> widgets)
         {
             WidgetService widgetService = new WidgetService();
             widgets.Each(m =>
             {
-                widgetService.Update(m, new Data.DataFilter(new List<string> { "Position" }).Where<WidgetBase>(n => n.WidgetId, Constant.DataEnumerate.OperatorType.Equal, m.WidgetId));
+                widgetService.Update(m, new Data.DataFilter(new List<string> { "Position" }).Where<WidgetBase>(n => n.ID, OperatorType.Equal, m.ID));
             });
             return Json(true);
         }

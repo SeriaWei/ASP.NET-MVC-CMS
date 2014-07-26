@@ -7,7 +7,7 @@ using System.Web.Routing;
 using System.Web.Mvc;
 
 
-namespace PlugWeb.Page
+namespace Easy.CMS.Layout
 {
     public class RouteRegister : IRouteRegister
     {
@@ -19,7 +19,7 @@ namespace PlugWeb.Page
                 RouteName = "pageRoute",
                 Url = "{*path}",
                 Defaults = new { controller = "Page", action = "PreView", path = UrlParameter.Optional },
-                Namespaces = new string[] { "PlugWeb.Page.Controllers" },
+                Namespaces = new string[] { "Easy.CMS.Page.Controllers" },
                 Priority = -1,
                 Constraints = new RouteConstraint()
             });
@@ -28,15 +28,15 @@ namespace PlugWeb.Page
                 RouteName = "Design",
                 Url = "Design/{action}",
                 Defaults = new { controller = "Design", action = "layout" },
-                Namespaces = new string[] { "PlugWeb.Page.Controllers" },
+                Namespaces = new string[] { "Easy.CMS.Page.Controllers" },
                 Priority = 1
             });
             routes.Add(new RouteDescriptor()
             {
                 RouteName = "pageAdmin",
                 Url = "page/admin/{action}",
-                Defaults = new { controller = "admin", action = "index" },
-                Namespaces = new string[] { "PlugWeb.Page.Controllers" },
+                Defaults = new { controller = "admin", action = "index", module = "page" },
+                Namespaces = new string[] { "Easy.CMS.Page.Controllers" },
                 Priority = 1
             });
             return routes;

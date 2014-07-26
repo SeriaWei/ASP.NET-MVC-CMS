@@ -51,21 +51,21 @@
 
     @StyleAtFoot()
     @ScriptAtFoot()
-    @if (!layOut.IncludeStyle.IsNullOrEmpty())
+    @if (!layOut.Style.IsNullOrEmpty())
     {
-        @Url.Content(layOut.IncludeStyle)
+        @Url.Content(layOut.Style)
     }
-    @if (!layOut.Page.IncludeStyle.IsNullOrEmpty())
+    @if (!layOut.Page.Style.IsNullOrEmpty())
     {
-        @Url.Content(layOut.Page.IncludeStyle)
+        @Url.Content(layOut.Page.Style)
     }
-    @if (!layOut.IncludeScript.IsNullOrEmpty())
+    @if (!layOut.Script.IsNullOrEmpty())
     {
-        @Url.Content(layOut.IncludeScript)
+        @Url.Content(layOut.Script)
     }
-    @if (!layOut.Page.IncludeScript.IsNullOrEmpty())
+    @if (!layOut.Page.Script.IsNullOrEmpty())
     {
-        @Url.Content(layOut.Page.IncludeScript)
+        @Url.Content(layOut.Page.Script)
     }
 
 </body>

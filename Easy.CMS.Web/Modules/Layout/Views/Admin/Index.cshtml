@@ -1,0 +1,27 @@
+﻿@using Easy.CMS.Layout
+@model List<LayoutEntity>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <div>布局</div>
+    </div>
+    <div class="panel-body">
+        <div class="container-fluid">
+            <div class="row">
+                @foreach (LayoutEntity item in Model)
+                {
+                    <div class="col-md-3">
+                        <a href="#" class="thumbnail">
+                            <img src="http://www.geekpics.net/images/2014/06/22/gpnRNV.jpg" alt="...">
+                            <div class="caption">
+                                <h5>@item.LayoutName</h5>
+                                <p>...</p>
+
+                            </div>
+                        </a>
+                    </div>
+                }
+
+            </div>
+        </div>
+    </div>
+</div>

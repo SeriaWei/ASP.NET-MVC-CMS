@@ -1,0 +1,29 @@
+﻿@using Easy.CMS.Page
+@using Easy.HTML.jsTree
+@{
+
+}
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <div>页面</div>
+    </div>
+    <div class="panel-body">
+
+        @(
+ Html.Tree<PageEntity>().Source("GetPageTree", "Admin", new { module = "page" }).AddPlugin(Plugins.ContextMenu)
+ .AddContextMenuItem(new ContextmenuItem { Label = "新建", Action = "Create" })
+         .AddContextMenuItem(new ContextmenuItem { Label = "编辑", Action = "Edit" })
+        )
+
+    </div>
+</div>
+<script type="text/javascript">
+    function Create(node) {
+        var parent = node.reference.parent().attr("id");
+        window.location.href = '@Url.Action("Create", "Admin", new { })' + '?parent=' + parent;
+    }
+    function Edit(node) {
+        var id = node.reference.parent().attr("id");
+        window.location.href = '@Url.Action("Edit", "Admin", new { })' + '?id=' + id;
+    }
+</script>

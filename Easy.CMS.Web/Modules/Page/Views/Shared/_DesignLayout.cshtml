@@ -62,7 +62,7 @@
                             <div class="input-group input-group-sm">
                                 <span class="input-group-addon">布局名称</span>
                                 <input type="text" class="form-control input-sm" name="LayoutName" placeholder="输入布局名称" value="@Model.LayoutName">
-                                <input id="LayoutId" type="hidden" name="LayoutId" value="@Model.LayoutId" />
+                                <input id="LayoutId" type="hidden" name="ID" value="@Model.ID" />
                             </div>
                         </div>
                         <div class="col-md-2">
@@ -169,7 +169,7 @@
                 var zone = $("<zone></zone>");
                 zone.append('<input class="form-control" type="text" name="ZoneName" placeholder="Enter Zone Name" value="Zone' + ($("#container input[type=text]").size() + 1) + '" />');
                 zone.append('<input class="form-control" type="hidden" name="LayoutId" value="' + $("#LayoutId").val() + '" />');
-                zone.append('<input class="form-control" type="hidden" name="ZoneId" value="" />');
+                zone.append('<input class="form-control" type="hidden" name="ID" value="" />');
                 zoneParent.append(zone);
                 $(obj).append(zoneParent);
                 $(".dropWarning").removeClass("dropWarning");
