@@ -26,6 +26,7 @@ namespace PlugWeb
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AuthConfig.RegisterAuth();
+            ViewEngines.Engines.Clear();
             ViewEngines.Engines.Add(new Easy.Web.ViewEngine.PlugViewEngine());
 
 

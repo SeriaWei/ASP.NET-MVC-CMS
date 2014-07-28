@@ -1,0 +1,72 @@
+﻿@{
+    var layOut = ViewData[Easy.CMS.Layout.LayoutEntity.LayoutKey] as Easy.CMS.Layout.LayoutEntity;
+}
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+    @StyleAtHead()
+    @ScriptAtHead()
+</head>
+<body>
+    <div id="container" class="container">
+        @RenderBody()
+
+        @{
+            bool zoneStart = false;
+            foreach (var item in layOut.Html)
+            {
+                if (item.Html == Easy.CMS.Zone.ZoneEntity.ZoneTag)
+                {
+                    zoneStart = true;
+                    continue;
+                }
+                if (zoneStart)
+                {
+                    if (layOut.ZoneWidgets.ContainsKey(item.Html))
+                    {
+                        foreach (var widget in layOut.ZoneWidgets[item.Html].OrderBy(m => m.Position))
+                        {
+                            <div>
+                                @{Html.RenderPartial(widget.PartialView, widget.ViewModel);}
+                            </div>
+                        }
+                    }
+                    zoneStart = false;
+                    continue;
+                }
+                if (item.Html == Easy.CMS.Zone.ZoneEntity.ZoneEndTag)
+                {
+                    zoneStart = false;
+                    continue;
+                }
+                @Html.Raw(item.Html)
+            }
+        }
+    </div>
+
+    @StyleAtFoot()
+    @ScriptAtFoot()
+    @if (!layOut.Style.IsNullOrEmpty())
+    {
+        @Url.Content(layOut.Style)
+    }
+    @if (!layOut.Page.Style.IsNullOrEmpty())
+    {
+        @Url.Content(layOut.Page.Style)
+    }
+    @if (!layOut.Script.IsNullOrEmpty())
+    {
+        @Url.Content(layOut.Script)
+    }
+    @if (!layOut.Page.Script.IsNullOrEmpty())
+    {
+        @Url.Content(layOut.Page.Script)
+    }
+
+</body>
+</html>
