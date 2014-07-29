@@ -14,7 +14,7 @@ namespace Easy.CMS.Layout
 
         public override void InitStyle()
         {
-            Style("Design").Include("~/Modules/Page/Content/Design.css");
+            Style("Layout").Include("~/Modules/Layout/Content/Layout.css");
         }
     }
 }

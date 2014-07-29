@@ -114,6 +114,7 @@
     <Compile Include="RouteRegister.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Layout.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
