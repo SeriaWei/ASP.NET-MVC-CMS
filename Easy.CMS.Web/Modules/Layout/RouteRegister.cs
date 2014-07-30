@@ -19,7 +19,7 @@ namespace Easy.CMS.Layout
             routes.Add(new RouteDescriptor()
             {
                 RouteName = "layoutAdmin",
-                Url = "layout/admin/{action}",
+                Url = "admin/layout/{action}",
                 Defaults = new { controller = "admin", action = "index", module = "layout" },
                 Namespaces = new string[] { "Easy.CMS.Layout.Controllers" },
                 Priority = 1

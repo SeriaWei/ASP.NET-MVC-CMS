@@ -8,7 +8,7 @@ using Easy.Web.Controller;
 
 namespace Easy.CMS.Page.Controllers
 {
-    [Admin]
+    [AdminTheme]
     public class AdminController : BasicController<PageEntity, string, PageService>
     {
         public JsonResult GetPageTree(string id)

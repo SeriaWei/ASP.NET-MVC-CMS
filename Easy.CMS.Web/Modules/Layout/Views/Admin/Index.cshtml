@@ -12,7 +12,7 @@
             @foreach (LayoutEntity item in Model)
             {
                 <li>
-                    <a href="#" class="thumbnail">
+                    <a href="@Url.Action("Edit", "admin", new { module = "layout", ID = item.ID })" class="thumbnail">
                         <img src="http://www.geekpics.net/images/2014/06/22/gpnRNV.jpg" alt="...">
                         <div class="caption">
                             <h5>@item.LayoutName</h5>

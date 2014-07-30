@@ -10,6 +10,8 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using Easy.Extend;
 using Easy.Web.Route;
+using Easy.Modules.DataDictionary;
+using Easy.IOCAdapter;
 
 namespace PlugWeb
 {
@@ -52,7 +54,7 @@ namespace PlugWeb
             {
                 RouteTable.Routes.MapRoute(m.RouteName, m.Url, m.Defaults, m.Constraints, m.Namespaces);
             });
-            
+            Container.Register(typeof(IDataDictionaryService), typeof(DataDictionaryService));
         }
     }
 }
