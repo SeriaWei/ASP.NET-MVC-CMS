@@ -34,7 +34,7 @@ namespace Easy.CMS.Layout
             routes.Add(new RouteDescriptor()
             {
                 RouteName = "pageAdmin",
-                Url = "page/admin/{action}",
+                Url = "admin/page/{action}",
                 Defaults = new { controller = "admin", action = "index", module = "page" },
                 Namespaces = new string[] { "Easy.CMS.Page.Controllers" },
                 Priority = 1

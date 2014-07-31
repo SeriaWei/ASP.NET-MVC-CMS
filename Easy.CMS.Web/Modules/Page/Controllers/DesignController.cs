@@ -17,37 +17,10 @@ namespace Easy.CMS.Page.Controllers
         // GET: /Layout/
 
 
-        public ActionResult Layout(string layoutId)
-        {
-            LayoutEntity layout = null;
-            if (!layoutId.IsNullOrEmpty())
-            {
-                layout = new LayoutService().Get(layoutId);
-            }
-            return View(layout ?? new LayoutEntity());
-        }
-
         [EditWidget]
         public ActionResult Page()
         {
             return View();
-        }
-        [ValidateInput(false)]
-        public ActionResult SaveLayout(string[] html, LayoutEntity layout)
-        {
-            LayoutHtmlCollection htmls;
-            var zones = Easy.CMS.Zone.Helper.GetZones(html, out htmls);
-            layout.Zones = zones;
-            layout.Html = htmls;
-            if (layout.ID.IsNullOrEmpty())
-            {
-                new LayoutService().Add(layout);
-            }
-            else
-            {
-                new LayoutService().Update(layout);
-            }
-            return RedirectToAction("Layout", new { layoutId = layout.ID });
         }
         public JsonResult SaveWidgetPosition(List<WidgetBase> widgets)
         {
