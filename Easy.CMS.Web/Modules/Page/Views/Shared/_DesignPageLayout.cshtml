@@ -1,4 +1,5 @@
-﻿@{
+﻿@using Easy.CMS.Widget
+@{
     Easy.CMS.Layout.LayoutEntity layOut = ViewData[Easy.CMS.Layout.LayoutEntity.LayoutKey] as Easy.CMS.Layout.LayoutEntity;
 }
 <!DOCTYPE html>
@@ -13,6 +14,18 @@
     @ScriptAtHead()
 </head>
 <body>
+    <div class="navbar-inverse white navbar-fixed-top" role="navigation">
+        <div class="navbar-inner">
+            <div id="tools" class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <a class="btn btn-success btn-sm" href="@Url.Action("Edit", "Admin", new { module = "page", ID = layOut.Page.ID })">属性</a>
+                        <a class="btn btn-danger btn-sm" href="@Url.Action("SelectWidget", "WidgetTemplate", new { module = "widget", pageId = layOut.Page.ID })">添加组件</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div id="container" class="container">
         @RenderBody()
 
@@ -20,7 +33,7 @@
             bool zoneStart = false;
             foreach (var item in layOut.Html)
             {
-                if (item.Html == Easy.CMS.Web.Zone.ZoneEntity.ZoneTag)
+                if (item.Html == Easy.CMS.Zone.ZoneEntity.ZoneTag)
                 {
                     zoneStart = true;
                     continue;
@@ -29,18 +42,18 @@
                 {
                     if (layOut.ZoneWidgets.ContainsKey(item.Html))
                     {
-                        foreach (var widget in layOut.ZoneWidgets[item.Html].OrderBy(m => m.Position))
+                        foreach (WidgetPart widget in layOut.ZoneWidgets[item.Html].OrderBy(m => m.Position))
                         {
-                            <div data-widgetid="@widget.WidgetId" data-position="@widget.Position">
+                            <div id="widget_@widget.WidgetId" data-widgetid="@widget.WidgetId" data-position="@widget.Position">
                                 <div class="zoneToolbar container-fluid">
                                     <div class="row">
                                         <div class="col-md-11">
                                             @widget.WidgetName
                                         </div>
-                                        <div class="col-md-12">
+                                        <div class="col-md-1">
+                                            <a href="@Url.Action("Edit","Widget",new{module="widget",ID=widget.WidgetId})"><i class="glyphicon glyphicon-edit"></i></a>
+                                            <a href="javascript:void(0)" class="delete" data-id="@widget.WidgetId"><i class="glyphicon glyphicon-trash"></i></a>
                                         </div>
-                                        <a href="javascript:void(0)"><i class="glyphicon glyphicon-edit"></i></a>
-                                        <a href="javascript:void(0)"><i class="glyphicon glyphicon-trash"></i></a>
                                     </div>
                                 </div>
                                 @{Html.RenderPartial(widget.PartialView, widget.ViewModel);}
@@ -50,7 +63,7 @@
                     zoneStart = false;
                     continue;
                 }
-                if (item.Html == Easy.CMS.Web.Zone.ZoneEntity.ZoneEndTag)
+                if (item.Html == Easy.CMS.Zone.ZoneEntity.ZoneEndTag)
                 {
                     zoneStart = false;
                     continue;
@@ -62,21 +75,21 @@
 
     @StyleAtFoot()
     @ScriptAtFoot()
-    @if (!layOut.IncludeStyle.IsNullOrEmpty())
+    @if (!layOut.Style.IsNullOrEmpty())
     {
-        @Url.Content(layOut.IncludeStyle)
+        @Url.Content(layOut.Style)
     }
-    @if (!layOut.Page.IncludeStyle.IsNullOrEmpty())
+    @if (!layOut.Page.Style.IsNullOrEmpty())
     {
-        @Url.Content(layOut.Page.IncludeStyle)
+        @Url.Content(layOut.Page.Style)
     }
-    @if (!layOut.IncludeScript.IsNullOrEmpty())
+    @if (!layOut.Script.IsNullOrEmpty())
     {
-        @Url.Content(layOut.IncludeScript)
+        @Url.Content(layOut.Script)
     }
-    @if (!layOut.Page.IncludeScript.IsNullOrEmpty())
+    @if (!layOut.Page.Script.IsNullOrEmpty())
     {
-        @Url.Content(layOut.Page.IncludeScript)
+        @Url.Content(layOut.Page.Script)
     }
     <script type="text/javascript">
         $(function () {
@@ -87,10 +100,20 @@
                     ui.item.parent().children().each(function (i, ui) {
                         tempForm += "&widgets[" + i + "].WidgetId=" + $(ui).data("widgetid") + "&widgets[" + i + "].Position=" + i;
                     });
-                    
-                    $.post("@Url.Action("SaveWidgetPosition", "Design")", tempForm, function (data) {
+
+                    $.post("@Url.Action("SaveWidgetPosition", "Admin", new { module="page"})", tempForm, function (data) {
 
                     }, "html");
+                }
+            });
+            $(".delete").click(function () {
+                var id = $(this).data("id");
+                if (confirm("确定要删除吗？")) {
+                    $.post("@Url.Action("DeleteWidget", new { module="page"})", { ID: id }, function (data) {
+                        if (data) {
+                            $("#widget_" + id).remove();
+                        }
+                    }, "json");
                 }
             });
         });

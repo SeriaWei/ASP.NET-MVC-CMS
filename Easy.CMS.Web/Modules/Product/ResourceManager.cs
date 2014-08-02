@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace Easy.CMS.Layout
+namespace Easy.CMS.Product
 {
     public class ResourceManager : Easy.Web.Resource.ResourceManager
     {
@@ -14,7 +14,7 @@ namespace Easy.CMS.Layout
 
         public override void InitStyle()
         {
-            Style("Page").Include("~/Modules/Page/Content/Page.css");
+            
         }
     }
 }

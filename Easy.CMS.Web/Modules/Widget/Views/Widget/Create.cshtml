@@ -1,0 +1,16 @@
+﻿<div class="panel panel-default">
+    <div class="panel-heading">
+        <div>编辑组件</div>
+    </div>
+    <div class="panel-body">
+        @using (Html.BeginForm())
+        {
+           @Html.EasyTags()
+            <div class="toolBar">
+                <input type="button" class="btn btn-default btn-sm" value="取消" onclick="javascript:window.history.back()" />
+                <input id="design" type="submit" class="btn btn-success btn-sm" value="下一步" />
+            </div>
+        }
+    </div>
+</div>
+

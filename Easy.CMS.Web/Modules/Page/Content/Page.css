@@ -1,20 +1,4 @@
-﻿.layoutList {
-    margin: 0;
-    padding: 0;
-}
-
-    .layoutList > li {
-        float: left;
-        width: 200px;
-        list-style: none;
-    }
-
-
-.designTool{
-    margin-top:10px !important;
-}
-
-.white {
+﻿.white {
     color: white;
 }
 .input-group {

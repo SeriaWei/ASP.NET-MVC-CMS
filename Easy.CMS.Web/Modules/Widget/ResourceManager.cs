@@ -14,7 +14,7 @@ namespace Easy.CMS.Layout
 
         public override void InitStyle()
         {
-            Style("Page").Include("~/Modules/Page/Content/Page.css");
+            Style("Widget").Include("~/Modules/Widget/Content/Widget.css");
         }
     }
 }

@@ -11,9 +11,8 @@ namespace Easy.CMS.Page.Controllers
     public class PageController : Controller
     {
         [Widget]
-        public ActionResult PreView(string path)
+        public ActionResult PreView()
         {
-            
             return View();
         }
 

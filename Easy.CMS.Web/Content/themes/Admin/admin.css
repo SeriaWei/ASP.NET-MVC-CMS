@@ -129,7 +129,13 @@ body {
 .b_F5C294:hover, .b_F5C294.active {
     border-left: 2px solid #F5C294 !important;
 }
-
+.toolBar {
+    padding: 9px 14px;
+    background-color: #f7f7f9;
+    border-top: 1px solid #e1e1e8;
+    clear: both;
+    margin:15px -15px -15px -15px;
+}
 
 @media (min-width: 768px) {
     .navbar-nav > li > a {
