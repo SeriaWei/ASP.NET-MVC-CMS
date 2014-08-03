@@ -10,7 +10,5 @@ namespace Easy.CMS.Product.Service
 {
     public class ProductListWidgetService : WidgetService<ProductListWidget>
     {
-       
-
     }
 }

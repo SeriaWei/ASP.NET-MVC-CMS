@@ -15,5 +15,7 @@
         $(".main-container").height($(window).height() - 70);
     });
     $(".main-container").height($(window).height() - 70);
-    
+    $(".cancel").click(function () {
+        window.history.back();
+    });
 });
