@@ -1,0 +1,122 @@
+﻿@using Easy.CMS.Widget
+@{
+    Easy.CMS.Layout.LayoutEntity layOut = ViewData[Easy.CMS.Layout.LayoutEntity.LayoutKey] as Easy.CMS.Layout.LayoutEntity;
+}
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <title></title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+    @StyleAtHead()
+    @ScriptAtHead()
+</head>
+<body>
+    <div class="navbar-inverse white navbar-fixed-top" role="navigation">
+        <div class="navbar-inner">
+            <div id="tools" class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <a class="btn btn-success btn-sm" href="@Url.Action("Edit", "Page", new { module = "Common", ID = layOut.Page.ID })">属性</a>
+                        <a class="btn btn-danger btn-sm" href="@Url.Action("SelectWidget", "WidgetTemplate", new { module = "Common", pageId = layOut.Page.ID })">添加组件</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="container" class="container pagePreview">
+        @RenderBody()
+
+        @{
+            bool zoneStart = false;
+            foreach (var item in layOut.Html)
+            {
+                if (item.Html == Easy.CMS.Zone.ZoneEntity.ZoneTag)
+                {
+                    zoneStart = true;
+                    continue;
+                }
+                if (zoneStart)
+                {
+                    if (layOut.ZoneWidgets.ContainsKey(item.Html))
+                    {
+                        foreach (WidgetPart widget in layOut.ZoneWidgets[item.Html].OrderBy(m => m.Position))
+                        {
+                            <div id="widget_@widget.WidgetId" data-widgetid="@widget.WidgetId" data-position="@widget.Position">
+                                <div class="zoneToolbar container-fluid">
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            @widget.WidgetName
+                                        </div>
+                                        <div class="col-md-4 rightTool">
+                                            <a href="@Url.Action("Edit","Widget",new{module="Common",ID=widget.WidgetId})"><i class="glyphicon glyphicon-edit"></i></a>
+                                            <a href="javascript:void(0)" class="delete" data-id="@widget.WidgetId"><i class="glyphicon glyphicon-trash"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                @{Html.RenderPartial(widget.PartialView, widget.ViewModel);}
+                            </div>
+                        }
+                    }
+                    zoneStart = false;
+                    continue;
+                }
+                if (item.Html == Easy.CMS.Zone.ZoneEntity.ZoneEndTag)
+                {
+                    zoneStart = false;
+                    continue;
+                }
+                @Html.Raw(item.Html)
+            }
+        }
+    </div>
+
+    @StyleAtFoot()
+    @ScriptAtFoot()
+    @if (!layOut.Style.IsNullOrEmpty())
+    {
+        @Url.Content(layOut.Style)
+    }
+    @if (!layOut.Page.Style.IsNullOrEmpty())
+    {
+        @Url.Content(layOut.Page.Style)
+    }
+    @if (!layOut.Script.IsNullOrEmpty())
+    {
+        @Url.Content(layOut.Script)
+    }
+    @if (!layOut.Page.Script.IsNullOrEmpty())
+    {
+        @Url.Content(layOut.Page.Script)
+    }
+    <script type="text/javascript">
+        $(function () {
+            $(".zone").sortable({
+                handle: ".zoneToolbar",
+                stop: function (event, ui) {
+                    var tempForm = "";
+                    ui.item.parent().children().each(function (i, ui) {
+                        tempForm += "&widgets[" + i + "].ID=" + $(ui).data("widgetid") + "&widgets[" + i + "].Position=" + i;
+                    });
+
+                    $.post("@Url.Action("SaveWidgetPosition", "Widget", new { module="Common"})", tempForm, function (data) {
+
+                    }, "html");
+                }
+            });
+            $(".delete").click(function () {
+                var id = $(this).data("id");
+                if (confirm("确定要删除吗？")) {
+                    $.post("@Url.Action("DeleteWidget", "Widget",new { module="Common"})", { ID: id }, function (data) {
+                        if (data) {
+                            $("#widget_" + id).remove();
+                        }
+                    }, "json");
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+----------------------------------------------------------------
+时间：2014/7/29 星期二 19:40:52
+详细信息:
+SELECT [T0].[ID],[T0].[LayoutName],[T0].[Title],[T0].[ContainerClass],[T0].[StylePath],[T0].[Script],[T0].[Style],[T0].[Description],[T0].[Status],[T0].[CreateBy],[T0].[CreatebyName],[T0].[CreateDate],[T0].[LastUpdateBy],[T0].[LastUpdateByName],[T0].[LastUpdateDate] FROM [CMS_Layout] T0 WHERE  [ID]=@2a5019516638439db01841289d2fe1a5  
+----------------------------------------------------------------
+
+----------------------------------------------------------------
+时间：2014/7/29 星期二 19:40:52
+详细信息:
+至少一个参数没有被指定值。
+System.Data.OleDb.OleDbException (0x80040E10): 至少一个参数没有被指定值。
+   在 System.Data.OleDb.OleDbCommand.ExecuteCommandTextErrorHandling(OleDbHResult hr)
+   在 System.Data.OleDb.OleDbCommand.ExecuteCommandTextForSingleResult(tagDBPARAMS dbParams, Object& executeResult)
+   在 System.Data.OleDb.OleDbCommand.ExecuteCommandText(Object& executeResult)
+   在 System.Data.OleDb.OleDbCommand.ExecuteCommand(CommandBehavior behavior, Object& executeResult)
+   在 System.Data.OleDb.OleDbCommand.ExecuteReaderInternal(CommandBehavior behavior, String method)
+   在 System.Data.OleDb.OleDbCommand.ExecuteReader(CommandBehavior behavior)
+   在 System.Data.OleDb.OleDbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.FillInternal(DataSet dataset, DataTable[] datatables, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet, Int32 startRecord, Int32 maxRecords, String srcTable, IDbCommand command, CommandBehavior behavior)
+   在 System.Data.Common.DbDataAdapter.Fill(DataSet dataSet)
+   在 Easy.Data.DataBase.Access.GetTable(OleDbCommand Comm) 位置 e:\产品\MyFrameWork\EasyFrameWork\EasyFrameWork\Data\DataBase\Access.cs:行号 99
+----------------------------------------------------------------
+

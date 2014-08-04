@@ -31,6 +31,7 @@ namespace PlugWeb
             ViewEngines.Engines.Clear();
             ViewEngines.Engines.Add(new Easy.Web.ViewEngine.PlugViewEngine());
 
+            ModelBinders.Binders.Add(typeof(Easy.CMS.Widget.WidgetBase), new Easy.CMS.ModelBinder.WidgetBinder());
 
             List<RouteDescriptor> routes = new List<RouteDescriptor>();
             BuildManager.GetReferencedAssemblies().Cast<Assembly>().Each(m =>
