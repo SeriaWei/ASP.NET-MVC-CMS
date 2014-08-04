@@ -1,8 +1,0 @@
-E:\产品\MVCPlugSupport\CMS\Easy.CMS.Web\Modules\Layout\obj\Debug\Easy.CMS.Common.csprojResolveAssemblyReference.cache
-E:\产品\MVCPlugSupport\CMS\Easy.CMS.Web\bin\Easy.CMS.Common.dll
-E:\产品\MVCPlugSupport\CMS\Easy.CMS.Web\bin\Easy.CMS.Common.pdb
-E:\产品\MVCPlugSupport\CMS\Easy.CMS.Web\Modules\Layout\obj\Debug\Easy.CMS.Common.dll
-E:\产品\MVCPlugSupport\CMS\Easy.CMS.Web\Modules\Layout\obj\Debug\Easy.CMS.Common.pdb
-E:\产品\MVCPlugSupport\CMS\Easy.CMS.Web\Modules\Common\obj\Debug\Easy.CMS.Common.csprojResolveAssemblyReference.cache
-E:\产品\MVCPlugSupport\CMS\Easy.CMS.Web\Modules\Common\obj\Debug\Easy.CMS.Common.dll
-E:\产品\MVCPlugSupport\CMS\Easy.CMS.Web\Modules\Common\obj\Debug\Easy.CMS.Common.pdb
