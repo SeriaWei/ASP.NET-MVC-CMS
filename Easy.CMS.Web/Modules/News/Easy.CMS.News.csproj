@@ -243,13 +243,6 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\News\Index.cshtml" />
     <Content Include="Views\Partial_T1.cshtml" />
-    <Content Include="web.config" />
-    <None Include="web.Debug.config">
-      <DependentUpon>web.config</DependentUpon>
-    </None>
-    <None Include="web.Release.config">
-      <DependentUpon>web.config</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Filters\" />

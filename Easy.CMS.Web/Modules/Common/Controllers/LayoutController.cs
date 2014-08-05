@@ -7,6 +7,7 @@ using Easy.Web.Controller;
 using Easy.CMS.Layout;
 using Easy.Web.Attribute;
 using Easy.Extend;
+using Easy.Constant;
 
 namespace Easy.CMS.Common.Controllers
 {
@@ -35,9 +36,13 @@ namespace Easy.CMS.Common.Controllers
         }
         [AdminTheme]
         [HttpPost]
-        public override ActionResult Edit(LayoutEntity entity)
+        public override ActionResult Edit(LayoutEntity entity, ActionType? actionType)
         {
-            return base.Edit(entity);
+            if (actionType.HasValue && actionType.Value == ActionType.Design)
+            {
+                return RedirectToAction("Design", new { ID = entity.ID });
+            }
+            return base.Edit(entity, actionType);
         }
         public ActionResult Design(string ID)
         {
@@ -57,7 +62,7 @@ namespace Easy.CMS.Common.Controllers
             layout.Zones = zones;
             layout.Html = htmls;
             Service.UpdateDesign(layout);
-            return RedirectToAction("Edit", new { ID = layout.ID, module = "layout" });
+            return RedirectToAction("Edit", new { ID = layout.ID, module = "Common" });
         }
     }
 }

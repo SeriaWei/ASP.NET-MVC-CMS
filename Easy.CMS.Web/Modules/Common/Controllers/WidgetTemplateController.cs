@@ -16,7 +16,7 @@ namespace Easy.CMS.Common.Controllers
         {
             WidgetTemplateViewModel viewModel = new WidgetTemplateViewModel();
             viewModel.PageID = pageId;
-            viewModel.WidgetTemplates = Service.Get(new Data.DataFilter().OrderBy("Order", Constant.OrderType.Ascending));
+            viewModel.WidgetTemplates = Service.Get(new Data.DataFilter().OrderBy("Order", Constant.OrderType.Ascending)).ToList();
             return View(viewModel);
         }
         [HttpPost]

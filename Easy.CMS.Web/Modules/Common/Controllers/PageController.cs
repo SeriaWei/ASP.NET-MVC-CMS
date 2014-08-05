@@ -49,9 +49,9 @@ namespace Easy.CMS.Common.Controllers
         }
         [AdminTheme]
         [HttpPost]
-        public override ActionResult Edit(PageEntity entity)
+        public override ActionResult Edit(PageEntity entity, Constant.ActionType? actionType)
         {
-            return base.Edit(entity);
+            return base.Edit(entity, actionType);
         }
         [EditWidget]
         public ActionResult Design()

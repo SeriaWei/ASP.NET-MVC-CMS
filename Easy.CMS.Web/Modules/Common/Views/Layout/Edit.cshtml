@@ -9,21 +9,22 @@
     <div class="panel-body">
         @using (Html.BeginForm())
         {
-            @Html.EasyTags()
+            @Html.EditModel()
             <div class="toolBar">
-                <input id="design" type="button" class="btn btn-success btn-sm" value="设计" />
-                <input type="submit" class="btn btn-danger btn-sm" value="保存" />
+                <button name="actionType" type="submit" class="btn btn-danger btn-sm delete" value="@((int)ActionType.Delete)">删除</button>
+                <button name="actionType" type="submit" class="btn btn-success btn-sm" value="@((int)ActionType.Design)">设计</button>
+                <button name="actionType" type="submit" class="btn btn-warning btn-sm" value="@((int)ActionType.Update)">保存</button>
                 <input type="button" class="btn btn-default btn-sm cancel" value="取消" />
             </div>
         }
-        
+
     </div>
 </div>
 @using (Script.AtFoot())
 {
     <script type="text/javascript">
-        $("#design").click(function () {
-            window.location.href = "@(Url.Action("Design", "Layout", new {module="Common",ID=Model.ID }))"
+        $(".delete").click(function () {
+            return confirm("删除布局会删除对应的页面，确定要删除吗？");
         });
     </script>
 }
