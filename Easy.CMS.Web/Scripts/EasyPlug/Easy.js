@@ -134,6 +134,14 @@ Array.prototype.ValueIndex = function (val) {
     }
     return index;
 }
+String.prototype.replaceAll = function (oldValue, newVlaue) {
+    debugger
+    var str = this;
+    while (str.indexOf(oldValue, 0) >= 0) {
+        str= str.replace(oldValue, newVlaue);
+    }
+    return str;
+}
 var Easy = {};
 Easy.checks = new Array();
 Easy.MaxZindex = 1;

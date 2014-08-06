@@ -6,7 +6,9 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
-    <title></title>
+    <title>@layOut.Page.Title</title>
+    <meta name="keywords" content="@layOut.Page.MetaKeyWorlds" />
+    <meta name="description" content="@layOut.Page.MetaDescription" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <meta name="viewport" content="width=device-width" />
     @StyleAtHead()
@@ -53,19 +55,21 @@
     @ScriptAtFoot()
     @if (!layOut.Style.IsNullOrEmpty())
     {
-        @Url.Content(layOut.Style)
+        <link href="@Url.Content(layOut.Style)" rel="stylesheet" />
+
     }
     @if (!layOut.Page.Style.IsNullOrEmpty())
     {
-        @Url.Content(layOut.Page.Style)
+        <link href="@Url.Content(layOut.Page.Style)" rel="stylesheet" />
+
     }
     @if (!layOut.Script.IsNullOrEmpty())
     {
-        @Url.Content(layOut.Script)
+        <script type="text/javascript" src="@Url.Content(layOut.Script)"></script>
     }
     @if (!layOut.Page.Script.IsNullOrEmpty())
     {
-        @Url.Content(layOut.Page.Script)
+        <script type="text/javascript" src="@Url.Content(layOut.Page.Script)"></script>
     }
 
 </body>

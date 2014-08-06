@@ -21,7 +21,6 @@ namespace Easy.CMS.Common.Controllers
             var template = new WidgetTemplateService().Get(WidgetTemplateID);
             var widget = template.CreateWidgetInstance();
             widget.PageId = PageID;
-
             ViewData[ViewDataKeys.Zones] = new ZoneService().GetZones(PageID).ToDictionary(m => m.ID, m => m.ZoneName);
             return View(widget);
         }
@@ -29,6 +28,11 @@ namespace Easy.CMS.Common.Controllers
         [ValidateInput(false)]
         public ActionResult Create(WidgetBase widget)
         {
+            if (!ModelState.IsValid)
+            {
+                ViewData[ViewDataKeys.Zones] = new ZoneService().GetZones(widget.PageId).ToDictionary(m => m.ID, m => m.ZoneName);
+                return View(widget);
+            }
             var model = Easy.Reflection.ClassAction.GetModel(widget.GetViewModelType(), Request.Form);
             widget.CreateServiceInstance().AddWidget(model as WidgetBase);
             return RedirectToAction("Design", "Page", new { module = "Common", ID = widget.PageId });
@@ -47,6 +51,12 @@ namespace Easy.CMS.Common.Controllers
         [ValidateInput(false)]
         public ActionResult Edit(WidgetBase widget)
         {
+            if (!ModelState.IsValid)
+            {
+                var zones = new Easy.CMS.Zone.ZoneService().GetZones(widget.PageId);
+                ViewData[ViewDataKeys.Zones] = zones.ToDictionary(m => m.ID, m => m.ZoneName);
+                return View(widget);
+            }
             widget.CreateServiceInstance().UpdateWidget(widget);
             return RedirectToAction("Design", "Page", new { module = "Common", ID = widget.PageId });
         }

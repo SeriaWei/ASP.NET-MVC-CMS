@@ -16,3 +16,25 @@
         }
     </div>
 </div>
+@using (Script.AtFoot())
+{
+    <script type="text/javascript">
+        $(function () {
+            var url = $("#Url");
+            url.data("url", url.val());
+        });
+        $("#PageUrl").blur(function () {
+            var url = $("#Url");
+            var parentUrl = url.data("url");
+            if (!parentUrl) {
+                parentUrl = "/";
+            }
+            var thisUrl = $(this).val();
+            var replaceValue = ["/", " ", "?", "`", "~", "!", "@@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "+", "[", "]", "{", "}", "\\", "|", ";", ":", "'", "\"", ",", ".", "<", ">"];
+            for (var i = 0; i < replaceValue.length; i++) {
+                thisUrl = thisUrl.replaceAll(replaceValue[i], "_");
+            }
+            url.val(parentUrl + thisUrl);
+        });
+    </script>
+}

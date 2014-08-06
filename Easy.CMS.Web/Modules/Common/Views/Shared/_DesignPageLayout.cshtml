@@ -77,19 +77,21 @@
     @ScriptAtFoot()
     @if (!layOut.Style.IsNullOrEmpty())
     {
-        @Url.Content(layOut.Style)
+        <link href="@Url.Content(layOut.Style)" rel="stylesheet" />
+
     }
     @if (!layOut.Page.Style.IsNullOrEmpty())
     {
-        @Url.Content(layOut.Page.Style)
+        <link href="@Url.Content(layOut.Page.Style)" rel="stylesheet" />
+
     }
     @if (!layOut.Script.IsNullOrEmpty())
     {
-        @Url.Content(layOut.Script)
+        <script type="text/javascript" src="@Url.Content(layOut.Script)"></script>
     }
     @if (!layOut.Page.Script.IsNullOrEmpty())
     {
-        @Url.Content(layOut.Page.Script)
+        <script type="text/javascript" src="@Url.Content(layOut.Page.Script)"></script>
     }
     <script type="text/javascript">
         $(function () {

@@ -28,11 +28,12 @@ namespace PlugWeb
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AuthConfig.RegisterAuth();
+
             ViewEngines.Engines.Clear();
             ViewEngines.Engines.Add(new Easy.Web.ViewEngine.PlugViewEngine());
 
             ModelBinders.Binders.Add(typeof(Easy.CMS.Widget.WidgetBase), new Easy.CMS.ModelBinder.WidgetBinder());
-
+            ModelMetadataProviders.Current = new Easy.Web.MetadataProvider.EasyModelMetaDataProvider();
             List<RouteDescriptor> routes = new List<RouteDescriptor>();
             BuildManager.GetReferencedAssemblies().Cast<Assembly>().Each(m =>
             {

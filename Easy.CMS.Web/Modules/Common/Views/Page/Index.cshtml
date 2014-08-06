@@ -5,7 +5,7 @@
 }
 <div class="panel panel-default">
     <div class="panel-heading">
-        <div>页面</div>
+        <div>页面 @Html.ActionLink("添加页面","Create")</div>
     </div>
     <div class="panel-body">
 
@@ -20,10 +20,10 @@
 <script type="text/javascript">
     function Create(node) {
         var parent = node.reference.parent().attr("id");
-        window.location.href = '@Url.Action("Create", "Page", new { module = "Common" })' + '?parent=' + parent;
+        window.location.href = '@Url.Action("Create", "Page", new { module = "Common" })' + '?ParentID=' + parent;
     }
     function Edit(node) {
         var id = node.reference.parent().attr("id");
-        window.location.href = '@Url.Action("Edit", "Page", new { module = "Common" })' + '?id=' + id;
+        window.location.href = '@Url.Action("Edit", "Page", new { module = "Common" })' + '?ID=' + id;
     }
 </script>

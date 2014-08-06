@@ -165,6 +165,7 @@
     <Compile Include="RouteRegister.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\DataBase.mdb" />
     <Content Include="Content\bootstrap\css\bootstrap-theme.css" />
     <Content Include="Content\bootstrap\css\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap\css\bootstrap.css" />
@@ -547,7 +548,6 @@
     <Content Include="Scripts\jstree\test\UNDER_CONTRUCTION" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Controllers\" />
     <Folder Include="Filters\" />
     <Folder Include="Models\" />

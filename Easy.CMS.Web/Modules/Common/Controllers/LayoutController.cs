@@ -15,14 +15,14 @@ namespace Easy.CMS.Common.Controllers
     public class LayoutController : BasicController<LayoutEntity, string, LayoutService>
     {
         [AdminTheme]
-        public override System.Web.Mvc.ActionResult Index()
+        public override System.Web.Mvc.ActionResult Index(ParamsContext<string> context)
         {
             return View(Service.Get(new Data.DataFilter()));
         }
         [AdminTheme]
-        public override ActionResult Create()
+        public override ActionResult Create(ParamsContext<string> context)
         {
-            return base.Create();
+            return base.Create(context);
         }
         [AdminTheme]
         public override ActionResult Create(LayoutEntity entity)
@@ -30,9 +30,9 @@ namespace Easy.CMS.Common.Controllers
             return base.Create(entity);
         }
         [AdminTheme]
-        public override ActionResult Edit(string id)
+        public override ActionResult Edit(ParamsContext<string> context)
         {
-            return base.Edit(id);
+            return base.Edit(context);
         }
         [AdminTheme]
         [HttpPost]
@@ -44,12 +44,12 @@ namespace Easy.CMS.Common.Controllers
             }
             return base.Edit(entity, actionType);
         }
-        public ActionResult Design(string ID)
+        public ActionResult Design(ParamsContext<string> context)
         {
             LayoutEntity layout = null;
-            if (!ID.IsNullOrEmpty())
+            if (!context.ID.IsNullOrEmpty())
             {
-                layout = new LayoutService().Get(ID);
+                layout = new LayoutService().Get(context.ID);
             }
             return View(layout ?? new LayoutEntity());
         }

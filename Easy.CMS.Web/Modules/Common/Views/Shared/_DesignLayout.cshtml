@@ -86,6 +86,16 @@
     </div>
     @StyleAtFoot()
     @ScriptAtFoot()
+    @if (!Model.Style.IsNullOrEmpty())
+    {
+        <link href="@Url.Content(Model.Style)" rel="stylesheet" />
+
+    }
+
+    @if (!Model.Script.IsNullOrEmpty())
+    {
+        <script type="text/javascript" src="@Url.Content(Model.Script)"></script>
+    }
     <script type="text/javascript">
         $(function () {
             $("input[type=radio][name=ContainerClass]").click(function () {

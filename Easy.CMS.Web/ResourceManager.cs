@@ -13,6 +13,8 @@ namespace PlugWeb
             Script("bootStrap").Include("~/Content/bootstrap/js/bootstrap.js", "~/Content/bootstrap/js/bootstrap.min.js").RequiredAtFoot();
             Script("jQueryUi").Include("~/Scripts/jquery-ui-1.8.24.js", "~/Scripts/jquery-ui-1.8.24.min.js");
             Script("admin")
+                .Include("~/Scripts/jquery.validate.js")
+                .Include("~/Scripts/jquery.validate.unobtrusive.js")
                 .Include("~/Content/themes/admin/script/admin.js")
                 .Include("~/Scripts/EasyPlug/Easy.js")
                 .Include("~/Scripts/EasyPlug/Easy.Grid.js")
