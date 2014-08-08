@@ -18,17 +18,17 @@
     <div class="navbar-inverse white navbar-fixed-top" role="navigation">
         @using (Html.BeginForm("SaveLayout", "Layout", new { module = "Common" }, FormMethod.Post, new { id = "LayoutInfo" }))
         {
-            <div class="navbar-inner">
-                <div id="tools" class="container">
+            <div id="toolBar" class="navbar-inner">
+                <div class="container">
                     <div class="row">
-                        <div class="col-md-3">
+                        <div class="col-md-2">
                             <div class="AddRow input-group input-group-sm" data-container="container-fluid">
                                 <span class="input-group-addon"><i class="iconLeft glyphicon glyphicon-align-justify"></i>添加行</span>
                                 <input type="text" class="form-control input-sm" placeholder="行宽" value="">
                             </div>
                         </div>
 
-                        <div class="col-md-3">
+                        <div class="col-md-2">
                             <div class="AddCol input-group input-group-sm" data-col="col-md-">
                                 <span class="input-group-addon"><i class="iconLeft glyphicon glyphicon-list"></i>添加列</span>
                                 <select class="form-control input-sm">
@@ -47,32 +47,31 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-2">
                             <div class="AddZone input-group input-group-sm">
                                 <span class="input-group-addon"><i class="iconLeft glyphicon glyphicon-pushpin"></i>内容区域</span>
                             </div>
                         </div>
-                        <div class="col-md-3">
-                                <div class="col-md-6">
-                                    <div class="radio" style="margin:0px">
-                                        <label>
-                                            <input type="radio" name="ContainerClass" value="container" @(Model.ContainerClass == "container" || Model.ContainerClass.IsNullOrEmpty() ? "checked=\"checked\"" : "")>
-                                            定宽
-                                        </label>
-                                    </div>
-                                    <div class="radio" style="margin:0px">
-                                        <label>
-                                            <input type="radio" name="ContainerClass" value="container-fluid" @(Model.ContainerClass == "container-fluid" ? "checked=\"checked\"" : "")>
-                                            宽100%
-                                        </label>
-                                    </div>
+                        <div class="col-md-6">
+                            <div class="col-md-3">
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="ContainerClass" value="container" @(Model.ContainerClass == "container" || Model.ContainerClass.IsNullOrEmpty() ? "checked=\"checked\"" : "")>
+                                        定宽
+                                    </label>
                                 </div>
-                                <div class="col-md-6">
-
-                                    <input type="hidden" name="ID" value="@Model.ID" />
-                                    <input type="button" class="btn btn-default btn-sm cancel" value="取消">
-                                    <input type="button" class="btn btn-info btn-sm" id="save" value="Save" />
-                                </div>                            
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="ContainerClass" value="container-fluid" @(Model.ContainerClass == "container-fluid" ? "checked=\"checked\"" : "")>
+                                        宽100%
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-md-9">
+                                <input type="hidden" name="ID" value="@Model.ID" />
+                                <input type="button" class="btn btn-default btn-sm cancel" value="取消">
+                                <input type="button" class="btn btn-info btn-sm" id="save" value="保存" />
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -102,7 +101,7 @@
                 $("#container").removeClass("container").removeClass("container-fluid").addClass($(this).val());
             });
             $(".AddRow,.AddCol,.AddZone").draggable({ helper: "clone", revert: "invalid" });
-            $("#tools").droppable({
+            $("#toolBar").droppable({
                 activeClass: "dropWarning",
                 hoverClass: "dropDanger",
                 accept: ".delable",

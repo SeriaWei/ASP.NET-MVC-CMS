@@ -27,7 +27,10 @@ namespace PlugWeb
                 .Include("~/Scripts/jstree/src/jstree.state.js")
                 .Include("~/Scripts/jstree/src/jstree.types.js")
                 .Include("~/Scripts/jstree/src/jstree.unique.js")
-                .Include("~/Scripts/jstree/src/jstree.wholerow.js");
+                .Include("~/Scripts/jstree/src/jstree.wholerow.js")
+                .Include("~/Scripts/tinymce/tinymce.min.js");
+                
+                
         }
 
         public override void InitStyle()

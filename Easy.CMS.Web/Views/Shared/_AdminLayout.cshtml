@@ -95,6 +95,18 @@
     </div>
     @StyleAtFoot()
     @ScriptAtFoot()
-
+    <script type="text/javascript">
+        tinymce.init({
+            selector: "textarea.html",
+            plugins: [
+                "advlist autolink lists link image charmap print preview anchor",
+                "searchreplace visualblocks code fullscreen",
+                "insertdatetime media table contextmenu paste"
+            ],
+            toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
+            height: 300,
+            language:"zh_cn"
+        });
+    </script>
 </body>
 </html>

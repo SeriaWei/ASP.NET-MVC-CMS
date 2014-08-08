@@ -80,5 +80,9 @@ namespace Easy.CMS.Common.Controllers
         {
             return View();
         }
+        public ActionResult RedirectView(ParamsContext<string> context)
+        {
+            return Redirect(Service.Get(context.ID).Url+"?ViewType=Review");
+        }
     }
 }

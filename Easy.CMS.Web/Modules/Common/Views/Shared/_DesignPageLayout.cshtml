@@ -18,9 +18,23 @@
         <div class="navbar-inner">
             <div id="tools" class="container">
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-2">
                         <a class="btn btn-success btn-sm" href="@Url.Action("Edit", "Page", new { module = "Common", ID = layOut.Page.ID })">属性</a>
                         <a class="btn btn-danger btn-sm" href="@Url.Action("SelectWidget", "WidgetTemplate", new { module = "Common", pageId = layOut.Page.ID })">添加组件</a>
+                    </div>
+                    <div class="col-md-1">
+                        <div class="checkbox">
+                            <label>
+                                <input class="helper" data-class="border" type="checkbox" autocomplete="off"> 边框
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="checkbox">
+                            <label>
+                                <input class="helper" data-class="hideToolBar" type="checkbox" autocomplete="off" checked> 工具栏
+                            </label>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -28,7 +42,6 @@
     </div>
     <div id="container" class="container pagePreview">
         @RenderBody()
-
         @{
             bool zoneStart = false;
             foreach (var item in layOut.Html)
@@ -40,17 +53,21 @@
                 }
                 if (zoneStart)
                 {
+                    <div class="zoneid" data-id="@item.Html"></div>
+                    <div class="zoneName">
+                        @layOut.Zones.First(m => m.ID == item.Html).ZoneName
+                    </div>
                     if (layOut.ZoneWidgets.ContainsKey(item.Html))
                     {
                         foreach (WidgetPart widget in layOut.ZoneWidgets[item.Html].OrderBy(m => m.Position))
                         {
-                            <div id="widget_@widget.WidgetId" data-widgetid="@widget.WidgetId" data-position="@widget.Position">
+                            <div class="widget" id="widget_@widget.WidgetId" data-widgetid="@widget.WidgetId">
                                 <div class="zoneToolbar container-fluid">
                                     <div class="row">
-                                        <div class="col-md-8">
+                                        <div class="col-md-6">
                                             @widget.WidgetName
                                         </div>
-                                        <div class="col-md-4 rightTool">
+                                        <div class="col-md-6 rightTool">
                                             <a href="@Url.Action("Edit","Widget",new{module="Common",ID=widget.WidgetId})"><i class="glyphicon glyphicon-edit"></i></a>
                                             <a href="javascript:void(0)" class="delete" data-id="@widget.WidgetId"><i class="glyphicon glyphicon-trash"></i></a>
                                         </div>
@@ -95,28 +112,59 @@
     }
     <script type="text/javascript">
         $(function () {
+            $(".zoneid").each(function () {
+                $(this).parent().data("id", $(this).data("id"));
+                $(this).remove();
+            });
             $(".zone").sortable({
                 handle: ".zoneToolbar",
                 stop: function (event, ui) {
                     var tempForm = "";
                     ui.item.parent().children().each(function (i, ui) {
-                        tempForm += "&widgets[" + i + "].ID=" + $(ui).data("widgetid") + "&widgets[" + i + "].Position=" + i;
+                        tempForm += "&widgets[" + i + "].ID=" + $(ui).data("widgetid") + "&widgets[" + i + "].Position=" + (i + 1);
                     });
+                    if (tempForm) {
+                        $.post("@Url.Action("SaveWidgetPosition", "Widget", new { module="Common"})", tempForm, function (data) {
 
-                    $.post("@Url.Action("SaveWidgetPosition", "Widget", new { module="Common"})", tempForm, function (data) {
+                        }, "html");
+                    }
+                }
+            }).droppable({
+                hoverClass: "dropWarning",
+                accept: ".widget",
+                greedy: true,
+                tolerance: "pointer",
+                drop: function (event, ui) {
+                    if (ui.draggable.parent().data("id") == $(this).data("id")) {
+                        return true;
+                    }
+                    var target = ui.draggable.clone();
+                    target.removeAttr("style")
+                    $(this).append(target);
+                    ui.draggable.remove();
+                    $.post("@Url.Action("SaveWidgetZone", "Widget", new { module="Common" })",
+                        {
+                            ID: target.data("widgetid"),
+                            ZoneId: $(this).data("id"),
+                            Position: $(this).children().size()
+                        },
+                        function (data) {
 
-                    }, "html");
+                        }, "html");
                 }
             });
             $(".delete").click(function () {
                 var id = $(this).data("id");
-                if (confirm("确定要删除吗？")) {
+                if (confirm("确定要删除该组件吗？")) {
                     $.post("@Url.Action("DeleteWidget", "Widget",new { module="Common"})", { ID: id }, function (data) {
                         if (data) {
                             $("#widget_" + id).remove();
                         }
                     }, "json");
                 }
+            });
+            $(".helper").click(function () {
+                $("#container").toggleClass($(this).data("class"));
             });
         });
     </script>

@@ -7,20 +7,22 @@
         float: left;
         width: 200px;
         list-style: none;
-        margin:5px;
+        margin: 5px;
     }
 
 
-.designTool{
-    margin-top:10px !important;
+.designTool {
+    margin-top: 10px !important;
 }
 
 .white {
     color: white;
 }
+
 .input-group {
-    margin:2px 0;
+    margin: 2px 0;
 }
+
 .ui-draggable-dragging {
     z-index: 10000;
     word-break: keep-all;
@@ -44,46 +46,85 @@
 
 .design {
 }
-.navbar-inner{
-    padding:5px 0px 5px;
+
+.navbar-inner {
+    padding: 5px 0px 5px;
 }
-    .design .row {
-        min-height: 100px;
-        border: 1px dashed #46b8da;
-        background-color: white;
-        margin: 4px -11px;
-        cursor: move;
+
+    .navbar-inner .radio,
+    .navbar-inner .checkbox {
+        margin: 0;
     }
 
-    .design .zone {
-        min-height: 80px;
-        border: 1px dashed red;
-        margin: 4px;
-        background-color: white;
-        cursor: move;
+.design .row {
+    min-height: 100px;
+    border: 1px dashed #46b8da;
+    background-color: white;
+    margin: 4px -11px;
+    cursor: move;
+}
+
+.design .zone,
+.border .zone {
+    min-height: 80px;
+    border: 1px dashed red;
+    margin: 4px;
+    background-color: white;
+}
+
+    .design .zone input {
+        border: none;
     }
 
-        .design .zone input {
-            border: none;
-        }
+.design #container,
+#container.border {
+    border: 1px dashed #CCC;
+    min-height: 500px;
+}
 
-    .design #container {
-        min-height: 500px;
-        border: 1px dashed #CCC;
-        margin-top: 100px;
+.design .colContent,
+.border .colContent {
+    border: 1px dotted #eea236;
+    min-height: 90px;
+    margin: 4px auto;
+    background-color: white;
+}
+
+.design .zone,
+.design .colContent {
+    cursor: move;
+}
+
+.pagePreview {
+        margin-top: 90px;
     }
-
-    .design .colContent {
-        border: 1px dotted #eea236;
-        min-height: 90px;
-        margin: 4px auto;
-        background-color: white;
-        cursor: move;
-    }
-
-    .pagePreview{
+.design #container{
+    margin-top:190px;
+}
+@media(min-width:991px) {
+    .pagePreview {
         margin-top: 50px;
     }
+    .design #container{
+    margin-top:55px;
+}
+}
+
+.pagePreview .zone {
+    position: relative;
+}
+
+.zoneName {
+    display: none;
+    position: absolute;
+    right: 2px;
+    bottom: 2px;
+    padding: 2px;
+}
+
+.border .zoneName {
+    display: block;
+}
 
 .dropInfo {
     background-color: #92daef !important;
@@ -98,45 +139,47 @@
     background-color: #d9534f !important;
 }
 
-.zoneToolbar {
-    cursor: move;
+.zoneName, .zoneToolbar {
     background-color: #eee;
     background-color: rgba(86,61,124,.15);
     border: 1px solid #ddd;
     border: 1px solid rgba(86,61,124,.2);
 }
 
-    .zoneToolbar a {
-        color: black;
-    }
-
-        .zoneToolbar a:hover {
-            color: #727272;
-        }
-
-    .zoneToolbar .glyphicon {
-        font-size: 12px;
-    }
-    
 .zoneToolbar {
     cursor: move;
-    background-color: #eee;
-    background-color: rgba(86,61,124,.15);
-    border: 1px solid #ddd;
-    border: 1px solid rgba(86,61,124,.2);
 }
 
-    .zoneToolbar a {
-        color: black;
+.hideToolBar .zoneToolbar {
+    display: none;
+}
+
+
+.zoneToolbar a {
+    color: black;
+}
+
+    .zoneToolbar a:hover {
+        color: #727272;
     }
 
-        .zoneToolbar a:hover {
-            color: #727272;
-        }
+.zoneToolbar .glyphicon {
+    font-size: 12px;
+}
 
-    .zoneToolbar .glyphicon {
-        font-size: 12px;
+
+.zoneToolbar a {
+    color: black;
+}
+
+    .zoneToolbar a:hover {
+        color: #727272;
     }
-    .zoneToolbar .rightTool{
-        text-align:right;
-    }
+
+.zoneToolbar .glyphicon {
+    font-size: 12px;
+}
+
+.zoneToolbar .rightTool {
+    text-align: right;
+}
