@@ -1,0 +1,18 @@
+﻿@using Easy.CMS.Page
+@using Easy.HTML.jsTree
+@{
+    ViewBag.Title = "选择页面";
+}
+
+
+@(
+ Html.Tree<PageEntity>().Source("GetPageTree", "Page", new { module = "Common" }).On(Events.SelectNode, "Select")
+)
+@using (Script.AtFoot())
+{
+    <script type="text/javascript">
+        function Select(node, selected, e) {
+            Set(selected.node.a_attr.Url);            
+        }
+    </script>
+}

@@ -26,7 +26,7 @@
         });
         $(function () {
             var url = $("#Url");
-            url.data("url", url.val());
+            url.data("url", url.val().substring(0, "".lastIndexOf("/")));
         });
         $("#PageUrl").blur(function () {
             var url = $("#Url");

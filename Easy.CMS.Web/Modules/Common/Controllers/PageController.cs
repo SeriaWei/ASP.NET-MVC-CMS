@@ -25,7 +25,7 @@ namespace Easy.CMS.Common.Controllers
         {
             return base.Index(context);
         }
-        [AdminTheme]
+
         public JsonResult GetPageTree(ParamsContext<string> context)
         {
             var pages = Service.Get(new Data.DataFilter());
@@ -83,6 +83,11 @@ namespace Easy.CMS.Common.Controllers
         public ActionResult RedirectView(ParamsContext<string> context)
         {
             return Redirect(Service.Get(context.ID).Url+"?ViewType=Review");
+        }
+        [PopUp]
+        public ActionResult Select()
+        {
+            return View();
         }
     }
 }

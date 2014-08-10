@@ -1,0 +1,42 @@
+﻿.navigation {
+    white-space: nowrap;
+}
+
+    .navigation ul, .navigation li {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .navigation ul {
+        margin-left: 5px;
+    }
+
+    .navigation > ul > li {
+        float: left;
+        position: relative;
+    }
+
+        .navigation > ul > li > a {
+            padding: 0px 10px 0 10px;
+            text-decoration: none;
+            text-align: center;
+            height: 31px;
+            line-height: 31px;
+            display: block;
+        }
+
+            .navigation > ul > li > a.actived,
+            .navigation > ul > li > a:hover {
+                background-color: #b52025;
+                color: white;
+            }
+
+        .navigation > ul > li > ul {
+            display: none;
+            position: absolute;
+            left: -5px;
+            background-color: white;
+            padding: 0 10px 10px 10px;
+            z-index: 1000;
+        }

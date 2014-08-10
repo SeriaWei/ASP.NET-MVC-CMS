@@ -35,6 +35,7 @@ namespace PlugWeb
             ModelBinders.Binders.Add(typeof(Easy.CMS.Widget.WidgetBase), new Easy.CMS.ModelBinder.WidgetBinder());
             ModelMetadataProviders.Current = new Easy.Web.MetadataProvider.EasyModelMetaDataProvider();
             List<RouteDescriptor> routes = new List<RouteDescriptor>();
+
             BuildManager.GetReferencedAssemblies().Cast<Assembly>().Each(m =>
             {
                 m.GetTypes().Each(p =>

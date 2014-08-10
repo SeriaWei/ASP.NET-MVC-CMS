@@ -12,11 +12,12 @@ namespace PlugWeb
             Script("jQuery").Include("~/Scripts/jquery-1.8.2.js", "~/Scripts/jquery-1.8.2.min.js").RequiredAtHead();
             Script("bootStrap").Include("~/Content/bootstrap/js/bootstrap.js", "~/Content/bootstrap/js/bootstrap.min.js").RequiredAtFoot();
             Script("jQueryUi").Include("~/Scripts/jquery-ui-1.8.24.js", "~/Scripts/jquery-ui-1.8.24.min.js");
+            Script("Easy")
+                .Include("~/Scripts/EasyPlug/Easy.js").RequiredAtHead();
             Script("admin")
                 .Include("~/Scripts/jquery.validate.js")
                 .Include("~/Scripts/jquery.validate.unobtrusive.js")
                 .Include("~/Content/themes/admin/script/admin.js")
-                .Include("~/Scripts/EasyPlug/Easy.js")
                 .Include("~/Scripts/EasyPlug/Easy.Grid.js")
                 .Include("~/Scripts/jstree/src/jstree.js")
                 .Include("~/Scripts/jstree/src/jstree.checkbox.js")
@@ -37,10 +38,11 @@ namespace PlugWeb
         {
             Style("bootStrap").Include("~/Content/bootstrap/css/bootstrap.css", "~/Content/bootstrap/css/bootstrap.min.css").RequiredAtHead();
             Style("bootStrapTheme").Include("~/Content/bootstrap/css/bootstrap-theme.css", "~/Content/bootstrap/css/bootstrap-theme.min.css").RequiredAtHead();
-            Style("Site").Include("~/Content/Site.css").RequiredAtHead();
+            Style("Site").Include("~/Content/Site.css").RequiredAtFoot();
             Style("jQueryUi").Include("~/Content/themes/base/jquery-ui.css");
             Style("admin")
                 .Include("~/Content/themes/admin/admin.css")
+                .Include("~/Scripts/EasyPlug/Css/Easy.css")
                 .Include("~/Scripts/EasyPlug/Css/Easy.Grid.css")
                 .Include("~/Scripts/jstree/src/themes/default/style.css");
         }

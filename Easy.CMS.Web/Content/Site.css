@@ -1,7 +1,29 @@
-﻿.input-group {
+﻿body,html{
+    margin:0px;
+    padding:0px;
+}
+body{
+    background:url(Images/bg.gif);
+}
+a {
+    color: black;
+}
+
+    a:hover {
+        color: #A8A8A8;
+    }
+
+.input-group {
     margin: 3px 0;
 }
 
 img {
     max-width: 100%;
+}
+
+.clear {
+    clear: both;
+}
+#container{
+    background-color:white;
 }

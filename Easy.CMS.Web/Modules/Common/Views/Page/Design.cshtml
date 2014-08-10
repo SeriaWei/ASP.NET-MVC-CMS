@@ -1,4 +1,115 @@
-﻿@{
+﻿@using Easy.CMS.Widget
+@{
     Style.Reqiured("Layout").AtHead();
     Script.Reqiured("jQueryUi").AtFoot();
+    Easy.CMS.Layout.LayoutEntity layOut = ViewData[Easy.CMS.Layout.LayoutEntity.LayoutKey] as Easy.CMS.Layout.LayoutEntity;
+}
+@{
+    bool zoneStart = false;
+    foreach (var item in layOut.Html)
+    {
+        if (item.Html == Easy.CMS.Zone.ZoneEntity.ZoneTag)
+        {
+            zoneStart = true;
+            continue;
+        }
+        if (zoneStart)
+        {
+            <div class="zoneid" data-id="@item.Html"></div>
+            <div class="zoneName">
+                @layOut.Zones.First(m => m.ID == item.Html).ZoneName
+            </div>
+            if (layOut.ZoneWidgets.ContainsKey(item.Html))
+            {
+                foreach (WidgetPart widget in layOut.ZoneWidgets[item.Html].OrderBy(m => m.Position))
+                {
+                    <div class="widget" id="widget_@widget.WidgetId" data-widgetid="@widget.WidgetId">
+                        <div class="zoneToolbar container-fluid">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    @widget.WidgetName
+                                </div>
+                                <div class="col-md-6 rightTool">
+                                    <a href="@Url.Action("Edit","Widget",new{module="Common",ID=widget.WidgetId})"><i class="glyphicon glyphicon-edit"></i></a>
+                                    <a href="javascript:void(0)" class="delete" data-id="@widget.WidgetId"><i class="glyphicon glyphicon-trash"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        @{
+                    Html.RenderPartial(widget.PartialView, widget.ViewModel);
+                        }
+                    </div>
+                }
+            }
+            zoneStart = false;
+            continue;
+        }
+        if (item.Html == Easy.CMS.Zone.ZoneEntity.ZoneEndTag)
+        {
+            zoneStart = false;
+            continue;
+        }
+        @Html.Raw(item.Html)
+    }
+}
+@using (Script.AtFoot())
+{
+    <script type="text/javascript">
+        $(function () {
+            $(".zoneid").each(function () {
+                $(this).parent().data("id", $(this).data("id"));
+                $(this).remove();
+            });
+            $(".zone").sortable({
+                handle: ".zoneToolbar",
+                stop: function (event, ui) {
+                    var tempForm = "";
+                    ui.item.parent().children().each(function (i, ui) {
+                        tempForm += "&widgets[" + i + "].ID=" + $(ui).data("widgetid") + "&widgets[" + i + "].Position=" + (i + 1);
+                    });
+                    if (tempForm) {
+                        $.post("@Url.Action("SaveWidgetPosition", "Widget", new { module="Common"})", tempForm, function (data) {
+
+                        }, "html");
+                    }
+                }
+            }).droppable({
+                hoverClass: "dropWarning",
+                accept: ".widget",
+                greedy: true,
+                tolerance: "pointer",
+                drop: function (event, ui) {
+                    if (ui.draggable.parent().data("id") == $(this).data("id")) {
+                        return true;
+                    }
+                    var target = ui.draggable.clone();
+                    target.removeAttr("style")
+                    $(this).append(target);
+                    ui.draggable.remove();
+                    $.post("@Url.Action("SaveWidgetZone", "Widget", new { module="Common" })",
+                        {
+                            ID: target.data("widgetid"),
+                            ZoneId: $(this).data("id"),
+                            Position: $(this).children().size()
+                        },
+                        function (data) {
+
+                        }, "html");
+                }
+            });
+            $(".delete").click(function () {
+                var id = $(this).data("id");
+                if (confirm("确定要删除该组件吗？")) {
+                    $.post("@Url.Action("DeleteWidget", "Widget",new { module="Common"})", { ID: id }, function (data) {
+                        if (data) {
+                            $("#widget_" + id).remove();
+                        }
+                    }, "json");
+                }
+            });
+            $(".helper").click(function () {
+                $("#container").toggleClass($(this).data("class"));
+            });
+        });
+    </script>
 }

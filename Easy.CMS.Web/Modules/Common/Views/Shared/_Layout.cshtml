@@ -17,38 +17,6 @@
 <body>
     <div id="container" class="container">
         @RenderBody()
-
-        @{
-            bool zoneStart = false;
-            foreach (var item in layOut.Html)
-            {
-                if (item.Html == Easy.CMS.Zone.ZoneEntity.ZoneTag)
-                {
-                    zoneStart = true;
-                    continue;
-                }
-                if (zoneStart)
-                {
-                    if (layOut.ZoneWidgets.ContainsKey(item.Html))
-                    {
-                        foreach (var widget in layOut.ZoneWidgets[item.Html].OrderBy(m => m.Position))
-                        {
-                            <div>
-                                @{Html.RenderPartial(widget.PartialView, widget.ViewModel);}
-                            </div>
-                        }
-                    }
-                    zoneStart = false;
-                    continue;
-                }
-                if (item.Html == Easy.CMS.Zone.ZoneEntity.ZoneEndTag)
-                {
-                    zoneStart = false;
-                    continue;
-                }
-                @Html.Raw(item.Html)
-            }
-        }
     </div>
 
     @StyleAtFoot()

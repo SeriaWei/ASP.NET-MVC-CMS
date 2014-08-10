@@ -18,4 +18,21 @@
     $(".cancel").click(function () {
         window.history.back();
     });
+
+    $(".select").each(function () {
+        $(this).prev(".input-group-addon").append('<span class="glyphicon glyphicon-search" data-url="' + $(this).data("url") + '"></span>');
+    });
+
+    $(".input-group-addon .glyphicon").live("click", function () {
+        var obj = $(this);
+        Easy.ShowUrlWindow({
+            url: $(this).data("url"), onLoad: function (box) {
+                var win = this;
+                $(this.document).find("#confirm").click(function () {
+                    obj.parent().next().val(win.GetSelected());
+                    box.close();
+                });
+            }
+        });
+    });
 });

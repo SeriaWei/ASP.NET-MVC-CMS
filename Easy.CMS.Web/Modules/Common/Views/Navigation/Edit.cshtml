@@ -1,0 +1,19 @@
+﻿@model Easy.CMS.Common.Models.NavigationEntity
+
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <div>导航</div>
+    </div>
+    <div class="panel-body">
+        @using (Html.BeginForm())
+        {
+            @Html.EditModel()
+            <div class="toolBar">
+                <button name="actionType" type="submit" class="btn btn-danger btn-sm delete" value="@((int)ActionType.Delete)">删除</button>
+                <button name="actionType" type="submit" class="btn btn-warning btn-sm" value="@((int)ActionType.Update)">保存</button>
+                <input type="button" class="btn btn-default btn-sm cancel" value="取消" />
+            </div>
+        }
+    </div>
+</div>

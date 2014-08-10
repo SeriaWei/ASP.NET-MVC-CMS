@@ -138,7 +138,7 @@ String.prototype.replaceAll = function (oldValue, newVlaue) {
     debugger
     var str = this;
     while (str.indexOf(oldValue, 0) >= 0) {
-        str= str.replace(oldValue, newVlaue);
+        str = str.replace(oldValue, newVlaue);
     }
     return str;
 }
@@ -780,7 +780,7 @@ Easy.ShowUrlWindow = function (op) {
             "<div class='Right TitleBarRight'><div class='CloseWindow'></div></div></div><div class='Content'><div class='Left ContentLeft'></div><div class='Mid ContentMid'>" +
             "<iframe src='' width='100%' height='100%' frameborder='0'></iframe></div><div class='Right ContentRight'></div></div><div class='Botoom'>" +
             "<div class='Left BottomLeft'></div><div class='Mid BottomMid'></div><div class='Right BottomRight'></div></div></div>");
-    var deOp = { url: "", title: "", width: 800, height: 600, callBack: function () { }, isDialog: true, animate: false };
+    var deOp = { url: "", title: "", width: 800, height: 500, callBack: function () { }, isDialog: true, animate: false, onLoad: function () { } };
     deOp = $.extend(deOp, op);
     if (deOp.isDialog) {
         Easy.OpacityBackGround.Show(++Easy.MaxZindex);
@@ -796,7 +796,15 @@ Easy.ShowUrlWindow = function (op) {
             deOp.callBack.call();
         }
     });
-
+    boxWindow.close = function () {
+        boxWindow.find(".CloseWindow").click();
+    }
+    boxWindow.center = function () {
+        boxWindow.animate({ left: (Easy.WindowSize().width - deOp.width) / 2, top: (Easy.WindowSize().height - deOp.height) / 2 + det }, { speed: 200 });
+    }
+    $(window).resize(function () {
+        Easy.Processor(boxWindow.center, 300);
+    });
     var det = 0;
     if (Easy.Check.IsIE6()) {
         boxWindow.css("position", "absolute");
@@ -830,6 +838,7 @@ Easy.ShowUrlWindow = function (op) {
             boxWindow.animate(anop, 300);
         }
         reSet = false;
+        deOp.onLoad.call(this.contentWindow, boxWindow);
     });
     boxWindow.find("iframe").attr("src", deOp.url);
 }

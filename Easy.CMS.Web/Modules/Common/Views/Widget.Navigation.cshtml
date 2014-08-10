@@ -1,0 +1,38 @@
+﻿@using Easy.CMS.Common.Models
+@{
+    Style.Reqiured("Navigation").AtHead();
+    Script.Reqiured("Navigation").AtFoot();
+}
+@model IEnumerable<NavigationEntity>
+@functions{
+    string GetChildren(NavigationEntity entity)
+    {
+        if (Model.Any(m => m.ParentId == entity.ID))
+        {
+            System.Text.StringBuilder builder = new System.Text.StringBuilder();
+            builder.Append("<ul>");
+            foreach (NavigationEntity item in Model.Where(m => m.ParentId == entity.ID))
+            {
+                builder.Append("<li>");
+                builder.AppendFormat("<a href=\"{0}\">{1}</a>", item.Url, item.Title);
+                builder.Append(GetChildren(item));
+                builder.Append("</li>");
+            }
+            builder.Append("</ul>");
+            return builder.ToString();
+        }
+        return string.Empty;
+    }
+}
+<div class="navigation">
+    <ul>
+        @foreach (NavigationEntity item in Model.Where(m => m.ParentId == "0"))
+        {
+            <li>
+                <a id="nav_@item.ID" href="@item.Url" class="@(Request.RawUrl.Equals(item.Url)?"actived":"")">@item.Title</a>
+                @Html.Raw(GetChildren(item))
+            </li>
+        }
+    </ul>
+    <div class="clear"></div>
+</div>

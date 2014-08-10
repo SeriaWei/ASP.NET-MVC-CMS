@@ -7,7 +7,7 @@ using System.Web.Routing;
 using System.Web.Mvc;
 
 
-namespace Easy.CMS.Layout
+namespace Easy.CMS.Common
 {
     public class RouteRegister : IRouteRegister
     {

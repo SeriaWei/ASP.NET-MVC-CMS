@@ -15,17 +15,18 @@ namespace PlugWeb
     {
         public static void LoadModules()
         {
-            string dir = AppDomain.CurrentDomain.BaseDirectory + "Modules";
-            DirectoryInfo directionarys = new DirectoryInfo(dir);
-            foreach (DirectoryInfo item in directionarys.GetDirectories())
+            string dir = AppDomain.CurrentDomain.BaseDirectory + "modules.config";
+            var doc = new System.Xml.XmlDocument();
+            doc.Load(dir);
+            var nodeList = doc.SelectNodes("Assemblys/Assembly");
+            foreach (System.Xml.XmlNode item in nodeList)
             {
-                string dllPath = dir + string.Format(@"\{0}\bin\{0}.dll", item.Name);
-                if (File.Exists(dllPath))
-                {
-                    BuildManager.AddReferencedAssembly(Assembly.LoadFile(dllPath));
-                }
+                string dllPath = AppDomain.CurrentDomain.BaseDirectory + item.Attributes.GetNamedItem("path").Value;
+                Assembly target = Assembly.LoadFile(dllPath);
+                BuildManager.AddReferencedAssembly(target);
             }
-
         }
+
+       
     }
 }
