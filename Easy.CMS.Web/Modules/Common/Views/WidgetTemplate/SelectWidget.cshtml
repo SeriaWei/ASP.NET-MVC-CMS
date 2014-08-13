@@ -10,8 +10,8 @@
     <div class="panel-body">
         @using (Html.BeginForm())
         {
-            @Html.HiddenFor(m => m.PageID)
-
+            @Html.HiddenFor(m => m.PageId)
+            @Html.HiddenFor(m => m.LayoutId)
             <div class="container-fluid">
                 <div class="row-fluid">
                     @foreach (WidgetTemplateEntity item in this.Model.WidgetTemplates)

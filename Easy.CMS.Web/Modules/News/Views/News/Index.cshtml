@@ -1,5 +1,8 @@
-﻿@{
-    ViewBag.Title = "Index";
+﻿@using Easy.CMS.News.Models
+@{
+    
 }
+@(
+ Html.Grid<NewsEntity>()
+)
 
-<h2>Index</h2>

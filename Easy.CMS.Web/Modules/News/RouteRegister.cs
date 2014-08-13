@@ -7,19 +7,20 @@ using System.Web.Routing;
 using System.Web.Mvc;
 
 
-namespace Easy.CMS.Product
+namespace Easy.CMS.News
 {
     public class RouteRegister : IRouteRegister
     {
         public IEnumerable<RouteDescriptor> Regist()
         {
-            List<RouteDescriptor> routes = new List<RouteDescriptor>();
+            List<RouteDescriptor> routes = new List<RouteDescriptor>();            
+
             routes.Add(new RouteDescriptor()
             {
-                RouteName = "productAdmin",
+                RouteName = "newsAdmin",
                 Url = "admin/{controller}/{action}",
-                Defaults = new { controller = "product", action = "home", module = "product" },
-                Namespaces = new string[] { "Easy.CMS.Product.Controllers" },
+                Defaults = new { controller = "news", action = "home", module = "news" },
+                Namespaces = new string[] { "Easy.CMS.News.Controllers" },
                 Priority = 1
             });
             return routes;

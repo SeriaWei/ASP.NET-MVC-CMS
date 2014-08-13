@@ -40,43 +40,43 @@
             </div>
             <ul class="nav navbar-nav">
                 <li>
-                    <a class="b_F5C294 active" href="@Url.Action("Index", "Layout", new { module = "Common" })">
+                    <a id="menu_layout" class="b_F5C294 selectAble" href="@Url.Action("Index", "Layout", new { module = "Common" })">
                         <i class="glyphicon glyphicon-align-justify"></i>
                         布局列表
                     </a>
                 </li>
                 <li>
-                    <a class="b_F5C294" href="@Url.Action("Index", "Page", new { module = "Common" })">
+                    <a id="menu_page" class="b_F5C294 selectAble" href="@Url.Action("Index", "Page", new { module = "Common" })">
                         <i class="glyphicon glyphicon-th-list"></i>
                         页面
                     </a>
                 </li>
                 <li>
-                    <a class="b_F5C294" href="@Url.Action("Index", "Navigation", new { module = "Common" })">
+                    <a id="menu_navigation" class="b_F5C294 selectAble" href="@Url.Action("Index", "Navigation", new { module = "Common" })">
                         <i class="glyphicon glyphicon-th-list"></i>
                         导航
                     </a>
                 </li>
 
                 <li class="accordion-group">
-                    <a class="b_F5C294" href="~/page/admin/edit">
+                    <a class="b_F5C294 selectAble" href="#">
                         <i class="glyphicon glyphicon-th-list"></i>
-                        产品管理
+                        新闻管理
                         <i class="glyphicon group"></i>
                     </a>
                     <div class="accordion-inner">
-                        <a id="PageList" href="~/page/admin/index">
+                        <a id="menu_newsList" class="selectAble" href="@Url.Action("Index", "News", new {module="News" })">
                             <i class="glyphicon glyphicon-th-list"></i>
-                            页面列表
+                            新闻列表
                         </a>
                         <a href="~/page/admin/edit">
                             <i class="glyphicon glyphicon-th-list"></i>
-                            UI Features
+                            新闻类别
                         </a>
                     </div>
                 </li>
                 <li class="accordion-group">
-                    <a class="b_F5C294" href="~/page/admin/edit">
+                    <a class="b_F5C294 selectAble" href="~/page/admin/edit">
                         <i class="glyphicon glyphicon-th-list"></i>
                         产品管理
                         <i class="glyphicon group"></i>
@@ -110,7 +110,7 @@
             ],
             toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
             height: 300,
-            language:"zh_cn"
+            language: "zh_cn"
         });
     </script>
 </body>

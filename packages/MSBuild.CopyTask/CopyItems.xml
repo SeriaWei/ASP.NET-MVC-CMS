@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CopyItems>
+  <Item From="..\Level2\bin\debug\Level2.dll" To="bin\debug\Level2.dll"></Item>
+</CopyItems>

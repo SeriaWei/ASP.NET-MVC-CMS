@@ -75,6 +75,10 @@ body {
     background-color: #5D5E66;
 }
 
+.navbar-inverse .navbar-nav > li.accordion-group > a.active {
+    background-color: #5d6664;
+}
+
 .accordion-inner {
     background-color: #3D3E43;
     border: none;
@@ -177,15 +181,15 @@ body {
     margin-left: 5px;
 }
 
-.input-group-addon .glyphicon:hover{
-    color:#E28271;
-}
+    .input-group-addon .glyphicon:hover {
+        color: #E28271;
+    }
 
 .popUpToolBar {
     background-color: #f7f7f9;
     border-top: 1px solid #e1e1e8;
     width: 100%;
-    position:absolute;
-    bottom:0;
-    padding:5px;
+    position: absolute;
+    bottom: 0;
+    padding: 5px;
 }

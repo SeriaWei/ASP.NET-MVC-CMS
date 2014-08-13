@@ -26,7 +26,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\bin\</OutputPath>
+    <OutputPath>bin\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -112,6 +112,7 @@
   <ItemGroup>
     <Content Include="Content\Layout.css" />
     <Content Include="Content\Navigation.css" />
+    <Content Include="CopyItems.xml" />
     <Content Include="Scripts\Navigation.js" />
     <Content Include="Views\Web.config" />
   </ItemGroup>
@@ -236,4 +237,8 @@
   </Target>
   <Target Name="AfterBuild">
   </Target> -->
+  <UsingTask TaskName="CopyTask" AssemblyFile="..\..\..\packages\MSBuild.CopyTask\MSBuild.CopyTask.dll" />
+  <Target Name="AfterBuild">
+    <CopyTask />
+  </Target>
 </Project>

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using Easy.Attribute;
+using Easy.MetaData;
 using Easy.Models;
 
 namespace Easy.CMS.Common.Models

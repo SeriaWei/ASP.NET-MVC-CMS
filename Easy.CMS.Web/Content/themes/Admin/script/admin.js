@@ -8,7 +8,11 @@
         return false;
     });
     $(".navbar-nav a").click(function () {
-        $(this).parents("ul").find("a.active").removeClass("active");
+        if (!$(this).parents("li").hasClass("accordion-group")) {
+            $(this).parents("ul").find("a.active").removeClass("active");
+        } else {
+            $(this).parents("ul").find("li.accordion-group>a.active").removeClass("active");
+        }
         $(this).addClass("active");
     });
     $(window).resize(function () {
@@ -35,4 +39,17 @@
             }
         });
     });
+    var currentSelect = $("a.selectAble[href='" + location.pathname + "']");
+    if (currentSelect.size()) {
+        currentSelect.addClass("active");
+        Easy.Cookie.SetCookie("selectAble", location.pathname);
+    }
+    else {
+        $("a.selectAble[href='" + Easy.Cookie.GetCookie("selectAble") + "']").addClass("active");
+    }
+    var activeHref = $("a.selectAble.active");
+    if (activeHref.parent().hasClass("accordion-inner")) {
+        activeHref.parent().show();
+        activeHref.parent().prev().addClass("active");
+    }
 });

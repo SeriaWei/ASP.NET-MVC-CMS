@@ -266,8 +266,7 @@ Easy.Cookie = (function () {
         /// <param name="expiredays" type="Int">有效天数</param>
         var exdate = new Date()
         exdate.setDate(exdate.getDate() + expiredays)
-        document.cookie = c_name + "=" + escape(value) +
-((expiredays == null) ? "" : ";expires=" + exdate.toGMTString())
+        document.cookie = c_name + "=" + escape(value) + ((expiredays == null) ? "" : ";expires=" + exdate.toGMTString()) + ";path=/;";
     }
 
     function GetCookie(c_name) {
@@ -285,7 +284,13 @@ Easy.Cookie = (function () {
         }
         else return ""
     }
-    return { SetCookie: SetCookie, GetCookie: GetCookie }
+    function DeleteCookie(c_name) {
+        if (GetCookie(c_name)) {
+            document.cookie = c_name + "=" +
+            "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+        }
+    }
+    return { SetCookie: SetCookie, GetCookie: GetCookie, DeleteCookie: DeleteCookie }
 })();
 
 Easy.AddFavorite = function () {

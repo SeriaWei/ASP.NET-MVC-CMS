@@ -69,8 +69,9 @@
                             </div>
                             <div class="col-md-9">
                                 <input type="hidden" name="ID" value="@Model.ID" />
-                                <input type="button" class="btn btn-default btn-sm cancel" value="取消">
-                                <input type="button" class="btn btn-info btn-sm" id="save" value="保存" />
+                                <a href="@Url.Action("Edit", "Layout", new { ID = Model.ID, module = "Common" })" class="btn btn-success btn-sm">属性</a>
+                                @*<a href="@Url.Action("SelectWidget", "WidgetTemplate", new { LayoutId = Model.ID, module = "Common" })" class="btn btn-danger btn-sm">添加组件</a>*@
+                                <input type="button" class="btn btn-primary btn-sm" id="save" value="保存" />
                             </div>
                         </div>
                     </div>
@@ -135,7 +136,7 @@
                     }
                 }
             };
-            $("#container .row").droppable(opRowDrop).sortable();
+            $("#container .delable.row").droppable(opRowDrop).sortable();
             $("#container .colContent").droppable(opColDrop).sortable();
 
             $(".zone input").live("blur", function () {

@@ -29,7 +29,7 @@ namespace Easy.CMS.Common
             {
                 RouteName = "layoutAdmin",
                 Url = "admin/{controller}/{action}",
-                Defaults = new { controller = "layout", action = "index", module = "common" },
+                Defaults = new { controller = "layout", action = "home", module = "common" },
                 Namespaces = new string[] { "Easy.CMS.Common.Controllers" },
                 Priority = 1
             });
