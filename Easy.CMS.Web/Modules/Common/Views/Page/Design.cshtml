@@ -21,22 +21,25 @@
             </div>
             if (layOut.ZoneWidgets.ContainsKey(item.Html))
             {
-                foreach (WidgetPart widget in layOut.ZoneWidgets[item.Html].OrderBy(m => m.Position))
+                foreach (WidgetPart widgetPart in layOut.ZoneWidgets[item.Html].OrderBy(m => m.Widget.Position))
                 {
-                    <div class="widget" id="widget_@widget.WidgetId" data-widgetid="@widget.WidgetId">
+                    <div class="widget" id="widget_@widgetPart.Widget.ID" data-widgetid="@widgetPart.Widget.ID">
                         <div class="zoneToolbar container-fluid">
                             <div class="row">
                                 <div class="col-md-6">
-                                    @widget.WidgetName
+                                    @widgetPart.Widget.WidgetName
                                 </div>
                                 <div class="col-md-6 rightTool">
-                                    <a href="@Url.Action("Edit","Widget",new{module="Common",ID=widget.WidgetId})"><i class="glyphicon glyphicon-edit"></i></a>
-                                    <a href="javascript:void(0)" class="delete" data-id="@widget.WidgetId"><i class="glyphicon glyphicon-trash"></i></a>
+                                    <a href="@Url.Action("Edit","Widget",new{module="Common",ID=widgetPart.Widget.ID})"><i class="glyphicon glyphicon-edit"></i></a>
+                                    @if (widgetPart.Widget.LayoutID.IsNullOrEmpty())
+                                    {
+                                        <a href="javascript:void(0)" class="delete" data-id="@widgetPart.Widget.ID"><i class="glyphicon glyphicon-trash"></i></a>
+                                    }                                    
                                 </div>
                             </div>
                         </div>
                         @{
-                    Html.RenderPartial(widget.PartialView, widget.ViewModel);
+                    Html.RenderPartial(widgetPart.Widget.PartialView, widgetPart.ViewModel);
                         }
                     </div>
                 }

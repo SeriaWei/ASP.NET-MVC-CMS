@@ -12,18 +12,22 @@ namespace Easy.CMS.Common.Controllers
     [AdminTheme]
     public class WidgetTemplateController : BasicController<WidgetTemplateEntity, long, WidgetTemplateService>
     {
-        public ActionResult SelectWidget(string pageId, string LayoutId)
+        public ActionResult SelectWidget(QueryContext context)
         {
-            WidgetTemplateViewModel viewModel = new WidgetTemplateViewModel();
-            viewModel.PageId = pageId;
-            viewModel.LayoutId = LayoutId;
-            viewModel.WidgetTemplates = Service.Get(new Data.DataFilter().OrderBy("Order", Constant.OrderType.Ascending)).ToList();
+            WidgetTemplateViewModel viewModel = new WidgetTemplateViewModel
+            {
+                PageID = context.PageID,
+                LayoutID = context.LayoutID,
+                ZoneID = context.ZoneID,
+                ReturnUrl = context.ReturnUrl,
+                WidgetTemplates = Service.Get(new Data.DataFilter().OrderBy("Order", Constant.OrderType.Ascending)).ToList()
+            };
             return View(viewModel);
         }
         [HttpPost]
-        public ActionResult SelectWidget(string PageId, string LayoutId, long WidgetTemplateID)
+        public ActionResult RedirectToWidget(QueryContext context)
         {
-            return RedirectToAction("Create", "Widget", new { module = "Common", PageId, LayoutId, WidgetTemplateID });
+            return RedirectToAction("Create", "Widget", new { module = "Common", context.PageID, context.LayoutID, context.ZoneID, context.ReturnUrl, context.WidgetTemplateID });
         }
     }
 }

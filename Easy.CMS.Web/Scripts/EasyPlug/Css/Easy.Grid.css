@@ -1,10 +1,9 @@
 ﻿/*Grid*/
 .EasyGrid {
-    border: 1px solid #DDD;
-    padding: 1px;
     overflow: hidden;
     position: relative;
     background-color: white;
+    margin-bottom: 0px;
 }
 
     .EasyGrid .Busy {
@@ -25,13 +24,16 @@
 }
 
 .EasyGrid .GridToolBar {
-    background: url(images/tool_bg.gif) #b6b7b8 repeat-x;
+    color: #333;
+    background-color: #f5f5f5;
+    border-color: #ddd;
     display: none;
+    padding: 2px;
 }
 
 .EasyGrid .GridContent .GridBody {
     overflow: auto;
-    position:relative;
+    position: relative;
 }
 
 .EasyGrid .GridContent table td, th {
@@ -69,7 +71,13 @@
 }
 
 .EasyGrid .GridContent .GridHeader {
-    background: #F0F0EE;
+    background-image: -webkit-linear-gradient(top, #f5f5f5 0%, #e8e8e8 100%);
+    background-image: -o-linear-gradient(top, #f5f5f5 0%, #e8e8e8 100%);
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#f5f5f5), to(#e8e8e8));
+    background-image: linear-gradient(to bottom, #f5f5f5 0%, #e8e8e8 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff5f5f5', endColorstr='#ffe8e8e8', GradientType=0);
+    background-repeat: repeat-x;
+    background-color: #F0F0EE;
     border-bottom: 1px solid #D7D7D7;
     overflow: hidden;
 }
@@ -81,6 +89,7 @@
         font-weight: normal;
         text-align: left;
         cursor: pointer;
+        text-indent: 5px;
     }
 
 .EasyGrid .GridContent .GridSearch {
@@ -121,7 +130,7 @@
 
 .EasyGrid .GridContent .coData {
     overflow: hidden;
-    padding: 0px 1px;
+    padding: 5px 1px;
     word-break: keep-all;
     word-wrap: normal;
     text-overflow: ellipsis;
@@ -165,7 +174,7 @@
     padding: 1px 3px;
     border: 1px solid #CCC;
     color: #535353;
-    cursor:pointer;
+    cursor: pointer;
 }
 
     #PagePre:active, #PageFirst:active, #PageNext:active, #PageLast:active, #PageGo:active {
@@ -226,7 +235,7 @@
 
 .InnerLonding {
     background: url(Images/Grid/ajax-loader.gif) center center no-repeat;
-    color:#ccc;
+    color: #ccc;
 }
 
 .GridDelete:hover {

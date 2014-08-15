@@ -16,65 +16,81 @@ namespace Easy.CMS.Common.Controllers
     [AdminTheme]
     public class WidgetController : Controller
     {
-        public ActionResult Create(string PageId, string LayoutId, long WidgetTemplateID)
+        public ActionResult Create(QueryContext context)
         {
-            var template = new WidgetTemplateService().Get(WidgetTemplateID);
+            var template = new WidgetTemplateService().Get(context.WidgetTemplateID);
             var widget = template.CreateWidgetInstance();
-            widget.PageId = PageId;
-            widget.LayoutId = LayoutId;
+            widget.PageID = context.PageID;
+            widget.LayoutID = context.LayoutID;
+            widget.ZoneID = context.ZoneID;
             widget.Position = 1;
-            if (!PageId.IsNullOrEmpty())
+            ViewBag.ReturnUrl = context.ReturnUrl;
+            if (!context.PageID.IsNullOrEmpty())
             {
-                ViewData[ViewDataKeys.Zones] = new ZoneService().GetZonesByPageId(PageId).ToDictionary(m => m.ID, m => m.ZoneName);
+                ViewData[ViewDataKeys.Zones] = new ZoneService().GetZonesByPageId(context.PageID).ToDictionary(m => m.ID, m => m.ZoneName);
             }
-            else if (!LayoutId.IsNullOrEmpty())
+            else if (!context.LayoutID.IsNullOrEmpty())
             {
-                ViewData[ViewDataKeys.Zones] = new ZoneService().GetZonesByLayoutId(LayoutId).ToDictionary(m => m.ID, m => m.ZoneName);
+                ViewData[ViewDataKeys.Zones] = new ZoneService().GetZonesByLayoutId(context.LayoutID).ToDictionary(m => m.ID, m => m.ZoneName);
             }
             return View(widget);
         }
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult Create(WidgetBase widget)
+        public ActionResult Create(WidgetBase widget, string ReturnUrl)
         {
             if (!ModelState.IsValid)
             {
-                ViewData[ViewDataKeys.Zones] = new ZoneService().GetZonesByPageId(widget.PageId).ToDictionary(m => m.ID, m => m.ZoneName);
+                SetZones(widget);
                 return View(widget);
             }
             widget.CreateServiceInstance().AddWidget(widget);
-            if (!widget.PageId.IsNullOrEmpty())
+            if (!ReturnUrl.IsNullOrEmpty())
             {
-                return RedirectToAction("Design", "Page", new { module = "Common", ID = widget.PageId });
+                return Redirect(ReturnUrl);
+            }
+            if (!widget.PageID.IsNullOrEmpty())
+            {
+                return RedirectToAction("Design", "Page", new { module = "Common", ID = widget.PageID });
             }
             else
             {
-                return RedirectToAction("Design", "Layout", new { module = "Common", ID = widget.LayoutId });
+                return RedirectToAction("LayoutWidget", "Layout", new { module = "Common" });
             }
         }
 
-        public ActionResult Edit(string ID)
+        public ActionResult Edit(string ID, string ReturnUrl)
         {
             var widgetService = new WidgetService();
             var widgetBase = widgetService.Get(ID);
             var widget = widgetBase.CreateServiceInstance().GetWidget(widgetBase);
-            var zones = new Easy.CMS.Zone.ZoneService().GetZonesByPageId(widget.PageId);
-            ViewData[ViewDataKeys.Zones] = zones.ToDictionary(m => m.ID, m => m.ZoneName);
+            SetZones(widget);
+            ViewBag.ReturnUrl = ReturnUrl;
             return View(widget);
         }
 
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult Edit(WidgetBase widget)
+        public ActionResult Edit(WidgetBase widget, string ReturnUrl)
         {
             if (!ModelState.IsValid)
             {
-                var zones = new Easy.CMS.Zone.ZoneService().GetZonesByPageId(widget.PageId);
-                ViewData[ViewDataKeys.Zones] = zones.ToDictionary(m => m.ID, m => m.ZoneName);
+                SetZones(widget);
                 return View(widget);
             }
             widget.CreateServiceInstance().UpdateWidget(widget);
-            return RedirectToAction("Design", "Page", new { module = "Common", ID = widget.PageId });
+            if (!ReturnUrl.IsNullOrEmpty())
+            {
+                return Redirect(ReturnUrl);
+            }
+            if (!widget.PageID.IsNullOrEmpty())
+            {
+                return RedirectToAction("Design", "Page", new { module = "Common", ID = widget.PageID });
+            }
+            else
+            {
+                return RedirectToAction("LayoutWidget", "Layout", new { module = "Common" });
+            }
         }
         [HttpPost]
         public JsonResult SaveWidgetPosition(List<WidgetBase> widgets)
@@ -89,7 +105,7 @@ namespace Easy.CMS.Common.Controllers
         [HttpPost]
         public JsonResult SaveWidgetZone(WidgetBase widget)
         {
-            new WidgetService().Update(widget, new Data.DataFilter(new List<string> { "ZoneId", "Position" }).Where<WidgetBase>(n => n.ID, OperatorType.Equal, widget.ID));
+            new WidgetService().Update(widget, new Data.DataFilter(new List<string> { "ZoneID", "Position" }).Where<WidgetBase>(n => n.ID, OperatorType.Equal, widget.ID));
             return Json(true);
         }
         [HttpPost]
@@ -103,6 +119,17 @@ namespace Easy.CMS.Common.Controllers
                 return Json(true);
             }
             return Json(false);
+        }
+        private void SetZones(WidgetBase widget)
+        {
+            if (!widget.PageID.IsNullOrEmpty())
+            {
+                ViewData[ViewDataKeys.Zones] = new ZoneService().GetZonesByPageId(widget.PageID).ToDictionary(m => m.ID, m => m.ZoneName);
+            }
+            else if (!widget.LayoutID.IsNullOrEmpty())
+            {
+                ViewData[ViewDataKeys.Zones] = new ZoneService().GetZonesByLayoutId(widget.LayoutID).ToDictionary(m => m.ID, m => m.ZoneName);
+            }
         }
     }
 }

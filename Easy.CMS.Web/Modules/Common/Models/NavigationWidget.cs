@@ -10,6 +10,7 @@ namespace Easy.CMS.Common.Models
     [DataConfigure(typeof(NavigationWidgetMetaData))]
     public class NavigationWidget : WidgetBase
     {
+        public string CustomerClass { get; set; }
     }
     class NavigationWidgetMetaData : DataViewMetaData<NavigationWidget>
     {
@@ -26,8 +27,9 @@ namespace Easy.CMS.Common.Models
         protected override void ViewConfigure()
         {
             ViewConfig(m => m.WidgetName).AsTextBox().Order(1).Required();
-            ViewConfig(m => m.ZoneId).AsDropDownList().Order(2).DataSource(ViewDataKeys.Zones, Easy.Constant.SourceType.ViewData).Required();
+            ViewConfig(m => m.ZoneID).AsDropDownList().Order(2).DataSource(ViewDataKeys.Zones, Easy.Constant.SourceType.ViewData).Required();
             ViewConfig(m => m.Position).AsTextBox().Order(3).RegularExpression(Constant.RegularExpression.Integer);
+            ViewConfig(m => m.CustomerClass).AsHidden();
         }
     }
 

@@ -1,0 +1,41 @@
+﻿@using Easy.CMS.Layout
+@model IEnumerable<LayoutEntity>
+@{
+    Script.Reqiured("jQueryUi").AtFoot();
+}
+<div class="row-fluid">
+    <div class="col-md-5">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <div>布局</div>
+            </div>
+            <div class="panel-body">
+                <ul id="layouts" class="fullRowList">
+                    @foreach (LayoutEntity item in Model)
+                    {
+                        <li data-id="@item.ID">
+                            <i class="glyphicon glyphicon-compressed"></i> @item.LayoutName
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="layoutZones" class="col-md-7">
+        
+    </div>
+</div>
+
+
+@using (Script.AtFoot())
+{
+    <script type="text/javascript">
+        $("#layouts>li").click(function () {
+            $(this).siblings().removeClass("actived");
+            $(this).addClass("actived");
+            $.post("@Url.Action("LayoutZones", "Layout", new { module="Common"})", { ID: $(this).data("id") }, function (html) {
+                $("#layoutZones").html(html);
+            }, "html");
+        });
+    </script>
+}

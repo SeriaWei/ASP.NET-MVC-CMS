@@ -7,7 +7,7 @@ using System.Web;
 
 namespace Easy.CMS.Common.Service
 {
-    public class NavigationWidgetService : WidgetService<NavigationWidget>, IWidgetPartDriver
+    public class NavigationWidgetService : WidgetService<NavigationWidget>
     {
         public override WidgetPart Display(WidgetBase widget, HttpContextBase httpContext)
         {

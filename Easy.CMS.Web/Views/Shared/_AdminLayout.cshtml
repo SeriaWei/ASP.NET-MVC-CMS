@@ -39,11 +39,22 @@
                 <strong>#E28271</strong>
             </div>
             <ul class="nav navbar-nav">
-                <li>
-                    <a id="menu_layout" class="b_F5C294 selectAble" href="@Url.Action("Index", "Layout", new { module = "Common" })">
-                        <i class="glyphicon glyphicon-align-justify"></i>
-                        布局列表
+                <li class="accordion-group">
+                    <a class="b_F5C294 selectAble" href="#">
+                        <i class="glyphicon glyphicon-th-list"></i>
+                        布局
+                        <i class="glyphicon group"></i>
                     </a>
+                    <div class="accordion-inner">
+                        <a id="menu_layout" class="b_F5C294 selectAble" href="@Url.Action("Index", "Layout", new { module = "Common" })">
+                            <i class="glyphicon glyphicon-align-justify"></i>
+                            布局列表
+                        </a>
+                        <a id="menu_layoutWidget" class="selectAble" href="@Url.Action("LayoutWidget", "Layout", new { module = "Common" })">
+                            <i class="glyphicon glyphicon-th-list"></i>
+                            布局组件
+                        </a>
+                    </div>
                 </li>
                 <li>
                     <a id="menu_page" class="b_F5C294 selectAble" href="@Url.Action("Index", "Page", new { module = "Common" })">

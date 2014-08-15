@@ -140,7 +140,7 @@ body {
 }
 
 .toolBar {
-    padding: 9px 14px;
+    padding: 6px 15px;
     background-color: #f7f7f9;
     border-top: 1px solid #e1e1e8;
     clear: both;
@@ -193,3 +193,34 @@ body {
     bottom: 0;
     padding: 5px;
 }
+
+.panel-heading {
+    padding: 6px 15px;
+}
+
+.fullRowList {
+    margin: 0;
+    padding: 1px 0;
+    list-style: none;
+    color: #717171;
+    min-height:20px;
+}
+
+    .fullRowList li {
+        padding: 3px;
+        border: 1px solid #ddd;
+        border-left: 3px solid green;
+        margin: 5px 0;
+        cursor: pointer;
+        background-color: white;
+    }
+
+        .fullRowList li.actived {
+            border: 1px solid #E28271;
+            border-left: 3px solid green;
+            color: #E28271;
+        }
+
+    .fullRowList.droping {
+        background-color:green;
+    }

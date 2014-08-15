@@ -15,11 +15,11 @@
         {
             if (layOut.ZoneWidgets.ContainsKey(item.Html))
             {
-                foreach (var widget in layOut.ZoneWidgets[item.Html].OrderBy(m => m.Position))
+                foreach (var widgetPart in layOut.ZoneWidgets[item.Html].OrderBy(m => m.Widget.Position))
                 {
                     <div>
                         @{
-                    Html.RenderPartial(widget.PartialView, widget.ViewModel);
+                    Html.RenderPartial(widgetPart.Widget.PartialView, widgetPart.ViewModel);
                         }
                     </div>
                 }

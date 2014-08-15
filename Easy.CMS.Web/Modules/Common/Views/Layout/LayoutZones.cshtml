@@ -1,0 +1,69 @@
+﻿@model Easy.CMS.Common.ViewModels.LayoutZonesViewModel
+@{
+    Layout = null;
+    string returnUrl = Url.Action("LayoutWidget", "Layout", new { module = "Common" });
+}
+@foreach (var item in Model.Zones)
+{
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <div>
+                @item.ZoneName
+                <a href="@Url.Action("SelectWidget", "WidgetTemplate", new { module = "Common", LayoutID = item.LayoutId, ZoneID = item.ID, ReturnUrl = returnUrl })">
+                    <i class="glyphicon glyphicon-plus"></i>
+                    添加组件
+                </a>
+            </div>
+        </div>
+        <div class="panel-body">
+            <ul data-zoneid="@item.ID" class="fullRowList widgets">
+                @foreach (var widget in Model.Widgets.Where(m => m.ZoneID == item.ID).OrderBy(m=>m.Position))
+                {
+                    <li class="widget" data-widgetid="@widget.ID">
+                        <a href="@Url.Action("Edit", "Widget", new { module = "Common", ID = widget.ID, ReturnUrl = returnUrl })"><i class="glyphicon glyphicon-edit"></i></a>
+
+                        @widget.WidgetName
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+}
+<script type="text/javascript">
+    $(".fullRowList.widgets").sortable({
+        stop: function (event, ui) {
+            var tempForm = "";
+            ui.item.parent().children().each(function (i, ui) {
+                tempForm += "&widgets[" + i + "].ID=" + $(ui).data("widgetid") + "&widgets[" + i + "].Position=" + (i + 1);
+            });
+            if (tempForm) {
+                $.post("@Url.Action("SaveWidgetPosition", "Widget", new { module="Common"})", tempForm, function (data) {
+
+                }, "html");
+            }
+        }
+    }).droppable({
+        hoverClass: "droping",
+        accept: ".widget",
+        greedy: true,
+        tolerance: "pointer",
+        drop: function (event, ui) {
+            if (ui.draggable.parent().data("zoneid") == $(this).data("zoneid")) {
+                return true;
+            }
+            var target = ui.draggable.clone();
+            target.removeAttr("style")
+            $(this).append(target);
+            ui.draggable.remove();
+            $.post("@Url.Action("SaveWidgetZone", "Widget", new { module="Common" })",
+                {
+                    ID: target.data("widgetid"),
+                    ZoneId: $(this).data("zoneid"),
+                    Position: $(this).children().size()
+                },
+                function (data) {
+
+                }, "html");
+        }
+    });;
+</script>

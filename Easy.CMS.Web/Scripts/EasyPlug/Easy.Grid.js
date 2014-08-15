@@ -41,9 +41,9 @@ Easy.Grid = (function (json) {
     var isLoading = false;
     var QueryString = "";
     var deleteUrl = "";
-    var heightFix = 12;
-    gridHtml.push("<div class='EasyGrid'>");
-    gridHtml.push("<div class='GridContent'><div class='GridToolBar'></div><div class='GridHeader'></div><div class='GridSearch'></div><div class='GridBody'></div></div>");
+    var heightFix = 15;
+    gridHtml.push("<div class='EasyGrid panel panel-default'>");
+    gridHtml.push("<div class='GridContent'><div class='GridToolBar panel-heading'></div><div class='GridHeader'></div><div class='GridSearch'></div><div class='GridBody'></div></div>");
     gridHtml.push("<div class='Gridfoot'>");
     gridHtml.push("<div class='GridDelete' title='" + Easy.GridLan.Delete + "'>&nbsp;</div>");
     gridHtml.push("<label>");

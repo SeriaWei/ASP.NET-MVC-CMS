@@ -8,10 +8,8 @@
         <div>选择组件</div>
     </div>
     <div class="panel-body">
-        @using (Html.BeginForm())
+        @using (Html.BeginForm("RedirectToWidget", "WidgetTemplate", new { module = "Common", Model.PageID, Model.LayoutID, Model.ZoneID, Model.ReturnUrl }))
         {
-            @Html.HiddenFor(m => m.PageId)
-            @Html.HiddenFor(m => m.LayoutId)
             <div class="container-fluid">
                 <div class="row-fluid">
                     @foreach (WidgetTemplateEntity item in this.Model.WidgetTemplates)

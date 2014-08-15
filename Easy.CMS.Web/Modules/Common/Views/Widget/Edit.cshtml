@@ -6,6 +6,7 @@
         @using (Html.BeginForm())
         {
             @Html.EditModel()
+            <input type="hidden" name="ReturnUrl" value="@ViewBag.ReturnUrl" />
             <div class="toolBar">
                 <input type="button" class="btn btn-default btn-sm" value="取消" onclick="javascript:window.history.back()" />
                 <input id="design" type="submit" class="btn btn-primary btn-sm" value="保存" />
