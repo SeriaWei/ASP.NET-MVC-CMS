@@ -168,7 +168,7 @@ Easy.Grid = (function (json) {
         var tableHeader = $("<table cellpadding='0' cellspacing='0'></table>");
         var trH = "<tr class='trTitle'>";
         if (CheckBox && chVale) {
-            trH += "<th style='width:20px'><input type='checkbox' class='CheckBoxAll' /></th>";
+            trH += "<th style='width:20px' align='center'><input type='checkbox' class='CheckBoxAll' /></th>";
             width += 20;
         }
         if (!model) {
@@ -199,7 +199,7 @@ Easy.Grid = (function (json) {
         if (canSearch) {
             trH = "<tr>";
             if (CheckBox && chVale) {
-                trH += "<th style='width:20px'><input type='button' class='ClearSearch' /></th>";
+                trH += "<th style='width:20px' align='center'><input type='button' class='ClearSearch' /></th>";
             }
             for (var itemName in model) {
                 var input = "";
@@ -237,7 +237,7 @@ Easy.Grid = (function (json) {
                             input = "<input type='hidden' DataType='" + item.DataType + "' id='Search_" + item.Name + "' name='" + item.Name + "' OperatorType='1'/>";
                             var option = "<option></option>";
                             option += item.Data || "";
-                            input += "<select multiple='multiple' ValuePlace='Search_" + item.Name + "'>" + option + "</select>";
+                            input += "<select class='easy' multiple='multiple' ValuePlace='Search_" + item.Name + "'>" + option + "</select>";
                             break;
                         }
                     case "None": input = "<span></span>"; break;
@@ -326,7 +326,7 @@ Easy.Grid = (function (json) {
                 cl = "trAf";
             var trB = "<tr class='" + cl + "'>";
             if (CheckBox && chVale) {
-                trB += "<td style='width:20px'><input type='checkbox' class='CheckBoxItem' val='" + gdata.Rows[j][chVale] + "' /></td>";
+                trB += "<td style='width:20px' align='center'><input type='checkbox' class='CheckBoxItem' val='" + gdata.Rows[j][chVale] + "' /></td>";
                 if (j == 0) {
                     width += 20;
                 }
@@ -523,7 +523,7 @@ Easy.Grid = (function (json) {
         if (ind != -1) {
             var reStr = templeteValues[ind];
             for (var item in data) {
-                while (reStr.indexOf("{" + item + "}") > 0) {
+                while (reStr.indexOf("{" + item + "}") >= 0) {
                     reStr = reStr.replace("{" + item + "}", data[item]);
                 }
             }
@@ -565,7 +565,7 @@ Easy.Grid = (function (json) {
                 numBox.find("input").attr("ValueType", "Date");
                 numBox.find("input").addClass("Date");
                 if (Easy.UI) {
-                    Easy.UI.DateInput();
+                    Easy.UI.DateInput(numBox.find("input"));
                 }
                 break;
             }

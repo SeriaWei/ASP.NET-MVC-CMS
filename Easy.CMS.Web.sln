@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30501.0
+VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Easy.CMS.Web", "Easy.CMS.Web\Easy.CMS.Web.csproj", "{C2DCE03D-6FA4-4461-B5E3-761D7B0C1B0A}"
 EndProject
@@ -13,13 +13,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Easy", "..\..\MyFrameWork\E
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Easy.Web", "..\..\MyFrameWork\EasyFrameWork\EasyFrameWork.Web\Easy.Web.csproj", "{A1228125-F5C4-4001-AC7D-1ACCF1679828}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Easy.CMS.News", "Easy.CMS.Web\Modules\News\Easy.CMS.News.csproj", "{14E79FF7-4DBA-47A7-9BED-1D775FA93E43}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Easy.CMS.Product", "Easy.CMS.Web\Modules\Product\Easy.CMS.Product.csproj", "{A333A4DA-7A52-4E32-B7CA-6ADC1990B09E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Easy.CMS", "..\..\MyFrameWork\EasyFrameWork\EasyFrameWork.CMS\Easy.CMS.csproj", "{2E8362AE-80D6-43E0-B3BF-CAB6D888D154}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Easy.CMS.Common", "Easy.CMS.Web\Modules\Common\Easy.CMS.Common.csproj", "{C4A0DA07-F772-4EAE-8F7E-768EF2D801A4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Easy.CMS.Article", "Easy.CMS.Web\Modules\Article\Easy.CMS.Article.csproj", "{14E79FF7-4DBA-47A7-9BED-1D775FA93E43}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,10 +39,6 @@ Global
 		{A1228125-F5C4-4001-AC7D-1ACCF1679828}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A1228125-F5C4-4001-AC7D-1ACCF1679828}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A1228125-F5C4-4001-AC7D-1ACCF1679828}.Release|Any CPU.Build.0 = Release|Any CPU
-		{14E79FF7-4DBA-47A7-9BED-1D775FA93E43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{14E79FF7-4DBA-47A7-9BED-1D775FA93E43}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{14E79FF7-4DBA-47A7-9BED-1D775FA93E43}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{14E79FF7-4DBA-47A7-9BED-1D775FA93E43}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A333A4DA-7A52-4E32-B7CA-6ADC1990B09E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A333A4DA-7A52-4E32-B7CA-6ADC1990B09E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A333A4DA-7A52-4E32-B7CA-6ADC1990B09E}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -55,6 +51,10 @@ Global
 		{C4A0DA07-F772-4EAE-8F7E-768EF2D801A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C4A0DA07-F772-4EAE-8F7E-768EF2D801A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C4A0DA07-F772-4EAE-8F7E-768EF2D801A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14E79FF7-4DBA-47A7-9BED-1D775FA93E43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14E79FF7-4DBA-47A7-9BED-1D775FA93E43}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14E79FF7-4DBA-47A7-9BED-1D775FA93E43}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14E79FF7-4DBA-47A7-9BED-1D775FA93E43}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -62,9 +62,9 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{EDB1BAA7-EC61-4292-BBE5-3BC39EB171E4} = {63653A41-AD32-4004-8934-D02BFAB493FE}
 		{A1228125-F5C4-4001-AC7D-1ACCF1679828} = {63653A41-AD32-4004-8934-D02BFAB493FE}
-		{14E79FF7-4DBA-47A7-9BED-1D775FA93E43} = {C25E055D-DBB5-4B7D-863C-40B12712B0CE}
 		{A333A4DA-7A52-4E32-B7CA-6ADC1990B09E} = {C25E055D-DBB5-4B7D-863C-40B12712B0CE}
 		{2E8362AE-80D6-43E0-B3BF-CAB6D888D154} = {63653A41-AD32-4004-8934-D02BFAB493FE}
 		{C4A0DA07-F772-4EAE-8F7E-768EF2D801A4} = {C25E055D-DBB5-4B7D-863C-40B12712B0CE}
+		{14E79FF7-4DBA-47A7-9BED-1D775FA93E43} = {C25E055D-DBB5-4B7D-863C-40B12712B0CE}
 	EndGlobalSection
 EndGlobal

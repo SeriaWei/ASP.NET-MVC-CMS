@@ -73,7 +73,12 @@ namespace Easy.CMS.Common.Controllers
             {
                 return RedirectToAction("Design", new { ID = entity.ID });
             }
-            return base.Edit(entity, actionType);
+            var result = base.Edit(entity, actionType);
+            if (actionType.HasValue && actionType.Value == Constant.ActionType.Publish)
+            {
+                Service.Publish(entity.ID);
+            }
+            return result;
         }
         [EditWidget]
         public ActionResult Design(string ID)
@@ -82,12 +87,26 @@ namespace Easy.CMS.Common.Controllers
         }
         public ActionResult RedirectView(ParamsContext<string> context)
         {
-            return Redirect(Service.Get(context.ID).Url+"?ViewType=Review");
+            return Redirect(Service.Get(context.ID).Url + "?ViewType=Review");
         }
         [PopUp]
         public ActionResult Select()
         {
             return View();
+        }
+
+        public ActionResult PageZones(QueryContext context)
+        {
+            Zone.ZoneService zoneService = new Zone.ZoneService();
+            WidgetService widgetService = new WidgetService();
+
+            var viewModel = new ViewModels.LayoutZonesViewModel
+                {
+                    PageID = context.PageID,
+                    Zones = zoneService.GetZonesByPageId(context.PageID),
+                    Widgets = widgetService.GetAllByPageId(context.PageID)
+                };
+            return View(viewModel);
         }
     }
 }

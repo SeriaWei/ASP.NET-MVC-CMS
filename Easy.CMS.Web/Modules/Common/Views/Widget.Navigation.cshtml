@@ -29,7 +29,7 @@
         @foreach (NavigationEntity item in Model.Where(m => m.ParentId == "0"))
         {
             <li>
-                <a id="nav_@item.ID" href="@item.Url" class="@(Request.RawUrl.Equals(item.Url)?"actived":"")">@item.Title</a>
+                <a id="nav_@item.ID" href="@item.Url" class="@(Request.Path.Equals(item.Url)?"actived":"")">@item.Title</a>
                 @Html.Raw(GetChildren(item))
             </li>
         }

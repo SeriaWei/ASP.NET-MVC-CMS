@@ -1,11 +1,4 @@
-﻿button, input[type=button] { overflow: visible; color: #535353; text-decoration: none; padding: 2px 4px; border: 1px solid #CCC; background-color: white; }
-
-    button:active, input[type=button]:active { background-color: #eaeaea; }
-
-input[type=text], textarea { resize: none; border: 1px solid #CCC; outline: none; margin: 0px auto 0px auto; color: #5c5c5c; }
-
-    input[type=text]:focus { outline: 1px solid rgb(243, 201, 100);border: 1px solid #fff; }
-
+﻿
 .DropDownList { display: inline-block; vertical-align: top; padding-right: 19px; cursor: pointer; border: 1px solid #CCC; background-color: white; text-align: left; font-weight: normal; }
 
 .DropDownList { *display: inline; *zoom: 1; }
@@ -42,7 +35,7 @@ input.Date { background-image: url(Images/Icons/date.png); background-repeat: no
 input.Number { background-image: url(Images/Icons/number.png); background-repeat: no-repeat; background-position: right center; }
 input.Email { background-image: url(Images/Icons/Email.png); background-repeat: no-repeat; background-position: right center; }
 input.autocomplete { background-image: url(Images/Icons/autocomplete.png); background-repeat: no-repeat; background-position: right center; }
-.required { background-color: #fef6bb; }
+input.required { background-color: #fef6bb; }
 .error { background-color: #ffc333; }
 .autocompleteResult { position: absolute; margin: 0px; padding: 0px; background-color: white; border: 1px solid #DDD; }
     .autocompleteResult > li { margin: 3px; padding: 5px 0px 5px 0px; list-style: none; cursor: pointer; border-bottom: 1px solid #DDD; }

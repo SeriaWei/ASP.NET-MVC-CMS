@@ -3,7 +3,7 @@
 var Easy = Easy || {};
 Easy.UI = {
     DropDownList: function (callBack) {
-        $("select").not("[multiple]").each(function () {
+        $("select.easy").not("[multiple]").each(function () {
             if ($(this).attr("easy")) {
                 return;
             }
@@ -96,7 +96,7 @@ Easy.UI = {
         });
     },
     MultiSelect: function (callBack) {
-        $("select[multiple]").each(function () {
+        $("select.easy[multiple]").each(function () {
             if ($(this).attr("easy")) {
                 return;
             }
@@ -208,7 +208,7 @@ Easy.UI = {
         });
     },
     CheckBox: function (callBack) {
-        $("input[type='checkbox']").each(function () {
+        $("input.easy[type='checkbox']").each(function () {
             if ($(this).attr("easy")) {
                 return;
             }
@@ -248,8 +248,11 @@ Easy.UI = {
             oldCheckBox.hide();
         });
     },
-    DateInput: function () {
-        $("input[ValueType='Date']").each(function () {
+    DateInput: function (selector) {
+        if (!selector) {
+            selector = "input.easy[ValueType='Date']";
+        }
+        $(selector).each(function () {
             if ($(this).attr("easy")) {
                 return;
             }
@@ -376,7 +379,7 @@ Easy.UI = {
         }
     },
     NumberInput: function () {
-        $("input[ValueType='Num']").each(function () {
+        $("input.easy[ValueType='Num']").each(function () {
             if ($(this).attr("easy")) {
                 return;
             }

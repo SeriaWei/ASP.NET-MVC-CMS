@@ -633,6 +633,7 @@
     <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce.ttf" />
     <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce.woff" />
     <Content Include="Views\Shared\_PopUpLayout.cshtml" />
+    <Content Include="Views\Shared\Partial_Pagination.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />

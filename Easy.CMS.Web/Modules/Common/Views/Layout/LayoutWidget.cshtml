@@ -3,29 +3,30 @@
 @{
     Script.Reqiured("jQueryUi").AtFoot();
 }
-<div class="row-fluid">
-    <div class="col-md-5">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <div>布局</div>
-            </div>
-            <div class="panel-body">
-                <ul id="layouts" class="fullRowList">
-                    @foreach (LayoutEntity item in Model)
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-5">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <span class="badge">布局</span>
+                </div>
+                <div class="panel-body">
+                    <ul id="layouts" class="fullRowList">
+                        @foreach (LayoutEntity item in Model)
                     {
-                        <li data-id="@item.ID">
-                            <i class="glyphicon glyphicon-compressed"></i> @item.LayoutName
-                        </li>
+                            <li data-id="@item.ID">
+                                <i class="glyphicon glyphicon-compressed"></i> @item.LayoutName
+                            </li>
                     }
-                </ul>
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
-    <div id="layoutZones" class="col-md-7">
-        
+        <div id="layoutZones" class="col-md-7">
+
+        </div>
     </div>
 </div>
-
 
 @using (Script.AtFoot())
 {
@@ -36,6 +37,17 @@
             $.post("@Url.Action("LayoutZones", "Layout", new { module="Common"})", { ID: $(this).data("id") }, function (html) {
                 $("#layoutZones").html(html);
             }, "html");
+        });
+        
+        $(".fullRowList.widgets .delete").live("click",function () {
+            var id = $(this).data("widgetid");
+            if (confirm("确定要删除该组件吗？")) {
+                $.post("@Url.Action("DeleteWidget", "Widget",new { module="Common"})", { ID: id }, function (data) {
+                    if (data) {
+                        $("#widget_" + id).remove();
+                    }
+                }, "json");
+            }
         });
     </script>
 }

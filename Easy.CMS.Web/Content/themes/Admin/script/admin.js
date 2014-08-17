@@ -22,7 +22,14 @@
     $(".cancel").click(function () {
         window.history.back();
     });
-
+    $(".publish").click(function () {
+        if (confirm("确认要发布吗？")) {
+            return true;
+        }
+        return false;
+    });
+    $("#IsPublish").val("false");
+    $("#PublishDate").val("");
     $(".select").each(function () {
         $(this).prev(".input-group-addon").append('<span class="glyphicon glyphicon-search" data-url="' + $(this).data("url") + '"></span>');
     });

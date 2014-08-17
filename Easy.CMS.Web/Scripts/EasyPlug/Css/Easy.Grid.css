@@ -99,6 +99,7 @@
 
     .EasyGrid .GridContent .GridSearch input[type='text'] {
         display: block;
+        font-weight:normal;
     }
 
 .EasyGrid input[type='text'], .NumConditionBox input[type='text'] {

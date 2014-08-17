@@ -11,8 +11,8 @@
     <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Easy.CMS.News</RootNamespace>
-    <AssemblyName>Easy.CMS.News</AssemblyName>
+    <RootNamespace>Easy.CMS.Article</RootNamespace>
+    <AssemblyName>Easy.CMS.Article</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
@@ -113,15 +113,22 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\NewsController.cs" />
-    <Compile Include="Models\NewsEntity.cs" />
+    <Compile Include="Controllers\ArticleController.cs" />
+    <Compile Include="Models\ArticleDetailWidget.cs" />
+    <Compile Include="Models\ArticleEntity.cs" />
+    <Compile Include="Models\ArticleListWidget.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ResourceManager.cs" />
     <Compile Include="RouteRegister.cs" />
-    <Compile Include="Service\NewsService.cs" />
+    <Compile Include="Service\ArticleDetailWidgetService.cs" />
+    <Compile Include="Service\ArticleListWidgetService.cs" />
+    <Compile Include="Service\ArticleService.cs" />
+    <Compile Include="ViewModel\ArticleDetailViewModel.cs" />
+    <Compile Include="ViewModel\ArticleListWidgetViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
+    <Content Include="Content\Article.css" />
     <Content Include="CopyItems.xml" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
@@ -138,17 +145,13 @@
     <Content Include="Scripts\knockout-2.2.0.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Views\Web.config" />
-    <Content Include="Views\News\Index.cshtml" />
-    <Content Include="web.config" />
-    <None Include="web.Debug.config">
-      <DependentUpon>web.config</DependentUpon>
-    </None>
-    <None Include="web.Release.config">
-      <DependentUpon>web.config</DependentUpon>
-    </None>
+    <Content Include="Views\Article\Index.cshtml" />
+    <Content Include="Views\Article\Create.cshtml" />
+    <Content Include="Views\Article\Edit.cshtml" />
+    <Content Include="Views\Widget.ArticleList.cshtml" />
+    <Content Include="Views\Widget.ArticleDetail.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Content\" />
     <Folder Include="Filters\" />
     <Folder Include="Images\" />
     <Folder Include="Views\Shared\" />

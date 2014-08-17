@@ -5,7 +5,11 @@
 }
 <div class="panel panel-default">
     <div class="panel-heading">
-        <div>导航 @Html.ActionLink("添加导航", "Create")</div>
+        <span class="badge">导航</span>
+        <a href="@Url.Action("Create")" class="btn btn-primary btn-xs">
+            <i class="glyphicon glyphicon-plus"></i>
+            添加导航
+        </a>
     </div>
     <div class="panel-body">
 

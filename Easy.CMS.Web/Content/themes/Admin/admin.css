@@ -173,6 +173,7 @@ body {
 
 .input-group .mce-panel {
     border: 1px solid #ccc;
+    border-radius: 0;
 }
 
 .input-group-addon .glyphicon {
@@ -203,7 +204,7 @@ body {
     padding: 1px 0;
     list-style: none;
     color: #717171;
-    min-height:20px;
+    min-height: 20px;
 }
 
     .fullRowList li {
@@ -214,13 +215,25 @@ body {
         cursor: pointer;
         background-color: white;
     }
+    .fullRowList li.sorting{
+        height:30px;
+        border: 1px solid #ededed;
+        border-left: 3px solid #E28271;
+    }
+    .fullRowList.widgets li {
+        cursor: move;
+    }
 
-        .fullRowList li.actived {
-            border: 1px solid #E28271;
-            border-left: 3px solid green;
-            color: #E28271;
-        }
+    .fullRowList li.actived {
+        border: 1px solid #E28271;
+        border-left: 3px solid green;
+        color: #E28271;
+    }
 
     .fullRowList.droping {
-        background-color:green;
+        background-color: #9FDDF6;
+    }
+
+    .fullRowList.widgets .glyphicon {
+        font-size: 12px;
     }

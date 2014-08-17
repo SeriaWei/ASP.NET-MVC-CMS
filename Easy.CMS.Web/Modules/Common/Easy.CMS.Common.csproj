@@ -119,6 +119,7 @@
     <None Include="Scripts\_references.js" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Layout\LayoutZones.cshtml" />
+    <Content Include="Views\Page\PageZones.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Navigation\Index.cshtml" />

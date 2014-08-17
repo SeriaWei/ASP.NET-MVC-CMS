@@ -1,0 +1,65 @@
+﻿@model Easy.CMS.Article.ViewModel.ArticleListWidgetViewModel
+@{
+    Style.Reqiured("Article").AtHead();
+}
+<div class="container-fluid articleList">
+    <div class="row">
+        <div class="col-md-3">
+            <h3><a href="@Request.Path">@Model.Widget.Title</a></h3>
+            <div class="category">
+                @foreach (var item in Model.ArticleCategory)
+                {
+                    <div class="item">
+                        <a href="@(Request.Path+"?ArticleCategory="+item.ID)">@item.Title</a>
+                    </div>
+                }
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="articles">
+                @foreach (var item in Model.Articles)
+                {
+                    <div class="item container-fluid">
+                        @if (item.ImageThumbUrl.IsNullOrEmpty())
+                        {
+                            <span class="left">
+                                <a href="@(Model.Widget.DetailPageUrl + "?ArticleID=" + item.ID)" target="_blank">@item.Title</a>
+                            </span>
+                            <em class="right">
+                                @((item.PublishDate ?? DateTime.Now).ToString("yyyy/MM/dd"))
+                            </em>
+                            <div class="clearfix"></div>
+                        }
+                        else
+                        {
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <a href="@(Model.Widget.DetailPageUrl + "?ArticleID=" + item.ID)" target="_blank">
+                                        <img src="@Url.Content(item.ImageThumbUrl)" class="thumbnail" />
+                                    </a>
+                                </div>
+                                <div class="col-md-9">
+                                    <dl>
+                                        <dt>
+                                            <span class="left">
+                                                <a href="@(Model.Widget.DetailPageUrl + "?ArticleID=" + item.ID)" target="_blank">@item.Title</a>
+                                            </span>
+                                            <em class="right">
+                                                @((item.PublishDate ?? DateTime.Now).ToString("yyyy/MM/dd"))
+                                            </em>
+                                            <span class="clearfix"></span>
+                                        </dt>
+                                        <dd>
+                                            @item.Description
+                                        </dd>
+                                    </dl>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                }
+            </div>
+            @Html.Partial("Partial_Pagination", Model.Pagin)
+        </div>
+    </div>
+</div>

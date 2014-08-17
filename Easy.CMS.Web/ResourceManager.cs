@@ -19,6 +19,7 @@ namespace PlugWeb
                 .Include("~/Scripts/jquery.validate.unobtrusive.js")
                 .Include("~/Content/themes/admin/script/admin.js")
                 .Include("~/Scripts/EasyPlug/Easy.Grid.js")
+                .Include("~/Scripts/EasyPlug/Easy.UI.js")
                 .Include("~/Scripts/jstree/src/jstree.js")
                 .Include("~/Scripts/jstree/src/jstree.checkbox.js")
                 .Include("~/Scripts/jstree/src/jstree.contextmenu.js")
@@ -44,6 +45,7 @@ namespace PlugWeb
                 .Include("~/Content/themes/admin/admin.css")
                 .Include("~/Scripts/EasyPlug/Css/Easy.css")
                 .Include("~/Scripts/EasyPlug/Css/Easy.Grid.css")
+                .Include("~/Scripts/EasyPlug/Css/Easy.UI.css")
                 .Include("~/Scripts/jstree/src/themes/default/style.css");
         }
     }

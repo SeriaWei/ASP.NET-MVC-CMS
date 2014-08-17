@@ -30,9 +30,9 @@
                                     @widgetPart.Widget.WidgetName
                                 </div>
                                 <div class="col-md-6 rightTool">
-                                    <a href="@Url.Action("Edit","Widget",new{module="Common",ID=widgetPart.Widget.ID})"><i class="glyphicon glyphicon-edit"></i></a>
                                     @if (widgetPart.Widget.LayoutID.IsNullOrEmpty())
                                     {
+                                        <a href="@Url.Action("Edit","Widget",new{module="Common",ID=widgetPart.Widget.ID})"><i class="glyphicon glyphicon-edit"></i></a>
                                         <a href="javascript:void(0)" class="delete" data-id="@widgetPart.Widget.ID"><i class="glyphicon glyphicon-trash"></i></a>
                                     }                                    
                                 </div>

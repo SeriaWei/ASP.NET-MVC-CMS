@@ -5,13 +5,11 @@
 }
 <div class="panel panel-default">
     <div class="panel-heading">
-        <div>
-            布局
-            <a href="@Url.Action("Create", new { module = "Common" })">
-                <i class="glyphicon glyphicon-plus"></i>
-                添加布局
-            </a>
-        </div>
+        <span class="badge">布局</span>
+        <a href="@Url.Action("Create", new { module = "Common" })" class="btn btn-primary btn-xs">
+            <i class="glyphicon glyphicon-plus"></i>
+            添加布局
+        </a>
     </div>
     <div class="panel-body">
         <ul class="layoutList">

@@ -1,28 +1,32 @@
 ﻿@model Easy.CMS.Common.ViewModels.LayoutZonesViewModel
 @{
     Layout = null;
-    string returnUrl = Url.Action("LayoutWidget", "Layout", new { module = "Common" });
+    string returnUrl = Url.Action("Index", "Page", new { module = "Common" });
 }
 @foreach (var item in Model.Zones)
 {
     <div class="panel panel-default">
         <div class="panel-heading">
-            <div>
-                <span class="badge">@item.ZoneName</span>
-                
-                <a class="btn btn-primary btn-xs" href="@Url.Action("SelectWidget", "WidgetTemplate", new { module = "Common", LayoutID = item.LayoutId, ZoneID = item.ID, ReturnUrl = returnUrl })">
+             <span class="badge">@item.ZoneName</span>   
+                <a class="btn btn-primary btn-xs" href="@Url.Action("SelectWidget", "WidgetTemplate", new { module = "Common", PageID = Model.PageID, ZoneID = item.ID, ReturnUrl = returnUrl })">
                     <i class="glyphicon glyphicon-plus"></i>
                     添加组件
                 </a>
-            </div>
         </div>
         <div class="panel-body">
             <ul data-zoneid="@item.ID" class="fullRowList widgets">
                 @foreach (var widget in Model.Widgets.Where(m => m.ZoneID == item.ID).OrderBy(m => m.Position))
                 {
-                    <li id="widget_@widget.ID" class="widget" data-widgetid="@widget.ID">
-                        <a href="@Url.Action("Edit", "Widget", new { module = "Common", ID = widget.ID, ReturnUrl = returnUrl })"><i class="glyphicon glyphicon-edit"></i></a>
-                        <a href="javascript:void(0)" class="delete" data-widgetid="@widget.ID"><i class="glyphicon glyphicon-trash"></i></a>
+                    <li id="widget_@widget.ID" class="@(widget.LayoutID.IsNullOrEmpty() ? "widget" : "")" data-widgetid="@widget.ID">
+                        @if (widget.LayoutID.IsNullOrEmpty())
+                        {
+                            <a href="@Url.Action("Edit", "Widget", new { module = "Common", ID = widget.ID, ReturnUrl = returnUrl })"><i class="glyphicon glyphicon-edit"></i></a>
+                            <a href="javascript:void(0)" class="delete" data-widgetid="@widget.ID"><i class="glyphicon glyphicon-trash"></i></a>
+                        }
+                        else
+                        {
+                            <span class="badge">布局</span>
+                        }
                         @widget.WidgetName
                     </li>
                 }

@@ -7,7 +7,7 @@ using System.Web.Routing;
 using System.Web.Mvc;
 
 
-namespace Easy.CMS.News
+namespace Easy.CMS.Article
 {
     public class RouteRegister : IRouteRegister
     {
@@ -19,8 +19,8 @@ namespace Easy.CMS.News
             {
                 RouteName = "newsAdmin",
                 Url = "admin/{controller}/{action}",
-                Defaults = new { controller = "news", action = "home", module = "news" },
-                Namespaces = new string[] { "Easy.CMS.News.Controllers" },
+                Defaults = new { controller = "Article", action = "home", module = "Article" },
+                Namespaces = new string[] { "Easy.CMS.Article.Controllers" },
                 Priority = 1
             });
             return routes;

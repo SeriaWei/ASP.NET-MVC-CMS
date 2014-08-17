@@ -1,17 +1,13 @@
-﻿body,html{
-    margin:0px;
-    padding:0px;
-}
-body{
-    background:url(Images/bg.gif);
-}
-a {
-    color: black;
+﻿body, html {
+    margin: 0px;
+    padding: 0px;
 }
 
-    a:hover {
-        color: #A8A8A8;
-    }
+body {
+    background: url(Images/bg.gif);
+}
+
+
 
 .input-group {
     margin: 3px 0;
@@ -24,6 +20,41 @@ img {
 .clear {
     clear: both;
 }
-#container{
-    background-color:white;
+
+#container {
+    background-color: white;
 }
+
+.thumbnail, dl {
+    margin-bottom: 0;
+}
+
+.Pagination {
+    font-size: 13px;
+    padding: 20px 10px 10px 0px;
+}
+
+    .Pagination a {
+        padding: 3px 8px;
+        margin: 3px;
+        border: 1px dotted #AAA;
+        float: left;
+        text-decoration:none;
+    }
+
+        .Pagination a:hover, .Pagination a.Current {
+            font-weight: 400;
+            color: #fff;
+            background-color: #D14836;
+        }
+
+        .Pagination a.disable {
+            background-color: #CCC;
+            color: white;
+            cursor: default;
+        }
+
+        .Pagination a.select {
+            background-color: #D14836;
+            color: white;
+        }

@@ -6,18 +6,18 @@ using System.Web;
 using Easy.MetaData;
 using Easy.CMS.MetaData;
 
-namespace Easy.CMS.Common.Models
+namespace Easy.CMS.Article.Models
 {
-    [DataConfigure(typeof(NavigationWidgetMetaData))]
-    public class NavigationWidget : WidgetBase
+    [DataConfigure(typeof(ArticleDetailWidgetMetaData))]
+    public class ArticleDetailWidget : WidgetBase
     {
         public string CustomerClass { get; set; }
     }
-    class NavigationWidgetMetaData : WidgetMetaData<NavigationWidget>
+    class ArticleDetailWidgetMetaData : WidgetMetaData<ArticleDetailWidget>
     {
         protected override void DataConfigure()
         {
-            DataTable("NavigationWidget");
+            DataTable("ArticleDetailWidget");
             DataConfig(m => m.ID).AsPrimaryKey();
         }
 

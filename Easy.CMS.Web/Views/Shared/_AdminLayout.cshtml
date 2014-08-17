@@ -72,17 +72,17 @@
                 <li class="accordion-group">
                     <a class="b_F5C294 selectAble" href="#">
                         <i class="glyphicon glyphicon-th-list"></i>
-                        新闻管理
+                        文章管理
                         <i class="glyphicon group"></i>
                     </a>
                     <div class="accordion-inner">
-                        <a id="menu_newsList" class="selectAble" href="@Url.Action("Index", "News", new {module="News" })">
+                        <a id="menu_newsList" class="selectAble" href="@Url.Action("Index", "Article", new { module = "Article" })">
                             <i class="glyphicon glyphicon-th-list"></i>
-                            新闻列表
+                            文章列表
                         </a>
                         <a href="~/page/admin/edit">
                             <i class="glyphicon glyphicon-th-list"></i>
-                            新闻类别
+                            文章类别
                         </a>
                     </div>
                 </li>
@@ -113,6 +113,7 @@
     @ScriptAtFoot()
     <script type="text/javascript">
         tinymce.init({
+            content_css: ["../../../Content/bootstrap/css/bootstrap.css", "../../../Content/bootstrap/css/bootstrap-theme.css"],
             selector: "textarea.html",
             plugins: [
                 "advlist autolink lists link image charmap print preview anchor",

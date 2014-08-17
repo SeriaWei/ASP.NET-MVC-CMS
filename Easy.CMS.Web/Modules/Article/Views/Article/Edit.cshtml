@@ -1,10 +1,9 @@
-﻿@model Easy.CMS.Layout.LayoutEntity
-@{
-    Style.Reqiured("Layout").AtFoot();
-}
+﻿@model Easy.CMS.Article.Models.ArticleEntity
+
+
 <div class="panel panel-default">
     <div class="panel-heading">
-        <div>布局</div>
+        新建
     </div>
     <div class="panel-body">
         @using (Html.BeginForm())
@@ -12,9 +11,9 @@
             @Html.EditModel()
             <div class="toolBar">
                 <input type="button" class="btn btn-default btn-sm cancel" value="取消" />
+                <input type="submit" class="btn btn-info btn-sm publish" value="发布" />
                 <input type="submit" class="btn btn-primary btn-sm" value="保存" />
             </div>
         }
-        
     </div>
 </div>
