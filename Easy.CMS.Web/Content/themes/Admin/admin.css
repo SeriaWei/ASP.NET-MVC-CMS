@@ -215,11 +215,13 @@ body {
         cursor: pointer;
         background-color: white;
     }
-    .fullRowList li.sorting{
-        height:30px;
-        border: 1px solid #ededed;
-        border-left: 3px solid #E28271;
-    }
+
+        .fullRowList li.sorting {
+            height: 30px;
+            border: 1px solid #ededed;
+            border-left: 3px solid #E28271;
+        }
+
     .fullRowList.widgets li {
         cursor: move;
     }
@@ -237,3 +239,25 @@ body {
     .fullRowList.widgets .glyphicon {
         font-size: 12px;
     }
+
+.input-group-collection {
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 0 4px 4px 0;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+    .input-group-collection .row {
+        padding: 2px 0;
+    }
+
+        .input-group-collection .row:last-child {
+        }
+
+    .input-group-collection .input-group {
+    }
+
+.input-group {
+    margin: 3px 0;
+}

@@ -15,7 +15,7 @@ namespace Easy.CMS.Article.Service
         public override WidgetPart Display(WidgetBase widget, HttpContextBase httpContext)
         {
             ArticleListWidget currentWidget = widget as ArticleListWidget;
-            var categorys = Loader.CreateInstance<IDataDictionaryService>().GetChildren(Constant.DicKeys.ArticleCategory, currentWidget.ArticleCategory);
+            var categorys = new ArticleTypeService().GetChildren(currentWidget.ArticleCategory);
             int category = 0;
             string categoryStr = httpContext.Request.QueryString["ArticleCategory"];
             int pageIndex = 0;
@@ -29,7 +29,8 @@ namespace Easy.CMS.Article.Service
             };
             var filter = new Data.DataFilter();
             filter.Where("IsPublish=true");
-            if (!categoryStr.IsNullOrEmpty())
+            filter.OrderBy("PublishDate", Constant.OrderType.Descending);
+            if (!categoryStr.IsNullOrEmpty() && categorys != null)
             {
                 if (int.TryParse(categoryStr, out category))
                 {
@@ -40,7 +41,7 @@ namespace Easy.CMS.Article.Service
                     viewModel.Articles = new ArticleService().Get(filter.Where("ArticleCategory", Constant.OperatorType.In, categorys.ToList(m => m.ID)), viewModel.Pagin);
                 }
             }
-            else if (categorys.Any())
+            else if (categorys != null && categorys.Any())
             {
                 viewModel.Articles = new ArticleService().Get(filter.Where("ArticleCategory", Constant.OperatorType.In, categorys.ToList(m => m.ID)), viewModel.Pagin);
             }

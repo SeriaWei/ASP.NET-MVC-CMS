@@ -8,16 +8,12 @@ using Easy.Models;
 namespace Easy.CMS.Common.Models
 {
     [DataConfigure(typeof(NavigationEntityMeta))]
-    public class NavigationEntity : EditorEntity, IBasicEntity<string>
+    public class NavigationEntity : EditorEntity
     {
         public string ID { get; set; }
 
-        public string Title { get; set; }
         public string ParentId { get; set; }
-        public string Description { get; set; }
         public string Url { get; set; }
-
-        public int Status { get; set; }
     }
     class NavigationEntityMeta : DataViewMetaData<NavigationEntity>
     {
@@ -31,7 +27,6 @@ namespace Easy.CMS.Common.Models
         {
             ViewConfig(m => m.ID).AsHidden();
             ViewConfig(m => m.ParentId).AsHidden();
-            ViewConfig(m => m.Status).AsDropDownList().DataSource(Constant.DicKeys.RecordStatus, Constant.SourceType.Dictionary);
             ViewConfig(m => m.Url).AsTextBox().AddClass("select").AddProperty("data-url", "/admin/page/select");
         }
     }

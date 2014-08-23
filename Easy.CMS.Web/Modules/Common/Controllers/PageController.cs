@@ -10,10 +10,11 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Easy.Extend;
+using Easy.CMS.Layout;
 
 namespace Easy.CMS.Common.Controllers
 {
-    public class PageController : BasicController<PageEntity, string, PageService>
+    public class PageController : BasicController<PageEntity, PageService>
     {
         [Widget]
         public ActionResult PreView()
@@ -21,19 +22,19 @@ namespace Easy.CMS.Common.Controllers
             return View();
         }
         [AdminTheme]
-        public override ActionResult Index(ParamsContext<string> context)
+        public override ActionResult Index(ParamsContext context)
         {
             return base.Index(context);
         }
 
-        public JsonResult GetPageTree(ParamsContext<string> context)
+        public JsonResult GetPageTree(ParamsContext context)
         {
             var pages = Service.Get(new Data.DataFilter());
             var node = new Easy.HTML.jsTree.Tree<PageEntity>().Source(pages).ToNode(m => m.ID, m => m.PageName, m => m.ParentId, "0");
             return Json(node, JsonRequestBehavior.AllowGet);
         }
-        [AdminTheme]
-        public override ActionResult Create(ParamsContext<string> context)
+        [AdminTheme, ViewData_Layouts]
+        public override ActionResult Create(ParamsContext context)
         {
             if (context == null || context.ParentID.IsNullOrEmpty())
             {
@@ -55,26 +56,26 @@ namespace Easy.CMS.Common.Controllers
             }
             return base.Create(context);
         }
-        [AdminTheme]
+        [AdminTheme, ViewData_Layouts]
         public override ActionResult Create(PageEntity entity)
         {
             return base.Create(entity);
         }
-        [AdminTheme]
-        public override ActionResult Edit(ParamsContext<string> context)
+        [AdminTheme, ViewData_Layouts]
+        public override ActionResult Edit(ParamsContext context)
         {
             return base.Edit(context);
         }
-        [AdminTheme]
+        [AdminTheme, ViewData_Layouts]
         [HttpPost]
-        public override ActionResult Edit(PageEntity entity, Constant.ActionType? actionType)
+        public override ActionResult Edit(PageEntity entity)
         {
-            if (actionType.HasValue && actionType.Value == Constant.ActionType.Design)
+            if (entity.ActionType == Constant.ActionType.Design)
             {
                 return RedirectToAction("Design", new { ID = entity.ID });
             }
-            var result = base.Edit(entity, actionType);
-            if (actionType.HasValue && actionType.Value == Constant.ActionType.Publish)
+            var result = base.Edit(entity);
+            if (entity.ActionType == Constant.ActionType.Publish)
             {
                 Service.Publish(entity.ID);
             }
@@ -85,7 +86,7 @@ namespace Easy.CMS.Common.Controllers
         {
             return View();
         }
-        public ActionResult RedirectView(ParamsContext<string> context)
+        public ActionResult RedirectView(ParamsContext context)
         {
             return Redirect(Service.Get(context.ID).Url + "?ViewType=Review");
         }

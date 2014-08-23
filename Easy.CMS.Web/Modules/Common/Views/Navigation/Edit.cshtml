@@ -10,8 +10,8 @@
         {
             @Html.EditModel()
             <div class="toolBar">
-                <button name="actionType" type="submit" class="btn btn-danger btn-sm delete" value="@((int)ActionType.Delete)">删除</button>
-                <button name="actionType" type="submit" class="btn btn-primary btn-sm" value="@((int)ActionType.Update)">保存</button>
+                <input type="submit" class="btn btn-danger btn-sm delete" value="删除" data-value="@ActionType.Delete" />
+                <input type="submit" class="btn btn-primary btn-sm" value="保存" data-value="@ActionType.Update" />
                 <input type="button" class="btn btn-default btn-sm cancel" value="取消" />
             </div>
         }

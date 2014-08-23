@@ -20,6 +20,7 @@ namespace Easy.CMS.Article.Service
             {
                 Current = articleService.Get(articleId)
             };
+
             return widget.ToWidgetPart(viewModel);
         }
     }

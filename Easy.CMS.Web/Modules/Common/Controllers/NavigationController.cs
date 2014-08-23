@@ -12,13 +12,13 @@ using Easy.Extend;
 namespace Easy.CMS.Common.Controllers
 {
     [AdminTheme]
-    public class NavigationController : BasicController<NavigationEntity, string, NavigationService>
+    public class NavigationController : BasicController<NavigationEntity, NavigationService>
     {
-        public override ActionResult Index(ParamsContext<string> context)
+        public override ActionResult Index(ParamsContext context)
         {
             return base.Index(context);
         }
-        public override ActionResult Create(ParamsContext<string> context)
+        public override ActionResult Create(ParamsContext context)
         {
             if (context == null || context.ParentID.IsNullOrEmpty())
             {
@@ -36,7 +36,7 @@ namespace Easy.CMS.Common.Controllers
             }
             return base.Create(context);
         }
-        public JsonResult GetPageTree(ParamsContext<string> context)
+        public JsonResult GetPageTree(ParamsContext context)
         {
             var navs = Service.Get(new Data.DataFilter());
             var node = new Easy.HTML.jsTree.Tree<NavigationEntity>().Source(navs).ToNode(m => m.ID, m => m.Title, m => m.ParentId, "0");

@@ -10,7 +10,7 @@ using Easy.Web.Attribute;
 namespace Easy.CMS.Common.Controllers
 {
     [AdminTheme]
-    public class WidgetTemplateController : BasicController<WidgetTemplateEntity, long, WidgetTemplateService>
+    public class WidgetTemplateController : BasicController<WidgetTemplateEntity, WidgetTemplateService>
     {
         public ActionResult SelectWidget(QueryContext context)
         {

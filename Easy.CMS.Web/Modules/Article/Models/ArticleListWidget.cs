@@ -5,6 +5,7 @@ using System.Web;
 using Easy.CMS.Widget;
 using Easy.MetaData;
 using Easy.CMS.MetaData;
+using Easy.CMS.Article.Service;
 
 namespace Easy.CMS.Article.Models
 {
@@ -27,7 +28,7 @@ namespace Easy.CMS.Article.Models
         {
             InitViewBase();
             ViewConfig(m => m.Title).AsTextBox().Order(4);
-            ViewConfig(m => m.ArticleCategory).AsDropDownList().Order(5).DataSource(Constant.DicKeys.ArticleCategory, Constant.SourceType.Dictionary);
+            ViewConfig(m => m.ArticleCategory).AsDropDownList().Order(5).DataSource(new ArticleTypeService().Get().ToDictionary(m => m.ID.ToString(), m => m.Title));
             ViewConfig(m => m.DetailPageUrl).AsTextBox().Order(6).AddClass("select").AddProperty("data-url", "/admin/page/select");
         }
     }

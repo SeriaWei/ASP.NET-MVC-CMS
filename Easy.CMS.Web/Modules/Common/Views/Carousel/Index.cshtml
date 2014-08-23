@@ -1,0 +1,11 @@
+﻿@model Easy.CMS.Common.Models.CarouselEntity
+
+<div id="toolBar">
+    <a href="@Url.Action("Create")" class="btn btn-default btn-sm">新建</a>
+</div>
+@(
+ Html.Grid().SetColumnTemplate(col =>
+ {
+     col.Add(m => m.Title, "<a href='" + Url.Action("Edit") + "?ID={ID}'>{Title}</a>");
+ }).SetAsToolBar("#toolBar").ShowCheckbox(m => m.ID).OrderBy(m => m.ID, OrderType.Descending)
+)

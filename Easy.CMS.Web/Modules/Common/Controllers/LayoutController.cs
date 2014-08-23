@@ -15,10 +15,10 @@ using Easy.CMS.Widget;
 namespace Easy.CMS.Common.Controllers
 {
 
-    public class LayoutController : BasicController<LayoutEntity, string, LayoutService>
+    public class LayoutController : BasicController<LayoutEntity, LayoutService>
     {
         [AdminTheme]
-        public override System.Web.Mvc.ActionResult Index(ParamsContext<string> context)
+        public override System.Web.Mvc.ActionResult Index(ParamsContext context)
         {
             return View(Service.Get(new Data.DataFilter()));
         }
@@ -40,7 +40,7 @@ namespace Easy.CMS.Common.Controllers
             return View(viewModel);
         }
         [AdminTheme]
-        public override ActionResult Create(ParamsContext<string> context)
+        public override ActionResult Create(ParamsContext context)
         {
             return base.Create(context);
         }
@@ -50,21 +50,21 @@ namespace Easy.CMS.Common.Controllers
             return base.Create(entity);
         }
         [AdminTheme]
-        public override ActionResult Edit(ParamsContext<string> context)
+        public override ActionResult Edit(ParamsContext context)
         {
             return base.Edit(context);
         }
         [AdminTheme]
         [HttpPost]
-        public override ActionResult Edit(LayoutEntity entity, ActionType? actionType)
+        public override ActionResult Edit(LayoutEntity entity)
         {
-            if (actionType.HasValue && actionType.Value == ActionType.Design)
+            if (entity.ActionType == ActionType.Design)
             {
                 return RedirectToAction("Design", new { ID = entity.ID });
             }
-            return base.Edit(entity, actionType);
+            return base.Edit(entity);
         }
-        public ActionResult Design(ParamsContext<string> context)
+        public ActionResult Design(ParamsContext context)
         {
             LayoutEntity layout = null;
             if (!context.ID.IsNullOrEmpty())

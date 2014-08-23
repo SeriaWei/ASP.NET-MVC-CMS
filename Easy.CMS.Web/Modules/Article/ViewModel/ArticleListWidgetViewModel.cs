@@ -11,7 +11,7 @@ namespace Easy.CMS.Article.ViewModel
     {
         public Data.Pagination Pagin { get; set; }
         public ArticleListWidget Widget { get; set; }
-        public IEnumerable<DataDictionaryEntity> ArticleCategory { get; set; }
+        public IEnumerable<ArticleType> ArticleCategory { get; set; }
         public IEnumerable<ArticleEntity> Articles { get; set; }
     }
 }

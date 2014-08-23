@@ -1,6 +1,5 @@
 ﻿@using Easy.CMS.Common.Models
 @{
-    Style.Reqiured("Navigation").AtHead();
     Script.Reqiured("Navigation").AtFoot();
 }
 @model IEnumerable<NavigationEntity>
@@ -10,7 +9,7 @@
         if (Model.Any(m => m.ParentId == entity.ID))
         {
             System.Text.StringBuilder builder = new System.Text.StringBuilder();
-            builder.Append("<ul>");
+            builder.AppendFormat("<ul class='{0}' style='{1}'>", entity.ParentId == "0" ? "popup-nav" : "popup-nav-children", entity.ParentId == "0" ? "display:none" : "");
             foreach (NavigationEntity item in Model.Where(m => m.ParentId == entity.ID))
             {
                 builder.Append("<li>");
@@ -24,15 +23,27 @@
         return string.Empty;
     }
 }
-<div class="navigation">
+<div class="top-nav">
     <ul>
         @foreach (NavigationEntity item in Model.Where(m => m.ParentId == "0"))
         {
             <li>
-                <a id="nav_@item.ID" href="@item.Url" class="@(Request.Path.Equals(item.Url)?"actived":"")">@item.Title</a>
+                <a id="nav_@item.ID" href="@item.Url" class="@(Request.Path.Equals(item.Url)?"current":"")">@item.Title</a>
                 @Html.Raw(GetChildren(item))
             </li>
         }
     </ul>
     <div class="clear"></div>
 </div>
+@using (Script.AtFoot())
+{
+    <script type="text/javascript">
+        $(function () {
+            $(".top-nav>ul>li").mouseenter(function () {
+                $(this).children("ul").show(200);
+            }).mouseleave(function () {
+                $(this).children("ul").hide(200);
+            });
+        });
+    </script>
+}

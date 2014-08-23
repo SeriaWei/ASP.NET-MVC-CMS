@@ -15,7 +15,6 @@ namespace Easy.CMS.Common
         public override void InitStyle()
         {
             Style("Layout").Include("~/Modules/Common/Content/Layout.css");
-            Style("Navigation").Include("~/Modules/Common/Content/Navigation.css");
         }
     }
 }

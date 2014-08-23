@@ -113,16 +113,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActionFilter\ViewData_ArticleTypeAttribute.cs" />
     <Compile Include="Controllers\ArticleController.cs" />
+    <Compile Include="Controllers\ArticleTypeController.cs" />
     <Compile Include="Models\ArticleDetailWidget.cs" />
     <Compile Include="Models\ArticleEntity.cs" />
     <Compile Include="Models\ArticleListWidget.cs" />
+    <Compile Include="Models\ArticleType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ResourceManager.cs" />
     <Compile Include="RouteRegister.cs" />
     <Compile Include="Service\ArticleDetailWidgetService.cs" />
     <Compile Include="Service\ArticleListWidgetService.cs" />
     <Compile Include="Service\ArticleService.cs" />
+    <Compile Include="Service\ArticleTypeService.cs" />
     <Compile Include="ViewModel\ArticleDetailViewModel.cs" />
     <Compile Include="ViewModel\ArticleListWidgetViewModel.cs" />
   </ItemGroup>
@@ -150,6 +154,9 @@
     <Content Include="Views\Article\Edit.cshtml" />
     <Content Include="Views\Widget.ArticleList.cshtml" />
     <Content Include="Views\Widget.ArticleDetail.cshtml" />
+    <Content Include="Views\ArticleType\Index.cshtml" />
+    <Content Include="Views\ArticleType\Create.cshtml" />
+    <Content Include="Views\ArticleType\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Filters\" />

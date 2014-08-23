@@ -561,6 +561,11 @@
     <Content Include="Scripts\zTree\js\jquery.ztree.exedit-3.5.min.js" />
     <Content Include="Scripts\zTree\js\jquery.ztree.exhide-3.5.js" />
     <Content Include="Scripts\zTree\js\jquery.ztree.exhide-3.5.min.js" />
+    <Content Include="Themes\Default\css\theme.css" />
+    <Content Include="Themes\Default\images\col_side_bg.png" />
+    <Content Include="Themes\Default\images\icon_point.png" />
+    <Content Include="Themes\Default\images\icon_square.png" />
+    <Content Include="Themes\Default\images\prd_sort_title.gif" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

@@ -1,0 +1,50 @@
+﻿@using Easy.CMS.Article.Models
+@using Easy.HTML.jsTree
+@{
+   
+}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-5">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div>
+                        <span class="badge">文章类别</span> 
+                        
+                        <a href="@Url.Action("Create")" class="btn btn-primary btn-xs">
+                            <i class="glyphicon glyphicon-plus"></i>
+                            添加类别
+                        </a>
+                    </div>
+                </div>
+                <div class="panel-body">
+
+                    @(
+ Html.Tree<ArticleType>().Source("GetArticleTypeTree", "ArticleType", new { module = "Article" })
+ .AddPlugin(Plugins.ContextMenu)
+ .AddContextMenuItem(new ContextmenuItem { Label = "新建", Action = "Create" })
+         .AddContextMenuItem(new ContextmenuItem { Label = "编辑", Action = "Edit" })
+                    )
+
+                </div>
+            </div>
+        </div>
+        <div id="pageZones" class="col-md-7">
+
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    function Create(node) {
+        var parent = node.reference.attr("id");
+        window.location.href = '@Url.Action("Create", "ArticleType", new { module = "Article" })' + '?ParentID=' + parent;
+    }
+    function Edit(node) {
+        var id = node.reference.attr("id");
+        window.location.href = '@Url.Action("Edit", "ArticleType", new { module = "Article" })' + '?ID=' + id;
+    }
+
+
+</script>

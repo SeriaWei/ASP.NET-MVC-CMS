@@ -28,6 +28,10 @@
         }
         return false;
     });
+    $("input[type=submit]").click(function () {
+        $("#ActionType").val($(this).data("value"));
+        return true;
+    });
     $("#IsPublish").val("false");
     $("#PublishDate").val("");
     $(".select").each(function () {
@@ -46,17 +50,28 @@
             }
         });
     });
-    var currentSelect = $("a.selectAble[href='" + location.pathname + "']");
+    var currentSelect = $(".nav.navbar-nav a[href='" + location.pathname + "']");
     if (currentSelect.size()) {
         currentSelect.addClass("active");
         Easy.Cookie.SetCookie("selectAble", location.pathname);
     }
     else {
-        $("a.selectAble[href='" + Easy.Cookie.GetCookie("selectAble") + "']").addClass("active");
+        $(".nav.navbar-nav a[href='" + Easy.Cookie.GetCookie("selectAble") + "']").addClass("active");
     }
-    var activeHref = $("a.selectAble.active");
+    var activeHref = $(".nav.navbar-nav a.active");
     if (activeHref.parent().hasClass("accordion-inner")) {
         activeHref.parent().show();
         activeHref.parent().prev().addClass("active");
     }
+
+    $(".input-group-collection .add").live("click", function () {
+        var index = $(this).parents(".input-group-collection").children(".item").size();
+        var html = $($(this).parents(".input-group-collection").children(".Template").html().replaceAll("{0}", index));
+        html.find("input.actionType").val($(this).data("value"));
+        $(this).parents(".input-group-collection").append(html);
+    });
+    $(".input-group-collection .delete").live("click", function () {
+        $(this).parents(".item").find("input.actionType").val($(this).data("value"));
+        $(this).parents(".item").hide();
+    });
 });
