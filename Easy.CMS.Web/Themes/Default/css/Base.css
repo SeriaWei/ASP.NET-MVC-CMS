@@ -1,0 +1,61 @@
+﻿html {
+  background: #fff;
+}
+body {
+  margin: 0;
+  font: 14px/1.8 Tahoma, Geneva, '\5fae\8f6f\96c5\9ed1', '\5B8B\4F53';
+  color: #444444;
+}
+input,
+textarea,
+select {
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  outline: none;
+}
+html:root body,
+html:root input,
+html:root button,
+html:root textarea,
+html:root select {
+  font-family: Tahoma, Geneva, '\5fae\8f6f\96c5\9ed1', '\5B8B\4F53';
+}
+form,
+ul,
+ol,
+li,
+dl,
+dt,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: #444444;
+  outline: none;
+}
+a:hover {
+  color: #ad1422;
+  text-decoration: underline;
+}
+a a img {
+  border: none;
+}
+i,
+em {
+  font-style: normal;
+}
+b,
+strong {
+  color: #ad1422;
+}
+/*# sourceMappingURL=Base.css.map */

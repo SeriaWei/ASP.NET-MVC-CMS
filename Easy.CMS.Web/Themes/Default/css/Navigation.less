@@ -1,0 +1,67 @@
+﻿@import "Library.less";
+@linkColor:#fff;
+
+.top-nav {
+    background: @mainColor;
+    line-height: 46px;
+    clear: both;
+    position: relative;
+    z-index: 3;
+}
+
+    .top-nav li {
+        float: left;
+        position: relative;
+        margin-right: 10px;
+    }
+
+.top-nav li a {
+    color: @linkColor;
+    float: left;
+    padding: 0 15px;
+    font-size: 16px;
+    .transition(all 0.1s ease-in);
+}
+
+            .top-nav li a:hover, .top-nav li a.current {
+                background: @mainColorDeep;
+                color: @linkColor;
+                text-decoration: none;
+            }
+
+    .top-nav .popup-nav {
+        background: @mainColorLight;
+        height: auto;
+        padding: 5px 0;
+        position: absolute;
+        left: 0;
+        top: 46px;
+        width: 140px;
+        z-index: 1;
+    }
+
+        .top-nav .popup-nav li {
+            float: left;
+            width: 100%;
+            padding: 0;
+            margin: 0;
+        }
+
+        .top-nav .popup-nav a {
+            color: @linkColor;
+            border: 0;
+            float: none;
+            font-size: 14px;
+            font-weight: normal;
+            display: block;
+            height: 30px;
+            line-height: 30px;
+            padding: 0 15px;
+            white-space: nowrap;
+        }
+
+            .top-nav .popup-nav a:hover {
+                color: @linkColor;
+                background: @mainColorDeep;
+                text-decoration: none;
+            }

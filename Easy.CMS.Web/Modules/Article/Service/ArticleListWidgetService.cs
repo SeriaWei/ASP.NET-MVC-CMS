@@ -15,17 +15,20 @@ namespace Easy.CMS.Article.Service
         public override WidgetPart Display(WidgetBase widget, HttpContextBase httpContext)
         {
             ArticleListWidget currentWidget = widget as ArticleListWidget;
-            var categorys = new ArticleTypeService().GetChildren(currentWidget.ArticleCategory);
+            var articleTypeService = new ArticleTypeService();
+
+            var categorys = articleTypeService.GetChildren(currentWidget.ArticleCategory);
             int category = 0;
             string categoryStr = httpContext.Request.QueryString["ArticleCategory"];
             int pageIndex = 0;
             int.TryParse(httpContext.Request.QueryString["p"], out pageIndex);
-
+            var categoryEntity = articleTypeService.Get(currentWidget.ArticleCategory);
             ArticleListWidgetViewModel viewModel = new ArticleListWidgetViewModel
             {
                 Widget = currentWidget,
                 ArticleCategory = categorys,
-                Pagin = new Data.Pagination { PageIndex = pageIndex }
+                Pagin = new Data.Pagination { PageIndex = pageIndex },
+                CategoryTitle = categoryEntity == null ? "" : categoryEntity.Title
             };
             var filter = new Data.DataFilter();
             filter.Where("IsPublish=true");

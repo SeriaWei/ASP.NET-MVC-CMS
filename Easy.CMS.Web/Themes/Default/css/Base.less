@@ -1,0 +1,51 @@
+﻿@import "Library.less";
+
+html {
+    background: #fff;
+}
+
+body {
+    margin: 0;
+    font: 14px/1.8 @fontFamaily;
+    color: @textColor;
+}
+
+input, textarea, select {
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    outline: none;
+}
+
+html:root body, html:root input, html:root button, html:root textarea, html:root select {
+    font-family: @fontFamaily;
+}
+
+form, ul, ol, li, dl, dt, dd, h1, h2, h3, h4, h5, p {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: @textColor;
+    outline: none;
+
+    &:hover {
+        color: @mainColor;
+        text-decoration: underline;
+    }
+
+    a img {
+        border: none;
+    }
+}
+
+i, em {
+    font-style: normal;
+}
+
+b,strong {
+    color: @mainColor;
+}

@@ -561,8 +561,44 @@
     <Content Include="Scripts\zTree\js\jquery.ztree.exedit-3.5.min.js" />
     <Content Include="Scripts\zTree\js\jquery.ztree.exhide-3.5.js" />
     <Content Include="Scripts\zTree\js\jquery.ztree.exhide-3.5.min.js" />
-    <Content Include="Themes\Default\css\theme.css" />
+    <Content Include="Themes\Default\css\Base.css">
+      <DependentUpon>Base.less</DependentUpon>
+    </Content>
+    <Content Include="Themes\Default\css\Base.min.css">
+      <DependentUpon>Base.css</DependentUpon>
+    </Content>
+    <Content Include="Themes\Default\css\Library.css">
+      <DependentUpon>Library.less</DependentUpon>
+    </Content>
+    <Content Include="Themes\Default\css\Library.min.css">
+      <DependentUpon>Library.css</DependentUpon>
+    </Content>
+    <Content Include="Themes\Default\css\Navigation.css">
+      <DependentUpon>Navigation.less</DependentUpon>
+    </Content>
+    <Content Include="Themes\Default\css\Navigation.min.css">
+      <DependentUpon>Navigation.css</DependentUpon>
+    </Content>
+    <Content Include="Themes\Default\css\Pagination.css">
+      <DependentUpon>Pagination.less</DependentUpon>
+    </Content>
+    <Content Include="Themes\Default\css\Pagination.min.css">
+      <DependentUpon>Pagination.css</DependentUpon>
+    </Content>
+    <Content Include="Themes\Default\css\Product.css">
+      <DependentUpon>Product.less</DependentUpon>
+    </Content>
+    <Content Include="Themes\Default\css\Product.min.css">
+      <DependentUpon>Product.css</DependentUpon>
+    </Content>
+    <Content Include="Themes\Default\css\Theme.css">
+      <DependentUpon>Theme.less</DependentUpon>
+    </Content>
+    <Content Include="Themes\Default\css\Theme.min.css">
+      <DependentUpon>Theme.css</DependentUpon>
+    </Content>
     <Content Include="Themes\Default\images\col_side_bg.png" />
+    <Content Include="Themes\Default\images\header_bg.png" />
     <Content Include="Themes\Default\images\icon_point.png" />
     <Content Include="Themes\Default\images\icon_square.png" />
     <Content Include="Themes\Default\images\prd_sort_title.gif" />
@@ -639,6 +675,30 @@
     <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce.woff" />
     <Content Include="Views\Shared\_PopUpLayout.cshtml" />
     <Content Include="Views\Shared\Partial_Pagination.cshtml" />
+    <Content Include="Themes\Default\css\Base.less" />
+    <Content Include="Themes\Default\css\Base.css.map">
+      <DependentUpon>Base.css</DependentUpon>
+    </Content>
+    <Content Include="Themes\Default\css\Navigation.less" />
+    <Content Include="Themes\Default\css\Navigation.css.map">
+      <DependentUpon>Navigation.css</DependentUpon>
+    </Content>
+    <Content Include="Themes\Default\css\Pagination.less" />
+    <Content Include="Themes\Default\css\Pagination.css.map">
+      <DependentUpon>Pagination.css</DependentUpon>
+    </Content>
+    <Content Include="Themes\Default\css\Theme.less" />
+    <Content Include="Themes\Default\css\Theme.css.map">
+      <DependentUpon>Theme.css</DependentUpon>
+    </Content>
+    <Content Include="Themes\Default\css\Library.less" />
+    <Content Include="Themes\Default\css\Library.css.map">
+      <DependentUpon>Library.css</DependentUpon>
+    </Content>
+    <Content Include="Themes\Default\css\Product.less" />
+    <Content Include="Themes\Default\css\Product.css.map">
+      <DependentUpon>Product.css</DependentUpon>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />

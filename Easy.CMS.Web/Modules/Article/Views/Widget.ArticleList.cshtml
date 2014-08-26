@@ -8,7 +8,7 @@
             <div class="col-md-3">
                 <div class="side-box">
                     <h4 class="item-title-sub">
-                        <a href="@Request.Path">@Model.Widget.Title</a>
+                        <a href="@Request.Path">@Model.CategoryTitle</a>
                     </h4>
                     <div class="prd-sort">
                         <ul class="js-prd_sort">
@@ -29,9 +29,13 @@
 
             </div>
             <div class="col-md-9">
-                <div class="item-title">
-                    <h5>新闻资讯</h5>
-                </div>
+                @if (!Model.Widget.Title.IsNullOrEmpty())
+                {
+                    <div class="item-title">
+                        <h5>@Model.Widget.Title</h5>
+                    </div>
+                }
+                
                 <div class="module-container">
                     <div class="mb-article_list">
                         <ul>
