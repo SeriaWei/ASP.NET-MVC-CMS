@@ -6,8 +6,12 @@
 }
 @model Easy.CMS.Layout.LayoutEntity
 <!DOCTYPE html>
-
-<html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="zh"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="zh"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="zh"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html class="not-ie" lang="zh">
+<!--<![endif]-->
 <head>
     <meta name="viewport" content="width=device-width" />
     <title></title>
@@ -105,7 +109,7 @@
             $("#toolBar").droppable({
                 activeClass: "dropWarning",
                 hoverClass: "dropDanger",
-                accept: ".delable",
+                accept: ".additional",
                 drop: function (event, ui) {
                     ui.draggable.remove();
                 }
@@ -136,7 +140,7 @@
                     }
                 }
             };
-            $("#container .delable.row").droppable(opRowDrop).sortable();
+            $("#container .additional.row").droppable(opRowDrop).sortable();
             $("#container .colContent").droppable(opColDrop).sortable();
 
             $(".zone input").live("blur", function () {
@@ -145,9 +149,9 @@
             function rowDropToContent(event, ui, obj) {
                 if (obj == null)
                     obj = this;
-                var row = $("<div class=\"delable row\"></div>");
+                var row = $("<div class=\"additional row\"></div>");
                 if (ui.draggable.find("input").val()) {
-                    row.css("width", ui.draggable.find("input").val());
+                    row.css("width", ui.draggable.find("input").val()).css("margin", "0 auto");
                 }
                 row.droppable(opRowDrop);
                 row.sortable();
@@ -157,9 +161,9 @@
             function rowDroped(event, ui, obj) {
                 if (obj == null)
                     obj = this;
-                var row = $("<div class=\"delable " + ui.draggable.data("container") + "\"><div class=\"row\"></div></div>");
+                var row = $("<div class=\"additional " + ui.draggable.data("container") + "\"><div class=\"row additional\"></div></div>");
                 if (ui.draggable.find("input").val()) {
-                    row.css("width", ui.draggable.find("input").val());
+                    row.find(".row").css("width", ui.draggable.find("input").val()).css("margin", "0 auto");
                 }
                 row.children(".row").droppable(opRowDrop).sortable();
                 $(obj).append(row);
@@ -172,7 +176,7 @@
                     zoneDropable(event, ui, obj);
                     return;
                 }
-                var col = $("<div class=\"delable " + ui.draggable.data("col") + ui.draggable.find("select").val() + "\"><div class=\"colContent\"></div></div>");
+                var col = $("<div class=\"additional " + ui.draggable.data("col") + ui.draggable.find("select").val() + "\"><div class=\"colContent row\"></div></div>");
                 col.children(".colContent").droppable(opColDrop).sortable();
                 $(obj).append(col);
                 $(".dropWarning").removeClass("dropWarning");
@@ -181,7 +185,7 @@
                 if (obj == null) {
                     obj = this;
                 }
-                var zoneParent = $('<div class="delable zone"></div>');
+                var zoneParent = $('<div class="additional zone"></div>');
                 var zone = $("<zone></zone>");
                 zone.append('<input class="form-control" type="text" name="ZoneName" placeholder="Enter Zone Name" value="Zone' + ($("#container input[type=text]").size() + 1) + '" />');
                 zone.append('<input class="form-control" type="hidden" name="LayoutId" value="' + $("#LayoutId").val() + '" />');

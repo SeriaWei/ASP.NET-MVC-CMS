@@ -48,7 +48,7 @@
 }
 
 .navbar-inner {
-    padding: 5px 0px 5px;
+    padding: 5px 0 5px;
 }
 
     .navbar-inner .radio,
@@ -56,11 +56,11 @@
         margin: 0;
     }
 
-.design .delable.row {
+.design .additional.row {
     min-height: 100px;
     border: 1px dashed #46b8da;
     background-color: white;
-    margin: 4px -11px;
+    margin:2px -13px;
     cursor: move;
 }
 
@@ -68,8 +68,8 @@
 .border .zone {
     min-height: 80px;
     border: 1px dashed red;
-    margin: 4px;
     background-color: white;
+    margin:2px;
 }
 
     .design .zone input {
@@ -84,15 +84,17 @@
 
 .design .colContent,
 .border .colContent {
-    border: 1px dotted #eea236;
     min-height: 90px;
-    margin: 4px auto;
+    margin-top: 1px;
+    margin-bottom:1px;
     background-color: white;
 }
 
-.design .zone,
+
 .design .colContent {
     cursor: move;
+    border:1px dashed orange;
+    margin:2px -13px;
 }
 
 .pagePreview {
@@ -120,6 +122,7 @@
     right: 2px;
     bottom: 2px;
     padding: 2px;
+    z-index:1;
 }
 
 .border .zoneName {
