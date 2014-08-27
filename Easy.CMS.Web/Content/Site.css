@@ -1,16 +1,7 @@
 ﻿body, html {
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
 }
-
-body {
-    background: url(Images/bg.gif);
-}
-
-dd{
-    color:#808080;
-}
-
 
 img {
     max-width: 100%;
@@ -20,9 +11,6 @@ img {
     clear: both;
 }
 
-#container {
-    background-color: white;
-}
 
 .thumbnail, dl {
     margin-bottom: 0;

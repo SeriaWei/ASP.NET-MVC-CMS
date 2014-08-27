@@ -561,11 +561,23 @@
     <Content Include="Scripts\zTree\js\jquery.ztree.exedit-3.5.min.js" />
     <Content Include="Scripts\zTree\js\jquery.ztree.exhide-3.5.js" />
     <Content Include="Scripts\zTree\js\jquery.ztree.exhide-3.5.min.js" />
+    <Content Include="Themes\Default\css\Article.css">
+      <DependentUpon>Article.less</DependentUpon>
+    </Content>
+    <Content Include="Themes\Default\css\Article.min.css">
+      <DependentUpon>Article.css</DependentUpon>
+    </Content>
     <Content Include="Themes\Default\css\Base.css">
       <DependentUpon>Base.less</DependentUpon>
     </Content>
     <Content Include="Themes\Default\css\Base.min.css">
       <DependentUpon>Base.css</DependentUpon>
+    </Content>
+    <Content Include="Themes\Default\css\Carousel.css">
+      <DependentUpon>Carousel.less</DependentUpon>
+    </Content>
+    <Content Include="Themes\Default\css\Carousel.min.css">
+      <DependentUpon>Carousel.css</DependentUpon>
     </Content>
     <Content Include="Themes\Default\css\Library.css">
       <DependentUpon>Library.less</DependentUpon>
@@ -586,7 +598,7 @@
       <DependentUpon>Pagination.css</DependentUpon>
     </Content>
     <Content Include="Themes\Default\css\Product.css">
-      <DependentUpon>Product.less</DependentUpon>
+      <DependentUpon>Article.less</DependentUpon>
     </Content>
     <Content Include="Themes\Default\css\Product.min.css">
       <DependentUpon>Product.css</DependentUpon>
@@ -597,6 +609,7 @@
     <Content Include="Themes\Default\css\Theme.min.css">
       <DependentUpon>Theme.css</DependentUpon>
     </Content>
+    <Content Include="Themes\Default\images\bg.gif" />
     <Content Include="Themes\Default\images\col_side_bg.png" />
     <Content Include="Themes\Default\images\header_bg.png" />
     <Content Include="Themes\Default\images\icon_point.png" />
@@ -695,9 +708,16 @@
     <Content Include="Themes\Default\css\Library.css.map">
       <DependentUpon>Library.css</DependentUpon>
     </Content>
-    <Content Include="Themes\Default\css\Product.less" />
+    <Content Include="Themes\Default\css\Article.less" />
     <Content Include="Themes\Default\css\Product.css.map">
       <DependentUpon>Product.css</DependentUpon>
+    </Content>
+    <Content Include="Themes\Default\css\Article.css.map">
+      <DependentUpon>Article.css</DependentUpon>
+    </Content>
+    <Content Include="Themes\Default\css\Carousel.less" />
+    <Content Include="Themes\Default\css\Carousel.css.map">
+      <DependentUpon>Carousel.css</DependentUpon>
     </Content>
   </ItemGroup>
   <ItemGroup>

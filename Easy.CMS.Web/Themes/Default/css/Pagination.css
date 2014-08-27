@@ -5,7 +5,7 @@
 .pagination a {
   padding: 3px 8px;
   margin: 3px;
-  border: 1px dotted #AAA;
+  border: 1px solid #dedede;
   float: left;
   text-decoration: none;
 }
@@ -16,7 +16,7 @@
   background-color: #bf1727;
 }
 .pagination a.disable {
-  background-color: #CCC;
+  background-color: #b4b4b4;
   color: white;
   cursor: default;
   text-decoration: none;

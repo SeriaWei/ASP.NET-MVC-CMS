@@ -1,0 +1,60 @@
+﻿@import "Library.less";
+
+
+.article {
+    margin-top: 10px;
+
+    .category {
+        background-color: @bgColor;
+        padding-bottom:20px;
+        .category-list {
+
+            >ul {
+                >li {
+                    height: 35px;
+                    position: relative;
+                    vertical-align: middle;
+                    margin-bottom: 1px;
+
+                    .category-title {
+                        padding: 10px 20px 10px 0;
+                        border-bottom: 1px dotted @borderColor;
+
+                        a {
+                            background-position: right center;
+                            background-repeat: no-repeat;
+                            display: block;
+                            padding: 0 20px;
+
+                            &:hover, &.focus {
+                                background-image: data-uri("../images/prd_sort_title.gif");
+                                color: @mainColor;
+                                text-decoration: none;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .article-list {
+        margin-top:10px;
+        li {
+            background: data-uri("../images/icon_point.png") 4px center no-repeat;
+            line-height: 34px;
+            padding-left: 20px;
+            position: relative;
+            .title{
+                font-weight:normal;
+            }
+            .time {
+                font-size: 12px;
+                color: @descritpionColor;
+                position: absolute;
+                right: 0;
+                top: 0;
+            }
+        }
+    }
+}
