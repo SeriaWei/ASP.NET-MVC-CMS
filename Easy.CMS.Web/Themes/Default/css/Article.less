@@ -6,7 +6,8 @@
 
     .category {
         background-color: @bgColor;
-        padding-bottom:20px;
+        padding-bottom: 20px;
+
         .category-list {
 
             >ul {
@@ -39,22 +40,47 @@
     }
 
     .article-list {
-        margin-top:10px;
-        li {
-            background: data-uri("../images/icon_point.png") 4px center no-repeat;
-            line-height: 34px;
-            padding-left: 20px;
-            position: relative;
-            .title{
-                font-weight:normal;
-            }
-            .time {
-                font-size: 12px;
-                color: @descritpionColor;
-                position: absolute;
-                right: 0;
-                top: 0;
+        margin-top: 10px;
+
+        >ul {
+            >li {
+                background: data-uri("../images/icon_point.png") 4px center no-repeat;
+                line-height: 34px;
+                padding-left: 20px;
+                position: relative;
+
+                .title {
+                    font-weight: normal;
+                }
+
+                .time {
+                    font-size: 12px;
+                    color: @descritpionColor;
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                }
+
+                dd {
+                    font-size: 13px;
+                }
             }
         }
     }
+}
+
+.articleDetail {
+    .articleDetail .title {
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .articleDetail .publishDate {
+        text-align: center;
+        color: @descritpionColor;
+    }
+
+    .articleDetail .detail {
+    }
+
 }

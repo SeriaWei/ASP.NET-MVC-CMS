@@ -11,7 +11,7 @@ namespace Easy.CMS.Product.Entities
     public class ProductListWidget : WidgetBase
     {
     }
-    public class ProductListWidgetMetaData : DataViewMetaData<ProductListWidget>
+    class ProductListWidgetMetaData : DataViewMetaData<ProductListWidget>
     {
         protected override bool IsIgnoreBase()
         {

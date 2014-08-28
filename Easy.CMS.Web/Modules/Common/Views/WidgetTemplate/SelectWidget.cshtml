@@ -10,23 +10,31 @@
     <div class="panel-body">
         @using (Html.BeginForm("RedirectToWidget", "WidgetTemplate", new { module = "Common", Model.PageID, Model.LayoutID, Model.ZoneID, Model.ReturnUrl }))
         {
-            <div class="container-fluid">
-                <div class="row-fluid">
-                    @foreach (WidgetTemplateEntity item in this.Model.WidgetTemplates)
-                    {
-                        <div class="col-md-6">
-                            <div class="radio">
-                                <label>
-                                    <input type="radio" name="WidgetTemplateID" value="@item.ID">
-                                    @item.Title
-                                </label>
+            foreach (var item in this.Model.WidgetTemplates.GroupBy(m => m.GroupName))
+            {
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div>@item.Key</div>
+                    </div>
+                    <div class="panel-body">
+                        @foreach (WidgetTemplateEntity template in item.OrderBy(m=>m.Order))
+                        {
+                            <div class="col-md-3">
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="WidgetTemplateID" value="@template.ID"/>
+                                        @template.Title
+                                    </label>
+                                </div>
                             </div>
-                        </div>
-                    }
+                        }
+                    </div>
                 </div>
-            </div>
+
+
+            }
             <div class="toolBar">
-                <input type="button" class="btn btn-default btn-sm" value="取消" onclick="javascript:window.history.back()" />
+                <input type="button" class="btn btn-default btn-sm cancel" value="取消" />
                 <input id="design" type="submit" class="btn btn-success btn-sm" value="下一步" />
             </div>
         }
