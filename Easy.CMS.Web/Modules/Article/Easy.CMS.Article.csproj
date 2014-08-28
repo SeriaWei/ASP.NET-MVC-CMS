@@ -119,12 +119,14 @@
     <Compile Include="Models\ArticleDetailWidget.cs" />
     <Compile Include="Models\ArticleEntity.cs" />
     <Compile Include="Models\ArticleListWidget.cs" />
+    <Compile Include="Models\ArticleSummaryWidget.cs" />
     <Compile Include="Models\ArticleTopWidget.cs" />
     <Compile Include="Models\ArticleType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ResourceManager.cs" />
     <Compile Include="RouteRegister.cs" />
     <Compile Include="Service\ArticleDetailWidgetService.cs" />
+    <Compile Include="Service\ArticleSummaryWidgetService.cs" />
     <Compile Include="Service\ArticleTopWidgetService.cs" />
     <Compile Include="Service\ArticleListWidgetService.cs" />
     <Compile Include="Service\ArticleService.cs" />
@@ -161,6 +163,7 @@
     <Content Include="Views\ArticleType\Create.cshtml" />
     <Content Include="Views\ArticleType\Edit.cshtml" />
     <Content Include="Views\Widget.ArticleTops.cshtml" />
+    <Content Include="Views\Widget.ArticleSummary.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Filters\" />

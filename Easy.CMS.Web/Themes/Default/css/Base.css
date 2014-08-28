@@ -69,5 +69,19 @@ strong {
   border-bottom: 1px solid #dedede;
   padding: 0 5px 0 26px;
   margin: 0;
+  position: relative;
+}
+.item-title i {
+  color: #9e9e9e;
+  margin-left: 3px;
+  font-style: italic;
+}
+.item-title .more {
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0;
+  line-height: 37px;
+  font-size: 13px;
 }
 /*# sourceMappingURL=Base.css.map */

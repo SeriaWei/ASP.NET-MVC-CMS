@@ -1,0 +1,16 @@
+﻿@model Easy.CMS.Article.Models.ArticleSummaryWidget
+@{
+
+}
+<div class="container-fluid article summary">
+    @if (!Model.Title.IsNullOrEmpty())
+    {
+        <div class="item-title">
+            <h5>@Model.Title<i>@Model.SubTitle</i></h5>
+            <a class="more" href="@Model.DetailLink">详细>></a>
+        </div>
+    }
+    <div class="detail">
+        @Html.Raw(Model.Summary)
+    </div>
+</div>

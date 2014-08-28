@@ -614,6 +614,7 @@
     <Content Include="Themes\Default\images\header_bg.png" />
     <Content Include="Themes\Default\images\icon_point.png" />
     <Content Include="Themes\Default\images\icon_square.png" />
+    <Content Include="Themes\Default\images\more.png" />
     <Content Include="Themes\Default\images\prd_sort_title.gif" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">

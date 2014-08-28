@@ -1,13 +1,13 @@
 ﻿@import "Library.less";
 
-html {    
+html {
     margin: 0;
-    padding:0;
+    padding: 0;
 }
 
 body {
     margin: 0;
-    padding:0;
+    padding: 0;
     font: 14px/1.8 @fontFamaily;
     color: @textColor;
     background: data-uri("../Images/bg.gif");
@@ -15,8 +15,9 @@ body {
 
 #container {
     background-color: white;
-    border:1px solid @borderColor;
+    border: 1px solid @borderColor;
 }
+
 input, textarea, select {
     margin: 0;
     padding: 0;
@@ -33,9 +34,11 @@ form, ul, ol, li, dl, dt, dd, p {
     padding: 0;
     list-style: none;
 }
-dd{
-    color:@descritpionColor;
+
+dd {
+    color: @descritpionColor;
 }
+
 a {
     text-decoration: none;
     color: @textColor;
@@ -55,7 +58,7 @@ i, em {
     font-style: normal;
 }
 
-b,strong {
+b, strong {
     color: @mainColor;
 }
 
@@ -65,6 +68,23 @@ b,strong {
     border-top: 1px solid @mainColor;
     border-bottom: 1px solid @borderColor;
     padding: 0 5px 0 26px;
-    margin:0;
+    margin: 0;
+    position:relative;
+    i {
+        color: @descritpionColor;
+        margin-left:3px;
+        font-style: italic;
+    }
+    .more{
+        //background-image:data-uri("../images/more.png");
+        //height:12px;
+        //width:38px;
+        display:block;
+        position:absolute;
+        right:0;
+        //bottom:0;
+        top:0;
+        line-height:37px;
+        font-size:13px;
+    }
 }
-
