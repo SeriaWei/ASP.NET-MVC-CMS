@@ -35,6 +35,7 @@
   margin: 5px 0;
   padding-left: 20px;
   position: relative;
+  line-height: normal;
 }
 .article .article-list > ul > li .title {
   font-weight: normal;
@@ -45,12 +46,14 @@
   position: absolute;
   right: 0;
   top: 0;
+  line-height: 17px;
+  font-weight: normal;
 }
 .article .article-list > ul > li dd {
-  font-size: 13px;
+  font-size: 12px;
 }
 .article.summary .detail {
-  font-size: 13px;
+  font-size: 12px;
 }
 .articleDetail .articleDetail .title {
   font-weight: bold;

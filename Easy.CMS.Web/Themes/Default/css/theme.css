@@ -75,6 +75,7 @@ strong {
   color: #9e9e9e;
   margin-left: 3px;
   font-style: italic;
+  font-size: 12px;
 }
 .item-title .more {
   display: block;
@@ -82,7 +83,7 @@ strong {
   right: 0;
   top: 0;
   line-height: 37px;
-  font-size: 13px;
+  font-size: 12px;
 }
 .top-nav {
   background: #ad1422;
@@ -145,11 +146,11 @@ strong {
   text-decoration: none;
 }
 .pagination {
-  font-size: 13px;
+  font-size: 12px;
   padding: 20px 10px 10px 0;
 }
 .pagination a {
-  padding: 3px 8px;
+  padding: 2px 6px;
   margin: 3px;
   border: 1px solid #dedede;
   float: left;
@@ -204,6 +205,7 @@ strong {
   margin: 5px 0;
   padding-left: 20px;
   position: relative;
+  line-height: normal;
 }
 .article .article-list > ul > li .title {
   font-weight: normal;
@@ -214,12 +216,14 @@ strong {
   position: absolute;
   right: 0;
   top: 0;
+  line-height: 17px;
+  font-weight: normal;
 }
 .article .article-list > ul > li dd {
-  font-size: 13px;
+  font-size: 12px;
 }
 .article.summary .detail {
-  font-size: 13px;
+  font-size: 12px;
 }
 .articleDetail .articleDetail .title {
   font-weight: bold;
