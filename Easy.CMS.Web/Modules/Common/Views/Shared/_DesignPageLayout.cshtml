@@ -28,10 +28,10 @@
                         <a class="btn btn-success btn-sm" href="@Url.Action("Edit", "Page", new { module = "Common", ID = layOut.Page.ID })">属性</a>
                         <a class="btn btn-danger btn-sm" href="@Url.Action("SelectWidget", "WidgetTemplate", new { module = "Common", pageId = layOut.Page.ID })">添加组件</a>
                     </div>
-                    <div class="col-md-1">
+                    <div class="col-md-2">
                         <div class="checkbox">
                             <label>
-                                <input class="helper" data-class="border" type="checkbox" autocomplete="off"> 边框
+                                <input class="helper" data-class="border" type="checkbox" autocomplete="off"> 边框(显示空区域)
                             </label>
                         </div>
                     </div>

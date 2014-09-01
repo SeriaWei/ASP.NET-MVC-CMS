@@ -75,6 +75,7 @@ strong {
   color: #9e9e9e;
   margin-left: 3px;
   font-style: italic;
+  font-size: 12px;
 }
 .item-title .more {
   display: block;
@@ -82,6 +83,6 @@ strong {
   right: 0;
   top: 0;
   line-height: 37px;
-  font-size: 13px;
+  font-size: 12px;
 }
 /*# sourceMappingURL=Base.css.map */

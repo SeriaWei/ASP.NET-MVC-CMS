@@ -2,7 +2,9 @@
     margin: 0;
     padding: 0;
 }
-
+.radio label, .checkbox label{
+    line-height:normal;
+}
     .layoutList > li {
         float: left;
         width: 200px;
@@ -31,7 +33,7 @@
 }
 
 .navbar-fixed-top {
-    z-index: 1;
+    z-index: 2;
 }
 
 .iconLeft {
@@ -69,7 +71,7 @@
     min-height: 80px;
     border: 1px dashed red;
     background-color: white;
-    margin:2px;
+    margin:1px;
 }
 
     .design .zone input {
@@ -119,11 +121,16 @@
 .zoneName {
     display: none;
     position: absolute;
-    right: 2px;
+    left: 2px;
     bottom: 2px;
-    padding: 2px;
-    z-index:1;
+    z-index:1;    
+    padding:0 4px;
+    background-color: #e5e1ea;
+    border: 1px solid #c7bfd3;
+    color:#000;
+    font-size:13px;
 }
+
 
 .border .zoneName {
     display: block;
@@ -142,32 +149,18 @@
     background-color: #d9534f !important;
 }
 
-.zoneName, .zoneToolbar {
+.zoneToolbar {
     background-color: #eee;
     background-color: rgba(86,61,124,.15);
     border: 1px solid #ddd;
     border: 1px solid rgba(86,61,124,.2);
-}
-
-.zoneToolbar {
     cursor: move;
 }
 
+
+
 .hideToolBar .zoneToolbar {
     display: none;
-}
-
-
-.zoneToolbar a {
-    color: black;
-}
-
-    .zoneToolbar a:hover {
-        color: #727272;
-    }
-
-.zoneToolbar .glyphicon {
-    font-size: 12px;
 }
 
 

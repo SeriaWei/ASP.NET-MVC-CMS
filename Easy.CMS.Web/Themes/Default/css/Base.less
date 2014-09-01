@@ -8,7 +8,7 @@ html {
 body {
     margin: 0;
     padding: 0;
-    font: 14px/1.8 @fontFamaily;
+    font: @fontSize/1.8 @fontFamaily;
     color: @textColor;
     background: data-uri("../Images/bg.gif");
 }
@@ -21,7 +21,7 @@ body {
 input, textarea, select {
     margin: 0;
     padding: 0;
-    font-size: 14px;
+    font-size: @fontSize;
     outline: none;
 }
 
@@ -74,6 +74,7 @@ b, strong {
         color: @descritpionColor;
         margin-left:3px;
         font-style: italic;
+        font-size:@fontSmall;
     }
     .more{
         //background-image:data-uri("../images/more.png");
@@ -85,6 +86,6 @@ b, strong {
         //bottom:0;
         top:0;
         line-height:37px;
-        font-size:13px;
+        font-size:@fontSmall;
     }
 }
