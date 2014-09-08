@@ -13,7 +13,7 @@
             foreach (NavigationEntity item in Model.Where(m => m.ParentId == entity.ID))
             {
                 builder.Append("<li>");
-                builder.AppendFormat("<a href=\"{0}\">{1}</a>", item.Url, item.Title);
+                builder.AppendFormat("<a href=\"{0}\">{1}</a>", item.Url.IsNullOrEmpty() ? "" : Url.Content(item.Url), item.Title);
                 builder.Append(GetChildren(item));
                 builder.Append("</li>");
             }
@@ -25,10 +25,10 @@
 }
 <div class="top-nav">
     <ul>
-        @foreach (NavigationEntity item in Model.Where(m => m.ParentId == "0"))
+        @foreach (NavigationEntity item in Model.Where(m => m.ParentId == "#"))
         {
             <li>
-                <a id="nav_@item.ID" href="@item.Url" class="@(Request.Path.Equals(item.Url)?"current":"")">@item.Title</a>
+                <a id="nav_@item.ID" href="@(item.Url.IsNullOrEmpty() ? "" : Url.Content(item.Url))" class="@(Request.Path.Equals(item.Url)?"current":"")">@item.Title</a>
                 @Html.Raw(GetChildren(item))
             </li>
         }

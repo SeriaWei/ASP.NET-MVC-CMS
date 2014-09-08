@@ -11,6 +11,7 @@ namespace Easy.CMS.Common.Models
     public class NavigationEntity : EditorEntity
     {
         public string ID { get; set; }
+        public int DisplayOrder { get; set; }
 
         public string ParentId { get; set; }
         public string Url { get; set; }
@@ -27,6 +28,7 @@ namespace Easy.CMS.Common.Models
         {
             ViewConfig(m => m.ID).AsHidden();
             ViewConfig(m => m.ParentId).AsHidden();
+            ViewConfig(m => m.DisplayOrder).AsHidden();
             ViewConfig(m => m.Url).AsTextBox().AddClass("select").AddProperty("data-url", "/admin/page/select");
         }
     }

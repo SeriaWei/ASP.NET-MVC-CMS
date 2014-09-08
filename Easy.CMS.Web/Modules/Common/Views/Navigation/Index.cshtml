@@ -6,7 +6,7 @@
 <div class="panel panel-default">
     <div class="panel-heading">
         <span class="badge">导航</span>
-        <a href="@Url.Action("Create")" class="btn btn-primary btn-xs">
+        <a href="@Url.Action("Create", new { ParentID ="#"})" class="btn btn-primary btn-xs">
             <i class="glyphicon glyphicon-plus"></i>
             添加导航
         </a>
@@ -14,9 +14,13 @@
     <div class="panel-body">
 
         @(
- Html.Tree<NavigationEntity>().Source("GetPageTree", "Navigation", new { module = "Common" }).AddPlugin(Plugins.ContextMenu)
+ Html.Tree<NavigationEntity>().Source("GetPageTree", "Navigation", new { module = "Common" })
+ .AddPlugin(Plugins.ContextMenu)
+ .AddPlugin(Plugins.DragAndDrop)
+ .CheckCallBack("checkCallBack")
  .AddContextMenuItem(new ContextmenuItem { Label = "新建", Action = "Create" })
-         .AddContextMenuItem(new ContextmenuItem { Label = "编辑", Action = "Edit" })
+ .AddContextMenuItem(new ContextmenuItem { Label = "编辑", Action = "Edit" })
+ .On(Events.MoveNode, "moveNode")
         )
 
     </div>
@@ -29,5 +33,13 @@
     function Edit(node) {
         var id = node.reference.attr("id");
         window.location.href = '@Url.Action("Edit", "Navigation", new { module = "Common" })' + '?ID=' + id;
+    }
+    function checkCallBack(operation, node, node_parent, node_position, more) {
+        return true;
+    }
+    function moveNode(node, parent) {
+        $.post("@Url.Action("MovePage")", { id: parent.node.id, parentId: parent.parent, position: parent.position + 1, oldPosition: parent.old_position + 1 }, function () {
+
+        }, "json");
     }
 </script>
