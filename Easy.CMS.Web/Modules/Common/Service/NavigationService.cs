@@ -14,7 +14,7 @@ namespace Easy.CMS.Common.Service
         {
             if (item.ParentId.IsNullOrEmpty())
             {
-                item.ParentId = "0";
+                item.ParentId = "#";
             }
             item.ID = Guid.NewGuid().ToString("N");
             base.Add(item);
@@ -33,6 +33,30 @@ namespace Easy.CMS.Common.Service
             var entity = Get(primaryKeys);
             this.Delete(new Data.DataFilter().Where("ParentId", Constant.OperatorType.Equal, entity.ID));
             return base.Delete(primaryKeys);
+        }
+
+        public void Move(string id, string parentId, int position, int oldPosition)
+        {
+            var nav = this.Get(id);
+            nav.ParentId = parentId;
+            nav.DisplayOrder = position;
+            var filter = new Data.DataFilter()
+                .Where("ParentId", Constant.OperatorType.Equal, nav.ParentId)
+                .Where("Id", Constant.OperatorType.NotEqual, nav.ID).OrderBy("DisplayOrder", Constant.OrderType.Ascending);
+            var navs = this.Get(filter);
+            int order = 1;
+            for (int i = 0; i < navs.Count(); i++)
+            {
+                var eleNav = navs.ElementAt(i);
+                if (i == position - 1)
+                {
+                    order++;
+                }
+                eleNav.DisplayOrder = order;
+                this.Update(eleNav);
+                order++;
+            }
+            this.Update(nav);
         }
     }
 }

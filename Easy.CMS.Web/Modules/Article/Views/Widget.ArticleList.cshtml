@@ -19,7 +19,7 @@
                             {
                                 <li>
                                     <div class="category-title">
-                                        <a href="@(Request.Path+"?ArticleCategory="+item.ID)">@item.Title</a>
+                                        <a href="@(Request.Path+"?ArticleCategory="+item.ID)" class="@(item.ID==Model.CurrentCategory?"focus":"")">@item.Title</a>
                                     </div>
                                 </li>
                             }

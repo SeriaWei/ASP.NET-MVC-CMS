@@ -261,3 +261,6 @@ body {
 .input-group {
     margin: 3px 0;
 }
+.jstree a[ispublish="false"]{
+    color:red;
+}

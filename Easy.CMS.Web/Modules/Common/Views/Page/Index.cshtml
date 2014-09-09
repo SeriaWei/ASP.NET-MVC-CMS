@@ -1,7 +1,7 @@
 ﻿@using Easy.CMS.Page
 @using Easy.HTML.jsTree
 @{
-    
+
     Script.Reqiured("jQueryUi").AtFoot();
 }
 <div class="container-fluid">
@@ -10,9 +10,9 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <div>
-                        <span class="badge">页面</span> 
-                        
-                        <a href="@Url.Action("Create", new { module = "Common" })" class="btn btn-primary btn-xs">
+                        <span class="badge">页面</span>
+
+                        <a href="@Url.Action("Create", new { ParentID = "#" })" class="btn btn-primary btn-xs">
                             <i class="glyphicon glyphicon-plus"></i>
                             添加页面
                         </a>
@@ -23,23 +23,26 @@
                     @(
  Html.Tree<PageEntity>().Source("GetPageTree", "Page", new { module = "Common" })
  .AddPlugin(Plugins.ContextMenu)
- .AddContextMenuItem(new ContextmenuItem { Label = "新建", Action = "Create" })
-         .AddContextMenuItem(new ContextmenuItem { Label = "编辑", Action = "Edit" })
-         .AddContextMenuItem(new ContextmenuItem { Label = "查看", Action = "View" })
-.AddContextMenuItem(new ContextmenuItem { Label = "设计", Action = "Design" }).On(Events.ActiveNode, "ActiveNode")
+.AddPlugin(Plugins.DragAndDrop)
+.AddContextMenuItem(new ContextmenuItem { Label = "新建", Action = "Create" })
+.AddContextMenuItem(new ContextmenuItem { Label = "编辑", Action = "Edit" })
+.AddContextMenuItem(new ContextmenuItem { Label = "查看", Action = "View" })
+.AddContextMenuItem(new ContextmenuItem { Label = "设计", Action = "Design" })
+.CheckCallBack("checkCallBack")
+.On(Events.MoveNode, "moveNode")
+.On(Events.ActiveNode, "ActiveNode")
                     )
 
                 </div>
             </div>
         </div>
-        <div id="pageZones" class="col-md-7">
-
-        </div>
+        <div class="col-md-7" id="pageZones"></div>
     </div>
 </div>
 
-
-<script type="text/javascript">
+@using (Script.AtFoot())
+{
+    <script type="text/javascript">
     function Create(node) {
         var parent = node.reference.attr("id");
         window.location.href = '@Url.Action("Create", "Page", new { module = "Common" })' + '?ParentID=' + parent;
@@ -61,7 +64,14 @@
             $("#pageZones").html(html);
         }, "html");
     }
+    function checkCallBack(operation, node, node_parent, node_position, more) {
+        return operation == "move_node" && node.parent == node_parent.id;
+    }
+    function moveNode(node, parent) {
+        $.post("@Url.Action("MovePage")", { id: parent.node.id, position: parent.position + 1, oldPosition: parent.old_position + 1 }, function () {
 
+        }, "json");
+    }
 
     $(".fullRowList.widgets .delete").live("click", function () {
         var id = $(this).data("widgetid");
@@ -73,4 +83,5 @@
             }, "json");
         }
     });
-</script>
+    </script>
+}

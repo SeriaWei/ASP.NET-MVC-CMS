@@ -37,6 +37,7 @@ namespace Easy.CMS.Article.Service
             {
                 if (int.TryParse(categoryStr, out category))
                 {
+                    viewModel.CurrentCategory = category;
                     viewModel.Articles = new ArticleService().Get(filter.Where("ArticleCategory", Constant.OperatorType.Equal, category), viewModel.Pagin);
                 }
                 else if (categorys.Any())

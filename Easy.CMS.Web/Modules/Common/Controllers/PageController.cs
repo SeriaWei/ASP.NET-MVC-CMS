@@ -29,32 +29,30 @@ namespace Easy.CMS.Common.Controllers
 
         public JsonResult GetPageTree(ParamsContext context)
         {
-            var pages = Service.Get(new Data.DataFilter());
-            var node = new Easy.HTML.jsTree.Tree<PageEntity>().Source(pages).ToNode(m => m.ID, m => m.PageName, m => m.ParentId, "0");
+            var pages = Service.Get(new Data.DataFilter().OrderBy("DisplayOrder", Constant.OrderType.Ascending));
+            var node = new Easy.HTML.jsTree.Tree<PageEntity>().Source(pages).ToNode(m => m.ID, m => m.PageName, m => m.ParentId, "#");
             return Json(node, JsonRequestBehavior.AllowGet);
         }
         [AdminTheme, ViewData_Layouts]
         public override ActionResult Create(ParamsContext context)
         {
-            if (context == null || context.ParentID.IsNullOrEmpty())
+            var page = new PageEntity
             {
-                return base.Create(context);
-            }
+                ParentId = context.ParentID,
+                DisplayOrder = Service.Get("ParentID", Constant.OperatorType.Equal, context.ParentID).Count() + 1,
+                Url = "~/"
+            };
             var parentPage = Service.Get(context.ParentID);
             if (parentPage != null)
             {
-                var page = new PageEntity
-                {
-                    ParentId = parentPage.ID,
-                    Url = parentPage.Url
-                };
-                if (!page.Url.EndsWith("/"))
-                {
-                    page.Url += "/";
-                }
-                return View(page);
+                page.Url = parentPage.Url;
             }
-            return base.Create(context);
+            if (!page.Url.EndsWith("/"))
+            {
+                page.Url += "/";
+            }
+            return View(page);
+
         }
         [AdminTheme, ViewData_Layouts]
         public override ActionResult Create(PageEntity entity)
@@ -108,6 +106,12 @@ namespace Easy.CMS.Common.Controllers
                     Widgets = widgetService.GetAllByPageId(context.PageID)
                 };
             return View(viewModel);
+        }
+        [HttpPost]
+        public JsonResult MovePage(string id, int position, int oldPosition)
+        {
+            Service.Move(id, position, oldPosition);
+            return Json(true);
         }
     }
 }

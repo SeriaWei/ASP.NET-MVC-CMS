@@ -20,27 +20,25 @@ namespace Easy.CMS.Common.Controllers
         }
         public override ActionResult Create(ParamsContext context)
         {
-            if (context == null || context.ParentID.IsNullOrEmpty())
+            var navication = new NavigationEntity
             {
-                return base.Create(context);
-            }
-            var parent = Service.Get(context.ParentID);
-            if (parent != null)
-            {
-                var navication = new NavigationEntity
-                {
-                    ParentId = parent.ID,
-                    Url = parent.Url
-                };
-                return View(navication);
-            }
-            return base.Create(context);
+                ParentId = context.ParentID,
+                DisplayOrder = Service.Get("ParentID", Constant.OperatorType.Equal, context.ParentID).Count() + 1
+            };
+            return View(navication);
         }
         public JsonResult GetPageTree(ParamsContext context)
         {
-            var navs = Service.Get(new Data.DataFilter());
-            var node = new Easy.HTML.jsTree.Tree<NavigationEntity>().Source(navs).ToNode(m => m.ID, m => m.Title, m => m.ParentId, "0");
+            var navs = Service.Get(new Data.DataFilter().OrderBy("DisplayOrder", Constant.OrderType.Ascending));
+            var node = new Easy.HTML.jsTree.Tree<NavigationEntity>().Source(navs).ToNode(m => m.ID, m => m.Title, m => m.ParentId, "#");
             return Json(node, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        public JsonResult MovePage(string id, string parentId, int position, int oldPosition)
+        {
+            Service.Move(id, parentId, position, oldPosition);
+            return Json(true);
         }
     }
 }

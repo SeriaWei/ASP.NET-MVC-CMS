@@ -11,7 +11,7 @@ namespace Easy.CMS.Common.Service
     {
         public override WidgetPart Display(WidgetBase widget, HttpContextBase httpContext)
         {
-            var navs = new NavigationService().Get();
+            var navs = new NavigationService().Get(new Data.DataFilter().OrderBy("DisplayOrder", Constant.OrderType.Ascending));
             return widget.ToWidgetPart(navs);
         }
     }
