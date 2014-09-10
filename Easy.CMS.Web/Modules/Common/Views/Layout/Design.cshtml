@@ -22,7 +22,7 @@
         var zone = Model.Zones.Where(m => m.ID == item.Html);
         if (zone.Any())
         {
-            <input class="form-control" type="text" name="ZoneName" placeholder="Enter Zone Name" value="@zone.First().ZoneName" />
+            <input class="form-control" type="text" name="ZoneName" placeholder="输入名称" value="@zone.First().ZoneName" />
             <input class="form-control" type="hidden" name="LayoutId" value="@zone.First().LayoutId" />
             <input class="form-control" type="hidden" name="ID" value="@zone.First().ID" />
             zoneStart = false;

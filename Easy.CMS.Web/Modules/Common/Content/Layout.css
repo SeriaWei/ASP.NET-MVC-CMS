@@ -68,12 +68,25 @@
 
 .design .zone,
 .border .zone {
-    min-height: 80px;
-    border: 1px dashed red;
+    min-height: 34px;
+    border: 1px dashed #ccc;
     background-color: white;
-    margin:1px;
+    margin:6px;
 }
-
+.border .zone {
+    margin:0;
+}
+.design .zone .form-control{
+    width:100px;
+    margin:0 auto;
+    box-shadow: none;
+    border-left:1px dashed #fff;
+    border-right:1px dashed #fff;
+}
+.design .zone .form-control:focus{
+    border-left:1px dashed #ddd;
+    border-right:1px dashed #ddd;
+}
     .design .zone input {
         border: none;
     }

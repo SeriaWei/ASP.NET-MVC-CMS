@@ -17,7 +17,14 @@
             {
                 <li>
                     <a href="@Url.Action("Edit", "Layout", new { module = "Common", ID = item.ID })" class="thumbnail">
-                        <img src="http://www.geekpics.net/images/2014/06/22/gpnRNV.jpg" alt="...">
+                        @if (item.ImageUrl.IsNullOrEmpty())
+                        {
+                            <img src="@Url.Content(LayoutEntity.DefaultThumbnial)" alt="@item.LayoutName" />
+                        }
+                        else
+                        {
+                            <img src="@Url.Content(item.ImageUrl)" alt="@item.LayoutName" />
+                        }
                         <div class="caption">
                             <h5>@item.LayoutName</h5>
                             <p>@item.Description</p>
@@ -26,5 +33,6 @@
                 </li>
             }
         </ul>
+
     </div>
 </div>

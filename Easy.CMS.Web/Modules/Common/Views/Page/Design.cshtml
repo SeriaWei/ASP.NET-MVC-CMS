@@ -17,7 +17,7 @@
         {
             <div class="zoneid" data-id="@item.Html"></div>
             <div class="zoneName">
-                <a title="添加组件" href="@Url.Action("SelectWidget", "WidgetTemplate", new { module = "common", pageId=layOut.Page.ID,ZoneId=item.Html })"><i class="glyphicon glyphicon-log-in"></i></a> 
+                <a title="添加组件" href="@Url.Action("SelectWidget", "WidgetTemplate", new { module = "common", pageId=layOut.Page.ID,ZoneId=item.Html })"><i class="glyphicon glyphicon-plus"></i></a> 
                 @layOut.Zones.First(m => m.ID == item.Html).ZoneName
             </div>
             if (layOut.ZoneWidgets.ContainsKey(item.Html))

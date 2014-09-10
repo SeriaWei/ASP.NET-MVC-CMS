@@ -24,7 +24,9 @@
             <div class="item @(i==0?"active":"")">
                 <img src="@Url.Content(carouselItems[i].ImageUrl)" alt="@carouselItems[i].Title">
                 <div class="carousel-caption">
-                    @carouselItems[i].Title
+                    <a target="_blank" href="@carouselItems[i].TargetLink">
+                        @carouselItems[i].Title
+                    </a>                    
                 </div>
             </div>
         }

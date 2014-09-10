@@ -31,7 +31,7 @@ namespace Easy.CMS.Common.Controllers
         public ActionResult LayoutZones(string ID)
         {
             ZoneService zoneService = new ZoneService();
-            WidgetService  widgetService=new WidgetService();
+            WidgetService widgetService = new WidgetService();
             LayoutZonesViewModel viewModel = new LayoutZonesViewModel
             {
                 Zones = zoneService.GetZonesByLayoutId(ID),
@@ -42,7 +42,7 @@ namespace Easy.CMS.Common.Controllers
         [AdminTheme]
         public override ActionResult Create(ParamsContext context)
         {
-            return base.Create(context);
+            return View(new LayoutEntity { ImageUrl = LayoutEntity.DefaultThumbnial, ImageThumbUrl = LayoutEntity.DefaultThumbnial });
         }
         [AdminTheme]
         public override ActionResult Create(LayoutEntity entity)

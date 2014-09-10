@@ -239,4 +239,7 @@ strong {
 .carousel .carousel-inner .item img {
   width: 100%;
 }
+.carousel .carousel-inner .item .carousel-caption a {
+  color: white;
+}
 /*# sourceMappingURL=Theme.css.map */
