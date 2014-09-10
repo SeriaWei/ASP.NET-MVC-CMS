@@ -239,7 +239,6 @@
     <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.woff" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
-    <Content Include="marry.html" />
     <Content Include="Scripts\EasyPlug\Css\Animate.css" />
     <Content Include="Scripts\EasyPlug\Css\Base.css" />
     <Content Include="Scripts\EasyPlug\Css\Easy.css" />
