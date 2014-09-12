@@ -1,5 +1,11 @@
-﻿.carousel .carousel-indicators li {
+﻿.carousel .carousel-indicators {
+  text-align: center;
+}
+.carousel .carousel-indicators li {
   box-shadow: #000000 0 0 1px;
+  *display: inline;
+  zoom: 1;
+  *text-indent: 0;
 }
 .carousel .carousel-inner .item img {
   width: 100%;

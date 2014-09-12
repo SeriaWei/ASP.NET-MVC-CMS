@@ -60,16 +60,16 @@
 
 .design .additional.row {
     min-height: 100px;
-    border: 1px dashed #46b8da;
+    border: 1px solid #46b8da;
     background-color: white;
-    margin:2px -13px;
+    margin:3px -13px;
     cursor: move;
 }
 
 .design .zone,
 .border .zone {
     min-height: 34px;
-    border: 1px dashed #ccc;
+    border: 1px dotted red;
     background-color: white;
     margin:6px;
 }
@@ -82,10 +82,13 @@
     box-shadow: none;
     border-left:1px dashed #fff;
     border-right:1px dashed #fff;
+    text-align: center;
+    border-radius: 0;
 }
 .design .zone .form-control:focus{
     border-left:1px dashed #ddd;
     border-right:1px dashed #ddd;
+    background-color: #f5ebeb;
 }
     .design .zone input {
         border: none;

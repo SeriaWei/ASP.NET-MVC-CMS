@@ -1,5 +1,9 @@
 ﻿@{
     var layOut = ViewData[Easy.CMS.Layout.LayoutEntity.LayoutKey] as Easy.CMS.Layout.LayoutEntity;
+    if (layOut == null)
+    {
+        return;
+    }
 }
 <!DOCTYPE html>
 <!--[if lt IE 7 ]><html class="ie ie6" lang="zh"> <![endif]-->
@@ -18,7 +22,10 @@
     <meta name="viewport" content="width=device-width" />
     @StyleAtHead()
     @ScriptAtHead()
-    <link type="text/css" rel="stylesheet" href="~/Themes/Default/css/Theme.css" />
+    @if (!layOut.Theme.IsNullOrEmpty())
+    {
+        <link type="text/css" rel="stylesheet" href="@Url.Content("~/Themes/{0}/css/Theme.css".FormatWith(layOut.Theme))" />
+    }
 </head>
 <body>
     <div id="container" class="@layOut.ContainerClass">

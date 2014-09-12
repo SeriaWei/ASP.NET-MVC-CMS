@@ -1,6 +1,10 @@
 ﻿@using Easy.CMS.Widget
 @{
-    Easy.CMS.Layout.LayoutEntity layOut = ViewData[Easy.CMS.Layout.LayoutEntity.LayoutKey] as Easy.CMS.Layout.LayoutEntity;
+    var layOut = ViewData[Easy.CMS.Layout.LayoutEntity.LayoutKey] as Easy.CMS.Layout.LayoutEntity;
+    if (layOut == null)
+    {
+        return;
+    }
 }
 <!DOCTYPE html>
 <!--[if lt IE 7 ]><html class="ie ie6" lang="zh"> <![endif]-->
@@ -17,7 +21,10 @@
     <meta name="viewport" content="width=device-width" />
     @StyleAtHead()
     @ScriptAtHead()
-    <link type="text/css" rel="stylesheet" href="~/Themes/Default/css/Theme.css" />
+    @if (!layOut.Theme.IsNullOrEmpty())
+    {
+        <link type="text/css" rel="stylesheet" href="@Url.Content("~/Themes/{0}/css/Theme.css".FormatWith(layOut.Theme))" />
+    }
 </head>
 <body>
     <div class="navbar-inverse white navbar-fixed-top" role="navigation">
@@ -31,14 +38,14 @@
                     <div class="col-md-2">
                         <div class="checkbox">
                             <label>
-                                <input class="helper" data-class="border" type="checkbox" autocomplete="off"> 边框(显示空区域)
+                                <input class="helper" data-class="border" type="checkbox" autocomplete="off"/> 边框(显示空区域)
                             </label>
                         </div>
                     </div>
                     <div class="col-md-2">
                         <div class="checkbox">
                             <label>
-                                <input class="helper" data-class="hideToolBar" type="checkbox" autocomplete="off" checked> 工具栏
+                                <input class="helper" data-class="hideToolBar" type="checkbox" autocomplete="off" checked="checked" /> 工具栏
                             </label>
                         </div>
                     </div>
