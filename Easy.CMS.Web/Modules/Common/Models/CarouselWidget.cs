@@ -16,15 +16,9 @@ namespace Easy.CMS.Common.Models
     }
     class CarouselWidgetMetaData : WidgetMetaData<CarouselWidget>
     {
-        protected override void DataConfigure()
-        {
-            DataTable("CarouselWidget");
-            DataConfig(m => m.ID).AsPrimaryKey();
-        }
-
         protected override void ViewConfigure()
         {
-            InitViewBase();
+            base.ViewConfigure();
             ViewConfig(m => m.ID).AsHidden();
             ViewConfig(m => m.CarouselID).AsDropDownList().DataSource(new CarouselService().Get().ToDictionary(m => m.ID.ToString(), m => m.Title));
         }

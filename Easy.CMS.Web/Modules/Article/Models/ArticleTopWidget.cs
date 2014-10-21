@@ -20,15 +20,9 @@ namespace Easy.CMS.Article.Models
     }
     class ArticleTopWidgetMetaData : WidgetMetaData<ArticleTopWidget>
     {
-        protected override void DataConfigure()
-        {
-            DataTable("ArticleTopWidget");
-            DataConfig(m => m.ID).AsPrimaryKey();
-        }
-
         protected override void ViewConfigure()
         {
-            InitViewBase();
+            base.ViewConfigure();
             ViewConfig(m => m.Title).AsTextBox().Order(4);
             ViewConfig(m => m.SubTitle).AsTextBox().Order(5);
             ViewConfig(m => m.ArticleCategory).AsDropDownList().Order(6).DataSource(new ArticleTypeService().Get().ToDictionary(m => m.ID.ToString(), m => m.Title));

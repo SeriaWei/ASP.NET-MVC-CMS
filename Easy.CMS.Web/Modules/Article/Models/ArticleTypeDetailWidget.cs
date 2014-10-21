@@ -16,15 +16,10 @@ namespace Easy.CMS.Article.Models
     }
     class ArticleTypeDetailWidgetMetaData : WidgetMetaData<ArticleTypeDetailWidget>
     {
-        protected override void DataConfigure()
-        {
-            DataConfig("ArticleTypeDetailWidget");
-            DataConfig(m => m.ID).AsPrimaryKey();
-        }
 
         protected override void ViewConfigure()
         {
-            InitViewBase();
+            base.ViewConfigure();
             ViewConfig(m => m.ArticleType).AsDropDownList().Order(5).DataSource(new ArticleTypeService().Get().ToDictionary(m => m.ID.ToString(), m => m.Title));
         }
     }

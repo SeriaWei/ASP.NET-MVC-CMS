@@ -17,15 +17,9 @@ namespace Easy.CMS.Article.Models
     }
     class ArticleSummaryWidgetMetaData : WidgetMetaData<ArticleSummaryWidget>
     {
-        protected override void DataConfigure()
-        {
-            DataTable("ArticleSummaryWidget");
-            DataConfig(m => m.ID).AsPrimaryKey();
-        }
-
         protected override void ViewConfigure()
         {
-            InitViewBase();
+            base.ViewConfigure();
             ViewConfig(m => m.Title).AsTextBox().Order(4);
             ViewConfig(m => m.SubTitle).AsTextBox().Order(5);
             ViewConfig(m => m.DetailLink).AsTextBox().Order(6).AddClass("select").AddProperty("data-url", "/admin/page/select");

@@ -15,15 +15,9 @@ namespace Easy.CMS.Article.Models
     }
     class ArticleDetailWidgetMetaData : WidgetMetaData<ArticleDetailWidget>
     {
-        protected override void DataConfigure()
-        {
-            DataTable("ArticleDetailWidget");
-            DataConfig(m => m.ID).AsPrimaryKey();
-        }
-
         protected override void ViewConfigure()
         {
-            InitViewBase();
+            base.ViewConfigure();
             ViewConfig(m => m.CustomerClass).AsHidden();
         }
     }

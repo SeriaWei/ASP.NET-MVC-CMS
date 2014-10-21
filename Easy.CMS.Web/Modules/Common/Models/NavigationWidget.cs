@@ -15,15 +15,9 @@ namespace Easy.CMS.Common.Models
     }
     class NavigationWidgetMetaData : WidgetMetaData<NavigationWidget>
     {
-        protected override void DataConfigure()
-        {
-            DataTable("NavigationWidget");
-            DataConfig(m => m.ID).AsPrimaryKey();
-        }
-
         protected override void ViewConfigure()
         {
-            InitViewBase();
+            base.ViewConfigure();
             ViewConfig(m => m.CustomerClass).AsHidden();
         }
     }
