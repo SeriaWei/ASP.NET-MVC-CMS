@@ -118,24 +118,27 @@
                 hoverClass: "dropWarning",
                 accept: ".AddRow",
                 greedy: true,
+                tolerance: "pointer",
                 drop: rowDropToContent
             }).sortable();
 
             var opRowDrop = {
                 hoverClass: "dropWarning",
-                accept: ".AddCol,.AddZone",
+                accept: ".AddCol,.AddZone,.additional.zone",
                 greedy: true,
+                tolerance: "pointer",
                 drop: colDroped
             };
             var opColDrop = {
                 hoverClass: "dropWarning",
-                accept: ".AddRow,.AddZone",
+                accept: ".AddRow,.AddZone,.additional.zone",
                 greedy: true,
+                tolerance: "pointer",
                 drop: function (evn, uirz) {
                     if (uirz.draggable.hasClass("AddRow")) {
                         rowDroped(evn, uirz, this);
                     }
-                    else if (uirz.draggable.hasClass("AddZone")) {
+                    else if (uirz.draggable.hasClass("AddZone") || uirz.draggable.hasClass("additional")) {
                         zoneDropable(evn, uirz, this);
                     }
                 }
@@ -172,7 +175,7 @@
             function colDroped(event, ui, obj) {
                 if (obj == null)
                     obj = this;
-                if (ui.draggable.hasClass("AddZone")) {
+                if (ui.draggable.hasClass("AddZone") || ui.draggable.hasClass("additional")) {
                     zoneDropable(event, ui, obj);
                     return;
                 }
@@ -185,13 +188,21 @@
                 if (obj == null) {
                     obj = this;
                 }
-                var zoneParent = $('<div class="additional zone"></div>');
-                var zone = $("<zone></zone>");
-                zone.append('<input class="form-control" type="text" name="ZoneName" placeholder="输入名称" value="内容 ' + ($("#container input[type=text]").size() + 1) + '" />');
-                zone.append('<input class="form-control" type="hidden" name="LayoutId" value="' + $("#LayoutId").val() + '" />');
-                zone.append('<input class="form-control" type="hidden" name="ID" value="" />');
-                zoneParent.append(zone);
-                $(obj).append(zoneParent);
+                if (ui.draggable.parent().is(obj))
+                    return;
+                if (ui.draggable.hasClass("additional")) {
+                    $(obj).append('<div class=\"additional zone\">' + ui.draggable.html() + '</div>');
+                    ui.draggable.remove();
+                }
+                else {
+                    var zoneParent = $('<div class="additional zone"></div>');
+                    var zone = $("<zone></zone>");
+                    zone.append('<input class="form-control" type="text" name="ZoneName" placeholder="输入名称" value="内容 ' + ($("#container input[type=text]").size() + 1) + '" />');
+                    zone.append('<input class="form-control" type="hidden" name="LayoutId" value="' + $("#LayoutId").val() + '" />');
+                    zone.append('<input class="form-control" type="hidden" name="ID" value="" />');
+                    zoneParent.append(zone);
+                    $(obj).append(zoneParent);
+                }
                 $(".dropWarning").removeClass("dropWarning");
             }
 
