@@ -1,4 +1,5 @@
 ﻿using Easy.CMS.Common.Models;
+using Easy.Data;
 using Easy.RepositoryPattern;
 using System;
 using System.Collections.Generic;
@@ -22,16 +23,16 @@ namespace Easy.CMS.Common.Service
         public override int Delete(Data.DataFilter filter)
         {
             var deletes = this.Get(filter).ToList(m => m.ID);
-            if (deletes.Any() && this.Get(new Data.DataFilter().Where("ParentId", Constant.OperatorType.In, deletes)).Any())
+            if (deletes.Any() && this.Get(new Data.DataFilter().Where("ParentId", OperatorType.In, deletes)).Any())
             {
-                this.Delete(new Data.DataFilter().Where("ParentId", Constant.OperatorType.In, deletes));
+                this.Delete(new Data.DataFilter().Where("ParentId", OperatorType.In, deletes));
             }
             return base.Delete(filter);
         }
         public override int Delete(params object[] primaryKeys)
         {
             var entity = Get(primaryKeys);
-            this.Delete(new Data.DataFilter().Where("ParentId", Constant.OperatorType.Equal, entity.ID));
+            this.Delete(new Data.DataFilter().Where("ParentId", OperatorType.Equal, entity.ID));
             return base.Delete(primaryKeys);
         }
 
@@ -41,8 +42,8 @@ namespace Easy.CMS.Common.Service
             nav.ParentId = parentId;
             nav.DisplayOrder = position;
             var filter = new Data.DataFilter()
-                .Where("ParentId", Constant.OperatorType.Equal, nav.ParentId)
-                .Where("Id", Constant.OperatorType.NotEqual, nav.ID).OrderBy("DisplayOrder", Constant.OrderType.Ascending);
+                .Where("ParentId", OperatorType.Equal, nav.ParentId)
+                .Where("Id", OperatorType.NotEqual, nav.ID).OrderBy("DisplayOrder", OrderType.Ascending);
             var navs = this.Get(filter);
             int order = 1;
             for (int i = 0; i < navs.Count(); i++)

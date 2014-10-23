@@ -1,5 +1,6 @@
 ﻿using Easy.CMS.Common.Models;
 using Easy.CMS.Common.Service;
+using Easy.Data;
 using Easy.Web.Attribute;
 using Easy.Web.Controller;
 using System;
@@ -23,13 +24,13 @@ namespace Easy.CMS.Common.Controllers
             var navication = new NavigationEntity
             {
                 ParentId = context.ParentID,
-                DisplayOrder = Service.Get("ParentID", Constant.OperatorType.Equal, context.ParentID).Count() + 1
+                DisplayOrder = Service.Get("ParentID", OperatorType.Equal, context.ParentID).Count() + 1
             };
             return View(navication);
         }
         public JsonResult GetPageTree(ParamsContext context)
         {
-            var navs = Service.Get(new Data.DataFilter().OrderBy("DisplayOrder", Constant.OrderType.Ascending));
+            var navs = Service.Get(new Data.DataFilter().OrderBy("DisplayOrder", OrderType.Ascending));
             var node = new Easy.HTML.jsTree.Tree<NavigationEntity>().Source(navs).ToNode(m => m.ID, m => m.Title, m => m.ParentId, "#");
             return Json(node, JsonRequestBehavior.AllowGet);
         }

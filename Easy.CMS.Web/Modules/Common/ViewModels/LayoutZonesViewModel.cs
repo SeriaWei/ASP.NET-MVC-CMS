@@ -1,5 +1,5 @@
-﻿using Easy.CMS.Widget;
-using Easy.CMS.Zone;
+﻿using Easy.Web.CMS.Widget;
+using Easy.Web.CMS.Zone;
 using System;
 using System.Collections.Generic;
 using System.Linq;

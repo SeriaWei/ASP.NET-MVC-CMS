@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Easy.Data;
 using Easy.RepositoryPattern;
 using Easy.CMS.Article.Models;
 using Easy.Extend;
@@ -18,7 +19,7 @@ namespace Easy.CMS.Article.Service
         }
         private IEnumerable<ArticleType> InitChildren(ArticleType model)
         {
-            IEnumerable<ArticleType> result = Get(new Data.DataFilter().Where("ParentID", Constant.OperatorType.Equal, model.ID));
+            IEnumerable<ArticleType> result = Get(new Data.DataFilter().Where("ParentID", OperatorType.Equal, model.ID));
             List<ArticleType> listResult = result.ToList();
             result.Each(m =>
             {

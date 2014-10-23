@@ -5,6 +5,7 @@ using System.Web;
 using Easy.Web.Attribute;
 using System.Web.Mvc;
 using Easy.CMS.Article.Service;
+using Easy.Web.CMS;
 
 namespace Easy.CMS.Article.ActionFilter
 {

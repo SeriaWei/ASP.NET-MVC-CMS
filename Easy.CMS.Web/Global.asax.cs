@@ -2,16 +2,22 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Threading;
 using System.Web;
 using System.Web.Compilation;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using Easy.Web.CMS;
+using Easy.Web.CMS.ModelBinder;
+using Easy.Web.CMS.Widget;
 using Easy.Extend;
+using Easy.Web.MetadataProvider;
 using Easy.Web.Route;
 using Easy.Modules.DataDictionary;
 using Easy.IOCAdapter;
+using Easy.Web.ViewEngine;
 
 namespace PlugWeb
 {
@@ -30,33 +36,35 @@ namespace PlugWeb
             AuthConfig.RegisterAuth();
 
             ViewEngines.Engines.Clear();
-            ViewEngines.Engines.Add(new Easy.Web.ViewEngine.PlugViewEngine());
+            ViewEngines.Engines.Add(new PlugViewEngine());
 
-            ModelBinders.Binders.Add(typeof(Easy.CMS.Widget.WidgetBase), new Easy.CMS.ModelBinder.WidgetBinder());
-            ModelMetadataProviders.Current = new Easy.Web.MetadataProvider.EasyModelMetaDataProvider();
-            List<RouteDescriptor> routes = new List<RouteDescriptor>();
+            ModelBinders.Binders.Add(typeof(WidgetBase), new WidgetBinder());
 
-            BuildManager.GetReferencedAssemblies().Cast<Assembly>().Each(m =>
+            ModelMetadataProviders.Current = new EasyModelMetaDataProvider();
+
+            var reMan = new ResourceManager();
+            reMan.InitScript();
+            reMan.InitStyle();
+
+            var routes = new List<RouteDescriptor>();
+            Type plugBaseType = typeof(PluginBase);
+
+            
+            BuildManager.GetReferencedAssemblies().Cast<Assembly>().Each(m => m.GetTypes().Each(p =>
             {
-                m.GetTypes().Each(p =>
+                if (plugBaseType.IsAssignableFrom(p) && !p.IsAbstract && !p.IsInterface)
                 {
-                    if (Easy.Web.CommonType.IRouteRegisterType.IsAssignableFrom(p) && !p.IsInterface && !p.IsAbstract)
+                    var plug = Activator.CreateInstance(p) as PluginBase;
+                    if (plug != null)
                     {
-                        routes.AddRange((Activator.CreateInstance(p) as IRouteRegister).Regist());
+                        routes.AddRange(plug.Regist());
+                        plug.InitScript();
+                        plug.InitStyle();
                     }
-                    else if (Easy.Web.CommonType.ResourceManagerType.IsAssignableFrom(p) && !p.IsInterface && !p.IsAbstract)
-                    {
-                        var mgr = (Activator.CreateInstance(p) as Easy.Web.Resource.ResourceManager);
-                        mgr.InitScript();
-                        mgr.InitStyle();
-                    }
-                });
-            });
+                }
+            }));
             RouteTable.Routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-            routes.OrderByDescending(m => m.Priority).Each(m =>
-            {
-                RouteTable.Routes.MapRoute(m.RouteName, m.Url, m.Defaults, m.Constraints, m.Namespaces);
-            });
+            routes.OrderByDescending(m => m.Priority).Each(m => RouteTable.Routes.MapRoute(m.RouteName, m.Url, m.Defaults, m.Constraints, m.Namespaces));
             Container.Register(typeof(IDataDictionaryService), typeof(DataDictionaryService));
         }
     }

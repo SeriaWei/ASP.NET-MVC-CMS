@@ -1,7 +1,11 @@
-﻿using Easy.CMS.Filter;
-using Easy.CMS.Page;
-using Easy.CMS.Widget;
+﻿using Easy.Constant;
+using Easy.Data;
+using Easy.Web.CMS;
+using Easy.Web.CMS.Filter;
+using Easy.Web.CMS.Page;
+using Easy.Web.CMS.Widget;
 using Easy.Web.Attribute;
+using Easy.Web.CMS.Zone;
 using Easy.Web.Controller;
 using Easy.Web.Route;
 using System;
@@ -10,7 +14,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Easy.Extend;
-using Easy.CMS.Layout;
+using Easy.Web.CMS.Layout;
 
 namespace Easy.CMS.Common.Controllers
 {
@@ -29,7 +33,7 @@ namespace Easy.CMS.Common.Controllers
 
         public JsonResult GetPageTree(ParamsContext context)
         {
-            var pages = Service.Get(new Data.DataFilter().OrderBy("DisplayOrder", Constant.OrderType.Ascending));
+            var pages = Service.Get(new DataFilter().OrderBy("DisplayOrder", OrderType.Ascending));
             var node = new Easy.HTML.jsTree.Tree<PageEntity>().Source(pages).ToNode(m => m.ID, m => m.PageName, m => m.ParentId, "#");
             return Json(node, JsonRequestBehavior.AllowGet);
         }
@@ -39,7 +43,7 @@ namespace Easy.CMS.Common.Controllers
             var page = new PageEntity
             {
                 ParentId = context.ParentID,
-                DisplayOrder = Service.Get("ParentID", Constant.OperatorType.Equal, context.ParentID).Count() + 1,
+                DisplayOrder = Service.Get("ParentID", OperatorType.Equal, context.ParentID).Count() + 1,
                 Url = "~/"
             };
             var parentPage = Service.Get(context.ParentID);
@@ -68,12 +72,12 @@ namespace Easy.CMS.Common.Controllers
         [HttpPost]
         public override ActionResult Edit(PageEntity entity)
         {
-            if (entity.ActionType == Constant.ActionType.Design)
+            if (entity.ActionType == ActionType.Design)
             {
                 return RedirectToAction("Design", new { ID = entity.ID });
             }
             var result = base.Edit(entity);
-            if (entity.ActionType == Constant.ActionType.Publish)
+            if (entity.ActionType == ActionType.Publish)
             {
                 Service.Publish(entity.ID);
             }
@@ -96,8 +100,8 @@ namespace Easy.CMS.Common.Controllers
 
         public ActionResult PageZones(QueryContext context)
         {
-            Zone.ZoneService zoneService = new Zone.ZoneService();
-            WidgetService widgetService = new WidgetService();
+            var zoneService = new ZoneService();
+            var widgetService = new WidgetService();
 
             var viewModel = new ViewModels.LayoutZonesViewModel
                 {

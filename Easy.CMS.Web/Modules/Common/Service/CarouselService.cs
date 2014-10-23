@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Easy.Data;
 using Easy.RepositoryPattern;
 using Easy.CMS.Common.Models;
 using Easy.Extend;
@@ -15,7 +16,7 @@ namespace Easy.CMS.Common.Service
             base.Add(item);
             if (item.CarouselItems != null)
             {
-                CarouselItemService carouselItemService = new CarouselItemService();
+                var carouselItemService = new CarouselItemService();
                 item.CarouselItems.Each(m =>
                 {
                     if (m.ActionType != Constant.ActionType.Unattached)
@@ -31,7 +32,7 @@ namespace Easy.CMS.Common.Service
             bool result = base.Update(item, primaryKeys);
             if (item.CarouselItems != null)
             {
-                CarouselItemService carouselItemService = new CarouselItemService();
+                var carouselItemService = new CarouselItemService();
                 item.CarouselItems.Each(m =>
                 {
                     if (m.ActionType == Constant.ActionType.Update)
@@ -55,8 +56,8 @@ namespace Easy.CMS.Common.Service
         public override CarouselEntity Get(params object[] primaryKeys)
         {
             CarouselEntity entity = base.Get(primaryKeys);
-            CarouselItemService carouselItemService = new CarouselItemService();
-            entity.CarouselItems = carouselItemService.Get("CarouselID", Constant.OperatorType.Equal, entity.ID);
+            var carouselItemService = new CarouselItemService();
+            entity.CarouselItems = carouselItemService.Get("CarouselID", OperatorType.Equal, entity.ID);
             entity.CarouselItems.Each(m => m.ActionType = Constant.ActionType.Update);
             return entity;
         }

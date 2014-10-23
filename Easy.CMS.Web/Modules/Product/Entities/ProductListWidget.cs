@@ -1,4 +1,5 @@
-﻿using Easy.CMS.Widget;
+﻿using Easy.Web.CMS.MetaData;
+using Easy.Web.CMS.Widget;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,23 +11,12 @@ namespace Easy.CMS.Product.Entities
     [DataConfigure(typeof(ProductListWidgetMetaData))]
     public class ProductListWidget : WidgetBase
     {
+
     }
-    class ProductListWidgetMetaData : DataViewMetaData<ProductListWidget>
+
+    class ProductListWidgetMetaData : WidgetMetaData<ProductListWidget>
     {
-        protected override bool IsIgnoreBase()
-        {
-            return true;
-        }
-        protected override void DataConfigure()
-        {
-            DataTable("ProductListWidget");
-            DataConfig(m => m.ID).AsPrimaryKey();
-        }
 
-        protected override void ViewConfigure()
-        {
-
-        }
     }
 
 }

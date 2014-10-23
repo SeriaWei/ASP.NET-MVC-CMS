@@ -1,5 +1,5 @@
-﻿@using Easy.CMS.Widget
-@model Easy.CMS.Layout.LayoutEntity
+﻿@using Easy.Web.CMS.Widget
+@model Easy.Web.CMS.Layout.LayoutEntity
 @{
     Layout = "~/Modules/Common/Views/Shared/_DesignLayout.cshtml";
     if (Model == null || Model.Html == null)
@@ -11,7 +11,7 @@
 
 @foreach (var item in Model.Html)
 {
-    if (item.Html == Easy.CMS.Zone.ZoneEntity.ZoneTag)
+    if (item.Html == Easy.Web.CMS.Zone.ZoneEntity.ZoneTag)
     {
         @Html.Raw(item.Html)
         zoneStart = true;
@@ -52,7 +52,7 @@
             continue;
         }
     }
-    if (item.Html == Easy.CMS.Zone.ZoneEntity.ZoneEndTag)
+    if (item.Html == Easy.Web.CMS.Zone.ZoneEntity.ZoneEndTag)
     {
         @Html.Raw(item.Html)
         zoneStart = false;

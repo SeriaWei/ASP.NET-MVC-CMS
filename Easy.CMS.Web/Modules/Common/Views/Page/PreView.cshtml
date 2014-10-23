@@ -1,12 +1,12 @@
 ﻿@{
     Layout = "~/Modules/Common/Views/Shared/_Layout.cshtml";
-    Easy.CMS.Layout.LayoutEntity layOut = ViewData[Easy.CMS.Layout.LayoutEntity.LayoutKey] as Easy.CMS.Layout.LayoutEntity;
+    Easy.Web.CMS.Layout.LayoutEntity layOut = ViewData[Easy.Web.CMS.Layout.LayoutEntity.LayoutKey] as Easy.Web.CMS.Layout.LayoutEntity;
 }
 @{
     bool zoneStart = false;
     foreach (var item in layOut.Html)
     {
-        if (item.Html == Easy.CMS.Zone.ZoneEntity.ZoneTag)
+        if (item.Html == Easy.Web.CMS.Zone.ZoneEntity.ZoneTag)
         {
             zoneStart = true;
             continue;
@@ -27,7 +27,7 @@
             zoneStart = false;
             continue;
         }
-        if (item.Html == Easy.CMS.Zone.ZoneEntity.ZoneEndTag)
+        if (item.Html == Easy.Web.CMS.Zone.ZoneEntity.ZoneEndTag)
         {
             zoneStart = false;
             continue;

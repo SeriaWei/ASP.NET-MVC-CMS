@@ -101,9 +101,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\ProductListWidget.cs" />
+    <Compile Include="ProductPlug.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ResourceManager.cs" />
-    <Compile Include="RouteRegister.cs" />
     <Compile Include="Service\ProductListWidgetService.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -118,9 +117,9 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\MyFrameWork\EasyFrameWork\EasyFrameWork.CMS\Easy.CMS.csproj">
+    <ProjectReference Include="..\..\..\..\..\MyFrameWork\EasyFrameWork\EasyFrameWork.CMS\Easy.Web.CMS.csproj">
       <Project>{2e8362ae-80d6-43e0-b3bf-cab6d888d154}</Project>
-      <Name>Easy.CMS</Name>
+      <Name>Easy.Web.CMS</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\..\MyFrameWork\EasyFrameWork\EasyFrameWork.Web\Easy.Web.csproj">
       <Project>{a1228125-f5c4-4001-ac7d-1accf1679828}</Project>
@@ -179,7 +178,7 @@
   </Target>
   <Target Name="AfterBuild">
   </Target> -->
-<UsingTask TaskName="CopyTask" AssemblyFile="..\..\..\packages\MSBuild.CopyTask\MSBuild.CopyTask.dll" />
+  <UsingTask TaskName="CopyTask" AssemblyFile="..\..\..\packages\MSBuild.CopyTask\MSBuild.CopyTask.dll" />
   <Target Name="AfterBuild">
     <CopyTask />
   </Target>

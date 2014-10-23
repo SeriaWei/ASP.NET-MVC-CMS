@@ -1,10 +1,10 @@
-﻿using Easy.CMS.Widget;
+﻿using Easy.Web.CMS.Widget;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Easy.MetaData;
-using Easy.CMS.MetaData;
+using Easy.Web.CMS.MetaData;
 
 namespace Easy.CMS.Article.Models
 {

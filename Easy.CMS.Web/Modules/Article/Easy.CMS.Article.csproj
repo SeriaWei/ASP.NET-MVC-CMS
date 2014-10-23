@@ -114,6 +114,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ActionFilter\ViewData_ArticleTypeAttribute.cs" />
+    <Compile Include="ArticlePlug.cs" />
     <Compile Include="Controllers\ArticleController.cs" />
     <Compile Include="Controllers\ArticleTypeController.cs" />
     <Compile Include="Models\ArticleDetailWidget.cs" />
@@ -124,8 +125,6 @@
     <Compile Include="Models\ArticleType.cs" />
     <Compile Include="Models\ArticleTypeDetailWidget.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ResourceManager.cs" />
-    <Compile Include="RouteRegister.cs" />
     <Compile Include="Service\ArticleDetailWidgetService.cs" />
     <Compile Include="Service\ArticleSummaryWidgetService.cs" />
     <Compile Include="Service\ArticleTopWidgetService.cs" />
@@ -178,9 +177,9 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\MyFrameWork\EasyFrameWork\EasyFrameWork.CMS\Easy.CMS.csproj">
+    <ProjectReference Include="..\..\..\..\..\MyFrameWork\EasyFrameWork\EasyFrameWork.CMS\Easy.Web.CMS.csproj">
       <Project>{2e8362ae-80d6-43e0-b3bf-cab6d888d154}</Project>
-      <Name>Easy.CMS</Name>
+      <Name>Easy.Web.CMS</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\..\..\MyFrameWork\EasyFrameWork\EasyFrameWork.Web\Easy.Web.csproj">
       <Project>{a1228125-f5c4-4001-ac7d-1accf1679828}</Project>

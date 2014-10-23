@@ -1,5 +1,5 @@
-﻿using Easy.CMS.MetaData;
-using Easy.CMS.Widget;
+﻿using Easy.Web.CMS.MetaData;
+using Easy.Web.CMS.Widget;
 using System;
 using System.Collections.Generic;
 using System.Linq;

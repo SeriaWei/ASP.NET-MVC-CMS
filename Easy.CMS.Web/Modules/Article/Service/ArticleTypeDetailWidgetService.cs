@@ -1,6 +1,7 @@
-﻿using Easy.CMS.Article.Models;
+﻿using Easy.Data;
+using Easy.CMS.Article.Models;
 using Easy.CMS.Article.ViewModel;
-using Easy.CMS.Widget;
+using Easy.Web.CMS.Widget;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,7 @@ namespace Easy.CMS.Article.Service
             var viewModel = new ArticleTypeDetailWidgetViewModel
             {
                 ArticleType = new ArticleTypeService().Get(currentWidget.ArticleType),
-                Articles = new ArticleService().Get(new Data.DataFilter().Where("ArticleCategory", Constant.OperatorType.Equal, currentWidget.ArticleType).Where("IsPublish=true and status=1"))
+                Articles = new ArticleService().Get(new DataFilter().Where("ArticleCategory", OperatorType.Equal, currentWidget.ArticleType).Where("IsPublish=true and status=1"))
             };
             string id = httpContext.Request.QueryString["ID"];
             if (viewModel.Articles.Any())

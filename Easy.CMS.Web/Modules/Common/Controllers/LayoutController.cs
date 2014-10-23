@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Easy.Data;
 using Easy.Web.Controller;
-using Easy.CMS.Layout;
+using Easy.Web.CMS.Layout;
 using Easy.Web.Attribute;
 using Easy.Extend;
 using Easy.Constant;
-using Easy.CMS.Zone;
+using Easy.Web.CMS.Zone;
 using Easy.CMS.Common.ViewModels;
-using Easy.CMS.Widget;
+using Easy.Web.CMS.Widget;
 
 namespace Easy.CMS.Common.Controllers
 {
@@ -20,7 +21,7 @@ namespace Easy.CMS.Common.Controllers
         [AdminTheme]
         public override System.Web.Mvc.ActionResult Index(ParamsContext context)
         {
-            return View(Service.Get(new Data.DataFilter()));
+            return View(Service.Get(new DataFilter()));
         }
         [AdminTheme]
         public ActionResult LayoutWidget()
@@ -30,9 +31,9 @@ namespace Easy.CMS.Common.Controllers
         [HttpPost]
         public ActionResult LayoutZones(string ID)
         {
-            ZoneService zoneService = new ZoneService();
-            WidgetService widgetService = new WidgetService();
-            LayoutZonesViewModel viewModel = new LayoutZonesViewModel
+            var zoneService = new ZoneService();
+            var widgetService = new WidgetService();
+            var viewModel = new LayoutZonesViewModel
             {
                 Zones = zoneService.GetZonesByLayoutId(ID),
                 Widgets = widgetService.GetByLayoutId(ID)
@@ -78,7 +79,7 @@ namespace Easy.CMS.Common.Controllers
         public ActionResult SaveLayout(string[] html, LayoutEntity layout)
         {
             LayoutHtmlCollection htmls;
-            var zones = Easy.CMS.Zone.Helper.GetZones(html, out htmls);
+            var zones = Easy.Web.CMS.Zone.Helper.GetZones(html, out htmls);
             layout.Zones = zones;
             layout.Html = htmls;
             Service.UpdateDesign(layout);

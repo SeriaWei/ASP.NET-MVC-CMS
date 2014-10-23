@@ -1,19 +1,17 @@
-﻿using Easy.Web.Route;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Web.Routing;
-using System.Web.Mvc;
-
+using Easy.Web.CMS;
+using Easy.Web.Route;
 
 namespace Easy.CMS.Product
 {
-    public class RouteRegister : IRouteRegister
+    public class ProductPlug:PluginBase
     {
-        public IEnumerable<RouteDescriptor> Regist()
+        public override IEnumerable<RouteDescriptor> Regist()
         {
-            List<RouteDescriptor> routes = new List<RouteDescriptor>();
+            var routes = new List<RouteDescriptor>();
             routes.Add(new RouteDescriptor()
             {
                 RouteName = "productAdmin",
@@ -23,6 +21,21 @@ namespace Easy.CMS.Product
                 Priority = 1
             });
             return routes;
+        }
+
+        public override IEnumerable<AdminMenu> AdminMenu()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void InitScript()
+        {
+            
+        }
+
+        public override void InitStyle()
+        {
+            
         }
     }
 }

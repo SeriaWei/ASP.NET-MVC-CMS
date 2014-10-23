@@ -27,7 +27,7 @@ namespace Easy.CMS.Article.Models
         {
             ViewConfig(m => m.ID).AsHidden();
             ViewConfig(m => m.ParentID).AsHidden();
-            ViewConfig(m => m.Status).AsDropDownList().DataSource(Constant.DicKeys.RecordStatus, Constant.SourceType.Dictionary);
+            ViewConfig(m => m.Status).AsDropDownList().DataSource(Easy.Constant.DicKeys.RecordStatus, Easy.Constant.SourceType.Dictionary);
         }
     }
 

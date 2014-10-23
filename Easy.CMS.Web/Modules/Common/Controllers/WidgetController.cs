@@ -1,5 +1,7 @@
-﻿using Easy.CMS.WidgetTemplate;
-using Easy.CMS.Zone;
+﻿using Easy.Data;
+using Easy.Web.CMS;
+using Easy.Web.CMS.WidgetTemplate;
+using Easy.Web.CMS.Zone;
 using Easy.Web.Attribute;
 using Easy.Web.Controller;
 using System;
@@ -9,7 +11,7 @@ using System.Web;
 using System.Web.Mvc;
 using Easy.Extend;
 using Easy.Constant;
-using Easy.CMS.Widget;
+using Easy.Web.CMS.Widget;
 
 namespace Easy.CMS.Common.Controllers
 {
@@ -85,7 +87,7 @@ namespace Easy.CMS.Common.Controllers
         [HttpPost]
         public JsonResult SaveWidgetPosition(List<WidgetBase> widgets)
         {
-            WidgetService widgetService = new WidgetService();
+            var widgetService = new WidgetService();
             widgets.Each(m =>
             {
                 widgetService.Update(m, new Data.DataFilter(new List<string> { "Position" }).Where<WidgetBase>(n => n.ID, OperatorType.Equal, m.ID));

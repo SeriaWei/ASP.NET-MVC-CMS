@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Easy.CMS.Article.ActionFilter;
+using Easy.Constant;
 using Easy.Web.Controller;
 using Easy.CMS.Article.Models;
 using Easy.CMS.Article.Service;
 using Easy.Web.Attribute;
-using Easy.CMS.Article.ActionFilter;
 
 namespace Easy.CMS.Article.Controllers
 {
@@ -33,7 +34,7 @@ namespace Easy.CMS.Article.Controllers
         public override ActionResult Edit(ArticleEntity entity)
         {
             var result = base.Edit(entity);
-            if (entity.ActionType == Constant.ActionType.Publish)
+            if (entity.ActionType == ActionType.Publish)
             {
                 Service.Publish(entity.ID);
             }

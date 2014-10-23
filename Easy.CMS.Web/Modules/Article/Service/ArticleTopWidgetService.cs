@@ -1,6 +1,6 @@
 ﻿using Easy.CMS.Article.Models;
 using Easy.CMS.Article.ViewModel;
-using Easy.CMS.Widget;
+using Easy.Web.CMS.Widget;
 using Easy.Data;
 using Easy.Modules.DataDictionary;
 using System;
@@ -31,8 +31,8 @@ namespace Easy.CMS.Article.Service
             };
             var filter = new DataFilter();
             filter.Where("IsPublish=true");
-            filter.OrderBy("PublishDate", Constant.OrderType.Descending);
-            viewModel.Articles = new ArticleService().Get(filter.Where("ArticleCategory", Constant.OperatorType.In, categorys.ToList(m => m.ID)), page);
+            filter.OrderBy("PublishDate", OrderType.Descending);
+            viewModel.Articles = new ArticleService().Get(filter.Where("ArticleCategory", OperatorType.In, categorys.ToList(m => m.ID)), page);
             return widget.ToWidgetPart(viewModel);
         }
     }

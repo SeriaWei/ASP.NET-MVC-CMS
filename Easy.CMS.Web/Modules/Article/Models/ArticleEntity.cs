@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Easy.Constant;
 using Easy.Models;
 using Easy.MetaData;
+using Easy.Web.CMS;
 
 namespace Easy.CMS.Article.Models
 {
@@ -37,10 +39,10 @@ namespace Easy.CMS.Article.Models
         protected override void ViewConfigure()
         {
             ViewConfig(m => m.ID).AsHidden();
-            ViewConfig(m => m.Status).AsDropDownList().DataSource(Constant.DicKeys.RecordStatus, Constant.SourceType.Dictionary);
+            ViewConfig(m => m.Status).AsDropDownList().DataSource(DicKeys.RecordStatus, SourceType.Dictionary);
             ViewConfig(m => m.ImageThumbUrl).AsTextBox().AddClass("select").HideInGrid();
             ViewConfig(m => m.ImageUrl).AsTextBox().AddClass("select").HideInGrid();
-            ViewConfig(m => m.ArticleCategory).AsDropDownList().DataSource(ViewDataKeys.ArticleCategory, Constant.SourceType.ViewData);
+            ViewConfig(m => m.ArticleCategory).AsDropDownList().DataSource(ViewDataKeys.ArticleCategory, SourceType.ViewData);
             ViewConfig(m => m.ArticleContent).AsMutiLineTextBox().AddClass("html").HideInGrid();
             ViewConfig(m => m.PublishDate).AsTextBox().Hide();
             ViewConfig(m => m.IsPublish).AsTextBox().Hide();

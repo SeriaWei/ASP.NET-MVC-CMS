@@ -1,6 +1,6 @@
 ﻿using Easy.CMS.Article.Models;
 using Easy.CMS.Article.ViewModel;
-using Easy.CMS.Widget;
+using Easy.Web.CMS.Widget;
 using System;
 using System.Collections.Generic;
 using System.Linq;
