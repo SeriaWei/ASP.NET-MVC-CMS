@@ -60,3 +60,143 @@
     }
     @Html.Raw(item.Html)
 }
+
+@using (Script.AtFoot())
+{
+    <script type="text/javascript">
+        $(function () {
+            $("input[type=radio][name=ContainerClass]").click(function () {
+                $("#container").removeClass("container").removeClass("container-fluid").addClass($(this).val());
+            });
+            $(".AddRow,.AddCol,.AddZone").draggable({ helper: "clone", revert: "invalid" });
+            $("#toolBar").droppable({
+                activeClass: "dropWarning",
+                hoverClass: "dropDanger",
+                accept: ".additional",
+                drop: function (event, ui) {
+                    ui.draggable.remove();
+                }
+            });
+            $(".RowDroppable").droppable({
+                hoverClass: "dropWarning",
+                accept: ".AddRow",
+                greedy: true,
+                tolerance: "pointer",
+                drop: rowDropToContent
+            }).sortable();
+
+            var opRowDrop = {
+                hoverClass: "dropWarning",
+                accept: ".AddCol,.AddZone,.additional.zone",
+                greedy: true,
+                tolerance: "pointer",
+                drop: colDroped
+            };
+            var opColDrop = {
+                hoverClass: "dropWarning",
+                accept: ".AddRow,.AddZone,.additional.zone",
+                greedy: true,
+                tolerance: "pointer",
+                drop: function (evn, uirz) {
+                    if (uirz.draggable.hasClass("AddRow")) {
+                        rowDroped(evn, uirz, this);
+                    }
+                    else if (uirz.draggable.hasClass("AddZone") || uirz.draggable.hasClass("additional")) {
+                        zoneDropable(evn, uirz, this);
+                    }
+                }
+            };
+            $("#container .additional.row").droppable(opRowDrop).sortable();
+            $("#container .colContent").droppable(opColDrop).sortable();
+
+            $(".zone input").live("blur", function () {
+                $(this).attr("value", $(this).val());
+            });
+            function rowDropToContent(event, ui, obj) {
+                if (obj == null)
+                    obj = this;
+                var row = $("<div class=\"additional row\"></div>");
+                if (ui.draggable.find("input").val()) {
+                    row.css("width", ui.draggable.find("input").val()).css("margin", "0 auto");
+                }
+                row.droppable(opRowDrop);
+                row.sortable();
+                $(obj).append(row);
+                $(".dropWarning").removeClass("dropWarning");
+            }
+            function rowDroped(event, ui, obj) {
+                if (obj == null)
+                    obj = this;
+                var row = $("<div class=\"additional " + ui.draggable.data("container") + "\"><div class=\"row additional\"></div></div>");
+                if (ui.draggable.find("input").val()) {
+                    row.find(".row").css("width", ui.draggable.find("input").val()).css("margin", "0 auto");
+                }
+                row.children(".row").droppable(opRowDrop).sortable();
+                $(obj).append(row);
+                $(".dropWarning").removeClass("dropWarning");
+            }
+            function colDroped(event, ui, obj) {
+                if (obj == null)
+                    obj = this;
+                if (ui.draggable.hasClass("AddZone") || ui.draggable.hasClass("additional")) {
+                    zoneDropable(event, ui, obj);
+                    return;
+                }
+                var col = $("<div class=\"additional " + ui.draggable.data("col") + ui.draggable.find("select").val() + "\"><div class=\"colContent row\"></div></div>");
+                col.children(".colContent").droppable(opColDrop).sortable();
+                $(obj).append(col);
+                $(".dropWarning").removeClass("dropWarning");
+            }
+            function zoneDropable(event, ui, obj) {
+                if (obj == null) {
+                    obj = this;
+                }
+                if (ui.draggable.parent().is(obj))
+                    return;
+                if (ui.draggable.hasClass("additional")) {
+                    $(obj).append('<div class=\"additional zone\">' + ui.draggable.html() + '</div>');
+                    ui.draggable.remove();
+                }
+                else {
+                    var zoneParent = $('<div class="additional zone"></div>');
+                    var zone = $("<zone></zone>");
+                    zone.append('<input class="form-control" type="text" name="ZoneName" placeholder="输入名称" value="内容 ' + ($("#container input[type=text]").size() + 1) + '" />');
+                    zone.append('<input class="form-control" type="hidden" name="LayoutId" value="' + $("#LayoutId").val() + '" />');
+                    zone.append('<input class="form-control" type="hidden" name="ID" value="" />');
+                    zoneParent.append(zone);
+                    $(obj).append(zoneParent);
+                }
+                $(".dropWarning").removeClass("dropWarning");
+            }
+
+            $("#save").click(function () {
+                $("#container .ui-droppable").removeClass("ui-droppable");
+                $("#container .ui-sortable").removeClass("ui-sortable");
+                var html = $.trim($("#container").html());
+                var htmlArray = html.split("<zone>");
+                var form = $("#LayoutInfo");
+                var zoneArray = [];
+                for (var i = 0; i < htmlArray.length; i++) {
+                    zoneArray.push(htmlArray[i]);
+                    if (i < htmlArray.length - 1) {
+                        zoneArray.push("<zone>");
+                    }
+                }
+                var allZoneResult = [];
+                for (var i = 0; i < zoneArray.length; i++) {
+                    var zoneEnd = zoneArray[i].split("</zone>");
+                    for (var j = 0; j < zoneEnd.length; j++) {
+                        allZoneResult.push(zoneEnd[j]);
+                        if (j < zoneEnd.length - 1) {
+                            allZoneResult.push("</zone>");
+                        }
+                    }
+                }
+                for (var i = 0; i < allZoneResult.length; i++) {
+                    form.append($('<input type="hidden" name="html"/>').val($.trim(allZoneResult[i])));
+                }
+                form.submit();
+            });
+        });
+    </script>
+}
