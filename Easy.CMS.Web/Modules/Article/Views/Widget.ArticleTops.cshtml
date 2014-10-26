@@ -1,6 +1,13 @@
 ﻿@model Easy.CMS.Article.ViewModel.ArticleTopWidgetViewModel
 @{
-
+    if (!Model.Widget.DetailPageUrl.IsNullOrEmpty())
+    {
+        Model.Widget.DetailPageUrl = Url.Content(Model.Widget.DetailPageUrl);
+    }
+    if (!Model.Widget.MoreLink.IsNullOrEmpty())
+    {
+        Model.Widget.MoreLink = Url.Content(Model.Widget.MoreLink);
+    }
 }
 <div class="article tops">
 
@@ -8,7 +15,10 @@
     {
         <div class="item-title">
             <h5>@Model.Widget.Title<i>@Model.Widget.SubTitle</i></h5>
-            <a class="more" href="@Model.Widget.MoreLink">更多>></a>
+            @if (!Model.Widget.MoreLink.IsNullOrEmpty())
+            {
+                <a class="more" href="@Model.Widget.MoreLink">更多>></a>
+            }            
         </div>
     }
 

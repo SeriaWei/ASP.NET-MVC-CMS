@@ -17,8 +17,11 @@
         {
             <div class="zoneid" data-id="@item.Html"></div>
             <div class="zoneName">
-                <a title="添加组件" href="@Url.Action("SelectWidget", "WidgetTemplate", new { module = "common", pageId=layOut.Page.ID,ZoneId=item.Html })"><i class="glyphicon glyphicon-plus"></i></a> 
-                @layOut.Zones.First(m => m.ID == item.Html).ZoneName
+                <a title="添加组件" href="@Url.Action("SelectWidget", "WidgetTemplate", new { module = "common", pageId=layOut.Page.ID,ZoneId=item.Html })">
+                    <i class="glyphicon glyphicon-plus"></i>
+                    @layOut.Zones.First(m => m.ID == item.Html).ZoneName
+                </a>
+                
             </div>
             if (layOut.ZoneWidgets.ContainsKey(item.Html))
             {
@@ -35,7 +38,7 @@
                                     {
                                         <a href="@Url.Action("Edit","Widget",new{module="Common",ID=widgetPart.Widget.ID})"><i class="glyphicon glyphicon-edit"></i></a>
                                         <a href="javascript:void(0)" class="delete" data-id="@widgetPart.Widget.ID"><i class="glyphicon glyphicon-trash"></i></a>
-                                    }                                    
+                                    }
                                 </div>
                             </div>
                         </div>

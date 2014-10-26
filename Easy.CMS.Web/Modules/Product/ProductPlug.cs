@@ -16,7 +16,7 @@ namespace Easy.CMS.Product
             {
                 RouteName = "productAdmin",
                 Url = "admin/{controller}/{action}",
-                Defaults = new { controller = "product", action = "home", module = "product" },
+                Defaults = new { controller = "product", action = "index", module = "product" },
                 Namespaces = new string[] { "Easy.CMS.Product.Controllers" },
                 Priority = 1
             });

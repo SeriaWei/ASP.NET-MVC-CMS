@@ -8,7 +8,7 @@ using Easy.Web.Route;
 
 namespace Easy.CMS.Common
 {
-    public class CommonPlug:PluginBase
+    public class CommonPlug : PluginBase
     {
         public override IEnumerable<RouteDescriptor> Regist()
         {
@@ -21,17 +21,18 @@ namespace Easy.CMS.Common
                 Defaults = new { controller = "Page", action = "PreView", path = UrlParameter.Optional },
                 Namespaces = new string[] { "Easy.Web.CMS.Common.Controllers" },
                 Priority = -1,
-                Constraints = new RouteConstraint()
+               // Constraints = new { path = new RouteConstraint() }
             });
 
             routes.Add(new RouteDescriptor
             {
                 RouteName = "layoutAdmin",
                 Url = "admin/{controller}/{action}",
-                Defaults = new { controller = "layout", action = "home", module = "common" },
+                Defaults = new { controller = "layout", action = "index", module = "common" },
                 Namespaces = new string[] { "Easy.Web.CMS.Common.Controllers" },
-                Priority = 1
+                Priority = 10
             });
+
             return routes;
         }
 

@@ -1,6 +1,9 @@
 ﻿@model Easy.CMS.Article.ViewModel.ArticleListWidgetViewModel
 @{
-
+    if (!Model.Widget.DetailPageUrl.IsNullOrEmpty())
+    {
+        Model.Widget.DetailPageUrl = Url.Content(Model.Widget.DetailPageUrl);
+    }
 }
 <div class="container-fluid article">
     <div class="row">

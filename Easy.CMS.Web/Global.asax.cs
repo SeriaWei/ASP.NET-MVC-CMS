@@ -64,7 +64,7 @@ namespace PlugWeb
                 }
             }));
             RouteTable.Routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-            routes.OrderByDescending(m => m.Priority).Each(m => RouteTable.Routes.MapRoute(m.RouteName, m.Url, m.Defaults, m.Constraints, m.Namespaces));
+            routes.OrderByDescending(m => m.Priority).Each(m => RouteTable.Routes.MapRoute(m.RouteName, m.Url, m.Defaults,  m.Constraints , m.Namespaces));
             Container.Register(typeof(IDataDictionaryService), typeof(DataDictionaryService));
         }
     }

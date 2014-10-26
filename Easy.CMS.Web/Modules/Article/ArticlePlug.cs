@@ -15,9 +15,9 @@ namespace Easy.CMS.Article
 
             routes.Add(new RouteDescriptor
             {
-                RouteName = "newsAdmin",
+                RouteName = "articleAdmin",
                 Url = "admin/{controller}/{action}",
-                Defaults = new { controller = "Article", action = "home", module = "Article" },
+                Defaults = new {  action = "index", module = "Article" },
                 Namespaces = new string[] { "Easy.Web.CMS.Article.Controllers" },
                 Priority = 1
             });
