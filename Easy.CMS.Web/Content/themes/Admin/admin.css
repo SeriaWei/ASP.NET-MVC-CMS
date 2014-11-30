@@ -262,5 +262,9 @@ body {
     margin: 3px 0;
 }
 .jstree a[ispublish="false"]{
+    color:gray;
+}
+.jstree a[ishomepage="true"]{
+    font-weight:bold;
     color:red;
 }
