@@ -268,3 +268,10 @@ body {
     font-weight:bold;
     color:red;
 }
+.form-control[type=checkbox]{
+    width:34px;
+    box-shadow:none;
+    margin:0;
+    padding:0;
+    border-radius:0;
+}

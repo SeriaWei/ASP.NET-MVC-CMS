@@ -174,15 +174,42 @@
     background-color: #d9534f !important;
 }
 
-.zoneToolbar {
-    background-color: #eee;
-    background-color: rgba(86,61,124,.15);
-    border: 1px solid #ddd;
-    border: 1px solid rgba(86,61,124,.2);
-    cursor: move;
+.widget {
+    position: relative;
 }
 
+.zoneToolbar {
+    cursor: move;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+    color: white;
+}
 
+    .zoneToolbar.red {
+        background-color: #c7302b;
+        border: 1px solid #9a221f;
+    }
+
+    .zoneToolbar.blue {
+        background-color: #428bca;
+        border: 1px solid #25547d;
+    }
+
+    .zoneToolbar.lightBlue {
+        background-color: #5bc0de;
+        border:1px solid #368da7;
+    }
+
+    .zoneToolbar.green {
+        background-color: #5cb85c;
+        border:1px solid #3a863a;
+    }
+
+    .zoneToolbar.orange {
+        background-color: #f0ad4e;
+        border:1px solid #db942f;
+    }
 
 .hideToolBar .zoneToolbar {
     display: none;
@@ -190,7 +217,7 @@
 
 
 .zoneToolbar a {
-    color: black;
+    color: white;
 }
 
     .zoneToolbar a:hover {
@@ -218,16 +245,17 @@
     color: red;
     font-size: 35px;
     line-height: 60px;
-    text-align:center;
-    background-color:#46b8da;
-    z-index:10;
-    display:none;
+    text-align: center;
+    background-color: #46b8da;
+    z-index: 10;
+    display: none;
 }
 
 #toolBar.dropWarning > .deleteBar {
     display: block;
 }
-#toolBar.dropWarning.dropDanger> .deleteBar {
-    background-color: #d9534f;    
+
+#toolBar.dropWarning.dropDanger > .deleteBar {
+    background-color: #d9534f;
     color: white;
 }
