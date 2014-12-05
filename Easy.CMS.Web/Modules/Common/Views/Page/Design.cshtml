@@ -28,7 +28,7 @@
                 foreach (WidgetPart widgetPart in layOut.ZoneWidgets[item.Html].OrderBy(m => m.Widget.Position))
                 {
                     <div class="widget" id="widget_@widgetPart.Widget.ID" data-widgetid="@widgetPart.Widget.ID">
-                        <div class="zoneToolbar container-fluid">
+                        <div class="zoneToolbar container-fluid blue">
                             <div class="row">
                                 <div class="col-md-6">
                                     @widgetPart.Widget.WidgetName
@@ -104,7 +104,7 @@
                         }, "html");
                 }
             });
-            $(".delete").click(function () {
+            $(".delete").live("click",function () {
                 var id = $(this).data("id");
                 if (confirm("确定要删除该组件吗？")) {
                     $.post("@Url.Action("DeleteWidget", "Widget",new { module="Common"})", { ID: id }, function (data) {
