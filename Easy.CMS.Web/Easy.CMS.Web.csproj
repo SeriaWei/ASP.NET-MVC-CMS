@@ -597,12 +597,6 @@
     <Content Include="Themes\Default\css\Pagination.min.css">
       <DependentUpon>Pagination.css</DependentUpon>
     </Content>
-    <Content Include="Themes\Default\css\Product.css">
-      <DependentUpon>Article.less</DependentUpon>
-    </Content>
-    <Content Include="Themes\Default\css\Product.min.css">
-      <DependentUpon>Product.css</DependentUpon>
-    </Content>
     <Content Include="Themes\Default\css\Theme.css">
       <DependentUpon>Theme.less</DependentUpon>
     </Content>
@@ -710,9 +704,6 @@
       <DependentUpon>Library.css</DependentUpon>
     </Content>
     <Content Include="Themes\Default\css\Article.less" />
-    <Content Include="Themes\Default\css\Product.css.map">
-      <DependentUpon>Product.css</DependentUpon>
-    </Content>
     <Content Include="Themes\Default\css\Article.css.map">
       <DependentUpon>Article.css</DependentUpon>
     </Content>

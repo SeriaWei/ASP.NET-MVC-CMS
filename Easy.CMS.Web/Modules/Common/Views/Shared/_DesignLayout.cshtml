@@ -14,7 +14,7 @@
 <!--<![endif]-->
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title></title>
+    <title>设计->@Model.LayoutName</title>
     @StyleAtHead()
     @ScriptAtHead()
 </head>
@@ -72,7 +72,6 @@
                                 </div>
                             </div>
                             <div class="col-md-9">
-                                <input type="hidden" name="ID" value="@Model.ID" />
                                 <a href="@Url.Action("Edit", "Layout", new { ID = Model.ID, module = "Common" })" class="btn btn-success btn-sm">属性</a>
                                 @*<a href="@Url.Action("SelectWidget", "WidgetTemplate", new { LayoutId = Model.ID, module = "Common" })" class="btn btn-danger btn-sm">添加组件</a>*@
                                 <input type="button" class="btn btn-primary btn-sm" id="save" value="保存" />
@@ -81,6 +80,7 @@
                     </div>
                 </div>
                 <div class="deleteBar"><i class="glyphicon glyphicon-trash"></i></div>
+                <input type="hidden" id="LayoutId" name="ID" value="@Model.ID" />
             </div>
         }
     </div>

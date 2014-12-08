@@ -150,7 +150,7 @@ strong {
 }
 .article,
 .articleType {
-  margin-top: 10px;
+  padding-top: 10px;
 }
 .article .category,
 .articleType .category {
@@ -186,7 +186,7 @@ strong {
 }
 .article .article-list,
 .articleType .article-list {
-  margin-top: 10px;
+  padding-top: 10px;
 }
 .article .article-list > ul > li,
 .articleType .article-list > ul > li {
@@ -216,7 +216,7 @@ strong {
 }
 .article.summary,
 .articleType.summary {
-  margin: 15px;
+  padding: 15px;
 }
 .article.summary .detail,
 .articleType.summary .detail {
@@ -224,7 +224,7 @@ strong {
 }
 .article.tops,
 .articleType.tops {
-  margin: 15px;
+  padding: 15px;
 }
 .articleDetail .articleDetail .title {
   font-weight: bold;

@@ -19,7 +19,7 @@ namespace Easy.CMS.Common.Controllers
     public class LayoutController : BasicController<LayoutEntity, LayoutService>
     {
         [AdminTheme]
-        public override System.Web.Mvc.ActionResult Index(ParamsContext context)
+        public override ActionResult Index(ParamsContext context)
         {
             return View(Service.Get(new DataFilter()));
         }
