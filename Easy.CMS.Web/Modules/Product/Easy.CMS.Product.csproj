@@ -100,10 +100,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\ProductEntity.cs" />
     <Compile Include="Entities\ProductListWidget.cs" />
     <Compile Include="ProductPlug.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\ProductListWidgetService.cs" />
+    <Compile Include="Service\ProductService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="CopyItems.xml" />
