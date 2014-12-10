@@ -597,6 +597,12 @@
     <Content Include="Themes\Default\css\Pagination.min.css">
       <DependentUpon>Pagination.css</DependentUpon>
     </Content>
+    <Content Include="Themes\Default\css\Product.css">
+      <DependentUpon>Product.less</DependentUpon>
+    </Content>
+    <Content Include="Themes\Default\css\Product.min.css">
+      <DependentUpon>Product.css</DependentUpon>
+    </Content>
     <Content Include="Themes\Default\css\Theme.css">
       <DependentUpon>Theme.less</DependentUpon>
     </Content>
@@ -608,6 +614,7 @@
     <Content Include="Themes\Default\images\header_bg.png" />
     <Content Include="Themes\Default\images\icon_point.png" />
     <Content Include="Themes\Default\images\icon_square.png" />
+    <Content Include="Themes\Default\images\loader.gif" />
     <Content Include="Themes\Default\images\more.png" />
     <Content Include="Themes\Default\images\prd_sort_title.gif" />
     <Content Include="Web.config" />
@@ -710,6 +717,10 @@
     <Content Include="Views\Shared\Partial_Pagination.cshtml" />
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Views\Shared\_PopUpLayout.cshtml" />
+    <Content Include="Themes\Default\css\Product.less" />
+    <Content Include="Themes\Default\css\Product.css.map">
+      <DependentUpon>Product.css</DependentUpon>
+    </Content>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

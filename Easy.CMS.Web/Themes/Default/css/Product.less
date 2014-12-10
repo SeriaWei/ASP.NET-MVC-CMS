@@ -1,0 +1,50 @@
+﻿
+.ProductList {
+    & > li {
+        width: 228px;
+        float: left;
+        list-style: none;
+        margin: 5px 2px;
+        border: 1px solid #E5E5E5;
+        background: url(../images/loader.gif) center center no-repeat;
+        &:hover {
+            border: 1px solid #d87d71;
+        }
+
+        img {
+        }
+
+        .Content {
+            padding: 5px;
+
+            .Image {
+                width: 218px;
+                height: 218px;
+                overflow: hidden;
+            }
+
+            .TitleBar {
+                padding: 0px 0px 10px 0px;
+                text-align: center;
+                height: 35px;
+            }
+        }
+
+
+
+        .PriceSpace {
+            background-color: #fbf0c5;
+            padding: 10px;
+
+            .PriceNo {
+                text-decoration: line-through;
+            }
+
+            .Price {
+                color: #D14836;
+                font-weight: 600;
+                font-size: 15px;
+            }
+        }
+    }
+}

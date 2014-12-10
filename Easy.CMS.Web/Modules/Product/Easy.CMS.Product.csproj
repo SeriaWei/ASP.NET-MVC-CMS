@@ -111,6 +111,7 @@
     <Compile Include="Service\ProductCategoryService.cs" />
     <Compile Include="Service\ProductListWidgetService.cs" />
     <Compile Include="Service\ProductService.cs" />
+    <Compile Include="ViewModel\ProductListWidgetViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="CopyItems.xml" />
@@ -121,7 +122,7 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Parts.ProductListWidget.cshtml" />
+    <Content Include="Views\Widget.ProductListWidget.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="web.config" />

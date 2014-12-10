@@ -249,4 +249,40 @@ strong {
 .carousel .carousel-inner .item .carousel-caption a {
   color: white;
 }
+.ProductList > li {
+  width: 228px;
+  float: left;
+  list-style: none;
+  margin: 5px 2px;
+  border: 1px solid #E5E5E5;
+  background: url(../images/loader.gif) center center no-repeat;
+}
+.ProductList > li:hover {
+  border: 1px solid #d87d71;
+}
+.ProductList > li .Content {
+  padding: 5px;
+}
+.ProductList > li .Content .Image {
+  width: 218px;
+  height: 218px;
+  overflow: hidden;
+}
+.ProductList > li .Content .TitleBar {
+  padding: 0px 0px 10px 0px;
+  text-align: center;
+  height: 35px;
+}
+.ProductList > li .PriceSpace {
+  background-color: #fbf0c5;
+  padding: 10px;
+}
+.ProductList > li .PriceSpace .PriceNo {
+  text-decoration: line-through;
+}
+.ProductList > li .PriceSpace .Price {
+  color: #D14836;
+  font-weight: 600;
+  font-size: 15px;
+}
 /*# sourceMappingURL=Theme.css.map */
