@@ -6,7 +6,7 @@ using System.Linq;
 using System.Web;
 using Easy.MetaData;
 
-namespace Easy.CMS.Product.Entities
+namespace Easy.CMS.Product.Models
 {
     [DataConfigure(typeof(ProductListWidgetMetaData))]
     public class ProductListWidget : WidgetBase

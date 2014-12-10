@@ -16,6 +16,12 @@ namespace Easy.CMS.Article.Controllers
     public class ArticleController : BasicController<ArticleEntity, ArticleService>
     {
         [ViewData_ArticleType]
+        public override ActionResult Index(ParamsContext context)
+        {
+            return base.Index(context);
+        }
+
+        [ViewData_ArticleType]
         public override ActionResult Create(ParamsContext context)
         {
             return base.Create(context);

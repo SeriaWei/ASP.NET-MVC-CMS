@@ -632,10 +632,7 @@
     <Content Include="Images\orderedList7.png" />
     <Content Include="Images\orderedList8.png" />
     <Content Include="Images\orderedList9.png" />
-    <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Web.config" />
-    <Content Include="Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Scripts\jstree\bower.json" />
     <Content Include="Scripts\jstree\component.json" />
     <Content Include="Scripts\jstree\demo\filebrowser\data\.htaccess" />
@@ -681,8 +678,6 @@
     <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce.eot" />
     <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce.ttf" />
     <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce.woff" />
-    <Content Include="Views\Shared\_PopUpLayout.cshtml" />
-    <Content Include="Views\Shared\Partial_Pagination.cshtml" />
     <Content Include="Themes\Default\css\Base.less" />
     <Content Include="Themes\Default\css\Base.css.map">
       <DependentUpon>Base.css</DependentUpon>
@@ -711,12 +706,12 @@
     <Content Include="Themes\Default\css\Carousel.css.map">
       <DependentUpon>Carousel.css</DependentUpon>
     </Content>
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\Partial_Pagination.cshtml" />
+    <Content Include="Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Views\Shared\_PopUpLayout.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Controllers\" />
-    <Folder Include="Filters\" />
-    <Folder Include="Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>

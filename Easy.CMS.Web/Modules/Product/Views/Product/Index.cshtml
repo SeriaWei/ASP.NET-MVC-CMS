@@ -1,0 +1,14 @@
+﻿@using Easy.CMS.Product.Models
+@using Easy.Data
+@{
+
+}
+<div id="toolBar">
+    <a href="@Url.Action("Create")" class="btn btn-default btn-sm">新建</a>
+</div>
+@(
+ Html.Grid<Product>().SetColumnTemplate(col => {
+     col.Add(m => m.Title, "<a href='"+Url.Action("Edit")+"?ID={ID}'>{Title}</a>");
+ }).SetAsToolBar("#toolBar").ShowCheckbox(m=>m.ID).OrderBy(m=>m.LastUpdateDate, OrderType.Descending)
+)
+

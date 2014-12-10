@@ -7,20 +7,20 @@ using Easy.Models;
 using Easy.RepositoryPattern;
 using Easy.MetaData;
 
-namespace Easy.CMS.Article.Models
+namespace Easy.CMS.Product.Models
 {
-    [DataConfigure(typeof(ArtycleTypeMetaData))]
-    public class ArticleType : EditorEntity
+    [DataConfigure(typeof(ProductCategoryMetaData))]
+    public class ProductCategory : EditorEntity
     {
         public long ID { get; set; }
 
         public long ParentID { get; set; }
     }
-    class ArtycleTypeMetaData : DataViewMetaData<ArticleType>
+    class ProductCategoryMetaData : DataViewMetaData<ProductCategory>
     {
         protected override void DataConfigure()
         {
-            DataTable("ArticleType");
+            DataTable("ProductCategory");
             DataConfig(m => m.ID).AsIncreasePrimaryKey();
         }
 

@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using Easy.MetaData;
 using Easy.Models;
+using Easy.Web.CMS;
 
-namespace BPP.Modules.Product
+namespace Easy.CMS.Product.Models
 {
-    [DataConfigure(typeof(ProductEntityMetaData))]
-    public class ProductEntity : EditorEntity, IImage
+    [DataConfigure(typeof(ProductMetaData))]
+    public class Product : EditorEntity, IImage
     {
         public long ID { get; set; }
         /// <summary>
@@ -26,7 +27,7 @@ namespace BPP.Modules.Product
         /// <summary>
         /// 类别
         /// </summary>
-        public string TypeCD { get; set; }
+        public int ProductCategory { get; set; }
         /// <summary>
         /// 颜色
         /// </summary>
@@ -67,7 +68,7 @@ namespace BPP.Modules.Product
         public string TargetFrom { get; set; }
         public string TargetUrl { get; set; }
     }
-    class ProductEntityMetaData : DataViewMetaData<ProductEntity>
+    class ProductMetaData : DataViewMetaData<Product>
     {
         protected override void DataConfigure()
         {
@@ -81,7 +82,7 @@ namespace BPP.Modules.Product
             ViewConfig(m => m.ID).AsHidden();
             ViewConfig(m => m.Title).AsTextBox().Required().Order(0);
             ViewConfig(m => m.BrandCD).AsHidden();
-            ViewConfig(m => m.TypeCD).AsDropDownList().DataSource("Product_TypeCD", Easy.Constant.SourceType.Dictionary);
+            ViewConfig(m => m.ProductCategory).AsDropDownList().DataSource(ViewDataKeys.ProductCategory, Constant.SourceType.ViewData);
             ViewConfig(m => m.ShelfLife).AsHidden();
             ViewConfig(m => m.Norm).AsHidden();
             ViewConfig(m => m.Color).AsHidden();

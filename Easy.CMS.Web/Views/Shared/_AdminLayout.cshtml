@@ -27,7 +27,7 @@
         <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a href="~/"target="_blank" class="navbar-brand">Home</a>
+                    <a href="~/" target="_blank" class="navbar-brand">Home</a>
                 </div>
 
             </div>
@@ -99,13 +99,13 @@
                         <i class="glyphicon group"></i>
                     </a>
                     <div class="accordion-inner">
-                        <a href="~/page/admin/edit">
-                            <i class="glyphicon glyphicon-th-list"></i>
-                            页面列表
+                        <a href="@Url.Action("Index", "Product", new { module = "Product" })">
+                        <i class="glyphicon glyphicon-th-list"></i>
+                            产品列表
                         </a>
-                        <a href="~/page/admin/edit">
+                        <a href="@Url.Action("Index", "ProductCategory", new { module = "Product" })">
                             <i class="glyphicon glyphicon-th-list"></i>
-                            UI Features
+                            产品类别
                         </a>
                     </div>
                 </li>

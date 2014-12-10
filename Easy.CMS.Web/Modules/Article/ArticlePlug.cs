@@ -17,7 +17,7 @@ namespace Easy.CMS.Article
             {
                 RouteName = "articleAdmin",
                 Url = "admin/{controller}/{action}",
-                Defaults = new {  action = "index", module = "Article" },
+                Defaults = new { action = "index", module = "Article" },
                 Namespaces = new string[] { "Easy.Web.CMS.Article.Controllers" },
                 Priority = 1
             });
@@ -31,7 +31,7 @@ namespace Easy.CMS.Article
 
         public override void InitScript()
         {
-            
+
         }
 
         public override void InitStyle()
