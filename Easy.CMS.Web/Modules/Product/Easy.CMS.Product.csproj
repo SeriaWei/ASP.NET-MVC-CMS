@@ -129,7 +129,8 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Views\Widget.ProductListWidget.cshtml.bak" />
+    <Content Include="Views\Widget.ProductListWidget.mobile.cshtml" />
+    <None Include="Views\Widget.ProductListWidget.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="web.config" />
@@ -141,7 +142,7 @@
     <Content Include="Views\ProductCategory\Create.cshtml" />
     <Content Include="Views\ProductCategory\Edit.cshtml" />
     <Content Include="Views\ProductCategory\Index.cshtml" />
-    <Content Include="Views\Widget.ProductListWidget.cshtml" />
+    <Content Include="Views\Widget.ProductListWidget2.cshtml" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>

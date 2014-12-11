@@ -1,32 +1,42 @@
-﻿
+﻿@import "Library.less";
+
 .ProductList {
     & > li {
-        width: 228px;
+        width: 25%;
         float: left;
         list-style: none;
-        margin: 5px 2px;
-        border: 1px solid #E5E5E5;
-        background: url(../images/loader.gif) center center no-repeat;
-        &:hover {
-            border: 1px solid #d87d71;
-        }
+        margin: 0;
+        padding: 0;
 
         img {
+            width: 100%;
+            background: url(../images/loader.gif) center center no-repeat;
         }
 
         .Content {
+            margin: 5px;
             padding: 5px;
+            border: 1px solid @borderColor;
+
+            & > a {
+                display: block;
+            }
+
+            &:hover {
+                border: 1px solid @mainColorLight;
+            }
 
             .Image {
-                width: 218px;
-                height: 218px;
-                overflow: hidden;
+                vertical-align: middle;
+                display: table-cell;
             }
 
             .TitleBar {
-                padding: 0px 0px 10px 0px;
-                text-align: center;
-                height: 35px;
+                text-align: left;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                color: @descritpionColor;
             }
         }
 
@@ -34,17 +44,38 @@
 
         .PriceSpace {
             background-color: #fbf0c5;
-            padding: 10px;
+            padding: 0 5px;
 
             .PriceNo {
                 text-decoration: line-through;
             }
 
             .Price {
-                color: #D14836;
+                color: @mainColor;
                 font-weight: 600;
                 font-size: 15px;
             }
         }
+    }
+}
+
+.ProductList.mobile {
+    @media (orientation : landscape) {
+        & > li {
+            width: 33%;
+        }
+    }
+
+   @media (orientation : portrait) {
+        & > li {
+            width: 50%;
+        }
+    }
+}
+
+.ProductCategoryBar{
+    padding:5px 10px;
+    &>.categoryTag{
+        padding:5px 10px;
     }
 }

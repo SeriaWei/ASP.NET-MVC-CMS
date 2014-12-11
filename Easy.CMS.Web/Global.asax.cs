@@ -49,7 +49,7 @@ namespace PlugWeb
             var routes = new List<RouteDescriptor>();
             Type plugBaseType = typeof(PluginBase);
 
-            
+
             BuildManager.GetReferencedAssemblies().Cast<Assembly>().Each(m => m.GetTypes().Each(p =>
             {
                 if (plugBaseType.IsAssignableFrom(p) && !p.IsAbstract && !p.IsInterface)
@@ -64,8 +64,10 @@ namespace PlugWeb
                 }
             }));
             RouteTable.Routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-            routes.OrderByDescending(m => m.Priority).Each(m => RouteTable.Routes.MapRoute(m.RouteName, m.Url, m.Defaults,  m.Constraints , m.Namespaces));
+            routes.OrderByDescending(m => m.Priority).Each(m => RouteTable.Routes.MapRoute(m.RouteName, m.Url, m.Defaults, m.Constraints, m.Namespaces));
             Container.Register(typeof(IDataDictionaryService), typeof(DataDictionaryService));
+
+            Easy.Web.DisplayViewSupport.SupportMobileView();
         }
     }
 }

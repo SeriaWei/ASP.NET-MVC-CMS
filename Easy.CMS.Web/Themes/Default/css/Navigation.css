@@ -1,5 +1,5 @@
 ﻿.top-nav {
-  background: #ad1422;
+  background: #4a4a4a;
   line-height: 46px;
   clear: both;
   z-index: 3;
@@ -26,12 +26,12 @@
 }
 .top-nav > ul > li a:hover,
 .top-nav > ul > li a.current {
-  background: #96111e;
+  background: #16a085;
   color: #ffffff;
   text-decoration: none;
 }
 .top-nav > ul > li .popup-nav-children {
-  background-color: #ad1422;
+  background-color: #4a4a4a;
 }
 .top-nav > ul > li > .popup-nav-children {
   display: none;
