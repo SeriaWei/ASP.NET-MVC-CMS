@@ -30,12 +30,14 @@ namespace Easy.CMS.Product
 
         public override void InitScript()
         {
-            
+            Script("PhotoWall")
+                .Include("~/Modules/Product/Scripts/jquery-photowall/jquery-photowall.js");
         }
 
         public override void InitStyle()
         {
-            
+            Style("PhotoWall")
+                .Include("~/Modules/Product/Scripts/jquery-photowall/jquery-photowall.css");
         }
     }
 }

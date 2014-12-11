@@ -1,30 +1,38 @@
-﻿@model Easy.CMS.Product.ViewModel.ProductListWidgetViewModel
-
-<div>
-    <ul class="ProductList">
-        @foreach (var item in Model.Products)
-        {
-            <li>
-                <div class="Content">
-                    <a href="@item.Url" target="_blank">
-                        <div class="TitleBar">
-                            <strong>@item.Title</strong>
-                        </div>
-                        <div class="Image">
-                            <img src="@item.ImageThumbUrl" title="@item.Title" alt="@item.Title" />
-                        </div>
-                    </a>
-                </div>
-                <div class="PriceSpace">
-                    <span class="Price">¥@item.RebatePrice</span>
-                    <span class="PriceNo FontSmall">¥@item.Price</span>
-
-                </div>
-            </li>
-        }
-
-
-    </ul>
-    <div class="clearfix"></div>
-    @{Html.RenderPartial("Partial_Pagination", Model.Page);}
+﻿@using System.Text
+@model Easy.CMS.Product.ViewModel.ProductListWidgetViewModel
+@{
+    Style.Reqiured("PhotoWall").AtHead();
+    Script.Reqiured("PhotoWall").AtFoot();
+    string formatTemplate = "{{id:{0},img:'{1}',width:{2},height:{3},th:{{src:'{4}',width:{5},height:{6},zoom_src:'{7}',zoom_factor:1.5}}}},";
+    StringBuilder builid = new StringBuilder();
+    Random r=new Random();
+    foreach (var item in Model.Products)
+    {
+        builid.AppendFormat(formatTemplate, item.ID, item.ImageUrl, r.Next(100, 500), r.Next(100, 500), item.ImageThumbUrl, r.Next(20, 100), r.Next(20, 100), item.ImageThumbUrl);
+    }
+}
+<div id="gallery">
+    <div class="body">
+    </div>
 </div>
+
+@using (Script.AtFoot())
+{
+    <script>
+        $(function () {
+            var PhotosArray = new Array(@Html.Raw(builid.ToString().Trim(',')));
+            PhotoWall.init({
+                el: '#gallery',
+                zoom: true,
+                zoomAction: 'mouseenter',
+                zoomTimeout: 500,
+                zoomDuration: 100,
+                showBox: true,
+                showBoxSocial: false,
+                padding: 5,
+                lineMaxHeight: 200
+            });
+            PhotoWall.load(PhotosArray);
+        });
+    </script>
+}

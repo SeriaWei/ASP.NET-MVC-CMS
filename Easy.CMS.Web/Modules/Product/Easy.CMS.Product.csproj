@@ -115,6 +115,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CopyItems.xml" />
+    <Content Include="Scripts\jquery-photowall\exit.gif" />
+    <Content Include="Scripts\jquery-photowall\index.html" />
+    <Content Include="Scripts\jquery-photowall\jquery-photowall.css" />
+    <Content Include="Scripts\jquery-photowall\jquery-photowall.js" />
+    <Content Include="Scripts\jquery-photowall\loader.gif" />
+    <Content Include="Scripts\jquery-photowall\lock.gif" />
+    <Content Include="Scripts\jquery-photowall\MIT-LICENSE.txt" />
     <Content Include="Views\Web.config" />
   </ItemGroup>
   <ItemGroup />
@@ -122,7 +129,7 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Widget.ProductListWidget.cshtml" />
+    <None Include="Views\Widget.ProductListWidget.cshtml.bak" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="web.config" />
@@ -134,6 +141,7 @@
     <Content Include="Views\ProductCategory\Create.cshtml" />
     <Content Include="Views\ProductCategory\Edit.cshtml" />
     <Content Include="Views\ProductCategory\Index.cshtml" />
+    <Content Include="Views\Widget.ProductListWidget.cshtml" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
