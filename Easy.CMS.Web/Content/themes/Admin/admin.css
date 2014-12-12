@@ -204,7 +204,7 @@ body {
     padding: 1px 0;
     list-style: none;
     color: #717171;
-    min-height: 20px;
+    min-height: 40px;
 }
 
     .fullRowList li {
@@ -274,4 +274,23 @@ body {
     margin:0;
     padding:0;
     border-radius:0;
+}
+.ui-draggable-dragging {
+    z-index: 1;
+}
+.simplePreview {
+    border: 1px solid #dddddd;
+    background-color: white;
+}
+.simplePreview .simpleDesign .panel {
+    margin:5px;
+}
+.simplePreview .panel-body {
+    padding: 5px;
+}
+.simplePreview .panel-heading .btn {
+    float: right;
+}
+.description {
+    font-size: 13px;
 }

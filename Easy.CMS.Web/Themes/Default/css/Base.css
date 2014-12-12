@@ -5,13 +5,18 @@
 body {
   margin: 0;
   padding: 0;
-  font: 14px/1.8 Tahoma, Geneva, '\5fae\8f6f\96c5\9ed1', '\5B8B\4F53';
+  font: 14px/1.5 Tahoma, Geneva, '\5fae\8f6f\96c5\9ed1', '\5B8B\4F53';
   color: #444444;
   background: url("data:image/gif;base64,R0lGODlhFQAVAIAAAN/f3/Dv7yH5BAAAAAAALAAAAAAVABUAAAIsDGJ4yXuuYpOo2oslnHN7nYXix0HkKaYXWrbuoqrsN4OxbKM1d4/5v9v0MgUAOw==");
 }
 #container {
   background-color: white;
   border: 1px solid #dedede;
+}
+@media only screen and (max-width: 768px) {
+  #container {
+    border: none;
+  }
 }
 input,
 textarea,

@@ -38,4 +38,19 @@
   position: absolute;
   z-index: 1;
 }
+@media only screen and (max-width: 768px) {
+  .top-nav {
+    line-height: 40px;
+  }
+  .top-nav > ul > li:first-child {
+    margin-left: 5px;
+  }
+  .top-nav > ul > li {
+    margin-right: 0;
+  }
+  .top-nav > ul > li a {
+    padding: 0 10px;
+    font-size: 14px;
+  }
+}
 /*# sourceMappingURL=Navigation.css.map */

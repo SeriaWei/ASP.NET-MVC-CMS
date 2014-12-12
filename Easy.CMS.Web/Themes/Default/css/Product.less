@@ -1,7 +1,7 @@
 ﻿@import "Library.less";
 
 .ProductList {
-    & > li {
+    > li {
         width: 25%;
         float: left;
         list-style: none;
@@ -43,11 +43,12 @@
 
 
         .PriceSpace {
-            background-color: #fbf0c5;
+            background-color: #fbf2cc;
             padding: 0 5px;
 
             .PriceNo {
                 text-decoration: line-through;
+                font-size:@fontSmall;
             }
 
             .Price {
@@ -59,23 +60,27 @@
     }
 }
 
-.ProductList.mobile {
-    @media (orientation : landscape) {
-        & > li {
+
+@media (orientation : landscape) {
+    .ProductList.mobile {
+        > li {
             width: 33%;
         }
     }
+}
 
-   @media (orientation : portrait) {
-        & > li {
+@media (orientation : portrait) {
+    .ProductList.mobile {
+        > li {
             width: 50%;
         }
     }
 }
 
-.ProductCategoryBar{
-    padding:5px 10px;
-    &>.categoryTag{
-        padding:5px 10px;
+.ProductCategoryBar {
+    padding: 5px 10px;
+
+    & > .categoryTag {
+        padding: 5px 10px;
     }
 }

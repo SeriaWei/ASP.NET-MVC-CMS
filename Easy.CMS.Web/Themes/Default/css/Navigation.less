@@ -10,7 +10,7 @@
     li {
         -ms-word-break: keep-all;
         word-break: keep-all;
-        white-space:nowrap;
+        white-space: nowrap;
     }
 
     > ul > li {
@@ -37,11 +37,25 @@
         }
 
         > .popup-nav-children {
-            display:none;
+            display: none;
             position: absolute;
             z-index: 1;
         }
     }
+}
 
-  
+@media only screen and (max-width:768px) {
+    .top-nav {
+        line-height: 40px;
+        > ul > li:first-child{
+            margin-left:5px;
+        }
+        > ul > li {
+            margin-right: 0;
+            a {
+                padding: 0 10px;
+                font-size: @fontSize;
+            }
+        }
+    }
 }

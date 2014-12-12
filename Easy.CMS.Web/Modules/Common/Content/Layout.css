@@ -122,7 +122,8 @@
 }
 
 .pagePreview {
-    margin-top: 90px;
+    margin-top: 120px;
+    min-height: 500px;
 }
 
 .design #container {
@@ -131,7 +132,7 @@
 
 @media(min-width:991px) {
     .pagePreview {
-        margin-top: 50px;
+        margin-top: 80px;
     }
 
     .design #container {
@@ -184,6 +185,7 @@
     width: 100%;
     z-index: 1;
     color: white;
+    top: -23px;
 }
 
     .zoneToolbar.red {
@@ -229,7 +231,7 @@
 }
 
 .zoneToolbar .rightTool {
-    text-align: right;
+    float: right;
 }
 
 #toolBar {

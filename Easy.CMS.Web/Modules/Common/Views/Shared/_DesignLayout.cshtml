@@ -27,14 +27,14 @@
                     <div class="row">
                         <div class="col-md-2">
                             <div class="AddRow input-group input-group-sm" data-container="container-fluid">
-                                <span class="input-group-addon"><i class="iconLeft glyphicon glyphicon-move"></i>添加行</span>
-                                <input type="text" class="form-control input-sm" placeholder="行宽" value="">
+                                <span class="input-group-addon"><i class="iconLeft glyphicon glyphicon-move"></i> 行</span>
+                                @*<input type="hidden" class="form-control input-sm" placeholder="行宽" value="">*@
                             </div>
                         </div>
 
                         <div class="col-md-2">
                             <div class="AddCol input-group input-group-sm" data-col="col-md-">
-                                <span class="input-group-addon"><i class="iconLeft glyphicon glyphicon-move"></i>添加列</span>
+                                <span class="input-group-addon"><i class="iconLeft glyphicon glyphicon-move"></i>列</span>
                                 <select class="form-control input-sm">
                                     <option value="1">1/12</option>
                                     <option value="2">2/12</option>
@@ -53,25 +53,23 @@
                         </div>
                         <div class="col-md-2">
                             <div class="AddZone input-group input-group-sm">
-                                <span class="input-group-addon"><i class="iconLeft glyphicon glyphicon-move"></i>添加内容</span>
+                                <span class="input-group-addon"><i class="iconLeft glyphicon glyphicon-move"></i>组件区域</span>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="col-md-3">
-                                <div class="radio">
-                                    <label>
-                                        <input type="radio" name="ContainerClass" value="container" @(Model.ContainerClass == "container" || Model.ContainerClass.IsNullOrEmpty() ? "checked=\"checked\"" : "")>
-                                        定宽
-                                    </label>
-                                </div>
-                                <div class="radio">
-                                    <label>
-                                        <input type="radio" name="ContainerClass" value="container-fluid" @(Model.ContainerClass == "container-fluid" ? "checked=\"checked\"" : "")>
-                                        宽100%
-                                    </label>
-                                </div>
+                            <div class="col-md-5">
+
+                                <label class="radio-inline">
+                                    <input type="radio" name="ContainerClass" value="container" @(Model.ContainerClass == "container" || Model.ContainerClass.IsNullOrEmpty() ? "checked=\"checked\"" : "")>
+                                    居 中
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="ContainerClass" value="container-fluid" @(Model.ContainerClass == "container-fluid" ? "checked=\"checked\"" : "")>
+                                    拉 伸
+                                </label>
+
                             </div>
-                            <div class="col-md-9" style="text-align: right">
+                            <div class="col-md-7" style="text-align: right">
                                 <a href="@Url.Action("Edit", "Layout", new { ID = Model.ID, module = "Common" })" class="btn btn-success btn-sm">属性</a>
                                 @*<a href="@Url.Action("SelectWidget", "WidgetTemplate", new { LayoutId = Model.ID, module = "Common" })" class="btn btn-danger btn-sm">添加组件</a>*@
                                 <input type="button" class="btn btn-primary btn-sm" id="save" value="保存" />

@@ -5,7 +5,7 @@
 }
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-5">
+        <div class="col-md-4">
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <span class="badge">布局</span>
@@ -22,7 +22,7 @@
                 </div>
             </div>
         </div>
-        <div id="layoutZones" class="col-md-7">
+        <div id="layoutZones" class="col-md-8">
 
         </div>
     </div>
@@ -39,7 +39,7 @@
             }, "html");
         });
         
-        $(".fullRowList.widgets .delete").live("click",function () {
+        $(".fullRowList .delete").live("click",function () {
             var id = $(this).data("widgetid");
             if (confirm("确定要删除该组件吗？")) {
                 $.post("@Url.Action("DeleteWidget", "Widget",new { module="Common"})", { ID: id }, function (data) {

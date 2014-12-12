@@ -33,10 +33,12 @@ namespace Easy.CMS.Common.Controllers
         {
             var zoneService = new ZoneService();
             var widgetService = new WidgetService();
+            var layout = Service.Get(ID);
             var viewModel = new LayoutZonesViewModel
             {
                 Zones = zoneService.GetZonesByLayoutId(ID),
-                Widgets = widgetService.GetByLayoutId(ID)
+                Widgets = widgetService.GetByLayoutId(ID),
+                LayoutHtml = layout.Html
             };
             return View(viewModel);
         }
@@ -45,10 +47,11 @@ namespace Easy.CMS.Common.Controllers
         {
             return View(new LayoutEntity { ImageUrl = LayoutEntity.DefaultThumbnial, ImageThumbUrl = LayoutEntity.DefaultThumbnial });
         }
-        [AdminTheme]
+        [AdminTheme, HttpPost]
         public override ActionResult Create(LayoutEntity entity)
         {
-            return base.Create(entity);
+            base.Create(entity);
+            return RedirectToAction("Design", new ParamsContext {ID = entity.ID});
         }
         [AdminTheme]
         public override ActionResult Edit(ParamsContext context)

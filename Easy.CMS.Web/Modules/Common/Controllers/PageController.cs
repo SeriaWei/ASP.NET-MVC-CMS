@@ -58,10 +58,11 @@ namespace Easy.CMS.Common.Controllers
             return View(page);
 
         }
-        [AdminTheme, ViewData_Layouts]
+        [AdminTheme, ViewData_Layouts, HttpPost]
         public override ActionResult Create(PageEntity entity)
         {
-            return base.Create(entity);
+            base.Create(entity);
+            return RedirectToAction("Design", new {ID = entity.ID});
         }
         [AdminTheme, ViewData_Layouts]
         public override ActionResult Edit(ParamsContext context)
@@ -102,12 +103,15 @@ namespace Easy.CMS.Common.Controllers
         {
             var zoneService = new ZoneService();
             var widgetService = new WidgetService();
-
+            var page = Service.Get(context.PageID);
+            var layoutService = new LayoutService();
+            var layout = layoutService.Get(page.LayoutId);
             var viewModel = new ViewModels.LayoutZonesViewModel
                 {
                     PageID = context.PageID,
                     Zones = zoneService.GetZonesByPageId(context.PageID),
-                    Widgets = widgetService.GetAllByPageId(context.PageID)
+                    Widgets = widgetService.GetAllByPageId(context.PageID),
+                    LayoutHtml = layout.Html
                 };
             return View(viewModel);
         }

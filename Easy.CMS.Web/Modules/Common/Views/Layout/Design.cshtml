@@ -26,29 +26,6 @@
             <input class="form-control" type="hidden" name="LayoutId" value="@zone.First().LayoutId" />
             <input class="form-control" type="hidden" name="ID" value="@zone.First().ID" />
             zoneStart = false;
-
-            @*if (Model.ZoneWidgets.ContainsKey(item.Html))
-            {
-                foreach (WidgetPart widget in Model.ZoneWidgets[item.Html].OrderBy(m => m.Position))
-                {
-                    <div class="widget" id="widget_@widget.WidgetId" data-widgetid="@widget.WidgetId">
-                        <div class="zoneToolbar container-fluid">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    @widget.WidgetName
-                                </div>
-                                <div class="col-md-6 rightTool">
-                                    <a href="@Url.Action("Edit","Widget",new{module="Common",ID=widget.WidgetId})"><i class="glyphicon glyphicon-edit"></i></a>
-                                    <a href="javascript:void(0)" class="delete" data-id="@widget.WidgetId"><i class="glyphicon glyphicon-trash"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        @{
-                    Html.RenderPartial(widget.PartialView, widget.ViewModel);
-                        }
-                    </div>
-                }
-            }*@
             continue;
         }
     }
@@ -87,7 +64,7 @@
 
             var opRowDrop = {
                 hoverClass: "dropWarning",
-                accept: ".AddCol,.AddZone,.additional.zone",
+                accept: ".AddCol",
                 greedy: true,
                 tolerance: "pointer",
                 drop: colDroped
@@ -116,9 +93,9 @@
                 if (obj == null)
                     obj = this;
                 var row = $("<div class=\"additional row\"></div>");
-                if (ui.draggable.find("input").val()) {
-                    row.css("width", ui.draggable.find("input").val()).css("margin", "0 auto");
-                }
+                //if (ui.draggable.find("input").val()) {
+                //    row.css("width", ui.draggable.find("input").val()).css("margin", "0 auto");
+                //}
                 row.droppable(opRowDrop);
                 row.sortable();
                 $(obj).append(row);

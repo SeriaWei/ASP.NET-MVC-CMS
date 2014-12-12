@@ -1,4 +1,5 @@
-﻿using Easy.Web.CMS.Widget;
+﻿using Easy.Web.CMS.Layout;
+using Easy.Web.CMS.Widget;
 using Easy.Web.CMS.Zone;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,7 @@ namespace Easy.CMS.Common.ViewModels
         public string PageID { get; set; }
         public IEnumerable<ZoneEntity> Zones { get; set; }
         public IEnumerable<WidgetBase> Widgets { get; set; }
+        public LayoutHtmlCollection LayoutHtml { get; set; }
 
     }
 }

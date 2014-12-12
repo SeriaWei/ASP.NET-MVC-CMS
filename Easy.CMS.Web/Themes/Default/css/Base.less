@@ -8,7 +8,7 @@ html {
 body {
     margin: 0;
     padding: 0;
-    font: @fontSize/1.8 @fontFamaily;
+    font: @fontSize/1.5 @fontFamaily;
     color: @textColor;
     background: data-uri("../Images/bg.gif");
 }
@@ -16,6 +16,12 @@ body {
 #container {
     background-color: white;
     border: 1px solid @borderColor;
+}
+
+@media only screen and (max-width:768px) {
+    #container {
+        border: none;
+    }
 }
 
 input, textarea, select {
@@ -69,32 +75,37 @@ b, strong {
     border-bottom: 1px solid @borderColor;
     padding: 0 5px 0 26px;
     margin: 0;
-    position:relative;
+    position: relative;
+
     i {
         color: @descritpionColor;
-        margin-left:3px;
+        margin-left: 3px;
         font-style: italic;
-        font-size:@fontSmall;
+        font-size: @fontSmall;
     }
-    .more{
+
+    .more {
         //background-image:data-uri("../images/more.png");
         //height:12px;
         //width:38px;
-        display:block;
-        position:absolute;
-        right:0;
+        display: block;
+        position: absolute;
+        right: 0;
         //bottom:0;
-        top:0;
-        line-height:37px;
-        font-size:@fontSmall;
+        top: 0;
+        line-height: 37px;
+        font-size: @fontSmall;
     }
 }
-.clearfix{
-    clear:both;
+
+.clearfix {
+    clear: both;
 }
-.badge{
-    background-color:@mainColor;
+
+.badge {
+    background-color: @mainColor;
 }
-.current{
-    background-color:@mainColorActive;
+
+.current {
+    background-color: @mainColorActive;
 }

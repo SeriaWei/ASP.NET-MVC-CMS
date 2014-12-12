@@ -30,15 +30,17 @@
                     <div class="widget" id="widget_@widgetPart.Widget.ID" data-widgetid="@widgetPart.Widget.ID">
                         <div class="zoneToolbar container-fluid blue">
                             <div class="row">
-                                <div class="col-md-6">
-                                    @widgetPart.Widget.WidgetName
-                                </div>
-                                <div class="col-md-6 rightTool">
-                                    @if (widgetPart.Widget.LayoutID.IsNullOrEmpty())
-                                    {
-                                        <a href="@Url.Action("Edit","Widget",new{module="Common",ID=widgetPart.Widget.ID})"><i class="glyphicon glyphicon-edit"></i></a>
-                                        <a href="javascript:void(0)" class="delete" data-id="@widgetPart.Widget.ID"><i class="glyphicon glyphicon-trash"></i></a>
-                                    }
+                                <div class="col-md-12">
+                                    <span>
+                                        @widgetPart.Widget.WidgetName
+                                    </span>
+                                    <div class="rightTool">
+                                        @if (widgetPart.Widget.LayoutID.IsNullOrEmpty())
+                                        {
+                                            <a href="@Url.Action("Edit","Widget",new{module="Common",ID=widgetPart.Widget.ID})"><i class="glyphicon glyphicon-edit"></i></a>
+                                            <a href="javascript:void(0)" class="delete" data-id="@widgetPart.Widget.ID"><i class="glyphicon glyphicon-trash"></i></a>
+                                        }
+                                    </div>
                                 </div>
                             </div>
                         </div>

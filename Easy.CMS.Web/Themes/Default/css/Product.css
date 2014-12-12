@@ -32,11 +32,12 @@
   color: #9e9e9e;
 }
 .ProductList > li .PriceSpace {
-  background-color: #fbf0c5;
+  background-color: #fbf2cc;
   padding: 0 5px;
 }
 .ProductList > li .PriceSpace .PriceNo {
   text-decoration: line-through;
+  font-size: 12px;
 }
 .ProductList > li .PriceSpace .Price {
   color: #4a4a4a;

@@ -5,13 +5,18 @@
 body {
   margin: 0;
   padding: 0;
-  font: 14px/1.8 Tahoma, Geneva, '\5fae\8f6f\96c5\9ed1', '\5B8B\4F53';
+  font: 14px/1.5 Tahoma, Geneva, '\5fae\8f6f\96c5\9ed1', '\5B8B\4F53';
   color: #444444;
   background: url("data:image/gif;base64,R0lGODlhFQAVAIAAAN/f3/Dv7yH5BAAAAAAALAAAAAAVABUAAAIsDGJ4yXuuYpOo2oslnHN7nYXix0HkKaYXWrbuoqrsN4OxbKM1d4/5v9v0MgUAOw==");
 }
 #container {
   background-color: white;
   border: 1px solid #dedede;
+}
+@media only screen and (max-width: 768px) {
+  #container {
+    border: none;
+  }
 }
 input,
 textarea,
@@ -133,6 +138,21 @@ strong {
   display: none;
   position: absolute;
   z-index: 1;
+}
+@media only screen and (max-width: 768px) {
+  .top-nav {
+    line-height: 40px;
+  }
+  .top-nav > ul > li:first-child {
+    margin-left: 5px;
+  }
+  .top-nav > ul > li {
+    margin-right: 0;
+  }
+  .top-nav > ul > li a {
+    padding: 0 10px;
+    font-size: 14px;
+  }
 }
 .pagination {
   font-size: 12px;
@@ -292,11 +312,12 @@ strong {
   color: #9e9e9e;
 }
 .ProductList > li .PriceSpace {
-  background-color: #fbf0c5;
+  background-color: #fbf2cc;
   padding: 0 5px;
 }
 .ProductList > li .PriceSpace .PriceNo {
   text-decoration: line-through;
+  font-size: 12px;
 }
 .ProductList > li .PriceSpace .Price {
   color: #4a4a4a;
