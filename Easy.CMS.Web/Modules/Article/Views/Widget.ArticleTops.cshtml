@@ -30,7 +30,7 @@
                 {
                     <li>
                         <span class="title">
-                            <a href="@(Model.Widget.DetailPageUrl + "?ArticleID=" + item.ID)" target="_blank">@item.Title</a>
+                            <a href="@(Model.Widget.DetailPageUrl + "?id=" + item.ID)" target="_blank">@item.Title</a>
                         </span>
                         <em class="time">
                             @((item.PublishDate ?? DateTime.Now).ToString("yyyy/MM/dd"))

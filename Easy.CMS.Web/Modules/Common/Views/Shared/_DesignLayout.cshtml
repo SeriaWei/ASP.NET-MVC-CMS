@@ -14,7 +14,7 @@
 <!--<![endif]-->
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>设计->@Model.LayoutName</title>
+    <title>[设计]@Model.LayoutName</title>
     @StyleAtHead()
     @ScriptAtHead()
 </head>
@@ -25,17 +25,14 @@
             <div id="toolBar" class="navbar-inner">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-2">
-                            <div class="AddRow input-group input-group-sm" data-container="container-fluid">
-                                <span class="input-group-addon"><i class="iconLeft glyphicon glyphicon-move"></i> 行</span>
+                        <div class="left">
+                            <label class="AddRow btn btn-primary btn-sm" data-container="container-fluid">
+                                <i class="iconLeft glyphicon glyphicon-plus"></i> 行
                                 @*<input type="hidden" class="form-control input-sm" placeholder="行宽" value="">*@
-                            </div>
-                        </div>
-
-                        <div class="col-md-2">
-                            <div class="AddCol input-group input-group-sm" data-col="col-md-">
-                                <span class="input-group-addon"><i class="iconLeft glyphicon glyphicon-move"></i>列</span>
-                                <select class="form-control input-sm">
+                            </label>
+                            <label class="AddCol btn btn-success btn-sm" data-col="col-md-">
+                                <i class="iconLeft glyphicon glyphicon-plus"></i> 列
+                                <select>
                                     <option value="1">1/12</option>
                                     <option value="2">2/12</option>
                                     <option value="3">3/12</option>
@@ -49,32 +46,26 @@
                                     <option value="11">11/12</option>
                                     <option value="12">12/12</option>
                                 </select>
-                            </div>
+                            </label>
+                            <label class="AddZone btn btn-info btn-sm">
+                                <i class="iconLeft glyphicon glyphicon-plus"></i>组件区域
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="ContainerClass" value="container" @(Model.ContainerClass == "container" || Model.ContainerClass.IsNullOrEmpty() ? "checked=\"checked\"" : "")>
+                                居 中
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="ContainerClass" value="container-fluid" @(Model.ContainerClass == "container-fluid" ? "checked=\"checked\"" : "")>
+                                拉 伸
+                            </label>
                         </div>
-                        <div class="col-md-2">
-                            <div class="AddZone input-group input-group-sm">
-                                <span class="input-group-addon"><i class="iconLeft glyphicon glyphicon-move"></i>组件区域</span>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="col-md-5">
+                        <div class="right">
+                            <a href="@Url.Action("Edit", "Layout", new { ID = Model.ID, module = "Common" })" class="btn btn-success btn-sm">属性</a>
+                            @*<a href="@Url.Action("SelectWidget", "WidgetTemplate", new { LayoutId = Model.ID, module = "Common" })" class="btn btn-danger btn-sm">添加组件</a>*@
+                            <input type="button" class="btn btn-primary btn-sm" id="save" value="保存" />
 
-                                <label class="radio-inline">
-                                    <input type="radio" name="ContainerClass" value="container" @(Model.ContainerClass == "container" || Model.ContainerClass.IsNullOrEmpty() ? "checked=\"checked\"" : "")>
-                                    居 中
-                                </label>
-                                <label class="radio-inline">
-                                    <input type="radio" name="ContainerClass" value="container-fluid" @(Model.ContainerClass == "container-fluid" ? "checked=\"checked\"" : "")>
-                                    拉 伸
-                                </label>
-
-                            </div>
-                            <div class="col-md-7" style="text-align: right">
-                                <a href="@Url.Action("Edit", "Layout", new { ID = Model.ID, module = "Common" })" class="btn btn-success btn-sm">属性</a>
-                                @*<a href="@Url.Action("SelectWidget", "WidgetTemplate", new { LayoutId = Model.ID, module = "Common" })" class="btn btn-danger btn-sm">添加组件</a>*@
-                                <input type="button" class="btn btn-primary btn-sm" id="save" value="保存" />
-                            </div>
                         </div>
+                        <div class="clearfix"></div>
                     </div>
                 </div>
                 <div class="deleteBar"><i class="glyphicon glyphicon-trash"></i></div>

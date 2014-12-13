@@ -60,7 +60,6 @@ namespace Easy.CMS.Product.Models
         public string SEOTitle { get; set; }
         public string SEOKeyWord { get; set; }
         public string SEODescription { get; set; }
-        public string UpImage { get; set; }
         public int OrderIndex { get; set; }
         public string SourceFrom { get; set; }
         public string Url { get; set; }
@@ -73,7 +72,6 @@ namespace Easy.CMS.Product.Models
         protected override void DataConfigure()
         {
             DataTable("Product");
-            DataConfig(m => m.UpImage).Ignore();
             DataConfig(m => m.ID).AsIncreasePrimaryKey();
         }
 
@@ -87,7 +85,6 @@ namespace Easy.CMS.Product.Models
             ViewConfig(m => m.Norm).AsHidden();
             ViewConfig(m => m.Color).AsHidden();
             ViewConfig(m => m.PurchasePrice).AsHidden();
-            ViewConfig(m => m.UpImage).AsFileUp().HideInGrid();
             ViewConfig(m => m.Remark).AsMutiLineTextBox().Ignore().HideInGrid();
             ViewConfig(m => m.Description).AsMutiLineTextBox();
             ViewConfig(m => m.IsPassed).AsCheckBox();

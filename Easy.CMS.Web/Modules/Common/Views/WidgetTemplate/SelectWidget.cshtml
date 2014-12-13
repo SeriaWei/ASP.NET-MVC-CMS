@@ -10,7 +10,7 @@
     <div class="panel-body">
         @using (Html.BeginForm("RedirectToWidget", "WidgetTemplate", new { module = "Common", Model.PageID, Model.LayoutID, Model.ZoneID, Model.ReturnUrl }))
         {
-            foreach (var item in this.Model.WidgetTemplates.GroupBy(m => m.GroupName))
+            foreach (var item in this.Model.WidgetTemplates.GroupBy(m => m.GroupName).OrderBy(m=>m.Key))
             {
                 <div class="panel panel-default">
                     <div class="panel-heading">

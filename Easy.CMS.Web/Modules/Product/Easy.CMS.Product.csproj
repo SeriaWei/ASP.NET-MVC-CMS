@@ -105,12 +105,15 @@
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Models\ProductCategory.cs" />
     <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\ProductCategoryWidget.cs" />
     <Compile Include="Models\ProductListWidget.cs" />
     <Compile Include="ProductPlug.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\ProductCategoryService.cs" />
+    <Compile Include="Service\ProductCategoryWidgetService.cs" />
     <Compile Include="Service\ProductListWidgetService.cs" />
     <Compile Include="Service\ProductService.cs" />
+    <Compile Include="ViewModel\ProductCategoryWidgetViewModel.cs" />
     <Compile Include="ViewModel\ProductListWidgetViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -129,8 +132,9 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Widget.ProductListWidget.mobile.cshtml" />
-    <None Include="Views\Widget.ProductListWidget.cshtml" />
+    <Content Include="Views\Widget.ProductList.mobile.cshtml" />
+    <Content Include="Views\Widget.ProductCategory.cshtml" />
+    <None Include="Views\Widget.ProductList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="web.config" />

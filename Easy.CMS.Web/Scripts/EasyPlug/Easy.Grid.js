@@ -61,20 +61,15 @@ Easy.Grid = (function (json) {
     gridHtml.push("</label><input id='GridPageIdex' type='text' value='0' ValueType='Num' />");
     gridHtml.push("<label id='PageInfo'></label>");
     gridHtml.push("<label id='Count'></label>");
-    gridHtml.push("<a id='PageGo'>");
-    gridHtml.push(Easy.GridLan.PageGo);
+    gridHtml.push("<a id='PageGo' class='glyphicon glyphicon-repeat' title='" + Easy.GridLan.PageGo + "'>");
     gridHtml.push("</a>");
-    gridHtml.push("<a id='PageFirst'>");
-    gridHtml.push(Easy.GridLan.FirstPage);
+    gridHtml.push("<a id='PageFirst' class='glyphicon glyphicon-fast-backward' title='" + Easy.GridLan.FirstPage + "'>");
     gridHtml.push("</a>");
-    gridHtml.push("<a id='PagePre'>");
-    gridHtml.push(Easy.GridLan.PrePage);
+    gridHtml.push("<a id='PagePre' class='glyphicon glyphicon-step-backward' title='" + Easy.GridLan.PrePage + "'>");
     gridHtml.push("</a>");
-    gridHtml.push("<a id='PageNext'>");
-    gridHtml.push(Easy.GridLan.NextPage);
+    gridHtml.push("<a id='PageNext' class='glyphicon glyphicon-step-forward' title='" + Easy.GridLan.NextPage + "'>");
     gridHtml.push("</a>");
-    gridHtml.push("<a id='PageLast'>");
-    gridHtml.push(Easy.GridLan.LastPage);
+    gridHtml.push("<a id='PageLast' class='glyphicon glyphicon-fast-forward' title='" + Easy.GridLan.LastPage + "'>");
     gridHtml.push("</a>");
     gridHtml.push("</div></div>");
     var Grid = $(gridHtml.join(""));
@@ -364,7 +359,7 @@ Easy.Grid = (function (json) {
             allPage += gdata.RecordCount % gdata.PageSize == 0 ? 0 : 1;
         Grid.find("#GridPageSize").val(pageSize);
         Grid.find("#GridPageIdex").val(pageIndex + 1);
-        Grid.find("#PageInfo").html("〖" + (pageIndex + 1) + "/" + allPage + "〗");
+        Grid.find("#PageInfo").html("[" + (pageIndex + 1) + "/" + allPage + "]");
         Grid.find("#Count").html(Easy.GridLan.AllRecord.replace("{0}", gdata.RecordCount));
         gridBody.scrollLeft(scrollLeft);
         if (Easy.UI) {

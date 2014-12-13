@@ -1,28 +1,6 @@
 ﻿@using System.Text.RegularExpressions
 @model Easy.CMS.Product.ViewModel.ProductListWidgetViewModel
 
-@{
-    string currentUrl = Request.Path.ToLower();
-    if (!currentUrl.Contains("c="))
-    {
-        if (currentUrl.Contains("?"))
-        {
-            currentUrl += "&c=0";
-        }
-        else
-        {
-            currentUrl += "?c=0";
-        }
-    }
-}
-<div class="ProductCategoryBar">
-    @foreach (var item in Model.Categorys)
-    {
-        <a href="@Regex.Replace(currentUrl, @"c=\d", "c="+item.ID)" class="categoryTag badge @(item.ID==Model.CurrentCategory?"current":"")">
-            @item.Title
-        </a>
-    }
-</div>
 <ul class="ProductList">
     @foreach (var item in Model.Products)
     {
@@ -48,5 +26,9 @@
 
 </ul>
 <div class="clearfix"></div>
-@{Html.RenderPartial("Partial_Pagination", Model.Page);}
+@if (Model.IsPageable)
+{
+    Html.RenderPartial("Partial_Pagination", Model.Page);
+}
+
 

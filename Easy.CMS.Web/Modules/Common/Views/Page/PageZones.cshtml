@@ -12,9 +12,6 @@
     <div class="panel panel-danger">
         <div class="panel-heading">
             <span class="badge">须要处理</span>
-            <span class="description">
-                组件不能正确地显示在页面中，可能是因为您切换了布局或删除了原先的区域
-            </span>
         </div>
         <div class="panel-body">
             <ul id="noZoneWidgets" class="fullRowList">
@@ -35,70 +32,83 @@
                 }
             </ul>
         </div>
+        <div class="panel-footer">
+            <span class="description">
+                组件不能正确地显示在页面中，可能是因为您切换了布局或删除了原先的区域
+            </span>
+        </div>
     </div>
 }
-<div class="simplePreview">
-    <div class="container-fluid simpleDesign">
-        @foreach (var itemHtml in Model.LayoutHtml)
-    {
-        if (itemHtml.Html == Easy.Web.CMS.Zone.ZoneEntity.ZoneTag)
-        {
-            @Html.Raw(itemHtml.Html)
-            zoneStart = true;
-            continue;
-        }
-        if (zoneStart)
-        {
-            var zone = Model.Zones.Where(m => m.ID == itemHtml.Html);
-            if (zone.Any())
+
+<div class="panel panel-primary simplePreview">
+    <div class="panel-heading">页面概览</div>
+    <div class="panel-body">
+        <div class="container-fluid simpleDesign">
+            @foreach (var itemHtml in Model.LayoutHtml)
             {
-                zoneStart = false;
-
-                foreach (var item in zone)
+                if (itemHtml.Html == Easy.Web.CMS.Zone.ZoneEntity.ZoneTag)
                 {
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <span class="badge">@item.ZoneName</span>
-                            <a class="btn btn-primary btn-xs" href="@Url.Action("SelectWidget", "WidgetTemplate", new { module = "Common", PageID = Model.PageID, ZoneID = item.ID, ReturnUrl = returnUrl })">
-                                <i class="glyphicon glyphicon-plus"></i>
-                                添加组件
-                            </a>
-                        </div>
-                        <div class="panel-body">
-                            <ul data-zoneid="@item.ID" class="fullRowList widgets">
-                                @foreach (var widget in Model.Widgets.Where(m => m.ZoneID == item.ID).OrderBy(m => m.Position))
-                                {
-                                    <li id="widget_@widget.ID" class="@(widget.LayoutID.IsNullOrEmpty() ? "widget" : "")" data-widgetid="@widget.ID">
-                                        @if (widget.LayoutID.IsNullOrEmpty())
-                                        {
-                                            <a href="@Url.Action("Edit", "Widget", new { module = "Common", ID = widget.ID, ReturnUrl = returnUrl })"><i class="glyphicon glyphicon-edit"></i></a>
-                                            <a href="javascript:void(0)" class="delete" data-widgetid="@widget.ID"><i class="glyphicon glyphicon-trash"></i></a>
-                                        }
-                                        else
-                                        {
-                                            <span class="badge">布局</span>
-                                        }
-                                        @widget.WidgetName
-                                    </li>
-                                }
-                            </ul>
-                        </div>
-                    </div>
+                    @Html.Raw(itemHtml.Html)
+                    zoneStart = true;
+                    continue;
                 }
+                if (zoneStart)
+                {
+                    var zone = Model.Zones.Where(m => m.ID == itemHtml.Html);
+                    if (zone.Any())
+                    {
+                        zoneStart = false;
 
-                continue;
+                        foreach (var item in zone)
+                        {
+                            <div class="panel panel-info">
+                                <div class="panel-heading">
+                                    <span class="badge">@item.ZoneName</span>
+                                    <a class="btn btn-primary btn-xs" href="@Url.Action("SelectWidget", "WidgetTemplate", new { module = "Common", PageID = Model.PageID, ZoneID = item.ID, ReturnUrl = returnUrl })">
+                                        <i class="glyphicon glyphicon-plus"></i>
+                                        添加组件
+                                    </a>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="panel-body">
+                                    <ul data-zoneid="@item.ID" class="fullRowList widgets">
+                                        @foreach (var widget in Model.Widgets.Where(m => m.ZoneID == item.ID).OrderBy(m => m.Position))
+                                        {
+                                            <li id="widget_@widget.ID" class="@(widget.LayoutID.IsNullOrEmpty() ? "widget" : "")" data-widgetid="@widget.ID">
+                                                @if (widget.LayoutID.IsNullOrEmpty())
+                                                {
+                                                    <a href="@Url.Action("Edit", "Widget", new { module = "Common", ID = widget.ID, ReturnUrl = returnUrl })"><i class="glyphicon glyphicon-edit"></i></a>
+                                                    <a href="javascript:void(0)" class="delete" data-widgetid="@widget.ID"><i class="glyphicon glyphicon-trash"></i></a>
+                                                }
+                                                else
+                                                {
+                                                    <span class="badge">布局</span>
+                                                }
+                                                @widget.WidgetName
+                                            </li>
+                                        }
+                                    </ul>
+                                </div>
+                            </div>
+                        }
+
+                        continue;
+                    }
+                }
+                if (itemHtml.Html == Easy.Web.CMS.Zone.ZoneEntity.ZoneEndTag)
+                {
+                    @Html.Raw(itemHtml.Html)
+                    zoneStart = false;
+                    continue;
+                }
+                @Html.Raw(itemHtml.Html)
             }
-        }
-        if (itemHtml.Html == Easy.Web.CMS.Zone.ZoneEntity.ZoneEndTag)
-        {
-            @Html.Raw(itemHtml.Html)
-            zoneStart = false;
-            continue;
-        }
-        @Html.Raw(itemHtml.Html)
-    }
+        </div>
+
     </div>
 </div>
+
+
 <script type="text/javascript">
     $("#noZoneWidgets>.widget").draggable({ revert: "invalid" });
     $(".fullRowList.widgets").sortable({

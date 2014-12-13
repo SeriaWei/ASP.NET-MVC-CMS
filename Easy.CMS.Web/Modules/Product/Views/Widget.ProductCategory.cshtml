@@ -1,0 +1,26 @@
+﻿@using System.Text.RegularExpressions
+@model Easy.CMS.Product.ViewModel.ProductCategoryWidgetViewModel
+
+@{
+    string currentUrl = Url.Content(Model.TargetPage);
+    if (!currentUrl.Contains("pc="))
+    {
+        if (currentUrl.Contains("?"))
+        {
+            currentUrl += "&pc=0";
+        }
+        else
+        {
+            currentUrl += "?pc=0";
+        }
+    }
+}
+<div class="ProductCategoryBar">
+    @foreach (var item in Model.Categorys)
+    {
+        <a href="@Regex.Replace(currentUrl, @"pc=\d", "pc=" + item.ID)" class="categoryTag badge @(item.ID==Model.CurrentCategory?"current":"")">
+            @item.Title
+        </a>
+    }
+</div>
+

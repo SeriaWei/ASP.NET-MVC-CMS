@@ -13,7 +13,7 @@ namespace Easy.CMS.Article.Service
         public override WidgetPart Display(WidgetBase widget, HttpContextBase httpContext)
         {
             long articleId = 0;
-            long.TryParse(httpContext.Request.QueryString["ArticleID"], out articleId);
+            long.TryParse(httpContext.Request.QueryString["id"], out articleId);
             var articleService = new ArticleService();
 
             var viewModel = new ArticleDetailViewModel

@@ -18,10 +18,9 @@
             <div class="zoneid" data-id="@item.Html"></div>
             <div class="zoneName">
                 <a title="添加组件" href="@Url.Action("SelectWidget", "WidgetTemplate", new { module = "common", pageId=layOut.Page.ID,ZoneId=item.Html })">
-                    <i class="glyphicon glyphicon-plus"></i>
-                    @layOut.Zones.First(m => m.ID == item.Html).ZoneName
+                    <i class="glyphicon glyphicon-plus"></i>                    
                 </a>
-                
+                @layOut.Zones.First(m => m.ID == item.Html).ZoneName
             </div>
             if (layOut.ZoneWidgets.ContainsKey(item.Html))
             {
@@ -78,7 +77,7 @@
                     });
                     if (tempForm) {
                         $.post("@Url.Action("SaveWidgetPosition", "Widget", new { module="Common"})", tempForm, function (data) {
-
+                            InitMinHeight();
                         }, "html");
                     }
                 }
@@ -102,7 +101,7 @@
                             Position: $(this).children().size()
                         },
                         function (data) {
-
+                            InitMinHeight();
                         }, "html");
                 }
             });
@@ -112,6 +111,7 @@
                     $.post("@Url.Action("DeleteWidget", "Widget",new { module="Common"})", { ID: id }, function (data) {
                         if (data) {
                             $("#widget_" + id).remove();
+                            InitMinHeight();
                         }
                     }, "json");
                 }
@@ -119,6 +119,16 @@
             $(".helper").click(function () {
                 $("#container").toggleClass($(this).data("class"));
             });
+            InitMinHeight();
         });
+        function InitMinHeight() {
+            $(".zone").each(function () {
+                if ($(this).children(":not(.zoneName)").size() == 0) {
+                    $(this).addClass("zoneMineHeight");
+                } else {
+                    $(this).removeClass("zoneMineHeight");
+                }
+            });
+        }
     </script>
 }

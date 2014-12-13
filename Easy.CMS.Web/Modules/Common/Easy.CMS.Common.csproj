@@ -106,12 +106,14 @@
     <Compile Include="Models\CarouselItemEntity.cs" />
     <Compile Include="Models\CarouselEntity.cs" />
     <Compile Include="Models\CarouselWidget.cs" />
+    <Compile Include="Models\ImageWidget.cs" />
     <Compile Include="Models\NavigationEntity.cs" />
     <Compile Include="Models\NavigationWidget.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\CarouselItemService.cs" />
     <Compile Include="Service\CarouselService.cs" />
     <Compile Include="Service\CarouselWidgetService.cs" />
+    <Compile Include="Service\ImageWidgetService.cs" />
     <Compile Include="Service\NavigationService.cs" />
     <Compile Include="Service\NavigationWidgetService.cs" />
     <Compile Include="ViewModels\LayoutZonesViewModel.cs" />
@@ -130,6 +132,7 @@
     <Content Include="Views\Carousel\Create.cshtml" />
     <Content Include="Views\Carousel\Edit.cshtml" />
     <Content Include="Views\Widget.Carousel.cshtml" />
+    <Content Include="Views\Widget.Image.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Navigation\Index.cshtml" />

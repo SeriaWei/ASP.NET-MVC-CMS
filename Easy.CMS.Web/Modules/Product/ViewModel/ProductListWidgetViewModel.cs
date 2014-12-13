@@ -10,8 +10,7 @@ namespace Easy.CMS.Product.ViewModel
     public class ProductListWidgetViewModel
     {
         public Pagination Page { get; set; }
-        public List<Models.Product> Products { get; set; }
-        public IEnumerable<ProductCategory> Categorys { get; set; }
-        public int CurrentCategory { get; set; }
+        public IEnumerable<Models.Product> Products { get; set; }
+        public bool IsPageable { get; set; }
     }
 }

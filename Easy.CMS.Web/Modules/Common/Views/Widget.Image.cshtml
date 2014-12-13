@@ -1,0 +1,5 @@
+﻿@model Easy.CMS.Common.Models.ImageWidget
+@{
+
+}
+<img alt="@Model.AltText" src="@Model.ImageUrl" style="width:@(Model.Width.HasValue?Model.Width.Value.ToString():"auto");height:@(Model.Height.HasValue ? Model.Height.Value.ToString() : "auto");" />

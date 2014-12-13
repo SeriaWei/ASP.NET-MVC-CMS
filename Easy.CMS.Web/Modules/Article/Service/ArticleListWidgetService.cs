@@ -17,40 +17,31 @@ namespace Easy.CMS.Article.Service
         {
             var currentWidget = widget as ArticleListWidget;
             var articleTypeService = new ArticleTypeService();
-
-            var categorys = articleTypeService.GetChildren(currentWidget.ArticleCategory);
-            int category = 0;
-            string categoryStr = httpContext.Request.QueryString["ArticleCategory"];
+            var categoryEntity = articleTypeService.Get(currentWidget.ArticleCategoryID);
             int pageIndex = 0;
+            int ac = 0;
+            int.TryParse(httpContext.Request.QueryString["ac"], out ac);
             int.TryParse(httpContext.Request.QueryString["p"], out pageIndex);
-            var categoryEntity = articleTypeService.Get(currentWidget.ArticleCategory);
-            var viewModel = new ArticleListWidgetViewModel
-            {
-                Widget = currentWidget,
-                ArticleCategory = categorys,
-                Pagin = new Data.Pagination { PageIndex = pageIndex },
-                CategoryTitle = categoryEntity == null ? "" : categoryEntity.Title
-            };
             var filter = new Data.DataFilter();
             filter.Where("IsPublish=true");
             filter.OrderBy("PublishDate", OrderType.Descending);
-            if (!categoryStr.IsNullOrEmpty() && categorys != null)
+            var articleService = new ArticleService();
+            var page = new Data.Pagination { PageIndex = pageIndex };
+            if (ac != 0)
             {
-                if (int.TryParse(categoryStr, out category))
-                {
-                    viewModel.CurrentCategory = category;
-                    viewModel.Articles = new ArticleService().Get(filter.Where("ArticleCategory", OperatorType.Equal, category), viewModel.Pagin);
-                }
-                else if (categorys.Any())
-                {
-                    viewModel.Articles = new ArticleService().Get(filter.Where("ArticleCategory", OperatorType.In, categorys.ToList(m => m.ID)), viewModel.Pagin);
-                }
+                filter.Where("ArticleCategoryID", OperatorType.Equal, ac);
             }
-            else if (categorys != null && categorys.Any())
+            else if (currentWidget.ArticleCategoryID.HasValue)
             {
-                viewModel.Articles = new ArticleService().Get(filter.Where("ArticleCategory", OperatorType.In, categorys.ToList(m => m.ID)), viewModel.Pagin);
+                filter.Where("ArticleCategoryID", OperatorType.Equal, currentWidget.ArticleCategoryID);
             }
-            return widget.ToWidgetPart(viewModel);
+            return widget.ToWidgetPart(new ArticleListWidgetViewModel
+            {
+                Articles = articleService.Get(filter, page),
+                Widget = currentWidget,
+                Pagin = page,
+                CategoryTitle = categoryEntity == null ? "" : categoryEntity.Title,
+            });
         }
     }
 }

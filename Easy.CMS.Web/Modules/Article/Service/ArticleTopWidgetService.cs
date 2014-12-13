@@ -16,10 +16,6 @@ namespace Easy.CMS.Article.Service
         public override WidgetPart Display(WidgetBase widget, HttpContextBase httpContext)
         {
             var currentWidget = widget as ArticleTopWidget;
-            var articleTypeService = new ArticleTypeService();
-
-            var categorys = articleTypeService.GetChildren(currentWidget.ArticleCategory);
-
             var page = new Pagination
             {
                 PageIndex = 0,
@@ -32,7 +28,7 @@ namespace Easy.CMS.Article.Service
             var filter = new DataFilter();
             filter.Where("IsPublish=true");
             filter.OrderBy("PublishDate", OrderType.Descending);
-            viewModel.Articles = new ArticleService().Get(filter.Where("ArticleCategory", OperatorType.In, categorys.ToList(m => m.ID)), page);
+            viewModel.Articles = new ArticleService().Get(filter.Where("ArticleCategoryID", OperatorType.Equal, currentWidget.ArticleCategoryID), page);
             return widget.ToWidgetPart(viewModel);
         }
     }

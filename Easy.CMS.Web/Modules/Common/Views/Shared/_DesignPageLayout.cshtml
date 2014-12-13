@@ -16,7 +16,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
-    <title>设计->@layOut.Page.Title</title>
+    <title>[设计]@layOut.Page.Title</title>
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <meta name="viewport" content="width=device-width" />
     @StyleAtHead()
@@ -29,26 +29,22 @@
 <body>
     <div class="navbar-inverse white navbar-fixed-top" role="navigation">
         <div class="navbar-inner">
-            <div id="tools" class="container">
+            <div id="toolBar" class="container">
                 <div class="row">
-                    <div class="col-md-2">
+                    <div class="left">
+                        <label class="checkbox-inline">
+                            <input class="helper" data-class="border" type="checkbox" autocomplete="off" checked="checked" /> 边框(显示空区域)
+                        </label>
+                        <label class="checkbox-inline">
+                            <input class="helper" data-class="hideToolBar" type="checkbox" autocomplete="off" checked="checked" /> 工具栏
+                        </label>
+                    </div>
+                    <div class="right">
                         <a class="btn btn-success btn-sm" href="@Url.Action("Edit", "Page", new { module = "Common", ID = layOut.Page.ID })">属性</a>
                         <a class="btn btn-danger btn-sm" href="@Url.Action("SelectWidget", "WidgetTemplate", new { module = "Common", pageId = layOut.Page.ID })">添加组件</a>
+
                     </div>
-                    <div class="col-md-2">
-                        <div class="checkbox">
-                            <label>
-                                <input class="helper" data-class="border" type="checkbox" autocomplete="off" checked="checked" /> 边框(显示空区域)
-                            </label>
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                        <div class="checkbox">
-                            <label>
-                                <input class="helper" data-class="hideToolBar" type="checkbox" autocomplete="off" checked="checked" /> 工具栏
-                            </label>
-                        </div>
-                    </div>
+                    <div class="clearfix"></div>
                 </div>
             </div>
         </div>

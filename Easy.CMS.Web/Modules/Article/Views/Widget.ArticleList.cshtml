@@ -5,93 +5,64 @@
         Model.Widget.DetailPageUrl = Url.Content(Model.Widget.DetailPageUrl);
     }
 }
-<div class="container-fluid article">
-    <div class="row">
-        <div class="col-md-3">
-            <div class="category">
-                <div class="item-title">
-                    <h4>
-                        <a href="@Request.Path">@Model.CategoryTitle</a>
-                    </h4>
-                </div>
-                <div class="category-list">
-                    <ul>
-                        @if (Model.ArticleCategory != null)
-                        {
-                            foreach (var item in Model.ArticleCategory)
-                            {
-                                <li>
-                                    <div class="category-title">
-                                        <a href="@(Request.Path+"?ArticleCategory="+item.ID)" class="@(item.ID==Model.CurrentCategory?"focus":"")">@item.Title</a>
-                                    </div>
-                                </li>
-                            }
-                        }
-                    </ul>
-                </div>
-            </div>
-
+<div class="article">
+    @if (!Model.Widget.Title.IsNullOrEmpty())
+    {
+        <div class="item-title">
+            <h5>@Model.Widget.Title</h5>
         </div>
-        <div class="col-md-9">
-            @if (!Model.Widget.Title.IsNullOrEmpty())
-            {
-                <div class="item-title">
-                    <h5>@Model.Widget.Title</h5>
-                </div>
-            }
+    }
 
-            <div class="article-list">
-                <ul>
-                    @if (Model.Articles != null)
+    <div class="article-list">
+        <ul>
+            @if (Model.Articles != null)
                     {
                         foreach (var item in Model.Articles)
                         {
-                            <li>
-                                @if (item.ImageThumbUrl.IsNullOrEmpty())
+                    <li>
+                        @if (item.ImageThumbUrl.IsNullOrEmpty())
                                 {
-                                    <span class="title">
-                                        <a href="@(Model.Widget.DetailPageUrl + "?ArticleID=" + item.ID)" target="_blank">@item.Title</a>
-                                    </span>
-                                    <em class="time">
-                                        @((item.PublishDate ?? DateTime.Now).ToString("yyyy/MM/dd"))
-                                    </em>
+                                <span class="title">
+                                    <a href="@(Model.Widget.DetailPageUrl + "?id=" + item.ID)" target="_blank">@item.Title</a>
+                                </span>
+                                <em class="time">
+                                    @((item.PublishDate ?? DateTime.Now).ToString("yyyy/MM/dd"))
+                                </em>
                                 }
                                 else
                                 {
-                                    <div class="container-fluid">
-                                        <div class="row">
-                                            <div class="col-md-3">
-                                                <div class="row">
-                                                    <a href="@(Model.Widget.DetailPageUrl + "?ArticleID=" + item.ID)" target="_blank">
-                                                        <img src="@Url.Content(item.ImageThumbUrl)" class="thumbnail" />
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-9">
-                                                <dl>
-                                                    <dt>
-                                                        <span class="title">
-                                                            <a href="@(Model.Widget.DetailPageUrl + "?ArticleID=" + item.ID)" target="_blank">@item.Title</a>
-                                                        </span>
-                                                        <em class="time">
-                                                            @((item.PublishDate ?? DateTime.Now).ToString("yyyy/MM/dd"))
-                                                        </em>
-                                                    </dt>
-                                                    <dd>
-                                                        @item.Summary
-                                                    </dd>
-                                                </dl>
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="row">
+                                                <a href="@(Model.Widget.DetailPageUrl + "?id=" + item.ID)" target="_blank">
+                                                    <img src="@Url.Content(item.ImageThumbUrl)" class="thumbnail" />
+                                                </a>
                                             </div>
                                         </div>
+                                        <div class="col-md-9">
+                                            <dl>
+                                                <dt>
+                                                    <span class="title">
+                                                        <a href="@(Model.Widget.DetailPageUrl + "?id=" + item.ID)" target="_blank">@item.Title</a>
+                                                    </span>
+                                                    <em class="time">
+                                                        @((item.PublishDate ?? DateTime.Now).ToString("yyyy/MM/dd"))
+                                                    </em>
+                                                </dt>
+                                                <dd>
+                                                    @item.Summary
+                                                </dd>
+                                            </dl>
+                                        </div>
                                     </div>
+                                </div>
                                 }
-                            </li>
+                    </li>
                         }
                     }
-                </ul>
-            </div>
-
-            @Html.Partial("Partial_Pagination", Model.Pagin)
-        </div>
+        </ul>
     </div>
+
+    @Html.Partial("Partial_Pagination", Model.Pagin)
 </div>
