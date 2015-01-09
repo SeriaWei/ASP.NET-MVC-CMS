@@ -43,12 +43,15 @@ namespace Easy.CMS.Common
 
         public override void InitScript()
         {
-            Script("Navigation").Include("~/Modules/Common/Scripts/Navigation.js");
+            Script("OWL.Carousel").Include("~/Modules/Common/Scripts/OwlCarousel/owl.carousel.min.js")
+                .Include("~/Modules/Common/Scripts/Owl.Carousel.js");
         }
 
         public override void InitStyle()
         {
             Style("Layout").Include("~/Modules/Common/Content/Layout.css");
+            Style("OWL.Carousel").Include("~/Modules/Common/Scripts/OwlCarousel/owl.carousel.css")
+                .Include("~/Modules/Common/Scripts/OwlCarousel/owl.transitions.css");
         }
     }
 }

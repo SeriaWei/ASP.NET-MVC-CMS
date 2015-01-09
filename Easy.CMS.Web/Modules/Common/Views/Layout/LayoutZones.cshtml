@@ -55,7 +55,7 @@
                             <div class="panel panel-info">
                                 <div class="panel-heading">
                                     <span class="badge">@item.ZoneName</span>
-                                    <a class="btn btn-primary btn-xs" href="@Url.Action("SelectWidget", "WidgetTemplate", new { module = "Common", PageID = Model.PageID, ZoneID = item.ID, ReturnUrl = returnUrl })">
+                                    <a class="btn btn-primary btn-xs" href="@Url.Action("SelectWidget", "WidgetTemplate", new { module = "Common", PageID = Model.PageID, ZoneID = item.ID, ReturnUrl = returnUrl,LayoutID=item.LayoutId })">
                                         <i class="glyphicon glyphicon-plus"></i>
                                         添加组件
                                     </a>

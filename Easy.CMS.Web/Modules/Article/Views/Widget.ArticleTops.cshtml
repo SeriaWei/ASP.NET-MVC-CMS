@@ -10,36 +10,18 @@
     }
 }
 <div class="article tops">
-
-    @if (!Model.Widget.Title.IsNullOrEmpty())
-    {
-        <div class="item-title">
-            <h5>@Model.Widget.Title<i>@Model.Widget.SubTitle</i></h5>
-            @if (!Model.Widget.MoreLink.IsNullOrEmpty())
+    <div class="list-group">
+        @if (Model.Articles != null)
+        {
+            foreach (var item in Model.Articles)
             {
-                <a class="more" href="@Model.Widget.MoreLink">更多>></a>
-            }            
-        </div>
-    }
-
-    <div class="article-list">
-        <ul>
-            @if (Model.Articles != null)
-            {
-                foreach (var item in Model.Articles)
-                {
-                    <li>
-                        <span class="title">
-                            <a href="@(Model.Widget.DetailPageUrl + "?id=" + item.ID)" target="_blank">@item.Title</a>
-                        </span>
-                        <em class="time">
-                            @((item.PublishDate ?? DateTime.Now).ToString("yyyy/MM/dd"))
-                        </em>
-                    </li>
-                }
+                <a class="list-group-item" href="@(Model.Widget.DetailPageUrl + "?id=" + item.ID)" target="_blank">
+                    <h4 class="list-group-item-heading">
+                        @item.Title
+                    </h4>
+                    <p class="list-group-item-text">@item.Summary</p>
+                </a>
             }
-        </ul>
+        }
     </div>
-
-
 </div>

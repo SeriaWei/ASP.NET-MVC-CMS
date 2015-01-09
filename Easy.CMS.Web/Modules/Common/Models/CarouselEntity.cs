@@ -12,6 +12,7 @@ namespace Easy.CMS.Common.Models
     {
         public long ID { get; set; }
 
+        public int? Height { get; set; }
 
         public IEnumerable<CarouselItemEntity> CarouselItems { get; set; }
 

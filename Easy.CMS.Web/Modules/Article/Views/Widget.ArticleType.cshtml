@@ -14,27 +14,14 @@
         }
     }
 }
-<div class="article">
-    <div class="category">
-        <div class="item-title">
-            <h4>
-                <a href="@Request.Path">@Model.CurrentType.Title</a>
-            </h4>
-        </div>
-        <div class="category-list">
-            <ul>
-                @if (Model.ArticleTypes != null)
-                {
-                    foreach (var item in Model.ArticleTypes)
-                    {
-                        <li>
-                            <div class="category-title">
-                                <a href="@Regex.Replace(currentUrl, @"ac=\d", "ac=" + item.ID)" class="@(item.ID==Model.ArticleTypeID?"focus":"")">@item.Title</a>
-                            </div>
-                        </li>
-                    }
-                }
-            </ul>
-        </div>
+<div class="article category">
+    <div class="list-group">
+        @if (Model.ArticleTypes != null)
+        {
+            foreach (var item in Model.ArticleTypes)
+            {
+                <a href="@Regex.Replace(currentUrl, @"ac=\d", "ac=" + item.ID)" class="list-group-item @(item.ID == Model.ArticleTypeID ? "active" : "")">@item.Title</a>
+            }
+        }
     </div>
 </div>

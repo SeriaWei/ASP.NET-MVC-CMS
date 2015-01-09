@@ -24,88 +24,43 @@ body {
     }
 }
 
-input, textarea, select {
+.bs-callout {
+    padding: 20px;
+    margin: 10px 0;
+    border: 1px solid #eee;
+    border-left-width: 5px;
+    border-radius: 3px;
+}
+
+    .bs-callout h4 {
+        margin-top: 0;
+        margin-bottom: 5px;
+    }
+
+.bs-callout-danger {
+    border-left-color: #d9534f;
+}
+
+    .bs-callout-danger h4 {
+        color: #d9534f;
+    }
+
+.bs-callout-warning {
+    border-left-color: #f0ad4e;
+}
+
+    .bs-callout-warning h4 {
+        border-left-color: #f0ad4e;
+    }
+
+.bs-callout-info {
+    border-left-color: #5bc0de;
+}
+
+    .bs-callout-info h4 {
+        color: #5bc0de;
+    }
+
+.bs-callout-danger p {
     margin: 0;
-    padding: 0;
-    font-size: @fontSize;
-    outline: none;
-}
-
-html:root body, html:root input, html:root button, html:root textarea, html:root select {
-    font-family: @fontFamaily;
-}
-
-form, ul, ol, li, dl, dt, dd, p {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-dd {
-    color: @descritpionColor;
-}
-
-a {
-    text-decoration: none;
-    color: @textColor;
-    outline: none;
-
-    &:hover {
-        color: @mainColor;
-        text-decoration: underline;
-    }
-
-    a img {
-        border: none;
-    }
-}
-
-i, em {
-    font-style: normal;
-}
-
-b, strong {
-    color: @mainColor;
-}
-
-
-.item-title {
-    background: data-uri("../images/icon_square.png") 10px center no-repeat;
-    border-top: 1px solid @mainColor;
-    border-bottom: 1px solid @borderColor;
-    padding: 0 5px 0 26px;
-    margin: 0;
-    position: relative;
-
-    i {
-        color: @descritpionColor;
-        margin-left: 3px;
-        font-style: italic;
-        font-size: @fontSmall;
-    }
-
-    .more {
-        //background-image:data-uri("../images/more.png");
-        //height:12px;
-        //width:38px;
-        display: block;
-        position: absolute;
-        right: 0;
-        //bottom:0;
-        top: 0;
-        line-height: 37px;
-        font-size: @fontSmall;
-    }
-}
-
-.clearfix {
-    clear: both;
-}
-
-.badge {
-    background-color: @mainColor;
-}
-
-.current {
-    background-color: @mainColorActive;
 }

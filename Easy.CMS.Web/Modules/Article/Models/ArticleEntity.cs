@@ -34,6 +34,7 @@ namespace Easy.CMS.Article.Models
         {
             DataTable("Article");
             DataConfig(m => m.ID).AsIncreasePrimaryKey();
+            DataConfig(m => m.ID).Update(false);
         }
 
         protected override void ViewConfigure()

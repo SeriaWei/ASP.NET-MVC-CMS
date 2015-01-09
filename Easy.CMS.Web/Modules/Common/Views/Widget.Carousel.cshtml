@@ -1,50 +1,36 @@
-﻿@model Easy.CMS.Common.Models.CarouselEntity
+﻿@using Easy.CMS.Common.Models
+@model CarouselEntity
 @{
     if (Model.CarouselItems == null)
     {
         return;
     }
+    Style.Reqiured("OWL.Carousel").AtHead();
+    Script.Reqiured("OWL.Carousel").AtFoot();
     var carouselItems = Model.CarouselItems.ToList();
     string carouselId = Guid.NewGuid().ToString("N");
 }
 
-<div id="Carousel_@carouselId" class="carousel slide" data-ride="carousel">
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-        @for (int i = 0; i < carouselItems.Count; i++)
-        {
-            <li data-target="#Carousel_@carouselId" data-slide-to="@i" class="@(i==0?"active":"")"></li>
-        }
-    </ol>
-
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner" role="listbox">
-        @for (int i = 0; i < carouselItems.Count; i++)
-        {
-            <div class="item @(i==0?"active":"")">
-                <img src="@Url.Content(carouselItems[i].ImageUrl)" alt="@carouselItems[i].Title">
-                <div class="carousel-caption">
-                    <a target="_blank" href="@carouselItems[i].TargetLink">
-                        @carouselItems[i].Title
-                    </a>                    
+<div id="Carousel_@carouselId" class="owl-carousel">
+    @foreach (CarouselItemEntity item in carouselItems)
+    {
+        <div class="item" style="background-image: url('@item.ImageUrl');height:@(Model.Height??100)px">
+            <div class="slider-inner">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="carousel-content">
+                                <h2>
+                                    <a href="@item.TargetLink" target="_blank">
+                                        @item.Title
+                                    </a>
+                                </h2>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        }
-    </div>
+        </div>
+    }
 
-    <!-- Controls -->
-    <a class="left carousel-control" href="#Carousel_@carouselId" role="button" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left"></span>
-        <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#Carousel_@carouselId" role="button" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right"></span>
-        <span class="sr-only">Next</span>
-    </a>
 </div>
-@using (Script.AtFoot())
-{
-    <script type="text/javascript">
-        $('#Carousel_@carouselId').carousel();
-    </script>
-}

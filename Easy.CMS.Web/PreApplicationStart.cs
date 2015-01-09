@@ -6,7 +6,7 @@ using System.Reflection;
 using System.Text;
 using System.Web.Compilation;
 
-namespace PlugWeb
+namespace Easy
 {
     /// <summary>
     /// [assembly: PreApplicationStartMethod(typeof(Easy.Web.PreApplicationStart), "LoadModules")]

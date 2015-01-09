@@ -1,49 +1,55 @@
 ﻿@using Easy.CMS.Common.Models
 @{
-    Script.Reqiured("Navigation").AtFoot();
+    NavigationEntity homePage = Model.Where(m => m.ParentId == "#").FirstOrDefault();
+    string currentPath = Request.Path;
+    if (homePage == null)
+    {
+        return;
+    }
+    int index=0;
 }
 @model IEnumerable<NavigationEntity>
-@functions{
-    string GetChildren(NavigationEntity entity)
-    {
-        if (Model.Any(m => m.ParentId == entity.ID))
-        {
-            System.Text.StringBuilder builder = new System.Text.StringBuilder();
-            builder.AppendFormat("<ul class='{0}' style='{1}'>", entity.ParentId == "0" ? "popup-nav" : "popup-nav-children", entity.ParentId == "0" ? "display:none" : "");
-            foreach (NavigationEntity item in Model.Where(m => m.ParentId == entity.ID))
+<div class="navbar navbar-default">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">
+            Easy Code
+        </a>
+    </div>
+    <div class="navbar-collapse collapse navbar-responsive-collapse">
+        <ul class="nav navbar-nav">
+            @foreach (NavigationEntity item in Model.Where(m => m.ParentId == "#"))
             {
-                builder.Append("<li>");
-                builder.AppendFormat("<a href=\"{0}\">{1}</a>", item.Url.IsNullOrEmpty() ? "" : Url.Content(item.Url), item.Title);
-                builder.Append(GetChildren(item));
-                builder.Append("</li>");
+                if (Model.Any(m => m.ParentId == item.ID))
+                {
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">@item.Title <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            @foreach (NavigationEntity child in Model.Where(m => m.ParentId == item.ID))
+                            {
+                                <li class="@(currentPath.StartsWith(child.Url) ? "active" : "")">
+                                    <a href="@child.Url">@child.Title</a>
+                                </li>
+                            }
+                        </ul>
+                    </li>
+
+                }
+                else
+                {
+                    <li class="@(currentPath.StartsWith(item.Url) || (currentPath == "/" && index==0) ? "active" : "")">
+                        <a href="@item.Url">@item.Title</a>
+                    </li>
+                }
+                index++;
             }
-            builder.Append("</ul>");
-            return builder.ToString();
-        }
-        return string.Empty;
-    }
-}
-<div class="top-nav">
-    <ul>
-        @foreach (NavigationEntity item in Model.Where(m => m.ParentId == "#"))
-        {
-            <li>
-                <a id="nav_@item.ID" href="@(item.Url.IsNullOrEmpty() ? "" : Url.Content(item.Url))" class="@(Request.Path.Equals(item.Url)?"current":"")">@item.Title</a>
-                @Html.Raw(GetChildren(item))
-            </li>
-        }
-    </ul>
-    <div class="clear"></div>
+        </ul>
+
+
+
+    </div>
 </div>
-@using (Script.AtFoot())
-{
-    <script type="text/javascript">
-        $(function () {
-            $(".top-nav>ul>li").mouseenter(function () {
-                $(this).children("ul").show(200);
-            }).mouseleave(function () {
-                $(this).children("ul").hide(200);
-            });
-        });
-    </script>
-}

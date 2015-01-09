@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace PlugWeb
+namespace Easy.CMS.Web
 {
     public class BundleConfig
     {

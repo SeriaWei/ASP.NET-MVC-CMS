@@ -15,17 +15,15 @@
         }
     }
 }
-
-<div class="pagination">
+<ul class="pagination">    
     @if (Model.PageIndex >= 1)
     {
-        <a href="@Regex.Replace(currentUrl, @"p=\d", "p=0")">返回首页</a>
-        <a href="@Regex.Replace(currentUrl, @"p=\d", "p=" + (Model.PageIndex - 1))">上一页</a>
+        <li><a href="@Regex.Replace(currentUrl, @"p=\d", "p=" + (Model.PageIndex - 1))">«</a></li>
+
     }
     else
     {
-        <a class="disable">返回首页</a>
-        <a class="disable">上一页</a>
+        <li class="disabled"><a href="#">«</a></li>
     }
     @{
         int start = Model.PageIndex - 3;
@@ -36,29 +34,32 @@
         else
         {
             start++;
-            <a>...</a>
+            <li>...</li>
         }
         int max = 0;
         for (; start <= Model.AllPage && max < 5; start++)
         {
-            <a href="@Regex.Replace(currentUrl, @"p=\d", "p=" + (start - 1))" class="@(start - 1 == Model.PageIndex ? "select" : "")">@start</a>
+            <li>
+            <a href="@Regex.Replace(currentUrl, @"p=\d", "p=" + (start - 1))" class="@(start - 1 == Model.PageIndex ? "active" : "")">@start</a>
+                </li>
             max++;
         }
         if (start < Model.AllPage)
         {
-            <a>...</a>
+            <li>...</li>
         }
-    }
+}
 
     @if (Model.PageIndex < Model.AllPage - 1)
     {
-        <a href="@Regex.Replace(currentUrl, @"p=\d", "p=" + (Model.PageIndex + 1))">下一页</a>
-        <a href="@Regex.Replace(currentUrl, @"p=\d", "p=" + (Model.AllPage - 1))">最后一页</a>
+        <li>
+            <a href="@Regex.Replace(currentUrl, @"p=\d", "p=" + (Model.PageIndex + 1))">»</a>
+        </li>
     }
     else
     {
-        <a class="disable">下一页</a>
-        <a class="disable">最后一页</a>
+        <li class="disabled">
+            <a href="#">»</a>
+        </li>
     }
-    <div class="clearfix"></div>
-</div>
+</ul>

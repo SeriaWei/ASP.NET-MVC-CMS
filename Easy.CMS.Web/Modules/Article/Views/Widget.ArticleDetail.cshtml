@@ -5,12 +5,15 @@
     {
         return;
     }
+    Easy.Web.CMS.Layout.LayoutEntity layout = (Easy.Web.CMS.Layout.LayoutEntity)ViewData[Easy.Web.CMS.Layout.LayoutEntity.LayoutKey];
+    layout.Page.Title = Model.Current.Title;
 }
-<div class="articleDetail">
-    <h3 class="title">@Model.Current.Title</h3>
-    <div class="publishDate">
-        @((Model.Current.PublishDate ?? DateTime.Now).ToString("yyyy/MM/dd"))
+<div class="articleDetail page-header">
+    <h1>@Model.Current.Title</h1>
+    <div class="date">
+        @((Model.Current.PublishDate ?? DateTime.Now).ToString("yyyy/MM/dd"))        
     </div>
+    
     <div class="detail">
         @Html.Raw(Model.Current.ArticleContent)
     </div>
