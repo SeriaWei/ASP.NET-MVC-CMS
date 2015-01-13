@@ -43,7 +43,9 @@ namespace Easy.CMS.Product.Service
             {
                 Products = products,
                 Page = page,
-                IsPageable = pwidget.IsPageable
+                IsPageable = pwidget.IsPageable,
+                CustomerStyle = pwidget.CustomerStyle,
+                DetailPageUrl = pwidget.DetailPageUrl
             });
         }
     }

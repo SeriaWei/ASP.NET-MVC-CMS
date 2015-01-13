@@ -136,7 +136,7 @@
     <Content Include="Views\Carousel\Edit.cshtml" />
     <Content Include="Views\Widget.Carousel.cshtml" />
     <Content Include="Views\Widget.Image.cshtml" />
-    <None Include="Views\Widget.Carousel.cshtml.bak" />
+    <None Include="Views\Widget.Carousel.IE.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Navigation\Index.cshtml" />

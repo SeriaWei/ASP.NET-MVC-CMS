@@ -9,7 +9,7 @@ namespace Easy
     {
         public override void InitScript()
         {
-            Script("jQuery").Include("~/Scripts/jquery-1.8.2.js", "~/Scripts/jquery-1.8.2.min.js").RequiredAtHead();
+            Script("jQuery").Include("~/Scripts/jquery-1.11.2.min.js", "~/Scripts/jquery-1.11.2.min.js").RequiredAtHead();
             Script("bootStrap").Include("~/Content/bootstrap/js/bootstrap.js", "~/Content/bootstrap/js/bootstrap.min.js").RequiredAtFoot();
             Script("jQueryUi").Include("~/Scripts/jquery-ui-1.8.24.js", "~/Scripts/jquery-ui-1.8.24.min.js");
             Script("Easy")

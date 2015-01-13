@@ -132,7 +132,6 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Widget.ProductList.mobile.cshtml" />
     <Content Include="Views\Widget.ProductCategory.cshtml" />
     <None Include="Views\Widget.ProductList.cshtml" />
   </ItemGroup>

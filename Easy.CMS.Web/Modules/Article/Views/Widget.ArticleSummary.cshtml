@@ -5,26 +5,28 @@
         Model.DetailLink = Url.Content(Model.DetailLink);
     }
 }
-<div class="article summary bs-callout bs-callout-danger">
-    @if (!Model.Title.IsNullOrEmpty())
+<div class="article summary">
+    <div class="bs-callout bs-callout-danger">
+        @if (!Model.Title.IsNullOrEmpty())
     {
-        <div class="pull-left">
-            <h4>
-                @Model.Title
-            </h4>
-        </div>
-        <div class="pull-right">
-            @if (!Model.DetailLink.IsNullOrEmpty())
+            <div class="pull-left">
+                <h4>
+                    @Model.Title
+                </h4>
+            </div>
+            <div class="pull-right">
+                @if (!Model.DetailLink.IsNullOrEmpty())
             {
-                <a target="_blank" href="@Model.DetailLink">
-                    More »
-                </a>
+                    <a target="_blank" href="@Model.DetailLink">
+                        More »
+                    </a>
             }
-            
-        </div>
-        <div class="clearfix"></div>
+
+            </div>
+            <div class="clearfix"></div>
     }
-    <div class="text-muted">
-        @Html.Raw(Model.Summary)
+        <div class="text-muted">
+            @Html.Raw(Model.Summary)
+        </div>
     </div>
 </div>

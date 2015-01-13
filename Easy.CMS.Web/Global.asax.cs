@@ -68,6 +68,7 @@ namespace Easy.CMS.Web
             Container.Register(typeof(IDataDictionaryService), typeof(DataDictionaryService));
 
             Easy.Web.DisplayViewSupport.SupportMobileView();
+            Easy.Web.DisplayViewSupport.SupportIEView();
         }
     }
 }

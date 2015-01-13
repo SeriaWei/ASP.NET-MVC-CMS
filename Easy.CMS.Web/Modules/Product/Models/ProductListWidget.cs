@@ -15,6 +15,7 @@ namespace Easy.CMS.Product.Models
     {
         public bool IsPageable { get; set; }
         public int? ProductCategoryID { get; set; }
+        public string DetailPageUrl { get; set; }
     }
 
     class ProductListWidgetMetaData : WidgetMetaData<ProductListWidget>
@@ -29,6 +30,7 @@ namespace Easy.CMS.Product.Models
                 new ProductCategoryService().Get().Each(m => { dicts.Add(m.ID.ToString(), m.Title); });
                 return dicts;
             });
+            ViewConfig(m => m.DetailPageUrl).AsTextBox().AddClass("select").AddProperty("data-url", "/admin/page/select");
         }
     }
 

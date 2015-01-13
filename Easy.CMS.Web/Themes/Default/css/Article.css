@@ -1,7 +1,10 @@
 ﻿.article {
   padding: 10px;
 }
-.article .media .img-thumbnail {
-  width: 400px;
+.article .media .media-left {
+  width: 155px;
+}
+.article .media .media-left .img-thumbnail {
+  width: 100%;
 }
 /*# sourceMappingURL=Article.css.map */

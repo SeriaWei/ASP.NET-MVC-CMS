@@ -11,6 +11,8 @@ namespace Easy.CMS.Product.ViewModel
     {
         public Pagination Page { get; set; }
         public IEnumerable<Models.Product> Products { get; set; }
+        public string CustomerStyle { get; set; }
+        public string DetailPageUrl { get; set; }
         public bool IsPageable { get; set; }
     }
 }
