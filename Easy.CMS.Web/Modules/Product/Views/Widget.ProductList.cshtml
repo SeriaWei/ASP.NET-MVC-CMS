@@ -1,17 +1,17 @@
 ﻿@using System.Text.RegularExpressions
 @model Easy.CMS.Product.ViewModel.ProductListWidgetViewModel
 
-<div class="ProductList">
+<div class="ProductList container-fluid">
     <div class="row">
         @foreach (var item in Model.Products)
         {
-            <div class="col-sm-6 col-md-4 @Model.CustomerStyle">
+            <div class="col-xs-6 col-sm-4 col-md-4 @Model.CustomerStyle">
                 <div class="thumbnail">
                     <img alt="@item.Title" title="@item.Title" src="@item.ImageThumbUrl" />
                     <div class="caption">
                         <h4>
                             <a href="@(item.Url.IsNullOrEmpty() && !Model.DetailPageUrl.IsNullOrEmpty() ? Url.Content(Model.DetailPageUrl) + "?id=" + item.ID : item.Url)" target="_blank">
-                            @item.Title
+                                @item.Title
                             </a>
                         </h4>
                         <p>

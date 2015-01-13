@@ -6,50 +6,49 @@
     {
         return;
     }
-    int index=0;
+    int index = 0;
 }
 @model IEnumerable<NavigationEntity>
-<div class="navbar navbar-default">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="/">
-            Easy Code
-        </a>
-    </div>
-    <div class="navbar-collapse collapse navbar-responsive-collapse">
-        <ul class="nav navbar-nav">
-            @foreach (NavigationEntity item in Model.Where(m => m.ParentId == "#"))
-            {
-                if (Model.Any(m => m.ParentId == item.ID))
+<div class="navigation">
+    <div class="navbar navbar-default">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">
+                Easy Code
+            </a>
+        </div>
+        <div class="navbar-collapse collapse navbar-responsive-collapse">
+            <ul class="nav navbar-nav">
+                @foreach (NavigationEntity item in Model.Where(m => m.ParentId == "#"))
                 {
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">@item.Title <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            @foreach (NavigationEntity child in Model.Where(m => m.ParentId == item.ID))
-                            {
-                                <li class="@(currentPath.StartsWith(child.Url) ? "active" : "")">
-                                    <a href="@child.Url">@child.Title</a>
-                                </li>
-                            }
-                        </ul>
-                    </li>
+                    if (Model.Any(m => m.ParentId == item.ID))
+                    {
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">@item.Title <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                @foreach (NavigationEntity child in Model.Where(m => m.ParentId == item.ID))
+                                {
+                                    <li class="@(currentPath.StartsWith(child.Url) ? "active" : "")">
+                                        <a href="@child.Url">@child.Title</a>
+                                    </li>
+                                }
+                            </ul>
+                        </li>
 
+                    }
+                    else
+                    {
+                        <li class="@(currentPath.StartsWith(item.Url) || (currentPath == "/" && index==0) ? "active" : "")">
+                            <a href="@item.Url">@item.Title</a>
+                        </li>
+                    }
+                    index++;
                 }
-                else
-                {
-                    <li class="@(currentPath.StartsWith(item.Url) || (currentPath == "/" && index==0) ? "active" : "")">
-                        <a href="@item.Url">@item.Title</a>
-                    </li>
-                }
-                index++;
-            }
-        </ul>
-
-
-
+            </ul>
+        </div>
     </div>
 </div>

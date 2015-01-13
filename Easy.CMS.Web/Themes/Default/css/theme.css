@@ -50,6 +50,31 @@ body {
 .bs-callout-danger p {
   margin: 0;
 }
+.list-group {
+  margin-bottom: 0;
+}
+.page-header {
+  margin: 10px 0 10px;
+}
+.page-header > h2 {
+  margin: 5px 0 5px;
+}
+.navigation {
+  padding: 10px;
+}
+.navigation .navbar {
+  margin-bottom: 10px;
+}
+@media (max-width: 768px) {
+  .navigation {
+    padding: 0;
+  }
+  .navigation .navbar {
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+  }
+}
 .article {
   padding: 10px;
 }
@@ -58,6 +83,9 @@ body {
 }
 .article .media .media-left .img-thumbnail {
   width: 100%;
+}
+.articleDetail {
+  padding: 10px;
 }
 .carousel .carousel-indicators {
   text-align: center;
@@ -76,5 +104,8 @@ body {
 }
 .ProductList .thumbnail > img {
   width: 100%;
+}
+.ProductCategory {
+  padding: 10px;
 }
 /*# sourceMappingURL=Theme.css.map */

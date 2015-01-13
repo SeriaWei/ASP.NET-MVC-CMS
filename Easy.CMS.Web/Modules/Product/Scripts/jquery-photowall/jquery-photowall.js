@@ -365,7 +365,7 @@ var PhotoWall = {
 	    Initialize image zoom.
 	*/
 	initZoom: function() {
-		$(".pw-zoom").live(PhotoWall.options.zoomAction,function (){
+	    $(document).on(PhotoWall.options.zoomAction, ".pw-zoom", function () {
 			var img = $(this);
 			if(!parseInt(img.css('opacity'))) return;
 							
@@ -434,7 +434,7 @@ var PhotoWall = {
 				}
 			},PhotoWall.options.zoomTimeout);
 		});
-		$(".pw-zoom").live('mouseleave',function(){
+		$(document).on('mouseleave', ".pw-zoom", function () {
 			var img = $(this);
 			var container  = img.parent().parent();
 			var item   = PhotoWall._photos[container.attr('id')];
@@ -522,7 +522,7 @@ var ShowBox = {
     _initEvents: function(el) {
         if(el) {
             var num = ShowBox._images.length-1;
-            $(el).live('click',function(e){
+            $(document).on('click', el, function (e) {
                 e.preventDefault();
 				ShowBox._opened = true;
                 var gal = num;

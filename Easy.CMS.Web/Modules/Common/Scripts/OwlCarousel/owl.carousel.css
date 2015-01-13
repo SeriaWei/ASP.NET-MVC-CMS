@@ -119,7 +119,6 @@
 .owl-carousel .progressBar {
   margin-top: -4px;
   position: relative;
-  z-index: 999;
   width: 100%;
   background: rgba(0, 0, 0, 0.1);
 }

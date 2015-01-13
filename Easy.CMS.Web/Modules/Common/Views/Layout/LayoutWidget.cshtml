@@ -39,7 +39,7 @@
             }, "html");
         });
         
-        $(".fullRowList .delete").live("click",function () {
+        $(document).on("click", ".fullRowList .delete", function () {
             var id = $(this).data("widgetid");
             if (confirm("确定要删除该组件吗？")) {
                 $.post("@Url.Action("DeleteWidget", "Widget",new { module="Common"})", { ID: id }, function (data) {

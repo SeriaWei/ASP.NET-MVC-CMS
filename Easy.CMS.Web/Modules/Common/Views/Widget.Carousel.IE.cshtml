@@ -8,7 +8,7 @@
     string carouselId = Guid.NewGuid().ToString("N");
 }
 
-<div id="Carousel_@carouselId" class="carousel slide" data-ride="carousel">
+<div id="Carousel_@carouselId" class="carousel slide hidden-xs" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">
         @for (int i = 0; i < carouselItems.Count; i++)
@@ -26,7 +26,7 @@
                 <div class="carousel-caption">
                     <a target="_blank" href="@carouselItems[i].TargetLink">
                         @carouselItems[i].Title
-                    </a>                    
+                    </a>
                 </div>
             </div>
         }

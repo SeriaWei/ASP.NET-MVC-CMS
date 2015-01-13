@@ -86,7 +86,7 @@
             $("#container .additional.row").droppable(opRowDrop).sortable();
             $("#container .colContent").droppable(opColDrop).sortable();
 
-            $(".zone input").live("blur", function () {
+            $(document).on("blur", ".zone input", function () {
                 $(this).attr("value", $(this).val());
             });
             function rowDropToContent(event, ui, obj) {

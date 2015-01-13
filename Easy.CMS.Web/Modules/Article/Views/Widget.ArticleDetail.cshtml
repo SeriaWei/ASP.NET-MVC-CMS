@@ -8,12 +8,13 @@
     Easy.Web.CMS.Layout.LayoutEntity layout = (Easy.Web.CMS.Layout.LayoutEntity)ViewData[Easy.Web.CMS.Layout.LayoutEntity.LayoutKey];
     layout.Page.Title = Model.Current.Title;
 }
-<div class="articleDetail page-header">
-    <h1>@Model.Current.Title</h1>
-    <div class="date">
-        @((Model.Current.PublishDate ?? DateTime.Now).ToString("yyyy/MM/dd"))        
+<div class="articleDetail">
+    <div class="page-header">
+        <h2>@Model.Current.Title</h2>
+        <div class="date">
+            @((Model.Current.PublishDate ?? DateTime.Now).ToString("yyyy/MM/dd"))
+        </div>
     </div>
-    
     <div class="detail">
         @Html.Raw(Model.Current.ArticleContent)
     </div>

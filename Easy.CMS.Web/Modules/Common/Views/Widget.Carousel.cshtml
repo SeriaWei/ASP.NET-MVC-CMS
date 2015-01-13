@@ -11,7 +11,7 @@
     string carouselId = Guid.NewGuid().ToString("N");
 }
 
-<div id="Carousel_@carouselId" class="owl-carousel">
+<div id="Carousel_@carouselId" class="owl-carousel hidden-xs">
     @foreach (CarouselItemEntity item in carouselItems)
     {
         <div class="item" style="background-image: url('@item.ImageUrl');height:@(Model.Height??100)px">

@@ -38,7 +38,7 @@
         $(this).prev(".input-group-addon").append('<span class="glyphicon glyphicon-search" data-url="' + $(this).data("url") + '"></span>');
     });
 
-    $(".input-group-addon .glyphicon").live("click", function () {
+    $(document).on("click",".input-group-addon .glyphicon", function () {
         var obj = $(this);
         Easy.ShowUrlWindow({
             url: $(this).data("url"), onLoad: function (box) {
@@ -64,13 +64,13 @@
         activeHref.parent().prev().addClass("active");
     }
 
-    $(".input-group-collection .add").live("click", function () {
+    $(document).on("click", ".input-group-collection .add", function () {
         var index = $(this).parents(".input-group-collection").children(".item").size();
         var html = $($(this).parents(".input-group-collection").children(".Template").html().replaceAll("{0}", index));
         html.find("input.actionType").val($(this).data("value"));
         $(this).parents(".input-group-collection").append(html);
     });
-    $(".input-group-collection .delete").live("click", function () {
+    $(document).on("click", ".input-group-collection .delete", function () {
         $(this).parents(".item").find("input.actionType").val($(this).data("value"));
         $(this).parents(".item").hide();
     });

@@ -50,4 +50,13 @@ body {
 .bs-callout-danger p {
   margin: 0;
 }
+.list-group {
+  margin-bottom: 0;
+}
+.page-header {
+  margin: 10px 0 10px;
+}
+.page-header > h2 {
+  margin: 5px 0 5px;
+}
 /*# sourceMappingURL=Base.css.map */

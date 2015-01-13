@@ -1,4 +1,7 @@
 ﻿.ProductList .thumbnail > img {
   width: 100%;
 }
+.ProductCategory {
+  padding: 10px;
+}
 /*# sourceMappingURL=Product.css.map */
