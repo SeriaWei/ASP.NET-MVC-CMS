@@ -26,7 +26,7 @@ namespace Easy.CMS.Article.Service
             filter.Where("IsPublish=true");
             filter.OrderBy("PublishDate", OrderType.Descending);
             var articleService = new ArticleService();
-            var page = new Data.Pagination { PageIndex = pageIndex };
+            var page = new Data.Pagination { PageIndex = pageIndex, PageSize = currentWidget.PageSize ?? 20 };
             if (ac != 0)
             {
                 filter.Where("ArticleCategoryID", OperatorType.Equal, ac);
@@ -37,10 +37,11 @@ namespace Easy.CMS.Article.Service
             }
             return widget.ToWidgetPart(new ArticleListWidgetViewModel
             {
-                Articles = articleService.Get(filter, page),
+                Articles = currentWidget.IsPageable ? articleService.Get(filter, page) : articleService.Get(filter),
                 Widget = currentWidget,
                 Pagin = page,
                 CategoryTitle = categoryEntity == null ? "" : categoryEntity.Title,
+                IsPageable = currentWidget.IsPageable
             });
         }
     }

@@ -17,6 +17,7 @@ namespace Easy.CMS.Product.Service
         {
             ProductListWidget pwidget = widget as ProductListWidget;
             var filter = new DataFilter();
+            filter.Where("IsPublish=true");
             int p = 0;
             int.TryParse(httpContext.Request.QueryString["p"], out p);
             int c = 0;
@@ -30,7 +31,7 @@ namespace Easy.CMS.Product.Service
             }
             var service = new ProductService();
             IEnumerable<Models.Product> products = null;
-            var page = new Pagination { PageIndex = p };
+            var page = new Pagination { PageIndex = p, PageSize = pwidget.PageSize ?? 20 };
             if (pwidget.IsPageable)
             {
                 products = service.Get(filter, page);
@@ -44,7 +45,7 @@ namespace Easy.CMS.Product.Service
                 Products = products,
                 Page = page,
                 IsPageable = pwidget.IsPageable,
-                CustomerStyle = pwidget.CustomerStyle,
+                Columns = pwidget.Columns,
                 DetailPageUrl = pwidget.DetailPageUrl
             });
         }

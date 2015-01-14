@@ -14,6 +14,8 @@ namespace Easy.CMS.Article.Models
     {
         public int? ArticleCategoryID { get; set; }
         public string DetailPageUrl { get; set; }
+        public bool IsPageable { get; set; }
+        public int? PageSize { get; set; }
     }
     class ArticleListWidgetMeta : WidgetMetaData<ArticleListWidget>
     {

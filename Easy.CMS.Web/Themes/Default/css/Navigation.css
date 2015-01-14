@@ -1,17 +1,12 @@
-﻿.navigation {
-  padding: 10px;
-}
-.navigation .navbar {
+﻿.navigation .navbar {
   margin-bottom: 10px;
+  border-radius: 0;
+  border-left: none;
+  border-right: none;
 }
 @media (max-width: 768px) {
   .navigation {
     padding: 0;
-  }
-  .navigation .navbar {
-    border-radius: 0;
-    border-left: none;
-    border-right: none;
   }
 }
 /*# sourceMappingURL=Navigation.css.map */

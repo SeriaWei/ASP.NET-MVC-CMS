@@ -14,5 +14,6 @@ namespace Easy.CMS.Article.ViewModel
         public ArticleListWidget Widget { get; set; }
         public IEnumerable<ArticleEntity> Articles { get; set; }
         public int CurrentCategory { get; set; }
+        public bool IsPageable { get; set; }
     }
 }

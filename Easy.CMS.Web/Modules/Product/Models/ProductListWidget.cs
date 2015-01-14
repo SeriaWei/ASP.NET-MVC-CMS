@@ -16,7 +16,8 @@ namespace Easy.CMS.Product.Models
         public bool IsPageable { get; set; }
         public int? ProductCategoryID { get; set; }
         public string DetailPageUrl { get; set; }
-        public string CustomerStyle { get; set; }
+        public string Columns { get; set; }
+        public int? PageSize { get; set; }
     }
 
     class ProductListWidgetMetaData : WidgetMetaData<ProductListWidget>
@@ -32,7 +33,7 @@ namespace Easy.CMS.Product.Models
                 return dicts;
             });
             ViewConfig(m => m.DetailPageUrl).AsTextBox().AddClass("select").AddProperty("data-url", "/admin/page/select");
-            ViewConfig(m => m.CustomerStyle).AsTextBox();
+            ViewConfig(m => m.Columns).AsDropDownList().DataSource(new Dictionary<string, string> { { "col-xs-6 col-sm-4 col-md-4", "3 列" }, { "col-xs-6 col-sm-4 col-md-4 col-lg-3", "4 列" } });
         }
     }
 

@@ -15,7 +15,7 @@
         }
     }
 }
-<ul class="pagination">    
+<ul class="pagination">
     @if (Model.PageIndex >= 1)
     {
         <li><a href="@Regex.Replace(currentUrl, @"p=\d", "p=" + (Model.PageIndex - 1))">«</a></li>
@@ -23,7 +23,7 @@
     }
     else
     {
-        <li class="disabled"><a href="#">«</a></li>
+        <li class="disabled"><a href="javascript:void(0)">«</a></li>
     }
     @{
         int start = Model.PageIndex - 3;
@@ -34,21 +34,25 @@
         else
         {
             start++;
-            <li>...</li>
+            <li>
+                <a href="@Regex.Replace(currentUrl, @"p=\d", "p=" + (start-2))">...</a>
+            </li>
         }
         int max = 0;
         for (; start <= Model.AllPage && max < 5; start++)
         {
-            <li>
-            <a href="@Regex.Replace(currentUrl, @"p=\d", "p=" + (start - 1))" class="@(start - 1 == Model.PageIndex ? "active" : "")">@start</a>
-                </li>
+            <li class="@(start - 1 == Model.PageIndex ? "active" : "")">
+                <a href="@Regex.Replace(currentUrl, @"p=\d", "p=" + (start - 1))">@start</a>
+            </li>
             max++;
         }
         if (start < Model.AllPage)
         {
-            <li>...</li>
+            <li>                
+                <a href="@Regex.Replace(currentUrl, @"p=\d", "p=" + (start-1))">...</a>
+            </li>
         }
-}
+    }
 
     @if (Model.PageIndex < Model.AllPage - 1)
     {
@@ -59,7 +63,7 @@
     else
     {
         <li class="disabled">
-            <a href="#">»</a>
+            <a href="javascript:void(0)">»</a>
         </li>
     }
 </ul>

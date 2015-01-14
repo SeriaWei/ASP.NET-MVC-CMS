@@ -63,7 +63,8 @@ namespace Easy.CMS.Product.Models
         public int OrderIndex { get; set; }
         public string SourceFrom { get; set; }
         public string Url { get; set; }
-        public bool IsPassed { get; set; }
+        public bool IsPublish { get; set; }
+        public DateTime? PublishDate { get; set; }
         public string TargetFrom { get; set; }
         public string TargetUrl { get; set; }
     }
@@ -85,9 +86,9 @@ namespace Easy.CMS.Product.Models
             ViewConfig(m => m.Norm).AsHidden();
             ViewConfig(m => m.Color).AsHidden();
             ViewConfig(m => m.PurchasePrice).AsHidden();
-            ViewConfig(m => m.Remark).AsMutiLineTextBox().Ignore().HideInGrid();
+            ViewConfig(m => m.Remark).AsMutiLineTextBox().AddClass("html").HideInGrid();
             ViewConfig(m => m.Description).AsMutiLineTextBox();
-            ViewConfig(m => m.IsPassed).AsCheckBox();
+            ViewConfig(m => m.IsPublish).AsTextBox().Hide();
         }
     }
 

@@ -31,5 +31,8 @@
             }
         </ul>
     }
-    @Html.Partial("Partial_Pagination", Model.Pagin)
+    @if (Model.IsPageable)
+    {
+        Html.RenderPartial("Partial_Pagination", Model.Pagin);
+    }    
 </div>

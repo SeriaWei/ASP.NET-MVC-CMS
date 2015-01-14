@@ -7,6 +7,7 @@ using Easy.CMS.Product.ActionFilter;
 using Easy.CMS.Product.Service;
 using Easy.Web.Attribute;
 using Easy.Web.Controller;
+using Easy.Constant;
 
 namespace Easy.CMS.Product.Controllers
 {
@@ -37,7 +38,12 @@ namespace Easy.CMS.Product.Controllers
         [HttpPost, ViewData_ProductCategory]
         public override ActionResult Edit(Models.Product entity)
         {
-            return base.Edit(entity);
+            var result = base.Edit(entity);
+            if (entity.ActionType == ActionType.Publish)
+            {
+                Service.Publish(entity.ID);
+            }
+            return result;
         }
         [HttpPost, ViewData_ProductCategory]
         public override JsonResult GetList()
