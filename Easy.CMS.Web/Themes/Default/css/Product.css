@@ -1,4 +1,7 @@
-﻿.ProductList .thumbnail > img {
+﻿.ProductDetail {
+  padding: 10px;
+}
+.ProductList .thumbnail > img {
   width: 100%;
 }
 .ProductCategory {

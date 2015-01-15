@@ -55,7 +55,7 @@ namespace Easy.CMS.Product.Models
         /// <summary>
         /// 备注
         /// </summary>
-        public string Remark { get; set; }
+        public string ProductContent { get; set; }
 
         public string SEOTitle { get; set; }
         public string SEOKeyWord { get; set; }
@@ -86,7 +86,7 @@ namespace Easy.CMS.Product.Models
             ViewConfig(m => m.Norm).AsHidden();
             ViewConfig(m => m.Color).AsHidden();
             ViewConfig(m => m.PurchasePrice).AsHidden();
-            ViewConfig(m => m.Remark).AsMutiLineTextBox().AddClass("html").HideInGrid();
+            ViewConfig(m => m.ProductContent).AsMutiLineTextBox().AddClass("html").HideInGrid();
             ViewConfig(m => m.Description).AsMutiLineTextBox();
             ViewConfig(m => m.IsPublish).AsTextBox().Hide();
         }

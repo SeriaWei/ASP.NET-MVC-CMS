@@ -2,4 +2,14 @@
 @{
     
 }
-<h1>ddd</h1>
+<div class="ProductDetail">
+    <div class="page-header">
+        <h2>@Model.Title</h2>
+        <div class="date">
+            @((Model.PublishDate ?? DateTime.Now).ToString("yyyy/MM/dd"))
+        </div>
+    </div>
+    <div class="detail">
+        @Html.Raw(Model.ProductContent)
+    </div>
+</div>

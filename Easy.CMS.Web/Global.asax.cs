@@ -70,5 +70,10 @@ namespace Easy.CMS.Web
             Easy.Web.DisplayViewSupport.SupportMobileView();
             Easy.Web.DisplayViewSupport.SupportIEView();
         }
+
+        public override string GetVaryByCustomString(HttpContext context, string custom)
+        {
+            return base.GetVaryByCustomString(context, custom);
+        }
     }
 }

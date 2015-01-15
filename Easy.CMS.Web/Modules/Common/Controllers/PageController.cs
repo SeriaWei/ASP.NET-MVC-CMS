@@ -20,7 +20,7 @@ namespace Easy.CMS.Common.Controllers
 {
     public class PageController : BasicController<PageEntity, PageService>
     {
-        [Widget]
+        [Widget, OutputCache(Duration = 600, Location = System.Web.UI.OutputCacheLocation.ServerAndClient)]
         public ActionResult PreView()
         {
             return View();
@@ -62,7 +62,7 @@ namespace Easy.CMS.Common.Controllers
         public override ActionResult Create(PageEntity entity)
         {
             base.Create(entity);
-            return RedirectToAction("Design", new {ID = entity.ID});
+            return RedirectToAction("Design", new { ID = entity.ID });
         }
         [AdminTheme, ViewData_Layouts]
         public override ActionResult Edit(ParamsContext context)

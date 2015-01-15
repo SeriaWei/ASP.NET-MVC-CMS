@@ -99,6 +99,9 @@ body {
 .carousel .carousel-inner .item .carousel-caption a {
   color: white;
 }
+.ProductDetail {
+  padding: 10px;
+}
 .ProductList .thumbnail > img {
   width: 100%;
 }
