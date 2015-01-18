@@ -18,6 +18,7 @@ using Easy.Web.Route;
 using Easy.Modules.DataDictionary;
 using Easy.IOCAdapter;
 using Easy.Web.ViewEngine;
+using Easy.Web.CMS.Page;
 
 namespace Easy.CMS.Web
 {
@@ -71,9 +72,31 @@ namespace Easy.CMS.Web
             Easy.Web.DisplayViewSupport.SupportIEView();
         }
 
-        public override string GetVaryByCustomString(HttpContext context, string custom)
-        {
-            return base.GetVaryByCustomString(context, custom);
-        }
+        //public override string GetVaryByCustomString(HttpContext context, string custom)
+        //{
+        //    if (custom == "cookie")
+        //    {
+        //        var lastModify = context.Request.Cookies["lastModify"];
+        //        long lastModifyDate = 0;
+        //        if (lastModify != null)
+        //        {
+        //            long.TryParse(lastModify.Value, out lastModifyDate);
+        //        }
+        //        var pageService = new PageService();
+        //        var page = pageService.GetByPath(context.Request.Path, true);
+        //        if (page != null && page.PublishDate.HasValue)
+        //        {
+        //            long newlastModifyDate = page.PublishDate.Value.ToBinary();
+        //            if (newlastModifyDate != lastModifyDate && lastModifyDate > 0)
+        //            {
+        //                HttpResponse.RemoveOutputCacheItem(context.Request.Path);
+        //                HttpCookie cookie = new HttpCookie("lastModify", newlastModifyDate.ToString());
+        //                cookie.Path = context.Request.Path;
+        //                context.Response.SetCookie(cookie);
+        //            }
+        //        }
+        //    }
+        //    return base.GetVaryByCustomString(context, custom);
+        //}
     }
 }

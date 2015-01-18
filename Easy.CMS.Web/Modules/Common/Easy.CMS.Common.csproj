@@ -124,6 +124,7 @@
     <Content Include="Content\Images\demoLayout.jpg" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\Owl.Carousel.js" />
+    <None Include="Properties\PublishProfiles\PublishLocal.pubxml" />
     <None Include="Scripts\_references.js" />
     <Content Include="Scripts\OwlCarousel\owl.carousel.css" />
     <Content Include="Scripts\OwlCarousel\owl.carousel.min.js" />

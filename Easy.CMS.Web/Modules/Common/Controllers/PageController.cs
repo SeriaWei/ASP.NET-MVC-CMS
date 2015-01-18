@@ -81,6 +81,11 @@ namespace Easy.CMS.Common.Controllers
             if (entity.ActionType == ActionType.Publish)
             {
                 Service.Publish(entity.ID);
+                HttpResponse.RemoveOutputCacheItem(entity.Url.Replace("~", ""));
+                if (entity.IsHomePage)
+                {
+                    HttpResponse.RemoveOutputCacheItem("/");
+                }
             }
             return result;
         }

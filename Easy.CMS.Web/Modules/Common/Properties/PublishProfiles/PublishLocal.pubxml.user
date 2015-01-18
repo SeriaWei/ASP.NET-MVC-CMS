@@ -1,0 +1,187 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+您 Web 项目的发布/打包进程将使用此文件。您可以通过编辑此 MSBuild 文件
+来自定义该进程的行为。若要了解与此相关的详细信息，请访问 http://go.microsoft.com/fwlink/?LinkID=208121。
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>E:\产品\CMSPublish\Modules\Common</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="bin/Easy.CMS.Common.dll">
+      <publishTime>01/18/2015 18:00:39</publishTime>
+    </File>
+    <File Include="bin/Easy.dll">
+      <publishTime>01/15/2015 21:48:29</publishTime>
+    </File>
+    <File Include="bin/Easy.Web.CMS.dll">
+      <publishTime>01/18/2015 16:50:54</publishTime>
+    </File>
+    <File Include="bin/Easy.Web.dll">
+      <publishTime>01/15/2015 21:48:30</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Infrastructure.dll">
+      <publishTime>07/02/2014 21:58:02</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Mvc.FixedDisplayModes.dll">
+      <publishTime>07/02/2014 21:58:03</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>12/09/2014 22:35:57</publishTime>
+    </File>
+    <File Include="bin/System.Web.Helpers.dll">
+      <publishTime>07/02/2014 21:58:02</publishTime>
+    </File>
+    <File Include="bin/System.Web.Mvc.dll">
+      <publishTime>07/02/2014 21:58:03</publishTime>
+    </File>
+    <File Include="bin/System.Web.Razor.dll">
+      <publishTime>07/02/2014 21:58:02</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Deployment.dll">
+      <publishTime>07/02/2014 21:58:02</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.dll">
+      <publishTime>07/02/2014 21:58:02</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Razor.dll">
+      <publishTime>07/02/2014 21:58:02</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.Helpers.resources.dll">
+      <publishTime>07/02/2014 21:58:06</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.Mvc.resources.dll">
+      <publishTime>07/02/2014 21:58:07</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.Razor.resources.dll">
+      <publishTime>07/02/2014 21:58:06</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.WebPages.Deployment.resources.dll">
+      <publishTime>07/02/2014 21:58:06</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.WebPages.Razor.resources.dll">
+      <publishTime>07/02/2014 21:58:06</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.WebPages.resources.dll">
+      <publishTime>07/02/2014 21:58:06</publishTime>
+    </File>
+    <File Include="Content/Images/demoLayout.jpg">
+      <publishTime>09/10/2014 19:01:58</publishTime>
+    </File>
+    <File Include="Content/Layout.css">
+      <publishTime>12/12/2014 23:04:49</publishTime>
+    </File>
+    <File Include="CopyItems.xml">
+      <publishTime>08/12/2014 18:46:49</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>08/07/2014 20:22:29</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.8.2.js">
+      <publishTime>08/15/2014 23:11:02</publishTime>
+    </File>
+    <File Include="Scripts/Owl.Carousel.js">
+      <publishTime>01/08/2015 22:56:00</publishTime>
+    </File>
+    <File Include="Scripts/OwlCarousel/owl.carousel.css">
+      <publishTime>01/13/2015 22:25:08</publishTime>
+    </File>
+    <File Include="Scripts/OwlCarousel/owl.carousel.min.js">
+      <publishTime>01/07/2015 19:41:05</publishTime>
+    </File>
+    <File Include="Scripts/OwlCarousel/owl.transitions.css">
+      <publishTime>01/07/2015 19:41:28</publishTime>
+    </File>
+    <File Include="Views/Carousel/Create.cshtml">
+      <publishTime>08/23/2014 17:55:18</publishTime>
+    </File>
+    <File Include="Views/Carousel/Edit.cshtml">
+      <publishTime>08/23/2014 17:55:35</publishTime>
+    </File>
+    <File Include="Views/Carousel/Index.cshtml">
+      <publishTime>10/23/2014 18:39:33</publishTime>
+    </File>
+    <File Include="Views/Layout/Create.cshtml">
+      <publishTime>10/23/2014 18:39:33</publishTime>
+    </File>
+    <File Include="Views/Layout/Design.cshtml">
+      <publishTime>01/13/2015 22:21:33</publishTime>
+    </File>
+    <File Include="Views/Layout/Edit.cshtml">
+      <publishTime>10/23/2014 18:39:33</publishTime>
+    </File>
+    <File Include="Views/Layout/Index.cshtml">
+      <publishTime>10/23/2014 18:39:33</publishTime>
+    </File>
+    <File Include="Views/Layout/LayoutWidget.cshtml">
+      <publishTime>01/13/2015 22:21:17</publishTime>
+    </File>
+    <File Include="Views/Layout/LayoutZones.cshtml">
+      <publishTime>12/31/2014 19:04:13</publishTime>
+    </File>
+    <File Include="Views/Navigation/Create.cshtml">
+      <publishTime>08/12/2014 20:48:33</publishTime>
+    </File>
+    <File Include="Views/Navigation/Edit.cshtml">
+      <publishTime>08/23/2014 17:31:27</publishTime>
+    </File>
+    <File Include="Views/Navigation/Index.cshtml">
+      <publishTime>09/04/2014 23:07:00</publishTime>
+    </File>
+    <File Include="Views/Page/Create.cshtml">
+      <publishTime>10/23/2014 18:39:33</publishTime>
+    </File>
+    <File Include="Views/Page/Design.cshtml">
+      <publishTime>01/13/2015 22:21:03</publishTime>
+    </File>
+    <File Include="Views/Page/Edit.cshtml">
+      <publishTime>11/30/2014 14:28:04</publishTime>
+    </File>
+    <File Include="Views/Page/Index.cshtml">
+      <publishTime>01/13/2015 22:20:24</publishTime>
+    </File>
+    <File Include="Views/Page/PageZones.cshtml">
+      <publishTime>12/12/2014 19:43:09</publishTime>
+    </File>
+    <File Include="Views/Page/PreView.cshtml">
+      <publishTime>10/23/2014 18:39:33</publishTime>
+    </File>
+    <File Include="Views/Page/Select.cshtml">
+      <publishTime>10/23/2014 18:39:33</publishTime>
+    </File>
+    <File Include="Views/Shared/_DesignLayout.cshtml">
+      <publishTime>12/12/2014 22:49:10</publishTime>
+    </File>
+    <File Include="Views/Shared/_DesignPageLayout.cshtml">
+      <publishTime>12/12/2014 23:01:39</publishTime>
+    </File>
+    <File Include="Views/Shared/_Layout.cshtml">
+      <publishTime>01/10/2015 00:50:45</publishTime>
+    </File>
+    <File Include="Views/Web.config">
+      <publishTime>08/09/2014 18:14:20</publishTime>
+    </File>
+    <File Include="Views/Widget.Carousel.cshtml">
+      <publishTime>01/13/2015 23:41:37</publishTime>
+    </File>
+    <File Include="Views/Widget.HTML.cshtml">
+      <publishTime>10/23/2014 18:39:33</publishTime>
+    </File>
+    <File Include="Views/Widget.Image.cshtml">
+      <publishTime>12/13/2014 15:23:16</publishTime>
+    </File>
+    <File Include="Views/Widget.Navigation.cshtml">
+      <publishTime>01/13/2015 22:40:41</publishTime>
+    </File>
+    <File Include="Views/Widget/Create.cshtml">
+      <publishTime>08/23/2014 17:32:41</publishTime>
+    </File>
+    <File Include="Views/Widget/Edit.cshtml">
+      <publishTime>12/11/2014 23:11:30</publishTime>
+    </File>
+    <File Include="Views/WidgetTemplate/SelectWidget.cshtml">
+      <publishTime>01/07/2015 19:07:24</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

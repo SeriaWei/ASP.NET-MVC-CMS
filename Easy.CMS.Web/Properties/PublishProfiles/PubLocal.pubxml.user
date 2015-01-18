@@ -6,11 +6,11 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>E:\产品\CMS\Publish</_PublishTargetUrl>
+    <_PublishTargetUrl>E:\产品\CMSPublish</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="App_Data/DataBase.mdb">
-      <publishTime>12/13/2014 16:22:26</publishTime>
+      <publishTime>01/17/2015 13:29:52</publishTime>
     </File>
     <File Include="bin/Antlr3.Runtime.dll">
       <publishTime>07/02/2014 21:58:06</publishTime>
@@ -25,16 +25,16 @@
       <publishTime>07/02/2014 21:58:05</publishTime>
     </File>
     <File Include="bin/Easy.CMS.Web.dll">
-      <publishTime>12/13/2014 17:53:29</publishTime>
+      <publishTime>01/18/2015 17:37:47</publishTime>
     </File>
     <File Include="bin/Easy.dll">
-      <publishTime>12/13/2014 17:09:04</publishTime>
+      <publishTime>01/15/2015 21:48:29</publishTime>
     </File>
     <File Include="bin/Easy.Web.CMS.dll">
-      <publishTime>12/13/2014 17:09:06</publishTime>
+      <publishTime>01/18/2015 16:50:54</publishTime>
     </File>
     <File Include="bin/Easy.Web.dll">
-      <publishTime>12/13/2014 17:09:05</publishTime>
+      <publishTime>01/15/2015 21:48:30</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>07/02/2014 21:57:58</publishTime>
@@ -84,6 +84,9 @@
     <File Include="bin/ko/System.Spatial.resources.dll">
       <publishTime>07/02/2014 21:58:05</publishTime>
     </File>
+    <File Include="bin/Microsoft.CSharp.dll">
+      <publishTime>03/18/2010 19:31:26</publishTime>
+    </File>
     <File Include="bin/Microsoft.Data.Edm.dll">
       <publishTime>07/02/2014 21:58:05</publishTime>
     </File>
@@ -108,8 +111,35 @@
     <File Include="bin/ru/System.Spatial.resources.dll">
       <publishTime>07/02/2014 21:58:05</publishTime>
     </File>
+    <File Include="bin/System.ComponentModel.DataAnnotations.dll">
+      <publishTime>03/18/2010 19:31:26</publishTime>
+    </File>
+    <File Include="bin/System.Configuration.dll">
+      <publishTime>03/18/2010 19:31:26</publishTime>
+    </File>
+    <File Include="bin/System.Data.DataSetExtensions.dll">
+      <publishTime>03/18/2010 19:31:26</publishTime>
+    </File>
+    <File Include="bin/System.Data.dll">
+      <publishTime>03/18/2010 19:31:26</publishTime>
+    </File>
+    <File Include="bin/System.Data.Entity.dll">
+      <publishTime>03/18/2010 19:31:26</publishTime>
+    </File>
+    <File Include="bin/System.dll">
+      <publishTime>03/18/2010 19:31:26</publishTime>
+    </File>
+    <File Include="bin/System.Drawing.dll">
+      <publishTime>03/18/2010 19:31:26</publishTime>
+    </File>
+    <File Include="bin/System.EnterpriseServices.dll">
+      <publishTime>03/18/2010 19:31:26</publishTime>
+    </File>
     <File Include="bin/System.Net.Http.dll">
       <publishTime>07/10/2012 12:07:38</publishTime>
+    </File>
+    <File Include="bin/System.Net.Http.Formatting.dll">
+      <publishTime>07/02/2014 21:58:03</publishTime>
     </File>
     <File Include="bin/System.Net.Http.WebRequest.dll">
       <publishTime>07/10/2012 12:07:38</publishTime>
@@ -117,11 +147,38 @@
     <File Include="bin/System.Spatial.dll">
       <publishTime>07/02/2014 21:58:05</publishTime>
     </File>
+    <File Include="bin/System.Transactions.dll">
+      <publishTime>03/18/2010 19:31:26</publishTime>
+    </File>
+    <File Include="bin/System.Web.Abstractions.dll">
+      <publishTime>03/18/2010 19:31:26</publishTime>
+    </File>
+    <File Include="bin/System.Web.ApplicationServices.dll">
+      <publishTime>03/18/2010 19:31:26</publishTime>
+    </File>
+    <File Include="bin/System.Web.dll">
+      <publishTime>03/18/2010 19:31:26</publishTime>
+    </File>
+    <File Include="bin/System.Web.DynamicData.dll">
+      <publishTime>03/18/2010 19:31:26</publishTime>
+    </File>
+    <File Include="bin/System.Web.Entity.dll">
+      <publishTime>03/18/2010 19:31:26</publishTime>
+    </File>
+    <File Include="bin/System.Web.Extensions.dll">
+      <publishTime>03/18/2010 19:31:26</publishTime>
+    </File>
     <File Include="bin/System.Web.Helpers.dll">
       <publishTime>07/02/2014 21:58:02</publishTime>
     </File>
+    <File Include="bin/System.Web.Http.dll">
+      <publishTime>07/02/2014 21:58:03</publishTime>
+    </File>
     <File Include="bin/System.Web.Http.OData.dll">
       <publishTime>07/02/2014 21:58:06</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.WebHost.dll">
+      <publishTime>07/02/2014 21:58:03</publishTime>
     </File>
     <File Include="bin/System.Web.Mvc.dll">
       <publishTime>07/02/2014 21:58:03</publishTime>
@@ -132,6 +189,12 @@
     <File Include="bin/System.Web.Razor.dll">
       <publishTime>07/02/2014 21:58:02</publishTime>
     </File>
+    <File Include="bin/System.Web.Routing.dll">
+      <publishTime>03/18/2010 19:31:26</publishTime>
+    </File>
+    <File Include="bin/System.Web.Services.dll">
+      <publishTime>03/18/2010 19:31:26</publishTime>
+    </File>
     <File Include="bin/System.Web.WebPages.Deployment.dll">
       <publishTime>07/02/2014 21:58:02</publishTime>
     </File>
@@ -140,6 +203,12 @@
     </File>
     <File Include="bin/System.Web.WebPages.Razor.dll">
       <publishTime>07/02/2014 21:58:02</publishTime>
+    </File>
+    <File Include="bin/System.Xml.dll">
+      <publishTime>03/18/2010 19:31:26</publishTime>
+    </File>
+    <File Include="bin/System.Xml.Linq.dll">
+      <publishTime>03/18/2010 19:31:26</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>07/02/2014 21:58:06</publishTime>
@@ -159,6 +228,9 @@
     <File Include="bin/zh-Hans/Microsoft.Data.OData.resources.dll">
       <publishTime>07/02/2014 21:58:06</publishTime>
     </File>
+    <File Include="bin/zh-Hans/System.Net.Http.Formatting.resources.dll">
+      <publishTime>07/02/2014 21:58:07</publishTime>
+    </File>
     <File Include="bin/zh-Hans/System.Net.Http.resources.dll">
       <publishTime>07/09/2013 11:34:42</publishTime>
     </File>
@@ -173,6 +245,9 @@
     </File>
     <File Include="bin/zh-Hans/System.Web.Http.OData.resources.dll">
       <publishTime>07/02/2014 21:58:09</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.Http.resources.dll">
+      <publishTime>07/02/2014 21:58:07</publishTime>
     </File>
     <File Include="bin/zh-Hans/System.Web.Mvc.resources.dll">
       <publishTime>07/02/2014 21:58:07</publishTime>
@@ -208,46 +283,46 @@
       <publishTime>07/02/2014 21:58:05</publishTime>
     </File>
     <File Include="Content/bootstrap/css/bootstrap-theme.css">
-      <publishTime>07/10/2014 21:48:43</publishTime>
+      <publishTime>01/09/2015 17:26:50</publishTime>
     </File>
     <File Include="Content/bootstrap/css/bootstrap-theme.css.map">
       <publishTime>07/10/2014 21:48:43</publishTime>
     </File>
     <File Include="Content/bootstrap/css/bootstrap-theme.min.css">
-      <publishTime>07/10/2014 21:48:43</publishTime>
+      <publishTime>01/09/2015 17:26:50</publishTime>
     </File>
     <File Include="Content/bootstrap/css/bootstrap.css">
-      <publishTime>07/10/2014 21:48:43</publishTime>
+      <publishTime>01/09/2015 17:26:50</publishTime>
     </File>
     <File Include="Content/bootstrap/css/bootstrap.css.map">
       <publishTime>07/10/2014 21:48:43</publishTime>
     </File>
     <File Include="Content/bootstrap/css/bootstrap.min.css">
-      <publishTime>07/10/2014 21:48:43</publishTime>
+      <publishTime>01/09/2015 17:26:50</publishTime>
     </File>
     <File Include="Content/bootstrap/fonts/glyphicons-halflings-regular.eot">
-      <publishTime>07/10/2014 21:48:43</publishTime>
+      <publishTime>01/09/2015 17:26:50</publishTime>
     </File>
     <File Include="Content/bootstrap/fonts/glyphicons-halflings-regular.svg">
-      <publishTime>07/10/2014 21:48:43</publishTime>
+      <publishTime>01/09/2015 17:26:50</publishTime>
     </File>
     <File Include="Content/bootstrap/fonts/glyphicons-halflings-regular.ttf">
-      <publishTime>07/10/2014 21:48:43</publishTime>
+      <publishTime>01/09/2015 17:26:50</publishTime>
     </File>
     <File Include="Content/bootstrap/fonts/glyphicons-halflings-regular.woff">
-      <publishTime>07/10/2014 21:48:43</publishTime>
+      <publishTime>01/09/2015 17:26:50</publishTime>
     </File>
     <File Include="Content/bootstrap/js/bootstrap.js">
-      <publishTime>07/10/2014 21:48:43</publishTime>
+      <publishTime>01/09/2015 17:26:50</publishTime>
     </File>
     <File Include="Content/bootstrap/js/bootstrap.min.js">
-      <publishTime>07/10/2014 21:48:43</publishTime>
+      <publishTime>01/09/2015 17:26:50</publishTime>
     </File>
     <File Include="Content/Images/bg.gif">
       <publishTime>08/10/2014 17:29:37</publishTime>
     </File>
     <File Include="Content/Site.css">
-      <publishTime>10/21/2014 21:13:41</publishTime>
+      <publishTime>01/13/2015 22:34:01</publishTime>
     </File>
     <File Include="Content/themes/Admin/admin.css">
       <publishTime>12/12/2014 19:39:03</publishTime>
@@ -256,7 +331,7 @@
       <publishTime>01/11/2013 18:36:48</publishTime>
     </File>
     <File Include="Content/themes/Admin/script/admin.js">
-      <publishTime>08/23/2014 21:11:09</publishTime>
+      <publishTime>01/13/2015 22:23:55</publishTime>
     </File>
     <File Include="Content/themes/base/images/ui-bg_flat_0_aaaaaa_40x100.png">
       <publishTime>07/02/2014 21:58:01</publishTime>
@@ -429,6 +504,12 @@
     <File Include="Images/accent.png">
       <publishTime>07/02/2014 21:57:55</publishTime>
     </File>
+    <File Include="Images/bg1.jpg">
+      <publishTime>01/07/2015 21:02:43</publishTime>
+    </File>
+    <File Include="Images/bg2.jpg">
+      <publishTime>01/07/2015 21:02:43</publishTime>
+    </File>
     <File Include="Images/bullet.png">
       <publishTime>07/02/2014 21:57:55</publishTime>
     </File>
@@ -466,7 +547,7 @@
       <publishTime>07/02/2014 21:57:55</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>11/29/2014 00:56:53</publishTime>
+      <publishTime>01/13/2015 22:14:10</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Animate.css">
       <publishTime>07/22/2014 19:48:16</publishTime>
@@ -777,6 +858,9 @@
     <File Include="Scripts/EasyPlug/jquery.js">
       <publishTime>07/22/2014 19:48:17</publishTime>
     </File>
+    <File Include="Scripts/jquery-1.11.2.min.js">
+      <publishTime>01/13/2015 21:45:22</publishTime>
+    </File>
     <File Include="Scripts/jquery-1.8.2.js">
       <publishTime>07/02/2014 21:58:00</publishTime>
     </File>
@@ -788,6 +872,12 @@
     </File>
     <File Include="Scripts/jquery-ui-1.8.24.min.js">
       <publishTime>07/02/2014 21:58:01</publishTime>
+    </File>
+    <File Include="Scripts/jquery-ui.js">
+      <publishTime>01/13/2015 22:17:02</publishTime>
+    </File>
+    <File Include="Scripts/jquery-ui.min.js">
+      <publishTime>01/13/2015 22:17:02</publishTime>
     </File>
     <File Include="Scripts/jquery.unobtrusive-ajax.js">
       <publishTime>07/02/2014 21:58:01</publishTime>
@@ -1569,29 +1659,32 @@
     <File Include="Scripts/_references.js">
       <publishTime>07/02/2014 21:58:02</publishTime>
     </File>
+    <File Include="Themes/Default/bootstrap.css">
+      <publishTime>01/10/2015 00:25:23</publishTime>
+    </File>
     <File Include="Themes/Default/css/Article.css">
-      <publishTime>12/13/2014 15:10:24</publishTime>
+      <publishTime>01/13/2015 23:51:30</publishTime>
     </File>
     <File Include="Themes/Default/css/Article.css.map">
-      <publishTime>12/13/2014 15:10:24</publishTime>
+      <publishTime>01/13/2015 23:51:30</publishTime>
     </File>
     <File Include="Themes/Default/css/Article.less">
-      <publishTime>12/13/2014 15:10:24</publishTime>
+      <publishTime>01/13/2015 23:51:29</publishTime>
     </File>
     <File Include="Themes/Default/css/Article.min.css">
-      <publishTime>12/13/2014 15:10:24</publishTime>
+      <publishTime>01/13/2015 23:51:30</publishTime>
     </File>
     <File Include="Themes/Default/css/Base.css">
-      <publishTime>12/12/2014 19:06:49</publishTime>
+      <publishTime>01/14/2015 18:55:58</publishTime>
     </File>
     <File Include="Themes/Default/css/Base.css.map">
-      <publishTime>12/12/2014 19:06:49</publishTime>
+      <publishTime>01/14/2015 18:55:58</publishTime>
     </File>
     <File Include="Themes/Default/css/Base.less">
-      <publishTime>12/12/2014 19:06:49</publishTime>
+      <publishTime>01/14/2015 18:55:58</publishTime>
     </File>
     <File Include="Themes/Default/css/Base.min.css">
-      <publishTime>12/12/2014 19:06:49</publishTime>
+      <publishTime>01/14/2015 18:55:58</publishTime>
     </File>
     <File Include="Themes/Default/css/Carousel.css">
       <publishTime>12/11/2014 22:22:12</publishTime>
@@ -1618,16 +1711,16 @@
       <publishTime>08/26/2014 21:55:20</publishTime>
     </File>
     <File Include="Themes/Default/css/Navigation.css">
-      <publishTime>12/12/2014 19:06:49</publishTime>
+      <publishTime>01/14/2015 18:53:54</publishTime>
     </File>
     <File Include="Themes/Default/css/Navigation.css.map">
-      <publishTime>12/12/2014 19:06:49</publishTime>
+      <publishTime>01/14/2015 18:53:54</publishTime>
     </File>
     <File Include="Themes/Default/css/Navigation.less">
-      <publishTime>12/12/2014 19:06:49</publishTime>
+      <publishTime>01/14/2015 18:53:54</publishTime>
     </File>
     <File Include="Themes/Default/css/Navigation.min.css">
-      <publishTime>12/12/2014 19:06:49</publishTime>
+      <publishTime>01/14/2015 18:53:54</publishTime>
     </File>
     <File Include="Themes/Default/css/Pagination.css">
       <publishTime>12/12/2014 23:22:23</publishTime>
@@ -1642,28 +1735,28 @@
       <publishTime>12/12/2014 23:22:23</publishTime>
     </File>
     <File Include="Themes/Default/css/Product.css">
-      <publishTime>12/12/2014 19:06:49</publishTime>
+      <publishTime>01/15/2015 18:53:23</publishTime>
     </File>
     <File Include="Themes/Default/css/Product.css.map">
-      <publishTime>12/12/2014 19:06:49</publishTime>
+      <publishTime>01/15/2015 18:53:23</publishTime>
     </File>
     <File Include="Themes/Default/css/Product.less">
-      <publishTime>12/12/2014 19:06:49</publishTime>
+      <publishTime>01/15/2015 18:53:22</publishTime>
     </File>
     <File Include="Themes/Default/css/Product.min.css">
-      <publishTime>12/12/2014 19:06:49</publishTime>
+      <publishTime>01/15/2015 18:53:24</publishTime>
     </File>
     <File Include="Themes/Default/css/Theme.css">
-      <publishTime>12/13/2014 15:10:24</publishTime>
+      <publishTime>01/15/2015 18:53:24</publishTime>
     </File>
     <File Include="Themes/Default/css/Theme.css.map">
-      <publishTime>12/13/2014 15:10:24</publishTime>
+      <publishTime>01/15/2015 18:53:24</publishTime>
     </File>
     <File Include="Themes/Default/css/Theme.less">
-      <publishTime>12/10/2014 22:48:33</publishTime>
+      <publishTime>01/15/2015 18:53:32</publishTime>
     </File>
     <File Include="Themes/Default/css/Theme.min.css">
-      <publishTime>12/13/2014 15:10:24</publishTime>
+      <publishTime>01/15/2015 18:53:24</publishTime>
     </File>
     <File Include="Themes/Default/images/bg.gif">
       <publishTime>08/27/2014 18:55:52</publishTime>
@@ -1693,7 +1786,7 @@
       <publishTime>07/02/2014 21:57:55</publishTime>
     </File>
     <File Include="Views/Shared/Partial_Pagination.cshtml">
-      <publishTime>08/23/2014 00:39:42</publishTime>
+      <publishTime>01/14/2015 19:22:15</publishTime>
     </File>
     <File Include="Views/Shared/_AdminLayout.cshtml">
       <publishTime>12/10/2014 19:11:22</publishTime>
@@ -1705,7 +1798,7 @@
       <publishTime>12/10/2014 19:11:22</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>12/13/2014 17:53:30</publishTime>
+      <publishTime>01/18/2015 16:51:01</publishTime>
     </File>
   </ItemGroup>
 </Project>
