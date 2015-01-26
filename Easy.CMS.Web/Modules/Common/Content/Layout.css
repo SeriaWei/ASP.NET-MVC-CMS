@@ -1,4 +1,7 @@
-﻿.layoutList {
+﻿zone {
+    display: block;
+}
+.layoutList {
     margin: 0;
     padding: 0;
 }
@@ -90,7 +93,7 @@
 }
 
 .design .zone .form-control {
-    width: 100px;
+    width: 70%;
     margin: 0 auto;
     box-shadow: none;
     border-left: 1px dashed #fff;
@@ -100,8 +103,9 @@
 }
 
     .design .zone .form-control:focus {
-        border-left: 1px dashed #ddd;
-        border-right: 1px dashed #ddd;
+        border-left: 1px dashed #f5ebeb;
+        border-right: 1px dashed #f5ebeb;
+        color: red;
         background-color: #f5ebeb;
     }
 
