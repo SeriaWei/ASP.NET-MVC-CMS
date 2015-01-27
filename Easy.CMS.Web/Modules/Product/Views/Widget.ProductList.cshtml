@@ -6,7 +6,7 @@
         @foreach (var item in Model.Products)
         {
             <div class="@Model.Columns">
-                <div class="thumbnail">
+                <div class="thumbnail colChild">
                     <img alt="@item.Title" title="@item.Title" src="@item.ImageThumbUrl" />
                     <div class="caption">
                         <h4>
@@ -21,8 +21,9 @@
                 </div>
             </div>
         }
-
+        <div class="clearfix"></div>
     </div>
+    
     @if (Model.IsPageable)
     {
         Html.RenderPartial("Partial_Pagination", Model.Page);

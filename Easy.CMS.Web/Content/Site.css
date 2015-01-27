@@ -1,7 +1,22 @@
-﻿.ie.ie7 .container,
+﻿.ie.ie7 .clearfix{
+    clear:both;
+}
+.ie.ie7 .colChild{
+    margin-left:15px;
+    margin-right:15px;
+}
+.ie.ie7 .container,
 .ie.ie8 .container {
     width: 960px;
     margin: 0 auto;
+}
+.ie.ie7 .container,
+.ie.ie7 .container-fluid{    
+    padding:0;
+}
+.ie.ie7 .row{
+     padding:0;
+     margin:0;
 }
 
 .ie.ie7 .col-md-1,
@@ -91,21 +106,23 @@
     padding: 0;
 }
 
-    .ie.ie7 .col-md-1 > .row,
-    .ie.ie7 .col-md-2 > .row,
-    .ie.ie7 .col-md-3 > .row,
-    .ie.ie7 .col-md-4 > .row,
-    .ie.ie7 .col-md-5 > .row,
-    .ie.ie7 .col-md-6 > .row,
-    .ie.ie7 .col-md-7 > .row,
-    .ie.ie7 .col-md-8 > .row,
-    .ie.ie7 .col-md-9 > .row,
-    .ie.ie7 .col-md-10 > .row,
-    .ie.ie7 .col-md-11 > .row,
-    .ie.ie7 .col-md-12 > .row {
-        margin-left: 15px;
-        margin-right: 15px;
-    }
-
-
-
+.ie.ie7 .navbar-collapse.collapse{
+    float:left;
+    display:block;
+    visibility:visible;
+    border-color:transparent;
+}
+.ie.ie7 .navbar-header{
+    display:block;
+    float:left;
+}
+.ie.ie7 .navbar-header>.navbar-toggle{
+    display:none;
+    visibility:hidden;
+}
+.ie.ie7 .navbar-header>.navbar-brand{
+    height:auto;
+}
+.ie.ie7 .nav.navbar-nav>li{
+    float:left;
+}
