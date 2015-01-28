@@ -105,24 +105,56 @@
 .ie.ie7 .col-md-12 {
     padding: 0;
 }
-
+.ie.ie8 .navbar-collapse.collapse,
 .ie.ie7 .navbar-collapse.collapse{
     float:left;
     display:block;
     visibility:visible;
+    border:none;
+    border-width:0;
     border-color:transparent;
 }
+.ie.ie8 .navbar-header,
 .ie.ie7 .navbar-header{
     display:block;
     float:left;
 }
+.ie.ie8 .navbar-header>.navbar-toggle,
 .ie.ie7 .navbar-header>.navbar-toggle{
     display:none;
     visibility:hidden;
 }
+.ie.ie8 .navbar-header>.navbar-brand,
 .ie.ie7 .navbar-header>.navbar-brand{
     height:auto;
 }
+.ie.ie8 .nav.navbar-nav,
+.ie.ie7 .nav.navbar-nav{
+    margin:0;
+}
+.ie.ie8 .nav.navbar-nav>li,
 .ie.ie7 .nav.navbar-nav>li{
     float:left;
+}
+
+.ie.ie7 .media .media-left,
+.ie.ie7 .media .media-body{
+    float:left;
+}
+.ie.ie7 .media .media-body:after{
+    content:" ";
+    display:block;
+    clear:both;
+}
+.ie.ie7 .media .media-left{
+    margin-right:10px;
+}
+.ie.ie8 .navbar-nav > li > a,
+.ie.ie7 .navbar-nav > li > a {
+  padding-top: 17px;
+  padding-bottom: 17px;
+  line-height: 16px;
+}
+.ie.ie7 .list-group{
+    border-top:1px solid #dddddd;
 }
