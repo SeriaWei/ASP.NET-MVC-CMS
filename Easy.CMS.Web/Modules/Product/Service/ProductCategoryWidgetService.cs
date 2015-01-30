@@ -14,9 +14,9 @@ namespace Easy.CMS.Product.Service
         public override WidgetPart Display(WidgetBase widget, HttpContextBase httpContext)
         {
             ProductCategoryWidget currentWidget = widget as ProductCategoryWidget;
-            int c = 0;
+            int c;
             var categoryService = new ProductCategoryService();
-            int.TryParse(httpContext.Request.QueryString["c"], out c);
+            int.TryParse(httpContext.Request.QueryString["pc"], out c);
             var filter = new Data.DataFilter().Where("ParentID", Data.OperatorType.Equal, currentWidget.ProductCategoryID);
             return widget.ToWidgetPart(new ProductCategoryWidgetViewModel
             {
