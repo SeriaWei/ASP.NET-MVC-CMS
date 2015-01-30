@@ -21,7 +21,7 @@ namespace Easy.CMS.Common.Controllers
     public class PageController : BasicController<PageEntity, PageService>
     {
         [Widget]
-        //[OutputCache(Duration = 600, Location = System.Web.UI.OutputCacheLocation.ServerAndClient)]
+        [OutputCache(CacheProfile = "Page")]
         public ActionResult PreView()
         {
             return View();
