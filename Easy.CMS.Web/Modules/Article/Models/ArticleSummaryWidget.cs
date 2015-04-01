@@ -14,6 +14,7 @@ namespace Easy.CMS.Article.Models
         public string SubTitle { get; set; }
         public string DetailLink { get; set; }
         public string Summary { get; set; }
+        public string Style { get; set; }
     }
     class ArticleSummaryWidgetMetaData : WidgetMetaData<ArticleSummaryWidget>
     {
@@ -22,8 +23,16 @@ namespace Easy.CMS.Article.Models
             base.ViewConfigure();
             ViewConfig(m => m.Title).AsTextBox().Order(4);
             ViewConfig(m => m.SubTitle).AsTextBox().Order(5);
-            ViewConfig(m => m.DetailLink).AsTextBox().Order(6).AddClass("select").AddProperty("data-url", "/admin/page/select");
-            ViewConfig(m => m.Summary).AsMutiLineTextBox().Order(7).AddClass("html");
+            ViewConfig(m => m.Style).AsDropDownList().Order(6)
+                .DataSource(() =>
+                    new Dictionary<string, string> { 
+                    { "bs-callout-default", "默认" },
+                    { "bs-callout-danger", "样式1" }, 
+                    { "bs-callout-warning", "样式2" }, 
+                    { "bs-callout-info", "样式3" } 
+            }); ;
+            ViewConfig(m => m.DetailLink).AsTextBox().Order(7).AddClass("select").AddProperty("data-url", "/admin/page/select");
+            ViewConfig(m => m.Summary).AsMutiLineTextBox().Order(8).AddClass("html");
         }
     }
 

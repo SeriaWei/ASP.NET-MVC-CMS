@@ -10,16 +10,16 @@
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/Easy.CMS.Product.dll">
-      <publishTime>01/18/2015 18:01:29</publishTime>
+      <publishTime>01/30/2015 22:25:49</publishTime>
     </File>
     <File Include="bin/Easy.dll">
-      <publishTime>01/15/2015 21:48:29</publishTime>
+      <publishTime>01/30/2015 22:25:21</publishTime>
     </File>
     <File Include="bin/Easy.Web.CMS.dll">
-      <publishTime>01/18/2015 16:50:54</publishTime>
+      <publishTime>01/30/2015 22:25:22</publishTime>
     </File>
     <File Include="bin/Easy.Web.dll">
-      <publishTime>01/15/2015 21:48:30</publishTime>
+      <publishTime>01/30/2015 22:25:22</publishTime>
     </File>
     <File Include="bin/Microsoft.Web.Infrastructure.dll">
       <publishTime>07/02/2014 21:58:02</publishTime>
