@@ -90,6 +90,9 @@ body {
   top: 50%;
   margin-top: -4px;
 }
+.navigation .logo {
+  height: 100%;
+}
 @media (max-width: 768px) {
   .navigation {
     padding: 0;

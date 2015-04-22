@@ -601,7 +601,6 @@
     <Content Include="Scripts\zTree\js\jquery.ztree.exedit-3.5.min.js" />
     <Content Include="Scripts\zTree\js\jquery.ztree.exhide-3.5.js" />
     <Content Include="Scripts\zTree\js\jquery.ztree.exhide-3.5.min.js" />
-    <Content Include="Themes\Default\bootstrap.css" />
     <Content Include="Themes\Default\css\Article.css">
       <DependentUpon>Article.less</DependentUpon>
     </Content>

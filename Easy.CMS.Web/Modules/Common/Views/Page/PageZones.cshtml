@@ -72,7 +72,7 @@
                                 </div>
                                 <div class="panel-body">
                                     <ul data-zoneid="@item.ID" class="fullRowList widgets">
-                                        @foreach (var widget in Model.Widgets.Where(m => m.ZoneID == item.ID).OrderBy(m => m.Position))
+                                        @foreach (var widget in Model.Widgets.Where(m => m.ZoneID == item.ID).OrderBy(m => m.Position).ThenBy(m => m.WidgetName))
                                         {
                                             <li id="widget_@widget.ID" class="@(widget.LayoutID.IsNullOrEmpty() ? "widget" : "")" data-widgetid="@widget.ID">
                                                 @if (widget.LayoutID.IsNullOrEmpty())

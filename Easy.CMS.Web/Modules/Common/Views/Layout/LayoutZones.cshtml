@@ -63,7 +63,7 @@
                                 </div>
                                 <div class="panel-body">
                                     <ul data-zoneid="@item.ID" class="fullRowList widgets">
-                                        @foreach (var widget in Model.Widgets.Where(m => m.ZoneID == item.ID).OrderBy(m => m.Position))
+                                        @foreach (var widget in Model.Widgets.Where(m => m.ZoneID == item.ID).OrderBy(m => m.Position).ThenBy(m=>m.WidgetName))
                                         {
                                             <li id="widget_@widget.ID" class="widget" data-widgetid="@widget.ID">
                                                 <a href="@Url.Action("Edit", "Widget", new { module = "Common", ID = widget.ID, ReturnUrl = returnUrl })"><i class="glyphicon glyphicon-edit"></i></a>

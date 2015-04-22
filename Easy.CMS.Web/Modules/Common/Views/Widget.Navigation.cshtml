@@ -45,10 +45,10 @@
             </button>
             @if (Model.Widget.Logo.IsNotNullAndWhiteSpace() || Model.Widget.Title.IsNotNullAndWhiteSpace())
             {
-                <a class="navbar-brand" href="/">
+                <a class="navbar-brand" href="~/">
                     @if (Model.Widget.Logo.IsNotNullAndWhiteSpace())
                     {
-                        <img src="@Url.Content(Model.Widget.Logo)" alt="logo" class="logo" />
+                        <img src="@Url.Content(Model.Widget.Logo)" alt="@Model.Widget.Title" class="logo" />
                     }
                     else
                     {
