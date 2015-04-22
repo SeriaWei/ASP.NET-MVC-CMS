@@ -268,6 +268,9 @@ body {
     font-weight:bold;
     color:red;
 }
+.form-control.input-validation-error {
+    border-bottom: 1px solid #fff;
+}
 .form-control[type=checkbox]{
     width:34px;
     box-shadow:none;

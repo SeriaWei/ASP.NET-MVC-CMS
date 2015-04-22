@@ -4,9 +4,30 @@
   border-left: none;
   border-right: none;
 }
+.navigation .hoveropen > .dropdown-menu {
+  left: 100%;
+  top: 0;
+  margin: 0;
+}
+.navigation .caret.right {
+  border-left: 4px solid;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  position: absolute;
+  right: 3px;
+  top: 50%;
+  margin-top: -4px;
+}
 @media (max-width: 768px) {
   .navigation {
     padding: 0;
+  }
+  .navigation .navbar .hoveropen > .dropdown-menu {
+    display: block;
+    margin-left: 10px;
+  }
+  .navigation .caret.right {
+    display: none;
   }
 }
 /*# sourceMappingURL=Navigation.css.map */

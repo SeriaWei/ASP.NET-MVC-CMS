@@ -13,6 +13,14 @@ namespace Easy.CMS.Product.Service
 {
     public class ProductListWidgetService : WidgetService<ProductListWidget>
     {
+        public override void Add(ProductListWidget item)
+        {
+            if (!item.PageSize.HasValue || item.PageSize.Value == 0)
+            {
+                item.PageSize = 20;
+            }
+            base.Add(item);
+        }
         public override WidgetPart Display(WidgetBase widget, HttpContextBase httpContext)
         {
             ProductListWidget pwidget = widget as ProductListWidget;

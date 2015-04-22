@@ -1,4 +1,5 @@
 ﻿using Easy.CMS.Common.Models;
+using Easy.CMS.Common.ViewModels;
 using Easy.Data;
 using Easy.Web.CMS.Widget;
 using System;
@@ -13,7 +14,7 @@ namespace Easy.CMS.Common.Service
         public override WidgetPart Display(WidgetBase widget, HttpContextBase httpContext)
         {
             var navs = new NavigationService().Get(new Data.DataFilter().OrderBy("DisplayOrder", OrderType.Ascending));
-            return widget.ToWidgetPart(navs);
+            return widget.ToWidgetPart(new NavigationWidgetViewModel(navs, widget as NavigationWidget));
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿@using Easy.CMS.Common.Models
 @{
-    NavigationEntity homePage = Model.Where(m => m.ParentId == "#").FirstOrDefault();
+    NavigationEntity homePage = Model.Navigations.Where(m => m.ParentId == "#").FirstOrDefault();
     string currentPath = Request.Path;
     if (homePage == null)
     {
@@ -8,7 +8,33 @@
     }
     int index = 0;
 }
-@model IEnumerable<NavigationEntity>
+@model Easy.CMS.Common.ViewModels.NavigationWidgetViewModel
+@helper DropDown(IEnumerable<NavigationEntity> items, string currentPath)
+{
+    if (items != null && items.Any())
+    {
+        <ul class="dropdown-menu">
+            @foreach (NavigationEntity child in items)
+            {
+                IEnumerable<NavigationEntity> children = Model.Navigations.Where(m => m.ParentId == child.ID);
+                if (children.Any())
+                {
+
+                    <li class="dropdown hoveropen">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">@child.Title <b class="caret right"></b></a>
+                        @DropDown(children, currentPath)
+                    </li>
+                }
+                else
+                {
+                    <li class="@(currentPath.StartsWith(child.Url) ? "active" : "")">
+                        <a href="@child.Url">@child.Title</a>
+                    </li>
+                }
+            }
+        </ul>
+    }
+}
 <div class="navigation">
     <div class="navbar navbar-default">
         <div class="navbar-header">
@@ -17,26 +43,29 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">
-                Easy Code
-            </a>
+            @if (Model.Widget.Logo.IsNotNullAndWhiteSpace() || Model.Widget.Title.IsNotNullAndWhiteSpace())
+            {
+                <a class="navbar-brand" href="/">
+                    @if (Model.Widget.Logo.IsNotNullAndWhiteSpace())
+                    {
+                        <img src="@Url.Content(Model.Widget.Logo)" alt="logo" class="logo" />
+                    }
+                    else
+                    {
+                        @Model.Widget.Title
+                    }
+                </a>
+            }
         </div>
         <div class="navbar-collapse collapse navbar-responsive-collapse">
             <ul class="nav navbar-nav">
-                @foreach (NavigationEntity item in Model.Where(m => m.ParentId == "#"))
+                @foreach (NavigationEntity item in Model.Navigations.Where(m => m.ParentId == "#"))
                 {
-                    if (Model.Any(m => m.ParentId == item.ID))
+                    if (Model.Navigations.Any(m => m.ParentId == item.ID))
                     {
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">@item.Title <b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                @foreach (NavigationEntity child in Model.Where(m => m.ParentId == item.ID))
-                                {
-                                    <li class="@(currentPath.StartsWith(child.Url) ? "active" : "")">
-                                        <a href="@child.Url">@child.Title</a>
-                                    </li>
-                                }
-                            </ul>
+                            @DropDown(Model.Navigations.Where(m => m.ParentId == item.ID), currentPath)
                         </li>
 
                     }
@@ -52,3 +81,13 @@
         </div>
     </div>
 </div>
+@using (Script.AtFoot())
+{
+    <script type="text/javascript">
+        $(".hoveropen").mouseenter(function () {
+            $(this).addClass("open");
+        }).mouseleave(function () {
+            $(this).removeClass("open");
+        });
+    </script>
+}

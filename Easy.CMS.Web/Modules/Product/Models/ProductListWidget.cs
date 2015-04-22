@@ -33,6 +33,7 @@ namespace Easy.CMS.Product.Models
                 return dicts;
             });
             ViewConfig(m => m.DetailPageUrl).AsTextBox().AddClass("select").AddProperty("data-url", "/admin/page/select");
+            ViewConfig(m => m.PageSize).AsTextBox().Range(1, 50);
             ViewConfig(m => m.Columns).AsDropDownList().DataSource(new Dictionary<string, string> { { "col-xs-6 col-sm-4 col-md-4", "3 列" }, { "col-xs-6 col-sm-4 col-md-4 col-lg-3", "4 列" } });
         }
     }

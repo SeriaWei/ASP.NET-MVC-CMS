@@ -11,6 +11,8 @@ namespace Easy.CMS.Common.Models
     [DataConfigure(typeof(NavigationWidgetMetaData))]
     public class NavigationWidget : WidgetBase
     {
+        public string Title { get; set; }
+        public string Logo { get; set; }
         public string CustomerClass { get; set; }
     }
     class NavigationWidgetMetaData : WidgetMetaData<NavigationWidget>
@@ -18,6 +20,7 @@ namespace Easy.CMS.Common.Models
         protected override void ViewConfigure()
         {
             base.ViewConfigure();
+            ViewConfig(m => m.Title).AsTextBox();
             ViewConfig(m => m.CustomerClass).AsHidden();
         }
     }

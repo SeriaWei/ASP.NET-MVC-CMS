@@ -126,6 +126,7 @@
     <Compile Include="Service\NavigationService.cs" />
     <Compile Include="Service\NavigationWidgetService.cs" />
     <Compile Include="ViewModels\LayoutZonesViewModel.cs" />
+    <Compile Include="ViewModels\NavigationWidgetViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Layout.css" />
