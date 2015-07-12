@@ -27,7 +27,7 @@ namespace Easy.CMS.Common.Controllers
             widget.LayoutID = context.LayoutID;
             widget.ZoneID = context.ZoneID;
             widget.Position = 1;
-            ViewBag.ReturnUrl = context.ReturnUrl;            
+            ViewBag.ReturnUrl = context.ReturnUrl;   
             return View(widget);
         }
         [HttpPost, ViewData_Zones]

@@ -144,7 +144,6 @@ Easy.Grid = (function (json) {
 
     function GetDataSucess(data) {
         isLoading = false;
-        Grid.find("#PageGo").removeClass("InnerLonding");
         var gdata;
         try {
             gdata = eval("(" + data + ")");
@@ -157,6 +156,7 @@ Easy.Grid = (function (json) {
             InitGrid(gdata);
         }
         InitData(gdata);
+        Grid.find("#PageGo").removeClass("InnerLonding");
     }
     function InitGrid(gdata) {
         var width = 0;
@@ -208,7 +208,7 @@ Easy.Grid = (function (json) {
                             input = "<input type='hidden' DataType='" + item.DataType + "' id='Search_" + item.Name + "' name='" + item.Name + "' OperatorType='1'/>";
                             var option = "<option></option>";
                             option += "<option value='true'>是</option><option value='false'>否</option>";
-                            input += "<select ValuePlace='Search_" + item.Name + "'>" + option + "</select>";
+                            input += "<select class='easy' ValuePlace='Search_" + item.Name + "'>" + option + "</select>";
                             break;
                         }
                     case "Decimal":

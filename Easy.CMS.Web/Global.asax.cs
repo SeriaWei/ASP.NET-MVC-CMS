@@ -58,7 +58,7 @@ namespace Easy.CMS.Web
                     var plug = Activator.CreateInstance(p) as PluginBase;
                     if (plug != null)
                     {
-                        routes.AddRange(plug.Regist());
+                        routes.AddRange(plug.RegistRoute());
                         plug.InitScript();
                         plug.InitStyle();
                     }

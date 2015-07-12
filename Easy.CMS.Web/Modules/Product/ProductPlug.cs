@@ -7,20 +7,18 @@ using Easy.Web.Route;
 
 namespace Easy.CMS.Product
 {
-    public class ProductPlug:PluginBase
+    public class ProductPlug : PluginBase
     {
-        public override IEnumerable<RouteDescriptor> Regist()
+        public override IEnumerable<RouteDescriptor> RegistRoute()
         {
-            var routes = new List<RouteDescriptor>();
-            routes.Add(new RouteDescriptor()
+            yield return new RouteDescriptor()
             {
                 RouteName = "productAdmin",
                 Url = "admin/{controller}/{action}",
                 Defaults = new { action = "index", module = "Product" },
                 Namespaces = new string[] { "Easy.CMS.Product.Controllers" },
                 Priority = 1
-            });
-            return routes;
+            };
         }
 
         public override IEnumerable<AdminMenu> AdminMenu()
