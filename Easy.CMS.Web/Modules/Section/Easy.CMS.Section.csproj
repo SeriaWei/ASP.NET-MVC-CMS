@@ -118,8 +118,22 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\SectionContent.cs" />
+    <Compile Include="Models\SectionContentCallToAction.cs" />
+    <Compile Include="Models\SectionContentParagraph.cs" />
+    <Compile Include="Models\SectionContentTitle.cs" />
+    <Compile Include="Models\SectionContentImage.cs" />
+    <Compile Include="Models\SectionGroup.cs" />
+    <Compile Include="Models\SectionWidget.cs" />
     <Compile Include="SectionPlug.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\SectionContentCallToActionService.cs" />
+    <Compile Include="Service\SectionContentImageService.cs" />
+    <Compile Include="Service\SectionContentParagraphService.cs" />
+    <Compile Include="Service\SectionContentTitleService.cs" />
+    <Compile Include="Service\SectionGroupService.cs" />
+    <Compile Include="Service\SectionWidgetService.cs" />
+    <Compile Include="Service\SectionContentService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Web.config" />
@@ -133,7 +147,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />
-    <Folder Include="Models\" />
+    <Folder Include="ViewModel\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

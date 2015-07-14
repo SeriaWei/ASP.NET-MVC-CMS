@@ -29,7 +29,7 @@ namespace Easy.Web.CMS.Widget
     }
     public abstract class WidgetService<T> : ServiceBase<T>, IWidgetPartDriver where T : WidgetBase
     {
-        public WidgetService()
+        protected WidgetService()
         {
             WidgetBaseService = new WidgetService();
         }
