@@ -25,6 +25,9 @@ namespace Easy.CMS.Section.Models
         {
             DataTable("SectionContentCallToAction");
             DataConfig(m => m.ID).AsIncreasePrimaryKey();
+            DataConfig(m => m.Title).Ignore();
+            DataConfig(m => m.Description).Ignore();
+            DataConfig(m => m.Status).Ignore();
         }
 
         protected override void ViewConfigure()

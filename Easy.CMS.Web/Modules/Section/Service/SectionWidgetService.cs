@@ -12,6 +12,11 @@ namespace Easy.CMS.Section.Service
 {
     public class SectionWidgetService : WidgetService<SectionWidget>
     {
+        public override int Delete(params object[] primaryKeys)
+        {
+            return base.Delete(primaryKeys);
+        }
+
         public override WidgetPart Display(WidgetBase widget, HttpContextBase httpContext)
         {
             var sectionWidget = widget as SectionWidget;

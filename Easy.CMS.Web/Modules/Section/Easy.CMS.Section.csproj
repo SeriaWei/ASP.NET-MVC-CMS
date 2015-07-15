@@ -46,6 +46,10 @@
       <HintPath>..\..\..\Dependency\Easy.Web.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\Newtonsoft.Json.7.0.1\lib\net40\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -71,9 +75,6 @@
     <Reference Include="Microsoft.Web.Mvc.FixedDisplayModes, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\..\..\..\packages\Microsoft.AspNet.Mvc.FixedDisplayModes.1.0.0\lib\net40\Microsoft.Web.Mvc.FixedDisplayModes.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\..\..\..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Http">
       <Private>True</Private>
@@ -136,6 +137,7 @@
     <Compile Include="Service\SectionContentService.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CopyItems.xml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -157,6 +159,12 @@
       <Project>{2e8362ae-80d6-43e0-b3bf-cab6d888d154}</Project>
       <Name>Easy.Web.CMS</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Widget.Section.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\SectionWidgetForm.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -186,6 +194,10 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
+  <UsingTask TaskName="CopyTask" AssemblyFile="..\..\..\packages\MSBuild.CopyTask\MSBuild.CopyTask.dll" />
+  <Target Name="AfterBuild">
+    <CopyTask />
+  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

@@ -26,6 +26,9 @@ namespace Easy.CMS.Section.Models
         {
             DataTable("SectionContentImage");
             DataConfig(m => m.ID).AsIncreasePrimaryKey();
+            DataConfig(m => m.Title).Ignore();
+            DataConfig(m => m.Description).Ignore();
+            DataConfig(m => m.Status).Ignore();
         }
 
         protected override void ViewConfigure()

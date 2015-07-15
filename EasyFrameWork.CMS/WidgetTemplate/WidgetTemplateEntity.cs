@@ -20,6 +20,8 @@ namespace Easy.Web.CMS.WidgetTemplate
         public string ViewModelTypeName { get; set; }
         public int Order { get; set; }
 
+        public string FormView { get; set; }
+
         private void CopyToWidget(Widget.WidgetBase widget)
         {
             widget.AssemblyName = this.AssemblyName;
