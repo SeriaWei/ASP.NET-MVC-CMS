@@ -33,6 +33,19 @@ namespace Easy.CMS.Section.Models
             content.Order = Order;
             return content;
         }
+
+        public SectionContent ToBaseContent()
+        {
+            SectionContent content = new SectionContent
+            {
+                SectionWidgetId = SectionWidgetId,
+                SectionGroupId = SectionGroupId,
+                SectionContentId = SectionContentId,
+                SectionContentType = SectionContentType,
+                Order = Order
+            };
+            return content;
+        }
     }
 
     class SectionContentMetaData : DataViewMetaData<SectionContent>

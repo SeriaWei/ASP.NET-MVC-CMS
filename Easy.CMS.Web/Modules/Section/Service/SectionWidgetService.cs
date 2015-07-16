@@ -12,47 +12,60 @@ namespace Easy.CMS.Section.Service
 {
     public class SectionWidgetService : WidgetService<SectionWidget>
     {
-        public override int Delete(params object[] primaryKeys)
+        public override WidgetBase GetWidget(WidgetBase widget)
         {
-            return base.Delete(primaryKeys);
+            SectionWidget sectionWidget = base.GetWidget(widget) as SectionWidget;
+
+            return InitSectionWidget(sectionWidget);
         }
 
-        public override WidgetPart Display(WidgetBase widget, HttpContextBase httpContext)
+        public override SectionWidget Get(params object[] primaryKeys)
         {
-            var sectionWidget = widget as SectionWidget;
-            sectionWidget.Groups = new SectionGroupService().Get("SectionWidgetId", OperatorType.Equal, sectionWidget.ID);
-            var contents = new SectionContentService().Get("SectionWidgetId", OperatorType.Equal, sectionWidget.ID);
-            contents.Each(m =>
+            SectionWidget widget = base.Get(primaryKeys);
+            widget = InitSectionWidget(widget);
+            return widget;
+        }
+
+        private SectionWidget InitSectionWidget(SectionWidget widget)
+        {
+            widget.Groups = new SectionGroupService().Get("SectionWidgetId", OperatorType.Equal, widget.ID);
+            var contents = new SectionContentService().Get("SectionWidgetId", OperatorType.Equal, widget.ID).ToList();
+            for (int i = 0; i < contents.Count; i++)
             {
-                switch ((SectionContent.Types) m.SectionContentType)
+                switch ((SectionContent.Types)contents[i].SectionContentType)
                 {
                     case SectionContent.Types.CallToAction:
-                    {
-                        m = m.InitContent(new SectionContentCallToActionService().Get(m.SectionContentId));
-                        break;
-                    }
+                        {
+                            contents[i] = contents[i].InitContent(new SectionContentCallToActionService().Get(contents[i].SectionContentId));
+                            break;
+                        }
                     case SectionContent.Types.Image:
-                    {
-                        m = m.InitContent(new SectionContentImageService().Get(m.SectionContentId));
-                        break;
-                    }
+                        {
+                            contents[i] = contents[i].InitContent(new SectionContentImageService().Get(contents[i].SectionContentId));
+                            break;
+                        }
                     case SectionContent.Types.Paragraph:
-                    {
-                        m = m.InitContent(new SectionContentParagraphService().Get(m.SectionContentId));
-                        break;
-                    }
+                        {
+                            contents[i] = contents[i].InitContent(new SectionContentParagraphService().Get(contents[i].SectionContentId));
+                            break;
+                        }
                     case SectionContent.Types.Title:
-                    {
-                        m = m.InitContent(new SectionContentTitleService().Get(m.SectionContentId));
-                        break;
-                    }
+                        {
+                            contents[i] = contents[i].InitContent(new SectionContentTitleService().Get(contents[i].SectionContentId));
+                            break;
+                        }
                 }
-            });
-            sectionWidget.Groups.Each(m =>
+            }
+            widget.Groups.Each(m =>
             {
                 m.SectionContents = contents.Where(n => n.SectionGroupId == m.ID);
             });
-            return widget.ToWidgetPart(widget);
+            return widget;
+        }
+
+        public override int Delete(params object[] primaryKeys)
+        {
+            return base.Delete(primaryKeys);
         }
     }
 }

@@ -119,6 +119,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\SectionContentParagraphController.cs" />
+    <Compile Include="Controllers\SectionContentCallToActionController.cs" />
+    <Compile Include="Controllers\SectionContentImageController.cs" />
+    <Compile Include="Controllers\SectionContentTitleController.cs" />
+    <Compile Include="Controllers\SectionGroupController.cs" />
     <Compile Include="Models\SectionContent.cs" />
     <Compile Include="Models\SectionContentCallToAction.cs" />
     <Compile Include="Models\SectionContentParagraph.cs" />
@@ -148,7 +153,6 @@
     <Content Include="Views\Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Controllers\" />
     <Folder Include="ViewModel\" />
   </ItemGroup>
   <ItemGroup>
@@ -165,6 +169,51 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\SectionWidgetForm.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\SectionPartial.Edit.Title.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\SectionGroup.Edit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\SectionGroup\Form.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\SectionContentTitle\Form.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\SectionContentCallToAction\Form.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\SectionContentImage\Form.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\SectionContentParagraph\Form.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\SectionPartial.Edit.Paragraph.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\SectionPartial.Edit.CallToAction.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\SectionPartial.Edit.Image.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\SectionTemplate.Default.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\SectionPartial.CallToAction.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\SectionPartial.Image.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\SectionPartial.Paragraph.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\SectionPartial.Title.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

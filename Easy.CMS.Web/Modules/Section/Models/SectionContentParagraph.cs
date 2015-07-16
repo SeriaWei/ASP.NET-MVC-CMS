@@ -30,7 +30,7 @@ namespace Easy.CMS.Section.Models
 
         protected override void ViewConfigure()
         {
-
+            ViewConfig(m => m.HtmlContent).AsMutiLineTextBox().AddClass("html");
         }
     }
 }

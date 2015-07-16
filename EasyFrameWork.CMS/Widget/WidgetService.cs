@@ -147,6 +147,7 @@ namespace Easy.Web.CMS.Widget
             model.ViewModelTypeName = widget.ViewModelTypeName;
             model.WidgetName = widget.WidgetName;
             model.ZoneID = widget.ZoneID;
+            model.FormView = widget.FormView;
         }
         public virtual WidgetBase GetWidget(WidgetBase widget)
         {

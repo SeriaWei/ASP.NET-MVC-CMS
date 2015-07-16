@@ -17,7 +17,7 @@ namespace Easy.CMS.Section.Models
     {
         protected override bool IsIgnoreBase()
         {
-            return false;
+            return true;
         }
 
         protected override void DataConfigure()

@@ -37,7 +37,10 @@ namespace Easy.CMS.Section.Models
 
         protected override void ViewConfigure()
         {
-
+            ViewConfig(m => m.GroupName).AsTextBox().Required();
+            ViewConfig(m => m.ID).AsHidden();
+            ViewConfig(m => m.SectionWidgetId).AsHidden();
+            ViewConfig(m => m.PartialView).AsDropDownList().DataSource(new Dictionary<string, string> { { "SectionTemplate.Default", "Default" } });
         }
     }
 }
