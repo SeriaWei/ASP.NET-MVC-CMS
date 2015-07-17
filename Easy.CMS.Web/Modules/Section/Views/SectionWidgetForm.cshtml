@@ -1,0 +1,64 @@
+﻿@using Easy.CMS.Section.Models
+@model SectionWidget
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <div>添加组件</div>
+    </div>
+    <div class="panel-body">
+        @using (Html.BeginForm())
+        {
+            <input type="hidden" name="ReturnUrl" value="@ViewBag.ReturnUrl" />
+            @Html.EditModel()
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <div>
+                                    <span class="badge">SectionGroup</span>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                @foreach (SectionGroup group in Model.Groups)
+                                {
+                                    Html.RenderPartial("SectionGroup.Edit", group);
+                                }
+                                <div class="toolBar">
+                                    <a href="@Url.Action("Create", "SectionGroup", new { sectionWidgetId=Model.ID })" class="btn btn-primary btn-xs dialog">
+                                    <i class="glyphicon glyphicon-plus"></i>
+                                    添加
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="toolBar">
+                <input type="button" class="btn btn-default btn-sm cancel" value="取消" />
+                @if (Model.ID.IsNullOrEmpty())
+                {
+                    <input id="design" type="submit" class="btn btn-primary btn-sm" value="继续" data-value="@ActionType.Continue" />
+                }
+                else
+                {
+                    <input id="design" type="submit" class="btn btn-primary btn-sm" value="保存" data-value="@ActionType.Create" />
+                }
+            </div>
+        }
+    </div>
+</div>
+@using (Script.AtFoot())
+{
+    <script type="text/javascript">
+        $(document).on("click", "a.dialog", function () {
+            Easy.ShowUrlWindow({ url: $(this).attr("href"), title: $(this).text(), callBack: function() {
+                
+            }, isDialog: true });
+            return false;
+        });
+    </script>
+}

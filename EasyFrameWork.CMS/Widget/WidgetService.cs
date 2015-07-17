@@ -29,7 +29,7 @@ namespace Easy.Web.CMS.Widget
     }
     public abstract class WidgetService<T> : ServiceBase<T>, IWidgetPartDriver where T : WidgetBase
     {
-        public WidgetService()
+        protected WidgetService()
         {
             WidgetBaseService = new WidgetService();
         }
@@ -147,6 +147,7 @@ namespace Easy.Web.CMS.Widget
             model.ViewModelTypeName = widget.ViewModelTypeName;
             model.WidgetName = widget.WidgetName;
             model.ZoneID = widget.ZoneID;
+            model.FormView = widget.FormView;
         }
         public virtual WidgetBase GetWidget(WidgetBase widget)
         {

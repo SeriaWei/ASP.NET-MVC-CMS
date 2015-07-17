@@ -21,6 +21,7 @@ namespace Easy.Web.CMS.Widget
         public string AssemblyName { get; set; }
         public string ServiceTypeName { get; set; }
         public string ViewModelTypeName { get; set; }
+        public string FormView { get; set; }
         public WidgetPart ToWidgetPart()
         {
             return new WidgetPart
@@ -75,7 +76,8 @@ namespace Easy.Web.CMS.Widget
                 Title = this.Title,
                 ViewModelTypeName = this.ViewModelTypeName,
                 WidgetName = this.WidgetName,
-                ZoneID = this.ZoneID
+                ZoneID = this.ZoneID,
+                FormView = this.FormView
             };
         }
     }

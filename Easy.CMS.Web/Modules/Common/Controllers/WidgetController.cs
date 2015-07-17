@@ -26,8 +26,13 @@ namespace Easy.CMS.Common.Controllers
             widget.PageID = context.PageID;
             widget.LayoutID = context.LayoutID;
             widget.ZoneID = context.ZoneID;
+            widget.FormView = template.FormView;
             widget.Position = 1;
-            ViewBag.ReturnUrl = context.ReturnUrl;            
+            ViewBag.ReturnUrl = context.ReturnUrl;
+            if (template.FormView.IsNotNullAndWhiteSpace())
+            {
+                return View(template.FormView, widget);
+            }
             return View(widget);
         }
         [HttpPost, ViewData_Zones]
@@ -39,11 +44,15 @@ namespace Easy.CMS.Common.Controllers
                 return View(widget);
             }
             widget.CreateServiceInstance().AddWidget(widget);
-            if (!ReturnUrl.IsNullOrEmpty())
+            if (widget.ActionType == ActionType.Continue)
+            {
+                return RedirectToAction("Edit", new { widget.ID, ReturnUrl });
+            }
+            else if (!ReturnUrl.IsNullOrEmpty())
             {
                 return Redirect(ReturnUrl);
             }
-            if (!widget.PageID.IsNullOrEmpty())
+            else if (!widget.PageID.IsNullOrEmpty())
             {
                 return RedirectToAction("Design", "Page", new { module = "Common", ID = widget.PageID });
             }
@@ -59,6 +68,10 @@ namespace Easy.CMS.Common.Controllers
             var widgetBase = widgetService.Get(ID);
             var widget = widgetBase.CreateServiceInstance().GetWidget(widgetBase);
             ViewBag.ReturnUrl = ReturnUrl;
+            if (widget.FormView.IsNotNullAndWhiteSpace())
+            {
+                return View(widget.FormView, widget);
+            }
             return View(widget);
         }
 
@@ -112,6 +125,6 @@ namespace Easy.CMS.Common.Controllers
             }
             return Json(false);
         }
-        
+
     }
 }

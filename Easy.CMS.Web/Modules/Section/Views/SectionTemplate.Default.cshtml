@@ -1,0 +1,7 @@
+﻿@using Easy.CMS.Section.Models
+@model SectionGroup
+
+@foreach (SectionContent content in Model.SectionContents)
+{
+    Html.RenderPartial("SectionPartial." + ((SectionContent.Types)content.SectionContentType), content);
+}

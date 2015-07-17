@@ -9,19 +9,16 @@ namespace Easy.CMS.Article
 {
     public class ArticlePlug : PluginBase
     {
-        public override IEnumerable<RouteDescriptor> Regist()
+        public override IEnumerable<RouteDescriptor> RegistRoute()
         {
-            var routes = new List<RouteDescriptor>();
-
-            routes.Add(new RouteDescriptor
+            yield return new RouteDescriptor
             {
                 RouteName = "articleAdmin",
                 Url = "admin/{controller}/{action}",
                 Defaults = new { action = "index", module = "Article" },
                 Namespaces = new string[] { "Easy.Web.CMS.Article.Controllers" },
                 Priority = 1
-            });
-            return routes;
+            };
         }
 
         public override IEnumerable<AdminMenu> AdminMenu()

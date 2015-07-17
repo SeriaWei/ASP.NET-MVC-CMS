@@ -9,7 +9,7 @@ namespace Easy.Web.CMS
 {
     public abstract class PluginBase : ResourceManager, IRouteRegister
     {
-        public abstract IEnumerable<RouteDescriptor> Regist();
+        public abstract IEnumerable<RouteDescriptor> RegistRoute();
         public abstract IEnumerable<AdminMenu> AdminMenu();
     }
 }

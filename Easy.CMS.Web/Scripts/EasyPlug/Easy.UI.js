@@ -63,10 +63,11 @@ Easy.UI = {
                 var options = oldSelect.find("option");
                 options.each(function () {
                     var val = $(this).attr("value");
-                    if (val == "") return;
-                    var txt = $(this).text();
-                    var li = "<li val='" + val + "'>" + txt + "</li>";
-                    DownList.push(li);
+                    if (val) {
+                        var txt = $(this).text();
+                        var li = "<li val='" + val + "'>" + txt + "</li>";
+                        DownList.push(li);
+                    }
                 });
                 DownList.push("</ul>");
                 var $DownList = $(DownList.join(""));
@@ -126,7 +127,7 @@ Easy.UI = {
                         text += $(this).text();
                     else text += "," + $(this).text();
                 });
-                if (text != ""){
+                if (text != "") {
                     var textplace = selectList.find(".TextPlace");
                     textplace.attr("title", text);
                     textplace.html("<span>" + text + "</span><div class='Clear'></div>");
@@ -158,15 +159,16 @@ Easy.UI = {
                 var options = oldSelect.find("option");
                 options.each(function () {
                     var val = $(this).attr("value");
-                    if (val == "") return;
-                    var txt = $(this).text();
-                    var selected = $(this).prop("selected");
-                    if (selected) {
-                        var li = "<li val='" + val + "' id='selectBoxli'><input id='selectBox'  type='checkbox' checked='checked' val='" + val + "' />" + txt + "</li>";
-                        DownList.push(li);
-                    } else {
-                        var li = "<li val='" + val + "' id='selectBoxli'><input id='selectBox' type='checkbox' val='" + val + "' />" + txt + "</li>";
-                        DownList.push(li);
+                    if (val) {
+                        var txt = $(this).text();
+                        var selected = $(this).prop("selected");
+                        if (selected) {
+                            var li = "<li val='" + val + "' id='selectBoxli'><input id='selectBox'  type='checkbox' checked='checked' val='" + val + "' />" + txt + "</li>";
+                            DownList.push(li);
+                        } else {
+                            var li = "<li val='" + val + "' id='selectBoxli'><input id='selectBox' type='checkbox' val='" + val + "' />" + txt + "</li>";
+                            DownList.push(li);
+                        }
                     }
                 });
                 DownList.push("</ul>");

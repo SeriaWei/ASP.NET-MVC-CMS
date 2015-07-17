@@ -1,0 +1,41 @@
+﻿@using Easy.CMS.Section.Models
+@model SectionGroup
+
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <div>
+            <span class="badge">@Model.GroupName</span>
+            <span class="badge">@Model.PartialView</span>
+        </div>
+    </div>
+    <div class="panel-body">
+        <ul class="fullRowList">
+            @foreach (SectionContent content in Model.SectionContents)
+            {
+                Html.RenderPartial("SectionPartial.Edit." + ((SectionContent.Types)content.SectionContentType), content);
+            }
+        </ul>
+        <div class="toolBar">
+            <a href="@Url.Action("Edit", "SectionGroup", new {Id= Model.ID })" class="btn btn-link btn-xs dialog">
+                <i class="glyphicon glyphicon-edit"></i>
+                修改
+            </a>
+            <a href="@Url.Action("Create", "SectionContentTitle", new { sectionGroupId=Model.ID,sectionWidgetId=Model.SectionWidgetId })" class="btn btn-link btn-xs dialog">
+                <i class="glyphicon glyphicon-plus"></i>
+                添加标题
+            </a>
+            <a href="@Url.Action("Create", "SectionContentParagraph", new { sectionGroupId=Model.ID,sectionWidgetId=Model.SectionWidgetId })" class="btn btn-link btn-xs dialog">
+                <i class="glyphicon glyphicon-plus"></i>
+                添加段落
+            </a>
+            <a href="@Url.Action("Create", "SectionContentCallToAction", new { sectionGroupId=Model.ID,sectionWidgetId=Model.SectionWidgetId })" class="btn btn-link btn-xs dialog">
+                <i class="glyphicon glyphicon-plus"></i>
+                添加链接
+            </a>
+            <a href="@Url.Action("Create", "SectionContentImage", new { sectionGroupId=Model.ID,sectionWidgetId=Model.SectionWidgetId })" class="btn btn-link btn-xs dialog">
+                <i class="glyphicon glyphicon-plus"></i>
+                添加图片
+            </a>
+        </div>
+    </div>
+</div>
