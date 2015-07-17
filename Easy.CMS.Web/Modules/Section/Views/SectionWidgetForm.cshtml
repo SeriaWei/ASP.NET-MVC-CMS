@@ -7,28 +7,29 @@
     <div class="panel-body">
         @using (Html.BeginForm())
         {
-            <input type="hidden" name="ReturnUrl" value="@ViewBag.ReturnUrl" />
+            <input type="hidden" name="ReturnUrl" value="@ViewBag.ReturnUrl"/>
             @Html.EditModel()
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="panel panel-default">
+                        <div class="panel panel-primary">
                             <div class="panel-heading">
                                 <div>
                                     <span class="badge">SectionGroup</span>
                                 </div>
                             </div>
-                            <div class="panel-body">
-                                @foreach (SectionGroup group in Model.Groups)
+                            <div class="panel-body" id="section-groups">
+                                @foreach (SectionGroup group in Model.Groups.OrderBy(m => m.Order))
                                 {
                                     Html.RenderPartial("SectionGroup.Edit", group);
                                 }
-                                <div class="toolBar">
-                                    <a href="@Url.Action("Create", "SectionGroup", new { sectionWidgetId=Model.ID })" class="btn btn-primary btn-xs dialog">
+
+                            </div>
+                            <div class="panel-footer">
+                                <a href="@Url.Action("Create", "SectionGroup", new {sectionWidgetId = Model.ID})" class="btn btn-link btn-xs dialog">
                                     <i class="glyphicon glyphicon-plus"></i>
                                     添加
-                                    </a>
-                                </div>
+                                </a>
                             </div>
                         </div>
 
@@ -37,28 +38,41 @@
             </div>
 
 
-            <div class="toolBar">
-                <input type="button" class="btn btn-default btn-sm cancel" value="取消" />
-                @if (Model.ID.IsNullOrEmpty())
-                {
-                    <input id="design" type="submit" class="btn btn-primary btn-sm" value="继续" data-value="@ActionType.Continue" />
-                }
-                else
-                {
-                    <input id="design" type="submit" class="btn btn-primary btn-sm" value="保存" data-value="@ActionType.Create" />
-                }
-            </div>
+
         }
     </div>
+    <div class="panel-footer">
+        <input type="button" class="btn btn-default btn-sm cancel" value="取消" />
+        @if (Model.ID.IsNullOrEmpty())
+        {
+            <input id="design" type="submit" class="btn btn-primary btn-sm" value="继续" data-value="@ActionType.Continue" />
+        }
+        else
+        {
+            <input id="design" type="submit" class="btn btn-primary btn-sm" value="保存" data-value="@ActionType.Create" />
+        }
+    </div>
+
 </div>
 @using (Script.AtFoot())
 {
     <script type="text/javascript">
         $(document).on("click", "a.dialog", function () {
             Easy.ShowUrlWindow({ url: $(this).attr("href"), title: $(this).text(), callBack: function() {
-                
+                reload();
             }, isDialog: true });
             return false;
         });
+        $(document).on("click", "a.ajax", function() {
+            $.get($(this).attr("href"), function() {
+                reload();
+            }, "json");
+            return false;
+        });
+        function reload() {
+            $.get("@Url.Action("Editor","SectionWidget")", { sectionWidgetId: '@Model.ID' }, function(html) {
+                $("#section-groups").html(html);
+            }, "html");
+        }
     </script>
 }

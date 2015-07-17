@@ -124,6 +124,7 @@
     <Compile Include="Controllers\SectionContentImageController.cs" />
     <Compile Include="Controllers\SectionContentTitleController.cs" />
     <Compile Include="Controllers\SectionGroupController.cs" />
+    <Compile Include="Controllers\SectionWidgetController.cs" />
     <Compile Include="Models\SectionContent.cs" />
     <Compile Include="Models\SectionContentCallToAction.cs" />
     <Compile Include="Models\SectionContentParagraph.cs" />
@@ -214,6 +215,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\SectionPartial.Title.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\SectionWidget\Editor.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

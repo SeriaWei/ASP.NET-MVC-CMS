@@ -21,8 +21,8 @@ body {
   }
 }
 .bs-callout {
-  padding: 20px;
-  margin: 10px 0;
+  padding: 10px;
+  margin: 0;
   border: 1px solid #eee;
   border-left-width: 5px;
   border-radius: 3px;
@@ -69,5 +69,8 @@ body {
 }
 .page-header > h2 {
   margin: 5px 0 5px;
+}
+.section {
+  margin: 10px;
 }
 /*# sourceMappingURL=Base.css.map */

@@ -1,6 +1,17 @@
 ﻿@using Easy.CMS.Section.Models
 @model SectionContentImage
-<li>
-    <i class="glyphicon glyphicon-remove"></i>
-    <img src="@Url.Content(Model.ImageSrc)"/>
+<li class="list-group-item clearfix">
+    <div class="icon-left">
+        <div class="pull-left icon">
+            <a href="@Url.Action("Delete", "SectionContentImage", new {Id = Model.ID})" class="ajax">
+                <i class="glyphicon glyphicon-remove"></i>
+            </a>
+            <a href="@Url.Action("Edit", "SectionContentImage", new { Id = Model.ID })" class="dialog">
+                <i class="glyphicon glyphicon-edit"></i>
+            </a>
+        </div>
+        <div class="pull-left">
+            <img src="@Url.Content(Model.ImageSrc)" alt="@Model.ImageAlt" title="@Model.ImageTitle" />
+        </div>
+    </div>
 </li>

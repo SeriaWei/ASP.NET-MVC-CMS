@@ -1,6 +1,18 @@
 ﻿@using Easy.CMS.Section.Models
 @model SectionContentTitle
-<li>
-    <i class="glyphicon glyphicon-remove"></i>
-    @Model.InnerText
+
+<li class="list-group-item clearfix">
+    <div class="icon-left">
+        <div class="pull-left icon">
+            <a href="@Url.Action("Delete", "SectionContentTitle", new {Id = Model.ID})" class="ajax">
+                <i class="glyphicon glyphicon-remove"></i>
+            </a>
+            <a href="@Url.Action("Edit", "SectionContentTitle", new { Id = Model.ID })" class="dialog">
+                <i class="glyphicon glyphicon-edit"></i>
+            </a>
+        </div>
+        <div class="pull-left">
+            @Model.InnerText
+        </div>
+    </div>
 </li>

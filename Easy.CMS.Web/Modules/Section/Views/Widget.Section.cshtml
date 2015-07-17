@@ -1,7 +1,11 @@
 ﻿@using Easy.CMS.Section.Models
 @model SectionWidget
-    
-@foreach (SectionGroup group in Model.Groups)
-{
-    Html.RenderPartial(group.PartialView, group);
-}
+<div class="section">
+    <div class="bs-callout bs-callout-info">
+        <h4>@Model.SectionTitle</h4>
+        @foreach (SectionGroup group in Model.Groups.OrderBy(m=>m.Order))
+        {
+            Html.RenderPartial(group.PartialView, group);
+        }
+    </div>
+</div>

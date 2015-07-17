@@ -1,7 +1,7 @@
 ﻿@using Easy.CMS.Section.Models
 @model SectionGroup
 
-@foreach (SectionContent content in Model.SectionContents)
+@foreach (SectionContent content in Model.SectionContents.OrderBy(m=>m.Order))
 {
     Html.RenderPartial("SectionPartial." + ((SectionContent.Types)content.SectionContentType), content);
 }

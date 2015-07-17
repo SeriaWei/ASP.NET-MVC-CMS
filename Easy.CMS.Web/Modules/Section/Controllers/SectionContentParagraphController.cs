@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using Easy.CMS.Section.Models;
 using Easy.CMS.Section.Service;
 using Easy.Constant;
+using Easy.Data;
 using Easy.Web.Attribute;
 
 namespace Easy.CMS.Section.Controllers
@@ -26,6 +27,13 @@ namespace Easy.CMS.Section.Controllers
                 ActionType = ActionType.Create
             });
         }
+
+        public ActionResult Edit(int Id)
+        {
+            var content = new SectionContentParagraphService().Get(Id);
+            content.ActionType = ActionType.Update;
+            return View("Form", content);
+        }
         [HttpPost, ValidateInput(false)]
         public ActionResult Save(SectionContentParagraph content)
         {
@@ -45,6 +53,13 @@ namespace Easy.CMS.Section.Controllers
             }
             ViewBag.Close = true;
             return View("Form", content);
+        }
+
+        public JsonResult Delete(int Id)
+        {
+            new SectionContentParagraphService().Delete(Id);
+            new SectionContentService().Delete(new DataFilter().Where("SectionContentId", OperatorType.Equal, Id));
+            return Json(true);
         }
     }
 }

@@ -298,3 +298,9 @@ body {
 .description {
     font-size: 13px;
 }
+.icon-left {
+    padding-left: 40px;
+}
+.icon-left .icon {
+    margin-left: -40px;
+}

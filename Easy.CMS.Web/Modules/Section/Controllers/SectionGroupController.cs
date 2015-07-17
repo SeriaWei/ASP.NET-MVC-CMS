@@ -44,5 +44,11 @@ namespace Easy.CMS.Section.Controllers
             ViewBag.Close = true;
             return View("Form", group);
         }
+
+        public JsonResult Delete(int Id)
+        {
+            new SectionGroupService().Delete(Id);
+            return Json(true);
+        }
     }
 }
