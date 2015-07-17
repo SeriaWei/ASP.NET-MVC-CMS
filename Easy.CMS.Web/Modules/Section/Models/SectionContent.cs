@@ -21,6 +21,7 @@ namespace Easy.CMS.Section.Models
         public string SectionWidgetId { get; set; }
         public int SectionGroupId { get; set; }
         public int SectionContentId { get; set; }
+        public int SectionContentBaseId { get; set; }
         public int SectionContentType { get; set; }
         public int Order { get; set; }
 
@@ -55,6 +56,7 @@ namespace Easy.CMS.Section.Models
         {
             DataTable("SectionContent");
             DataConfig(m => m.ID).AsIncreasePrimaryKey();
+            DataConfig(m => m.SectionContentBaseId).Ignore();
             DataConfig(m => m.Title).Ignore();
             DataConfig(m => m.Description).Ignore();
             DataConfig(m => m.Status).Ignore();

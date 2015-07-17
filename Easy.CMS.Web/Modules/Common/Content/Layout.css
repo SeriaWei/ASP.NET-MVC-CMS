@@ -160,8 +160,8 @@
     display: none;
     position: absolute;
     left: 2px;
-    top: 2px;
-    z-index: 1;
+    top: 11px;
+    z-index: 2;
     padding: 0 4px;
     background-color: #e5e1ea;
     border: 1px solid #c7bfd3;

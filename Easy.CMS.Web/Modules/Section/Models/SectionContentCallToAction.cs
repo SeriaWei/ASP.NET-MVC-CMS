@@ -25,6 +25,7 @@ namespace Easy.CMS.Section.Models
         {
             DataTable("SectionContentCallToAction");
             DataConfig(m => m.ID).AsIncreasePrimaryKey();
+            DataConfig(m => m.SectionWidgetId).Insert(true).Update(false);
             DataConfig(m => m.Title).Ignore();
             DataConfig(m => m.Description).Ignore();
             DataConfig(m => m.Status).Ignore();
@@ -32,7 +33,8 @@ namespace Easy.CMS.Section.Models
 
         protected override void ViewConfigure()
         {
-
+            ViewConfig(m => m.InnerText).AsTextBox().Required();
+            ViewConfig(m => m.Href).AsTextBox().Required();
         }
     }
 }

@@ -58,8 +58,10 @@ namespace Easy.CMS.Section.Controllers
         public JsonResult Delete(int Id)
         {
             new SectionContentImageService().Delete(Id);
-            new SectionContentService().Delete(new DataFilter().Where("SectionContentId", OperatorType.Equal, Id));
-            return Json(true);
+            new SectionContentService().Delete(new DataFilter()
+                .Where("SectionContentId", OperatorType.Equal, Id)
+                .Where("SectionContentType", OperatorType.Equal, (int)SectionContent.Types.Image));
+            return Json(true, JsonRequestBehavior.AllowGet);
         }
     }
 }

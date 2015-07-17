@@ -32,6 +32,7 @@ namespace Easy.CMS.Section.Service
             var contents = new SectionContentService().Get("SectionWidgetId", OperatorType.Equal, widget.ID).ToList();
             for (int i = 0; i < contents.Count; i++)
             {
+                int baseId = contents[i].ID;
                 switch ((SectionContent.Types)contents[i].SectionContentType)
                 {
                     case SectionContent.Types.CallToAction:
@@ -55,6 +56,7 @@ namespace Easy.CMS.Section.Service
                             break;
                         }
                 }
+                contents[i].SectionContentBaseId = baseId;
             }
             widget.Groups.Each(m =>
             {
@@ -63,9 +65,15 @@ namespace Easy.CMS.Section.Service
             return widget;
         }
 
-        public override int Delete(params object[] primaryKeys)
+        public override void DeleteWidget(string widgetId)
         {
-            return base.Delete(primaryKeys);
+            SectionWidget widget = Get(widgetId);
+            var groupService = new SectionGroupService();
+            widget.Groups.Each(m =>
+            {
+                groupService.Delete(m.ID);
+            });
+            base.DeleteWidget(widgetId);
         }
     }
 }

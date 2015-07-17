@@ -1,5 +1,17 @@
 ﻿@using Easy.CMS.Section.Models
 @model SectionContentTitle
-<h5>
-    @Model.InnerText
-</h5>
+
+@if (Model.Href.IsNullOrEmpty())
+{
+    <h5>
+        @Model.InnerText
+    </h5>
+}
+else
+{
+    <a href="@Url.Content(Model.Href)">
+        <h5>
+            @Model.InnerText
+        </h5>
+    </a>
+}

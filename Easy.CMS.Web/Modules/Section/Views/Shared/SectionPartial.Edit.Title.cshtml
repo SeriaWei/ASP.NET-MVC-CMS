@@ -1,7 +1,7 @@
 ﻿@using Easy.CMS.Section.Models
 @model SectionContentTitle
 
-<li class="list-group-item clearfix">
+<li class="list-group-item clearfix" data-id="@Model.SectionContentBaseId">
     <div class="icon-left">
         <div class="pull-left icon">
             <a href="@Url.Action("Delete", "SectionContentTitle", new {Id = Model.ID})" class="ajax">
@@ -12,7 +12,16 @@
             </a>
         </div>
         <div class="pull-left">
-            @Model.InnerText
+            @if (Model.Href.IsNullOrEmpty())
+            {
+                @Model.InnerText
+            }
+            else
+            {
+                <a href="@Url.Content(Model.Href)">
+                    @Model.InnerText
+                </a>
+            }
         </div>
     </div>
 </li>

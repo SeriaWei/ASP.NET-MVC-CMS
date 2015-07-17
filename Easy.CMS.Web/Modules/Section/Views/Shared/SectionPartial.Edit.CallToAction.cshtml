@@ -1,6 +1,6 @@
 ﻿@using Easy.CMS.Section.Models
 @model SectionContentCallToAction
-<li class="list-group-item clearfix">
+<li class="list-group-item clearfix" data-id="@Model.SectionContentBaseId">
     <div class="icon-left">
         <div class="pull-left icon">
             <a href="@Url.Action("Delete", "SectionContentCallToAction", new {Id = Model.ID})" class="ajax">
@@ -11,7 +11,7 @@
             </a>
         </div>
         <div class="pull-left">
-            <a href="@Url.Content(Model.Href)">
+            <a href="@Url.Content(Model.Href??"~/")">
                 @Model.InnerText
             </a>
         </div>

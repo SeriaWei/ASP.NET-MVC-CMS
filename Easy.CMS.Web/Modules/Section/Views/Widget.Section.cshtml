@@ -3,9 +3,13 @@
 <div class="section">
     <div class="bs-callout bs-callout-info">
         <h4>@Model.SectionTitle</h4>
-        @foreach (SectionGroup group in Model.Groups.OrderBy(m=>m.Order))
+        @foreach (SectionGroup group in Model.Groups.OrderBy(m => m.Order))
         {
+            <div class="section-group">
+                @{
             Html.RenderPartial(group.PartialView, group);
+                }
+            </div>
         }
     </div>
 </div>
