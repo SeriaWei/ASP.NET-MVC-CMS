@@ -134,6 +134,7 @@
     <Compile Include="Models\SectionWidget.cs" />
     <Compile Include="SectionPlug.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\ISectionContentService.cs" />
     <Compile Include="Service\SectionContentCallToActionService.cs" />
     <Compile Include="Service\SectionContentImageService.cs" />
     <Compile Include="Service\SectionContentParagraphService.cs" />

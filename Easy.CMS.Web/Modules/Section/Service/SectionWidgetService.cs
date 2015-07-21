@@ -29,32 +29,11 @@ namespace Easy.CMS.Section.Service
         private SectionWidget InitSectionWidget(SectionWidget widget)
         {
             widget.Groups = new SectionGroupService().Get("SectionWidgetId", OperatorType.Equal, widget.ID);
-            var contents = new SectionContentService().Get("SectionWidgetId", OperatorType.Equal, widget.ID).ToList();
+            var sectionContentService = new SectionContentService();
+            var contents = sectionContentService.Get("SectionWidgetId", OperatorType.Equal, widget.ID).ToList();
             for (int i = 0; i < contents.Count; i++)
             {
-                switch ((SectionContent.Types)contents[i].SectionContentType)
-                {
-                    case SectionContent.Types.CallToAction:
-                        {
-                            contents[i] = contents[i].InitContent(new SectionContentCallToActionService().Get(contents[i].SectionContentId));
-                            break;
-                        }
-                    case SectionContent.Types.Image:
-                        {
-                            contents[i] = contents[i].InitContent(new SectionContentImageService().Get(contents[i].SectionContentId));
-                            break;
-                        }
-                    case SectionContent.Types.Paragraph:
-                        {
-                            contents[i] = contents[i].InitContent(new SectionContentParagraphService().Get(contents[i].SectionContentId));
-                            break;
-                        }
-                    case SectionContent.Types.Title:
-                        {
-                            contents[i] = contents[i].InitContent(new SectionContentTitleService().Get(contents[i].SectionContentId));
-                            break;
-                        }
-                }
+                contents[i] = sectionContentService.FillContent(contents[i]);
             }
             widget.Groups.Each(m =>
             {

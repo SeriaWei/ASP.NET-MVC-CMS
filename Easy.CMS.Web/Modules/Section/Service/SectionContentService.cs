@@ -9,5 +9,38 @@ namespace Easy.CMS.Section.Service
 {
     public class SectionContentService : ServiceBase<SectionContent>
     {
+        private readonly IEnumerable<ISectionContentService> _sectionContentServices;
+        public SectionContentService()
+        {
+            _sectionContentServices = Loader.ResolveAll<ISectionContentService>();
+        }
+        public override void Add(SectionContent item)
+        {
+            base.Add(item);
+            _sectionContentServices.First(m => (int)m.ContentType == item.SectionContentType).AddContent(item);
+        }
+
+        public override bool Update(SectionContent item, params object[] primaryKeys)
+        {
+            base.Update(item, primaryKeys);
+            _sectionContentServices.First(m => (int)m.ContentType == item.SectionContentType).UpdateContent(item);
+            return true;
+        }
+
+        public override int Delete(params object[] primaryKeys)
+        {
+            var content = base.Get(primaryKeys);
+            base.Delete(primaryKeys);
+            _sectionContentServices.First(m => (int)m.ContentType == content.SectionContentType).DeleteContent(content.ID);
+            return 1;
+        }
+
+        public SectionContent FillContent(SectionContent content)
+        {
+            return
+                content.InitContent(
+                    _sectionContentServices.First(m => (int) m.ContentType == content.SectionContentType)
+                        .GetContent(content.ID));
+        }
     }
 }
