@@ -9,6 +9,9 @@ body {
   color: #444444;
   background: url("data:image/gif;base64,R0lGODlhFQAVAIAAAN/f3/Dv7yH5BAAAAAAALAAAAAAVABUAAAIsDGJ4yXuuYpOo2oslnHN7nYXix0HkKaYXWrbuoqrsN4OxbKM1d4/5v9v0MgUAOw==");
 }
+img {
+  max-width: 100%;
+}
 #container {
   background-color: white;
   border: 1px solid #dedede;
@@ -40,6 +43,9 @@ body {
 .bs-callout-danger h4 {
   color: #d9534f;
 }
+.bs-callout-danger h5 {
+  color: #f0ad4e;
+}
 .bs-callout-danger h6 {
   color: #f0ad4e;
 }
@@ -49,6 +55,9 @@ body {
 .bs-callout-warning h4 {
   color: #f0ad4e;
 }
+.bs-callout-warning h5 {
+  color: #5bc0de;
+}
 .bs-callout-warning h6 {
   color: #5bc0de;
 }
@@ -57,6 +66,9 @@ body {
 }
 .bs-callout-info h4 {
   color: #5bc0de;
+}
+.bs-callout-info h5 {
+  color: #d9534f;
 }
 .bs-callout-info h6 {
   color: #d9534f;
@@ -72,5 +84,6 @@ body {
 }
 .section {
   margin: 10px;
+  font-size: 13px;
 }
 /*# sourceMappingURL=Base.css.map */

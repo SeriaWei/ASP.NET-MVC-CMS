@@ -22,7 +22,8 @@ namespace Easy.CMS.Section.Models
         protected override void DataConfigure()
         {
             DataTable("SectionContentParagraph");
-            DataConfig(m => m.ID).AsIncreasePrimaryKey();
+            DataConfig(m => m.ID).AsPrimaryKey();
+            DataConfig(m => m.SectionWidgetId).Insert(true).Update(false);
             DataConfig(m => m.Title).Ignore();
             DataConfig(m => m.Description).Ignore();
             DataConfig(m => m.Status).Ignore();

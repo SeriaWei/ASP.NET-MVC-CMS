@@ -304,3 +304,6 @@ body {
 .icon-left .icon {
     margin-left: -40px;
 }
+#section-groups img {
+    max-width:300px;
+}

@@ -1,11 +1,19 @@
 ﻿@using Easy.CMS.Section.Models
 @model SectionGroup
 
-<div class="panel panel-info">
+<div class="panel panel-default section-group" data-id="@Model.ID">
     <div class="panel-heading">
         <div>
             <span class="badge">@Model.GroupName</span>
-            <span class="badge">@Model.PartialView</span>
+            <a href="@Url.Action("Edit", "SectionGroup", new {Id= Model.ID })" class="btn btn-link btn-xs dialog">
+                <i class="glyphicon glyphicon-edit"></i>
+                修改
+            </a>
+            <a href="@Url.Action("Delete", "SectionGroup", new {Id= Model.ID })" class="btn btn-link btn-xs ajax">
+                <i class="glyphicon glyphicon-edit"></i>
+                删除
+            </a>
+            <code>@Model.PartialView</code>
         </div>
     </div>
     <ul class="list-group">
@@ -15,14 +23,6 @@
         }
     </ul>
     <div class="panel-footer">
-        <a href="@Url.Action("Edit", "SectionGroup", new {Id= Model.ID })" class="btn btn-link btn-xs dialog">
-            <i class="glyphicon glyphicon-edit"></i>
-            修改
-        </a>
-        <a href="@Url.Action("Delete", "SectionGroup", new {Id= Model.ID })" class="btn btn-link btn-xs ajax">
-            <i class="glyphicon glyphicon-edit"></i>
-            删除
-        </a>
         <a href="@Url.Action("Create", "SectionContentTitle", new { sectionGroupId=Model.ID,sectionWidgetId=Model.SectionWidgetId })" class="btn btn-link btn-xs dialog">
             <i class="glyphicon glyphicon-plus"></i>
             添加标题

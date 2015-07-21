@@ -43,9 +43,7 @@ namespace Easy.CMS.Section.Controllers
             }
             if (content.ActionType == ActionType.Create)
             {
-                new SectionContentImageService().Add(content);
-                content.SectionContentId = content.ID;
-                new SectionContentService().Add(content.ToBaseContent());
+                new SectionContentService().Add(content);
             }
             else
             {
@@ -57,9 +55,8 @@ namespace Easy.CMS.Section.Controllers
 
         public JsonResult Delete(int Id)
         {
-            new SectionContentImageService().Delete(Id);
-            new SectionContentService().Delete(new DataFilter().Where("SectionContentId", OperatorType.Equal, Id));
-            return Json(true);
+            new SectionContentService().Delete(Id);
+            return Json(true, JsonRequestBehavior.AllowGet);
         }
     }
 }

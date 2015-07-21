@@ -19,11 +19,6 @@ namespace Easy.CMS.Section.Service
             this.Add(content as SectionContentCallToAction);
         }
 
-        public void UpdateContent(SectionContent content)
-        {
-            this.Update(content as SectionContentCallToAction);
-        }
-
         public void DeleteContent(int contentId)
         {
             this.Delete(contentId);

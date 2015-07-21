@@ -278,6 +278,7 @@
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Images\bg1.jpg" />
     <Content Include="Images\bg2.jpg" />
+    <Content Include="Images\head.png" />
     <Content Include="Scripts\EasyPlug\Css\Animate.css" />
     <Content Include="Scripts\EasyPlug\Css\Base.css" />
     <Content Include="Scripts\EasyPlug\Css\Easy.css" />

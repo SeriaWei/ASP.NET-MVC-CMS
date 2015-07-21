@@ -42,8 +42,23 @@ namespace Easy.CMS.Section.Service
             return widget;
         }
 
+        public override void DeleteWidget(string widgetId)
+        {
+            var groupService = new SectionGroupService();
+            Get(widgetId).Groups.Each(m =>
+            {
+                groupService.Delete(m.ID);
+            });
+            base.DeleteWidget(widgetId);
+        }
+
         public override int Delete(params object[] primaryKeys)
         {
+            var groupService = new SectionGroupService();
+            Get(primaryKeys).Groups.Each(m =>
+            {
+                groupService.Delete(m.ID);
+            });
             return base.Delete(primaryKeys);
         }
     }

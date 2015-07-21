@@ -20,7 +20,6 @@ namespace Easy.CMS.Section.Models
         public int ID { get; set; }
         public string SectionWidgetId { get; set; }
         public int SectionGroupId { get; set; }
-        public int SectionContentId { get; set; }
         public int SectionContentType { get; set; }
         public int Order { get; set; }
 
@@ -28,24 +27,11 @@ namespace Easy.CMS.Section.Models
         {
             content.SectionWidgetId = SectionWidgetId;
             content.SectionGroupId = SectionGroupId;
-            content.SectionContentId = SectionContentId;
             content.SectionContentType = SectionContentType;
             content.Order = Order;
             return content;
         }
 
-        public SectionContent ToBaseContent()
-        {
-            SectionContent content = new SectionContent
-            {
-                SectionWidgetId = SectionWidgetId,
-                SectionGroupId = SectionGroupId,
-                SectionContentId = SectionContentId,
-                SectionContentType = SectionContentType,
-                Order = Order
-            };
-            return content;
-        }
     }
 
     class SectionContentMetaData : DataViewMetaData<SectionContent>

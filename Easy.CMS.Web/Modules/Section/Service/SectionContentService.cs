@@ -20,13 +20,6 @@ namespace Easy.CMS.Section.Service
             _sectionContentServices.First(m => (int)m.ContentType == item.SectionContentType).AddContent(item);
         }
 
-        public override bool Update(SectionContent item, params object[] primaryKeys)
-        {
-            base.Update(item, primaryKeys);
-            _sectionContentServices.First(m => (int)m.ContentType == item.SectionContentType).UpdateContent(item);
-            return true;
-        }
-
         public override int Delete(params object[] primaryKeys)
         {
             var content = base.Get(primaryKeys);
@@ -39,7 +32,7 @@ namespace Easy.CMS.Section.Service
         {
             return
                 content.InitContent(
-                    _sectionContentServices.First(m => (int) m.ContentType == content.SectionContentType)
+                    _sectionContentServices.First(m => (int)m.ContentType == content.SectionContentType)
                         .GetContent(content.ID));
         }
     }

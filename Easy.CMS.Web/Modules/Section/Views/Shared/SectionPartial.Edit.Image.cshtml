@@ -1,6 +1,6 @@
 ﻿@using Easy.CMS.Section.Models
 @model SectionContentImage
-<li class="list-group-item clearfix">
+<li class="list-group-item clearfix" data-id="@Model.ID">
     <div class="icon-left">
         <div class="pull-left icon">
             <a href="@Url.Action("Delete", "SectionContentImage", new {Id = Model.ID})" class="ajax">
