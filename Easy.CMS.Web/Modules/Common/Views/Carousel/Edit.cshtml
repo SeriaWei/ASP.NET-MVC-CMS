@@ -1,5 +1,7 @@
 ﻿@model Easy.CMS.Common.Models.CarouselEntity
-
+@{
+    Style.Reqiured("jquery").AtFoot();
+}
 
 <div class="panel panel-default">
     <div class="panel-heading">
@@ -10,9 +12,15 @@
         {
             @Html.EditModel()
             <div class="toolBar">
-                <input type="button" class="btn btn-default btn-sm cancel" value="取消" />
-                <input type="submit" class="btn btn-primary btn-sm" value="保存" data-value="@ActionType.Update" />
+                <input type="submit" class="btn btn-primary btn-sm" value="保存" data-value="@ActionType.Update"/>
+                <input type="button" class="btn btn-default btn-sm cancel" value="取消"/>
             </div>
         }
     </div>
 </div>
+@using (Script.AtFoot())
+{
+    <script>
+        
+    </script>
+}

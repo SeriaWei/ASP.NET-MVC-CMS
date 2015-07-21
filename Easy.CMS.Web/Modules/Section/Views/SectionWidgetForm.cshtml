@@ -44,7 +44,6 @@
             }
         </div>
         <div class="panel-footer">
-            <input type="button" class="btn btn-default btn-sm cancel" value="取消" />
             @if (Model.ID.IsNullOrEmpty())
             {
                 <input id="design" type="submit" class="btn btn-primary btn-sm" value="继续" data-value="@ActionType.Continue" />
@@ -53,6 +52,7 @@
             {
                 <input id="design" type="submit" class="btn btn-primary btn-sm" value="保存" data-value="@ActionType.Create" />
             }
+        <input type="button" class="btn btn-default btn-sm cancel" value="取消" />
         </div>
 
     </div>
