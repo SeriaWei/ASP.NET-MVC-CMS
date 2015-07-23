@@ -15,7 +15,7 @@ using Easy.Web.CMS.Widget;
 
 namespace Easy.CMS.Common.Controllers
 {
-
+    [Authorize]
     public class LayoutController : BasicController<LayoutEntity, LayoutService>
     {
         [AdminTheme]
