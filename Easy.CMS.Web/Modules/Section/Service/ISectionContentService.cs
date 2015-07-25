@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Easy.CMS.Section.Models;
+using Easy.Models;
 
 namespace Easy.CMS.Section.Service
 {
-    interface ISectionContentService
+    interface ISectionContentService : IAdapterService
     {
         SectionContent.Types ContentType { get; }
         void AddContent(SectionContent content);

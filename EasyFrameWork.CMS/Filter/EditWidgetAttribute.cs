@@ -34,7 +34,7 @@ namespace Easy.Web.CMS.Filter
                 IEnumerable<WidgetBase> widgets = widgetService.Get(new DataFilter().Where<WidgetBase>(m => m.PageID, OperatorType.Equal, page.ID));
                 Action<WidgetBase> processWidget = m =>
                 {
-                    IWidgetPartDriver partDriver = Loader.CreateInstance<IWidgetPartDriver>(m.AssemblyName, m.ServiceTypeName);
+                    IWidgetPartDriver partDriver = Activator.CreateInstance(m.AssemblyName, m.ServiceTypeName).Unwrap() as IWidgetPartDriver;
                     WidgetPart part = partDriver.Display(partDriver.GetWidget(m), filterContext.HttpContext);
                     if (zones.ContainsKey(part.Widget.ZoneID))
                     {

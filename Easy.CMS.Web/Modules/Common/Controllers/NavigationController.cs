@@ -15,6 +15,10 @@ namespace Easy.CMS.Common.Controllers
     [AdminTheme]
     public class NavigationController : BasicController<NavigationEntity, NavigationService>
     {
+        public NavigationController() : base(new NavigationService())
+        {
+            
+        }
         public override ActionResult Index(ParamsContext context)
         {
             return base.Index(context);

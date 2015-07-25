@@ -20,6 +20,10 @@ namespace Easy.CMS.Common.Controllers
 {
     public class PageController : BasicController<PageEntity, PageService>
     {
+        public PageController() : base(new PageService())
+        {
+            
+        }
         [Widget]
         [OutputCache(CacheProfile = "Page")]
         public ActionResult PreView()

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Easy.MetaData;
+using Easy.Web.CMS.Widget;
 
 namespace Easy.Web.CMS.WidgetTemplate
 {
@@ -22,7 +23,7 @@ namespace Easy.Web.CMS.WidgetTemplate
 
         public string FormView { get; set; }
 
-        private void CopyToWidget(Widget.WidgetBase widget)
+        private void CopyToWidget(WidgetBase widget)
         {
             widget.AssemblyName = this.AssemblyName;
             widget.Description = this.Description;
@@ -31,9 +32,9 @@ namespace Easy.Web.CMS.WidgetTemplate
             widget.WidgetName = this.Title;
             widget.ServiceTypeName = this.ServiceTypeName;
         }
-        public Widget.WidgetBase CreateWidgetInstance()
+        public WidgetBase CreateWidgetInstance()
         {
-            var widget = Loader.CreateInstance<Widget.WidgetBase>(this.AssemblyName, this.ViewModelTypeName);
+            var widget = Activator.CreateInstance(this.AssemblyName, this.ViewModelTypeName).Unwrap() as WidgetBase;
             CopyToWidget(widget);
             return widget;
         }

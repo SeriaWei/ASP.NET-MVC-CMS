@@ -14,6 +14,10 @@ namespace Easy.CMS.Product.Controllers
     [AdminTheme]
     public class ProductController : BasicController<Models.Product, ProductService>
     {
+        public ProductController() : base(new ProductService())
+        {
+        }
+
         [ViewData_ProductCategory]
         public override ActionResult Index(ParamsContext context)
         {

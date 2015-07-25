@@ -14,6 +14,10 @@ namespace Easy.CMS.Common.Controllers
     [AdminTheme]
     public class WidgetTemplateController : BasicController<WidgetTemplateEntity, WidgetTemplateService>
     {
+        public WidgetTemplateController() : base(new WidgetTemplateService())
+        {
+        }
+
         public ActionResult SelectWidget(QueryContext context)
         {
             var viewModel = new WidgetTemplateViewModel

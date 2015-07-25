@@ -13,6 +13,10 @@ namespace Easy.CMS.Product.Controllers
     [AdminTheme]
     public class ProductCategoryController : BasicController<ProductCategory, ProductCategoryService>
     {
+        public ProductCategoryController() : base(new ProductCategoryService())
+        {
+        }
+
         public JsonResult GetProductCategoryTree()
         {
             var pages = Service.Get(new Data.DataFilter());

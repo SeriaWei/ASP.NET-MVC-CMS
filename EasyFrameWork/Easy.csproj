@@ -1,0 +1,207 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{EDB1BAA7-EC61-4292-BBE5-3BC39EB171E4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Easy</RootNamespace>
+    <AssemblyName>Easy</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac, Version=3.5.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.3.5.2\lib\net40\Autofac.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.2.1.505.2\lib\NET35\Microsoft.Practices.Unity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.2.1.505.2\lib\NET35\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.6\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Constant\DicKeys.cs" />
+    <Compile Include="Data\Operation.cs" />
+    <Compile Include="Data\TableBuilderEngine.cs" />
+    <Compile Include="Extend\ExtDate.cs" />
+    <Compile Include="Extend\ExtIEnumerable.cs" />
+    <Compile Include="HTML\jsTree\ContextmenuItem.cs" />
+    <Compile Include="HTML\Tags\CollectionAreaTag.cs" />
+    <Compile Include="IOC\AutofacRegister.cs" />
+    <Compile Include="IOC\Autofac\AutofacServiceLocator.cs" />
+    <Compile Include="IOC\UnityRegister.cs" />
+    <Compile Include="Models\AutoComplete.cs" />
+    <Compile Include="Models\EditorEntity.cs" />
+    <Compile Include="Models\IAdapter.cs" />
+    <Compile Include="Models\IImage.cs" />
+    <Compile Include="Models\IUser.cs" />
+    <Compile Include="Cache\StaticCache.cs" />
+    <Compile Include="Constant\FormatStyle.cs" />
+    <Compile Include="Constant\RegularExpression.cs" />
+    <Compile Include="Logger.cs" />
+    <Compile Include="Modules\DataDictionary\DataDictionaryEntity.cs" />
+    <Compile Include="Modules\DataDictionary\DataDictionaryRepository.cs" />
+    <Compile Include="Modules\DataDictionary\DataDictionaryService.cs" />
+    <Compile Include="Data\DataBase\CustomerSqlHelper.cs" />
+    <Compile Include="Data\DataBase\ExcelReader.cs" />
+    <Compile Include="Data\Relation.cs" />
+    <Compile Include="Module.cs" />
+    <Compile Include="Encryption.cs" />
+    <Compile Include="Extend\ExtList.cs" />
+    <Compile Include="Extend\ExtInt.cs" />
+    <Compile Include="Extend\Extlong.cs" />
+    <Compile Include="Extend\ExtObject.cs" />
+    <Compile Include="Extend\ExtString.cs" />
+    <Compile Include="Models\IEnterprise.cs" />
+    <Compile Include="HTML\Grid\EasyGrid.cs" />
+    <Compile Include="HTML\Grid\GridData.cs" />
+    <Compile Include="HTML\Grid\GridSetting.cs" />
+    <Compile Include="HTML\HTMLEnumerate.cs" />
+    <Compile Include="HTML\Tab\EasyTab.cs" />
+    <Compile Include="HTML\TagsHelper.cs" />
+    <Compile Include="HTML\Tags\CheckBoxHtmlTag.cs" />
+    <Compile Include="HTML\Tags\DropDownListHtmlTag.cs" />
+    <Compile Include="HTML\Tags\FileHtmlTag.cs" />
+    <Compile Include="HTML\Tags\HiddenHtmlTag.cs" />
+    <Compile Include="HTML\Tags\HtmlTagBase.cs" />
+    <Compile Include="HTML\Tags\MutiLineTextBoxHtmlTag.cs" />
+    <Compile Include="HTML\Tags\MutiSelectHtmlTag.cs" />
+    <Compile Include="HTML\Tags\PassWordHtmlTag.cs" />
+    <Compile Include="HTML\Tags\TextBoxHtmlTag.cs" />
+    <Compile Include="HTML\Validator\StringLengthValidator.cs" />
+    <Compile Include="HTML\Validator\RemoteValidator.cs" />
+    <Compile Include="HTML\Validator\RegularValidator.cs" />
+    <Compile Include="HTML\Validator\RangeValidator.cs" />
+    <Compile Include="HTML\Validator\RequiredValidator.cs" />
+    <Compile Include="HTML\Validator\ValidatorBase.cs" />
+    <Compile Include="HTML\ViewModelDecode.cs" />
+    <Compile Include="HTML\jsTree\Node.cs" />
+    <Compile Include="HTML\jsTree\Setting.cs" />
+    <Compile Include="HTML\jsTree\Tree.cs" />
+    <Compile Include="IApplicationContext.cs" />
+    <Compile Include="Localization.cs" />
+    <Compile Include="Modules\DataDictionary\IDataDictionaryService.cs" />
+    <Compile Include="Modules\MutiLanguage\ILanguageService.cs" />
+    <Compile Include="Modules\MutiLanguage\LanguageEntity.cs" />
+    <Compile Include="Modules\MutiLanguage\LanguageRepository.cs" />
+    <Compile Include="Modules\MutiLanguage\LanguageService.cs" />
+    <Compile Include="Modules\SystemSetting\SystemSetting.cs" />
+    <Compile Include="Modules\SystemSetting\SystemSettingBase.cs" />
+    <Compile Include="Modules\SystemSetting\SystemSettingRepository.cs" />
+    <Compile Include="Modules\SystemSetting\SystemSettingService.cs" />
+    <Compile Include="Modules\User\Models\UserEntity.cs" />
+    <Compile Include="Modules\User\Service\Impl\UserService.cs" />
+    <Compile Include="Modules\User\Service\IUserService.cs" />
+    <Compile Include="Net\Email\EmailContentBase.cs" />
+    <Compile Include="Net\Email\IEmailContent.cs" />
+    <Compile Include="Net\Ftp.cs" />
+    <Compile Include="Net\WebClient.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Net\WebPage.cs" />
+    <Compile Include="RepositoryPattern\IRepository.cs" />
+    <Compile Include="RepositoryPattern\IServiceBase.cs" />
+    <Compile Include="RepositoryPattern\ServiceBase.cs" />
+    <Compile Include="RepositoryPattern\RepositoryBase.cs" />
+    <Compile Include="Data\DataBase\DataBasic.cs" />
+    <Compile Include="Data\Condition.cs" />
+    <Compile Include="Constant\DataEnumerate.cs" />
+    <Compile Include="Data\DataFilter.cs" />
+    <Compile Include="Data\Pagination.cs" />
+    <Compile Include="MetaData\IDataViewMetaData.cs" />
+    <Compile Include="MetaData\DataViewMetaData.cs" />
+    <Compile Include="MetaData\DataConfigureAttribute.cs" />
+    <Compile Include="Reflection\ClassAction.cs" />
+    <Compile Include="Extend\ExtRow.cs" />
+    <Compile Include="Image\ImageUnity.cs" />
+    <Compile Include="MathEx\Formula.cs" />
+    <Compile Include="Data\PropertyDataInfo.cs" />
+    <Compile Include="Models\HumanBase.cs" />
+    <Compile Include="Net\Email\EmailSender.cs" />
+    <Compile Include="Common.cs" />
+    <Compile Include="RepositoryPattern\IService.cs" />
+    <Compile Include="Data\DataBase\Access.cs" />
+    <Compile Include="Data\DataBase\SQL.cs" />
+    <Compile Include="Extend\ExtTable.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RSS\RssEntity.cs" />
+    <Compile Include="RSS\RssService.cs" />
+    <Compile Include="SystemSetting.cs" />
+    <Compile Include="WinApi\OpenApi.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

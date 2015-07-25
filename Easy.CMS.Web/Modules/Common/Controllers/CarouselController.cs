@@ -13,6 +13,9 @@ namespace Easy.CMS.Common.Controllers
     [AdminTheme]
     public class CarouselController : BasicController<CarouselEntity, CarouselService>
     {
-
+        public CarouselController() : base(new CarouselService())
+        {
+            
+        }
     }
 }

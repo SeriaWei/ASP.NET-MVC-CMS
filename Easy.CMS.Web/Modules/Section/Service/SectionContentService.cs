@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Easy.CMS.Section.Models;
+using Easy.Models;
+using Easy.Modules.DataDictionary;
 using Easy.RepositoryPattern;
+using Microsoft.Practices.ServiceLocation;
 
 namespace Easy.CMS.Section.Service
 {
@@ -12,7 +15,7 @@ namespace Easy.CMS.Section.Service
         private readonly IEnumerable<ISectionContentService> _sectionContentServices;
         public SectionContentService()
         {
-            _sectionContentServices = Loader.ResolveAll<ISectionContentService>();
+            _sectionContentServices = ServiceLocator.Current.GetAllInstances<ISectionContentService>();
         }
         public override void Add(SectionContent item)
         {

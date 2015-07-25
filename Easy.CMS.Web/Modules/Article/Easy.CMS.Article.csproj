@@ -40,14 +40,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Easy, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Dependency\Easy.dll</HintPath>
-    </Reference>
-    <Reference Include="Easy.Web, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Dependency\Easy.Web.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -191,6 +183,14 @@
     <ProjectReference Include="..\..\..\EasyFrameWork.CMS\Easy.Web.CMS.csproj">
       <Project>{2e8362ae-80d6-43e0-b3bf-cab6d888d154}</Project>
       <Name>Easy.Web.CMS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\EasyFrameWork.Web\Easy.Web.csproj">
+      <Project>{a1228125-f5c4-4001-ac7d-1accf1679828}</Project>
+      <Name>Easy.Web</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\EasyFrameWork\Easy.csproj">
+      <Project>{edb1baa7-ec61-4292-bbe5-3bc39eb171e4}</Project>
+      <Name>Easy</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

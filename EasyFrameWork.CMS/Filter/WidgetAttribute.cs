@@ -41,7 +41,8 @@ namespace Easy.Web.CMS.Filter
 
                 Action<WidgetBase> processWidget = m =>
                 {
-                    var partDriver = Loader.CreateInstance<IWidgetPartDriver>(m.AssemblyName, m.ServiceTypeName);
+                    var partDriver =
+                        Activator.CreateInstance(m.AssemblyName, m.ServiceTypeName).Unwrap() as IWidgetPartDriver;
                     WidgetPart part = partDriver.Display(partDriver.GetWidget(m), filterContext.HttpContext);
                     if (zones.ContainsKey(part.Widget.ZoneID))
                     {
@@ -64,7 +65,7 @@ namespace Easy.Web.CMS.Filter
                 var widgetService = new WidgetService();
                 IEnumerable<WidgetBase> widgets = widgetService.Get(new DataFilter().Where("PageID", OperatorType.Equal, page.ID));
                 int middle = widgets.Count() / 2;
-                var pageWidgetsTask = Task.Factory.StartNew(() =>widgets.Skip(middle).Each(processWidget));
+                var pageWidgetsTask = Task.Factory.StartNew(() => widgets.Skip(middle).Each(processWidget));
                 widgets.Take(middle).Each(processWidget);
                 Task.WaitAll(new[] { pageWidgetsTask, layoutWidgetsTask });
 

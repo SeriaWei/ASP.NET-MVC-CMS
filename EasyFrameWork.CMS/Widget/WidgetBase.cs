@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Easy.Cache;
+using Easy.Extend;
 using Easy.MetaData;
 using Easy.Models;
 using Easy.RepositoryPattern;
@@ -40,19 +42,43 @@ namespace Easy.Web.CMS.Widget
         }
         public IWidgetPartDriver CreateServiceInstance()
         {
-            return Loader.CreateInstance<IWidgetPartDriver>(this.AssemblyName, this.ServiceTypeName);
+            return Activator.CreateInstance(this.AssemblyName, this.ServiceTypeName).Unwrap() as IWidgetPartDriver;
         }
         public WidgetBase CreateViewModelInstance()
         {
-            return Loader.CreateInstance<WidgetBase>(this.AssemblyName, this.ViewModelTypeName);
+            return Activator.CreateInstance(this.AssemblyName, this.ViewModelTypeName).Unwrap() as WidgetBase;
         }
         public Type GetViewModelType()
         {
-            return Loader.GetType(this.ViewModelTypeName);
+            StaticCache cache = new StaticCache();
+            return cache.Get("TypeCache_" + this.ViewModelTypeName, m =>
+            {
+                Type type = null;
+                AppDomain.CurrentDomain.GetAssemblies().Each(n => n.GetTypes().Each(t =>
+                {
+                    if (type == null && t.FullName == this.ViewModelTypeName)
+                    {
+                        type = t;
+                    }
+                }));
+                return type;
+            });
         }
         public Type GetServiceType()
         {
-            return Loader.GetType(this.ServiceTypeName);
+            StaticCache cache = new StaticCache();
+            return cache.Get("TypeCache_" + this.ServiceTypeName, m =>
+            {
+                Type type = null;
+                AppDomain.CurrentDomain.GetAssemblies().Each(n => n.GetTypes().Each(t =>
+                {
+                    if (type == null && t.FullName == this.ServiceTypeName)
+                    {
+                        type = t;
+                    }
+                }));
+                return type;
+            });
         }
         public WidgetBase ToWidgetBase()
         {

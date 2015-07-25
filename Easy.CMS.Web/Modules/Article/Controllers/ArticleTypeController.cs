@@ -13,6 +13,10 @@ namespace Easy.CMS.Article.Controllers
     [AdminTheme]
     public class ArticleTypeController : BasicController<ArticleType, ArticleTypeService>
     {
+        public ArticleTypeController() : base(new ArticleTypeService())
+        {
+        }
+
         public JsonResult GetArticleTypeTree()
         {
             var pages = Service.Get(new Data.DataFilter());

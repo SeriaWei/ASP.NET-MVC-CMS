@@ -15,9 +15,13 @@ using Easy.Web.CMS.Widget;
 
 namespace Easy.CMS.Common.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class LayoutController : BasicController<LayoutEntity, LayoutService>
     {
+        public LayoutController() : base(new LayoutService())
+        {
+            
+        }
         [AdminTheme]
         public override ActionResult Index(ParamsContext context)
         {
@@ -51,7 +55,7 @@ namespace Easy.CMS.Common.Controllers
         public override ActionResult Create(LayoutEntity entity)
         {
             base.Create(entity);
-            return RedirectToAction("Design", new ParamsContext {ID = entity.ID});
+            return RedirectToAction("Design", new ParamsContext { ID = entity.ID });
         }
         [AdminTheme]
         public override ActionResult Edit(ParamsContext context)

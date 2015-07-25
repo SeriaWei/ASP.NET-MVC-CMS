@@ -15,6 +15,10 @@ namespace Easy.CMS.Article.Controllers
     [AdminTheme]
     public class ArticleController : BasicController<ArticleEntity, ArticleService>
     {
+        public ArticleController() : base(new ArticleService())
+        {
+        }
+
         [ViewData_ArticleType]
         public override ActionResult Index(ParamsContext context)
         {
