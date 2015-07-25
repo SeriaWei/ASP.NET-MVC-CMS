@@ -15,7 +15,6 @@ namespace Easy.IOC
         public UnityRegister(IUnityContainer container)
         {
             _container = container;
-            List<Type> adapterServiceTypes = new List<Type>();
             AppDomain.CurrentDomain.GetAssemblies().Each(m => m.GetTypes().Each(p =>
             {
                 if (p.IsClass && !p.IsAbstract && !p.IsInterface && !p.IsGenericType)
@@ -24,26 +23,21 @@ namespace Easy.IOC
                         _adapterRepositoryType.IsAssignableFrom(p) ||
                         _entityType.IsAssignableFrom(p))
                     {
-                        adapterServiceTypes.Add(p);
+                        if (_entityType.IsAssignableFrom(p))
+                        {
+                            _container.RegisterType(p);
+                        }
+                        else
+                        {
+                            foreach (var inter in p.GetInterfaces())
+                            {
+                                _container.RegisterType(inter, p, p.FullName);
+                            }
+                        }
                     }
 
                 }
             }));
-            foreach (var type in adapterServiceTypes)
-            {
-                if (_entityType.IsAssignableFrom(type))
-                {
-                    _container.RegisterType(type);
-                }
-                else
-                {
-                    foreach (var inter in type.GetInterfaces())
-                    {
-                        _container.RegisterType(inter, type, type.FullName);
-                    }
-                }
-
-            }
         }
 
         public void Regist()

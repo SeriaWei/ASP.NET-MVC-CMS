@@ -27,23 +27,18 @@ namespace Easy.IOC
                         _adapterRepositoryType.IsAssignableFrom(p) ||
                         _entityType.IsAssignableFrom(p))
                     {
-                        adapterServiceTypes.Add(p);
+                        if (_entityType.IsAssignableFrom(p))
+                        {
+                            builder.RegisterType(p);
+                        }
+                        else
+                        {
+                            builder.RegisterType(p).As(p.GetInterfaces());
+                        }
                     }
 
                 }
             }));
-            foreach (var type in adapterServiceTypes)
-            {
-                if (_entityType.IsAssignableFrom(type))
-                {
-                    builder.RegisterType(type);
-                }
-                else
-                {
-                    builder.RegisterType(type).As(type.GetInterfaces());
-                }
-
-            }
         }
         public void Regist(IContainer container)
         {
