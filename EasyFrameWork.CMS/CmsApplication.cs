@@ -5,11 +5,12 @@ using System.Reflection;
 using System.Web.Compilation;
 using System.Web.Mvc;
 using System.Web.Routing;
-using Easy.Extend;
+using Easy.Web.Application;
 using Easy.Web.CMS.ModelBinder;
 using Easy.Web.CMS.Widget;
 using Easy.Web.Route;
 using Easy.Web.ViewEngine;
+using Easy.Extend;
 
 namespace Easy.Web.CMS
 {
