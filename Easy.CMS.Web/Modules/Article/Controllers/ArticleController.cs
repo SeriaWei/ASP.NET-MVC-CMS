@@ -12,7 +12,7 @@ using Easy.Web.Attribute;
 
 namespace Easy.CMS.Article.Controllers
 {
-    [AdminTheme]
+    [AdminTheme, Authorize]
     public class ArticleController : BasicController<ArticleEntity, ArticleService>
     {
         public ArticleController() : base(new ArticleService())

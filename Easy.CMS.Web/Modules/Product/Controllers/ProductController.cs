@@ -11,7 +11,7 @@ using Easy.Constant;
 
 namespace Easy.CMS.Product.Controllers
 {
-    [AdminTheme]
+    [AdminTheme, Authorize]
     public class ProductController : BasicController<Models.Product, ProductService>
     {
         public ProductController() : base(new ProductService())

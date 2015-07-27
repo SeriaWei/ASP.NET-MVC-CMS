@@ -12,12 +12,13 @@ using Easy.Extend;
 
 namespace Easy.CMS.Common.Controllers
 {
-    [AdminTheme]
+    [AdminTheme, Authorize]
     public class NavigationController : BasicController<NavigationEntity, NavigationService>
     {
-        public NavigationController() : base(new NavigationService())
+        public NavigationController()
+            : base(new NavigationService())
         {
-            
+
         }
         public override ActionResult Index(ParamsContext context)
         {

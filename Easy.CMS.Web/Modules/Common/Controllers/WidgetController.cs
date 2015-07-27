@@ -15,7 +15,7 @@ using Easy.Web.CMS.Widget;
 
 namespace Easy.CMS.Common.Controllers
 {
-    [AdminTheme]
+    [AdminTheme, Authorize]
     public class WidgetController : Controller
     {
         [ViewData_Zones]

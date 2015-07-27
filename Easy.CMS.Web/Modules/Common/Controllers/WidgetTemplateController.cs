@@ -11,7 +11,7 @@ using Easy.Web.Attribute;
 
 namespace Easy.CMS.Common.Controllers
 {
-    [AdminTheme]
+    [AdminTheme, Authorize]
     public class WidgetTemplateController : BasicController<WidgetTemplateEntity, WidgetTemplateService>
     {
         public WidgetTemplateController() : base(new WidgetTemplateService())

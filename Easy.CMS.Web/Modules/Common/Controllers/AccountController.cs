@@ -25,7 +25,7 @@ namespace Easy.CMS.Common.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult Login(string userName, string password)
+        public ActionResult Login(string userName, string password, string ReturnUrl)
         {
             _userService.Login(userName, password);
             FormsAuthentication.SetAuthCookie(userName, true);

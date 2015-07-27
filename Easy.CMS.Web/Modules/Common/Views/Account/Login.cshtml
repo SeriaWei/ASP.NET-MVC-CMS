@@ -1,0 +1,34 @@
+﻿@{
+    ViewBag.Title = "Login";
+}
+<style>
+    .input-group {
+        margin: 10px 30px;
+    }
+</style>
+@using (Html.BeginForm())
+{
+    <div class="panel panel-default" style="margin: 100px auto auto auto; width: 500px;">
+        <div class="panel-heading">
+            <i class="glyphicon glyphicon-user"></i>
+            登录
+        </div>
+        <div class="panel-body">
+            <div class="input-group">
+                <span class="input-group-addon">用户名</span>
+                <input type="text" name="userName" class="form-control" />
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon">密码</span>
+                <input type="password" name="password" class="form-control" />
+            </div>
+        </div>
+        <div class="panel-footer clearfix">
+            <div class="pull-right">
+                <input type="submit" class="btn btn-sm btn-primary" value="登录" />
+            </div>
+
+        </div>
+    </div>
+}
+

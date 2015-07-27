@@ -1,4 +1,5 @@
-﻿using Easy.Web.CMS;
+﻿using System.Web.Mvc;
+using Easy.Web.CMS;
 
 namespace Easy.CMS.Web
 {
@@ -17,7 +18,7 @@ namespace Easy.CMS.Web
             //FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             //BundleConfig.RegisterBundles(BundleTable.Bundles);
             //AuthConfig.RegisterAuth();
-
+            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             var reMan = new ResourceManager();
             reMan.InitScript();
             reMan.InitStyle();

@@ -7,6 +7,7 @@ using Easy.CMS.Section.Service;
 
 namespace Easy.CMS.Section.Controllers
 {
+    [Authorize]
     public class SectionWidgetController : Controller
     {
         //

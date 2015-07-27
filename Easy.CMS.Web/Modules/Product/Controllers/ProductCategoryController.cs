@@ -10,7 +10,7 @@ using Easy.Web.Attribute;
 
 namespace Easy.CMS.Product.Controllers
 {
-    [AdminTheme]
+    [AdminTheme, Authorize]
     public class ProductCategoryController : BasicController<ProductCategory, ProductCategoryService>
     {
         public ProductCategoryController() : base(new ProductCategoryService())

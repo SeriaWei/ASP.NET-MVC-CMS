@@ -164,8 +164,11 @@
     <Content Include="Views\Carousel\Edit.cshtml" />
     <Content Include="Views\Widget.Carousel.cshtml" />
     <Content Include="Views\Widget.Image.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Shared\_LayoutNormal.cshtml" />
     <None Include="Views\Widget.Carousel.IE.cshtml" />
     <Content Include="web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>

@@ -11,7 +11,7 @@ using Easy.Web.Attribute;
 
 namespace Easy.CMS.Section.Controllers
 {
-    [PopUp]
+    [PopUp, Authorize]
     public class SectionContentCallToActionController : Controller
     {
         //

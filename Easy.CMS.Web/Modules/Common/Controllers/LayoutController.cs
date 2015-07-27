@@ -15,7 +15,7 @@ using Easy.Web.CMS.Widget;
 
 namespace Easy.CMS.Common.Controllers
 {
-    //[Authorize]
+    [Authorize]
     public class LayoutController : BasicController<LayoutEntity, LayoutService>
     {
         public LayoutController() : base(new LayoutService())
