@@ -12,9 +12,10 @@ using Easy.Web.Attribute;
 namespace Easy.CMS.Common.Controllers
 {
     [AdminTheme, Authorize]
-    public class WidgetTemplateController : BasicController<WidgetTemplateEntity, WidgetTemplateService>
+    public class WidgetTemplateController : BasicController<WidgetTemplateEntity, long, WidgetTemplateService>
     {
-        public WidgetTemplateController() : base(new WidgetTemplateService())
+        public WidgetTemplateController()
+            : base(new WidgetTemplateService())
         {
         }
 

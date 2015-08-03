@@ -73,12 +73,12 @@ namespace Easy.Web.CMS.Layout
         }
         public override bool Update(LayoutEntity item, Data.DataFilter filter)
         {
-            new Signal().Trigger(LayoutChanged);
+            Signal.Trigger(LayoutChanged);
             return base.Update(item, filter);
         }
         public override bool Update(LayoutEntity item, params object[] primaryKeys)
         {
-            new Signal().Trigger(LayoutChanged);
+            Signal.Trigger(LayoutChanged);
             return base.Update(item, primaryKeys);
         }
         public override LayoutEntity Get(params object[] primaryKeys)
@@ -123,7 +123,7 @@ namespace Easy.Web.CMS.Layout
                 });
 
             }
-            new Signal().Trigger(LayoutChanged);
+            Signal.Trigger(LayoutChanged);
             return base.Delete(filter);
         }
         public override int Delete(params object[] primaryKeys)
@@ -145,7 +145,7 @@ namespace Easy.Web.CMS.Layout
             {
                 m.CreateServiceInstance().DeleteWidget(m.ID);
             });
-            new Signal().Trigger(LayoutChanged);
+            Signal.Trigger(LayoutChanged);
             return base.Delete(primaryKeys);
         }
     }

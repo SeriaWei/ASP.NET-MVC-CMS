@@ -11,6 +11,8 @@ using Easy.Web.CMS.Widget;
 using Easy.Web.Route;
 using Easy.Web.ViewEngine;
 using Easy.Extend;
+using Easy.Modules.DataDictionary;
+using Easy.Modules.User.Service;
 
 namespace Easy.Web.CMS
 {
@@ -19,7 +21,7 @@ namespace Easy.Web.CMS
 
         public override void Application_StartUp()
         {
-            
+
             ViewEngines.Engines.Clear();
             ViewEngines.Engines.Add(new PlugViewEngine());
 
@@ -43,6 +45,9 @@ namespace Easy.Web.CMS
             }));
             RouteTable.Routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
             routes.OrderByDescending(m => m.Priority).Each(m => RouteTable.Routes.MapRoute(m.RouteName, m.Url, m.Defaults, m.Constraints, m.Namespaces));
+
+            ContainerAdapter.RegisterType<IUserService, UserService>();
+            ContainerAdapter.RegisterType<IDataDictionaryService, DataDictionaryService>();
 
             DisplayViewSupport.SupportMobileView();
             DisplayViewSupport.SupportIEView();

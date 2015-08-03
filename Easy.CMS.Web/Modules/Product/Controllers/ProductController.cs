@@ -12,22 +12,23 @@ using Easy.Constant;
 namespace Easy.CMS.Product.Controllers
 {
     [AdminTheme, Authorize]
-    public class ProductController : BasicController<Models.Product, ProductService>
+    public class ProductController : BasicController<Models.Product, long, ProductService>
     {
-        public ProductController() : base(new ProductService())
+        public ProductController()
+            : base(new ProductService())
         {
         }
 
         [ViewData_ProductCategory]
-        public override ActionResult Index(ParamsContext context)
+        public override ActionResult Index()
         {
-            return base.Index(context);
+            return base.Index();
         }
 
         [ViewData_ProductCategory]
-        public override ActionResult Create(ParamsContext context)
+        public override ActionResult Create()
         {
-            return base.Create(context);
+            return base.Create();
         }
         [HttpPost, ViewData_ProductCategory]
         public override ActionResult Create(Models.Product entity)
@@ -35,9 +36,9 @@ namespace Easy.CMS.Product.Controllers
             return base.Create(entity);
         }
         [ViewData_ProductCategory]
-        public override ActionResult Edit(ParamsContext context)
+        public override ActionResult Edit(long Id)
         {
-            return base.Edit(context);
+            return base.Edit(Id);
         }
         [HttpPost, ViewData_ProductCategory]
         public override ActionResult Edit(Models.Product entity)

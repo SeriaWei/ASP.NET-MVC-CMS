@@ -16,14 +16,15 @@ using Easy.Web.CMS.Widget;
 namespace Easy.CMS.Common.Controllers
 {
     [Authorize]
-    public class LayoutController : BasicController<LayoutEntity, LayoutService>
+    public class LayoutController : BasicController<LayoutEntity, string, LayoutService>
     {
-        public LayoutController() : base(new LayoutService())
+        public LayoutController()
+            : base(new LayoutService())
         {
-            
+
         }
         [AdminTheme]
-        public override ActionResult Index(ParamsContext context)
+        public override ActionResult Index()
         {
             return View(Service.Get(new DataFilter()));
         }
@@ -47,7 +48,7 @@ namespace Easy.CMS.Common.Controllers
             return View(viewModel);
         }
         [AdminTheme]
-        public override ActionResult Create(ParamsContext context)
+        public override ActionResult Create()
         {
             return View(new LayoutEntity { ImageUrl = LayoutEntity.DefaultThumbnial, ImageThumbUrl = LayoutEntity.DefaultThumbnial });
         }
@@ -55,12 +56,12 @@ namespace Easy.CMS.Common.Controllers
         public override ActionResult Create(LayoutEntity entity)
         {
             base.Create(entity);
-            return RedirectToAction("Design", new ParamsContext { ID = entity.ID });
+            return RedirectToAction("Design", new { entity.ID });
         }
         [AdminTheme]
-        public override ActionResult Edit(ParamsContext context)
+        public override ActionResult Edit(string ID)
         {
-            return base.Edit(context);
+            return base.Edit(ID);
         }
         [AdminTheme]
         [HttpPost]
@@ -72,12 +73,12 @@ namespace Easy.CMS.Common.Controllers
             }
             return base.Edit(entity);
         }
-        public ActionResult Design(ParamsContext context)
+        public ActionResult Design(string ID)
         {
             LayoutEntity layout = null;
-            if (!context.ID.IsNullOrEmpty())
+            if (!ID.IsNullOrEmpty())
             {
-                layout = new LayoutService().Get(context.ID);
+                layout = new LayoutService().Get(ID);
             }
             return View(layout ?? new LayoutEntity());
         }
@@ -86,7 +87,7 @@ namespace Easy.CMS.Common.Controllers
         public ActionResult SaveLayout(string[] html, LayoutEntity layout)
         {
             LayoutHtmlCollection htmls;
-            var zones = Easy.Web.CMS.Zone.Helper.GetZones(html, out htmls);
+            var zones = Helper.GetZones(html, out htmls);
             layout.Zones = zones;
             layout.Html = htmls;
             Service.UpdateDesign(layout);

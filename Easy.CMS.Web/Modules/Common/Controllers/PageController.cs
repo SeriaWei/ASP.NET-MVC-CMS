@@ -18,41 +18,46 @@ using Easy.Web.CMS.Layout;
 
 namespace Easy.CMS.Common.Controllers
 {
-    public class PageController : BasicController<PageEntity, PageService>
+    public class PageController : BasicController<PageEntity, string, PageService>
     {
         public PageController()
             : base(new PageService())
         {
 
         }
-        [Widget]
-        [OutputCache(CacheProfile = "Page")]
+        [Widget, OutputCache(CacheProfile = "Page")]
         public ActionResult PreView()
         {
             return View();
         }
         [AdminTheme, Authorize]
-        public override ActionResult Index(ParamsContext context)
+        public override ActionResult Index()
         {
-            return base.Index(context);
+            return base.Index();
         }
 
-        public JsonResult GetPageTree(ParamsContext context)
+        public JsonResult GetPageTree()
         {
             var pages = Service.Get(new DataFilter().OrderBy("DisplayOrder", OrderType.Ascending));
             var node = new Easy.HTML.jsTree.Tree<PageEntity>().Source(pages).ToNode(m => m.ID, m => m.PageName, m => m.ParentId, "#");
             return Json(node, JsonRequestBehavior.AllowGet);
         }
+        [NonAction]
+        public override ActionResult Create()
+        {
+            return base.Create();
+        }
+
         [AdminTheme, ViewData_Layouts, Authorize]
-        public override ActionResult Create(ParamsContext context)
+        public ActionResult Create(string ParentID)
         {
             var page = new PageEntity
             {
-                ParentId = context.ParentID,
-                DisplayOrder = Service.Get("ParentID", OperatorType.Equal, context.ParentID).Count() + 1,
+                ParentId = ParentID,
+                DisplayOrder = Service.Get("ParentID", OperatorType.Equal, ParentID).Count() + 1,
                 Url = "~/"
             };
-            var parentPage = Service.Get(context.ParentID);
+            var parentPage = Service.Get(ParentID);
             if (parentPage != null)
             {
                 page.Url = parentPage.Url;
@@ -71,9 +76,9 @@ namespace Easy.CMS.Common.Controllers
             return RedirectToAction("Design", new { ID = entity.ID });
         }
         [AdminTheme, ViewData_Layouts, Authorize]
-        public override ActionResult Edit(ParamsContext context)
+        public override ActionResult Edit(string Id)
         {
-            return base.Edit(context);
+            return base.Edit(Id);
         }
         [AdminTheme, ViewData_Layouts, Authorize]
         [HttpPost]
@@ -101,9 +106,9 @@ namespace Easy.CMS.Common.Controllers
             return View();
         }
         [Authorize]
-        public ActionResult RedirectView(ParamsContext context)
+        public ActionResult RedirectView(string Id)
         {
-            return Redirect(Service.Get(context.ID).Url + "?ViewType=Review");
+            return Redirect(Service.Get(Id).Url + "?ViewType=Review");
         }
         [PopUp, Authorize]
         public ActionResult Select()

@@ -13,22 +13,23 @@ using Easy.Web.Attribute;
 namespace Easy.CMS.Article.Controllers
 {
     [AdminTheme, Authorize]
-    public class ArticleController : BasicController<ArticleEntity, ArticleService>
+    public class ArticleController : BasicController<ArticleEntity, long, ArticleService>
     {
-        public ArticleController() : base(new ArticleService())
+        public ArticleController()
+            : base(new ArticleService())
         {
         }
 
         [ViewData_ArticleType]
-        public override ActionResult Index(ParamsContext context)
+        public override ActionResult Index()
         {
-            return base.Index(context);
+            return base.Index();
         }
 
         [ViewData_ArticleType]
-        public override ActionResult Create(ParamsContext context)
+        public override ActionResult Create()
         {
-            return base.Create(context);
+            return base.Create();
         }
         [HttpPost, ViewData_ArticleType]
         public override ActionResult Create(ArticleEntity entity)
@@ -36,9 +37,9 @@ namespace Easy.CMS.Article.Controllers
             return base.Create(entity);
         }
         [ViewData_ArticleType]
-        public override ActionResult Edit(ParamsContext context)
+        public override ActionResult Edit(long Id)
         {
-            return base.Edit(context);
+            return base.Edit(Id);
         }
         [HttpPost, ViewData_ArticleType]
         public override ActionResult Edit(ArticleEntity entity)

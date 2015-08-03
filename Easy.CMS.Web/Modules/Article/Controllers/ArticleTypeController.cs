@@ -11,9 +11,10 @@ using Easy.Web.Attribute;
 namespace Easy.CMS.Article.Controllers
 {
     [AdminTheme, Authorize]
-    public class ArticleTypeController : BasicController<ArticleType, ArticleTypeService>
+    public class ArticleTypeController : BasicController<ArticleType, long, ArticleTypeService>
     {
-        public ArticleTypeController() : base(new ArticleTypeService())
+        public ArticleTypeController()
+            : base(new ArticleTypeService())
         {
         }
 
