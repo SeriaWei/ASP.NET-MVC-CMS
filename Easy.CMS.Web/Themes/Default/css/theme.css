@@ -7,7 +7,7 @@ body {
   padding: 0;
   font: 14px/1.5 Tahoma, Geneva, '\5fae\8f6f\96c5\9ed1', '\5B8B\4F53';
   color: #444444;
-  background: url("data:image/gif;base64,R0lGODlhFQAVAIAAAN/f3/Dv7yH5BAAAAAAALAAAAAAVABUAAAIsDGJ4yXuuYpOo2oslnHN7nYXix0HkKaYXWrbuoqrsN4OxbKM1d4/5v9v0MgUAOw==");
+  background: url("../Images/bg.gif");
 }
 img {
   max-width: 100%;
@@ -84,7 +84,17 @@ img {
 }
 .section {
   margin: 10px;
+  padding: 10px 10px 0 10px;
   font-size: 13px;
+  border: 1px solid #eee;
+}
+.section h4 {
+  margin: 0 -5px 10px;
+  padding: 0 5px 10px;
+  border-bottom: 2px solid #5bc0de;
+}
+.section h5 {
+  margin: 0 0 10px;
 }
 .navigation .navbar {
   margin-bottom: 10px;

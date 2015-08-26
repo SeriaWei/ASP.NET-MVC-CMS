@@ -128,3 +128,13 @@
   height: 4px;
   background: #45aed6;
 }
+.carousel-content {
+    position: absolute;
+    bottom:10px;
+    text-align: center;
+    font-size: 20px;
+    width:100%;
+}
+.carousel-content a {
+    color: #FFF;
+}

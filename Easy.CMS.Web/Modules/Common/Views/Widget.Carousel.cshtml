@@ -1,4 +1,6 @@
-﻿@using Easy.CMS.Common.Models
+﻿@using System
+@using System.Linq
+@using Easy.CMS.Common.Models
 @model CarouselEntity
 @{
     if (Model.CarouselItems == null)
@@ -8,26 +10,17 @@
     Style.Reqiured("OWL.Carousel").AtHead();
     Script.Reqiured("OWL.Carousel").AtFoot();
     var carouselItems = Model.CarouselItems.ToList();
-    string carouselId = Guid.NewGuid().ToString("N");
 }
 
-<div id="Carousel_@carouselId" class="owl-carousel hidden-xs">
+<div class="owl-carousel hidden-xs">
     @foreach (CarouselItemEntity item in carouselItems)
     {
         <div class="item" style="background-image: url('@item.ImageUrl');height:@(Model.Height??100)px">
             <div class="slider-inner">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <div class="carousel-content">
-                                <h2>
-                                    <a href="@item.TargetLink" target="_blank">
-                                        @item.Title
-                                    </a>
-                                </h2>
-                            </div>
-                        </div>
-                    </div>
+                <div class="carousel-content">
+                    <a href="@Url.Content(item.TargetLink.IsNullOrEmpty() ? "~/" : item.TargetLink)" target="_blank">
+                        @item.Title
+                    </a>
                 </div>
             </div>
         </div>
