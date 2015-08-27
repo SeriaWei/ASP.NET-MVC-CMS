@@ -1,4 +1,5 @@
 ﻿@using Easy.CMS.Section.Models
+@using Easy.Web.CMS
 @model SectionContentCallToAction
 <li class="list-group-item clearfix" data-id="@Model.ID">
     <div class="icon-left">
@@ -11,7 +12,7 @@
             </a>
         </div>
         <div class="pull-left">
-            <a href="@Url.Content(Model.Href??"~/")">
+            <a href="@Url.PathContent(Model.Href)">
                 @Model.InnerText
             </a>
         </div>

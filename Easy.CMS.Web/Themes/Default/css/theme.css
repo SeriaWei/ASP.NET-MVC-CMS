@@ -46,9 +46,6 @@ img {
 .bs-callout-danger h5 {
   color: #f0ad4e;
 }
-.bs-callout-danger h6 {
-  color: #f0ad4e;
-}
 .bs-callout-warning {
   border-left-color: #f0ad4e;
 }
@@ -58,9 +55,6 @@ img {
 .bs-callout-warning h5 {
   color: #5bc0de;
 }
-.bs-callout-warning h6 {
-  color: #5bc0de;
-}
 .bs-callout-info {
   border-left-color: #5bc0de;
 }
@@ -68,9 +62,6 @@ img {
   color: #5bc0de;
 }
 .bs-callout-info h5 {
-  color: #d9534f;
-}
-.bs-callout-info h6 {
   color: #d9534f;
 }
 .list-group {
@@ -84,17 +75,20 @@ img {
 }
 .section {
   margin: 10px;
-  padding: 10px 10px 0 10px;
+  padding: 10px 10px 5px 10px;
   font-size: 13px;
   border: 1px solid #eee;
 }
 .section h4 {
-  margin: 0 -5px 10px;
+  margin: 0 -5px 8px;
   padding: 0 5px 10px;
   border-bottom: 2px solid #5bc0de;
 }
 .section h5 {
   margin: 0 0 10px;
+}
+.section p {
+  margin: 0 0 5px;
 }
 .navigation .navbar {
   margin-bottom: 10px;

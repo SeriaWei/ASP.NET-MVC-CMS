@@ -2,13 +2,14 @@
 @using Easy.CMS.Section.Models
 @model SectionWidget
 <div class="section">
-    <h4>@Model.SectionTitle</h4>
+    @if (Model.SectionTitle.IsNotNullAndWhiteSpace())
+    {
+        <h4>@Model.SectionTitle</h4>
+    }
     @foreach (SectionGroup group in Model.Groups.OrderBy(m => m.Order))
     {
         <div class="section-group">
-            @{
-        Html.RenderPartial(group.PartialView, group);
-            }
+            @Html.Partial(group.PartialView, group)
         </div>
     }
 </div>

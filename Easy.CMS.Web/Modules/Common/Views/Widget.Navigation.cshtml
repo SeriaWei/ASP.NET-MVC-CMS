@@ -1,4 +1,5 @@
 ﻿@using Easy.CMS.Common.Models
+@using Easy.Web.CMS
 @{
     NavigationEntity homePage = Model.Navigations.Where(m => m.ParentId == "#").FirstOrDefault();
     string currentPath = Request.Path;
@@ -27,8 +28,9 @@
                 }
                 else
                 {
-                    <li class="@(currentPath.StartsWith(child.Url) ? "active" : "")">
-                        <a href="@child.Url">@child.Title</a>
+                    var path = Url.PathContent(child.Url);
+                    <li class="@(currentPath.StartsWith(path) ? "active" : "")">
+                        <a href="@path">@child.Title</a>
                     </li>
                 }
             }
@@ -71,8 +73,9 @@
                     }
                     else
                     {
-                        <li class="@(currentPath.StartsWith(item.Url) || (currentPath == "/" && index==0) ? "active" : "")">
-                            <a href="@item.Url">@item.Title</a>
+                        var path = Url.PathContent(item.Url);
+                        <li class="@(currentPath.StartsWith(path) || (currentPath == "/" && index == 0) ? "active" : "")">
+                            <a href="@path">@item.Title</a>
                         </li>
                     }
                     index++;
