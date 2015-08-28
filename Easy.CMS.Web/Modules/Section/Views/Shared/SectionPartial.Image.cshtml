@@ -1,5 +1,18 @@
 ﻿@using Easy.CMS.Section.Models
+@using Easy.Web.CMS
 @model SectionContentImage
+
 <p>
-    <img src="@Url.Content(Model.ImageSrc)"/>
+    @if (Model.Href.IsNullOrEmpty())
+    {
+        <a href="@Url.PathContent(Model.Href)" target="_blank">
+            <img src="@Url.Content(Model.ImageSrc)" alt="@Model.ImageAlt" title="@Model.ImageTitle" />
+        </a>
+
+    }
+    else
+    {
+        <img src="@Url.Content(Model.ImageSrc)" alt="@Model.ImageAlt" title="@Model.ImageTitle" />
+    }
 </p>
+

@@ -1,4 +1,5 @@
 ﻿@using Easy.CMS.Section.Models
+@using Easy.Web.CMS
 @model SectionContentTitle
 
 @if (Model.Href.IsNullOrEmpty())
@@ -9,9 +10,7 @@
 }
 else
 {
-    <a href="@Url.Content(Model.Href)">
-        <h5>
-            @Model.InnerText
-        </h5>
-    </a>
+    <h5>
+        @Html.SmartLink(Url.Content(Model.Href), Model.InnerText)
+    </h5>
 }

@@ -90,6 +90,9 @@ img {
 .section p {
   margin: 0 0 5px;
 }
+.html-widget {
+  margin: 10px;
+}
 .navigation .navbar {
   margin-bottom: 10px;
   border-radius: 0;
@@ -125,6 +128,17 @@ img {
     display: none;
   }
 }
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .active > a {
+  background-image: -webkit-linear-gradient(top, #5bc0de 0%, #7ecae0 100%);
+  background-image: -o-linear-gradient(top, #5bc0de 0%, #7ecae0 100%);
+  background-image: linear-gradient(to bottom, #5bc0de 0%, #7ecae0 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff5BC0DE', endColorstr='#ff7ECAE0', GradientType=0);
+  -webkit-box-shadow: inset 0 3px 9px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 3px 9px rgba(0, 0, 0, 0.075);
+  color: #fff;
+}
 .article {
   margin: 10px;
 }
@@ -151,6 +165,7 @@ img {
 }
 .carousel .carousel-inner .item .carousel-caption a {
   color: white;
+  text-shadow: 20px 12px 2px #333;
 }
 .ProductDetail {
   padding: 10px;

@@ -109,6 +109,7 @@
     <Compile Include="Constant.cs" />
     <Compile Include="Filter\EditWidgetAttribute.cs" />
     <Compile Include="Filter\WidgetAttribute.cs" />
+    <Compile Include="HtmlHelperExtend.cs" />
     <Compile Include="Layout\LayoutEntity.cs" />
     <Compile Include="Layout\LayoutHtml.cs" />
     <Compile Include="Layout\LayoutHtmlService.cs" />

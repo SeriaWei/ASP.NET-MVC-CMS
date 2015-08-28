@@ -23,11 +23,8 @@
                 <div class="pull-right">
                     @if (!Model.DetailLink.IsNullOrEmpty())
                     {
-                        <a target="_blank" href="@Url.PathContent(Model.DetailLink)">
-                            More »
-                        </a>
+                        @Html.SmartLink(Url.PathContent(Model.DetailLink), "More »")
                     }
-
                 </div>
             </div>
         }

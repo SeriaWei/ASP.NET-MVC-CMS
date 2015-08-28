@@ -170,7 +170,7 @@
     <Content Include="Views\SectionWidgetForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Shared\SectionPartial.Edit.Title.cshtml" />
+    <Content Include="Views\Shared\SectionPartial.Title.Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\SectionGroup.Edit.cshtml" />
@@ -191,13 +191,13 @@
     <Content Include="Views\SectionContentParagraph\Form.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Shared\SectionPartial.Edit.Paragraph.cshtml" />
+    <Content Include="Views\Shared\SectionPartial.Paragraph.Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Shared\SectionPartial.Edit.CallToAction.cshtml" />
+    <Content Include="Views\Shared\SectionPartial.CallToAction.Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Shared\SectionPartial.Edit.Image.cshtml" />
+    <Content Include="Views\Shared\SectionPartial.Image.Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\SectionTemplate.Default.cshtml" />

@@ -12,5 +12,6 @@
 }
 .carousel .carousel-inner .item .carousel-caption a {
   color: white;
+  text-shadow: 20px 12px 2px #333;
 }
 /*# sourceMappingURL=Carousel.css.map */

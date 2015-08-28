@@ -1,6 +1,8 @@
 ﻿@using Easy.CMS.Section.Models
 @using Easy.Web.CMS
 @model SectionContentCallToAction
+
 <p>
-    <a href="@Url.PathContent(Model.Href)">@Model.InnerText</a>
+    @Html.SmartLink(Url.PathContent(Model.Href), Model.InnerText)    
 </p>
+

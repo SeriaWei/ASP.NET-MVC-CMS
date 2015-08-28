@@ -304,6 +304,17 @@ body {
 .icon-left .icon {
     margin-left: -40px;
 }
+#section-groups {
+    padding: 10px 10px 0 10px;
+}
 #section-groups img {
     max-width:300px;
+}
+#section-groups .panel {
+    margin-bottom: 10px;
+}
+#section-groups .edit-pragraph {
+    max-height: 300px;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
