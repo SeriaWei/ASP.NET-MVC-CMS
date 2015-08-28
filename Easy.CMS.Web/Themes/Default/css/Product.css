@@ -1,10 +1,16 @@
 ﻿.ProductDetail {
-  padding: 10px;
+  margin: 10px;
+}
+.ProductList {
+  margin: 10px 0;
 }
 .ProductList .thumbnail > img {
   width: 100%;
 }
+.ProductList .pagination {
+  margin: 10px 0;
+}
 .ProductCategory {
-  padding: 10px;
+  margin: 10px;
 }
 /*# sourceMappingURL=Product.css.map */

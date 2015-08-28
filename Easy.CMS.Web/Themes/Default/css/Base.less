@@ -9,15 +9,17 @@ body {
     margin: 0;
     padding: 0;
     font: @fontSize/1.5 @fontFamaily;
-    color: @textColor;
+    color: @color-text;
     background: url("../Images/bg.gif");
 }
-img{
-    max-width:100%;
+
+img {
+    max-width: 100%;
 }
+
 #container {
     background-color: white;
-    border: 1px solid @borderColor;
+    border: 1px solid @color-border;
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 5px rgba(0, 0, 0, 0.075);
 }
 
@@ -31,52 +33,57 @@ img{
 .bs-callout {
     padding: 10px;
     margin: 0;
-    border: 1px solid #eee;
+    border: 1px solid @color-border;
     border-left-width: 5px;
     border-radius: 3px;
 }
 
-.bs-callout h4 {
-    margin-top: 0;
-    margin-bottom: 5px;
-}
+    .bs-callout h4 {
+        margin-top: 0;
+        margin-bottom: 5px;
+        color: @color-text;
+    }
 
-.bs-callout p {
-    margin: 0;
-}
+    .bs-callout h5 {
+        color: @color-text-description;
+    }
+
+    .bs-callout p {
+        margin: 0;
+    }
 
 .bs-callout-danger {
-    border-left-color: #d9534f;
+    border-left-color: @color-danger;
 }
 
-.bs-callout-danger h4 {
-    color: #d9534f;
-}
-.bs-callout-danger h5 {
-    color: #f0ad4e;
-}
+    .bs-callout-danger h4 {
+        color: @color-danger;
+    }
 
 .bs-callout-warning {
-    border-left-color: #f0ad4e;
+    border-left-color: @color-warning;
 }
 
-.bs-callout-warning h4 {
-    color: #f0ad4e;
-}
+    .bs-callout-warning h4 {
+        color: @color-warning;
+    }
 
-.bs-callout-warning h5 {
-    color: #5bc0de;
-}
 .bs-callout-info {
-    border-left-color: #5bc0de;
+    border-left-color: @color-info;
 }
 
-.bs-callout-info h4 {
-    color: #5bc0de;
+    .bs-callout-info h4 {
+        color: @color-info;
+    }
+
+.bs-callout-success {
+    border-left-color: @color-success;
 }
-.bs-callout-info h5 {
-    color: #d9534f;
-}
+
+    .bs-callout-success h4 {
+        color: @color-success;
+    }
+
 
 .list-group {
     margin-bottom: 0;
@@ -89,23 +96,39 @@ img{
         margin: 5px 0 5px;
     }
 }
-.section{
-    margin:10px;
-    padding:10px 10px 5px 10px;
-    font-size:13px;
-    border: 1px solid #eee;
-    h4{
-        margin:0 -5px 8px;
-        padding:0 5px 10px;
-        border-bottom:2px solid #5bc0de;
+
+.section {
+    margin: 10px;
+    padding: 10px 10px 5px 10px;
+    font-size: 13px;
+    border: 1px solid @color-border;
+
+    h4 {
+        margin: 0 -5px 8px;
+        padding: 0 5px 10px;
+        border-bottom: 2px solid @color-main;
     }
-    h5{
-        margin:0 0 10px;
+
+    h5 {
+        margin: 0 0 10px;
     }
-    p{
-        margin:0 0 5px;
+
+    p {
+        margin: 0 0 5px;
     }
 }
-.html-widget{
-    margin:10px;
+
+.html-widget {
+    margin: 10px;
+}
+#header{
+    color:@color-main;
+}
+#footer {
+    margin: -10px;
+    text-align: center;
+    border-top: 1px solid @color-border;
+    padding: 10px;
+    background: @color-main;
+    color: #FFF;
 }

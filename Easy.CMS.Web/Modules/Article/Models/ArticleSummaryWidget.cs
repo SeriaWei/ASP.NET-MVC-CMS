@@ -27,9 +27,10 @@ namespace Easy.CMS.Article.Models
                 .DataSource(() =>
                     new Dictionary<string, string> { 
                     { "bs-callout-default", "默认" },
-                    { "bs-callout-danger", "样式 红" }, 
-                    { "bs-callout-warning", "样式 橙" }, 
-                    { "bs-callout-info", "样式 蓝" } 
+                    { "bs-callout-danger", "危险" }, 
+                    { "bs-callout-warning", "警告" }, 
+                    { "bs-callout-info", "信息" } ,
+                    { "bs-callout-success", "成功" } 
             }); ;
             ViewConfig(m => m.DetailLink).AsTextBox().Order(7).AddClass("select").AddProperty("data-url", "/admin/page/select");
             ViewConfig(m => m.Summary).AsMutiLineTextBox().Order(8).AddClass("html");
