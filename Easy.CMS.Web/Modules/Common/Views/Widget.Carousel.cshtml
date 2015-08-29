@@ -1,6 +1,7 @@
 ﻿@using System
 @using System.Linq
 @using Easy.CMS.Common.Models
+@using Easy.Web.CMS
 @model CarouselEntity
 @{
     if (Model.CarouselItems == null)
@@ -12,15 +13,13 @@
     var carouselItems = Model.CarouselItems.ToList();
 }
 
-<div class="owl-carousel hidden-xs">
+<div class="widget owl-carousel">
     @foreach (CarouselItemEntity item in carouselItems)
     {
-        <div class="item" style="background-image: url('@item.ImageUrl');height:@(Model.Height??100)px">
+        <div class="item" style="background-image: url('@Url.PathContent(item.ImageUrl)');height:@(Model.Height??100)px">
             <div class="slider-inner">
                 <div class="carousel-content">
-                    <a href="@Url.Content(item.TargetLink.IsNullOrEmpty() ? "~/" : item.TargetLink)" target="_blank">
-                        @item.Title
-                    </a>
+                    @Html.SmartLink(Url.PathContent(item.TargetLink),item.Title)
                 </div>
             </div>
         </div>

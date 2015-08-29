@@ -5,34 +5,34 @@
         Model.Widget.DetailPageUrl = Url.Content(Model.Widget.DetailPageUrl);
     }
 }
-<div class="article">    
+<div class="widget article-list">
     @if (Model.Articles != null)
     {
         <ul class="media-list">
             @foreach (var item in Model.Articles)
             {
-            <li class="media">
-                <h4>
-                    <a href="@(Model.Widget.DetailPageUrl + "?id=" + item.ID)" target="_blank">
-                        @item.Title
-                    </a>
-                </h4>
-                @if (!item.ImageThumbUrl.IsNullOrEmpty())
-                {
-                    <a class="media-left" href="@(Model.Widget.DetailPageUrl + "?id=" + item.ID)" target="_blank">
-                        <img class="media-object img-thumbnail" src="@item.ImageThumbUrl" alt="@item.Title" data-holder-rendered="true">
-                    </a>
-                }
-                <div class="media-body">
-                    @item.Summary
-                </div>
-            </li>
+                <li class="media">
+                    <h4>
+                        <a href="@(Model.Widget.DetailPageUrl + "?id=" + item.ID)" target="_blank">
+                            @item.Title
+                        </a>
+                    </h4>
+                    @if (!item.ImageThumbUrl.IsNullOrEmpty())
+                    {
+                        <a class="media-left" href="@(Model.Widget.DetailPageUrl + "?id=" + item.ID)" target="_blank">
+                            <img class="media-object img-thumbnail" src="@item.ImageThumbUrl" alt="@item.Title" data-holder-rendered="true">
+                        </a>
+                    }
+                    <div class="media-body">
+                        @item.Summary
+                    </div>
+                </li>
             }
         </ul>
-    <div class="clearfix"></div>
+        <div class="clearfix"></div>
     }
     @if (Model.IsPageable)
     {
         Html.RenderPartial("Partial_Pagination", Model.Pagin);
-    }    
+    }
 </div>

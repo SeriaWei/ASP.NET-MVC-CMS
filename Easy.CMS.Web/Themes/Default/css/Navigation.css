@@ -1,4 +1,7 @@
-﻿.navigation .navbar {
+﻿.navigation {
+  margin: 0;
+}
+.navigation .navbar {
   margin-bottom: 10px;
   border-radius: 0;
   border-left: none;
@@ -68,6 +71,6 @@
   background-color: #3ca1bf;
   -webkit-box-shadow: inset 0 3px 9px rgba(0, 0, 0, 0.075);
   box-shadow: inset 0 3px 9px rgba(0, 0, 0, 0.075);
-  color: #fff;
+  color: #000;
 }
 /*# sourceMappingURL=Navigation.css.map */

@@ -1,7 +1,4 @@
-﻿.ProductDetail {
-  margin: 10px;
-}
-.ProductList {
+﻿.ProductList {
   margin: 10px 0;
 }
 .ProductList .thumbnail > img {
@@ -9,8 +6,5 @@
 }
 .ProductList .pagination {
   margin: 10px 0;
-}
-.ProductCategory {
-  margin: 10px;
 }
 /*# sourceMappingURL=Product.css.map */

@@ -1,13 +1,7 @@
-﻿.article {
-  margin: 10px;
-}
-.article .media .media-left {
+﻿.article-list .media .media-left {
   width: 155px;
 }
-.article .media .media-left .img-thumbnail {
+.article-list .media .media-left .img-thumbnail {
   width: 100%;
-}
-.articleDetail {
-  padding: 10px;
 }
 /*# sourceMappingURL=Article.css.map */

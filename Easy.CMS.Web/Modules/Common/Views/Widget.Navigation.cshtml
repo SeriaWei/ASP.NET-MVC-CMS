@@ -30,14 +30,14 @@
                 {
                     var path = Url.PathContent(child.Url);
                     <li class="@(currentPath.StartsWith(path) ? "active" : "")">
-                        <a href="@path">@child.Title</a>
+                        @Html.SmartLink(path, child.Title)
                     </li>
                 }
             }
         </ul>
     }
 }
-<div class="navigation">
+<div class="widget navigation">
     <div class="navbar navbar-default">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
@@ -75,7 +75,7 @@
                     {
                         var path = Url.PathContent(item.Url);
                         <li class="@(currentPath.StartsWith(path) || (currentPath == "/" && index == 0) ? "active" : "")">
-                            <a href="@path">@item.Title</a>
+                            @Html.SmartLink(path,item.Title)
                         </li>
                     }
                     index++;

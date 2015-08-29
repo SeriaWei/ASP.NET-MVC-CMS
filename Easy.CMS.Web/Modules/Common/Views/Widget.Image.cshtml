@@ -1,5 +1,6 @@
-﻿@model Easy.CMS.Common.Models.ImageWidget
-@{
+﻿@using Easy.Web.CMS
+@model Easy.CMS.Common.Models.ImageWidget
 
-}
-<img alt="@Model.AltText" src="@Model.ImageUrl" style="width:@(Model.Width.HasValue?Model.Width.Value.ToString():"auto");height:@(Model.Height.HasValue ? Model.Height.Value.ToString() : "auto");" />
+<div class="widget">
+    <img alt="@Model.AltText" src="@Url.PathContent(Model.ImageUrl)" style="width:@(Model.Width.HasValue?Model.Width.Value.ToString():"auto");height:@(Model.Height.HasValue ? Model.Height.Value.ToString() : "auto");" />
+</div>
