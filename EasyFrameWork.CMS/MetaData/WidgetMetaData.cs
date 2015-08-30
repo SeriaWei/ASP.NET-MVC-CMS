@@ -19,6 +19,7 @@ namespace Easy.Web.CMS.MetaData
             ViewConfig(m => m.WidgetName).AsTextBox().Order(1).Required();
             ViewConfig(m => m.ZoneID).AsDropDownList().Order(2).DataSource(ViewDataKeys.Zones, Easy.Constant.SourceType.ViewData).Required();
             ViewConfig(m => m.Position).AsTextBox().Order(3).RegularExpression(Easy.Constant.RegularExpression.Integer);
+            ViewConfig(m => m.StyleClass).AsTextBox().Order(4);
         }
 
         protected override void DataConfigure()

@@ -18,10 +18,8 @@ namespace Easy.Web.CMS
 {
     public class CmsApplication : UnityMvcApplication
     {
-
-        public override void Application_StartUp()
+        public override void Application_Starting()
         {
-
             ViewEngines.Engines.Clear();
             ViewEngines.Engines.Add(new PlugViewEngine());
 

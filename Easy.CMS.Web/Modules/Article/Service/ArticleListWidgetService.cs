@@ -23,7 +23,7 @@ namespace Easy.CMS.Article.Service
             int.TryParse(httpContext.Request.QueryString["ac"], out ac);
             int.TryParse(httpContext.Request.QueryString["p"], out pageIndex);
             var filter = new Data.DataFilter();
-            filter.Where("IsPublish=true");
+            filter.Where("IsPublish", OperatorType.Equal, true);
             filter.OrderBy("PublishDate", OrderType.Descending);
             var articleService = new ArticleService();
             var page = new Data.Pagination { PageIndex = pageIndex, PageSize = currentWidget.PageSize ?? 20 };

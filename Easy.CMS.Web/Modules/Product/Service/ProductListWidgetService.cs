@@ -25,7 +25,7 @@ namespace Easy.CMS.Product.Service
         {
             ProductListWidget pwidget = widget as ProductListWidget;
             var filter = new DataFilter();
-            filter.Where("IsPublish=true");
+            filter.Where("IsPublish", OperatorType.Equal, true);
             int p = 0;
             int.TryParse(httpContext.Request.QueryString["p"], out p);
             int c = 0;

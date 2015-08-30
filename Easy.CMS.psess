@@ -36,7 +36,7 @@
   </PostinstrumentEvent>
   <Binaries>
     <ProjBinary>
-      <Path>Easy.CMS.Web\bin\PlugWeb.dll</Path>
+      <Path>Easy.CMS.Web\\bin\Easy.CMS.Web.dll</Path>
       <ArgumentTimestamp>01/01/0001 00:00:00</ArgumentTimestamp>
       <Instrument>true</Instrument>
       <Sample>true</Sample>
@@ -50,7 +50,7 @@
       <LaunchMethod>Browser</LaunchMethod>
       <LaunchUrl>http://localhost:57317/</LaunchUrl>
       <SiteUrl>http://localhost:57317/</SiteUrl>
-      <LocalPath>E:\产品\MVCPlugSupport\CMS\Easy.CMS.Web\</LocalPath>
+      <LocalPath>E:\GitHub\CMS\Easy.CMS.Web\</LocalPath>
       <VRoot>
       </VRoot>
       <NetAppHost>IIS</NetAppHost>
@@ -68,6 +68,11 @@
       <ProjName>Easy.CMS.Web</ProjName>
     </ProjBinary>
   </Binaries>
+  <Reports>
+    <Report>
+      <Path>Easy.CMS150830.vspx</Path>
+    </Report>
+  </Reports>
   <Launches>
     <ProjBinary>
       <Path>:PB:{C2DCE03D-6FA4-4461-B5E3-761D7B0C1B0A}|Easy.CMS.Web\Easy.CMS.Web.csproj</Path>

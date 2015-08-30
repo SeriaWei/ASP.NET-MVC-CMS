@@ -12,6 +12,7 @@ using Easy.Web.CMS.Layout;
 using Easy.Constant;
 using Easy.Extend;
 using System.Net;
+using Easy.Cache;
 
 namespace Easy.Web.CMS.Filter
 {
@@ -21,7 +22,7 @@ namespace Easy.Web.CMS.Filter
         public void OnActionExecuted(ActionExecutedContext filterContext)
         {
             var zones = new ZoneWidgetCollection();
-
+            var cache = new StaticCache();
             //Page
             string path = filterContext.RequestContext.HttpContext.Request.Path;
             if (path.EndsWith("/") && path.Length > 1)
@@ -41,8 +42,9 @@ namespace Easy.Web.CMS.Filter
 
                 Action<WidgetBase> processWidget = m =>
                 {
-                    var partDriver =
-                        Activator.CreateInstance(m.AssemblyName, m.ServiceTypeName).Unwrap() as IWidgetPartDriver;
+                    IWidgetPartDriver partDriver = cache.Get("IWidgetPartDriver_" + m.AssemblyName + m.ServiceTypeName, source =>
+                         Activator.CreateInstance(m.AssemblyName, m.ServiceTypeName).Unwrap() as IWidgetPartDriver
+                    );
                     WidgetPart part = partDriver.Display(partDriver.GetWidget(m), filterContext.HttpContext);
                     if (zones.ContainsKey(part.Widget.ZoneID))
                     {

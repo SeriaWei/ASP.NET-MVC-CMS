@@ -8,9 +8,9 @@ namespace Easy.CMS.Web
 
     public class MvcApplication : CmsApplication
     {
-        public override void Application_StartUp()
+        public override void Application_Starting()
         {
-            base.Application_StartUp();
+            base.Application_Starting();
             
             //AreaRegistration.RegisterAllAreas();
 

@@ -97,12 +97,12 @@ namespace Easy.Web.CMS.Page
             var filter = new Data.DataFilter().Where("Url", OperatorType.Equal, "~" + path);
             if (publish)
             {
-                filter.Where("Status", OperatorType.Equal, (int)RecordStatus.Active).Where("IsPublish=true");
+                filter.Where("Status", OperatorType.Equal, (int)RecordStatus.Active).Where("IsPublish", OperatorType.Equal, true);
             }
             IEnumerable<PageEntity> pages = Get(filter);
             if (!pages.Any() && path == "/")
             {
-                pages = Get(new DataFilter().Where("ParentId", OperatorType.Equal, "#").Where("IsHomePage=true").Where("IsPublish=true"));
+                pages = Get(new DataFilter().Where("ParentId", OperatorType.Equal, "#").Where("IsHomePage", OperatorType.Equal, true).Where("IsPublish", OperatorType.Equal, true));
             }
             return pages.FirstOrDefault();
         }

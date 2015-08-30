@@ -5,6 +5,8 @@ using System.Text;
 using Easy.Data;
 using Easy.RepositoryPattern;
 using System.Web;
+using Easy.Cache;
+using Easy.Web.CMS.Page;
 
 namespace Easy.Web.CMS.Widget
 {
@@ -20,7 +22,7 @@ namespace Easy.Web.CMS.Widget
         }
         public IEnumerable<WidgetBase> GetAllByPageId(string pageId)
         {
-            var page = new Page.PageService().Get(pageId);
+            var page = new PageService().Get(pageId);
             var result = GetByLayoutId(page.LayoutId);
             List<WidgetBase> widgets = result.ToList();
             widgets.AddRange(this.Get(new DataFilter().Where("PageID", OperatorType.Equal, pageId)));
@@ -34,6 +36,32 @@ namespace Easy.Web.CMS.Widget
             WidgetBaseService = new WidgetService();
         }
         public WidgetService WidgetBaseService { get; private set; }
+
+        private void CopyProperty(WidgetBase widget, T model)
+        {
+            model.AssemblyName = widget.AssemblyName;
+            model.CreateBy = widget.CreateBy;
+            model.CreatebyName = widget.CreatebyName;
+            model.CreateDate = widget.CreateDate;
+            model.Description = widget.Description;
+            model.ID = widget.ID;
+            model.LastUpdateBy = widget.LastUpdateBy;
+            model.LastUpdateByName = widget.LastUpdateByName;
+            model.LastUpdateDate = widget.LastUpdateDate;
+            model.LayoutID = widget.LayoutID;
+            model.PageID = widget.PageID;
+            model.PartialView = widget.PartialView;
+            model.Position = widget.Position;
+            model.ServiceTypeName = widget.ServiceTypeName;
+            model.Status = widget.Status;
+            model.Title = widget.Title;
+            model.ViewModelTypeName = widget.ViewModelTypeName;
+            model.WidgetName = widget.WidgetName;
+            model.ZoneID = widget.ZoneID;
+            model.FormView = widget.FormView;
+            model.StyleClass = widget.StyleClass;
+        }
+
         public override void Add(T item)
         {
             item.ID = Guid.NewGuid().ToString("N");
@@ -50,6 +78,7 @@ namespace Easy.Web.CMS.Widget
             {
                 return base.Update(item, primaryKeys);
             }
+            Signal.Trigger(CacheTrigger.WidgetChanged);
             return result;
         }
         public override bool Update(T item, DataFilter filter)
@@ -59,6 +88,7 @@ namespace Easy.Web.CMS.Widget
             {
                 return base.Update(item, filter);
             }
+            Signal.Trigger(CacheTrigger.WidgetChanged);
             return result;
         }
         public override IEnumerable<T> Get(DataFilter filter)
@@ -106,6 +136,7 @@ namespace Easy.Web.CMS.Widget
             {
                 return base.Delete(filter);
             }
+            Signal.Trigger(CacheTrigger.WidgetChanged);
             return result;
         }
         public override int Delete(params object[] primaryKeys)
@@ -115,6 +146,7 @@ namespace Easy.Web.CMS.Widget
             {
                 return base.Delete(primaryKeys);
             }
+            Signal.Trigger(CacheTrigger.WidgetChanged);
             return result;
         }
         public override T Get(params object[] primaryKeys)
@@ -125,29 +157,6 @@ namespace Easy.Web.CMS.Widget
                 CopyProperty(WidgetBaseService.Get(primaryKeys), model);
             }
             return model;
-        }
-        private void CopyProperty(WidgetBase widget, T model)
-        {
-            model.AssemblyName = widget.AssemblyName;
-            model.CreateBy = widget.CreateBy;
-            model.CreatebyName = widget.CreatebyName;
-            model.CreateDate = widget.CreateDate;
-            model.Description = widget.Description;
-            model.ID = widget.ID;
-            model.LastUpdateBy = widget.LastUpdateBy;
-            model.LastUpdateByName = widget.LastUpdateByName;
-            model.LastUpdateDate = widget.LastUpdateDate;
-            model.LayoutID = widget.LayoutID;
-            model.PageID = widget.PageID;
-            model.PartialView = widget.PartialView;
-            model.Position = widget.Position;
-            model.ServiceTypeName = widget.ServiceTypeName;
-            model.Status = widget.Status;
-            model.Title = widget.Title;
-            model.ViewModelTypeName = widget.ViewModelTypeName;
-            model.WidgetName = widget.WidgetName;
-            model.ZoneID = widget.ZoneID;
-            model.FormView = widget.FormView;
         }
         public virtual WidgetBase GetWidget(WidgetBase widget)
         {

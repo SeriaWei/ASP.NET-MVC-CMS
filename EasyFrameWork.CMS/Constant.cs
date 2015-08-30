@@ -17,4 +17,9 @@ namespace Easy.Web.CMS
         public const string QueryKey = "ViewType";
         public const string Review = "Review";
     }
+
+    public class CacheTrigger
+    {
+        public const string WidgetChanged = "WidgetChanged";
+    }
 }
