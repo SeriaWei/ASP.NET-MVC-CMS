@@ -44,12 +44,12 @@
       <HintPath>..\packages\Autofac.3.5.2\lib\net40\Autofac.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Easy, Version=1.0.1.3, Culture=neutral, PublicKeyToken=1964c83ce4e03f58, processorArchitecture=MSIL">
-      <HintPath>..\packages\EasyFrameWork.1.0.1.3\lib\net40\Easy.dll</HintPath>
+    <Reference Include="Easy, Version=1.0.2.0, Culture=neutral, PublicKeyToken=1964c83ce4e03f58, processorArchitecture=MSIL">
+      <HintPath>..\packages\EasyFrameWork.1.0.2.0\lib\net40\Easy.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Easy.Web, Version=1.0.1.3, Culture=neutral, PublicKeyToken=3aaa4da33a984374, processorArchitecture=MSIL">
-      <HintPath>..\packages\EasyFrameWork.Web.1.0.1.3\lib\net40\Easy.Web.dll</HintPath>
+    <Reference Include="Easy.Web, Version=1.0.2.0, Culture=neutral, PublicKeyToken=3aaa4da33a984374, processorArchitecture=MSIL">
+      <HintPath>..\packages\EasyFrameWork.Web.1.0.2.0\lib\net40\Easy.Web.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp">
@@ -65,6 +65,10 @@
     </Reference>
     <Reference Include="Microsoft.Practices.Unity.Configuration, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Unity.2.1.505.2\lib\NET35\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.9.7.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.6.9.7\lib\net40\MySql.Data.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">

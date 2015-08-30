@@ -42,12 +42,12 @@
       <HintPath>..\packages\Autofac.3.5.2\lib\net40\Autofac.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Easy, Version=1.0.1.3, Culture=neutral, PublicKeyToken=1964c83ce4e03f58, processorArchitecture=MSIL">
-      <HintPath>..\packages\EasyFrameWork.1.0.1.3\lib\net40\Easy.dll</HintPath>
+    <Reference Include="Easy">
+      <HintPath>..\packages\EasyFrameWork.1.0.2.0\lib\net40\Easy.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Easy.Web, Version=1.0.1.3, Culture=neutral, PublicKeyToken=3aaa4da33a984374, processorArchitecture=MSIL">
-      <HintPath>..\packages\EasyFrameWork.Web.1.0.1.3\lib\net40\Easy.Web.dll</HintPath>
+    <Reference Include="Easy.Web, Version=1.0.2.0, Culture=neutral, PublicKeyToken=3aaa4da33a984374, processorArchitecture=MSIL">
+      <HintPath>..\packages\EasyFrameWork.Web.1.0.2.0\lib\net40\Easy.Web.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -65,6 +65,10 @@
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\..\..\..\MVCPlugSupport\CMS\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.9.7.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.6.9.7\lib\net40\MySql.Data.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net40\Newtonsoft.Json.dll</HintPath>
