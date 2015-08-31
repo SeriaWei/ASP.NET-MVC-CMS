@@ -11,7 +11,6 @@ namespace Easy.CMS.Web
         public override void Application_Starting()
         {
             base.Application_Starting();
-            
             //AreaRegistration.RegisterAllAreas();
 
             //WebApiConfig.Register(GlobalConfiguration.Configuration);

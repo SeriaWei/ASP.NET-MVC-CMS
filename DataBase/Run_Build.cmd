@@ -1,24 +1,36 @@
 @echo off
-
+REM: Modify parameters below to build database.
 set server=wayne
 set dataBase=EasyCMS
 set dbUserId=sa
 set dbPassword=sa
 set dbPath=E:\GitHub\Easy.CMS\Easy.CMS.Web\App_Data
-@echo Please check the information below,then press "Enter" to confirm...
-
+@echo -----------------------------------------------------------------------------
+@echo Welcome to use EasyCMS.
+@echo This command will help you to build the database.
+@echo Before start, Please according to your personal situation to be modified.
+@echo -----------------------------------------------------------------------------
+@echo Please check the information below,then press any key to start.
+@echo -----------------------------------------------------------------------------
 @echo Server=%server%
 @echo DataBase=%dataBase%
-@echo User Name=%dbUserId%
+@echo UserName=%dbUserId%
 @echo PassWord=%dbPassword%
-@echo DataBase Folder=%dbPath%
-
+@echo DataBaseFolder=%dbPath%
+@echo -----------------------------------------------------------------------------
 @pause
 
 @echo Creating DataBase %dataBase%
 sqlcmd -S %server% -d master -U %dbUserId% -P %dbPassword% -b -i "CreateDataBase.sql"
+if %ERRORLEVEL% NEQ 0 goto errors
 
 @echo Creating Tables...
+sqlcmd -S %server% -d %dataBase% -U %dbUserId% -P %dbPassword% -b -i "Tables\CMS_Layout.sql"
+sqlcmd -S %server% -d %dataBase% -U %dbUserId% -P %dbPassword% -b -i "Tables\CMS_LayoutHtml.sql"
+sqlcmd -S %server% -d %dataBase% -U %dbUserId% -P %dbPassword% -b -i "Tables\CMS_Page.sql"
+sqlcmd -S %server% -d %dataBase% -U %dbUserId% -P %dbPassword% -b -i "Tables\CMS_WidgetBase.sql"
+sqlcmd -S %server% -d %dataBase% -U %dbUserId% -P %dbPassword% -b -i "Tables\CMS_WidgetTemplate.sql"
+sqlcmd -S %server% -d %dataBase% -U %dbUserId% -P %dbPassword% -b -i "Tables\CMS_Zone.sql"
 sqlcmd -S %server% -d %dataBase% -U %dbUserId% -P %dbPassword% -b -i "Tables\Article.sql"
 sqlcmd -S %server% -d %dataBase% -U %dbUserId% -P %dbPassword% -b -i "Tables\ArticleDetailWidget.sql"
 sqlcmd -S %server% -d %dataBase% -U %dbUserId% -P %dbPassword% -b -i "Tables\ArticleListWidget.sql"
@@ -30,12 +42,6 @@ sqlcmd -S %server% -d %dataBase% -U %dbUserId% -P %dbPassword% -b -i "Tables\Art
 sqlcmd -S %server% -d %dataBase% -U %dbUserId% -P %dbPassword% -b -i "Tables\Carousel.sql"
 sqlcmd -S %server% -d %dataBase% -U %dbUserId% -P %dbPassword% -b -i "Tables\CarouselItem.sql"
 sqlcmd -S %server% -d %dataBase% -U %dbUserId% -P %dbPassword% -b -i "Tables\CarouselWidget.sql"
-sqlcmd -S %server% -d %dataBase% -U %dbUserId% -P %dbPassword% -b -i "Tables\CMS_Layout.sql"
-sqlcmd -S %server% -d %dataBase% -U %dbUserId% -P %dbPassword% -b -i "Tables\CMS_LayoutHtml.sql"
-sqlcmd -S %server% -d %dataBase% -U %dbUserId% -P %dbPassword% -b -i "Tables\CMS_Page.sql"
-sqlcmd -S %server% -d %dataBase% -U %dbUserId% -P %dbPassword% -b -i "Tables\CMS_WidgetBase.sql"
-sqlcmd -S %server% -d %dataBase% -U %dbUserId% -P %dbPassword% -b -i "Tables\CMS_WidgetTemplate.sql"
-sqlcmd -S %server% -d %dataBase% -U %dbUserId% -P %dbPassword% -b -i "Tables\CMS_Zone.sql"
 sqlcmd -S %server% -d %dataBase% -U %dbUserId% -P %dbPassword% -b -i "Tables\DataDictionary.sql"
 sqlcmd -S %server% -d %dataBase% -U %dbUserId% -P %dbPassword% -b -i "Tables\HtmlWidget.sql"
 sqlcmd -S %server% -d %dataBase% -U %dbUserId% -P %dbPassword% -b -i "Tables\ImageWidget.sql"
@@ -55,5 +61,23 @@ sqlcmd -S %server% -d %dataBase% -U %dbUserId% -P %dbPassword% -b -i "Tables\Sec
 sqlcmd -S %server% -d %dataBase% -U %dbUserId% -P %dbPassword% -b -i "Tables\SectionWidget.sql"
 sqlcmd -S %server% -d %dataBase% -U %dbUserId% -P %dbPassword% -b -i "Tables\Users.sql"
 
+@echo InitailData...
+sqlcmd -S %server% -d %dataBase% -U %dbUserId% -P %dbPassword% -b -i "InitialData\CMS_Layout.sql"
+sqlcmd -S %server% -d %dataBase% -U %dbUserId% -P %dbPassword% -b -i "InitialData\CMS_LayoutHtml.sql"
+sqlcmd -S %server% -d %dataBase% -U %dbUserId% -P %dbPassword% -b -i "InitialData\CMS_Zone.sql"
+sqlcmd -S %server% -d %dataBase% -U %dbUserId% -P %dbPassword% -b -i "InitialData\CMS_WidgetTemplate.sql"
+sqlcmd -S %server% -d %dataBase% -U %dbUserId% -P %dbPassword% -b -i "InitialData\CMS_Page.sql"
+sqlcmd -S %server% -d %dataBase% -U %dbUserId% -P %dbPassword% -b -i "InitialData\CMS_WidgetBase.sql"
+sqlcmd -S %server% -d %dataBase% -U %dbUserId% -P %dbPassword% -b -i "InitialData\HtmlWidget.sql"
+sqlcmd -S %server% -d %dataBase% -U %dbUserId% -P %dbPassword% -b -i "InitialData\DataDictionary.sql"
+sqlcmd -S %server% -d %dataBase% -U %dbUserId% -P %dbPassword% -b -i "InitialData\Users.sql"
+
+goto done
+
+:errors
+@echo -----------------------------------------------------------------------------
+@echo WARNING! Error(s) were detected!
+goto done
+:done
 @echo Finished...
 @pause

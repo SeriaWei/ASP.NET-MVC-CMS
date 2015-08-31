@@ -26,7 +26,7 @@
             {
                 foreach (WidgetPart widgetPart in layOut.ZoneWidgets[item.Html].OrderBy(m => m.Widget.Position))
                 {
-                    <div class="widget" id="widget_@widgetPart.Widget.ID" data-widgetid="@widgetPart.Widget.ID">
+                    <div class="widget-design" id="widget_@widgetPart.Widget.ID" data-widgetid="@widgetPart.Widget.ID">
                         <div class="zoneToolbar container-fluid blue">
                             <div class="row">
                                 <div class="col-md-12">
@@ -43,9 +43,7 @@
                                 </div>
                             </div>
                         </div>
-                        @{
-                    Html.RenderPartial(widgetPart.Widget.PartialView, widgetPart.ViewModel);
-                        }
+                        @Html.Partial(widgetPart.Widget.PartialView, widgetPart.ViewModel)
                     </div>
                 }
             }
@@ -83,7 +81,7 @@
                 }
             }).droppable({
                 hoverClass: "dropWarning",
-                accept: ".widget",
+                accept: ".widget-design",
                 greedy: true,
                 tolerance: "pointer",
                 drop: function (event, ui) {
@@ -124,9 +122,9 @@
         function InitMinHeight() {
             $(".zone").each(function () {
                 if ($(this).children(":not(.zoneName)").size() == 0) {
-                    $(this).addClass("zoneMineHeight");
+                    $(this).addClass("empty-zone");
                 } else {
-                    $(this).removeClass("zoneMineHeight");
+                    $(this).removeClass("empty-zone");
                 }
             });
         }

@@ -17,7 +17,7 @@
             <ul id="noZoneWidgets" class="fullRowList">
                 @foreach (var widget in noZoneWidgets.OrderBy(m => m.Position))
                 {
-                    <li id="widget_@widget.ID" class="@(widget.LayoutID.IsNullOrEmpty() ? "widget" : "")" data-widgetid="@widget.ID">
+                    <li id="widget_@widget.ID" class="@(widget.LayoutID.IsNullOrEmpty() ? "widget-design" : "")" data-widgetid="@widget.ID">
                         @if (widget.LayoutID.IsNullOrEmpty())
                         {
                             <a href="@Url.Action("Edit", "Widget", new { module = "Common", ID = widget.ID, ReturnUrl = returnUrl })"><i class="glyphicon glyphicon-edit"></i></a>
