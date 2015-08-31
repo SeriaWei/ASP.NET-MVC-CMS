@@ -93,17 +93,20 @@ img {
   margin: 0 0 5px;
 }
 .widget {
-  margin: 10px;
+  margin: 5px;
 }
 #header {
   color: #5bc0de;
 }
 #footer {
-  margin: -10px;
+  margin: -5px;
   text-align: center;
   border-top: 1px solid #dedede;
   padding: 10px;
   background: #5bc0de;
   color: #FFF;
+}
+.footer .widget {
+  margin-bottom: 0;
 }
 /*# sourceMappingURL=Base.css.map */

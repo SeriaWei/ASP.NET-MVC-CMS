@@ -93,24 +93,27 @@ img {
   margin: 0 0 5px;
 }
 .widget {
-  margin: 10px;
+  margin: 5px;
 }
 #header {
   color: #5bc0de;
 }
 #footer {
-  margin: -10px;
+  margin: -5px;
   text-align: center;
   border-top: 1px solid #dedede;
   padding: 10px;
   background: #5bc0de;
   color: #FFF;
 }
+.footer .widget {
+  margin-bottom: 0;
+}
 .navigation {
-  margin: 0;
+  margin: 5px 0;
 }
 .navigation .navbar {
-  margin-bottom: 10px;
+  margin-bottom: 0;
   border-radius: 0;
   border-left: none;
   border-right: none;
@@ -204,7 +207,7 @@ img {
   text-shadow: 20px 12px 2px #333;
 }
 .owl-carousel {
-  margin: 0;
+  margin: 5px 0;
 }
 .ProductList {
   margin: 10px 0;
