@@ -6,20 +6,25 @@ set dbUserId=sa
 set dbPassword=sa
 set dbPath=E:\GitHub\Easy.CMS\Easy.CMS.Web\App_Data
 @echo -----------------------------------------------------------------------------
-@echo Welcome to use EasyCMS.
+@echo *** Welcome to use EasyCMS ***
+@echo -----------------------------------------------------------------------------
 @echo This command will help you to build the database.
 @echo Before start, Please according to your personal situation to be modified.
 @echo -----------------------------------------------------------------------------
-@echo Please check the information below,then press any key to start.
+@echo Please check the information below
 @echo -----------------------------------------------------------------------------
-@echo Server=%server%
-@echo DataBase=%dataBase%
-@echo UserName=%dbUserId%
-@echo PassWord=%dbPassword%
-@echo DataBaseFolder=%dbPath%
+@echo Server: %server%
+@echo DataBase: %dataBase%
+@echo UserName: %dbUserId%
+@echo PassWord: %dbPassword%
+@echo Save database to: %dbPath%\%database%.mdf
+@echo *** Make sure the folder is already exists ***
 @echo -----------------------------------------------------------------------------
-@pause
-
+@echo Do you want to continue?[y/n]
+@echo -----------------------------------------------------------------------------
+set /p isStart=
+if "%isStart%" NEQ "y" goto done
+@echo -----------------------------------------------------------------------------
 @echo Creating DataBase %dataBase%
 sqlcmd -S %server% -d master -U %dbUserId% -P %dbPassword% -b -i "CreateDataBase.sql"
 if %ERRORLEVEL% NEQ 0 goto errors
@@ -72,6 +77,8 @@ sqlcmd -S %server% -d %dataBase% -U %dbUserId% -P %dbPassword% -b -i "InitialDat
 sqlcmd -S %server% -d %dataBase% -U %dbUserId% -P %dbPassword% -b -i "InitialData\DataDictionary.sql"
 sqlcmd -S %server% -d %dataBase% -U %dbUserId% -P %dbPassword% -b -i "InitialData\Users.sql"
 
+@echo -----------------------------------------------------------------------------
+@echo Database build completed.
 goto done
 
 :errors
@@ -79,5 +86,4 @@ goto done
 @echo WARNING! Error(s) were detected!
 goto done
 :done
-@echo Finished...
 @pause
