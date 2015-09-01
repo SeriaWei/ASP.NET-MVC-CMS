@@ -39,27 +39,30 @@ namespace Easy.Web.CMS.Widget
 
         private void CopyProperty(WidgetBase widget, T model)
         {
-            model.AssemblyName = widget.AssemblyName;
-            model.CreateBy = widget.CreateBy;
-            model.CreatebyName = widget.CreatebyName;
-            model.CreateDate = widget.CreateDate;
-            model.Description = widget.Description;
-            model.ID = widget.ID;
-            model.LastUpdateBy = widget.LastUpdateBy;
-            model.LastUpdateByName = widget.LastUpdateByName;
-            model.LastUpdateDate = widget.LastUpdateDate;
-            model.LayoutID = widget.LayoutID;
-            model.PageID = widget.PageID;
-            model.PartialView = widget.PartialView;
-            model.Position = widget.Position;
-            model.ServiceTypeName = widget.ServiceTypeName;
-            model.Status = widget.Status;
-            model.Title = widget.Title;
-            model.ViewModelTypeName = widget.ViewModelTypeName;
-            model.WidgetName = widget.WidgetName;
-            model.ZoneID = widget.ZoneID;
-            model.FormView = widget.FormView;
-            model.StyleClass = widget.StyleClass;
+            if (model != null)
+            {
+                model.AssemblyName = widget.AssemblyName;
+                model.CreateBy = widget.CreateBy;
+                model.CreatebyName = widget.CreatebyName;
+                model.CreateDate = widget.CreateDate;
+                model.Description = widget.Description;
+                model.ID = widget.ID;
+                model.LastUpdateBy = widget.LastUpdateBy;
+                model.LastUpdateByName = widget.LastUpdateByName;
+                model.LastUpdateDate = widget.LastUpdateDate;
+                model.LayoutID = widget.LayoutID;
+                model.PageID = widget.PageID;
+                model.PartialView = widget.PartialView;
+                model.Position = widget.Position;
+                model.ServiceTypeName = widget.ServiceTypeName;
+                model.Status = widget.Status;
+                model.Title = widget.Title;
+                model.ViewModelTypeName = widget.ViewModelTypeName;
+                model.WidgetName = widget.WidgetName;
+                model.ZoneID = widget.ZoneID;
+                model.FormView = widget.FormView;
+                model.StyleClass = widget.StyleClass;
+            }
         }
 
         public override void Add(T item)
@@ -131,21 +134,21 @@ namespace Easy.Web.CMS.Widget
         }
         public override int Delete(DataFilter filter)
         {
-            int result = WidgetBaseService.Delete(filter);
             if (typeof(T) != typeof(WidgetBase))
             {
-                return base.Delete(filter);
+                base.Delete(filter);
             }
+            int result = WidgetBaseService.Delete(filter);
             Signal.Trigger(CacheTrigger.WidgetChanged);
             return result;
         }
         public override int Delete(params object[] primaryKeys)
         {
-            int result = WidgetBaseService.Delete(primaryKeys);
             if (typeof(T) != typeof(WidgetBase))
             {
-                return base.Delete(primaryKeys);
+                base.Delete(primaryKeys);
             }
+            int result = WidgetBaseService.Delete(primaryKeys);
             Signal.Trigger(CacheTrigger.WidgetChanged);
             return result;
         }

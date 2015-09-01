@@ -26,8 +26,8 @@ namespace Easy.CMS.Section.Service
         public override int Delete(params object[] primaryKeys)
         {
             var content = base.Get(primaryKeys);
-            base.Delete(primaryKeys);
             _sectionContentServices.First(m => (int)m.ContentType == content.SectionContentType).DeleteContent(content.ID);
+            base.Delete(primaryKeys);
             return 1;
         }
 
