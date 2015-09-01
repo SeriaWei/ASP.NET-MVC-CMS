@@ -38,51 +38,51 @@ img {
     border-radius: 3px;
 }
 
-    .bs-callout .pull-left h4 {
-        margin-top: 0;
-        margin-bottom: 5px;
-        color: @color-text;
-    }
+.bs-callout .pull-left h4 {
+    margin-top: 0;
+    margin-bottom: 5px;
+    color: @color-text;
+}
 
-    .bs-callout .pull-right h5 {
-        color: @color-text-description;
-    }
+.bs-callout .pull-right h5 {
+    color: @color-text-description;
+}
 
-    .bs-callout p {
-        margin: 0;
-    }
+.bs-callout p {
+    margin: 0;
+}
 
 .bs-callout-danger {
     border-left-color: @color-danger;
 }
 
-    .bs-callout-danger .pull-left h4 {
-        color: @color-danger;
-    }
+.bs-callout-danger .pull-left h4 {
+    color: @color-danger;
+}
 
 .bs-callout-warning {
     border-left-color: @color-warning;
 }
 
-    .bs-callout-warning .pull-left h4 {
-        color: @color-warning;
-    }
+.bs-callout-warning .pull-left h4 {
+    color: @color-warning;
+}
 
 .bs-callout-info {
     border-left-color: @color-info;
 }
 
-    .bs-callout-info .pull-left h4 {
-        color: @color-info;
-    }
+.bs-callout-info .pull-left h4 {
+    color: @color-info;
+}
 
 .bs-callout-success {
     border-left-color: @color-success;
 }
 
-    .bs-callout-success .pull-left h4 {
-        color: @color-success;
-    }
+.bs-callout-success .pull-left h4 {
+    color: @color-success;
+}
 
 
 .list-group {
@@ -101,7 +101,8 @@ img {
     padding: 10px 10px 5px 10px;
     font-size: 13px;
     border: 1px solid @color-border;
-    border-radius:3px;
+    border-radius: 3px;
+    line-height:normal;
     & > h4 {
         margin: 0 -5px 8px;
         padding: 0 5px 10px;
@@ -118,8 +119,18 @@ img {
     }
 
     img {
-        border: 1px solid @color-main;
+        border: 1px solid @color-border;
         padding: 4px;
+    }
+
+    table {
+        tr {
+            vertical-align: top;
+
+            td {
+                padding:5px;
+            }
+        }
     }
 }
 

@@ -79,6 +79,7 @@ img {
   font-size: 13px;
   border: 1px solid #dedede;
   border-radius: 3px;
+  line-height: normal;
 }
 .section > h4 {
   margin: 0 -5px 8px;
@@ -94,8 +95,14 @@ img {
   margin: 0 0 5px;
 }
 .section img {
-  border: 1px solid #5bc0de;
+  border: 1px solid #dedede;
   padding: 4px;
+}
+.section table tr {
+  vertical-align: top;
+}
+.section table tr td {
+  padding: 5px;
 }
 .widget {
   margin: 5px;
