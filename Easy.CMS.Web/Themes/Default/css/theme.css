@@ -78,6 +78,7 @@ img {
   padding: 10px 10px 5px 10px;
   font-size: 13px;
   border: 1px solid #dedede;
+  border-radius: 3px;
 }
 .section > h4 {
   margin: 0 -5px 8px;
@@ -91,6 +92,10 @@ img {
 .section p,
 .section pre {
   margin: 0 0 5px;
+}
+.section img {
+  border: 1px solid #5bc0de;
+  padding: 4px;
 }
 .widget {
   margin: 5px;

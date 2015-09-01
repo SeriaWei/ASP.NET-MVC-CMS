@@ -308,7 +308,8 @@ body {
     padding: 10px 10px 0 10px;
 }
 #section-groups img {
-    max-width:300px;
+    width:300px;
+    height: auto;
 }
 #section-groups .panel {
     margin-bottom: 10px;

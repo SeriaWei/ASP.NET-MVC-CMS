@@ -101,8 +101,8 @@ img {
     padding: 10px 10px 5px 10px;
     font-size: 13px;
     border: 1px solid @color-border;
-
-    &>h4 {
+    border-radius:3px;
+    & > h4 {
         margin: 0 -5px 8px;
         padding: 0 5px 10px;
         border-bottom: 2px solid @color-main;
@@ -110,20 +110,27 @@ img {
 
     h5 {
         margin: 0 0 5px;
-        font-size:16px;
+        font-size: 16px;
     }
 
-    p,pre {
+    p, pre {
         margin: 0 0 5px;
+    }
+
+    img {
+        border: 1px solid @color-main;
+        padding: 4px;
     }
 }
 
 .widget {
     margin: 5px;
 }
-#header{
-    color:@color-main;
+
+#header {
+    color: @color-main;
 }
+
 #footer {
     margin: -5px;
     text-align: center;
@@ -132,6 +139,7 @@ img {
     background: @color-main;
     color: #FFF;
 }
-.footer .widget{
-    margin-bottom:0;
+
+.footer .widget {
+    margin-bottom: 0;
 }
