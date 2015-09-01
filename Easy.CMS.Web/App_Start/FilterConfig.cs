@@ -1,5 +1,7 @@
 ﻿using System.Web;
 using System.Web.Mvc;
+using Easy.Web.Attribute;
+using Easy.Web.CMS.Filter;
 
 namespace Easy.CMS.Web
 {
@@ -7,7 +9,7 @@ namespace Easy.CMS.Web
     {
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
-            filters.Add(new HandleErrorAttribute());
+            filters.Add(new HandleErrorToLogAttribute());
             //filters.Add(new AuthorizeAttribute());
         }
     }
