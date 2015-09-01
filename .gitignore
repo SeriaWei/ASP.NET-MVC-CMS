@@ -3,3 +3,4 @@ bin
 obj
 /Easy.CMS.Web/App_Data/EasyCMS.mdf
 /Easy.CMS.Web/App_Data/EasyCMS_log.ldf
+/Release/Temp
