@@ -35,7 +35,7 @@ input.Date { background-image: url(Images/Icons/date.png); background-repeat: no
 input.Number { background-image: url(Images/Icons/number.png); background-repeat: no-repeat; background-position: right center; }
 input.Email { background-image: url(Images/Icons/Email.png); background-repeat: no-repeat; background-position: right center; }
 input.autocomplete { background-image: url(Images/Icons/autocomplete.png); background-repeat: no-repeat; background-position: right center; }
-input.required { background-color: #fef6bb; }
+input.required {  }
 .error { background-color: #ffc333; }
 .autocompleteResult { position: absolute; margin: 0px; padding: 0px; background-color: white; border: 1px solid #DDD; }
     .autocompleteResult > li { margin: 3px; padding: 5px 0px 5px 0px; list-style: none; cursor: pointer; border-bottom: 1px solid #DDD; }

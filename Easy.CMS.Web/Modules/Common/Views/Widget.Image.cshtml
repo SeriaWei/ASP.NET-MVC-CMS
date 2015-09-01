@@ -2,5 +2,14 @@
 @model Easy.CMS.Common.Models.ImageWidget
 
 <div class="widget">
-    <img alt="@Model.AltText" src="@Url.PathContent(Model.ImageUrl)" style="width:@(Model.Width.HasValue?Model.Width.Value.ToString():"auto");height:@(Model.Height.HasValue ? Model.Height.Value.ToString() : "auto");" />
+    @if (Model.Link.IsNullOrEmpty())
+    {
+        <img alt="@Model.AltText" src="@Url.PathContent(Model.ImageUrl)" style="width: @(Model.Width.HasValue ? Model.Width.Value.ToString() : "auto"); height: @(Model.Height.HasValue ? Model.Height.Value.ToString() : "auto");"/>
+    }
+    else
+    {
+        <a href="@Url.Content(Model.Link)">
+            <img alt="@Model.AltText" src="@Url.PathContent(Model.ImageUrl)" style="width: @(Model.Width.HasValue ? Model.Width.Value.ToString() : "auto"); height: @(Model.Height.HasValue ? Model.Height.Value.ToString() : "auto");" />
+        </a>
+    }
 </div>

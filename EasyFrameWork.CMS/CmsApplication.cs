@@ -12,6 +12,7 @@ using Easy.Web.Route;
 using Easy.Web.ViewEngine;
 using Easy.Extend;
 using Easy.Modules.DataDictionary;
+using Easy.Modules.MutiLanguage;
 using Easy.Modules.User.Service;
 
 namespace Easy.Web.CMS
@@ -46,6 +47,7 @@ namespace Easy.Web.CMS
 
             ContainerAdapter.RegisterType<IUserService, UserService>();
             ContainerAdapter.RegisterType<IDataDictionaryService, DataDictionaryService>();
+            ContainerAdapter.RegisterType<ILanguageService, LanguageService>();
 
             DisplayViewSupport.SupportMobileView();
             DisplayViewSupport.SupportIEView();

@@ -15,11 +15,15 @@ namespace Easy.CMS.Common.Models
         public string ImageUrl { get; set; }
         public int? Width { get; set; }
         public int? Height { get; set; }
-
+        public string Link { get; set; }
         public string AltText { get; set; }
     }
     class ImageWidgetMedaData : WidgetMetaData<ImageWidget>
     {
-
+        protected override void ViewConfigure()
+        {
+            base.ViewConfigure();
+            ViewConfig(m => m.ImageUrl).AsTextBox().Required();
+        }
     }
 }
