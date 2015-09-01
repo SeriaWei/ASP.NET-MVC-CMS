@@ -1,6 +1,6 @@
-
 SET IDENTITY_INSERT [dbo].[CMS_LayoutHtml] ON 
 
+GO
 INSERT [dbo].[CMS_LayoutHtml] ([LayoutHtmlId], [LayoutId], [Html], [CreateBy], [CreatebyName], [CreateDate], [LastUpdateBy], [LastUpdateByName], [LastUpdateDate]) VALUES (1, N'1dae90cf6a8547538cc0c369b9943c01', N'<div class="additional row"><div class="additional col-md-12"><div class="colContent row"><div class="additional zone">', N'admin', NULL, CAST(N'2015-08-31 11:58:54.273' AS DateTime), N'admin', NULL, CAST(N'2015-08-31 11:58:54.273' AS DateTime))
 GO
 INSERT [dbo].[CMS_LayoutHtml] ([LayoutHtmlId], [LayoutId], [Html], [CreateBy], [CreatebyName], [CreateDate], [LastUpdateBy], [LastUpdateByName], [LastUpdateDate]) VALUES (2, N'1dae90cf6a8547538cc0c369b9943c01', N'<zone>', N'admin', NULL, CAST(N'2015-08-31 11:58:54.323' AS DateTime), N'admin', NULL, CAST(N'2015-08-31 11:58:54.323' AS DateTime))

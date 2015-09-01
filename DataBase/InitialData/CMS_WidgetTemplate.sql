@@ -1,4 +1,5 @@
 SET IDENTITY_INSERT [dbo].[CMS_WidgetTemplate] ON 
+
 GO
 INSERT [dbo].[CMS_WidgetTemplate] ([ID], [Title], [GroupName], [PartialView], [AssemblyName], [ServiceTypeName], [ViewModelTypeName], [Order], [Description], [Status], [FormView], [StyleClass], [CreateBy], [CreatebyName], [CreateDate], [LastUpdateBy], [LastUpdateByName], [LastUpdateDate]) VALUES (1, N'HTML组件', N'1.通用', N'Widget.HTML', N'Easy.Web.CMS', N'Easy.Web.CMS.Widget.HtmlWidgetService', N'Easy.Web.CMS.Widget.HtmlWidget', 1, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
 GO
