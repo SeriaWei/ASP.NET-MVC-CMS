@@ -627,6 +627,7 @@
     <Content Include="Themes\Default\images\icon_point.png" />
     <Content Include="Themes\Default\images\icon_square.png" />
     <Content Include="Themes\Default\images\loader.gif" />
+    <Content Include="Themes\Default\images\logo_z.png" />
     <Content Include="Themes\Default\images\more.png" />
     <Content Include="Themes\Default\images\prd_sort_title.gif" />
     <Content Include="Web.config">
