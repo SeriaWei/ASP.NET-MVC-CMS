@@ -39,7 +39,7 @@ namespace Easy
         {
             Style("bootStrap").Include("~/Content/bootstrap/css/bootstrap.css", "~/Content/bootstrap/css/bootstrap.min.css").RequiredAtHead();
             Style("bootStrapTheme").Include("~/Content/bootstrap/css/bootstrap-theme.css", "~/Content/bootstrap/css/bootstrap-theme.min.css").RequiredAtHead();
-            Style("Site").Include("~/Content/Site.css").RequiredAtFoot();
+            Style("Site").Include("~/Content/Site.css", "~/Content/Site.min.css").RequiredAtFoot();
             Style("jQueryUi").Include("~/Content/themes/base/jquery-ui.css");
             Style("admin")
                 .Include("~/Content/themes/admin/admin.css")

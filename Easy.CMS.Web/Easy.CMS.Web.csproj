@@ -188,6 +188,9 @@
     <Content Include="Content\bootstrap\js\bootstrap.js" />
     <Content Include="Content\bootstrap\js\bootstrap.min.js" />
     <Content Include="Content\Images\bg.gif" />
+    <Content Include="Content\Site.min.css">
+      <DependentUpon>Site.css</DependentUpon>
+    </Content>
     <Content Include="Content\themes\Admin\admin.css" />
     <Content Include="Content\themes\Admin\images\dotted.png" />
     <Content Include="Content\themes\Admin\script\admin.js" />
