@@ -5,7 +5,7 @@ html {
     padding: 0;
 }
 
-body {
+body.front {
     margin: 0;
     padding: 0;
     font: @fontSize/1.5 @fontFamaily;
@@ -23,12 +23,17 @@ a{
 a:hover{
     color:@color-main-actived;
 }
+a.btn{
+    text-decoration:none;
+}
 #container {
     background-color: white;
     border: 1px solid @color-border;
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 5px rgba(0, 0, 0, 0.075);
 }
-
+.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12{
+    position:static;
+}
 @media only screen and (max-width:768px) {
     #container {
         border: none;
@@ -110,9 +115,9 @@ a:hover{
     border-radius: 3px;
     line-height:normal;
     & > h4 {
-        margin: 0 -5px 8px;
-        padding: 0 5px 10px;
-        color:@color-success;
+        margin: 0 -5px 10px;
+        padding: 0 5px 5px;
+        color:@color-main;
         border-bottom: 2px solid @color-main;
     }
 
@@ -145,17 +150,19 @@ a:hover{
     margin: 5px;
 }
 
-#header {
-    color: @color-main;
+.header {
+    color:@color-main;
 }
 
-#footer {
-    margin: -5px;
+.footer {
     text-align: center;
     border-top: 1px solid @color-border;
     padding: 10px;
     background: @color-main;
     color: #FFF;
+    p{
+        margin:0;
+    }
 }
 
 .footer .widget {
