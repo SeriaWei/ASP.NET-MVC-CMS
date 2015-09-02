@@ -24,11 +24,11 @@ namespace Easy.Web.CMS.Filter
             string pageId = filterContext.RequestContext.HttpContext.Request.QueryString["ID"];
             PageService pageService = new PageService();
             PageEntity page = pageService.Get(pageId);
-            LayoutEntity layout = null;
+
             if (page != null)
             {
                 LayoutService layoutService = new LayoutService();
-                layout = layoutService.Get(page.LayoutId);
+                var layout = layoutService.Get(page.LayoutId);
                 layout.Page = page;
                 WidgetService widgetService = new WidgetService();
                 IEnumerable<WidgetBase> widgets = widgetService.Get(new DataFilter().Where<WidgetBase>(m => m.PageID, OperatorType.Equal, page.ID));
@@ -36,15 +36,18 @@ namespace Easy.Web.CMS.Filter
                 {
                     IWidgetPartDriver partDriver = Activator.CreateInstance(m.AssemblyName, m.ServiceTypeName).Unwrap() as IWidgetPartDriver;
                     WidgetPart part = partDriver.Display(partDriver.GetWidget(m), filterContext.HttpContext);
-                    if (zones.ContainsKey(part.Widget.ZoneID))
+                    lock (zones)
                     {
-                        zones[part.Widget.ZoneID].Add(part);
-                    }
-                    else
-                    {
-                        WidgetCollection partCollection = new WidgetCollection();
-                        partCollection.Add(part);
-                        zones.Add(part.Widget.ZoneID, partCollection);
+                        if (zones.ContainsKey(part.Widget.ZoneID))
+                        {
+                            zones[part.Widget.ZoneID].Add(part);
+                        }
+                        else
+                        {
+                            WidgetCollection partCollection = new WidgetCollection();
+                            partCollection.Add(part);
+                            zones.Add(part.Widget.ZoneID, partCollection);
+                        }
                     }
                 };
                 widgets.Each(processWidget);
@@ -58,8 +61,8 @@ namespace Easy.Web.CMS.Filter
                 if (viewResult != null)
                 {
                     viewResult.MasterName = "~/Modules/Common/Views/Shared/_DesignPageLayout.cshtml";
+                    viewResult.ViewData[LayoutEntity.LayoutKey] = layout;
                 }
-                viewResult.ViewData[LayoutEntity.LayoutKey] = layout;
             }
             else
             {

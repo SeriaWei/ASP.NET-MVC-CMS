@@ -188,6 +188,9 @@
     <Content Include="Content\bootstrap\js\bootstrap.js" />
     <Content Include="Content\bootstrap\js\bootstrap.min.js" />
     <Content Include="Content\Images\bg.gif" />
+    <Content Include="Content\Site.min.css">
+      <DependentUpon>Site.css</DependentUpon>
+    </Content>
     <Content Include="Content\themes\Admin\admin.css" />
     <Content Include="Content\themes\Admin\images\dotted.png" />
     <Content Include="Content\themes\Admin\script\admin.js" />
@@ -627,6 +630,7 @@
     <Content Include="Themes\Default\images\icon_point.png" />
     <Content Include="Themes\Default\images\icon_square.png" />
     <Content Include="Themes\Default\images\loader.gif" />
+    <Content Include="Themes\Default\images\logo_z.png" />
     <Content Include="Themes\Default\images\more.png" />
     <Content Include="Themes\Default\images\prd_sort_title.gif" />
     <Content Include="Web.config">
