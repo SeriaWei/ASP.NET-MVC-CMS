@@ -16,7 +16,13 @@ body {
 img {
     max-width: 100%;
 }
-
+a{
+    text-decoration:underline;
+    color:@color-main;
+}
+a:hover{
+    color:@color-main-actived;
+}
 #container {
     background-color: white;
     border: 1px solid @color-border;
@@ -106,6 +112,7 @@ img {
     & > h4 {
         margin: 0 -5px 8px;
         padding: 0 5px 10px;
+        color:@color-success;
         border-bottom: 2px solid @color-main;
     }
 

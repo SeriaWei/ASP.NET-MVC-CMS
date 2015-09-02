@@ -36,15 +36,18 @@ namespace Easy.Web.CMS.Filter
                 {
                     IWidgetPartDriver partDriver = Activator.CreateInstance(m.AssemblyName, m.ServiceTypeName).Unwrap() as IWidgetPartDriver;
                     WidgetPart part = partDriver.Display(partDriver.GetWidget(m), filterContext.HttpContext);
-                    if (zones.ContainsKey(part.Widget.ZoneID))
+                    lock (zones)
                     {
-                        zones[part.Widget.ZoneID].Add(part);
-                    }
-                    else
-                    {
-                        WidgetCollection partCollection = new WidgetCollection();
-                        partCollection.Add(part);
-                        zones.Add(part.Widget.ZoneID, partCollection);
+                        if (zones.ContainsKey(part.Widget.ZoneID))
+                        {
+                            zones[part.Widget.ZoneID].Add(part);
+                        }
+                        else
+                        {
+                            WidgetCollection partCollection = new WidgetCollection();
+                            partCollection.Add(part);
+                            zones.Add(part.Widget.ZoneID, partCollection);
+                        }
                     }
                 };
                 widgets.Each(processWidget);

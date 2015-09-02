@@ -24,6 +24,9 @@
 .navigation .logo {
   height: 100%;
 }
+.navigation a {
+  text-decoration: none;
+}
 @media (max-width: 768px) {
   .navigation {
     padding: 0;
