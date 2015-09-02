@@ -14,10 +14,10 @@ img {
 }
 a {
   text-decoration: underline;
-  color: #5bc0de;
+  color: #31b0d5;
 }
 a:hover {
-  color: #3ca1bf;
+  color: #2890af;
 }
 a.btn {
   text-decoration: none;
@@ -141,8 +141,8 @@ a.btn {
 .section > h4 {
   margin: 0 -5px 10px;
   padding: 0 5px 5px;
-  color: #5bc0de;
-  border-bottom: 2px solid #5bc0de;
+  color: #31b0d5;
+  border-bottom: 2px solid #31b0d5;
 }
 .section h5 {
   margin: 0 0 5px;
@@ -162,13 +162,13 @@ a.btn {
   margin: 5px;
 }
 .header {
-  color: #5bc0de;
+  color: #31b0d5;
 }
 .footer {
   text-align: center;
   border-top: 1px solid #dedede;
   padding: 10px;
-  background: #5bc0de;
+  background: #31b0d5;
   color: #FFF;
 }
 .footer p {

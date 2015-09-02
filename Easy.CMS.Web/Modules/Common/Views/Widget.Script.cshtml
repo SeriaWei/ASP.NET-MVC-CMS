@@ -1,0 +1,8 @@
+﻿@model Easy.CMS.Common.Models.ScriptWidget
+
+@using (Script.AtFoot())
+{
+    <script type="text/javascript">
+        @Html.Raw(Model.Script)
+    </script>
+}
