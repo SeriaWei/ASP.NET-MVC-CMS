@@ -201,7 +201,8 @@ a.btn {
   margin-top: -4px;
 }
 .navigation .logo {
-  height: 100%;
+  height: 20px;
+  width: auto;
 }
 .navigation a {
   text-decoration: none;

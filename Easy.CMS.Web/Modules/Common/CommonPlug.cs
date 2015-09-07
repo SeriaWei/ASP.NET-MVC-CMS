@@ -37,6 +37,14 @@ namespace Easy.CMS.Common
                 Namespaces = new string[] { "Easy.CMS.Common.Controllers" },
                 Priority = 10
             };
+            yield return new RouteDescriptor
+            {
+                RouteName = "UserAdmin",
+                Url = "User/{action}",
+                Defaults = new { controller = "User", action = "Index", module = "common" },
+                Namespaces = new string[] { "Easy.CMS.Common.Controllers" },
+                Priority = 10
+            };
         }
 
         public override IEnumerable<AdminMenu> AdminMenu()

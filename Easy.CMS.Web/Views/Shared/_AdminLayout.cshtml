@@ -1,13 +1,17 @@
-﻿@{
+﻿@using Easy
+@using Easy.Web.CMS
+@using Microsoft.Practices.ServiceLocation
+@{
     Style.Reqiured("admin").AtHead();
     Script.Reqiured("admin").AtFoot();
+    var applicationContext = ServiceLocator.Current.GetInstance<IApplicationContext>();
 }
 <!DOCTYPE html>
 <html lang="zh">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
-    <title></title>
+    <title>ZKEASOFT</title>
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <meta name="viewport" content="width=device-width" />
     <meta http-equiv="pragma" content="no-cach" />
@@ -15,11 +19,6 @@
     <meta http-equiv="expires" content="0" />
     @StyleAtHead()
     @ScriptAtHead()
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="~/Content/themes/assets/js/html5.js"></script>
-    <![endif]-->
-
 </head>
 <body>
 
@@ -27,16 +26,22 @@
         <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a href="~/" target="_blank" class="navbar-brand">Home</a>
+                    <a href="~/" target="_blank" class="navbar-brand" title="查看首页">
+                        <img src="~/Content/themes/Admin/images/logo_zkea.png" alt="" style="height: 20px;"/>
+                    </a>
                 </div>
-
+                <div class="navbar-header pull-right">
+                    <a href="~/Account/Logout" target="_self" class="navbar-brand" title="退出">
+                        <i class="glyphicon glyphicon-off"></i>
+                    </a>
+                </div>
             </div>
         </div>
         <div class="navbar-collapse navbar-inverse">
             <div class="beforNav"></div>
             <div class="userInfo">
-                <img src="~/Images/head.png" class="img-circle" />
-                <strong>#E28271</strong>
+                <img src="@Url.PathContent(applicationContext.CurrentUser.PhotoUrl)" class="img-circle" />
+                <strong>@applicationContext.CurrentUser.UserName</strong>
             </div>
             <ul class="nav navbar-nav">
                 <li class="accordion-group">
@@ -58,32 +63,32 @@
                 </li>
                 <li>
                     <a id="menu_page" class="b_F5C294" href="@Url.Action("Index", "Page", new { module = "Common" })">
-                        <i class="glyphicon glyphicon-th-list"></i>
+                        <i class="glyphicon glyphicon-eye-open"></i>
                         页面
                     </a>
                 </li>
                 <li>
                     <a id="menu_navigation" class="b_F5C294" href="@Url.Action("Index", "Navigation", new { module = "Common" })">
-                        <i class="glyphicon glyphicon-th-list"></i>
+                        <i class="glyphicon glyphicon-retweet"></i>
                         导航
                     </a>
                 </li>
                 <li>
                     <a id="menu_navigation" class="b_F5C294" href="@Url.Action("Index", "Carousel", new { module = "Common" })">
-                        <i class="glyphicon glyphicon-th-list"></i>
+                        <i class="glyphicon glyphicon-hd-video"></i>
                         焦点图
                     </a>
                 </li>
 
                 <li class="accordion-group">
                     <a class="b_F5C294" href="#">
-                        <i class="glyphicon glyphicon-th-list"></i>
+                        <i class="glyphicon glyphicon-font"></i>
                         文章管理
                         <i class="glyphicon group"></i>
                     </a>
                     <div class="accordion-inner">
                         <a id="menu_articleList" href="@Url.Action("Index", "Article", new { module = "Article" })">
-                            <i class="glyphicon glyphicon-th-list"></i>
+                            <i class="glyphicon glyphicon-align-justify"></i>
                             文章列表
                         </a>
                         <a id="menu_articleTypeList" href="@Url.Action("Index", "ArticleType", new { module = "Article" })">
@@ -94,20 +99,27 @@
                 </li>
                 <li class="accordion-group">
                     <a class="b_F5C294" href="~/page/admin/edit">
-                        <i class="glyphicon glyphicon-th-list"></i>
+                        <i class="glyphicon glyphicon-list-alt"></i>
                         产品管理
                         <i class="glyphicon group"></i>
                     </a>
                     <div class="accordion-inner">
-                        <a href="@Url.Action("Index", "Product", new { module = "Product" })">
-                        <i class="glyphicon glyphicon-th-list"></i>
+                        <a href="@Url.Action("Index", "Product", new {module = "Product"})">
+                            <i class="glyphicon glyphicon-align-justify"></i>
                             产品列表
                         </a>
-                        <a href="@Url.Action("Index", "ProductCategory", new { module = "Product" })">
+                        <a href="@Url.Action("Index", "ProductCategory", new {module = "Product"})">
                             <i class="glyphicon glyphicon-th-list"></i>
                             产品类别
                         </a>
                     </div>
+                </li>
+
+                <li>
+                    <a id="menu_navigation" class="b_F5C294" href="@Url.Action("Index", "User", new { module = "Common" })">
+                        <i class="glyphicon glyphicon-user"></i>
+                        用户
+                    </a>
                 </li>
             </ul>
         </div>
@@ -128,7 +140,7 @@
             ],
             toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
             height: 300,
-            relative_urls:false,
+            relative_urls: false,
             language: "zh_CN"
         });
     </script>

@@ -29,7 +29,7 @@ namespace Easy.CMS.Common.Controllers
         [HttpPost]
         public ActionResult Login(string userName, string password, string ReturnUrl)
         {
-            var user = _userService.Login(userName, password);
+            var user = _userService.Login(userName, password, Request.ServerVariables["REMOTE_ADDR"]);
             if (user != null)
             {
                 FormsAuthentication.SetAuthCookie(userName, false);
@@ -40,6 +40,12 @@ namespace Easy.CMS.Common.Controllers
                 return Redirect(ReturnUrl);
             }
             return View();
+        }
+
+        public ActionResult Logout()
+        {
+            FormsAuthentication.SignOut();
+            return Redirect("~/");
         }
     }
 }

@@ -1,0 +1,12 @@
+﻿@using Easy.Data
+@model Easy.Modules.User.Models.UserEntity
+
+<div id="toolBar">
+    <a href="@Url.Action("Create")" class="btn btn-default btn-sm">新建</a>
+</div>
+@(
+ Html.Grid().SetColumnTemplate(col =>
+ {
+     col.Add(m => m.UserID, "<a href='" + Url.Action("Edit") + "?ID={UserID}'>{UserID}</a>");
+ }).SetAsToolBar("#toolBar").ShowCheckbox(m => m.UserID).OrderBy(m => m.UserID, OrderType.Descending)
+)
