@@ -42,10 +42,10 @@ namespace Easy.CMS.Common.Controllers
             return View();
         }
 
-        public ActionResult Logout()
+        public ActionResult Logout(string returnurl)
         {
             FormsAuthentication.SignOut();
-            return Redirect("~/");
+            return Redirect(returnurl ?? "~/");
         }
     }
 }

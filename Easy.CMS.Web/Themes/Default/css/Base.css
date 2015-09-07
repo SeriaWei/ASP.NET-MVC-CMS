@@ -19,7 +19,8 @@ a {
 a:hover {
   color: #2890af;
 }
-a.btn {
+a.btn,
+.dropdown-menu a {
   text-decoration: none;
 }
 #container {
@@ -167,14 +168,14 @@ a.btn {
 .footer {
   text-align: center;
   border-top: 1px solid #dedede;
-  padding: 10px;
   background: #31b0d5;
   color: #FFF;
 }
 .footer p {
   margin: 0;
 }
-.footer .widget {
+.footer .html-widget {
   margin-bottom: 0;
+  padding: 10px;
 }
 /*# sourceMappingURL=Base.css.map */

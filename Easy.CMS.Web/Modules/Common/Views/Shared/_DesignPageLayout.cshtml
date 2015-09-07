@@ -31,18 +31,37 @@
         <div class="navbar-inner">
             <div id="toolBar" class="container">
                 <div class="row">
-                    <div class="left">
-                        <label class="checkbox-inline">
-                            <input class="helper" data-class="border" type="checkbox" autocomplete="off" checked="checked" /> 边框(显示空区域)
-                        </label>
-                        <label class="checkbox-inline">
-                            <input class="helper" data-class="hideToolBar" type="checkbox" autocomplete="off" checked="checked" /> 工具栏
-                        </label>
-                    </div>
-                    <div class="right">
-                        <a class="btn btn-success btn-sm" href="@Url.Action("Edit", "Page", new { module = "Common", ID = layOut.Page.ID })">属性</a>
-                        <a class="btn btn-danger btn-sm" href="@Url.Action("SelectWidget", "WidgetTemplate", new { module = "Common", pageId = layOut.Page.ID })">添加组件</a>
+                    <div class="pull-left">
 
+                        <label class="checkbox-inline">
+                            <input class="helper" data-class="border" type="checkbox" autocomplete="off" checked="checked" />
+                            <span>
+                                边框(显示空区域)
+                            </span>
+                        </label>
+                        <label class="checkbox-inline">
+                            <input class="helper" data-class="hideToolBar" type="checkbox" autocomplete="off" checked="checked" />
+                            <span>
+                                工具栏
+                            </span>
+                        </label>
+
+                    </div>
+                    <div class="pull-right">
+                        <div class="btn-group">
+                            <a class="btn btn-primary btn-sm" href="@Url.Content(layOut.Page.Url)?ViewType=Review">
+                                <i class="glyphicon glyphicon-search"></i>
+                                预览
+                            </a>
+                            <a class="btn btn-primary btn-sm" href="@Url.Action("Edit", "Page", new {module = "Common", ID = layOut.Page.ID})">
+                                <i class="glyphicon glyphicon-edit"></i>
+                                编辑
+                            </a>
+                            <a class="btn btn-primary btn-sm" href="@Url.Action("SelectWidget", "WidgetTemplate", new {module = "Common", pageId = layOut.Page.ID})">
+                                <i class="glyphicon glyphicon-share-alt"></i>
+                                添加组件
+                            </a>
+                        </div>
                     </div>
                     <div class="clearfix"></div>
                 </div>

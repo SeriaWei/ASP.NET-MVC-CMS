@@ -134,7 +134,7 @@
 }
 
 .pagePreview {
-    margin-top: 70px;
+    margin-top: 50px;
     min-height: 500px;
 }
 
@@ -144,7 +144,7 @@
 
 @media(min-width:991px) {
     .pagePreview {
-        margin-top: 70px;
+        margin-top: 50px;
     }
 
     .design #container {
@@ -169,11 +169,12 @@
     font-size: 13px;
 }
 
-    .zoneName a {
+    .zoneName a.add-widget {
         color: red;
+            text-decoration: none;
     }
 
-        .zoneName a:hover {
+        .zoneName a.add-widget:hover {
             color: #be0000;
             text-decoration: none;
         }
