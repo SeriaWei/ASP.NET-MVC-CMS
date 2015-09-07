@@ -1,7 +1,7 @@
 ﻿@model Easy.CMS.Common.ViewModels.LayoutZonesViewModel
 @{
     Layout = null;
-    string returnUrl = Url.Action("Index", "Page", new { module = "Common" });
+    string returnUrl = Url.Action("Index", "Page", new { module = "Common",PageID=Model.PageID });
 
     var noZoneWidgets = Model.Widgets.Where(m => Model.Zones.All(n => n.ID != m.ZoneID));
     var zoneStart = false;

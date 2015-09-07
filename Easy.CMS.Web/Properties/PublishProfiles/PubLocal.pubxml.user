@@ -6,11 +6,11 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>E:\GitHub\CMS\Release\Temp</_PublishTargetUrl>
+    <_PublishTargetUrl>E:\GitHub\CMS\Release\Temp\Application</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="App_Data/DataBase.mdb">
-      <publishTime>09/01/2015 18:38:35</publishTime>
+      <publishTime>09/02/2015 22:29:52</publishTime>
     </File>
     <File Include="bin/Antlr3.Runtime.dll">
       <publishTime>07/02/2014 21:58:06</publishTime>
@@ -28,16 +28,16 @@
       <publishTime>07/02/2014 21:58:05</publishTime>
     </File>
     <File Include="bin/Easy.CMS.Web.dll">
-      <publishTime>09/01/2015 20:26:22</publishTime>
+      <publishTime>09/07/2015 21:49:28</publishTime>
     </File>
     <File Include="bin/Easy.dll">
-      <publishTime>09/01/2015 18:38:36</publishTime>
+      <publishTime>09/07/2015 19:28:04</publishTime>
     </File>
     <File Include="bin/Easy.Web.CMS.dll">
-      <publishTime>09/01/2015 20:26:21</publishTime>
+      <publishTime>09/07/2015 21:49:27</publishTime>
     </File>
     <File Include="bin/Easy.Web.dll">
-      <publishTime>09/01/2015 18:38:36</publishTime>
+      <publishTime>09/07/2015 19:28:04</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>07/02/2014 21:57:58</publishTime>
@@ -339,11 +339,17 @@
     <File Include="Content/Site.css">
       <publishTime>01/28/2015 21:45:28</publishTime>
     </File>
+    <File Include="Content/Site.min.css">
+      <publishTime>09/02/2015 22:29:52</publishTime>
+    </File>
     <File Include="Content/themes/Admin/admin.css">
       <publishTime>09/01/2015 18:38:35</publishTime>
     </File>
     <File Include="Content/themes/Admin/images/dotted.png">
       <publishTime>01/11/2013 18:36:48</publishTime>
+    </File>
+    <File Include="Content/themes/Admin/images/logo_zkea.png">
+      <publishTime>09/07/2015 19:28:03</publishTime>
     </File>
     <File Include="Content/themes/Admin/script/admin.js">
       <publishTime>01/13/2015 22:23:55</publishTime>
@@ -511,7 +517,7 @@
       <publishTime>07/02/2014 21:58:01</publishTime>
     </File>
     <File Include="favicon.ico">
-      <publishTime>07/02/2014 21:57:55</publishTime>
+      <publishTime>09/02/2015 22:29:52</publishTime>
     </File>
     <File Include="Global.asax">
       <publishTime>12/13/2014 17:32:39</publishTime>
@@ -565,7 +571,7 @@
       <publishTime>07/02/2014 21:57:55</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>09/01/2015 18:38:36</publishTime>
+      <publishTime>09/07/2015 19:28:04</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Animate.css">
       <publishTime>07/22/2014 19:48:16</publishTime>
@@ -1684,7 +1690,7 @@
       <publishTime>08/29/2015 16:27:13</publishTime>
     </File>
     <File Include="Themes/Default/css/Article.css.map">
-      <publishTime>08/29/2015 16:27:13</publishTime>
+      <publishTime>09/02/2015 22:29:52</publishTime>
     </File>
     <File Include="Themes/Default/css/Article.less">
       <publishTime>08/29/2015 16:27:13</publishTime>
@@ -1693,16 +1699,16 @@
       <publishTime>08/29/2015 16:27:13</publishTime>
     </File>
     <File Include="Themes/Default/css/Base.css">
-      <publishTime>09/01/2015 18:38:36</publishTime>
+      <publishTime>09/07/2015 19:28:03</publishTime>
     </File>
     <File Include="Themes/Default/css/Base.css.map">
-      <publishTime>09/01/2015 18:38:36</publishTime>
+      <publishTime>09/07/2015 19:28:03</publishTime>
     </File>
     <File Include="Themes/Default/css/Base.less">
-      <publishTime>09/01/2015 18:38:36</publishTime>
+      <publishTime>09/07/2015 19:28:03</publishTime>
     </File>
     <File Include="Themes/Default/css/Base.min.css">
-      <publishTime>09/01/2015 18:38:36</publishTime>
+      <publishTime>09/07/2015 19:28:03</publishTime>
     </File>
     <File Include="Themes/Default/css/Carousel.css">
       <publishTime>08/31/2015 19:29:54</publishTime>
@@ -1723,22 +1729,22 @@
       <publishTime>08/29/2014 23:25:39</publishTime>
     </File>
     <File Include="Themes/Default/css/Library.less">
-      <publishTime>08/28/2015 22:49:49</publishTime>
+      <publishTime>09/02/2015 22:29:52</publishTime>
     </File>
     <File Include="Themes/Default/css/Library.min.css">
       <publishTime>08/26/2014 21:55:20</publishTime>
     </File>
     <File Include="Themes/Default/css/Navigation.css">
-      <publishTime>08/31/2015 19:29:54</publishTime>
+      <publishTime>09/07/2015 19:28:03</publishTime>
     </File>
     <File Include="Themes/Default/css/Navigation.css.map">
-      <publishTime>08/31/2015 19:29:54</publishTime>
+      <publishTime>09/07/2015 19:28:03</publishTime>
     </File>
     <File Include="Themes/Default/css/Navigation.less">
-      <publishTime>08/31/2015 19:29:54</publishTime>
+      <publishTime>09/07/2015 19:28:03</publishTime>
     </File>
     <File Include="Themes/Default/css/Navigation.min.css">
-      <publishTime>08/31/2015 19:29:54</publishTime>
+      <publishTime>09/07/2015 19:28:03</publishTime>
     </File>
     <File Include="Themes/Default/css/Pagination.css">
       <publishTime>12/12/2014 23:22:23</publishTime>
@@ -1756,7 +1762,7 @@
       <publishTime>08/29/2015 16:24:46</publishTime>
     </File>
     <File Include="Themes/Default/css/Product.css.map">
-      <publishTime>08/29/2015 16:24:46</publishTime>
+      <publishTime>09/02/2015 22:29:52</publishTime>
     </File>
     <File Include="Themes/Default/css/Product.less">
       <publishTime>08/29/2015 16:24:46</publishTime>
@@ -1765,16 +1771,16 @@
       <publishTime>08/29/2015 16:24:46</publishTime>
     </File>
     <File Include="Themes/Default/css/Theme.css">
-      <publishTime>09/01/2015 18:38:36</publishTime>
+      <publishTime>09/07/2015 19:28:03</publishTime>
     </File>
     <File Include="Themes/Default/css/Theme.css.map">
-      <publishTime>09/01/2015 18:38:36</publishTime>
+      <publishTime>09/07/2015 19:28:03</publishTime>
     </File>
     <File Include="Themes/Default/css/Theme.less">
       <publishTime>08/26/2015 21:02:24</publishTime>
     </File>
     <File Include="Themes/Default/css/Theme.min.css">
-      <publishTime>09/01/2015 18:38:36</publishTime>
+      <publishTime>09/07/2015 19:28:03</publishTime>
     </File>
     <File Include="Themes/Default/images/bg.gif">
       <publishTime>08/27/2014 18:55:52</publishTime>
@@ -1794,6 +1800,9 @@
     <File Include="Themes/Default/images/loader.gif">
       <publishTime>12/10/2014 23:02:32</publishTime>
     </File>
+    <File Include="Themes/Default/images/logo_z.png">
+      <publishTime>09/02/2015 22:29:52</publishTime>
+    </File>
     <File Include="Themes/Default/images/more.png">
       <publishTime>08/28/2014 19:25:13</publishTime>
     </File>
@@ -1807,7 +1816,7 @@
       <publishTime>01/14/2015 19:22:15</publishTime>
     </File>
     <File Include="Views/Shared/_AdminLayout.cshtml">
-      <publishTime>08/31/2015 20:41:47</publishTime>
+      <publishTime>09/07/2015 19:28:04</publishTime>
     </File>
     <File Include="Views/Shared/_PopUpLayout.cshtml">
       <publishTime>08/31/2015 20:42:54</publishTime>
@@ -1816,7 +1825,7 @@
       <publishTime>07/26/2015 21:54:08</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>09/01/2015 20:26:33</publishTime>
+      <publishTime>09/07/2015 21:49:34</publishTime>
     </File>
   </ItemGroup>
 </Project>

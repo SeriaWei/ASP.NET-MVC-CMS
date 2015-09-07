@@ -1,7 +1,7 @@
 ﻿@using Easy.Web.CMS.Page
 @using Easy.HTML.jsTree
 @{
-
+    string pageId = Request.QueryString["PageID"];
     Script.Reqiured("jQueryUi").AtFoot();
 }
 <div class="container-fluid">
@@ -28,6 +28,7 @@
 .AddContextMenuItem(new ContextmenuItem { Label = "编辑", Action = "Edit" })
 .AddContextMenuItem(new ContextmenuItem { Label = "查看", Action = "View" })
 .AddContextMenuItem(new ContextmenuItem { Label = "设计", Action = "Design" })
+.On(Events.Loaded, "loadedPage")
 .CheckCallBack("checkCallBack")
 .On(Events.MoveNode, "moveNode")
 .On(Events.ActiveNode, "ActiveNode")
@@ -72,7 +73,12 @@
 
             }, "json");
         }
-
+        function loadedPage(p) {
+            @if (pageId.IsNotNullAndWhiteSpace())
+            {
+                @:$(p.target).find("a#@(pageId)").trigger("click");
+            }
+        }
         $(document).on("click", ".fullRowList .delete", function () {
             var id = $(this).data("widgetid");
             if (confirm("确定要删除该组件吗？")) {

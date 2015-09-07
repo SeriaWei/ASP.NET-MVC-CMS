@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+您 Web 项目的发布/打包进程将使用此文件。您可以通过编辑此 MSBuild 文件
+来自定义该进程的行为。若要了解与此相关的详细信息，请访问 http://go.microsoft.com/fwlink/?LinkID=208121。
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>E:\GitHub\CMS\Release\Temp\Application\Modules\Section</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="bin/Autofac.dll">
+      <publishTime>07/25/2015 09:38:39</publishTime>
+    </File>
+    <File Include="bin/Easy.CMS.Section.dll">
+      <publishTime>09/07/2015 22:00:06</publishTime>
+    </File>
+    <File Include="bin/Easy.dll">
+      <publishTime>09/07/2015 19:28:04</publishTime>
+    </File>
+    <File Include="bin/Easy.Web.CMS.dll">
+      <publishTime>09/07/2015 21:49:27</publishTime>
+    </File>
+    <File Include="bin/Easy.Web.dll">
+      <publishTime>09/07/2015 19:28:04</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.ServiceLocation.dll">
+      <publishTime>07/25/2015 13:37:14</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.Unity.Configuration.dll">
+      <publishTime>07/25/2015 09:37:43</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.Unity.dll">
+      <publishTime>07/25/2015 09:37:43</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Infrastructure.dll">
+      <publishTime>07/08/2013 15:15:08</publishTime>
+    </File>
+    <File Include="bin/MySql.Data.dll">
+      <publishTime>08/30/2015 21:43:30</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>07/26/2015 10:08:37</publishTime>
+    </File>
+    <File Include="bin/System.Web.Helpers.dll">
+      <publishTime>07/09/2013 11:05:10</publishTime>
+    </File>
+    <File Include="bin/System.Web.Mvc.dll">
+      <publishTime>07/26/2015 21:15:40</publishTime>
+    </File>
+    <File Include="bin/System.Web.Razor.dll">
+      <publishTime>07/09/2013 11:05:12</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Deployment.dll">
+      <publishTime>07/09/2013 11:05:12</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.dll">
+      <publishTime>07/09/2013 11:05:12</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Razor.dll">
+      <publishTime>07/09/2013 11:05:12</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.Helpers.resources.dll">
+      <publishTime>07/09/2013 11:36:02</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.Razor.resources.dll">
+      <publishTime>07/09/2013 11:35:48</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.WebPages.Deployment.resources.dll">
+      <publishTime>07/09/2013 11:36:04</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.WebPages.Razor.resources.dll">
+      <publishTime>07/09/2013 11:35:56</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.WebPages.resources.dll">
+      <publishTime>07/09/2013 11:35:56</publishTime>
+    </File>
+    <File Include="CopyItems.xml">
+      <publishTime>07/15/2015 22:32:02</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>09/07/2015 19:28:03</publishTime>
+    </File>
+    <File Include="PrecompiledApp.config">
+      <publishTime>09/07/2015 22:03:13</publishTime>
+    </File>
+    <File Include="Views/SectionContentCallToAction/Form.cshtml">
+      <publishTime>07/16/2015 23:16:43</publishTime>
+    </File>
+    <File Include="Views/SectionContentImage/Form.cshtml">
+      <publishTime>07/16/2015 23:16:50</publishTime>
+    </File>
+    <File Include="Views/SectionContentParagraph/Form.cshtml">
+      <publishTime>07/16/2015 23:16:56</publishTime>
+    </File>
+    <File Include="Views/SectionContentTitle/Form.cshtml">
+      <publishTime>07/16/2015 23:02:38</publishTime>
+    </File>
+    <File Include="Views/SectionGroup/Form.cshtml">
+      <publishTime>07/16/2015 22:56:13</publishTime>
+    </File>
+    <File Include="Views/SectionTemplate.Column.cshtml">
+      <publishTime>09/02/2015 22:29:52</publishTime>
+    </File>
+    <File Include="Views/SectionTemplate.Default.cshtml">
+      <publishTime>08/26/2015 20:55:39</publishTime>
+    </File>
+    <File Include="Views/SectionWidget/Editor.cshtml">
+      <publishTime>09/07/2015 19:28:03</publishTime>
+    </File>
+    <File Include="Views/SectionWidgetForm.cshtml">
+      <publishTime>09/07/2015 19:28:03</publishTime>
+    </File>
+    <File Include="Views/Shared/SectionGroup.Edit.cshtml">
+      <publishTime>08/28/2015 22:49:49</publishTime>
+    </File>
+    <File Include="Views/Shared/SectionPartial.CallToAction.cshtml">
+      <publishTime>08/28/2015 22:49:49</publishTime>
+    </File>
+    <File Include="Views/Shared/SectionPartial.CallToAction.Edit.cshtml">
+      <publishTime>08/28/2015 22:49:49</publishTime>
+    </File>
+    <File Include="Views/Shared/SectionPartial.Image.cshtml">
+      <publishTime>08/29/2015 22:39:40</publishTime>
+    </File>
+    <File Include="Views/Shared/SectionPartial.Image.Edit.cshtml">
+      <publishTime>08/28/2015 22:49:49</publishTime>
+    </File>
+    <File Include="Views/Shared/SectionPartial.Paragraph.cshtml">
+      <publishTime>08/28/2015 22:49:49</publishTime>
+    </File>
+    <File Include="Views/Shared/SectionPartial.Paragraph.Edit.cshtml">
+      <publishTime>08/28/2015 22:49:49</publishTime>
+    </File>
+    <File Include="Views/Shared/SectionPartial.Title.cshtml">
+      <publishTime>08/28/2015 22:49:49</publishTime>
+    </File>
+    <File Include="Views/Shared/SectionPartial.Title.Edit.cshtml">
+      <publishTime>08/28/2015 22:49:49</publishTime>
+    </File>
+    <File Include="Views/Web.config">
+      <publishTime>07/26/2015 21:53:42</publishTime>
+    </File>
+    <File Include="Views/Widget.Section.cshtml">
+      <publishTime>08/29/2015 16:23:40</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>09/07/2015 22:03:12</publishTime>
+    </File>
+  </ItemGroup>
+</Project>
