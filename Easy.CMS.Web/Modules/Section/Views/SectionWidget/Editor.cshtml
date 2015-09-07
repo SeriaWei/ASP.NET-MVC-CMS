@@ -15,7 +15,7 @@
             var result = {}
             $(event.target).find(".section-group").each(function (i) {
                 result["[" + i + "].ID"] = $(this).data("id");
-                result["[" + i + "].Order"] = i;
+                result["[" + i + "].Order"] = i + 1;
             });
             $.post("@Url.Action("Sort","SectionGroup")", result, function (data) { reload(); }, "json");
         }
@@ -25,7 +25,7 @@
             var result = {}
             $(event.target).find(".list-group-item").each(function (i) {
                 result["[" + i + "].ID"] = $(this).data("id");
-                result["[" + i + "].Order"] = i;
+                result["[" + i + "].Order"] = i + 1;
             });
             $.post("@Url.Action("SortContent","SectionGroup")", result, function (data) { reload(); }, "json");
         }

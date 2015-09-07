@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Easy.CMS.Section.Models;
+using Easy.Data;
 using Easy.Models;
 using Easy.Modules.DataDictionary;
 using Easy.RepositoryPattern;
@@ -19,6 +20,13 @@ namespace Easy.CMS.Section.Service
         }
         public override void Add(SectionContent item)
         {
+            if (item.Order == 0)
+            {
+                item.Order =
+                    Get(
+                        new DataFilter().Where("SectionWidgetId", OperatorType.Equal, item.SectionWidgetId)
+                            .Where("SectionGroupId", OperatorType.Equal, item.SectionGroupId)).Count() + 1;
+            }
             base.Add(item);
             _sectionContentServices.First(m => (int)m.ContentType == item.SectionContentType).AddContent(item);
         }

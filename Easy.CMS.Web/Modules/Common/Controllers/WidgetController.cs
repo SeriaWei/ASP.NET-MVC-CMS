@@ -27,7 +27,7 @@ namespace Easy.CMS.Common.Controllers
             widget.LayoutID = context.LayoutID;
             widget.ZoneID = context.ZoneID;
             widget.FormView = template.FormView;
-            widget.Position = 1;
+            widget.Position = new WidgetService().GetAllByPageId(context.PageID).Count(m => m.ZoneID == context.ZoneID) + 1;
             ViewBag.ReturnUrl = context.ReturnUrl;
             if (template.FormView.IsNotNullAndWhiteSpace())
             {
