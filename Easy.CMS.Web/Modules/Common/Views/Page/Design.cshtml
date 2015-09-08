@@ -31,10 +31,10 @@
                         <div class="zoneToolbar container-fluid blue">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <span>
+                                    <div class="pull-left">
                                         @widgetPart.Widget.WidgetName
-                                    </span>
-                                    <div class="rightTool">
+                                    </div>
+                                    <div class="pull-right">
                                         @if (widgetPart.Widget.LayoutID.IsNullOrEmpty())
                                         {
                                             <a href="@Url.Action("Edit","Widget",new{module="Common",ID=widgetPart.Widget.ID})"><i class="glyphicon glyphicon-edit"></i></a>
@@ -71,7 +71,7 @@
                 handle: ".zoneToolbar",
                 stop: function (event, ui) {
                     var tempForm = "";
-                    ui.item.parent().children().each(function (i, ui) {
+                    ui.item.parent().children(".widget-design").each(function (i, ui) {
                         tempForm += "&widgets[" + i + "].ID=" + $(ui).data("widgetid") + "&widgets[" + i + "].Position=" + (i + 1);
                     });
                     if (tempForm) {
@@ -90,7 +90,7 @@
                         return true;
                     }
                     var target = ui.draggable.clone();
-                    target.removeAttr("style")
+                    target.removeAttr("style");
                     $(this).append(target);
                     ui.draggable.remove();
                     $.post("@Url.Action("SaveWidgetZone", "Widget", new { module="Common" })",

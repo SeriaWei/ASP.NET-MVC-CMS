@@ -23,77 +23,93 @@
     {
         <nav id="toolBar" class="navbar navbar-inverse">
             <div class="container">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand"><span class="badge">布局设计</span></a>
-                </div>
-
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav">
-                        <li>
-                            <a>
-                                <label class="radio-inline">
-                                    <input type="radio" name="ContainerClass" value="container" @(Model.ContainerClass == "container" || Model.ContainerClass.IsNullOrEmpty() ? "checked=\"checked\"" : "")>
-                                    居 中
-                                </label>
-                            </a>
-                        </li>
-                        <li>
-                            <a>
-                                <label class="radio-inline">
-                                    <input type="radio" name="ContainerClass" value="container-fluid" @(Model.ContainerClass == "container-fluid" ? "checked=\"checked\"" : "")>
-                                    拉 伸
-                                </label>
-                            </a>
-                        </li>
-                    </ul>
-
-                    <div class="navbar-form navbar-left">
-                        <div class="btn-group">
-                            <label class="AddRow btn btn-primary btn-sm" data-container="container-fluid">
-                                <i class="iconLeft glyphicon glyphicon-move"></i> 行
-                            </label>
-                            <label class="AddCol btn btn-primary btn-sm" data-col="col-md-">
-                                <i class="iconLeft glyphicon glyphicon-move"></i> 列
-                                <select>
-                                    <option value="1">1/12</option>
-                                    <option value="2">2/12</option>
-                                    <option value="3">3/12</option>
-                                    <option value="4">4/12</option>
-                                    <option value="5">5/12</option>
-                                    <option value="6" selected="selected">6/12</option>
-                                    <option value="7">7/12</option>
-                                    <option value="8">8/12</option>
-                                    <option value="9">9/12</option>
-                                    <option value="10">10/12</option>
-                                    <option value="11">11/12</option>
-                                    <option value="12">12/12</option>
-                                </select>
-                            </label>
-                            <label class="AddZone btn btn-primary btn-sm">
-                                <i class="iconLeft glyphicon glyphicon-move"></i>组件区域
-                            </label>
-                        </div>
+                <div class="row">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand"><span class="badge">布局设计</span></a>
                     </div>
-                    <div class="navbar-form navbar-right">
-                        <div class="btn-group">
-                            <a href="@Url.Action("Edit", "Layout", new {ID = Model.ID, module = "Common"})" class="btn btn-primary btn-sm">
-                                <i class="glyphicon glyphicon-edit"></i>
-                                编辑属性
-                            </a>
-                            <input type="button" class="btn btn-primary btn-sm" id="save" value="保存" />
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li>
+                                <a>
+                                    <label class="radio-inline">
+                                        <input type="radio" class="helper" name="ContainerClass" value="container" @(Model.ContainerClass == "container" || Model.ContainerClass.IsNullOrEmpty() ? "checked=\"checked\"" : "")>
+                                        <span>居中</span>
+                                    </label>
+                                </a>
+                            </li>
+                            <li>
+                                <a>
+                                    <label class="radio-inline">
+                                        <input type="radio" class="helper" name="ContainerClass" value="container-fluid" @(Model.ContainerClass == "container-fluid" ? "checked=\"checked\"" : "")>
+                                        <span>拉伸</span>
+                                    </label>
+                                </a>
+                            </li>
+                        </ul>
+
+                        <div class="navbar-form navbar-left">
+
+                            <label class="AddRow btn btn-success" data-container="container-fluid">
+                                <i class="glyphicon glyphicon-align-justify"></i>
+                                行
+                            </label>
+                            <div class="btn-group">
+                                <label id="add-col-handle" class="AddCol btn btn-success" data-col="col-md-" data-val="6">
+                                    <i class="glyphicon glyphicon-tasks"></i>
+                                    列 <span class="col-size-info">宽 6/12</span>
+                                </label>
+                                <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span class="caret"></span>
+                                    <span class="sr-only">Toggle Dropdown</span>
+                                </button>
+                                <ul class="dropdown-menu col-size">
+                                    <li><a href="javascript:void(0)" data-val="1">宽 1/12</a></li>
+                                    <li><a href="javascript:void(0)" data-val="2">宽 2/12</a></li>
+                                    <li><a href="javascript:void(0)" data-val="3">宽 3/12</a></li>
+                                    <li><a href="javascript:void(0)" data-val="4">宽 4/12</a></li>
+                                    <li><a href="javascript:void(0)" data-val="5">宽 5/12</a></li>
+                                    <li class="active"><a href="javascript:void(0)" data-val="6">宽 6/12</a></li>
+                                    <li><a href="javascript:void(0)" data-val="7">宽 7/12</a></li>
+                                    <li><a href="javascript:void(0)" data-val="8">宽 8/12</a></li>
+                                    <li><a href="javascript:void(0)" data-val="9">宽 9/12</a></li>
+                                    <li><a href="javascript:void(0)" data-val="10">宽 10/12</a></li>
+                                    <li><a href="javascript:void(0)" data-val="11">宽 11/12</a></li>
+                                    <li><a href="javascript:void(0)" data-val="12">宽 12/12</a></li>
+                                </ul>
+                            </div>
+
+                            <label class="AddZone btn btn-success">
+                                <i class="glyphicon glyphicon-gift"></i>
+                                组件区域
+                            </label>
+
+                        </div>
+                        <div class="navbar-form navbar-right">
+                            <div class="btn-group">
+                                <a href="@Url.Action("Edit", "Layout", new {ID = Model.ID, module = "Common"})" class="btn btn-primary">
+                                    <i class="glyphicon glyphicon-edit"></i>
+                                    属性
+                                </a>
+                                <a class="btn btn-primary" id="save">
+                                    <i class="glyphicon glyphicon-log-in"></i>
+                                    保存
+                                </a>
+                            </div>
                             <input type="hidden" id="LayoutId" name="ID" value="@Model.ID" />
                         </div>
                     </div>
-                </div><!-- /.navbar-collapse -->
-            </div><!-- /.container-fluid -->
+                </div>
+
+
+
+
+            </div>
             <div class="deleteBar">
                 <i class="glyphicon glyphicon-trash"></i>
             </div>

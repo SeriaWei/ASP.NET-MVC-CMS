@@ -119,7 +119,7 @@
                     zoneDropable(event, ui, obj);
                     return;
                 }
-                var col = $("<div class=\"additional " + ui.draggable.data("col") + ui.draggable.find("select").val() + "\"><div class=\"colContent row\"></div></div>");
+                var col = $("<div class=\"additional " + ui.draggable.data("col") + ui.draggable.data("val") + "\"><div class=\"colContent row\"></div></div>");
                 col.children(".colContent").droppable(opColDrop).sortable();
                 $(obj).append(col);
                 $(".dropWarning").removeClass("dropWarning");
@@ -146,9 +146,15 @@
                 $(".dropWarning").removeClass("dropWarning");
             }
 
+            $(document).on("click", ".dropdown-menu.col-size a", function() {
+                $("#add-col-handle").data("val", $(this).data("val")).find(".col-size-info").text($(this).text());
+                $(this).parent().parent().find(".active").removeClass("active");
+                $(this).parent().addClass("active");
+            });
             $("#save").click(function () {
                 $("#container .ui-droppable").removeClass("ui-droppable");
                 $("#container .ui-sortable").removeClass("ui-sortable");
+                $("#container .ui-sortable-handle").removeClass("ui-sortable-handle");
                 var html = $.trim($("#container").html());
                 var htmlArray = html.split("<zone>");
                 var form = $("#LayoutInfo");

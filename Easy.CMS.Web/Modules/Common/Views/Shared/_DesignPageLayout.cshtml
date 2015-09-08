@@ -28,62 +28,63 @@
 </head>
 <body class="front">
 
-    <nav class="navbar navbar-inverse">
+    <nav id="toolBar" class="navbar navbar-inverse">
         <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand"><span class="badge">页面设计</span></a>
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li>
-                        <a>
-                            <label class="checkbox-inline">
-                                <input class="helper" data-class="border" type="checkbox" autocomplete="off" checked="checked" />
-                                    边框(显示空区域)
-                            </label>
-                        </a>
-                    </li>
-                    <li>
-                        <a>
-                            <label class="checkbox-inline">
-                                <input class="helper" data-class="hideToolBar" type="checkbox" autocomplete="off" checked="checked" />
-                                <span>
-                                    工具栏
-                                </span>
-                            </label>
-                        </a>
-                    </li>
-                </ul>
-                <div class="navbar-form navbar-right">
+            <div class="row">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand"><span class="badge">页面设计</span></a>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <a>
+                                <label class="checkbox-inline">
+                                    <input class="helper" data-class="border" type="checkbox" autocomplete="off" checked />
+                                    <span>
+                                        边框(显示空区域)
+                                    </span>
+                                </label>
+                            </a>
+                        </li>
+                        <li>
+                            <a>
+                                <label class="checkbox-inline">
+                                    <input class="helper" data-class="hideToolBar" type="checkbox" autocomplete="off" checked />
+                                    <span>
+                                        工具栏
+                                    </span>
+                                </label>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="navbar-form navbar-right">
                         <div class="btn-group">
-                            <a class="btn btn-primary btn-sm" href="@Url.Content(layOut.Page.Url)?ViewType=Review">
+                            <a class="btn btn-primary" href="@Url.Content(layOut.Page.Url)?ViewType=Review">
                                 <i class="glyphicon glyphicon-search"></i>
                                 预览
                             </a>
-                            <a class="btn btn-primary btn-sm" href="@Url.Action("Edit", "Page", new {module = "Common", ID = layOut.Page.ID})">
+                            <a class="btn btn-primary" href="@Url.Action("Edit", "Page", new {module = "Common", ID = layOut.Page.ID})">
                                 <i class="glyphicon glyphicon-edit"></i>
-                                编辑
+                                属性
                             </a>
-                            <a class="btn btn-primary btn-sm" href="@Url.Action("SelectWidget", "WidgetTemplate", new {module = "Common", pageId = layOut.Page.ID})">
+                            <a class="btn btn-primary" href="@Url.Action("SelectWidget", "WidgetTemplate", new {module = "Common", pageId = layOut.Page.ID})">
                                 <i class="glyphicon glyphicon-share-alt"></i>
                                 添加组件
                             </a>
                         </div>
-                    
+
+                    </div>
                 </div>
-            </div><!-- /.navbar-collapse -->
-        </div><!-- /.container-fluid -->
+            </div>
+        </div>
     </nav>
-<div id="container" class="@layOut.ContainerClass pagePreview border">
+    <div id="container" class="@layOut.ContainerClass pagePreview border">
         @RenderBody()
     </div>
 

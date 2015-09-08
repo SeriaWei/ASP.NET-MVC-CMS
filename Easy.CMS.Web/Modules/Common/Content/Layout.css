@@ -16,8 +16,9 @@
     list-style: none;
     margin: 5px;
 }
-
-
+input.helper:checked + span {
+    color: #fff;
+}
 .designTool {
     margin-top: 10px !important;
 }
@@ -236,10 +237,6 @@
     font-size: 12px;
 }
 
-.zoneToolbar .rightTool {
-    float: right;
-}
-
 .deleteBar {
     top: 0;
     left: 0;
@@ -255,7 +252,16 @@
     z-index: 10;
     display: none;
 }
-
+#toolBar {
+    border-radius: 0;
+}
+#toolBar .navbar-form {
+    padding-right: 0;
+}
+#toolBar .badge {
+    padding: 4px 8px;
+    font-size: 14px;
+}
 #toolBar.dropWarning > .deleteBar {
     display: block;
 }
