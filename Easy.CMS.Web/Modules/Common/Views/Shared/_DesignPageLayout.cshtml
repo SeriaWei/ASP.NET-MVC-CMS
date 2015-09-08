@@ -27,27 +27,43 @@
     }
 </head>
 <body class="front">
-    <div class="navbar-inverse white navbar-fixed-top" role="navigation">
-        <div class="navbar-inner">
-            <div id="toolBar" class="container">
-                <div class="row">
-                    <div class="pull-left">
 
-                        <label class="checkbox-inline">
-                            <input class="helper" data-class="border" type="checkbox" autocomplete="off" checked="checked" />
-                            <span>
-                                边框(显示空区域)
-                            </span>
-                        </label>
-                        <label class="checkbox-inline">
-                            <input class="helper" data-class="hideToolBar" type="checkbox" autocomplete="off" checked="checked" />
-                            <span>
-                                工具栏
-                            </span>
-                        </label>
+    <nav class="navbar navbar-inverse">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand"><span class="badge">页面设计</span></a>
+            </div>
 
-                    </div>
-                    <div class="pull-right">
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a>
+                            <label class="checkbox-inline">
+                                <input class="helper" data-class="border" type="checkbox" autocomplete="off" checked="checked" />
+                                    边框(显示空区域)
+                            </label>
+                        </a>
+                    </li>
+                    <li>
+                        <a>
+                            <label class="checkbox-inline">
+                                <input class="helper" data-class="hideToolBar" type="checkbox" autocomplete="off" checked="checked" />
+                                <span>
+                                    工具栏
+                                </span>
+                            </label>
+                        </a>
+                    </li>
+                </ul>
+                <div class="navbar-form navbar-right">
                         <div class="btn-group">
                             <a class="btn btn-primary btn-sm" href="@Url.Content(layOut.Page.Url)?ViewType=Review">
                                 <i class="glyphicon glyphicon-search"></i>
@@ -62,13 +78,12 @@
                                 添加组件
                             </a>
                         </div>
-                    </div>
-                    <div class="clearfix"></div>
+                    
                 </div>
-            </div>
-        </div>
-    </div>
-    <div id="container" class="@layOut.ContainerClass pagePreview border">
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+<div id="container" class="@layOut.ContainerClass pagePreview border">
         @RenderBody()
     </div>
 

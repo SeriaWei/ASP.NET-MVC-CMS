@@ -19,68 +19,89 @@
     @ScriptAtHead()
 </head>
 <body class="front">
-    <div class="navbar-inverse white navbar-fixed-top" role="navigation">
-        @using (Html.BeginForm("SaveLayout", "Layout", new { module = "Common" }, FormMethod.Post, new { id = "LayoutInfo" }))
-        {
-            <div id="toolBar" class="navbar-inner">
-                <div class="container">
-                    <div class="row">
-                        <div class="pull-left">
-                            <div class="btn-group">
-                                <label class="AddRow btn btn-primary btn-sm" data-container="container-fluid">
-                                    <i class="iconLeft glyphicon glyphicon-move"></i> 行
-                                </label>
-                                <label class="AddCol btn btn-primary btn-sm" data-col="col-md-">
-                                    <i class="iconLeft glyphicon glyphicon-move"></i> 列
-                                    <select>
-                                        <option value="1">1/12</option>
-                                        <option value="2">2/12</option>
-                                        <option value="3">3/12</option>
-                                        <option value="4">4/12</option>
-                                        <option value="5">5/12</option>
-                                        <option value="6" selected="selected">6/12</option>
-                                        <option value="7">7/12</option>
-                                        <option value="8">8/12</option>
-                                        <option value="9">9/12</option>
-                                        <option value="10">10/12</option>
-                                        <option value="11">11/12</option>
-                                        <option value="12">12/12</option>
-                                    </select>
-                                </label>
-                                <label class="AddZone btn btn-primary btn-sm">
-                                    <i class="iconLeft glyphicon glyphicon-move"></i>组件区域
-                                </label>
-                            </div>
-                            <label class="radio-inline">
-                                <input type="radio" name="ContainerClass" value="container" @(Model.ContainerClass == "container" || Model.ContainerClass.IsNullOrEmpty() ? "checked=\"checked\"" : "")>
-                                居 中
-                            </label>
-                            <label class="radio-inline">
-                                <input type="radio" name="ContainerClass" value="container-fluid" @(Model.ContainerClass == "container-fluid" ? "checked=\"checked\"" : "")>
-                                拉 伸
-                            </label>
-                        </div>
-                        <div class="pull-right">
-                            <div class="btn-group">
-                                <a href="@Url.Action("Edit", "Layout", new {ID = Model.ID, module = "Common"})" class="btn btn-primary btn-sm">
-                                    <i class="glyphicon glyphicon-edit"></i>
-                                    编辑属性
-                                </a>
-                                <input type="button" class="btn btn-primary btn-sm" id="save" value="保存" />
-                            </div>
-
-
-                        </div>
-                        <div class="clearfix"></div>
-                    </div>
+    @using (Html.BeginForm("SaveLayout", "Layout", new { module = "Common" }, FormMethod.Post, new { id = "LayoutInfo" }))
+    {
+        <nav id="toolBar" class="navbar navbar-inverse">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand"><span class="badge">布局设计</span></a>
                 </div>
-                <div class="deleteBar"><i class="glyphicon glyphicon-trash"></i></div>
-                <input type="hidden" id="LayoutId" name="ID" value="@Model.ID" />
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <a>
+                                <label class="radio-inline">
+                                    <input type="radio" name="ContainerClass" value="container" @(Model.ContainerClass == "container" || Model.ContainerClass.IsNullOrEmpty() ? "checked=\"checked\"" : "")>
+                                    居 中
+                                </label>
+                            </a>
+                        </li>
+                        <li>
+                            <a>
+                                <label class="radio-inline">
+                                    <input type="radio" name="ContainerClass" value="container-fluid" @(Model.ContainerClass == "container-fluid" ? "checked=\"checked\"" : "")>
+                                    拉 伸
+                                </label>
+                            </a>
+                        </li>
+                    </ul>
+
+                    <div class="navbar-form navbar-left">
+                        <div class="btn-group">
+                            <label class="AddRow btn btn-primary btn-sm" data-container="container-fluid">
+                                <i class="iconLeft glyphicon glyphicon-move"></i> 行
+                            </label>
+                            <label class="AddCol btn btn-primary btn-sm" data-col="col-md-">
+                                <i class="iconLeft glyphicon glyphicon-move"></i> 列
+                                <select>
+                                    <option value="1">1/12</option>
+                                    <option value="2">2/12</option>
+                                    <option value="3">3/12</option>
+                                    <option value="4">4/12</option>
+                                    <option value="5">5/12</option>
+                                    <option value="6" selected="selected">6/12</option>
+                                    <option value="7">7/12</option>
+                                    <option value="8">8/12</option>
+                                    <option value="9">9/12</option>
+                                    <option value="10">10/12</option>
+                                    <option value="11">11/12</option>
+                                    <option value="12">12/12</option>
+                                </select>
+                            </label>
+                            <label class="AddZone btn btn-primary btn-sm">
+                                <i class="iconLeft glyphicon glyphicon-move"></i>组件区域
+                            </label>
+                        </div>
+                    </div>
+                    <div class="navbar-form navbar-right">
+                        <div class="btn-group">
+                            <a href="@Url.Action("Edit", "Layout", new {ID = Model.ID, module = "Common"})" class="btn btn-primary btn-sm">
+                                <i class="glyphicon glyphicon-edit"></i>
+                                编辑属性
+                            </a>
+                            <input type="button" class="btn btn-primary btn-sm" id="save" value="保存" />
+                            <input type="hidden" id="LayoutId" name="ID" value="@Model.ID" />
+                        </div>
+                    </div>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+            <div class="deleteBar">
+                <i class="glyphicon glyphicon-trash"></i>
             </div>
-        }
-    </div>
+        </nav>
+    }
+
     <div class="design">
-        <div id="container" class="@(Model.ContainerClass??"container") RowDroppable">
+        <div id="container" class="@(Model.ContainerClass ?? "container") RowDroppable">
             @RenderBody()
         </div>
     </div>

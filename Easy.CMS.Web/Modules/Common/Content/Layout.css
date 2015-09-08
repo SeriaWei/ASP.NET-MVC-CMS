@@ -134,22 +134,7 @@
 }
 
 .pagePreview {
-    margin-top: 50px;
     min-height: 500px;
-}
-
-.design #container {
-    margin-top: 55px;
-}
-
-@media(min-width:991px) {
-    .pagePreview {
-        margin-top: 50px;
-    }
-
-    .design #container {
-        margin-top: 55px;
-    }
 }
 
 .pagePreview .zone {
@@ -255,22 +240,6 @@
     float: right;
 }
 
-#toolBar {
-    position: relative;
-}
-
-    #toolBar .left {
-        float: left;
-    }
-
-        #toolBar .left > label {
-            font-weight: normal;
-        }
-
-    #toolBar .right {
-        float: right;
-    }
-
 .deleteBar {
     top: 0;
     left: 0;
@@ -279,9 +248,10 @@
     height: 100%;
     color: red;
     font-size: 28px;
-    line-height: 45px;
+    line-height: 55px;
     text-align: center;
     background-color: #46b8da;
+    border: 1px solid #fff;
     z-index: 10;
     display: none;
 }
