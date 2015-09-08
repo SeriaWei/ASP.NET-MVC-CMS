@@ -77,6 +77,27 @@
                                 <i class="glyphicon glyphicon-share-alt"></i>
                                 添加组件
                             </a>
+                            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="caret"></span>
+                                <span class="sr-only">Toggle Dropdown</span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="~/admin">后台</a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("Index","Layout",new{module="common"})">布局</a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("Index","Page",new{module="common"})">页面</a>
+                                </li>
+                                <li role="separator" class="divider"></li>
+                                <li>
+                                    <a href="@Url.Action("Logout", "Account", new {module = "common"})" target="_self" title="退出登录">
+                                        退出登录
+                                    </a>
+                                </li>
+                            </ul>
                         </div>
 
                     </div>

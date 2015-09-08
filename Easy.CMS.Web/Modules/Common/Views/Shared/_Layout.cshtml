@@ -33,7 +33,7 @@
 <body class="front">
     @if (Request.IsAuthenticated)
     {
-        <div style="position: fixed; left: 5px; top: 5px;z-index:10">
+        <div class="preview-toolbar">
             <div class="btn-group">
                 <a class="btn btn-primary btn-sm" href="@Url.Action("Design", "Page", new {module = "common", ID = layOut.Page.ID})">
                     <i class="glyphicon glyphicon-wrench"></i>
