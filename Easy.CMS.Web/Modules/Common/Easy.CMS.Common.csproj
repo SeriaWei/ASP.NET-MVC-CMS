@@ -176,6 +176,7 @@
     <Content Include="Views\User\Create.cshtml" />
     <Content Include="Views\User\Edit.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\Shared\Partial.Menu.cshtml" />
     <None Include="Views\Widget.Carousel.IE.cshtml" />
     <Content Include="web.config" />
     <Content Include="Views\_ViewStart.cshtml" />

@@ -1,0 +1,64 @@
+﻿@model Easy.Web.CMS.Layout.LayoutEntity
+@{
+    string url = "~/";
+    if (Model.Page != null)
+    {
+        url = Model.Page.Url;
+    }
+}
+
+<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <span class="caret"></span>
+    <span class="sr-only">Toggle Dropdown</span>
+</button>
+<ul class="dropdown-menu">
+    <li>
+        <a href="~/admin">
+            <i class="glyphicon glyphicon-home"></i>
+            后台
+        </a>
+    </li>
+    <li>
+        <a href="@Url.Action("Index", "Layout", new {module = "common"})">
+            <i class="glyphicon glyphicon-th-list"></i>
+            布局
+        </a>
+    </li>
+    <li>
+        <a href="@Url.Action("Index", "Page", new {module = "common"})">
+            <i class="glyphicon glyphicon-eye-open"></i>
+            页面
+        </a>
+    </li>
+    <li>
+        <a href="@Url.Action("Index", "Navigation", new { module = "Common" })">
+            <i class="glyphicon glyphicon-retweet"></i>
+            导航
+        </a>
+    </li>
+    <li>
+        <a href="@Url.Action("Index", "Carousel", new { module = "Common" })">
+            <i class="glyphicon glyphicon-hd-video"></i>
+            焦点图
+        </a>
+    </li>
+    <li>
+        <a href="@Url.Action("Index", "Article", new { module = "Article" })">
+            <i class="glyphicon glyphicon-font"></i>
+            文章列表
+        </a>
+    </li>
+    <li>
+        <a href="@Url.Action("Index", "Product", new {module = "Product"})">
+            <i class="glyphicon glyphicon-list-alt"></i>
+            产品列表
+        </a>
+    </li>
+    <li role="separator" class="divider"></li>
+    <li>
+        <a href="@Url.Action("Logout", "Account", new { module = "common", returnurl = url })" target="_self" title="退出登录">
+            <i class="glyphicon glyphicon-off"></i>
+            退出登录
+        </a>
+    </li>
+</ul>
