@@ -72,6 +72,10 @@
                                 <i class="glyphicon glyphicon-edit"></i>
                                 属性
                             </a>
+                            <a class="btn btn-primary" href="@Url.Action("Design", "Layout", new {module = "Common", ID = layOut.ID ,PageID=layOut.Page.ID})">
+                                <i class="glyphicon glyphicon-th-list"></i>
+                                布局
+                            </a>
                             <a class="btn btn-primary" href="@Url.Action("SelectWidget", "WidgetTemplate", new {module = "Common", pageId = layOut.Page.ID})">
                                 <i class="glyphicon glyphicon-share-alt"></i>
                                 添加组件

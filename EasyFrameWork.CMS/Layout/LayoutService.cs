@@ -84,7 +84,7 @@ namespace Easy.Web.CMS.Layout
         public override LayoutEntity Get(params object[] primaryKeys)
         {
             var cache = new StaticCache();
-            return cache.Get("Layout_" + primaryKeys[0], m =>
+            var layout = cache.Get("Layout_" + primaryKeys[0], m =>
             {
                 m.When(LayoutChanged);
                 LayoutEntity entity = base.Get(primaryKeys);
@@ -98,7 +98,8 @@ namespace Easy.Web.CMS.Layout
                 htmls.Each(entity.Html.Add);
                 return entity;
             });
-
+            layout.Page = null;
+            return layout;
         }
         public override int Delete(Data.DataFilter filter)
         {

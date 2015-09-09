@@ -103,7 +103,11 @@
                                 @Html.Partial("Partial.Menu", Model)
                             </div>
                             <input type="hidden" id="ContainerClass" name="ContainerClass" value="@Model.ContainerClass" />
-                            <input type="hidden" id="LayoutId" name="ID" value="@Model.ID" />
+                            <input type="hidden" id="LayoutId" name="ID" value="@Model.ID"/>
+                            @if (Model.Page != null)
+                            {
+                                <input type="hidden" name="Page.ID" value="@Model.Page.ID"/>
+                            }
                         </div>
                     </div>
                 </div>

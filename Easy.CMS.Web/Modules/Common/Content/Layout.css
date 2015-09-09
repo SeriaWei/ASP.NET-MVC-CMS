@@ -92,6 +92,7 @@ input.helper:checked + span {
     border: 1px dotted red;
     background-color: white;
     margin: 6px;
+    min-height: 80px;
 }
 
 .border .zone {
@@ -99,29 +100,32 @@ input.helper:checked + span {
 }
 
 .design .zone .form-control {
+    border: none;
     width: 70%;
-    margin: 0 auto;
+    margin: 4px auto;
     box-shadow: none;
-    border-left: 1px dashed #fff;
-    border-right: 1px dashed #fff;
+    border: 1px solid #FFF;
     text-align: center;
     border-radius: 0;
+    height: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #FFA500;
+    padding: 33px 5px;
 }
 
     .design .zone .form-control:focus {
-        border-left: 1px dashed #f5ebeb;
-        border-right: 1px dashed #f5ebeb;
-        color: red;
-        background-color: #f5ebeb;
+        border: 1px solid #faeae9;
+        color: #000;
+        background-color: #fff;
     }
 
-.design .zone input {
-    border: none;
-}
+
 #container.design,
 #container.pagePreview {
-    margin-top: 60px;
+    margin-top: 70px;
 }
+
 #container.design,
 #container.border {
     border: 1px dashed #CCC;
@@ -129,7 +133,7 @@ input.helper:checked + span {
 }
 
 .design .colContent {
-    min-height: 90px;
+    min-height: 94px;
     margin-top: 1px;
     margin-bottom: 1px;
     background-color: white;
@@ -238,7 +242,7 @@ input.helper:checked + span {
 }
 
     .zoneToolbar a:hover {
-        color: #727272;
+        color: red;
     }
 
 .zoneToolbar .glyphicon {
@@ -265,9 +269,7 @@ input.helper:checked + span {
     border-radius: 0;
 }
 
-    #toolBar .navbar-form {
-        padding-right: 0;
-    }
+
 
     #toolBar .badge {
         padding: 4px 8px;
@@ -295,10 +297,12 @@ input.helper:checked + span {
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff428bca', endColorstr='#ff357ebd', GradientType=0);
     background-color: #357ebd;
 }
+
 #container .row.container {
     margin: 0 auto;
     padding: 0;
 }
+
 #container.design .row.container {
     margin: 3px auto;
     padding: 0;

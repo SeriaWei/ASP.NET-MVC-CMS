@@ -11,6 +11,7 @@ using Easy.Extend;
 using Easy.Constant;
 using Easy.Web.CMS.Zone;
 using Easy.CMS.Common.ViewModels;
+using Easy.Web.CMS.Page;
 using Easy.Web.CMS.Widget;
 
 namespace Easy.CMS.Common.Controllers
@@ -73,12 +74,16 @@ namespace Easy.CMS.Common.Controllers
             }
             return base.Edit(entity);
         }
-        public ActionResult Design(string ID)
+        public ActionResult Design(string ID, string PageID)
         {
             LayoutEntity layout = null;
-            if (!ID.IsNullOrEmpty())
+            if (ID.IsNotNullAndWhiteSpace())
             {
                 layout = new LayoutService().Get(ID);
+            }
+            if (PageID.IsNotNullAndWhiteSpace())
+            {
+                layout.Page = new PageEntity { ID = PageID };
             }
             return View(layout ?? new LayoutEntity());
         }
@@ -91,6 +96,10 @@ namespace Easy.CMS.Common.Controllers
             layout.Zones = zones;
             layout.Html = htmls;
             Service.UpdateDesign(layout);
+            if (layout.Page != null)
+            {
+                return RedirectToAction("Design", "Page", new {module = "Common", ID = layout.Page.ID});
+            }
             return RedirectToAction("Edit", new { ID = layout.ID, module = "Common" });
         }
     }
