@@ -1,26 +1,26 @@
 @echo off
-REM: Modify parameters below to build database.
+REM: 请根据您的个人实际情况修改以下信息：
 set server=(local)
 set dataBase=EasyCMS
 set dbUserId=sa
 set dbPassword=sa
 set dbPath=E:\GitHub\CMS\Easy.CMS.Web\App_Data
 @echo -----------------------------------------------------------------------------
-@echo *** Welcome to use EasyCMS ***
+@echo *** 欢迎使用 EasyCMS ***
 @echo -----------------------------------------------------------------------------
-@echo This command will help you to build the database.
-@echo Before start, Please according to your personal situation to be modified.
+@echo 运行该命令将初始化 EasyCMS 的数据库。
+@echo 在开始之前，请根据您的个人实际情况修改以下信息。（用记事打开这个文件）
 @echo -----------------------------------------------------------------------------
-@echo Please check the information below
+@echo 请认真核对以下信息，确保正确：
 @echo -----------------------------------------------------------------------------
-@echo Server: %server%
-@echo DataBase: %dataBase%
-@echo UserName: %dbUserId%
-@echo PassWord: %dbPassword%
-@echo Save database to: %dbPath%\%database%.mdf
+@echo 数据库服务器: %server%
+@echo 数据库名称: %dataBase%
+@echo 登录名: %dbUserId%
+@echo 密码: %dbPassword%
+@echo 保存路径: %dbPath%\%database%.mdf
 @echo *** Make sure the folder is already exists ***
 @echo -----------------------------------------------------------------------------
-@echo Do you want to continue?[y/n]
+@echo 是否要继续?[y/n]
 @echo -----------------------------------------------------------------------------
 set /p isStart=
 if "%isStart%" NEQ "y" goto done
@@ -183,12 +183,12 @@ sqlcmd -S %server% -d %dataBase% -U %dbUserId% -P %dbPassword% -b -i "InitialDat
 if %ERRORLEVEL% NEQ 0 goto errors
 
 @echo -----------------------------------------------------------------------------
-@echo Database build completed.
+@echo 数据库创建成功。
 goto done
 
 :errors
 @echo -----------------------------------------------------------------------------
-@echo WARNING! Error(s) were detected!
+@echo 警告，在数据库创建过程中，出现了错误。
 goto done
 :done
 @pause
