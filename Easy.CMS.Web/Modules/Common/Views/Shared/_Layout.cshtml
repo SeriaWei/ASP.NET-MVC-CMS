@@ -26,7 +26,14 @@
     @ScriptAtHead()
     @if (!layOut.Theme.IsNullOrEmpty())
     {
-        <link type="text/css" rel="stylesheet" href="@Url.Content("~/Themes/{0}/css/Theme.css".FormatWith(layOut.Theme))" />
+        if (HttpContext.Current.IsDebuggingEnabled)
+        {
+            <link type="text/css" rel="stylesheet" href="@Url.Content("~/Themes/{0}/css/Theme.css".FormatWith(layOut.Theme))"/>
+        }
+        else
+        {
+            <link type="text/css" rel="stylesheet" href="@Url.Content("~/Themes/{0}/css/Theme.min.css".FormatWith(layOut.Theme))"/>
+        }
     }
 
 </head>
@@ -46,8 +53,6 @@
                 </a>
                 @Html.Partial("Partial.Menu", layOut)
             </div>
-
-
         </div>
     }
     <div id="container" class="@layOut.ContainerClass">

@@ -55,14 +55,15 @@ namespace Easy.CMS.Common
         public override void InitScript()
         {
             Script("OWL.Carousel").Include("~/Modules/Common/Scripts/OwlCarousel/owl.carousel.min.js")
-                .Include("~/Modules/Common/Scripts/Owl.Carousel.js");
+                .Include("~/Modules/Common/Scripts/Owl.Carousel.js", "~/Modules/Common/Scripts/Owl.Carousel.min.js");
         }
 
         public override void InitStyle()
         {
             Style("Layout").Include("~/Modules/Common/Content/Layout.css");
-            Style("OWL.Carousel").Include("~/Modules/Common/Scripts/OwlCarousel/owl.carousel.css")
-                .Include("~/Modules/Common/Scripts/OwlCarousel/owl.transitions.css");
+            Style("OWL.Carousel")
+                .Include("~/Modules/Common/Scripts/OwlCarousel/owl.carousel.css", "~/Modules/Common/Scripts/OwlCarousel/owl.carousel.min.css")
+                .Include("~/Modules/Common/Scripts/OwlCarousel/owl.transitions.css", "~/Modules/Common/Scripts/OwlCarousel/owl.transitions.min.css");
         }
     }
 }

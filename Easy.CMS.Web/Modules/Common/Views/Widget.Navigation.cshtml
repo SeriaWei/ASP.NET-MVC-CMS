@@ -39,49 +39,52 @@
 }
 <div class="widget navigation">
     <div class="navbar navbar-default">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            @if (Model.Widget.Logo.IsNotNullAndWhiteSpace() || Model.Widget.Title.IsNotNullAndWhiteSpace())
-            {
-                <a class="navbar-brand" href="~/">
-                    @if (Model.Widget.Logo.IsNotNullAndWhiteSpace())
-                    {
-                        <img src="@Url.Content(Model.Widget.Logo)" alt="@Model.Widget.Title" class="logo" />
-                    }
-                    else
-                    {
-                        @Model.Widget.Title
-                    }
-                </a>
-            }
-        </div>
-        <div class="navbar-collapse collapse navbar-responsive-collapse">
-            <ul class="nav navbar-nav">
-                @foreach (NavigationEntity item in Model.Navigations.Where(m => m.ParentId == "#"))
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @if (Model.Widget.Logo.IsNotNullAndWhiteSpace() || Model.Widget.Title.IsNotNullAndWhiteSpace())
                 {
-                    if (Model.Navigations.Any(m => m.ParentId == item.ID))
-                    {
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">@item.Title <b class="caret"></b></a>
-                            @DropDown(Model.Navigations.Where(m => m.ParentId == item.ID), currentPath)
-                        </li>
-
-                    }
-                    else
-                    {
-                        var path = Url.PathContent(item.Url);
-                        <li class="@(currentPath.StartsWith(path) || (currentPath == "/" && index == 0) ? "active" : "")">
-                            @Html.SmartLink(path,item.Title)
-                        </li>
-                    }
-                    index++;
+                    <a class="navbar-brand" href="~/">
+                        @if (Model.Widget.Logo.IsNotNullAndWhiteSpace())
+                        {
+                            <img src="@Url.Content(Model.Widget.Logo)" alt="@Model.Widget.Title" class="logo" />
+                        }
+                        else
+                        {
+                            @Model.Widget.Title
+                        }
+                    </a>
                 }
-            </ul>
+            </div>
+            <div class="navbar-collapse collapse navbar-responsive-collapse">
+                <ul class="nav navbar-nav">
+                    @foreach (NavigationEntity item in Model.Navigations.Where(m => m.ParentId == "#"))
+                    {
+                        if (Model.Navigations.Any(m => m.ParentId == item.ID))
+                        {
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">@item.Title <b class="caret"></b></a>
+                                @DropDown(Model.Navigations.Where(m => m.ParentId == item.ID), currentPath)
+                            </li>
+
+                        }
+                        else
+                        {
+                            var path = Url.PathContent(item.Url);
+                            <li class="@(currentPath.StartsWith(path) || (currentPath == "/" && index == 0) ? "active" : "")">
+                                @Html.SmartLink(path, item.Title)
+                            </li>
+                        }
+                        index++;
+                    }
+                </ul>
+            </div>
         </div>
+
     </div>
 </div>
 @using (Script.AtFoot())

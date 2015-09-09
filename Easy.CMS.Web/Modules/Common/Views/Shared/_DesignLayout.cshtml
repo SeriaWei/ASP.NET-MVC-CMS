@@ -21,7 +21,7 @@
 <body class="front">
     @using (Html.BeginForm("SaveLayout", "Layout", new { module = "Common" }, FormMethod.Post, new { id = "LayoutInfo" }))
     {
-        <nav id="toolBar" class="navbar navbar-inverse">
+        <nav id="toolBar" class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
                 <div class="row">
                     <div class="navbar-header">
@@ -38,7 +38,7 @@
                             <li>
                                 <a>
                                     <label class="radio-inline">
-                                        <input type="radio" class="helper" name="ContainerClass" value="container" @(Model.ContainerClass == "container" || Model.ContainerClass.IsNullOrEmpty() ? "checked=\"checked\"" : "")>
+                                        <input type="radio" class="helper" name="toggle-container" value="container" />
                                         <span>居中</span>
                                     </label>
                                 </a>
@@ -46,7 +46,7 @@
                             <li>
                                 <a>
                                     <label class="radio-inline">
-                                        <input type="radio" class="helper" name="ContainerClass" value="container-fluid" @(Model.ContainerClass == "container-fluid" ? "checked=\"checked\"" : "")>
+                                        <input type="radio" class="helper" name="toggle-container" value="container-fluid" />
                                         <span>拉伸</span>
                                     </label>
                                 </a>
@@ -102,25 +102,19 @@
                                 </a>
                                 @Html.Partial("Partial.Menu", Model)
                             </div>
+                            <input type="hidden" id="ContainerClass" name="ContainerClass" value="@Model.ContainerClass" />
                             <input type="hidden" id="LayoutId" name="ID" value="@Model.ID" />
                         </div>
                     </div>
                 </div>
-
-
-
-
             </div>
             <div class="deleteBar">
                 <i class="glyphicon glyphicon-trash"></i>
             </div>
         </nav>
     }
-
-    <div class="design">
-        <div id="container" class="@(Model.ContainerClass ?? "container") RowDroppable">
-            @RenderBody()
-        </div>
+    <div id="container" class="@(Model.ContainerClass ?? "container") RowDroppable design">
+        @RenderBody()
     </div>
     @if (!Model.Style.IsNullOrEmpty())
     {

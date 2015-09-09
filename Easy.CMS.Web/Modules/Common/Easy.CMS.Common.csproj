@@ -160,9 +160,18 @@
     <Content Include="Scripts\Owl.Carousel.js" />
     <None Include="Properties\PublishProfiles\PublishLocal.pubxml" />
     <None Include="Scripts\_references.js" />
+    <Content Include="Scripts\Owl.Carousel.min.js">
+      <DependentUpon>Owl.Carousel.js</DependentUpon>
+    </Content>
     <Content Include="Scripts\OwlCarousel\owl.carousel.css" />
+    <Content Include="Scripts\OwlCarousel\owl.carousel.min.css">
+      <DependentUpon>owl.carousel.css</DependentUpon>
+    </Content>
     <Content Include="Scripts\OwlCarousel\owl.carousel.min.js" />
     <Content Include="Scripts\OwlCarousel\owl.transitions.css" />
+    <Content Include="Scripts\OwlCarousel\owl.transitions.min.css">
+      <DependentUpon>owl.transitions.css</DependentUpon>
+    </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\Layout\LayoutZones.cshtml" />
     <Content Include="Views\Page\PageZones.cshtml" />

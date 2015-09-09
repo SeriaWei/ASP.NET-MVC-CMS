@@ -50,7 +50,7 @@
                         width: percentTime + "%"
                     });
                     if (percentTime >= 100) {
-                        $elem.trigger('owl.next')
+                        $elem.trigger('owl.next');
                     }
                 }
             }

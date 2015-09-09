@@ -1,6 +1,7 @@
 ﻿zone {
     display: block;
 }
+
 .layoutList {
     margin: 0;
     padding: 0;
@@ -16,9 +17,11 @@
     list-style: none;
     margin: 5px;
 }
+
 input.helper:checked + span {
     color: #fff;
 }
+
 .designTool {
     margin-top: 10px !important;
 }
@@ -51,9 +54,11 @@ input.helper:checked + span {
 .AddZone {
     cursor: move;
 }
-.AddCol >select{
-    color:black;
-}
+
+    .AddCol > select {
+        color: black;
+    }
+
 .design {
 }
 
@@ -113,8 +118,11 @@ input.helper:checked + span {
 .design .zone input {
     border: none;
 }
-
-.design #container,
+#container.design,
+#container.pagePreview {
+    margin-top: 60px;
+}
+#container.design,
 #container.border {
     border: 1px dashed #CCC;
     min-height: 500px;
@@ -138,9 +146,9 @@ input.helper:checked + span {
     min-height: 500px;
 }
 
-.pagePreview .zone {
-    position: relative;
-}
+    .pagePreview .zone {
+        position: relative;
+    }
 
 .zoneName {
     display: none;
@@ -157,7 +165,7 @@ input.helper:checked + span {
 
     .zoneName a.add-widget {
         color: red;
-            text-decoration: none;
+        text-decoration: none;
     }
 
         .zoneName a.add-widget:hover {
@@ -252,24 +260,46 @@ input.helper:checked + span {
     z-index: 10;
     display: none;
 }
+
 #toolBar {
     border-radius: 0;
 }
-#toolBar .navbar-form {
-    padding-right: 0;
-}
-#toolBar .badge {
-    padding: 4px 8px;
-    font-size: 14px;
-}
-#toolBar.dropWarning > .deleteBar {
-    display: block;
+
+    #toolBar .navbar-form {
+        padding-right: 0;
+    }
+
+    #toolBar .badge {
+        padding: 4px 8px;
+        font-size: 14px;
+    }
+
+    #toolBar.dropWarning > .deleteBar {
+        display: block;
+    }
+
+    #toolBar.dropWarning.dropDanger > .deleteBar {
+        background-color: #d9534f;
+        color: white;
+    }
+
+.AddCol.ui-draggable-dragging > select {
+    display: none;
 }
 
-#toolBar.dropWarning.dropDanger > .deleteBar {
-    background-color: #d9534f;
-    color: white;
+.row.active {
+    background-image: -webkit-linear-gradient(top, #428bca 0%, #357ebd 100%);
+    background-image: -o-linear-gradient(top, #428bca 0%, #357ebd 100%);
+    background-image: linear-gradient(to bottom, #428bca 0%, #357ebd 100%);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff428bca', endColorstr='#ff357ebd', GradientType=0);
+    background-color: #357ebd;
 }
-.AddCol.ui-draggable-dragging>select{
-    display:none;
+#container .row.container {
+    margin: 0 auto;
+    padding: 0;
+}
+#container.design .row.container {
+    margin: 3px auto;
+    padding: 0;
 }
