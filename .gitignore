@@ -1,6 +1,6 @@
 /Easy.CMS.Web/Logs
 bin
 obj
-/Easy.CMS.Web/App_Data/EasyCMS.mdf
-/Easy.CMS.Web/App_Data/EasyCMS_log.ldf
+/Easy.CMS.Web/App_Data/ZkeaCMS.mdf
+/Easy.CMS.Web/App_Data/ZkeaCMS_log.ldf
 /Release/Temp

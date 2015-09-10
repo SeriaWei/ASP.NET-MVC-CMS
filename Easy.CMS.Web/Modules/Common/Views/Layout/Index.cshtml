@@ -15,21 +15,21 @@
         <ul class="layoutList">
             @foreach (LayoutEntity item in Model)
             {
-                <li>
-                    <a href="@Url.Action("Edit", "Layout", new { module = "Common", ID = item.ID })" class="thumbnail">
+                <li class="thumbnail">
+                    <a href="@Url.Action("Edit", "Layout", new {module = "Common", ID = item.ID})">
                         @if (item.ImageUrl.IsNullOrEmpty())
                         {
-                            <img src="@Url.Content(LayoutEntity.DefaultThumbnial)" alt="@item.LayoutName" />
+                            <img src="@Url.Content(LayoutEntity.DefaultThumbnial)" alt="@item.LayoutName"/>
                         }
                         else
                         {
-                            <img src="@Url.Content(item.ImageUrl)" alt="@item.LayoutName" />
+                            <img src="@Url.Content(item.ImageUrl)" alt="@item.LayoutName"/>
                         }
-                        <div class="caption">
-                            <h5>@item.LayoutName</h5>
-                            <p>@item.Description</p>
-                        </div>
                     </a>
+                    <div class="caption">
+                        <span>@item.LayoutName</span>
+                        <a href="@Url.Action("Design", new {ID = item.ID})" class="pull-right badge">设计</a>
+                    </div>
                 </li>
             }
         </ul>

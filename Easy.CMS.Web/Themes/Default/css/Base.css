@@ -165,7 +165,10 @@ a.btn,
 }
 .section img {
   border: 1px solid #dedede;
+  background-color: #ffffff;
   padding: 4px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.075);
+  border-radius: 4px;
 }
 .section table tr {
   vertical-align: top;
