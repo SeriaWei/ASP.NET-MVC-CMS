@@ -68,13 +68,17 @@
                                 <i class="glyphicon glyphicon-search"></i>
                                 预览
                             </a>
-                            <a class="btn btn-primary" href="@Url.Action("Edit", "Page", new {module = "Common", ID = layOut.Page.ID})">
-                                <i class="glyphicon glyphicon-edit"></i>
-                                属性
+                            <a class="btn btn-primary" href="@Url.Action("Index", "Page", new { module = "Common", PageID = layOut.Page.ID })">
+                                <i class="glyphicon glyphicon-th"></i>
+                                概览
                             </a>
                             <a class="btn btn-primary" href="@Url.Action("Design", "Layout", new {module = "Common", ID = layOut.ID ,PageID=layOut.Page.ID})">
                                 <i class="glyphicon glyphicon-th-list"></i>
                                 布局
+                            </a>
+                            <a class="btn btn-primary" href="@Url.Action("Edit", "Page", new {module = "Common", ID = layOut.Page.ID})">
+                                <i class="glyphicon glyphicon-edit"></i>
+                                属性
                             </a>
                             <a class="btn btn-primary" href="@Url.Action("SelectWidget", "WidgetTemplate", new {module = "Common", pageId = layOut.Page.ID})">
                                 <i class="glyphicon glyphicon-share-alt"></i>

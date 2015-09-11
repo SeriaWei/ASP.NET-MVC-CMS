@@ -92,6 +92,17 @@
                         </div>
                         <div class="navbar-form navbar-right">
                             <div class="btn-group">
+                                <a class="btn btn-primary cancel">
+                                    <i class="glyphicon glyphicon-arrow-left"></i>
+                                    取消
+                                </a>
+                                @if (Model.Page != null)
+                                {
+                                    <a class="btn btn-primary" href="@Url.Action("Design","Page" ,new {module = "Common",ID = Model.Page.ID})">
+                                        <i class="glyphicon glyphicon-wrench"></i>
+                                        页面设计
+                                    </a>
+                                }
                                 <a href="@Url.Action("Edit", "Layout", new {ID = Model.ID, module = "Common"})" class="btn btn-primary">
                                     <i class="glyphicon glyphicon-edit"></i>
                                     属性

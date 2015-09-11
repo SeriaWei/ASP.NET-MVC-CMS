@@ -1,7 +1,7 @@
 ﻿@model Easy.CMS.Common.ViewModels.LayoutZonesViewModel
 @{
     Layout = null;
-    string returnUrl = Url.Action("Index", "Page", new { module = "Common",PageID=Model.PageID });
+    string returnUrl = Url.Action("Index", "Page", new { module = "Common", PageID = Model.PageID });
 
     var noZoneWidgets = Model.Widgets.Where(m => Model.Zones.All(n => n.ID != m.ZoneID));
     var zoneStart = false;
@@ -40,9 +40,11 @@
     </div>
 }
 
-<div class="panel panel-primary simplePreview">
-    <div class="panel-heading">页面概览</div>
-    <div class="panel-body">
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        页面概览
+    </div>
+    <div class="panel-body simplePreview">
         <div class="container-fluid simpleDesign">
             @foreach (var itemHtml in Model.LayoutHtml)
             {
@@ -104,7 +106,16 @@
                 @Html.Raw(itemHtml.Html)
             }
         </div>
-
+    </div>
+    <div class="panel-footer">
+        <a class="btn btn-primary btn-sm" href="@Url.Action("Design", new {ID = Model.PageID})">
+            <i class="glyphicon glyphicon-wrench"></i>
+            设计
+        </a>
+        <a class="btn btn-primary btn-sm" href="@Url.Action("Design", "Layout", new { module = "Common", ID = Model.LayoutID, PageID = Model.PageID })">
+            <i class="glyphicon glyphicon-th-list"></i>
+            布局
+        </a>
     </div>
 </div>
 

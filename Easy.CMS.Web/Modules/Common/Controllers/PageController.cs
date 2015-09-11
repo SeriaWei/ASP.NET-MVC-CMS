@@ -126,6 +126,7 @@ namespace Easy.CMS.Common.Controllers
             var viewModel = new ViewModels.LayoutZonesViewModel
                 {
                     PageID = context.PageID,
+                    LayoutID = layout.ID,
                     Zones = zoneService.GetZonesByPageId(context.PageID),
                     Widgets = widgetService.GetAllByPageId(context.PageID),
                     LayoutHtml = layout.Html
