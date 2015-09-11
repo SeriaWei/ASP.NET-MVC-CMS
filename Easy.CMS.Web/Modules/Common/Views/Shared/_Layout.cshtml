@@ -47,10 +47,13 @@
                     <i class="glyphicon glyphicon-wrench"></i>
                     设计
                 </a>
-
+                <a class="btn btn-primary" href="@Url.Action("Index", "Page", new { module = "Common", PageID = layOut.Page.ID })">
+                    <i class="glyphicon glyphicon-th"></i>
+                    概览
+                </a>
                 <a class="btn btn-primary" href="@Url.Action("Edit", "Page", new {module = "common", ID = layOut.Page.ID})">
                     <i class="glyphicon glyphicon-edit"></i>
-                    编辑
+                    属性
                 </a>
                 @Html.Partial("Partial.Menu", layOut)
             </div>

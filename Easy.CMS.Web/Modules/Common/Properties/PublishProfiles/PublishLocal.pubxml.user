@@ -67,7 +67,7 @@
       <publishTime>09/08/2015 09:26:45</publishTime>
     </File>
     <File Include="bin/Easy.CMS.Common.dll">
-      <publishTime>09/10/2015 09:49:26</publishTime>
+      <publishTime>09/11/2015 13:58:55</publishTime>
     </File>
     <File Include="bin/Easy.dll">
       <publishTime>09/07/2015 13:55:47</publishTime>
@@ -238,7 +238,7 @@
       <publishTime>09/07/2015 13:56:12</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>09/10/2015 09:49:27</publishTime>
+      <publishTime>09/11/2015 13:58:56</publishTime>
     </File>
     <File Include="Scripts/jquery-1.8.2.js">
       <publishTime>01/30/2015 22:48:00</publishTime>
@@ -286,7 +286,7 @@
       <publishTime>09/09/2015 16:07:40</publishTime>
     </File>
     <File Include="Views/Layout/Index.cshtml">
-      <publishTime>01/30/2015 22:48:00</publishTime>
+      <publishTime>09/11/2015 09:12:55</publishTime>
     </File>
     <File Include="Views/Layout/LayoutWidget.cshtml">
       <publishTime>01/30/2015 22:48:00</publishTime>
@@ -316,7 +316,7 @@
       <publishTime>09/08/2015 08:31:38</publishTime>
     </File>
     <File Include="Views/Page/PageZones.cshtml">
-      <publishTime>09/08/2015 08:31:38</publishTime>
+      <publishTime>09/11/2015 09:12:55</publishTime>
     </File>
     <File Include="Views/Page/PreView.cshtml">
       <publishTime>08/31/2015 08:40:02</publishTime>
@@ -328,10 +328,10 @@
       <publishTime>09/09/2015 16:20:03</publishTime>
     </File>
     <File Include="Views/Shared/_DesignLayout.cshtml">
-      <publishTime>09/09/2015 15:58:56</publishTime>
+      <publishTime>09/11/2015 09:12:55</publishTime>
     </File>
     <File Include="Views/Shared/_DesignPageLayout.cshtml">
-      <publishTime>09/09/2015 16:02:40</publishTime>
+      <publishTime>09/11/2015 09:12:55</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
       <publishTime>09/10/2015 09:47:52</publishTime>

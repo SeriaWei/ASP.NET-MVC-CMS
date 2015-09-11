@@ -25,7 +25,7 @@
             </div>
             if (layOut.ZoneWidgets.ContainsKey(item.Html))
             {
-                foreach (WidgetPart widgetPart in layOut.ZoneWidgets[item.Html].OrderBy(m => m.Widget.Position))
+                foreach (WidgetPart widgetPart in layOut.ZoneWidgets[item.Html].OrderBy(m => m.Widget.Position).ThenBy(m => m.Widget.WidgetName))
                 {
                     <div class="widget-design @widgetPart.Widget.StyleClass" id="widget_@widgetPart.Widget.ID" data-widgetid="@widgetPart.Widget.ID">
                         <div class="zoneToolbar container-fluid blue">

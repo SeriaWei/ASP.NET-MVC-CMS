@@ -9,7 +9,9 @@ body {
 #wrap {
     height: 100%;
 }
-
+a.badge:hover {
+    background-color: #1F1F1F;
+}
 .navbar-collapse {
     position: fixed;
     left: 0;

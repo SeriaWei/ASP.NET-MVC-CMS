@@ -64,7 +64,7 @@
                     </ul>
                     <div class="navbar-form navbar-right">
                         <div class="btn-group">
-                            <a class="btn btn-primary" href="@Url.Content(layOut.Page.Url)?ViewType=Review">
+                            <a class="btn btn-primary" href="@Url.Action("RedirectView", "Page", new { module = "Common", ID = layOut.Page.ID })">
                                 <i class="glyphicon glyphicon-search"></i>
                                 预览
                             </a>
