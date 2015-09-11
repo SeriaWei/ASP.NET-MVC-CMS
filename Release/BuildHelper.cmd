@@ -8,4 +8,7 @@ for /f %%a in ('dir Temp\Application\Modules /b') do (
 	@echo Delete Temp\Application\Modules\%%a\*.xml
 	del Temp\Application\Modules\%%a\*.xml
 )
+rd /S /Q Temp\DataBase
+xcopy ..\DataBase Temp\DataBase\ /S /F /Y
+del Temp\DataBase\Append_GO.cmd
 @pause

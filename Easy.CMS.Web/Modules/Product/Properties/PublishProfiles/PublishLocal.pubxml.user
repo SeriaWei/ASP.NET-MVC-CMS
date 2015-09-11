@@ -28,13 +28,13 @@
       <publishTime>09/08/2015 09:27:02</publishTime>
     </File>
     <File Include="bin/Easy.CMS.Product.dll">
-      <publishTime>09/08/2015 09:27:00</publishTime>
+      <publishTime>09/10/2015 09:49:40</publishTime>
     </File>
     <File Include="bin/Easy.dll">
       <publishTime>09/07/2015 13:55:47</publishTime>
     </File>
     <File Include="bin/Easy.Web.CMS.dll">
-      <publishTime>09/08/2015 09:12:32</publishTime>
+      <publishTime>09/10/2015 09:48:15</publishTime>
     </File>
     <File Include="bin/Easy.Web.dll">
       <publishTime>09/07/2015 13:55:47</publishTime>
@@ -136,7 +136,7 @@
       <publishTime>09/07/2015 13:56:39</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>09/09/2015 11:48:45</publishTime>
+      <publishTime>09/10/2015 09:49:41</publishTime>
     </File>
     <File Include="Scripts/jquery-photowall/exit.gif">
       <publishTime>01/30/2015 22:48:00</publishTime>
@@ -160,13 +160,13 @@
       <publishTime>08/28/2015 15:35:13</publishTime>
     </File>
     <File Include="Views/Product/Create.cshtml">
-      <publishTime>01/30/2015 22:48:00</publishTime>
+      <publishTime>09/09/2015 16:13:21</publishTime>
     </File>
     <File Include="Views/Product/Edit.cshtml">
-      <publishTime>01/30/2015 22:48:00</publishTime>
+      <publishTime>09/09/2015 16:13:39</publishTime>
     </File>
     <File Include="Views/Product/Index.cshtml">
-      <publishTime>01/30/2015 22:48:00</publishTime>
+      <publishTime>09/09/2015 16:13:49</publishTime>
     </File>
     <File Include="Views/ProductCategory/Create.cshtml">
       <publishTime>01/30/2015 22:48:00</publishTime>

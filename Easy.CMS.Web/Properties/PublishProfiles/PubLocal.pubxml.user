@@ -16,10 +16,10 @@
       <publishTime>07/02/2014 21:58:06</publishTime>
     </File>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>09/09/2015 11:48:11</publishTime>
+      <publishTime>09/10/2015 09:48:22</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>09/09/2015 11:48:11</publishTime>
+      <publishTime>09/10/2015 09:48:22</publishTime>
     </File>
     <File Include="bin/App_Web_dljcttax.dll">
       <publishTime>09/08/2015 09:16:14</publishTime>
@@ -58,7 +58,7 @@
       <publishTime>07/02/2014 21:58:05</publishTime>
     </File>
     <File Include="bin/Easy.CMS.Web.dll">
-      <publishTime>09/08/2015 09:16:11</publishTime>
+      <publishTime>09/10/2015 09:48:15</publishTime>
     </File>
     <File Include="bin/Easy.CMS.Web.Views.dll">
       <publishTime>09/08/2015 09:17:52</publishTime>
@@ -67,7 +67,7 @@
       <publishTime>09/07/2015 13:55:47</publishTime>
     </File>
     <File Include="bin/Easy.Web.CMS.dll">
-      <publishTime>09/08/2015 09:12:32</publishTime>
+      <publishTime>09/10/2015 09:48:15</publishTime>
     </File>
     <File Include="bin/Easy.Web.dll">
       <publishTime>09/07/2015 13:55:47</publishTime>
@@ -619,7 +619,7 @@
       <publishTime>09/07/2015 13:56:26</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>09/09/2015 11:48:09</publishTime>
+      <publishTime>09/10/2015 09:48:19</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Animate.css">
       <publishTime>12/13/2014 17:20:00</publishTime>
@@ -1873,7 +1873,7 @@
       <publishTime>07/27/2015 08:41:42</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>09/09/2015 11:48:06</publishTime>
+      <publishTime>09/10/2015 09:48:16</publishTime>
     </File>
   </ItemGroup>
 </Project>
