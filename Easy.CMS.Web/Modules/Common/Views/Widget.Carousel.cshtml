@@ -16,10 +16,10 @@
 <div class="widget owl-carousel">
     @foreach (CarouselItemEntity item in carouselItems)
     {
-        <div class="item" style="background-image: url('@Url.PathContent(item.ImageUrl)');height:@(Model.Height??100)px">
+        <div class="item" style="background-image: url('@Url.PathContent(item.ImageUrl)');" data-image-url="@Url.PathContent(item.ImageUrl)">
             <div class="slider-inner">
                 <div class="carousel-content">
-                    @Html.SmartLink(Url.PathContent(item.TargetLink),item.Title)
+                    @Html.SmartLink(Url.PathContent(item.TargetLink), item.Title)
                 </div>
             </div>
         </div>

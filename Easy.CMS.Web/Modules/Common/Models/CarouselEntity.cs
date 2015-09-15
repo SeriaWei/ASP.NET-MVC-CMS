@@ -30,6 +30,7 @@ namespace Easy.CMS.Common.Models
         {
             ViewConfig(m => m.ID).AsHidden();
             ViewConfig(m => m.CarouselItems).AsCollectionArea();
+            ViewConfig(m => m.Height).AsHidden();
         }
     }
 
