@@ -1,11 +1,11 @@
-# EasyCMS
-EasyCMS是基于EasyFrameWork，使用ASP.NET MVC4开发的开源CMS。
+# ZkeaCMS
+ZkeaCMS是基于EasyFrameWork，使用ASP.NET MVC4开发的开源CMS。
 
-EasyCMS一个内容管理软件（网站）。EasyCMS不仅只是管理内容，更是重新定义了布局、页面和组件，让用户可以自由规划页面的布局，页面和内容。
+ZkeaCMS一个内容管理软件（网站）。ZkeaCMS不仅只是管理内容，更是重新定义了布局、页面和组件，让用户可以自由规划页面的布局，页面和内容。
 
-EasyCMS使用可视化编辑设计，真正做到所见即所得，可直接在预览页面上设计页面。
+ZkeaCMS使用可视化编辑设计，真正做到所见即所得，可直接在预览页面上设计页面。
 
-EasyCMS采用插件式设计，支持扩展新插件。
+ZkeaCMS采用插件式设计，支持扩展新插件。
 
 ### 架设环境：
 
@@ -17,7 +17,7 @@ MsSql 2005 或以上
 ## 移动友好
 ![移动友好](http://i1291.photobucket.com/albums/b560/SeriaWei/BlogPic/responsive_zps475ly5og.gif)
 
-EasyCMS采用了现代的响应式设计，可以自动适配不同大小的屏幕和设备。从PC，笔记本，电视，平板到手机页面都会自动响应适应。
+ZkeaCMS采用了现代的响应式设计，可以自动适配不同大小的屏幕和设备。从PC，笔记本，电视，平板到手机页面都会自动响应适应。
 
 ## 布局设计
 ![布局设计](http://i1291.photobucket.com/albums/b560/SeriaWei/BlogPic/1397815111827_zpspkt5ktrz.png)
