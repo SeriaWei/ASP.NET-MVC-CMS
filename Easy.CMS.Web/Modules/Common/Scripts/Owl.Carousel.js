@@ -7,6 +7,12 @@
       tick,
       percentTime;
     var carousel = $('.owl-carousel');
+    var img = new Image();
+    img.src = carousel.find(".item:first").data("image-url");
+    img.onload = function () {
+        var itemHieght = carousel.width() / (this.width / this.height);
+        carousel.find(".item").height(itemHieght);
+    }
     carousel.owlCarousel({
         slideSpeed: 500,
         paginationSpeed: 500,
@@ -22,13 +28,7 @@
         //autoHeight : true,
         transitionStyle: "fadeUp"
     });
-    var img = new Image();
-    img.src = carousel.find(".item:first").data("image-url");
-    img.onload = function () {
-        var itemHieght =carousel.width() / (this.width / this.height);
-        carousel.find(".item").height(itemHieght);
-    }
-
+    var autoGo = carousel.find(".item").size() > 1;
     //Init progressBar where elem is $("#owl-demo")
     function progressBar(elem) {
         $elem = elem;
@@ -45,6 +45,9 @@
     }
 
     function start() {
+        if (!autoGo) {
+            return;
+        }
         percentTime = 0;
         isPause = false;
         tick = setInterval(interval, 10);

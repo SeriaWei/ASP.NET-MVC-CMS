@@ -1,11 +1,11 @@
-/****** Object:  Table [dbo].[CarouselWidget]    Script Date: 2015/9/1 星期二 16:54:56 ******/
+/****** Object:  Table [dbo].[CarouselWidget]    Script Date: 2015/09/16 星期三 22:44:14 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[CarouselWidget](
 	[ID] [nvarchar](255) NOT NULL,
-	[CarouselID] [int] NOT NULL,
+	[CarouselID] [int] NULL,
  CONSTRAINT [PK_CarouselWidget] PRIMARY KEY CLUSTERED 
 (
 	[ID] ASC

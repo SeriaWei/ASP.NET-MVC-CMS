@@ -1,4 +1,4 @@
-/****** Object:  Table [dbo].[CarouselItem]    Script Date: 2015/9/1 星期二 16:54:56 ******/
+/****** Object:  Table [dbo].[CarouselItem]    Script Date: 2015/09/16 星期三 22:44:14 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -7,6 +7,7 @@ CREATE TABLE [dbo].[CarouselItem](
 	[ID] [int] IDENTITY(1,1) NOT NULL,
 	[Title] [nvarchar](255) NULL,
 	[CarouselID] [int] NULL,
+	[CarouselWidgetID] [nvarchar](255) NULL,
 	[TargetLink] [nvarchar](255) NULL,
 	[ImageUrl] [nvarchar](255) NULL,
 	[Description] [nvarchar](255) NULL,
@@ -28,4 +29,9 @@ ALTER TABLE [dbo].[CarouselItem]  WITH CHECK ADD  CONSTRAINT [FK_CarouselItem_Ca
 REFERENCES [dbo].[Carousel] ([ID])
 GO
 ALTER TABLE [dbo].[CarouselItem] CHECK CONSTRAINT [FK_CarouselItem_Carousel]
+GO
+ALTER TABLE [dbo].[CarouselItem]  WITH CHECK ADD  CONSTRAINT [FK_CarouselItem_CarouselWidget] FOREIGN KEY([CarouselWidgetID])
+REFERENCES [dbo].[CarouselWidget] ([ID])
+GO
+ALTER TABLE [dbo].[CarouselItem] CHECK CONSTRAINT [FK_CarouselItem_CarouselWidget]
 GO
