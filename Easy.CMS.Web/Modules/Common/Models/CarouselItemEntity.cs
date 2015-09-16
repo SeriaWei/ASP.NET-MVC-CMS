@@ -12,7 +12,8 @@ namespace Easy.CMS.Common.Models
     {
         public long ID { get; set; }
 
-        public long CarouselID { get; set; }
+        public long? CarouselID { get; set; }
+        public string CarouselWidgetID { get; set; }
 
         public string TargetLink { get; set; }
         public string ImageUrl { get; set; }
@@ -31,7 +32,9 @@ namespace Easy.CMS.Common.Models
         {
             ViewConfig(m => m.ID).AsHidden();
             ViewConfig(m => m.CarouselID).AsHidden();
+            ViewConfig(m => m.CarouselWidgetID).AsHidden();
             ViewConfig(m => m.Description).AsHidden();
+            ViewConfig(m => m.Status).AsHidden();
             ViewConfig(m => m.TargetLink).AsTextBox().AddClass("select").AddProperty("data-url", "/admin/page/select");
         }
     }

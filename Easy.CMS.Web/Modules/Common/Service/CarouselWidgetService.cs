@@ -3,16 +3,70 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Easy.Data;
+using Easy.Extend;
 using Easy.Web.CMS.Widget;
 
 namespace Easy.CMS.Common.Service
 {
     public class CarouselWidgetService : WidgetService<CarouselWidget>
     {
+        readonly CarouselItemService _carouselItemService = new CarouselItemService();
+
+        public override WidgetBase GetWidget(WidgetBase widget)
+        {
+            var carouselWidget = base.GetWidget(widget) as CarouselWidget;
+
+            carouselWidget.CarouselItems = _carouselItemService.Get("CarouselWidgetID", OperatorType.Equal,
+                    carouselWidget.ID);
+
+            return carouselWidget;
+        }
+
+        public override void Add(CarouselWidget item)
+        {
+            base.Add(item);
+            if (item.CarouselItems != null && item.CarouselItems.Any())
+            {
+                item.CarouselItems.Each(m =>
+                {
+                    m.CarouselWidgetID = item.ID;
+                    _carouselItemService.Add(m);
+                });
+            }
+        }
+
+        public override bool Update(CarouselWidget item, params object[] primaryKeys)
+        {
+            if (item.CarouselItems != null && item.CarouselItems.Any())
+            {
+                item.CarouselItems.Each(m =>
+                {
+                    m.CarouselWidgetID = item.ID;
+                    _carouselItemService.Update(m);
+                });
+            }
+            return base.Update(item, primaryKeys);
+        }
+
         public override WidgetPart Display(WidgetBase widget, HttpContextBase httpContext)
         {
-            var cWidget = widget as CarouselWidget;
-            return cWidget.ToWidgetPart(new CarouselService().Get(cWidget.CarouselID));
+            var carouselWidget = widget as CarouselWidget;
+            if (carouselWidget.CarouselID.HasValue)
+            {
+                var varouselItems = _carouselItemService.Get("CarouselID", OperatorType.Equal,
+                        carouselWidget.CarouselID);
+                if (carouselWidget.CarouselItems == null)
+                {
+                    carouselWidget.CarouselItems = varouselItems;
+                }
+                else
+                {
+                    ((List<CarouselItemEntity>)carouselWidget.CarouselItems).AddRange(varouselItems);
+                }
+            }
+
+            return base.Display(widget, httpContext);
         }
     }
 }

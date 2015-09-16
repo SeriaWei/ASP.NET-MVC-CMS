@@ -19,11 +19,8 @@ namespace Easy.CMS.Common.Service
                 var carouselItemService = new CarouselItemService();
                 item.CarouselItems.Each(m =>
                 {
-                    if (m.ActionType != Constant.ActionType.Unattached)
-                    {
-                        m.CarouselID = item.ID;
-                        carouselItemService.Add(m);
-                    }
+                    m.CarouselID = item.ID;
+                    carouselItemService.Add(m);
                 });
             }
         }
@@ -35,20 +32,8 @@ namespace Easy.CMS.Common.Service
                 var carouselItemService = new CarouselItemService();
                 item.CarouselItems.Each(m =>
                 {
-                    if (m.ActionType == Constant.ActionType.Update)
-                    {
-                        m.CarouselID = item.ID;
-                        carouselItemService.Update(m);
-                    }
-                    else if (m.ActionType == Constant.ActionType.Create)
-                    {
-                        m.CarouselID = item.ID;
-                        carouselItemService.Add(m);
-                    }
-                    else if (m.ActionType == Constant.ActionType.Delete)
-                    {
-                        carouselItemService.Delete(m.ID);
-                    }
+                    m.CarouselID = item.ID;
+                    carouselItemService.Update(m);
                 });
             }
             return result;
