@@ -12,11 +12,11 @@ namespace Easy.CMS.Section.Models
     [DataConfigure(typeof(SectionGroupMetaData))]
     public class SectionGroup : EditorEntity
     {
-        public int ID { get; set; }
+        public int? ID { get; set; }
         public string GroupName { get; set; }
         public string SectionWidgetId { get; set; }
         public string PartialView { get; set; }
-        public int Order { get; set; }
+        public int? Order { get; set; }
 
         public IEnumerable<SectionContent> SectionContents { get; set; }
     }

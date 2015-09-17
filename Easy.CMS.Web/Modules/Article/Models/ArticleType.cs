@@ -12,9 +12,9 @@ namespace Easy.CMS.Article.Models
     [DataConfigure(typeof(ArtycleTypeMetaData))]
     public class ArticleType : EditorEntity
     {
-        public long ID { get; set; }
+        public long? ID { get; set; }
 
-        public long ParentID { get; set; }
+        public long? ParentID { get; set; }
     }
     class ArtycleTypeMetaData : DataViewMetaData<ArticleType>
     {

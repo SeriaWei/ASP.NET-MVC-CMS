@@ -15,7 +15,7 @@ namespace Easy.Web.CMS.Widget
     {
         public string ID { get; set; }
         public string WidgetName { get; set; }
-        public int Position { get; set; }
+        public int? Position { get; set; }
         public string LayoutID { get; set; }
         public string PageID { get; set; }
         public string ZoneID { get; set; }

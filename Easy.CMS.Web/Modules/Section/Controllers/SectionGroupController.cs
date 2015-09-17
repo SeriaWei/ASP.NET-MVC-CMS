@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using Easy.CMS.Section.Models;
 using Easy.CMS.Section.Service;
 using Easy.Constant;
+using Easy.Data;
 using Easy.Extend;
 using Easy.Web.Attribute;
 
@@ -14,16 +15,23 @@ namespace Easy.CMS.Section.Controllers
     [PopUp, Authorize]
     public class SectionGroupController : Controller
     {
-        //
-        // GET: /SectionGroup/
+        private readonly SectionGroupService _sectionGroupService;
+        public SectionGroupController()
+        {
+            _sectionGroupService = new SectionGroupService();
+        }
 
         public ActionResult Create(string sectionWidgetId)
         {
-            return View("Form", new SectionGroup { SectionWidgetId = sectionWidgetId, ActionType = ActionType.Create });
+            return View("Form", new SectionGroup { 
+                SectionWidgetId = sectionWidgetId, 
+                ActionType = ActionType.Create,
+                Order = _sectionGroupService.Get("SectionWidgetId", OperatorType.Equal, sectionWidgetId).Count() + 1
+            });
         }
         public ActionResult Edit(int Id)
         {
-            var group = new SectionGroupService().Get(Id);
+            var group = _sectionGroupService.Get(Id);
             group.ActionType = ActionType.Update;
             return View("Form", group);
         }
@@ -36,11 +44,11 @@ namespace Easy.CMS.Section.Controllers
             }
             if (group.ActionType == ActionType.Create)
             {
-                new SectionGroupService().Add(group);
+                _sectionGroupService.Add(group);
             }
             else
             {
-                new SectionGroupService().Update(group);
+                _sectionGroupService.Update(group);
             }
             ViewBag.Close = true;
             return View("Form", group);
@@ -48,18 +56,17 @@ namespace Easy.CMS.Section.Controllers
 
         public JsonResult Delete(int Id)
         {
-            new SectionGroupService().Delete(Id);
+            _sectionGroupService.Delete(Id);
             return Json(true, JsonRequestBehavior.AllowGet);
         }
         [HttpPost]
         public JsonResult Sort(List<SectionGroup> groups)
         {
-            var groupService = new SectionGroupService();
             groups.Each(m =>
             {
-                var g = groupService.Get(m.ID);
+                var g = _sectionGroupService.Get(m.ID);
                 g.Order = m.Order;
-                groupService.Update(g);
+                _sectionGroupService.Update(g);
             });
             return Json(true);
         }

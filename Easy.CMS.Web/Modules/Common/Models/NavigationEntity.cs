@@ -11,7 +11,7 @@ namespace Easy.CMS.Common.Models
     public class NavigationEntity : EditorEntity
     {
         public string ID { get; set; }
-        public int DisplayOrder { get; set; }
+        public int? DisplayOrder { get; set; }
 
         public string ParentId { get; set; }
         public string Url { get; set; }

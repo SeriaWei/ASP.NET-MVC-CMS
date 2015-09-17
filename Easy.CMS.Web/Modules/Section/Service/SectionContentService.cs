@@ -34,7 +34,7 @@ namespace Easy.CMS.Section.Service
         public override int Delete(params object[] primaryKeys)
         {
             var content = base.Get(primaryKeys);
-            _sectionContentServices.First(m => (int)m.ContentType == content.SectionContentType).DeleteContent(content.ID);
+            _sectionContentServices.First(m => (int)m.ContentType == content.SectionContentType).DeleteContent(content.ID ?? 0);
             base.Delete(primaryKeys);
             return 1;
         }
@@ -44,7 +44,7 @@ namespace Easy.CMS.Section.Service
             return
                 content.InitContent(
                     _sectionContentServices.First(m => (int)m.ContentType == content.SectionContentType)
-                        .GetContent(content.ID));
+                        .GetContent(content.ID ?? 0));
         }
     }
 }

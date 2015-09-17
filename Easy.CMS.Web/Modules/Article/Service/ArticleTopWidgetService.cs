@@ -19,7 +19,7 @@ namespace Easy.CMS.Article.Service
             var page = new Pagination
             {
                 PageIndex = 0,
-                PageSize = currentWidget.Tops
+                PageSize = currentWidget.Tops ?? 20
             };
             var viewModel = new ArticleTopWidgetViewModel
             {

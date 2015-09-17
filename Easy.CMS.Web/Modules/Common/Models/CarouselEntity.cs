@@ -10,7 +10,7 @@ namespace Easy.CMS.Common.Models
     [DataConfigure(typeof(CarouselEntityMetaData))]
     public class CarouselEntity : EditorEntity
     {
-        public long ID { get; set; }
+        public long? ID { get; set; }
 
         public int? Height { get; set; }
 

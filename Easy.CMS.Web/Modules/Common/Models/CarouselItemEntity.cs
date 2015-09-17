@@ -10,7 +10,7 @@ namespace Easy.CMS.Common.Models
     [DataConfigure(typeof(CarouselItemEntityMeta))]
     public class CarouselItemEntity : EditorEntity
     {
-        public long ID { get; set; }
+        public long? ID { get; set; }
 
         public long? CarouselID { get; set; }
         public string CarouselWidgetID { get; set; }
@@ -34,7 +34,6 @@ namespace Easy.CMS.Common.Models
             ViewConfig(m => m.CarouselID).AsHidden();
             ViewConfig(m => m.CarouselWidgetID).AsHidden();
             ViewConfig(m => m.Description).AsHidden();
-            ViewConfig(m => m.Status).AsHidden();
             ViewConfig(m => m.TargetLink).AsTextBox().AddClass("select").AddProperty("data-url", "/admin/page/select");
         }
     }

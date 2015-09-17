@@ -17,11 +17,11 @@ namespace Easy.CMS.Section.Models
             Paragraph = 3,
             Title = 4
         }
-        public int ID { get; set; }
+        public int? ID { get; set; }
         public string SectionWidgetId { get; set; }
-        public int SectionGroupId { get; set; }
-        public int SectionContentType { get; set; }
-        public int Order { get; set; }
+        public int? SectionGroupId { get; set; }
+        public int? SectionContentType { get; set; }
+        public int? Order { get; set; }
 
         public SectionContent InitContent(SectionContent content)
         {

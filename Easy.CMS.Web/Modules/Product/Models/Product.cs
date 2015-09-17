@@ -11,7 +11,7 @@ namespace Easy.CMS.Product.Models
     [DataConfigure(typeof(ProductMetaData))]
     public class Product : EditorEntity, IImage
     {
-        public long ID { get; set; }
+        public long? ID { get; set; }
         /// <summary>
         /// 产品图
         /// </summary>
@@ -27,7 +27,7 @@ namespace Easy.CMS.Product.Models
         /// <summary>
         /// 类别
         /// </summary>
-        public int ProductCategory { get; set; }
+        public int? ProductCategory { get; set; }
         /// <summary>
         /// 颜色
         /// </summary>
@@ -60,7 +60,7 @@ namespace Easy.CMS.Product.Models
         public string SEOTitle { get; set; }
         public string SEOKeyWord { get; set; }
         public string SEODescription { get; set; }
-        public int OrderIndex { get; set; }
+        public int? OrderIndex { get; set; }
         public string SourceFrom { get; set; }
         public string Url { get; set; }
         public bool IsPublish { get; set; }

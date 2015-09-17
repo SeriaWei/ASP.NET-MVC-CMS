@@ -11,7 +11,7 @@ namespace Easy.Web.CMS.WidgetTemplate
     [DataConfigure(typeof(WidgetTemplateMetaData))]
     public class WidgetTemplateEntity : EditorEntity
     {
-        public long ID { get; set; }
+        public long? ID { get; set; }
         public string GroupName { get; set; }
 
         public string PartialView { get; set; }
@@ -19,7 +19,7 @@ namespace Easy.Web.CMS.WidgetTemplate
         public string ServiceTypeName { get; set; }
 
         public string ViewModelTypeName { get; set; }
-        public int Order { get; set; }
+        public int? Order { get; set; }
 
         public string FormView { get; set; }
 

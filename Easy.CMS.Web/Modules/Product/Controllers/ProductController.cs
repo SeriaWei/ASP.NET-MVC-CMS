@@ -46,7 +46,7 @@ namespace Easy.CMS.Product.Controllers
             var result = base.Edit(entity);
             if (entity.ActionType == ActionType.Publish)
             {
-                Service.Publish(entity.ID);
+                Service.Publish(entity.ID ?? 0);
             }
             return result;
         }

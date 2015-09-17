@@ -67,16 +67,16 @@
       <publishTime>09/08/2015 09:26:45</publishTime>
     </File>
     <File Include="bin/Easy.CMS.Common.dll">
-      <publishTime>09/15/2015 14:59:37</publishTime>
+      <publishTime>09/17/2015 17:26:21</publishTime>
     </File>
     <File Include="bin/Easy.dll">
-      <publishTime>09/07/2015 13:55:47</publishTime>
+      <publishTime>09/17/2015 17:04:03</publishTime>
     </File>
     <File Include="bin/Easy.Web.CMS.dll">
-      <publishTime>09/15/2015 14:59:37</publishTime>
+      <publishTime>09/17/2015 17:25:06</publishTime>
     </File>
     <File Include="bin/Easy.Web.dll">
-      <publishTime>09/07/2015 13:55:47</publishTime>
+      <publishTime>09/17/2015 17:04:04</publishTime>
     </File>
     <File Include="bin/edit.cshtml.37f34e2f.compiled">
       <publishTime>09/08/2015 09:26:44</publishTime>
@@ -235,19 +235,22 @@
       <publishTime>10/23/2014 16:11:50</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>09/07/2015 13:56:12</publishTime>
+      <publishTime>09/17/2015 17:04:10</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>09/15/2015 14:59:39</publishTime>
+      <publishTime>09/17/2015 17:26:22</publishTime>
     </File>
     <File Include="Scripts/jquery-1.8.2.js">
       <publishTime>01/30/2015 22:48:00</publishTime>
     </File>
     <File Include="Scripts/Owl.Carousel.js">
-      <publishTime>09/15/2015 14:54:16</publishTime>
+      <publishTime>09/17/2015 14:10:45</publishTime>
     </File>
     <File Include="Scripts/Owl.Carousel.min.js">
-      <publishTime>09/15/2015 14:54:16</publishTime>
+      <publishTime>09/17/2015 14:10:44</publishTime>
+    </File>
+    <File Include="Scripts/Owl.Carousel.min.js.map">
+      <publishTime>09/17/2015 08:29:41</publishTime>
     </File>
     <File Include="Scripts/OwlCarousel/owl.carousel.css">
       <publishTime>08/28/2015 14:53:58</publishTime>
@@ -352,7 +355,7 @@
       <publishTime>07/27/2015 08:41:42</publishTime>
     </File>
     <File Include="Views/Widget.Carousel.cshtml">
-      <publishTime>09/15/2015 14:45:03</publishTime>
+      <publishTime>09/16/2015 15:24:25</publishTime>
     </File>
     <File Include="Views/Widget.HTML.cshtml">
       <publishTime>09/01/2015 09:51:12</publishTime>
@@ -379,7 +382,7 @@
       <publishTime>07/27/2015 16:34:27</publishTime>
     </File>
     <File Include="web.config">
-      <publishTime>09/09/2015 11:48:36</publishTime>
+      <publishTime>09/17/2015 17:26:21</publishTime>
     </File>
   </ItemGroup>
 </Project>

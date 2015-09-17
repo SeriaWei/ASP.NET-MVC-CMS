@@ -12,8 +12,8 @@ namespace Easy.CMS.Article.Models
     [DataConfigure(typeof(ArticleTopWidgetMetaData))]
     public class ArticleTopWidget : WidgetBase
     {
-        public int ArticleCategoryID { get; set; }
-        public int Tops { get; set; }
+        public int? ArticleCategoryID { get; set; }
+        public int? Tops { get; set; }
         public string SubTitle { get; set; }
         public string MoreLink { get; set; }
         public string DetailPageUrl { get; set; }

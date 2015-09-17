@@ -7,6 +7,10 @@
       tick,
       percentTime;
     var carousel = $('.owl-carousel');
+    var items = carousel.find(".item").size();
+    if (items === 0) return;
+    var autoGo = items > 1;
+
     var img = new Image();
     img.src = carousel.find(".item:first").data("image-url");
     img.onload = function () {
@@ -28,7 +32,7 @@
         //autoHeight : true,
         transitionStyle: "fadeUp"
     });
-    var autoGo = carousel.find(".item").size() > 1;
+
     //Init progressBar where elem is $("#owl-demo")
     function progressBar(elem) {
         $elem = elem;

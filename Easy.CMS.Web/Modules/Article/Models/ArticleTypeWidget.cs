@@ -13,7 +13,7 @@ namespace Easy.CMS.Article.Models
     [DataConfigure(typeof(ArticleTypeWidgetMetaData))]
     public class ArticleTypeWidget : WidgetBase
     {
-        public int ArticleTypeID { get; set; }
+        public int? ArticleTypeID { get; set; }
         public string TargetPage { get; set; }
     }
     class ArticleTypeWidgetMetaData : WidgetMetaData<ArticleTypeWidget>

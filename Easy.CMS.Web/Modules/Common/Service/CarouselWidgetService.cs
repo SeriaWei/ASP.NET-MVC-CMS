@@ -19,7 +19,7 @@ namespace Easy.CMS.Common.Service
 
             carouselWidget.CarouselItems = _carouselItemService.Get("CarouselWidgetID", OperatorType.Equal,
                     carouselWidget.ID);
-
+            carouselWidget.CarouselItems.Each(m => m.ActionType = Constant.ActionType.Update);
             return carouselWidget;
         }
 
@@ -49,6 +49,12 @@ namespace Easy.CMS.Common.Service
             return base.Update(item, primaryKeys);
         }
 
+        public override void DeleteWidget(string widgetId)
+        {
+            _carouselItemService.Delete(new DataFilter().Where("CarouselWidgetID", OperatorType.Equal, widgetId));
+            base.DeleteWidget(widgetId);
+        }
+
         public override WidgetPart Display(WidgetBase widget, HttpContextBase httpContext)
         {
             var carouselWidget = widget as CarouselWidget;
@@ -65,7 +71,8 @@ namespace Easy.CMS.Common.Service
                     ((List<CarouselItemEntity>)carouselWidget.CarouselItems).AddRange(varouselItems);
                 }
             }
-
+            carouselWidget.CarouselItems =
+                carouselWidget.CarouselItems.Where(m => m.Status == (int)Constant.RecordStatus.Active);
             return base.Display(widget, httpContext);
         }
     }

@@ -12,19 +12,19 @@ namespace Easy.CMS.Article.Models
     [DataConfigure(typeof(ArticleEntityMeta))]
     public class ArticleEntity : EditorEntity, IImage
     {
-        public long ID { get; set; }
+        public long? ID { get; set; }
 
         public string Summary { get; set; }
         public string MetaKeyWords { get; set; }
         public string MetaDescription { get; set; }
-        public int Counter { get; set; }
+        public int? Counter { get; set; }
         public string ArticleContent { get; set; }
 
         public string ImageThumbUrl { get; set; }
 
         public string ImageUrl { get; set; }
 
-        public int ArticleCategoryID { get; set; }
+        public int? ArticleCategoryID { get; set; }
         public DateTime? PublishDate { get; set; }
         public bool IsPublish { get; set; }
     }

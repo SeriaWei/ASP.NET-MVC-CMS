@@ -12,7 +12,7 @@ namespace Easy.CMS.Product.Models
     [DataConfigure(typeof(ProductCategoryWidgetMedata))]
     public class ProductCategoryWidget : WidgetBase
     {
-        public int ProductCategoryID { get; set; }
+        public int? ProductCategoryID { get; set; }
         public string TargetPage { get; set; }
     }
 
