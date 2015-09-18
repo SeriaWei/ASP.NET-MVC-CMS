@@ -6,7 +6,7 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>E:\GitHub\CMS\Release\Temp\Application\Modules\Section</_PublishTargetUrl>
+    <_PublishTargetUrl>E:\GitHub\CMS\Release\Application\Modules\Section</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/App_Web_1gyjwpmv.dll">
@@ -37,16 +37,16 @@
       <publishTime>07/27/2015 08:41:42</publishTime>
     </File>
     <File Include="bin/Easy.CMS.Section.dll">
-      <publishTime>09/17/2015 17:27:05</publishTime>
+      <publishTime>09/18/2015 15:33:06</publishTime>
     </File>
     <File Include="bin/Easy.dll">
-      <publishTime>09/17/2015 17:04:03</publishTime>
+      <publishTime>09/18/2015 15:12:58</publishTime>
     </File>
     <File Include="bin/Easy.Web.CMS.dll">
-      <publishTime>09/17/2015 17:25:06</publishTime>
+      <publishTime>09/18/2015 15:32:27</publishTime>
     </File>
     <File Include="bin/Easy.Web.dll">
-      <publishTime>09/17/2015 17:04:04</publishTime>
+      <publishTime>09/18/2015 15:27:42</publishTime>
     </File>
     <File Include="bin/editor.cshtml.c59dd044.compiled">
       <publishTime>09/08/2015 09:27:17</publishTime>
@@ -160,10 +160,10 @@
       <publishTime>07/17/2015 10:18:58</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>09/17/2015 17:04:44</publishTime>
+      <publishTime>09/18/2015 15:28:05</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>09/17/2015 17:27:06</publishTime>
+      <publishTime>09/18/2015 15:33:07</publishTime>
     </File>
     <File Include="Views/SectionContentCallToAction/Form.cshtml">
       <publishTime>07/17/2015 10:18:58</publishTime>
@@ -220,13 +220,13 @@
       <publishTime>07/21/2015 13:53:50</publishTime>
     </File>
     <File Include="Views/Web.config">
-      <publishTime>07/27/2015 08:41:42</publishTime>
+      <publishTime>09/18/2015 14:57:04</publishTime>
     </File>
     <File Include="Views/Widget.Section.cshtml">
       <publishTime>09/02/2015 10:18:34</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>09/17/2015 17:27:05</publishTime>
+      <publishTime>09/18/2015 15:33:06</publishTime>
     </File>
   </ItemGroup>
 </Project>

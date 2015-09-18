@@ -6,7 +6,7 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>E:\GitHub\CMS\Release\Temp\Application</_PublishTargetUrl>
+    <_PublishTargetUrl>E:\GitHub\CMS\Release\Application</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="App_Data/DataBase.mdb">
@@ -16,10 +16,10 @@
       <publishTime>07/02/2014 21:58:06</publishTime>
     </File>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>09/17/2015 17:25:13</publishTime>
+      <publishTime>09/18/2015 15:32:31</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>09/17/2015 17:25:13</publishTime>
+      <publishTime>09/18/2015 15:32:31</publishTime>
     </File>
     <File Include="bin/App_Web_dljcttax.dll">
       <publishTime>09/08/2015 09:16:14</publishTime>
@@ -58,19 +58,19 @@
       <publishTime>07/02/2014 21:58:05</publishTime>
     </File>
     <File Include="bin/Easy.CMS.Web.dll">
-      <publishTime>09/17/2015 17:25:06</publishTime>
+      <publishTime>09/18/2015 15:32:27</publishTime>
     </File>
     <File Include="bin/Easy.CMS.Web.Views.dll">
       <publishTime>09/08/2015 09:17:52</publishTime>
     </File>
     <File Include="bin/Easy.dll">
-      <publishTime>09/17/2015 17:04:03</publishTime>
+      <publishTime>09/18/2015 15:12:58</publishTime>
     </File>
     <File Include="bin/Easy.Web.CMS.dll">
-      <publishTime>09/17/2015 17:25:06</publishTime>
+      <publishTime>09/18/2015 15:32:27</publishTime>
     </File>
     <File Include="bin/Easy.Web.dll">
-      <publishTime>09/17/2015 17:04:04</publishTime>
+      <publishTime>09/18/2015 15:27:42</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>07/02/2014 21:57:58</publishTime>
@@ -616,10 +616,10 @@
       <publishTime>08/28/2015 15:35:13</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>09/17/2015 17:04:13</publishTime>
+      <publishTime>09/18/2015 15:27:45</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>09/17/2015 17:25:10</publishTime>
+      <publishTime>09/18/2015 15:32:30</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Animate.css">
       <publishTime>12/13/2014 17:20:00</publishTime>
@@ -631,7 +631,7 @@
       <publishTime>12/15/2014 09:16:31</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Easy.Grid.css">
-      <publishTime>07/17/2015 10:18:58</publishTime>
+      <publishTime>09/18/2015 09:52:21</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Easy.Tab.css">
       <publishTime>12/13/2014 17:20:00</publishTime>
@@ -1870,10 +1870,10 @@
       <publishTime>09/01/2015 09:21:56</publishTime>
     </File>
     <File Include="Views/Web.config">
-      <publishTime>07/27/2015 08:41:42</publishTime>
+      <publishTime>09/18/2015 14:56:51</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>09/17/2015 17:25:07</publishTime>
+      <publishTime>09/18/2015 15:32:28</publishTime>
     </File>
   </ItemGroup>
 </Project>

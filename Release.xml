@@ -5,14 +5,19 @@
         <SolutionName>$(SolutionName)</SolutionName>
         <SolutionFile>$(SolutionName).sln</SolutionFile>
         <ProjectName>$(ProjectName)</ProjectName>
-        <ProjectFile>$(ProjectPath)\$(ProjectName).csproj</ProjectFile>
+        <ProjectFile>$(ProjectPath)\$(ProjectName)</ProjectFile>
+    	<PrecompileBeforePublish>True</PrecompileBeforePublish>
+    	<EnableUpdateable>True</EnableUpdateable>
+    	<DebugSymbols>False</DebugSymbols>
+    	<WDPMergeOption>DonotMerge</WDPMergeOption>
+	    <ExcludeApp_Data>True</ExcludeApp_Data>
     </PropertyGroup>
 
     <Target Name="Build" DependsOnTargets="BuildPackage;CopyOutput" />
 
-    <Target Name="BuildPackage">
-        <MSBuild Projects="$(SolutionFile)" ContinueOnError="false" Targets="Rebuild" Properties="Configuration=$(Configuration)" />
-        <MSBuild Projects="$(ProjectFile)" ContinueOnError="false" Targets="Package" Properties="Configuration=$(Configuration)" />
+    <Target Name="BuildPackage">        
+        <MSBuild Projects="$(ProjectFile)" ContinueOnError="false" Targets="Rebuild" Properties="Configuration=$(Configuration);PrecompileBeforePublish=$(PrecompileBeforePublish);EnableUpdateable=$(EnableUpdateable);DebugSymbols=$(DebugSymbols);WDPMergeOption=$(WDPMergeOption);ExcludeApp_Data=$(ExcludeApp_Data)" />
+        <MSBuild Projects="$(ProjectFile)" ContinueOnError="false" Targets="Package" Properties="Configuration=$(Configuration);PrecompileBeforePublish=$(PrecompileBeforePublish);EnableUpdateable=$(EnableUpdateable);DebugSymbols=$(DebugSymbols);WDPMergeOption=$(WDPMergeOption);ExcludeApp_Data=$(ExcludeApp_Data)" />
     </Target>
 
     <Target Name="CopyOutput">

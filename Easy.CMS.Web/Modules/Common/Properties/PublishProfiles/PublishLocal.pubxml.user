@@ -6,7 +6,7 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>E:\GitHub\CMS\Release\Temp\Application\Modules\Common</_PublishTargetUrl>
+    <_PublishTargetUrl>E:\GitHub\CMS\Release\Application\Modules\Common</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/App_Web_3e525ulu.dll">
@@ -67,16 +67,16 @@
       <publishTime>09/08/2015 09:26:45</publishTime>
     </File>
     <File Include="bin/Easy.CMS.Common.dll">
-      <publishTime>09/18/2015 09:22:37</publishTime>
+      <publishTime>09/18/2015 15:32:50</publishTime>
     </File>
     <File Include="bin/Easy.dll">
-      <publishTime>09/17/2015 17:04:03</publishTime>
+      <publishTime>09/18/2015 15:12:58</publishTime>
     </File>
     <File Include="bin/Easy.Web.CMS.dll">
-      <publishTime>09/17/2015 17:25:06</publishTime>
+      <publishTime>09/18/2015 15:32:27</publishTime>
     </File>
     <File Include="bin/Easy.Web.dll">
-      <publishTime>09/17/2015 17:04:04</publishTime>
+      <publishTime>09/18/2015 15:27:42</publishTime>
     </File>
     <File Include="bin/edit.cshtml.37f34e2f.compiled">
       <publishTime>09/08/2015 09:26:44</publishTime>
@@ -235,10 +235,10 @@
       <publishTime>10/23/2014 16:11:50</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>09/17/2015 17:04:10</publishTime>
+      <publishTime>09/18/2015 15:28:01</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>09/18/2015 09:22:38</publishTime>
+      <publishTime>09/18/2015 15:32:50</publishTime>
     </File>
     <File Include="Scripts/jquery-1.8.2.js">
       <publishTime>01/30/2015 22:48:00</publishTime>
@@ -352,7 +352,7 @@
       <publishTime>09/09/2015 16:14:36</publishTime>
     </File>
     <File Include="Views/Web.config">
-      <publishTime>07/27/2015 08:41:42</publishTime>
+      <publishTime>09/18/2015 14:56:59</publishTime>
     </File>
     <File Include="Views/Widget.Carousel.cshtml">
       <publishTime>09/16/2015 15:24:25</publishTime>
@@ -382,7 +382,7 @@
       <publishTime>07/27/2015 16:34:27</publishTime>
     </File>
     <File Include="web.config">
-      <publishTime>09/17/2015 17:26:21</publishTime>
+      <publishTime>09/18/2015 15:32:50</publishTime>
     </File>
   </ItemGroup>
 </Project>
