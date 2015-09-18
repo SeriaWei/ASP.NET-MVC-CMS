@@ -28,5 +28,11 @@ namespace Easy.CMS.Section.Service
         {
             return this.Get(contentId);
         }
+
+
+        public void UpdateContent(SectionContent content)
+        {
+            this.Update(content as SectionContentTitle);
+        }
     }
 }

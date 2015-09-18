@@ -15,16 +15,19 @@ namespace Easy.CMS.Section.Controllers
     [PopUp, Authorize]
     public class SectionGroupController : Controller
     {
-        private readonly SectionGroupService _sectionGroupService;
-        public SectionGroupController()
+        private readonly ISectionGroupService _sectionGroupService;
+        private readonly ISectionContentProviderService _sectionContentProviderService;
+        public SectionGroupController(ISectionGroupService sectionGroupService, ISectionContentProviderService sectionContentProviderService)
         {
-            _sectionGroupService = new SectionGroupService();
+            _sectionGroupService = sectionGroupService;
+            _sectionContentProviderService = sectionContentProviderService;
         }
 
         public ActionResult Create(string sectionWidgetId)
         {
-            return View("Form", new SectionGroup { 
-                SectionWidgetId = sectionWidgetId, 
+            return View("Form", new SectionGroup
+            {
+                SectionWidgetId = sectionWidgetId,
                 ActionType = ActionType.Create,
                 Order = _sectionGroupService.Get("SectionWidgetId", OperatorType.Equal, sectionWidgetId).Count() + 1
             });
@@ -74,12 +77,11 @@ namespace Easy.CMS.Section.Controllers
         [HttpPost]
         public JsonResult SortContent(List<SectionContent> contents)
         {
-            var contentService = new SectionContentService();
             contents.Each(m =>
             {
-                var g = contentService.Get(m.ID);
+                var g = _sectionContentProviderService.Get(m.ID);
                 g.Order = m.Order;
-                contentService.Update(g);
+                _sectionContentProviderService.Update(g, new DataFilter(new List<string> { "Order" }).Where("ID", OperatorType.Equal, m.ID));
             });
             return Json(true);
         }

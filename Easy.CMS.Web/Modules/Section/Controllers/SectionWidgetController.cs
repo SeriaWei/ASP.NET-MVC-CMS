@@ -10,12 +10,16 @@ namespace Easy.CMS.Section.Controllers
     [Authorize]
     public class SectionWidgetController : Controller
     {
-        //
-        // GET: /SectionWidget/
+        private readonly ISectionWidgetService _sectionWidgetService;
+
+        public SectionWidgetController(ISectionWidgetService sectionWidgetService)
+        {
+            _sectionWidgetService = sectionWidgetService;
+        }
 
         public ActionResult Editor(string sectionWidgetId)
         {
-            return View(new SectionWidgetService().Get(sectionWidgetId));
+            return View(_sectionWidgetService.Get(sectionWidgetId));
         }
 
     }

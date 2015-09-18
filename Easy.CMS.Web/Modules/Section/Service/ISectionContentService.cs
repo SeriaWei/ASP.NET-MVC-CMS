@@ -12,6 +12,7 @@ namespace Easy.CMS.Section.Service
     {
         SectionContent.Types ContentType { get; }
         void AddContent(SectionContent content);
+        void UpdateContent(SectionContent content);
         SectionContent GetContent(int contentId);
         void DeleteContent(int contentId);
     }

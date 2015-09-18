@@ -14,8 +14,12 @@ namespace Easy.CMS.Section.Controllers
     [PopUp, Authorize]
     public class SectionContentCallToActionController : Controller
     {
-        //
-        // GET: /SectionContentTitle/
+        private readonly ISectionContentProviderService _sectionContentProviderService;
+
+        public SectionContentCallToActionController(ISectionContentProviderService sectionContentProviderService)
+        {
+            _sectionContentProviderService = sectionContentProviderService;
+        }
 
         public ActionResult Create(int sectionGroupId, string sectionWidgetId)
         {
@@ -30,7 +34,7 @@ namespace Easy.CMS.Section.Controllers
 
         public ActionResult Edit(int Id)
         {
-            var content = new SectionContentCallToActionService().Get(Id);
+            var content = _sectionContentProviderService.Get(Id);
             content.ActionType = ActionType.Update;
             return View("Form", content);
         }
@@ -43,11 +47,11 @@ namespace Easy.CMS.Section.Controllers
             }
             if (content.ActionType == ActionType.Create)
             {
-                new SectionContentService().Add(content);
+                _sectionContentProviderService.Add(content);
             }
             else
             {
-                new SectionContentCallToActionService().Update(content);
+                _sectionContentProviderService.Update(content);
             }
             ViewBag.Close = true;
             return View("Form", content);
@@ -55,7 +59,7 @@ namespace Easy.CMS.Section.Controllers
 
         public JsonResult Delete(int Id)
         {
-            new SectionContentService().Delete(Id);
+            _sectionContentProviderService.Delete(Id);
             return Json(true, JsonRequestBehavior.AllowGet);
         }
     }

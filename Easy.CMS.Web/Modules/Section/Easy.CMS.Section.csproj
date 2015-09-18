@@ -135,14 +135,17 @@
     <Compile Include="Models\SectionWidget.cs" />
     <Compile Include="SectionPlug.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\ISectionContentProviderService.cs" />
     <Compile Include="Service\ISectionContentService.cs" />
+    <Compile Include="Service\ISectionGroupService.cs" />
+    <Compile Include="Service\ISectionWidgetService.cs" />
     <Compile Include="Service\SectionContentCallToActionService.cs" />
     <Compile Include="Service\SectionContentImageService.cs" />
     <Compile Include="Service\SectionContentParagraphService.cs" />
     <Compile Include="Service\SectionContentTitleService.cs" />
     <Compile Include="Service\SectionGroupService.cs" />
     <Compile Include="Service\SectionWidgetService.cs" />
-    <Compile Include="Service\SectionContentService.cs" />
+    <Compile Include="Service\SectionContentProviderService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="CopyItems.xml" />

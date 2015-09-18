@@ -108,6 +108,7 @@ a.btn,
   border: 1px solid #dedede;
   border-left-width: 5px;
   border-radius: 3px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.075);
 }
 .bs-callout .pull-left h4 {
   margin-top: 0;
@@ -151,16 +152,12 @@ a.btn,
   margin: 5px 0 5px;
 }
 .section {
-  font-size: 13px;
   line-height: normal;
 }
 .section > h4 {
   padding: 0 5px 5px;
   color: #31b0d5;
   border-bottom: 2px solid #31b0d5;
-}
-.section h5 {
-  font-size: 16px;
 }
 .section table tr {
   vertical-align: top;
@@ -170,6 +167,9 @@ a.btn,
 }
 .section .section-group-default {
   padding: 0 5px;
+}
+.section .section-group-column {
+  padding: 0 10px;
 }
 .section .section-group-column img {
   border: 1px solid #dedede;

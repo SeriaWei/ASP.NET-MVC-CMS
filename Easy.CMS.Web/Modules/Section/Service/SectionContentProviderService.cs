@@ -11,16 +11,16 @@ using Microsoft.Practices.ServiceLocation;
 
 namespace Easy.CMS.Section.Service
 {
-    public class SectionContentService : ServiceBase<SectionContent>
+    public class SectionContentProviderService : ServiceBase<SectionContent>, ISectionContentProviderService
     {
         private readonly IEnumerable<ISectionContentService> _sectionContentServices;
-        public SectionContentService()
+        public SectionContentProviderService()
         {
             _sectionContentServices = ServiceLocator.Current.GetAllInstances<ISectionContentService>();
         }
         public override void Add(SectionContent item)
         {
-            if (item.Order == 0)
+            if (!item.Order.HasValue || item.Order.Value == 0)
             {
                 item.Order =
                     Get(
@@ -29,6 +29,23 @@ namespace Easy.CMS.Section.Service
             }
             base.Add(item);
             _sectionContentServices.First(m => (int)m.ContentType == item.SectionContentType).AddContent(item);
+        }
+
+        public override bool Update(SectionContent item, params object[] primaryKeys)
+        {
+            _sectionContentServices.First(m => (int)m.ContentType == item.SectionContentType).UpdateContent(item);
+            return true;
+        }
+
+        public override SectionContent Get(params object[] primaryKeys)
+        {
+            var item = base.Get(primaryKeys);
+            var result= _sectionContentServices.First(m => (int)m.ContentType == item.SectionContentType).GetContent(item.ID ?? 0);
+            result.Order = item.Order;
+            result.SectionContentType = item.SectionContentType;
+            result.SectionGroupId = item.SectionGroupId;
+            result.SectionWidgetId = item.SectionWidgetId;
+            return result;
         }
 
         public override int Delete(params object[] primaryKeys)
