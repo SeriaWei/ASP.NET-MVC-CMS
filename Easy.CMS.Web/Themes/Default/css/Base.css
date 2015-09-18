@@ -32,14 +32,6 @@ a.btn,
   margin: 0 auto;
   padding: 0;
 }
-.border {
-  border: 1px solid #dedede;
-  border-radius: 3px;
-}
-.widget-border .widget {
-  border: 1px solid #dedede;
-  border-radius: 3px;
-}
 .preview-toolbar {
   position: fixed;
   left: 5px;
@@ -159,18 +151,15 @@ a.btn,
   margin: 5px 0 5px;
 }
 .section {
-  padding: 10px 10px 0 10px;
   font-size: 13px;
   line-height: normal;
 }
 .section > h4 {
-  margin: 0 -5px 10px;
   padding: 0 5px 5px;
   color: #31b0d5;
   border-bottom: 2px solid #31b0d5;
 }
 .section h5 {
-  margin: 0 0 5px;
   font-size: 16px;
 }
 .section table tr {
@@ -179,24 +168,27 @@ a.btn,
 .section table tr td {
   padding: 5px;
 }
-.section .column img {
+.section .section-group-default {
+  padding: 0 5px;
+}
+.section .section-group-column img {
   border: 1px solid #dedede;
   background-color: #ffffff;
   padding: 4px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.075);
   border-radius: 4px;
 }
-.section .section-content-listgroup {
-  margin: -10px -10px 0;
+.border .section .section-content-listgroup {
+  margin: -10px -5px -5px;
 }
-.section .section-content-listgroup .list-group-item {
+.border .section .section-content-listgroup .list-group-item {
   border-left: none;
   border-right: none;
 }
-.section .section-content-listgroup .list-group-item:first-child {
+.border .section .section-content-listgroup .list-group-item:first-child {
   border-top: none;
 }
-.section .section-content-listgroup .list-group-item:last-child {
+.border .section .section-content-listgroup .list-group-item:last-child {
   border-bottom: none;
 }
 .section .section-content-listgroup .list-group-item > p {
@@ -204,6 +196,11 @@ a.btn,
 }
 .widget {
   margin: 5px;
+}
+.border .widget {
+  border: 1px solid #dedede;
+  border-radius: 3px;
+  padding: 5px;
 }
 .header {
   color: #31b0d5;

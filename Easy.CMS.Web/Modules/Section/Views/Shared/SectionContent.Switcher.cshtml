@@ -1,0 +1,13 @@
+﻿@using Easy.CMS.Section.Models
+@model SectionContent
+
+@if (Model.SectionContentType != (int)SectionContent.Types.Paragraph && Model.SectionContentType != (int)SectionContent.Types.Title)
+{
+    <p>
+        @Html.Partial("SectionPartial." + ((SectionContent.Types)Model.SectionContentType), Model)
+    </p>
+}
+else
+{
+    Html.RenderPartial("SectionPartial." + ((SectionContent.Types)Model.SectionContentType), Model);
+}

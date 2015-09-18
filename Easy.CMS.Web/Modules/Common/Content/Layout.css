@@ -79,23 +79,23 @@ input.helper:checked + span {
     cursor: move;
 }
 
-.border .additional.row {
+.design-border .additional.row {
     margin-top: 1px;
 }
 
-.border .empty-zone {
+.design-border .empty-zone {
     min-height: 90px;
 }
 
 .design .zone,
-.border .zone {
+.design-border .zone {
     border: 1px dotted red;
     background-color: white;
     margin: 6px;
     min-height: 80px;
 }
 
-.border .zone {
+.design-border .zone {
     margin: 0;
 }
 
@@ -127,7 +127,7 @@ input.helper:checked + span {
 }
 
 #container.design,
-#container.border {
+#container.design-border {
     border: 1px dashed #CCC;
     min-height: 500px;
 }
@@ -177,7 +177,7 @@ input.helper:checked + span {
             text-decoration: none;
         }
 
-.border .zoneName {
+.design-border .zoneName {
     display: block;
 }
 

@@ -228,6 +228,7 @@
     <None Include="Properties\PublishProfiles\PublishLocal.pubxml" />
     <Content Include="Views\SectionTemplate.LinkGroup.cshtml" />
     <Content Include="Views\SectionTemplate.ListGroup.cshtml" />
+    <Content Include="Views\Shared\SectionContent.Switcher.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

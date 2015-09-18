@@ -17,7 +17,7 @@
     <div class="section-group-default">
         @foreach (SectionContent content in Model.SectionContents.Where(m => m.SectionContentType != (int)SectionContent.Types.CallToAction).OrderBy(m => m.Order))
         {
-            Html.RenderPartial("SectionPartial." + ((SectionContent.Types)content.SectionContentType), content);
+            Html.RenderPartial("SectionContent.Switcher", content);
         }
     </div>
 

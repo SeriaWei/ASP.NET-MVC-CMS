@@ -2,17 +2,17 @@
 @using Easy.Web.CMS
 @model SectionContentImage
 
-<p>
-    @if (Model.Href.IsNotNullAndWhiteSpace())
-    {
-        <a href="@Url.PathContent(Model.Href)" target="_blank">
-            <img src="@Url.Content(Model.ImageSrc)" alt="@Model.ImageAlt" title="@Model.ImageTitle" />
-        </a>
 
-    }
-    else
-    {
+@if (Model.Href.IsNotNullAndWhiteSpace())
+{
+    <a href="@Url.PathContent(Model.Href)" target="_blank">
         <img src="@Url.Content(Model.ImageSrc)" alt="@Model.ImageAlt" title="@Model.ImageTitle" />
-    }
-</p>
+    </a>
+
+}
+else
+{
+    <img src="@Url.Content(Model.ImageSrc)" alt="@Model.ImageAlt" title="@Model.ImageTitle" />
+}
+
 

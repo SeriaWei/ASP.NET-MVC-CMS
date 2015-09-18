@@ -5,6 +5,6 @@
 <div class="section-group-default">
     @foreach (SectionContent content in Model.SectionContents.OrderBy(m => m.Order))
     {
-        Html.RenderPartial("SectionPartial." + ((SectionContent.Types)content.SectionContentType), content);
+        Html.RenderPartial("SectionContent.Switcher",content);
     }
 </div>
