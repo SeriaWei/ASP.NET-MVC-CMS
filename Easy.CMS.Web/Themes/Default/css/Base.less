@@ -40,7 +40,14 @@ a {
         padding: 0;
     }
 }
-
+.border{
+    border:1px solid @color-border;
+    border-radius:3px;
+}
+.widget-border .widget{
+    border:1px solid @color-border;
+    border-radius:3px;
+}
 .preview-toolbar {
     position: fixed;
     left: 5px;
@@ -134,9 +141,7 @@ a {
 
 .section {
     padding: 10px 10px 0 10px;
-    font-size: 13px;
-    border: 1px solid @color-border;
-    border-radius: 3px;
+    font-size: 13px;    
     line-height: normal;
 
     & > h4 {
@@ -168,6 +173,25 @@ a {
             padding: 4px;
             box-shadow: 0 1px 2px rgba(0,0,0,0.075);
             border-radius: 4px;
+        }
+    }
+
+    .section-content-listgroup {
+        margin: -10px -10px 0;
+
+        .list-group-item {
+            border-left: none;
+            border-right: none;
+
+            &:first-child {
+                border-top: none;
+            }
+            &:last-child {
+                border-bottom: none;
+            }
+            & > p {
+                margin: 0;
+            }
         }
     }
 }

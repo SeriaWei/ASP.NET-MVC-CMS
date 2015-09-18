@@ -8,8 +8,6 @@
     }
     @foreach (SectionGroup group in Model.Groups.OrderBy(m => m.Order))
     {
-        <div class="section-group">
-            @Html.Partial(group.PartialView, group)
-        </div>
+        Html.RenderPartial(group.PartialView, group);
     }
 </div>

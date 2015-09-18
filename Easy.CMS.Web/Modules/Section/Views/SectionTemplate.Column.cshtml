@@ -5,26 +5,28 @@
     int count = Model.SectionContents.Count() / 2 + 1;
     var contents = Model.SectionContents.OrderBy(m => m.Order);
 }
-@for (int i = 0; i < count; i++)
-{
-    <div class="row column">
-        <div class="col-md-3 col-xs-5">
-            @{
-    var content1 = contents.Skip(i * 2).Take(1).FirstOrDefault();
-    if (content1 != null)
+<div class="section-group-column">
+    @for (int i = 0; i < count; i++)
     {
-        Html.RenderPartial("SectionPartial." + ((SectionContent.Types)content1.SectionContentType), content1);
-    }
-            }
+        <div class="row column">
+            <div class="col-md-3 col-xs-5">
+                @{
+        var content1 = contents.Skip(i * 2).Take(1).FirstOrDefault();
+        if (content1 != null)
+        {
+            Html.RenderPartial("SectionPartial." + ((SectionContent.Types)content1.SectionContentType), content1);
+        }
+                }
+            </div>
+            <div class="col-md-9  col-xs-7">
+                @{
+        var content2 = contents.Skip(i * 2 + 1).Take(1).FirstOrDefault();
+        if (content2 != null)
+        {
+            Html.RenderPartial("SectionPartial." + ((SectionContent.Types)content2.SectionContentType), content2);
+        }
+                }
+            </div>
         </div>
-        <div class="col-md-9  col-xs-7">
-            @{
-    var content2 = contents.Skip(i * 2 + 1).Take(1).FirstOrDefault();
-    if (content2 != null)
-    {
-        Html.RenderPartial("SectionPartial." + ((SectionContent.Types)content2.SectionContentType), content2);
     }
-            }
-        </div>
-    </div>
-}
+</div>

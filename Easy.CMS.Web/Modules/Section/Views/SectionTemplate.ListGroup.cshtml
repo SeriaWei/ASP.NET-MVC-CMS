@@ -1,0 +1,12 @@
+﻿@using System.Linq
+@using Easy.CMS.Section.Models
+@using Easy.Web.CMS
+@model SectionGroup
+<ul class="section-content-listgroup list-group">
+    @foreach (SectionContent content in Model.SectionContents.OrderBy(m => m.Order))
+    {
+        <li class="list-group-item">
+            @Html.Partial("SectionPartial." + ((SectionContent.Types)content.SectionContentType), content)
+        </li>
+    }
+</ul>
