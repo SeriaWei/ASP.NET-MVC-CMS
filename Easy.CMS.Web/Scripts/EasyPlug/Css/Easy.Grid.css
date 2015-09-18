@@ -234,9 +234,6 @@
 
 .InnerLonding {
     background: url(Images/Grid/ajax-loader.gif) center center no-repeat;
-    color: #ccc;
-    width:17px;
-    height:17px;
 }
 .glyphicon-repeat.InnerLonding:before{
     visibility:collapse;

@@ -3,4 +3,6 @@ bin
 obj
 /Easy.CMS.Web/App_Data/ZkeaCMS.mdf
 /Easy.CMS.Web/App_Data/ZkeaCMS_log.ldf
-/Release/Temp
+/Release
+/Easy.CMS.Web.sln.metaproj
+/Easy.CMS.Web.sln.metaproj.tmp
