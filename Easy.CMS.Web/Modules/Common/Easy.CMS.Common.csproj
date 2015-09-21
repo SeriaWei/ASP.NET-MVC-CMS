@@ -166,6 +166,7 @@
     <Content Include="Scripts\Owl.Carousel.min.js">
       <DependentUpon>Owl.Carousel.js</DependentUpon>
     </Content>
+    <Content Include="Scripts\OwlCarousel\grabbing.png" />
     <Content Include="Scripts\OwlCarousel\owl.carousel.css" />
     <Content Include="Scripts\OwlCarousel\owl.carousel.min.css">
       <DependentUpon>owl.carousel.css</DependentUpon>
