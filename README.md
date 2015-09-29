@@ -15,6 +15,13 @@ Windows server 2003，IIS 6 或以上
 MsSql 2005 或以上
 
 .Net FrameWork 4.0，MVC 4
+
+### 开发环境
+
+Microsoft VisualStudio 2013
+
+Microsoft Sql Server 2005 以上
+
 ## 移动友好
 ![移动友好](http://i1291.photobucket.com/albums/b560/SeriaWei/BlogPic/responsive_zps475ly5og.gif)
 
