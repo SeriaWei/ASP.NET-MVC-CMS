@@ -1,5 +1,5 @@
 # ZkeaCMS
-#### [GitHub](https://github.com/SeriaWei/ASP.NET-MVC-CMS)
+#### [Fork me on GitHub](https://github.com/SeriaWei/ASP.NET-MVC-CMS)
 ZkeaCMS是基于EasyFrameWork，使用ASP.NET MVC4开发的开源CMS。
 
 ZkeaCMS一个内容管理软件（网站）。ZkeaCMS不仅只是管理内容，更是重新定义了布局、页面和组件，让用户可以自由规划页面的布局，页面和内容。
