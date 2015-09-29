@@ -52,4 +52,5 @@ License
 [Apache-2.0](http://opensource.org/licenses/Apache-2.0)
 ## 查看缩略图
 [缩略图](http://www.zkea.net/zkeacms/thumbnail)
-### [主站](http://www.zkea.net/zkeacms)
+## 主站
+[zkea.net](http://www.zkea.net/zkeacms)
