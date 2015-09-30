@@ -218,6 +218,12 @@ a.btn,
   margin-bottom: 0;
   padding: 10px;
 }
+.align-center {
+  text-align: center;
+}
+.align-right {
+  text-align: right;
+}
 .navigation {
   margin: 5px 0;
 }

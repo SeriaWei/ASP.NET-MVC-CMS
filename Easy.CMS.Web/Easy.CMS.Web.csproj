@@ -628,6 +628,12 @@
     <Content Include="Themes\Default\css\Theme.min.css">
       <DependentUpon>Theme.css</DependentUpon>
     </Content>
+    <Content Include="Themes\Default\css\widget.css">
+      <DependentUpon>Widget.less</DependentUpon>
+    </Content>
+    <Content Include="Themes\Default\css\widget.min.css">
+      <DependentUpon>widget.css</DependentUpon>
+    </Content>
     <Content Include="Themes\Default\images\bg.gif" />
     <Content Include="Themes\Default\images\col_side_bg.png" />
     <Content Include="Themes\Default\images\header_bg.png" />
@@ -739,6 +745,10 @@
     <Content Include="Themes\Default\css\Navigation.less" />
     <Content Include="Themes\Default\css\Navigation.css.map">
       <DependentUpon>Navigation.css</DependentUpon>
+    </Content>
+    <Content Include="Themes\Default\css\Widget.less" />
+    <Content Include="Themes\Default\css\widget.css.map">
+      <DependentUpon>widget.css</DependentUpon>
     </Content>
   </ItemGroup>
   <ItemGroup>
