@@ -8,26 +8,3 @@
 {
     Html.RenderPartial("SectionGroup.Edit", group);
 }
-<script type="text/javascript">
-    $("#section-groups").sortable({
-        handle: ".panel-heading",
-        stop: function (event, ui) {
-            var result = {}
-            $(event.target).find(".section-group").each(function (i) {
-                result["[" + i + "].ID"] = $(this).data("id");
-                result["[" + i + "].Order"] = i + 1;
-            });
-            $.post("@Url.Action("Sort","SectionGroup")", result, function (data) { reload(); }, "json");
-        }
-    });
-    $(".section-group .list-group").sortable({
-        stop: function (event, ui) {
-            var result = {}
-            $(event.target).find(".list-group-item").each(function (i) {
-                result["[" + i + "].ID"] = $(this).data("id");
-                result["[" + i + "].Order"] = i + 1;
-            });
-            $.post("@Url.Action("SortContent","SectionGroup")", result, function (data) { reload(); }, "json");
-        }
-    });
-</script>

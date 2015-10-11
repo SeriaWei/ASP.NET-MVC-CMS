@@ -197,25 +197,4 @@ a.btn,
 .widget {
   margin: 5px;
 }
-.border .widget {
-  border: 1px solid #dedede;
-  border-radius: 3px;
-  padding: 5px;
-}
-.header {
-  color: #31b0d5;
-}
-.footer {
-  text-align: center;
-  border-top: 1px solid #dedede;
-  background: #31b0d5;
-  color: #FFF;
-}
-.footer p {
-  margin: 0;
-}
-.footer .html-widget {
-  margin-bottom: 0;
-  padding: 10px;
-}
 /*# sourceMappingURL=Base.css.map */
