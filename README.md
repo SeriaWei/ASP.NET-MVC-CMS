@@ -63,3 +63,5 @@ License
 [缩略图](http://www.zkea.net/zkeacms/thumbnail)
 ## 主站
 [zkea.net](http://www.zkea.net/zkeacms)
+## 关注微信
+![关注微信](http://i11.tietuku.com/263801921375bdf2.jpg)
