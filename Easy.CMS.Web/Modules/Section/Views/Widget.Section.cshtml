@@ -1,13 +1,45 @@
 ﻿@using System.Linq
 @using Easy.CMS.Section.Models
 @model SectionWidget
+@{
+    var clasMap = new Dictionary<int, string>
+    {
+        {1, "col-xs-12 col-sm-12 col-md-12 col-lg-12"},
+        {2, "col-xs-12 col-sm-6 col-md-6 col-lg-6"},
+        {3, "col-xs-12 col-sm-4 col-md-4 col-lg-4"},
+        {4, "col-xs-6 col-sm-6 col-md-3 col-lg-3"},
+        {6, "col-xs-6 col-sm-4 col-md-2 col-lg-2"},
+        {12, "col-xs-3 col-sm-2 col-md-1 col-lg-1"}
+    };
+}
 <div class="widget section">
     @if (Model.SectionTitle.IsNotNullAndWhiteSpace())
     {
         <h4>@Model.SectionTitle</h4>
     }
-    @foreach (SectionGroup group in Model.Groups.OrderBy(m => m.Order))
+    @if (!Model.IsHorizontal)
     {
-        Html.RenderPartial(group.PartialView, group);
+        foreach (SectionGroup group in Model.Groups.OrderBy(m => m.Order))
+        {
+            Html.RenderPartial(group.PartialView, group);
+        }
+    }
+    else
+    {
+        string col = clasMap[2];
+        if (clasMap.ContainsKey(Model.Groups.Count()))
+        {
+            col = clasMap[Model.Groups.Count()];
+        }
+        <div class="container-fluid">
+            <div class="row">
+                @foreach (SectionGroup group in Model.Groups.OrderBy(m => m.Order))
+                {
+                    <div class="@col">
+                        @Html.Partial(group.PartialView, group)
+                    </div>
+                }
+            </div>
+        </div>
     }
 </div>
