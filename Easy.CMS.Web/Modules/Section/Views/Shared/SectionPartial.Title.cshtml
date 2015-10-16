@@ -4,13 +4,13 @@
 
 @if (Model.Href.IsNullOrEmpty())
 {
-    <h5>
+    <h4>
         @Model.InnerText
-    </h5>
+    </h4>
 }
 else
 {
-    <h5>
+    <h4>
         @Html.SmartLink(Url.Content(Model.Href), Model.InnerText)
-    </h5>
+    </h4>
 }
