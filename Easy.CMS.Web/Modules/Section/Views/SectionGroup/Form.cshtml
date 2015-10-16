@@ -1,6 +1,11 @@
-﻿@using (Html.BeginForm("Save", "SectionGroup"))
+﻿@model Easy.CMS.Section.Models.SectionGroup
+@using (Html.BeginForm("Save", "SectionGroup"))
 {
     @Html.EditModel()
+    <div class="container-fluid" style="margin:5px 0">
+        <div id="templates" class="row"></div>
+    </div>
+
 }
 
 @using (Script.AtFoot())
@@ -12,7 +17,23 @@
         $(function () {
             if (@(ViewBag.Close!=null?1:0)) {
                 $(".popUpToolBar .btn-default").click();
-            }
+        }
+        });
+        $(function() {
+            var templates = $("#templates");
+            var partView = $("#PartialView");
+            $("option",partView).each(function() {
+                var value = $(this).val();
+                templates.append('<div class="col-sm-4 col-md-2"><a class="thumbnail" href="#'+value+'"><img src="@Url.Content("~/Modules/Section/Views/Thumbnail/")'+value+'.png"/></a></div>');
+            });
+            $(".thumbnail[href='#" + partView.val() + "']").addClass("active");
+            partView.parents(".col-md-12").hide();
+        });
+        $(document).on("click", ".thumbnail", function() {
+            $(".thumbnail").removeClass("active");
+            $(this).addClass("active");
+            $("#PartialView").val($(this).attr("href").replace("#", ""));
+            return false;
         });
     </script>
 }

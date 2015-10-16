@@ -192,7 +192,7 @@ a.badge:hover {
     background-color: #f7f7f9;
     border-top: 1px solid #e1e1e8;
     width: 100%;
-    position: absolute;
+    position: fixed;
     bottom: 0;
     padding: 5px;
 }
