@@ -2,12 +2,27 @@
 @using (Html.BeginForm("Save", "SectionGroup"))
 {
     @Html.EditModel()
-    <div class="container-fluid" style="margin:5px 0">
-        <div id="templates" class="row"></div>
+
+    <div class="container-fluid" style="margin: 5px 0">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                显示模板
+                <span id="PartialView-Badge" class="badge">@Model.PartialView</span>
+            </div>
+            <div class="panel-body">
+                <div class="container-fluid">
+                    <div id="templates" class="row"></div>
+                </div>
+            </div>
+        </div>
     </div>
 
 }
-
+<style>
+    .caption {
+        text-align: center;
+    }
+</style>
 @using (Script.AtFoot())
 {
     <script type="text/javascript">
@@ -24,7 +39,7 @@
             var partView = $("#PartialView");
             $("option",partView).each(function() {
                 var value = $(this).val();
-                templates.append('<div class="col-sm-4 col-md-2"><a class="thumbnail" href="#'+value+'"><img src="@Url.Content("~/Modules/Section/Views/Thumbnail/")'+value+'.png"/></a></div>');
+                templates.append('<div class="col-sm-4 col-md-3"><a class="thumbnail" href="#'+value+'"><img src="@Url.Content("~/Modules/Section/Views/Thumbnail/")'+value+'.png"/><div class="caption "><span class="badge">'+value+'</span></div></a></div>');
             });
             $(".thumbnail[href='#" + partView.val() + "']").addClass("active");
             partView.parents(".col-md-12").hide();
@@ -32,7 +47,9 @@
         $(document).on("click", ".thumbnail", function() {
             $(".thumbnail").removeClass("active");
             $(this).addClass("active");
-            $("#PartialView").val($(this).attr("href").replace("#", ""));
+            var partView = $(this).attr("href").replace("#", "");
+            $("#PartialView").val(partView);
+            $("#PartialView-Badge").html(partView);
             return false;
         });
     </script>
