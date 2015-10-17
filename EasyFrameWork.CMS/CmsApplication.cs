@@ -48,8 +48,8 @@ namespace Easy.Web.CMS
             ContainerAdapter.RegisterType<IDataDictionaryService, DataDictionaryService>();
             ContainerAdapter.RegisterType<ILanguageService, LanguageService>();
 
-            DisplayViewSupport.SupportMobileView();
-            DisplayViewSupport.SupportIEView();
+            //DisplayViewSupport.SupportMobileView();
+            //DisplayViewSupport.SupportIEView();
         }
     }
 }

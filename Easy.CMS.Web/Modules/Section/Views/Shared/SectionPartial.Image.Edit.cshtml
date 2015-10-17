@@ -6,12 +6,12 @@
             <a href="@Url.Action("Delete", "SectionContentImage", new {Id = Model.ID})" class="ajax">
                 <i class="glyphicon glyphicon-remove"></i>
             </a>
-            <a href="@Url.Action("Edit", "SectionContentImage", new { Id = Model.ID })" class="dialog" data-width="800" data-height="200">
+            <a href="@Url.Action("Edit", "SectionContentImage", new { Id = Model.ID })" class="dialog" data-width="800" data-height="280">
                 <i class="glyphicon glyphicon-edit"></i>
             </a>
         </div>
         <div class="pull-left">
-            <img src="@Url.Content(Model.ImageSrc)" alt="@Model.ImageAlt" title="@Model.ImageTitle" />
+            <img src="@Url.Content(Model.ImageSrc)" alt="@Model.ImageAlt" title="@Model.ImageTitle" style="width: @(Model.Width.HasValue ? Model.Width.Value + "px" : "auto"); height: @(Model.Height.HasValue ? Model.Height.Value +"px": "auto");" />
         </div>
     </div>
 </li>

@@ -13,6 +13,8 @@ namespace Easy.CMS.Section.Models
         public string ImageAlt { get; set; }
         public string ImageTitle { get; set; }
         public string Href { get; set; }
+        public int? Width { get; set; }
+        public int? Height { get; set; }
     }
 
     class SectionContentImageMetaData : DataViewMetaData<SectionContentImage>
