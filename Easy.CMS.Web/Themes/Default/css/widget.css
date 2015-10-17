@@ -25,4 +25,9 @@
 .align-right {
   text-align: right;
 }
-/*# sourceMappingURL=widget.css.map */
+.image-border img {
+  padding: 4px;
+  border: 1px solid #dedede;
+  border-radius: 4px;
+}
+/*# sourceMappingURL=Widget.css.map */
