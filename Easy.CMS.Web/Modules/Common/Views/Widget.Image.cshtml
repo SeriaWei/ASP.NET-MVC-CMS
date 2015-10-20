@@ -4,12 +4,12 @@
 <div class="widget">
     @if (Model.Link.IsNullOrEmpty())
     {
-        <img alt="@Model.AltText" src="@Url.PathContent(Model.ImageUrl)" style="width: @(Model.Width.HasValue ? Model.Width.Value.ToString() : "auto"); height: @(Model.Height.HasValue ? Model.Height.Value.ToString() : "auto");"/>
+        <img alt="@Model.AltText" src="@Url.PathContent(Model.ImageUrl)" style="width: @(Model.Width.HasValue ? Model.Width.Value + "px" : "auto"); height: @(Model.Height.HasValue ? Model.Height.Value + "px" : "auto");"/>
     }
     else
     {
         <a href="@Url.Content(Model.Link)">
-            <img alt="@Model.AltText" src="@Url.PathContent(Model.ImageUrl)" style="width: @(Model.Width.HasValue ? Model.Width.Value.ToString() : "auto"); height: @(Model.Height.HasValue ? Model.Height.Value.ToString() : "auto");" />
+            <img alt="@Model.AltText" src="@Url.PathContent(Model.ImageUrl)" style="width: @(Model.Width.HasValue ? Model.Width.Value + "px" : "auto"); height: @(Model.Height.HasValue ? Model.Height.Value + "px" : "auto");" />
         </a>
     }
 </div>
