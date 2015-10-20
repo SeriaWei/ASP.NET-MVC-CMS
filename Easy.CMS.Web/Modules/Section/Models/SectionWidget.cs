@@ -12,7 +12,6 @@ namespace Easy.CMS.Section.Models
     public class SectionWidget : WidgetBase
     {
         public string SectionTitle { get; set; }
-        public bool IsHorizontal { get; set; }
         public IEnumerable<SectionGroup> Groups { get; set; }
     }
 

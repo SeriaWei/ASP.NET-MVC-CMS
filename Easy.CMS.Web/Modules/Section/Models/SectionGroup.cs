@@ -17,7 +17,7 @@ namespace Easy.CMS.Section.Models
         public string SectionWidgetId { get; set; }
         public string PartialView { get; set; }
         public int? Order { get; set; }
-
+        public string PercentWidth { get; set; }
         public IEnumerable<SectionContent> SectionContents { get; set; }
     }
 
