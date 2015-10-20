@@ -8,7 +8,7 @@
         SectionContentCallToAction callToAction = content as SectionContentCallToAction;
         if (callToAction != null)
         {
-            <a class="btn btn-default" href="@Url.PathContent(callToAction.Href)">@callToAction.InnerText</a>
+            <a class="btn btn-default" target="@Html.SmartLinkTarget(callToAction.Href)" href="@Url.PathContent(callToAction.Href)">@callToAction.InnerText</a>
         }
     }
 </p>
