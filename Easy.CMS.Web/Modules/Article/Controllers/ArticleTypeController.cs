@@ -18,6 +18,21 @@ namespace Easy.CMS.Article.Controllers
         {
         }
 
+        public override ActionResult Create()
+        {
+            var parentId = ValueProvider.GetValue("ParentID");
+            var articleType = new ArticleType { ParentID = 0 };
+            if (parentId != null)
+            {
+                long id;
+                if (long.TryParse(parentId.AttemptedValue, out id))
+                {
+                    articleType.ParentID = id;
+                }
+            }
+            return View(articleType);
+        }
+
         public JsonResult GetArticleTypeTree()
         {
             var pages = Service.Get(new Data.DataFilter());

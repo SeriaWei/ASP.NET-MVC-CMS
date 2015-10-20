@@ -11,6 +11,12 @@ namespace Easy.CMS.Article.Service
 {
     public class ArticleTypeService : ServiceBase<ArticleType>
     {
+        public override void Add(ArticleType item)
+        {
+            item.ParentID = item.ParentID ?? 0;
+            base.Add(item);
+        }
+
         public IEnumerable<ArticleType> GetChildren(int Id)
         {
             var articleType = this.Get(Id);

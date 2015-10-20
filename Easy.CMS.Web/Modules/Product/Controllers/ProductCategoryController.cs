@@ -19,6 +19,21 @@ namespace Easy.CMS.Product.Controllers
         {
         }
 
+        public override ActionResult Create()
+        {
+            var parentId = ValueProvider.GetValue("ParentID");
+            var productCategory = new ProductCategory { ParentID = 0 };
+            if (parentId != null)
+            {
+                long id;
+                if (long.TryParse(parentId.AttemptedValue, out id))
+                {
+                    productCategory.ParentID = id;
+                }
+            }
+            return View(productCategory);
+        }
+
         public JsonResult GetProductCategoryTree()
         {
             var pages = Service.Get(new Data.DataFilter());

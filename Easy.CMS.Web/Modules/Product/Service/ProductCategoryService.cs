@@ -11,6 +11,12 @@ namespace Easy.CMS.Product.Service
 {
     public class ProductCategoryService : ServiceBase<ProductCategory>
     {
+        public override void Add(ProductCategory item)
+        {
+            item.ParentID = item.ParentID ?? 0;
+            base.Add(item);
+        }
+
         public IEnumerable<ProductCategory> GetChildren(int Id)
         {
             var category = Get(Id);
