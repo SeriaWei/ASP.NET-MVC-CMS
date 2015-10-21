@@ -226,6 +226,16 @@ a.btn,
   border: 1px solid #dedede;
   border-radius: 4px;
 }
+.background-color {
+  background: #eeeeee;
+  padding: 5px;
+  text-shadow: 0 0 0 transparent, 0 1px 1px rgba(255, 255, 255, 0.75);
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+.margin-top {
+  margin-top: 30px;
+}
 .navigation {
   margin: 5px 0;
 }
