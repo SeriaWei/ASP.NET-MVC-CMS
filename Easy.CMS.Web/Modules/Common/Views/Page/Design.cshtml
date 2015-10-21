@@ -1,8 +1,10 @@
-﻿@using Easy.Web.CMS.Widget
+﻿@using System.Text.RegularExpressions
+@using Easy.Web.CMS.Widget
 @{
     Style.Reqiured("Layout").AtHead();
     Script.Reqiured("jQueryUi").AtFoot();
     Easy.Web.CMS.Layout.LayoutEntity layOut = ViewData[Easy.Web.CMS.Layout.LayoutEntity.LayoutKey] as Easy.Web.CMS.Layout.LayoutEntity;
+    Regex styleRegex = new Regex("^style=\"(.+?)\"$", RegexOptions.Compiled | RegexOptions.IgnoreCase);
 }
 @{
     bool zoneStart = false;
@@ -27,7 +29,8 @@
             {
                 foreach (WidgetPart widgetPart in layOut.ZoneWidgets[item.Html].OrderBy(m => m.Widget.Position).ThenBy(m => m.Widget.WidgetName))
                 {
-                    <div class="widget-design @widgetPart.Widget.StyleClass" id="widget_@widgetPart.Widget.ID" data-widgetid="@widgetPart.Widget.ID">
+                    var attr = MvcHtmlString.Create(styleRegex.IsMatch(widgetPart.Widget.StyleClass ?? "") ? widgetPart.Widget.StyleClass + " class='widget-design'" : "class='" + widgetPart.Widget.StyleClass + " widget-design'");
+                    <div @(attr) id="widget_@widgetPart.Widget.ID" data-widgetid="@widgetPart.Widget.ID">
                         <div class="zoneToolbar container-fluid blue">
                             <div class="row">
                                 <div class="col-md-12">

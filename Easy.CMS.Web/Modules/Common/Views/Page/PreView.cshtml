@@ -1,6 +1,8 @@
-﻿@{
+﻿@using System.Text.RegularExpressions
+@{
     Layout = "~/Modules/Common/Views/Shared/_Layout.cshtml";
     Easy.Web.CMS.Layout.LayoutEntity layOut = ViewData[Easy.Web.CMS.Layout.LayoutEntity.LayoutKey] as Easy.Web.CMS.Layout.LayoutEntity;
+    Regex styleRegex = new Regex("^style=\"(.+?)\"$", RegexOptions.Compiled | RegexOptions.IgnoreCase);
 }
 @{
     bool zoneStart = false;
@@ -17,7 +19,8 @@
             {
                 foreach (var widgetPart in layOut.ZoneWidgets[item.Html].OrderBy(m => m.Widget.Position).ThenBy(m => m.Widget.WidgetName))
                 {
-                    <div class="@widgetPart.Widget.StyleClass">
+                    var attr = MvcHtmlString.Create(styleRegex.IsMatch(widgetPart.Widget.StyleClass ?? "") ? widgetPart.Widget.StyleClass : "class='" + widgetPart.Widget.StyleClass + "'");
+                    <div @(attr)>
                         @Html.Partial(widgetPart.Widget.PartialView, widgetPart.ViewModel)
                     </div>
                 }
