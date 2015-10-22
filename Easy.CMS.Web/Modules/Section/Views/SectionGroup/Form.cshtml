@@ -5,9 +5,10 @@
 
     <div class="container-fluid" style="margin: 5px 0">
         <div class="panel panel-default">
-            <div class="panel-heading">
+            <div class="panel-heading clearfix">
                 显示模板
                 <span id="PartialView-Badge" class="badge">@Model.PartialView</span>
+                <a href="http://www.zkea.net/zkeacms/templates" target="_blank" class="pull-right">更多模板>></a>
             </div>
             <div class="panel-body">
                 <div class="container-fluid">
@@ -16,12 +17,35 @@
             </div>
         </div>
     </div>
+    <div class="upload-process">
+        <h1>松开鼠标进行上传...</h1>
+        <div class="progress">
+            <div id="progress-bar" class="progress-bar" role="progressbar" style="width: 0;">
 
+            </div>
+        </div>
+    </div>
 }
 <style>
     .caption {
         text-align: center;
     }
+    .upload-process {
+        display: none;
+        background: #eee;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        top: 0;
+        z-index: 1000;
+        padding:0 20px;
+        height: 120px;
+        border-bottom: 1px solid #ddd;
+    }
+        .upload-process.hover {
+            display: block;
+        }
 </style>
 @using (Script.AtFoot())
 {
@@ -39,7 +63,7 @@
             var partView = $("#PartialView");
             $("option",partView).each(function() {
                 var value = $(this).val();
-                templates.append('<div class="col-sm-4 col-md-3"><a class="thumbnail" href="#'+value+'"><img src="@Url.Content("~/Modules/Section/Views/Thumbnail/")'+value+'.png"/><div class="caption "><span class="badge">'+value+'</span></div></a></div>');
+                templates.append('<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2"><a class="thumbnail" href="#'+value+'"><img src="@Url.Content("~/Modules/Section/Views/Thumbnail/")'+value+'.png"/><div class="caption "><span class="badge">'+value+'</span></div></a></div>');
             });
             $(".thumbnail[href='#" + partView.val() + "']").addClass("active");
             partView.parents(".col-md-12").hide();
@@ -52,5 +76,42 @@
             $("#PartialView-Badge").html(partView);
             return false;
         });
+        var doc = $(".panel-body")[0];
+        doc.ondragover = function() {
+            $(".upload-process").addClass("hover");
+            return false;
+        };
+        doc.ondragleave = function() {
+            $(".upload-process").removeClass("hover");
+            return false;
+        };
+        doc.ondragend = function() {
+            $(".upload-process").removeClass("hover");
+            return false;
+        };
+        doc.ondrop = function (event) {
+            event.preventDefault && event.preventDefault();
+            var files = event.dataTransfer.files;
+            var formData = new FormData();
+            for (var i = 0; i < files.length; i++) {
+                formData.append('file', files[i]);
+            }
+            var progressBar = $("#progress-bar");
+            
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', '@Url.Action("UploadTemplate")');
+            xhr.onload = function () {
+                progressBar.width(0);
+                progressBar.html();
+                window.location.reload();
+            };
+            xhr.onprogress=function(e) {
+                var persecnt = e.loaded / e.total * 100;
+                progressBar.width(persecnt + "%");
+                progressBar.html(persecnt + "%");
+            }
+            xhr.send(formData);
+            return false;
+        };
     </script>
 }

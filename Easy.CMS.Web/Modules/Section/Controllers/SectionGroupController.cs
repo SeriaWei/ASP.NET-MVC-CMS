@@ -9,6 +9,8 @@ using Easy.Constant;
 using Easy.Data;
 using Easy.Extend;
 using Easy.Web.Attribute;
+using EasyZip;
+using Microsoft.Practices.ObjectBuilder2;
 
 namespace Easy.CMS.Section.Controllers
 {
@@ -83,6 +85,48 @@ namespace Easy.CMS.Section.Controllers
                 g.Order = m.Order;
                 _sectionContentProviderService.Update(g, new DataFilter(new List<string> { "Order" }).Where("ID", OperatorType.Equal, m.ID));
             });
+            return Json(true);
+        }
+        [HttpPost]
+        public JsonResult UploadTemplate()
+        {
+            if (Request.Files.Count > 0)
+            {
+                try
+                {
+                    var file = Request.Files[0];
+                    ZipFile zipFile = new ZipFile();
+                    var files = zipFile.ToFileCollection(file.InputStream);
+                    foreach (ZipFileInfo item in files)
+                    {
+                        if (item.RelativePath.EndsWith(".cshtml"))
+                        {
+                            using (
+                                var fs =
+                                    System.IO.File.Create(Server.MapPath("~/Modules/Section/Views") + item.RelativePath)
+                                )
+                            {
+                                fs.Write(item.FileBytes, 0, item.FileBytes.Length);
+                            }
+                        }
+                        else if (item.RelativePath.EndsWith(".png"))
+                        {
+                            using (
+                                var fs =
+                                    System.IO.File.Create(Server.MapPath("~/Modules/Section/Views/Thumbnail") +
+                                                          item.RelativePath))
+                            {
+                                fs.Write(item.FileBytes, 0, item.FileBytes.Length);
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Logger.Error(ex);
+                }
+            }
+
             return Json(true);
         }
     }

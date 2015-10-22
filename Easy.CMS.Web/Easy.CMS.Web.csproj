@@ -52,6 +52,9 @@
       <HintPath>..\packages\EasyFrameWork.Web.1.0.3.9\lib\net40\Easy.Web.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="EasyZip">
+      <HintPath>..\packages\EasyZip\EasyZip.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp">
       <Private>True</Private>
     </Reference>
