@@ -8,12 +8,15 @@
             <div class="panel-heading clearfix">
                 显示模板
                 <span id="PartialView-Badge" class="badge">@Model.PartialView</span>
-                <a href="http://www.zkea.net/zkeacms/templates" target="_blank" class="pull-right">更多模板>></a>
+                <a href="http://www.zkea.net/zkeacms/templates" target="_blank" class="pull-right">下载更多模板>></a>
             </div>
             <div class="panel-body">
                 <div class="container-fluid">
                     <div id="templates" class="row"></div>
                 </div>
+            </div>
+            <div class="panel-footer text-muted">
+                把模板包拖到列表区域进行上传
             </div>
         </div>
     </div>
@@ -30,6 +33,7 @@
     .caption {
         text-align: center;
     }
+
     .upload-process {
         display: none;
         background: #eee;
@@ -39,13 +43,21 @@
         text-align: center;
         top: 0;
         z-index: 1000;
-        padding:0 20px;
+        padding: 0 20px;
         height: 120px;
         border-bottom: 1px solid #ddd;
     }
+
         .upload-process.hover {
             display: block;
         }
+
+    .progress .progress-bar {
+        -moz-transition: width .3s ease;
+        -o-transition: width .3s ease;
+        -webkit-transition: width .3s ease;
+        transition: width .3s ease;
+    }
 </style>
 @using (Script.AtFoot())
 {
@@ -76,20 +88,16 @@
             $("#PartialView-Badge").html(partView);
             return false;
         });
-        var doc = $(".panel-body")[0];
-        doc.ondragover = function() {
+        var panel= $(".panel-body")[0];
+        panel.ondragover=function(event) {
             $(".upload-process").addClass("hover");
             return false;
         };
-        doc.ondragleave = function() {
+        panel.ondragleave=function(event) {
             $(".upload-process").removeClass("hover");
             return false;
         };
-        doc.ondragend = function() {
-            $(".upload-process").removeClass("hover");
-            return false;
-        };
-        doc.ondrop = function (event) {
+        panel.ondrop = function(event) {
             event.preventDefault && event.preventDefault();
             var files = event.dataTransfer.files;
             var formData = new FormData();
@@ -97,18 +105,18 @@
                 formData.append('file', files[i]);
             }
             var progressBar = $("#progress-bar");
-            
+
             var xhr = new XMLHttpRequest();
             xhr.open('POST', '@Url.Action("UploadTemplate")');
-            xhr.onload = function () {
-                progressBar.width(0);
-                progressBar.html();
-                window.location.reload();
+            xhr.onload = function() {
+                setTimeout(function() {
+                    window.location.reload();
+                },500);
             };
-            xhr.onprogress=function(e) {
+            xhr.upload.onprogress = function(e) {
                 var persecnt = e.loaded / e.total * 100;
                 progressBar.width(persecnt + "%");
-                progressBar.html(persecnt + "%");
+                progressBar.html(Math.round(persecnt) + "%");
             }
             xhr.send(formData);
             return false;
