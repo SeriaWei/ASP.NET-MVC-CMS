@@ -21,7 +21,7 @@
         </div>
     </div>
     <div class="upload-process">
-        <h1>松开鼠标进行上传...</h1>
+        <h1 id="message-info">松开鼠标进行上传...</h1>
         <div class="progress">
             <div id="progress-bar" class="progress-bar" role="progressbar" style="width: 0;">
 
@@ -105,13 +105,21 @@
                 formData.append('file', files[i]);
             }
             var progressBar = $("#progress-bar");
-
+            var message = $("#message-info");
             var xhr = new XMLHttpRequest();
             xhr.open('POST', '@Url.Action("UploadTemplate")');
-            xhr.onload = function() {
-                setTimeout(function() {
-                    window.location.reload();
-                },500);
+            xhr.onload = function(e) {
+                var result = JSON.parse(e.target.response);
+                if (result.Status === 1) {
+                    setTimeout(function() {
+                        window.location.reload();
+                    }, 500);
+                    message.html(result.Message);
+                } else {
+                    message.html(result.Message);
+                    progressBar.width("0%");
+                    progressBar.html("0%");
+                }
             };
             xhr.upload.onprogress = function(e) {
                 var persecnt = e.loaded / e.total * 100;

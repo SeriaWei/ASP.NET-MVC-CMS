@@ -8,6 +8,7 @@ using Easy.CMS.Section.Service;
 using Easy.Constant;
 using Easy.Data;
 using Easy.Extend;
+using Easy.Web;
 using Easy.Web.Attribute;
 using EasyZip;
 using Microsoft.Practices.ObjectBuilder2;
@@ -124,10 +125,11 @@ namespace Easy.CMS.Section.Controllers
                 catch (Exception ex)
                 {
                     Logger.Error(ex);
+                    return Json(new AjaxResult { Status = AjaxStatus.Error, Message = "上传的模板不正确" });
                 }
             }
 
-            return Json(true);
+            return Json(new AjaxResult { Status = AjaxStatus.Normal, Message = "上传成功" });
         }
     }
 }
