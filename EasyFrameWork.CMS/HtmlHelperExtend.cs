@@ -10,14 +10,14 @@ namespace Easy.Web.CMS
 {
     public static class HtmlHelperExtend
     {
-        public static MvcHtmlString SmartLink(this HtmlHelper html, string link, string text)
+        public static MvcHtmlString SmartLink(this HtmlHelper html, string link, string text, string cssClass = null)
         {
             if (link.IsNullOrEmpty())
             {
                 link = "/";
             }
             bool self = !link.StartsWith("http://") && !link.StartsWith("https://");
-            return MvcHtmlString.Create("<a target=\"" + (self ? "_self" : "_blank") + "\" href=\"" + link + "\">" + text + "</a>");
+            return MvcHtmlString.Create("<a " + (cssClass.IsNullOrWhiteSpace() ? "" : "class=\"" + cssClass + "\"") + " target=\"" + (self ? "_self" : "_blank") + "\" href=\"" + link + "\">" + text + "</a>");
         }
 
         public static MvcHtmlString SmartLinkTarget(this HtmlHelper html, string link)

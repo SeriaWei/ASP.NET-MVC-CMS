@@ -23,7 +23,7 @@
                     <i class="glyphicon glyphicon-share-alt"></i>
                     @layOut.Zones.First(m => m.ID == item.Html).ZoneName
                 </a>
-                
+
             </div>
             if (layOut.ZoneWidgets.ContainsKey(item.Html))
             {
@@ -35,7 +35,12 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="pull-left">
-                                        @widgetPart.Widget.WidgetName
+                                        <span class="sort-handle">
+                                            <i class="glyphicon glyphicon-move ">
+                                            </i>
+                                            @widgetPart.Widget.WidgetName
+                                        </span>
+
                                     </div>
                                     <div class="pull-right">
                                         @if (widgetPart.Widget.LayoutID.IsNullOrEmpty())
@@ -71,7 +76,7 @@
                 $(this).remove();
             });
             $(".zone").sortable({
-                handle: ".zoneToolbar",
+                handle: ".sort-handle",
                 stop: function (event, ui) {
                     var tempForm = "";
                     ui.item.parent().children(".widget-design").each(function (i, ui) {

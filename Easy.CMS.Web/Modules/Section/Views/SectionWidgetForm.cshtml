@@ -14,14 +14,12 @@
             @Html.EditModel()
             @if (Model.Groups != null)
             {
-                <div class="container-fluid">
+                <div class="container-fluid" style="margin-top: 5px;">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <span class="badge">
                                         分组
-                                    </span>
                                 </div>
                                 <div class="panel-body" id="section-groups">
                                     @foreach (SectionGroup group in Model.Groups.OrderBy(m => m.Order))
@@ -88,7 +86,7 @@
         }
         function sortGroup() {
             $("#section-groups").sortable({
-                handle: ".panel-heading",
+                handle: ".sort-handle",
                 stop: function (event, ui) {
                     var result = {}
                     $(event.target).find(".section-group").each(function (i) {
@@ -99,6 +97,7 @@
                 }
             });
             $(".section-group .list-group").sortable({
+                handle: ".sort-handle",
                 stop: function (event, ui) {
                     var result = {}
                     $(event.target).find(".list-group-item").each(function (i) {

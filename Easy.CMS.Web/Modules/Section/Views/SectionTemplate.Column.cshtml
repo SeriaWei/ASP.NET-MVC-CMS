@@ -1,4 +1,5 @@
 ﻿@using System.Linq
+@using Easy.CMS.Section
 @using Easy.CMS.Section.Models
 @model SectionGroup
 @{
@@ -11,20 +12,12 @@
         <div class="row">
             <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
                 @{
-        var content1 = contents.Skip(i * 2).Take(1).FirstOrDefault();
-        if (content1 != null)
-        {
-            Html.RenderPartial("SectionPartial." + ((SectionContent.Types)content1.SectionContentType), content1);
-        }
+        Html.RenderContent(contents.Skip(i * 2).Take(1).FirstOrDefault());
                 }
             </div>
             <div class="col-xs-12 col-sm-8 col-md-9 col-lg-9">
                 @{
-        var content2 = contents.Skip(i * 2 + 1).Take(1).FirstOrDefault();
-        if (content2 != null)
-        {
-            Html.RenderPartial("SectionPartial." + ((SectionContent.Types)content2.SectionContentType), content2);
-        }
+        Html.RenderContent(contents.Skip(i * 2 + 1).Take(1).FirstOrDefault());
                 }
             </div>
         </div>

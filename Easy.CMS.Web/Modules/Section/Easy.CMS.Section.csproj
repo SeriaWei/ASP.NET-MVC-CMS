@@ -129,6 +129,7 @@
     <Compile Include="Controllers\SectionContentTitleController.cs" />
     <Compile Include="Controllers\SectionGroupController.cs" />
     <Compile Include="Controllers\SectionWidgetController.cs" />
+    <Compile Include="HtmlHelperContent.cs" />
     <Compile Include="Models\SectionContent.cs" />
     <Compile Include="Models\SectionContentCallToAction.cs" />
     <Compile Include="Models\SectionContentParagraph.cs" />
@@ -238,7 +239,6 @@
     <None Include="Properties\PublishProfiles\PublishLocal.pubxml" />
     <Content Include="Views\SectionTemplate.LinkGroup.cshtml" />
     <Content Include="Views\SectionTemplate.ListGroup.cshtml" />
-    <Content Include="Views\Shared\SectionContent.Switcher.cshtml" />
     <Content Include="Views\Thumbnail\Web.config" />
   </ItemGroup>
   <PropertyGroup>

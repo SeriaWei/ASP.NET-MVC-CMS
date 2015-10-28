@@ -1,17 +1,21 @@
-﻿@using Easy.CMS.Section.Models
+﻿@using Easy.CMS.Section
+@using Easy.CMS.Section.Models
 @model SectionGroup
 
 <div class="panel panel-default section-group" data-id="@Model.ID">
     <div class="panel-heading">
+        <span class="badge sort-handle">
+            <i class="glyphicon glyphicon-resize-vertical"></i>
+        </span>
         <span class="badge">
             @Model.GroupName
         </span>
-        <code class="badge">@Model.PartialView</code>
-</div>
+        <span class="badge">@Model.PartialView</span>
+    </div>
 <ul class="list-group">
     @foreach (SectionContent content in Model.SectionContents.OrderBy(m => m.Order))
     {
-        Html.RenderPartial("SectionPartial." + ((SectionContent.Types)content.SectionContentType) + ".Edit", content);
+        Html.RenderEditContent(content);
     }
 </ul>
 <div class="panel-footer">

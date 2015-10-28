@@ -6,12 +6,18 @@ body {
     background-image: url(images/dotted.png);
 }
 
+img {
+    max-width: 100%;
+}
+
 #wrap {
     height: 100%;
 }
+
 a.badge:hover {
     background-color: #1F1F1F;
 }
+
 .navbar-collapse {
     position: fixed;
     left: 0;
@@ -263,57 +269,77 @@ a.badge:hover {
 .input-group {
     margin: 3px 0;
 }
-.jstree a[ispublish="false"]{
-    color:gray;
+
+.jstree a[ispublish="false"] {
+    color: gray;
 }
-.jstree a[ishomepage="true"]{
-    font-weight:bold;
-    color:red;
+
+.jstree a[ishomepage="true"] {
+    font-weight: bold;
+    color: red;
 }
+
 .form-control.input-validation-error {
     border-bottom: 1px solid #fff;
 }
-.form-control[type=checkbox]{
-    width:34px;
-    box-shadow:none;
-    margin:0;
-    padding:0;
-    border-radius:0;
+
+.form-control[type=checkbox] {
+    width: 34px;
+    box-shadow: none;
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
 }
+
 .ui-draggable-dragging {
     z-index: 1;
 }
+
 .simplePreview {
 }
-.simplePreview .simpleDesign .panel {
-    margin:5px;
-}
-.simplePreview .simpleDesign .panel .panel-heading{
-    padding:3px;
-}
-.simplePreview .panel-body {
-    padding: 5px;
-}
-.simplePreview .panel-heading .btn {
-    float: right;
-}
+
+    .simplePreview .simpleDesign .panel {
+        margin: 5px;
+    }
+
+        .simplePreview .simpleDesign .panel .panel-heading {
+            padding: 3px;
+        }
+
+    .simplePreview .panel-body {
+        padding: 5px;
+    }
+
+    .simplePreview .panel-heading .btn {
+        float: right;
+    }
+
 .description {
     font-size: 13px;
 }
+
 .icon-left {
-    padding-left: 40px;
+    padding-left: 70px;
 }
-.icon-left .icon {
-    margin-left: -40px;
-}
+
+    .icon-left .icon {
+        margin-left: -70px;
+        font-size: 16px;
+    }
+
 #section-groups {
     padding: 10px 10px 0 10px;
 }
-#section-groups .panel {
-    margin-bottom: 10px;
-}
-#section-groups .edit-pragraph {
-    max-height: 300px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
+
+    #section-groups .panel {
+        margin-bottom: 10px;
+    }
+
+    #section-groups .edit-pragraph {
+        max-height: 300px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .sort-handle {
+        cursor: n-resize;
+    }

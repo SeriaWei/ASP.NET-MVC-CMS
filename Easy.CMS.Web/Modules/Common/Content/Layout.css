@@ -197,9 +197,10 @@ input.helper:checked + span {
 .widget-design {
     position: relative;
 }
-
-.zoneToolbar {
+.sort-handle {
     cursor: move;
+}
+.zoneToolbar {
     position: absolute;
     width: 100%;
     z-index: 1;
