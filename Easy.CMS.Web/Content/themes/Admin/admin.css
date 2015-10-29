@@ -203,10 +203,6 @@ a.badge:hover {
     padding: 5px;
 }
 
-.panel-heading {
-    padding: 6px 15px;
-}
-
 .fullRowList {
     margin: 0;
     padding: 1px 0;
@@ -302,17 +298,15 @@ a.badge:hover {
         margin: 5px;
     }
 
-        .simplePreview .simpleDesign .panel .panel-heading {
-            padding: 3px;
-        }
-
     .simplePreview .panel-body {
-        padding: 5px;
+        position: relative;
     }
-
-    .simplePreview .panel-heading .btn {
-        float: right;
+    .simplePreview .panel-toolbar {
+        position: absolute;
+        right: 0;
+        top: 0;
     }
+    
 
 .description {
     font-size: 13px;

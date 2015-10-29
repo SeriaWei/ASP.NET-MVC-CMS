@@ -9,31 +9,30 @@
         <div class="col-md-4">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <div>
-                        <span class="badge">页面</span>
-
-                        <a href="@Url.Action("Create", new { ParentID = "#" })" class="btn btn-link btn-xs">
-                            <i class="glyphicon glyphicon-plus"></i>
-                            添加页面
-                        </a>
-                    </div>
+                    页面
                 </div>
                 <div class="panel-body">
 
                     @(
- Html.Tree<PageEntity>().Source("GetPageTree", "Page", new { module = "Common" })
- .AddPlugin(Plugins.ContextMenu)
-.AddPlugin(Plugins.DragAndDrop)
-.AddContextMenuItem(new ContextmenuItem { Label = "新建", Action = "Create" })
-.AddContextMenuItem(new ContextmenuItem { Label = "编辑", Action = "Edit" })
-.AddContextMenuItem(new ContextmenuItem { Label = "查看", Action = "View" })
-.AddContextMenuItem(new ContextmenuItem { Label = "设计", Action = "Design" })
-.On(Events.Loaded, "loadedPage")
-.CheckCallBack("checkCallBack")
-.On(Events.MoveNode, "moveNode")
-.On(Events.ActiveNode, "ActiveNode")
-                    )
+    Html.Tree<PageEntity>().Source("GetPageTree", "Page", new {module = "Common"})
+        .AddPlugin(Plugins.ContextMenu)
+        .AddPlugin(Plugins.DragAndDrop)
+        .AddContextMenuItem(new ContextmenuItem {Label = "新建", Action = "Create"})
+        .AddContextMenuItem(new ContextmenuItem {Label = "编辑", Action = "Edit"})
+        .AddContextMenuItem(new ContextmenuItem {Label = "查看", Action = "View"})
+        .AddContextMenuItem(new ContextmenuItem {Label = "设计", Action = "Design"})
+        .On(Events.Loaded, "loadedPage")
+        .CheckCallBack("checkCallBack")
+        .On(Events.MoveNode, "moveNode")
+        .On(Events.ActiveNode, "ActiveNode")
+                          )
 
+                </div>
+                <div class="panel-footer">
+                    <a href="@Url.Action("Create", new { ParentID = "#" })" class="btn btn-link btn-xs">
+                        <i class="glyphicon glyphicon-plus"></i>
+                        添加页面
+                    </a>
                 </div>
             </div>
         </div>

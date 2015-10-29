@@ -8,24 +8,23 @@
         <div class="col-md-5">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <div>
-                        <span class="badge">产品类别</span> 
-                        
-                        <a href="@Url.Action("Create")" class="btn btn-primary btn-xs">
-                            <i class="glyphicon glyphicon-plus"></i>
-                            添加类别
-                        </a>
-                    </div>
+                    产品类别
                 </div>
                 <div class="panel-body">
 
                     @(
- Html.Tree<ProductCategory>().Source("GetProductCategoryTree", "ProductCategory", new { module = "Product" })
- .AddPlugin(Plugins.ContextMenu)
- .AddContextMenuItem(new ContextmenuItem { Label = "新建", Action = "Create" })
-         .AddContextMenuItem(new ContextmenuItem { Label = "编辑", Action = "Edit" })
-                    )
+    Html.Tree<ProductCategory>().Source("GetProductCategoryTree", "ProductCategory", new {module = "Product"})
+        .AddPlugin(Plugins.ContextMenu)
+        .AddContextMenuItem(new ContextmenuItem {Label = "新建", Action = "Create"})
+        .AddContextMenuItem(new ContextmenuItem {Label = "编辑", Action = "Edit"})
+                          )
 
+                </div>
+                <div class="panel-footer">
+                    <a href="@Url.Action("Create")" class="btn btn-primary btn-xs">
+                        <i class="glyphicon glyphicon-plus"></i>
+                        添加类别
+                    </a>
                 </div>
             </div>
         </div>

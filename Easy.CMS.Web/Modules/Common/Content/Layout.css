@@ -157,25 +157,15 @@ input.helper:checked + span {
 .zoneName {
     display: none;
     position: absolute;
-    left: 2px;
-    top: 11px;
+    left: 50%;
+    top: 40%;
     z-index: 2;
-    padding: 0 4px;
-    background-color: #e5e1ea;
-    border: 1px solid #c7bfd3;
-    color: #000;
-    font-size: 13px;
+    font-size: 16px;
 }
 
     .zoneName a.add-widget {
-        color: red;
         text-decoration: none;
     }
-
-        .zoneName a.add-widget:hover {
-            color: #be0000;
-            text-decoration: none;
-        }
 
 .design-border .zoneName {
     display: block;

@@ -19,7 +19,7 @@
         {
             <div class="zoneid" data-id="@item.Html"></div>
             <div class="zoneName">
-                <a title="添加组件到该区域" class="add-widget" href="@Url.Action("SelectWidget", "WidgetTemplate", new { module = "common", pageId=layOut.Page.ID,ZoneId=item.Html })">
+                <a title="添加组件到该区域" class="add-widget label label-danger" href="@Url.Action("SelectWidget", "WidgetTemplate", new { module = "common", pageId=layOut.Page.ID,ZoneId=item.Html })">
                     <i class="glyphicon glyphicon-share-alt"></i>
                     @layOut.Zones.First(m => m.ID == item.Html).ZoneName
                 </a>

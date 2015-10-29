@@ -40,11 +40,11 @@
     </div>
 }
 
-<div class="panel panel-primary">
+<div class="panel panel-default">
     <div class="panel-heading">
         页面概览
     </div>
-    <div class="panel-body simplePreview">
+    <div class="simplePreview">
         <div class="container-fluid simpleDesign">
             @foreach (var itemHtml in Model.LayoutHtml)
             {
@@ -63,28 +63,26 @@
 
                         foreach (var item in zone)
                         {
-                            <div class="panel panel-info">
-                                <div class="panel-heading">
-                                    <span class="badge">@item.ZoneName</span>
-                                    <a class="btn btn-link btn-xs" href="@Url.Action("SelectWidget", "WidgetTemplate", new { module = "Common", PageID = Model.PageID, ZoneID = item.ID, ReturnUrl = returnUrl })">
-                                        <i class="glyphicon glyphicon-plus"></i>
-                                        添加组件
-                                    </a>
-                                    <div class="clearfix"></div>
-                                </div>
+                            <div class="panel panel-success">
                                 <div class="panel-body">
+                                    <div class="panel-toolbar">
+                                        <a class="label label-danger" title="添加组件到该区域" href="@Url.Action("SelectWidget", "WidgetTemplate", new {module = "Common", PageID = Model.PageID, ZoneID = item.ID, ReturnUrl = returnUrl})">
+                                            <i class="glyphicon glyphicon-share-alt"></i>
+                                            @item.ZoneName
+                                        </a>
+                                    </div>
                                     <ul data-zoneid="@item.ID" class="fullRowList widgets">
                                         @foreach (var widget in Model.Widgets.Where(m => m.ZoneID == item.ID).OrderBy(m => m.Position).ThenBy(m => m.WidgetName))
                                         {
                                             <li id="widget_@widget.ID" class="@(widget.LayoutID.IsNullOrEmpty() ? "widget" : "")" data-widgetid="@widget.ID">
                                                 @if (widget.LayoutID.IsNullOrEmpty())
                                                 {
-                                                    <a href="@Url.Action("Edit", "Widget", new { module = "Common", ID = widget.ID, ReturnUrl = returnUrl })"><i class="glyphicon glyphicon-edit"></i></a>
+                                                    <a href="@Url.Action("Edit", "Widget", new {module = "Common", ID = widget.ID, ReturnUrl = returnUrl})"><i class="glyphicon glyphicon-edit"></i></a>
                                                     <a href="javascript:void(0)" class="delete" data-widgetid="@widget.ID"><i class="glyphicon glyphicon-trash"></i></a>
                                                 }
                                                 else
                                                 {
-                                                    <span class="badge">布局</span>
+                                                    <span class="label label-info">布局</span>
                                                 }
                                                 @widget.WidgetName
                                             </li>
