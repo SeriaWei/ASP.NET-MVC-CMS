@@ -16,7 +16,7 @@ namespace Easy.Web.CMS
             {
                 link = "/";
             }
-            bool self = !link.StartsWith("http://") && !link.StartsWith("https://");
+            bool self = IsOpenSelf(link);
             return MvcHtmlString.Create("<a " + (cssClass.IsNullOrWhiteSpace() ? "" : "class=\"" + cssClass + "\"") + " target=\"" + (self ? "_self" : "_blank") + "\" href=\"" + link + "\">" + text + "</a>");
         }
 
@@ -26,8 +26,17 @@ namespace Easy.Web.CMS
             {
                 return MvcHtmlString.Create("_self");
             }
-            bool self = !link.StartsWith("http://") && !link.StartsWith("https://");
+            bool self = IsOpenSelf(link);
             return MvcHtmlString.Create(self ? "_self" : "_blank");
+        }
+
+        private static bool IsOpenSelf(string link)
+        {
+            if (HttpContext.Current != null && (link.StartsWith("http://") || link.StartsWith("https://")))
+            {
+                return new Uri(link).Host.Equals(HttpContext.Current.Request.Url.Host);
+            }
+            return true;
         }
     }
 }
