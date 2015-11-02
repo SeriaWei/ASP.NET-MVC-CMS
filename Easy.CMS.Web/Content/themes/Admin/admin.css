@@ -212,10 +212,10 @@ a.badge:hover {
 }
 
     .fullRowList li {
-        padding: 3px;
+        padding: 5px;
         border: 1px solid #ddd;
         border-left: 3px solid green;
-        margin: 5px 0;
+        margin: 5px;
         cursor: pointer;
         background-color: white;
     }
@@ -298,7 +298,7 @@ a.badge:hover {
         margin: 5px;
     }
 
-    .simplePreview .panel-body {
+    .simplePreview .panel-relative {
         position: relative;
     }
     .simplePreview .panel-toolbar {

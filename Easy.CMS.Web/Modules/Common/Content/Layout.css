@@ -157,8 +157,8 @@ input.helper:checked + span {
 .zoneName {
     display: none;
     position: absolute;
-    left: 50%;
-    top: 40%;
+    right: 0;
+    top: 2px;
     z-index: 2;
     font-size: 16px;
 }
