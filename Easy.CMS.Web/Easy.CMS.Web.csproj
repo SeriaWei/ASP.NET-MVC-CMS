@@ -625,6 +625,12 @@
     <Content Include="Themes\Default\css\Product.min.css">
       <DependentUpon>Product.css</DependentUpon>
     </Content>
+    <Content Include="Themes\Default\css\Section.css">
+      <DependentUpon>Section.less</DependentUpon>
+    </Content>
+    <Content Include="Themes\Default\css\Section.min.css">
+      <DependentUpon>Section.css</DependentUpon>
+    </Content>
     <Content Include="Themes\Default\css\Theme.css">
       <DependentUpon>Theme.less</DependentUpon>
     </Content>
@@ -752,6 +758,10 @@
     <Content Include="Themes\Default\css\Widget.less" />
     <Content Include="Themes\Default\css\widget.css.map">
       <DependentUpon>widget.css</DependentUpon>
+    </Content>
+    <Content Include="Themes\Default\css\Section.less" />
+    <Content Include="Themes\Default\css\Section.css.map">
+      <DependentUpon>Section.css</DependentUpon>
     </Content>
   </ItemGroup>
   <ItemGroup>

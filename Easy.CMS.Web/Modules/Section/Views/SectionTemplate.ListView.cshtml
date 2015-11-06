@@ -1,0 +1,27 @@
+﻿@using System.Linq
+@using Easy.CMS.Section
+@using Easy.CMS.Section.Models
+@model SectionGroup
+@{
+    int count = Model.SectionContents.Count() / 2 + 1;
+    var contents = Model.SectionContents.OrderBy(m => m.Order);
+}
+<div class="section-group-listView container-fluid">
+    <div class="row">
+        <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
+            @{
+                Html.RenderContent(Model.SectionImage);
+            }
+        </div>
+        <div class="col-xs-12 col-sm-8 col-md-9 col-lg-9">
+            @{
+                Html.RenderContent(Model.SectionTitle);
+            }
+            <div class="text-muted">
+                @{
+                    Html.RenderContent(Model.Paragraph);
+                }
+            </div>
+        </div>
+    </div>
+</div>

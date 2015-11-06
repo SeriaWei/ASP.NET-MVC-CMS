@@ -19,6 +19,46 @@ namespace Easy.CMS.Section.Models
         public int? Order { get; set; }
         public string PercentWidth { get; set; }
         public IEnumerable<SectionContent> SectionContents { get; set; }
+
+        private T GetContent<T>(SectionContent.Types type) where T : SectionContent
+        {
+            if (SectionContents != null)
+            {
+                return (T)SectionContents.FirstOrDefault(m => m.SectionContentType == (int)type);
+            }
+            return null;
+        }
+
+        public SectionContentTitle SectionTitle
+        {
+            get
+            {
+                return GetContent<SectionContentTitle>(SectionContent.Types.Title);
+            }
+        }
+
+        public SectionContentCallToAction CallToAction
+        {
+            get
+            {
+                return GetContent<SectionContentCallToAction>(SectionContent.Types.CallToAction);
+            }
+        }
+
+        public SectionContentImage SectionImage
+        {
+            get
+            {
+                return GetContent<SectionContentImage>(SectionContent.Types.Image);
+            }
+        }
+        public SectionContentParagraph Paragraph
+        {
+            get
+            {
+                return GetContent<SectionContentParagraph>(SectionContent.Types.Paragraph);
+            }
+        }
     }
 
     class SectionGroupMetaData : DataViewMetaData<SectionGroup>

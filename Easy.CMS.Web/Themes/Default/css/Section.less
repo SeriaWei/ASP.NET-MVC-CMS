@@ -1,0 +1,69 @@
+﻿@import "Library.less";
+.section {
+    line-height: normal;
+
+    & > h4 {
+        padding: 0 5px 5px;
+        color: @color-main;
+        border-bottom: 2px solid @color-main;
+        text-align: left;
+    }
+
+    table {
+        tr {
+            vertical-align: top;
+
+            td {
+                padding: 5px;
+            }
+        }
+    }
+
+    .section-group-default {
+        padding: 0 5px;
+    }
+
+    .section-group-column {
+        padding: 0 10px;
+
+        img {
+            margin-bottom: 10px;
+        }
+    }
+
+    .section-content-listgroup {
+        .border & {
+            margin: -10px -5px -5px;
+        }
+
+        .list-group-item {
+            .border & {
+                border-left: none;
+                border-right: none;
+            }
+
+                .border &:first-child {
+                    border-top: none;
+                }
+
+                .border &:last-child {
+                    border-bottom: none;
+                }
+
+            & > p {
+                margin: 0;
+            }
+        }
+    }
+
+    .section-group-listView {
+        img {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        h4 {
+            font-weight: bold;
+        }
+    }
+}

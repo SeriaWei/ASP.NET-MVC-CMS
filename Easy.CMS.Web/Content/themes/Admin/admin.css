@@ -301,12 +301,13 @@ a.badge:hover {
     .simplePreview .panel-relative {
         position: relative;
     }
+
     .simplePreview .panel-toolbar {
         position: absolute;
         right: 0;
         top: 0;
     }
-    
+
 
 .description {
     font-size: 13px;
@@ -319,6 +320,11 @@ a.badge:hover {
     .icon-left .icon {
         margin-left: -70px;
         font-size: 16px;
+    }
+
+    .icon-left .label {
+        float: left;
+        margin: 3px 5px 0 0;
     }
 
 #section-groups {
@@ -334,6 +340,7 @@ a.badge:hover {
         overflow: hidden;
         text-overflow: ellipsis;
     }
-    .sort-handle {
-        cursor: n-resize;
-    }
+
+.sort-handle {
+    cursor: n-resize;
+}

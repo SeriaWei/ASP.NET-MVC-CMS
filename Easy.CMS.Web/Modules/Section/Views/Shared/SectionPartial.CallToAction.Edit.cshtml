@@ -4,8 +4,7 @@
 <li class="list-group-item" data-id="@Model.ID">
     <div class="icon-left clearfix">
         <div class="pull-left icon">
-            <i class="text-primary sort-handle">
-                <i class="glyphicon glyphicon-resize-vertical"></i>
+            <i class="text-primary sort-handle glyphicon glyphicon-resize-vertical">
             </i>
             <a href="@Url.Action("Edit", "SectionContentCallToAction", new {Id = Model.ID})" class="dialog glyphicon glyphicon-edit text-primary" data-width="800" data-height="150">
             </a>
@@ -13,6 +12,7 @@
             </a>
         </div>
         <div class="pull-left">
+            <label class="label label-primary">链接</label>
             <a href="@Url.PathContent(Model.Href)" target="@Html.SmartLinkTarget(Model.Href)">
                 @Model.InnerText
             </a>
