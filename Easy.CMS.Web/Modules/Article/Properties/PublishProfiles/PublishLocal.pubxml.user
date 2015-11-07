@@ -19,7 +19,7 @@
       <publishTime>09/08/2015 09:26:23</publishTime>
     </File>
     <File Include="bin/Autofac.dll">
-      <publishTime>07/25/2015 09:38:39</publishTime>
+      <publishTime>07/27/2015 08:41:42</publishTime>
     </File>
     <File Include="bin/create.cshtml.1fab2d9e.compiled">
       <publishTime>09/08/2015 09:26:23</publishTime>
@@ -28,16 +28,16 @@
       <publishTime>09/08/2015 09:26:23</publishTime>
     </File>
     <File Include="bin/Easy.CMS.Article.dll">
-      <publishTime>09/19/2015 18:39:23</publishTime>
+      <publishTime>11/07/2015 13:41:12</publishTime>
     </File>
     <File Include="bin/Easy.dll">
-      <publishTime>09/19/2015 18:36:44</publishTime>
+      <publishTime>10/20/2015 10:46:43</publishTime>
     </File>
     <File Include="bin/Easy.Web.CMS.dll">
-      <publishTime>09/19/2015 18:38:58</publishTime>
+      <publishTime>11/07/2015 13:40:28</publishTime>
     </File>
     <File Include="bin/Easy.Web.dll">
-      <publishTime>09/19/2015 18:36:45</publishTime>
+      <publishTime>10/20/2015 10:46:43</publishTime>
     </File>
     <File Include="bin/edit.cshtml.1fab2d9e.compiled">
       <publishTime>09/08/2015 09:26:23</publishTime>
@@ -55,25 +55,25 @@
       <publishTime>09/08/2015 09:26:23</publishTime>
     </File>
     <File Include="bin/Microsoft.Practices.ServiceLocation.dll">
-      <publishTime>07/25/2015 13:37:14</publishTime>
+      <publishTime>07/27/2015 08:41:42</publishTime>
     </File>
     <File Include="bin/Microsoft.Practices.Unity.Configuration.dll">
-      <publishTime>07/25/2015 09:37:43</publishTime>
+      <publishTime>07/27/2015 08:41:42</publishTime>
     </File>
     <File Include="bin/Microsoft.Practices.Unity.dll">
-      <publishTime>07/25/2015 09:37:43</publishTime>
+      <publishTime>07/27/2015 08:41:42</publishTime>
     </File>
     <File Include="bin/Microsoft.Web.Infrastructure.dll">
-      <publishTime>07/21/2014 22:39:58</publishTime>
+      <publishTime>07/22/2014 08:57:04</publishTime>
     </File>
     <File Include="bin/Microsoft.Web.Mvc.FixedDisplayModes.dll">
       <publishTime>07/02/2014 21:58:03</publishTime>
     </File>
     <File Include="bin/MySql.Data.dll">
-      <publishTime>08/30/2015 21:43:30</publishTime>
+      <publishTime>08/31/2015 08:40:04</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
-      <publishTime>07/26/2015 10:08:37</publishTime>
+      <publishTime>07/17/2015 10:18:58</publishTime>
     </File>
     <File Include="bin/System.Net.Http.dll">
       <publishTime>07/10/2012 12:07:38</publishTime>
@@ -82,22 +82,22 @@
       <publishTime>07/10/2012 12:07:38</publishTime>
     </File>
     <File Include="bin/System.Web.Helpers.dll">
-      <publishTime>07/02/2014 21:58:02</publishTime>
+      <publishTime>07/22/2014 08:57:04</publishTime>
     </File>
     <File Include="bin/System.Web.Mvc.dll">
-      <publishTime>07/26/2015 21:15:40</publishTime>
+      <publishTime>07/27/2015 08:41:42</publishTime>
     </File>
     <File Include="bin/System.Web.Razor.dll">
-      <publishTime>07/02/2014 21:58:02</publishTime>
+      <publishTime>07/22/2014 08:57:04</publishTime>
     </File>
     <File Include="bin/System.Web.WebPages.Deployment.dll">
-      <publishTime>07/02/2014 21:58:02</publishTime>
+      <publishTime>07/22/2014 08:57:04</publishTime>
     </File>
     <File Include="bin/System.Web.WebPages.dll">
-      <publishTime>07/02/2014 21:58:02</publishTime>
+      <publishTime>07/22/2014 08:57:04</publishTime>
     </File>
     <File Include="bin/System.Web.WebPages.Razor.dll">
-      <publishTime>07/02/2014 21:58:02</publishTime>
+      <publishTime>07/22/2014 08:57:04</publishTime>
     </File>
     <File Include="bin/WebMatrix.Data.dll">
       <publishTime>07/09/2013 11:05:10</publishTime>
@@ -154,16 +154,16 @@
       <publishTime>07/02/2014 21:58:08</publishTime>
     </File>
     <File Include="Content/Article.css">
-      <publishTime>08/28/2014 18:57:55</publishTime>
+      <publishTime>01/15/2015 21:56:00</publishTime>
     </File>
     <File Include="CopyItems.xml">
-      <publishTime>08/17/2014 11:51:25</publishTime>
+      <publishTime>10/23/2014 16:11:40</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>09/19/2015 18:37:47</publishTime>
+      <publishTime>10/20/2015 10:46:43</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>09/19/2015 18:39:24</publishTime>
+      <publishTime>11/07/2015 13:41:13</publishTime>
     </File>
     <File Include="Scripts/jquery-1.8.2.js">
       <publishTime>07/02/2014 22:06:45</publishTime>
@@ -202,46 +202,46 @@
       <publishTime>07/02/2014 22:06:48</publishTime>
     </File>
     <File Include="Scripts/_references.js">
-      <publishTime>07/26/2015 21:17:57</publishTime>
+      <publishTime>07/27/2015 08:41:42</publishTime>
     </File>
     <File Include="Views/Article/Create.cshtml">
-      <publishTime>09/09/2015 23:17:15</publishTime>
+      <publishTime>09/09/2015 16:12:35</publishTime>
     </File>
     <File Include="Views/Article/Edit.cshtml">
-      <publishTime>09/09/2015 23:17:15</publishTime>
+      <publishTime>09/09/2015 16:12:44</publishTime>
     </File>
     <File Include="Views/Article/Index.cshtml">
-      <publishTime>09/09/2015 23:17:15</publishTime>
+      <publishTime>09/09/2015 16:12:55</publishTime>
     </File>
     <File Include="Views/ArticleType/Create.cshtml">
-      <publishTime>08/23/2014 17:36:03</publishTime>
+      <publishTime>01/30/2015 22:47:00</publishTime>
     </File>
     <File Include="Views/ArticleType/Edit.cshtml">
-      <publishTime>08/23/2014 17:35:45</publishTime>
+      <publishTime>01/30/2015 22:47:00</publishTime>
     </File>
     <File Include="Views/ArticleType/Index.cshtml">
-      <publishTime>08/20/2014 19:37:23</publishTime>
+      <publishTime>10/29/2015 11:51:01</publishTime>
     </File>
     <File Include="Views/Web.config">
-      <publishTime>07/26/2015 21:53:25</publishTime>
+      <publishTime>07/27/2015 08:41:42</publishTime>
     </File>
     <File Include="Views/Widget.ArticleDetail.cshtml">
-      <publishTime>08/29/2015 16:26:04</publishTime>
+      <publishTime>08/31/2015 08:40:02</publishTime>
     </File>
     <File Include="Views/Widget.ArticleList.cshtml">
-      <publishTime>08/29/2015 16:27:07</publishTime>
+      <publishTime>08/31/2015 08:40:02</publishTime>
     </File>
     <File Include="Views/Widget.ArticleSummary.cshtml">
-      <publishTime>09/02/2015 22:29:52</publishTime>
+      <publishTime>09/02/2015 13:53:33</publishTime>
     </File>
     <File Include="Views/Widget.ArticleTops.cshtml">
-      <publishTime>08/29/2015 16:26:46</publishTime>
+      <publishTime>08/31/2015 08:40:02</publishTime>
     </File>
     <File Include="Views/Widget.ArticleType.cshtml">
-      <publishTime>08/29/2015 16:27:29</publishTime>
+      <publishTime>08/31/2015 08:40:02</publishTime>
     </File>
     <File Include="web.config">
-      <publishTime>09/19/2015 18:39:24</publishTime>
+      <publishTime>11/07/2015 13:41:12</publishTime>
     </File>
   </ItemGroup>
 </Project>

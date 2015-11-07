@@ -1,5 +1,9 @@
 ﻿@import "Library.less";
 
+.widget {
+    margin: @margin-base * 0.5;
+}
+
 .border .widget {
     border: 1px solid @color-border;
     border-radius: 3px;
@@ -7,6 +11,9 @@
 }
 
 .header {
+    h1{
+        color: @color-main;
+    }
     color: @color-main;
 }
 
@@ -22,7 +29,7 @@
 
     .html-widget {
         margin-bottom: 0;
-        padding: 10px;
+        padding: @padding-base;
     }
 }
 
@@ -35,21 +42,16 @@
 }
 
 .image-border img {
-    padding: 4px;
-    border: 1px solid @color-border;
-    border-radius: 4px;
+    padding: @padding-base * 0.4;
+    border: @border-thin solid @color-border;
+    border-radius: @padding-base * 0.4;
 }
 
 .background-color {
     background: @color-background;
-    padding: 5px;
-    text-shadow: 0 0 0 transparent, 0 1px 1px rgba(255,255,255,.75);
-    border-top: 1px solid #ddd;
-    border-bottom: 1px solid #ddd;
-}
-
-.margin-top {
-    margin-top: 30px;
+    padding: @padding-base * 0.5;
+    border-top: @border-thin solid @color-border;
+    border-bottom: @border-thin solid @color-border;
 }
 
 .box-shadow .widget{    

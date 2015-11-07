@@ -38,6 +38,14 @@
 .section .section-content-listgroup .list-group-item > p {
   margin: 0;
 }
+.section .section-group-listView {
+  border-bottom: 1px dotted #dedede;
+  margin: 10px 0;
+  padding: 10px 0;
+}
+.section .section-group-listView h4 {
+  color: #000;
+}
 .section .section-group-listView img {
   margin-top: 10px;
   margin-bottom: 10px;

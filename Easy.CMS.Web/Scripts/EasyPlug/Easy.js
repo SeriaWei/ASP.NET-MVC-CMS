@@ -723,7 +723,7 @@ Easy.ShowMessageBox = function (title, msg, fnOk, ShowCancel, zindex) {
         zindex = 1;
     box.css("z-index", zindex);
     box.fadeTo(0, 0);
-    var okButton = $("<input id='MessageBoxOkBtn' type='button' class='btn btn-danger btn-xs' value='确定' />");
+    var okButton = $("<input id='MessageBoxOkBtn' type='button' class='btn btn-primary' value='确定' />");
     box.find("#MessageBoxActions").append(okButton);
     okButton.click(function () {
         if (fnOk) {
@@ -734,7 +734,7 @@ Easy.ShowMessageBox = function (title, msg, fnOk, ShowCancel, zindex) {
     });
     if (typeof ShowCancel == "boolean") {
         if (ShowCancel) {
-            var CancelButton = $("<input id='MessageBoxCancelBtn' type='button' class='btn btn-default btn-xs' value='取消' />");
+            var CancelButton = $("<input id='MessageBoxCancelBtn' type='button' class='btn btn-default' value='取消' />");
             CancelButton.click(function () {
                 Easy.OpacityBackGround.Close();
                 box.animate({ top: "45%", opacity: 0 }, 200, function () { $(this).remove(); });

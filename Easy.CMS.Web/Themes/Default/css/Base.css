@@ -24,6 +24,17 @@ a.btn,
 .dropdown-menu a {
   text-decoration: none;
 }
+p {
+  margin: 0 0 5px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #000;
+}
 #container {
   background-color: white;
   border: 1px solid #dedede;
@@ -93,26 +104,15 @@ a.btn,
 .col-lg-12 {
   position: static;
 }
-@media only screen and (max-width: 768px) {
-  #container {
-    border: none;
-    box-shadow: none;
-  }
-  #container .row.container {
-    margin: 0 -15px;
-    padding: 0;
-  }
-}
 .bs-callout {
-  padding: 10px 10px 0 10px;
+  padding: 10px;
   margin: 0;
   border: 1px solid #dedede;
   border-top-width: 5px;
-  border-radius: 3px;
+  border-radius: 5px;
 }
 .bs-callout .pull-left h4 {
-  margin-top: 0;
-  margin-bottom: 5px;
+  margin-top: 5px;
   color: #444444;
 }
 .bs-callout .pull-right h5 {
@@ -145,13 +145,17 @@ a.btn,
 .list-group {
   margin-bottom: 0;
 }
-.page-header {
-  margin: 10px 0 10px;
-}
-.page-header > h2 {
-  margin: 5px 0 5px;
-}
-.widget {
-  margin: 5px;
+@media only screen and (max-width: 767px) {
+  #container {
+    border: none;
+    box-shadow: none;
+  }
+  #container .row.container {
+    margin: 0 -15px;
+    padding: 0;
+  }
+  .bs-callout {
+    border-radius: 0;
+  }
 }
 /*# sourceMappingURL=Base.css.map */

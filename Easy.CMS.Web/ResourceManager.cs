@@ -11,7 +11,9 @@ namespace Easy
         {
             Script("jQuery").Include("~/Scripts/jquery-1.11.2.min.js", "~/Scripts/jquery-1.11.2.min.js").RequiredAtHead();
             Script("bootStrap").Include("~/Content/bootstrap/js/bootstrap.js", "~/Content/bootstrap/js/bootstrap.min.js").RequiredAtFoot();
-            Script("jQueryUi").Include("~/Scripts/jquery-ui.js", "~/Scripts/jquery-ui.min.js");
+            Script("jQueryUi")
+                .Include("~/Scripts/jquery-ui/jquery-ui.js", "~/Scripts/jquery-ui/jquery-ui.min.js");
+
             Script("Easy")
                 .Include("~/Scripts/EasyPlug/Easy.js").RequiredAtHead();
             Script("admin")
@@ -40,7 +42,11 @@ namespace Easy
             Style("bootStrap").Include("~/Content/bootstrap/css/bootstrap.css", "~/Content/bootstrap/css/bootstrap.min.css").RequiredAtHead();
             Style("bootStrapTheme").Include("~/Content/bootstrap/css/bootstrap-theme.css", "~/Content/bootstrap/css/bootstrap-theme.min.css").RequiredAtHead();
             Style("Site").Include("~/Content/Site.css", "~/Content/Site.min.css").RequiredAtFoot();
-            Style("jQueryUi").Include("~/Content/themes/base/jquery-ui.css");
+            Style("jQueryUi")
+                .Include("~/Scripts/jquery-ui/jquery-ui.css", "~/Scripts/jquery-ui/jquery-ui.min.css")
+                .Include("~/Scripts/jquery-ui/jquery-ui.theme.css", "~/Scripts/jquery-ui/jquery-ui.theme.min.css")
+                .Include("~/Scripts/jquery-ui/jquery-ui.structure.css", "~/Scripts/jquery-ui/jquery-ui.structure.css");
+
             Style("admin")
                 .Include("~/Content/themes/admin/admin.css")
                 .Include("~/Scripts/EasyPlug/Css/Easy.css")

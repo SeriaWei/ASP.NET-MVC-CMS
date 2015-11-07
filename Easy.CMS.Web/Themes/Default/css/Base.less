@@ -31,6 +31,14 @@ a {
         text-decoration: none;
     }
 
+p {
+    margin: 0 0 @margin-base * 0.5;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #000;
+}
+
 #container {
     background-color: white;
     border: 1px solid @color-border;
@@ -58,29 +66,16 @@ a {
     position: static;
 }
 
-@media only screen and (max-width:768px) {
-    #container {
-        border: none;
-        box-shadow: none;
-
-        .row.container {
-            margin: 0 -15px;
-            padding: 0;
-        }
-    }
-}
-
 .bs-callout {
-    padding: 10px 10px 0 10px;
+    padding: @padding-base;
     margin: 0;
-    border: 1px solid @color-border;
-    border-top-width: 5px;
-    border-radius: 3px;
+    border: @border-thin solid @color-border;
+    border-top-width: @border-heavy;
+    border-radius: 5px;
 }
 
     .bs-callout .pull-left h4 {
-        margin-top: 0;
-        margin-bottom: 5px;
+        margin-top: @margin-base * 0.5;
         color: @color-text;
     }
 
@@ -125,14 +120,18 @@ a {
     margin-bottom: 0;
 }
 
-.page-header {
-    margin: 10px 0 10px;
+@media only screen and (max-width:@screen-sm-max) {
+    #container {
+        border: none;
+        box-shadow: none;
 
-    > h2 {
-        margin: 5px 0 5px;
+        .row.container {
+            margin: 0 -15px;
+            padding: 0;
+        }
     }
-}
 
-.widget {
-    margin: 5px;
+    .bs-callout {
+        border-radius: 0;
+    }
 }

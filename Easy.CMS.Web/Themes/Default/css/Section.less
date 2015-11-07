@@ -1,11 +1,12 @@
 ﻿@import "Library.less";
+
 .section {
     line-height: normal;
 
     & > h4 {
-        padding: 0 5px 5px;
+        padding: 0 @padding-base * 0.5 @padding-base * 0.5;
         color: @color-main;
-        border-bottom: 2px solid @color-main;
+        border-bottom: @border-deep solid @color-main;
         text-align: left;
     }
 
@@ -14,26 +15,26 @@
             vertical-align: top;
 
             td {
-                padding: 5px;
+                padding: @padding-base * 0.5;
             }
         }
     }
 
     .section-group-default {
-        padding: 0 5px;
+        padding: 0 @padding-base * 0.5;
     }
 
     .section-group-column {
-        padding: 0 10px;
+        padding: 0 @padding-base;
 
         img {
-            margin-bottom: 10px;
+            margin-bottom: @padding-base;
         }
     }
 
     .section-content-listgroup {
         .border & {
-            margin: -10px -5px -5px;
+            margin: -@padding-base -@padding-base * 0.5 -@padding-base * 0.5;
         }
 
         .list-group-item {
@@ -57,9 +58,16 @@
     }
 
     .section-group-listView {
+        border-bottom:@border-thin dotted @color-border;
+        margin:@margin-base 0;
+        padding:@padding-base 0;
+        h4 {
+            color: #000;
+        }
+
         img {
-            margin-top: 10px;
-            margin-bottom: 10px;
+            margin-top: @margin-base;
+            margin-bottom: @margin-base;
         }
     }
 }

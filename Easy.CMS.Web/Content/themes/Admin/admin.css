@@ -13,7 +13,9 @@ img {
 #wrap {
     height: 100%;
 }
-
+.ui-sortable {
+    overflow: auto;
+}
 a.badge:hover {
     background-color: #1F1F1F;
 }

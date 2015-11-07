@@ -69,7 +69,7 @@
     }
 
     .MessageBox .MBMSgText {
-        padding: 10px;
+        padding: 20px 30px;
         min-height: 50px;
         white-space: normal;
         word-break: break-all;

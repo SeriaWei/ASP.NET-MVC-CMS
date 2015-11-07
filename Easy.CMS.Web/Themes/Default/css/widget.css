@@ -1,9 +1,15 @@
-﻿.border .widget {
+﻿.widget {
+  margin: 5px;
+}
+.border .widget {
   border: 1px solid #dedede;
   border-radius: 3px;
   padding: 5px;
 }
 .header {
+  color: #31b0d5;
+}
+.header h1 {
   color: #31b0d5;
 }
 .footer {
@@ -33,12 +39,8 @@
 .background-color {
   background: #eeeeee;
   padding: 5px;
-  text-shadow: 0 0 0 transparent, 0 1px 1px rgba(255, 255, 255, 0.75);
-  border-top: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
-}
-.margin-top {
-  margin-top: 30px;
+  border-top: 1px solid #dedede;
+  border-bottom: 1px solid #dedede;
 }
 .box-shadow .widget {
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.075);
