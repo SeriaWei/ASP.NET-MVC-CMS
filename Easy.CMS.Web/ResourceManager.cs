@@ -46,7 +46,8 @@ namespace Easy
                 .Include("~/Scripts/jquery-ui/jquery-ui.css", "~/Scripts/jquery-ui/jquery-ui.min.css")
                 .Include("~/Scripts/jquery-ui/jquery-ui.theme.css", "~/Scripts/jquery-ui/jquery-ui.theme.min.css")
                 .Include("~/Scripts/jquery-ui/jquery-ui.structure.css", "~/Scripts/jquery-ui/jquery-ui.structure.css");
-
+            Style("Easy")
+                .Include("~/Scripts/EasyPlug/Css/Easy.css");
             Style("admin")
                 .Include("~/Content/themes/admin/admin.css")
                 .Include("~/Scripts/EasyPlug/Css/Easy.css")

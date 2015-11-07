@@ -19,8 +19,8 @@
     <meta charset="utf-8" />
     <title>@layOut.Page.Title</title>
     <meta name="keywords" content="@layOut.Page.MetaKeyWorlds" />
-    <meta name="description" content="@layOut.Page.MetaDescription"/>
-    <meta name="author" content="www.zkea.net"/>
+    <meta name="description" content="@layOut.Page.MetaDescription" />
+    <meta name="author" content="www.zkea.net" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,maximum-scale=1.0" />
     @StyleAtHead()
@@ -29,11 +29,11 @@
     {
         if (HttpContext.Current.IsDebuggingEnabled)
         {
-            <link type="text/css" rel="stylesheet" href="@Url.Content("~/Themes/{0}/css/Theme.css".FormatWith(layOut.Theme))"/>
+            <link type="text/css" rel="stylesheet" href="@Url.Content("~/Themes/{0}/css/Theme.css".FormatWith(layOut.Theme))" />
         }
         else
         {
-            <link type="text/css" rel="stylesheet" href="@Url.Content("~/Themes/{0}/css/Theme.min.css".FormatWith(layOut.Theme))"/>
+            <link type="text/css" rel="stylesheet" href="@Url.Content("~/Themes/{0}/css/Theme.min.css".FormatWith(layOut.Theme))" />
         }
     }
 
@@ -43,6 +43,9 @@
     {
         <div class="preview-toolbar">
             <div class="btn-group">
+                <a class="btn btn-primary sort-handle">
+                    <i class="glyphicon glyphicon-move"></i>
+                </a>
                 <a class="btn btn-primary" href="@Url.Action("Design", "Page", new {module = "common", ID = layOut.Page.ID})">
                     <i class="glyphicon glyphicon-wrench"></i>
                     设计
@@ -58,6 +61,14 @@
                 @Html.Partial("Partial.Menu", layOut)
             </div>
         </div>
+        Style.Reqiured("Easy").AtFoot();
+        using (Script.AtFoot())
+        {
+            <script type="text/javascript">
+                var toolBar = $(".preview-toolbar");
+                $(".sort-handle", toolBar).DragElement(toolBar);
+            </script>
+        }
     }
     <div id="container" class="@layOut.ContainerClass">
         @RenderBody()
@@ -84,4 +95,5 @@
         <script type="text/javascript" src="@Url.Content(layOut.Page.Script)"></script>
     }
 </body>
+
 </html>
