@@ -54,10 +54,13 @@ ZkeaCMS采用了现代的响应式设计，可以自动适配不同大小的屏�
 在布局中添加了组件区域后，这些区域就可用于添加组件，不同的组件拥有不同的功能。
 
 组件，就是于丰富网站内容的小插件。你可以添加各式各样的组件来满足你网站的需求。同一组件区域可以添加多个组件并且可以对其进行拖拉排序。
+## 显示模板
+ZkeaCMS 的模板组件可以更方便的进行扩展。直接更换显示模板就可以达到您想要的效果。
 ## Theme/主题
 ZkeaCMS 使用LESS，可以轻松的创建主题。
+
 ## 缩略图
-[缩略图](http://www.zkea.net/zkeacms/thumbnail)
+[http://www.zkea.net/zkeacms/thumbnail](http://www.zkea.net/zkeacms/thumbnail)
 ## 站点
 [http://www.zkea.net/zkeacms](http://www.zkea.net/zkeacms)
 ## 安装和部署
