@@ -56,16 +56,15 @@ ZkeaCMS采用了现代的响应式设计，可以自动适配不同大小的屏�
 组件，就是于丰富网站内容的小插件。你可以添加各式各样的组件来满足你网站的需求。同一组件区域可以添加多个组件并且可以对其进行拖拉排序。
 ## Theme/主题
 ZkeaCMS 使用LESS，可以轻松的创建主题。
-License
-------
-[Apache-2.0](http://opensource.org/licenses/Apache-2.0)
-## 查看缩略图
+## 缩略图
 [缩略图](http://www.zkea.net/zkeacms/thumbnail)
-## 主站
-[zkea.net](http://www.zkea.net/zkeacms)
+## 站点
+[http://www.zkea.net/zkeacms](http://www.zkea.net/zkeacms)
 ## 安装和部署
 [安装和部署](http://blog.zkea.net/2015/09/install-zkeacms/)
-## 关注微信
+## 关注微信(ZKEASOFT)
 ![关注微信](http://i11.tietuku.com/263801921375bdf2.jpg)
 ## QQ群(493586356)
 ![QQ群493586356](http://i5.tietuku.com/00c84f6600d8c3e0.jpg)
+## License
+[Apache-2.0](http://opensource.org/licenses/Apache-2.0)
