@@ -67,3 +67,5 @@ License
 [安装和部署](http://blog.zkea.net/2015/09/install-zkeacms/)
 ## 关注微信
 ![关注微信](http://i11.tietuku.com/263801921375bdf2.jpg)
+## QQ群(493586356)
+![QQ](http://i5.tietuku.com/00c84f6600d8c3e0.jpg)
