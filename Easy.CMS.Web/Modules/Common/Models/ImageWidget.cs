@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using Easy.Extend;
 using Easy.MetaData;
+using Easy.Web.CMS;
 using Easy.Web.CMS.MetaData;
 
 namespace Easy.CMS.Common.Models
@@ -23,7 +24,7 @@ namespace Easy.CMS.Common.Models
         protected override void ViewConfigure()
         {
             base.ViewConfigure();
-            ViewConfig(m => m.ImageUrl).AsTextBox().Required();
+            ViewConfig(m => m.ImageUrl).AsTextBox().Required().AddClass("select").AddProperty("data-url", Urls.SelectImage); 
         }
     }
 }

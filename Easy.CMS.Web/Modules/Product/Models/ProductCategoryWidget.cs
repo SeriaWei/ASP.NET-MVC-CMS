@@ -6,6 +6,7 @@ using System.Web;
 using Easy.MetaData;
 using Easy.Web.CMS.MetaData;
 using Easy.CMS.Product.Service;
+using Easy.Web.CMS;
 
 namespace Easy.CMS.Product.Models
 {
@@ -25,7 +26,7 @@ namespace Easy.CMS.Product.Models
             {
                 return new ProductCategoryService().Get().ToDictionary(m => m.ID.ToString(), m => m.Title);
             });
-            ViewConfig(m => m.TargetPage).AsTextBox().AddClass("select").AddProperty("data-url", "/admin/page/select");
+            ViewConfig(m => m.TargetPage).AsTextBox().AddClass("select").AddProperty("data-url", Urls.SelectPage);
         }
     }
 }

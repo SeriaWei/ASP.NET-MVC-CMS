@@ -784,14 +784,27 @@ Easy.ShowUrlWindow = function (op) {
             "<div class='Right TitleBarRight'><div class='CloseWindow'></div></div></div><div class='Content'><div class='Left ContentLeft'></div><div class='Mid ContentMid'>" +
             "<iframe src='' width='100%' height='100%' frameborder='0'></iframe></div><div class='Right ContentRight'></div></div><div class='Botoom'>" +
             "<div class='Left BottomLeft'></div><div class='Mid BottomMid'></div><div class='Right BottomRight'></div></div></div>");
-    var deOp = { url: "", title: "", width: 800, height: 500, callBack: function () { }, isDialog: true, animate: false, onLoad: function () { } };
+    var deOp = { url: "", title: "", width: 800, height: 500, callBack: function () { }, isDialog: true, animate: false, onLoad: function () { } ,top:false};
     deOp = $.extend(deOp, op);
     if (deOp.isDialog) {
         Easy.OpacityBackGround.Show(++Easy.MaxZindex);
     }
-    boxWindow.appendTo("body");
+    var zindex = ++Easy.MaxZindex;
+    var winWidth = Easy.WindowSize().width;
+    var winHeight = Easy.WindowSize().height;
+    if (!deOp.top) {
+        boxWindow.appendTo("body");
+    } else {
+        var topWins = $(window.top.document).find(".WeiWindow.BoxShadow:last");
+        if (topWins.size() > 0) {
+            zindex = parseInt(topWins.css("z-index")) + 1;
+        }
+        boxWindow.appendTo(window.top.document.body);
+        winWidth = $(window.top).width();
+        winHeight = $(window.top).height();
+    }
     boxWindow.find(".Mid.TitleBarMid").DragElement(boxWindow, boxWindow.find(".CloseWindow"), boxWindow.find(".Right.ContentRight"), boxWindow.find(".Right.BottomRight"), boxWindow.find(".Mid.BottomMid"));
-    boxWindow.css("z-index", ++Easy.MaxZindex);
+    boxWindow.css("z-index", zindex);
 
     boxWindow.find(".CloseWindow").click(function () {
         if (deOp.isDialog) {
@@ -804,7 +817,7 @@ Easy.ShowUrlWindow = function (op) {
         boxWindow.find(".CloseWindow").click();
     }
     boxWindow.center = function () {
-        boxWindow.animate({ left: (Easy.WindowSize().width - deOp.width) / 2, top: (Easy.WindowSize().height - deOp.height) / 2 + det }, { speed: 200 });
+        boxWindow.animate({ left: (winWidth - deOp.width) / 2, top: (winHeight - deOp.height) / 2 + det }, { speed: 200 });
     }
     $(window).resize(function () {
         Easy.Processor(boxWindow.center, 300);
@@ -816,8 +829,8 @@ Easy.ShowUrlWindow = function (op) {
     }
     boxWindow.width(deOp.width);
     boxWindow.height(deOp.height);
-    boxWindow.css("left", (Easy.WindowSize().width - deOp.width) / 2);
-    boxWindow.css("top", (Easy.WindowSize().height - deOp.height) / 2 + det);
+    boxWindow.css("left", (winWidth - deOp.width) / 2);
+    boxWindow.css("top", (winHeight - deOp.height) / 2 + det);
     boxWindow.find(".Mid.TitleBarMid").html(deOp.title);
 
     var reSet = true;

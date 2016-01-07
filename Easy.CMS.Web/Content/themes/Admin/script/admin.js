@@ -47,7 +47,11 @@
                     obj.parent().next().val(win.GetSelected());
                     box.close();
                 });
-            }
+                $(this.document).on("click", ".confirm", function() {
+                    obj.parent().next().val($(this).data("result"));
+                    box.close();
+                });
+            },top:true
         });
     });
     var currentSelect = $(".nav.navbar-nav a[href='" + location.pathname + "']");

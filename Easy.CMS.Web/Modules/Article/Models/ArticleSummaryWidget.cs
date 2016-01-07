@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Easy.MetaData;
+using Easy.Web.CMS;
 using Easy.Web.CMS.MetaData;
 
 namespace Easy.CMS.Article.Models
@@ -32,7 +33,7 @@ namespace Easy.CMS.Article.Models
                     { "bs-callout-info", "信息" } ,
                     { "bs-callout-success", "成功" } 
             }); ;
-            ViewConfig(m => m.DetailLink).AsTextBox().Order(7).AddClass("select").AddProperty("data-url", "/admin/page/select");
+            ViewConfig(m => m.DetailLink).AsTextBox().Order(7).AddClass("select").AddProperty("data-url", Urls.SelectPage);
             ViewConfig(m => m.Summary).AsMutiLineTextBox().Order(8).AddClass("html");
         }
     }

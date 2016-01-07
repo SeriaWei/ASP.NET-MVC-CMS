@@ -1,0 +1,24 @@
+﻿<html ng-app="api" ng-csp>
+
+<head>
+	<title>图库</title>
+	<meta charset="utf-8"/>
+	<script type="text/javascript" src="indexDb.js"></script>
+	<script type="text/javascript" src="../angular/angular.js"></script>
+	<script type="text/javascript" src="../angular/angular-route.js"></script>
+	<script type="text/javascript" src="CryptoJS/rollups/hmac-sha1.js"></script>
+	<script type="text/javascript" src="CryptoJS/components/enc-base64.js"></script>
+	<script type="text/javascript" src="api.js"></script>
+	<script type="text/javascript" src="app.js"></script>
+	<link href="../../Content/bootstrap/css/bootstrap.css" rel="stylesheet">
+	<link href="style.css" rel="stylesheet">	
+</head>
+
+<body ng-controller="mainController">
+	<div class="container">
+		<div ng-if="status&&status.code!='200'&&status.info" ng-bind="status.info" class="alert alert-info"></div>	
+	</div>
+
+<div class="container" ng-view></div>
+</body>
+</html>

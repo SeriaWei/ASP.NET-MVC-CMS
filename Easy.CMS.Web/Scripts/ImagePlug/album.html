@@ -1,0 +1,53 @@
+<hr/>
+<div class="form-inline">
+	<div class="form-group">
+		<label for="albumName">相册名称</label>
+		<input type="text" class="form-control" id="albumName" placeholder="输入相册名称" ng-model="albumName" />
+	</div>
+	<div class="form-group">
+		<input type="button" value="创建" class="btn btn-primary" ng-click="createAlbum()" />
+		<input ng-if="!isNeedUpdateOpenKey" type="button" value="公钥" class="btn btn-info" ng-click="showOpenKey()" />
+	</div>
+</div>
+<div class="form" ng-if="isNeedUpdateOpenKey">
+	<hr/>
+	<div class="form-group">
+		<label for="AccessKey">AccessKey</label>
+		<input id="AccessKey" type="text" class="form-control" placeholder="AccessKey" ng-model="OpenSetting.AccessKey" />
+	</div>
+	<div class="form-group">
+		<label for="SecretKey">SecretKey</label>
+		<input id="SecretKey" type="text" class="form-control" placeholder="SecretKey" ng-model="OpenSetting.SecretKey" />
+	</div>
+	<div class="form-group">
+		<label for="OpenKey">OpenKey</label>
+		<input id="OpenKey" type="text" class="form-control" placeholder="OpenKey" ng-model="OpenSetting.OpenKey" />
+	</div>
+	<div class="form-group">
+		<input type="button" value="保存" class="btn btn-primary" ng-click="saveOpenKey()" />
+		<input type="button" value="取消" class="btn btn-default" ng-click="cancelOpenKey()" />
+	</div>
+</div>
+<hr/>
+<div ng-if="loading">
+	<div class="progress">
+		<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"
+		style="width: 100%"></div>
+	</div>
+</div>
+<div ng-if="albumInfo&&albumInfo.code==='433'" class="alert alert-danger">
+	{{albumInfo.info}}
+	<a href="http://open.tietuku.com/manager" target="_blank">查看</a>
+</div>
+<div class="row">
+	<div class="col-lg-3 col-md-3 col-sm-4 col-xs-6" ng-repeat="album in albumInfo.album">
+		<div class="thumbnail">
+			<a ng-href="#/albumpic/{{album.aid}}/{{album.albumname}}">
+				<img ng-if="album.pic&&album.pic.length>0" ng-src="{{album.pic[0].url}}">
+				<div class="caption">
+					<span ng-bind="album.albumname"></span>
+				</div>
+			</a>
+		</div>
+	</div>
+</div>

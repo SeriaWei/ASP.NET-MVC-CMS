@@ -6,6 +6,7 @@ using Easy.CMS.Article.Service;
 using Easy.Web.CMS.MetaData;
 using Easy.Web.CMS.Widget;
 using Easy.MetaData;
+using Easy.Web.CMS;
 
 namespace Easy.CMS.Article.Models
 {
@@ -27,8 +28,8 @@ namespace Easy.CMS.Article.Models
             ViewConfig(m => m.SubTitle).AsTextBox().Order(5);
             ViewConfig(m => m.ArticleCategoryID).AsDropDownList().Order(6).DataSource(new ArticleTypeService().Get().ToDictionary(m => m.ID.ToString(), m => m.Title));
             ViewConfig(m => m.Tops).AsTextBox().Order(7).RegularExpression(Easy.Constant.RegularExpression.PositiveIntegers);
-            ViewConfig(m => m.MoreLink).AsTextBox().Order(8).AddClass("select").AddProperty("data-url", "/admin/page/select");
-            ViewConfig(m => m.DetailPageUrl).AsTextBox().Order(9).AddClass("select").AddProperty("data-url", "/admin/page/select");
+            ViewConfig(m => m.MoreLink).AsTextBox().Order(8).AddClass("select").AddProperty("data-url", Urls.SelectPage);
+            ViewConfig(m => m.DetailPageUrl).AsTextBox().Order(9).AddClass("select").AddProperty("data-url", Urls.SelectPage);
      
         }
     }

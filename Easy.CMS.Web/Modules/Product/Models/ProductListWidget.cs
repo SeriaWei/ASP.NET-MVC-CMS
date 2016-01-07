@@ -7,6 +7,7 @@ using System.Web;
 using Easy.MetaData;
 using Easy.CMS.Product.Service;
 using Easy.Extend;
+using Easy.Web.CMS;
 
 namespace Easy.CMS.Product.Models
 {
@@ -32,7 +33,7 @@ namespace Easy.CMS.Product.Models
                 new ProductCategoryService().Get().Each(m => { dicts.Add(m.ID.ToString(), m.Title); });
                 return dicts;
             });
-            ViewConfig(m => m.DetailPageUrl).AsTextBox().AddClass("select").AddProperty("data-url", "/admin/page/select");
+            ViewConfig(m => m.DetailPageUrl).AsTextBox().AddClass("select").AddProperty("data-url", Urls.SelectPage);
             ViewConfig(m => m.PageSize).AsTextBox().Range(1, 50);
             ViewConfig(m => m.Columns).AsDropDownList().DataSource(new Dictionary<string, string> { { "col-xs-6 col-sm-4 col-md-4", "3 列" }, { "col-xs-6 col-sm-4 col-md-4 col-lg-3", "4 列" } });
         }

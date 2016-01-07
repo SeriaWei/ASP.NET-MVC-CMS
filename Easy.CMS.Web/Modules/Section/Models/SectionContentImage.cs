@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Easy.MetaData;
+using Easy.Web.CMS;
 
 namespace Easy.CMS.Section.Models
 {
@@ -36,7 +37,7 @@ namespace Easy.CMS.Section.Models
 
         protected override void ViewConfigure()
         {
-            ViewConfig(m => m.ImageSrc).AsTextBox().Required();
+            ViewConfig(m => m.ImageSrc).AsTextBox().Required().AddClass("select").AddProperty("data-url", Urls.SelectImage);
         }
     }
 }

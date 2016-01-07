@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Easy.MetaData;
+using Easy.Web.CMS;
 
 namespace Easy.CMS.Common.Models
 {
@@ -34,7 +35,8 @@ namespace Easy.CMS.Common.Models
             ViewConfig(m => m.CarouselID).AsHidden();
             ViewConfig(m => m.CarouselWidgetID).AsHidden();
             ViewConfig(m => m.Description).AsHidden();
-            ViewConfig(m => m.TargetLink).AsTextBox().AddClass("select").AddProperty("data-url", "/admin/page/select");
+            ViewConfig(m => m.TargetLink).AsTextBox().AddClass("select").AddProperty("data-url", Urls.SelectPage);
+            ViewConfig(m => m.ImageUrl).AsTextBox().AddClass("select").AddProperty("data-url", Urls.SelectImage);
         }
     }
 

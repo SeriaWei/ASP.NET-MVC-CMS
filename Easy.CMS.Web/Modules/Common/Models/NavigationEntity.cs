@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using Easy.MetaData;
 using Easy.Models;
+using Easy.Web.CMS;
 
 namespace Easy.CMS.Common.Models
 {
@@ -29,7 +30,7 @@ namespace Easy.CMS.Common.Models
             ViewConfig(m => m.ID).AsHidden();
             ViewConfig(m => m.ParentId).AsHidden();
             ViewConfig(m => m.DisplayOrder).AsHidden();
-            ViewConfig(m => m.Url).AsTextBox().AddClass("select").AddProperty("data-url", "/admin/page/select");
+            ViewConfig(m => m.Url).AsTextBox().AddClass("select").AddProperty("data-url", Urls.SelectPage);
         }
     }
 

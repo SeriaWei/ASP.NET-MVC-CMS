@@ -1,0 +1,6 @@
+.modal.in{
+	display: block;
+}
+#selectFile{
+	display: none;
+}

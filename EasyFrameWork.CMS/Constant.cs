@@ -22,4 +22,10 @@ namespace Easy.Web.CMS
     {
         public const string WidgetChanged = "WidgetChanged";
     }
+
+    public class Urls
+    {
+        public const string SelectPage = "/admin/page/select";
+        public const string SelectImage = "/Scripts/ImagePlug/index.html";
+    }
 }
