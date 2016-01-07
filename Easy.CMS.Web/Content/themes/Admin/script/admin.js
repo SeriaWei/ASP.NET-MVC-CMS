@@ -35,12 +35,12 @@
     $("#IsPublish").val("false");
     $("#PublishDate").val("");
     $(".select").each(function () {
-        $(this).prev(".input-group-addon").append('<span class="glyphicon glyphicon-search" data-url="' + $(this).data("url") + '"></span>');
+        $(this).prev(".input-group-addon").append('<span class="glyphicon glyphicon-search text-muted" data-url="' + $(this).data("url") + '"></span>');
     });
 
     $(document).on("click",".input-group-addon .glyphicon", function () {
         var obj = $(this);
-        Easy.ShowUrlWindow({
+        window.top.Easy.ShowUrlWindow({
             url: $(this).data("url"), onLoad: function (box) {
                 var win = this;
                 $(this.document).find("#confirm").click(function () {
@@ -51,7 +51,7 @@
                     obj.parent().next().val($(this).data("result"));
                     box.close();
                 });
-            },top:true
+            }
         });
     });
     var currentSelect = $(".nav.navbar-nav a[href='" + location.pathname + "']");
