@@ -173,6 +173,7 @@ namespace Easy.Web.CMS.Widget
             return widget.ToWidgetPart();
         }
 
+        #region PartDrive
         public virtual void AddWidget(WidgetBase widget)
         {
             this.Add((T)widget);
@@ -188,5 +189,6 @@ namespace Easy.Web.CMS.Widget
         {
             this.Update((T)widget);
         }
+        #endregion
     }
 }
