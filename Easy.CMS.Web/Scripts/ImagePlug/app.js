@@ -29,7 +29,8 @@ angular
 							service.upload(file, scope.aid, function (data) {
 								scope.$apply(function () {
 									if(!data.info){
-										scope.newPic = data;
+									    scope.newPic = data;
+									    scope.newPic.reload = true;
 									}									
 									scope.$parent.status = data;
 									scope.loading = false;
@@ -129,7 +130,6 @@ angular
 		$scope.p = parseInt($routeParams.p || 1);
 		$scope.getpic = function () {
 			$scope.loading = true;
-			$scope.newPic = null;
 			tuKuApi.getService(function (service) {
 				service.getAlbumPic($scope.p, $routeParams.aid, function (data) {
 					$scope.$apply(function () {
@@ -139,6 +139,15 @@ angular
 					});
 				});
 			});
+		}
+		$scope.closePreview = function () {
+		    if ($scope.newPic && $scope.newPic.reload) {
+		        $scope.getpic();
+		    }
+		    $scope.newPic = null;
+        }
+		$scope.preViewPic = function (index) {
+		    $scope.newPic = $scope.picInfo.pic[index];
 		}
 		$scope.editAlbum = function (event) {
 			if (event.keyCode == 13) {

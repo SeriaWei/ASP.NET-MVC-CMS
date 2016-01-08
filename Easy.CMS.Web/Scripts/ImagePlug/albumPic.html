@@ -18,9 +18,9 @@
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="getpic()">
-						<span aria-hidden="true">&times;</span>
-					</button>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="closePreview()">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
 					<h4 class="modal-title">预览</h4>
 				</div>
 				<div class="modal-body">
@@ -31,7 +31,8 @@
 				    </div>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal" ng-click="getpic()">Close</button>
+				    <button type="button" class="btn btn-primary confirm" data-result="{{newPic.linkurl}}" data-dismiss="modal">选择</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="closePreview()">关闭</button>
 				</div>
 			</div>
 		</div>
@@ -52,8 +53,11 @@
                         <img ng-src="{{pic.linkurl}}" />
                     </a>
 					<div class="caption clearfix">
-						<span ng-bind="pic.name" class="pull-left"></span>
-						<a href="javascript:void(0)" class="pull-right" ng-click="deletePic(pic.id)">删除</a>
+					    <span ng-bind="pic.name" class="pull-left"></span>
+					    <div class="pull-right">
+                            <a href="javascript:void(0)" class="text-primary " ng-click="preViewPic($index)">预览</a>
+					        <a href="javascript:void(0)" class="text-danger" ng-click="deletePic(pic.id)">删除</a>
+					    </div>
 					</div>
 				</div>
 			</div>
