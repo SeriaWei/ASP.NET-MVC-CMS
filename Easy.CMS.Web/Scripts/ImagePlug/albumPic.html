@@ -1,4 +1,4 @@
-<div>
+﻿<div>
 	<hr/>
 	<div class="form-inline">
 		<div class="form-group">
@@ -53,7 +53,7 @@
                         <img ng-src="{{pic.linkurl}}" />
                     </a>
 					<div class="caption clearfix">
-					    <span ng-bind="pic.name" class="pull-left"></span>
+					    <div ng-bind="pic.name" class="pull-left name"></div>
 					    <div class="pull-right">
                             <a href="javascript:void(0)" class="text-primary " ng-click="preViewPic($index)">预览</a>
 					        <a href="javascript:void(0)" class="text-danger" ng-click="deletePic(pic.id)">删除</a>
