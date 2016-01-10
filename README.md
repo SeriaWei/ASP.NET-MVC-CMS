@@ -1,12 +1,12 @@
-# ZkeaCMS
+# ZKEACMS
 #### [Fork me on GitHub](https://github.com/SeriaWei/ASP.NET-MVC-CMS)
-ZkeaCMS是基于EasyFrameWork，使用ASP.NET MVC4开发的开源CMS。
+ZKEACMS是基于EasyFrameWork，使用ASP.NET MVC4开发的开源CMS。
 
-ZkeaCMS一个内容管理软件（网站）。ZkeaCMS不仅只是管理内容，更是重新定义了布局、页面和组件，让用户可以自由规划页面的布局，页面和内容。
+ZKEACMS一个内容管理软件（网站）。ZKEACMS不仅只是管理内容，更是重新定义了布局、页面和组件，让用户可以自由规划页面的布局，页面和内容。
 
-ZkeaCMS使用可视化编辑设计，真正做到所见即所得，可直接在预览页面上设计页面。
+ZKEACMS使用可视化编辑设计，真正做到所见即所得，可直接在预览页面上设计页面。
 
-ZkeaCMS采用插件式设计，支持扩展新插件。
+ZKEACMS采用插件式设计，支持扩展新插件。
 
 ### 架设环境：
 
@@ -25,7 +25,7 @@ Microsoft Sql Server 2005 以上
 ## 移动友好
 ![移动友好](http://i1291.photobucket.com/albums/b560/SeriaWei/BlogPic/responsive_zps475ly5og.gif)
 
-ZkeaCMS采用了现代的响应式设计，可以自动适配不同大小的屏幕和设备。从PC，笔记本，电视，平板到手机页面都会自动响应适应。
+ZKEACMS采用了现代的响应式设计，可以自动适配不同大小的屏幕和设备。从PC，笔记本，电视，平板到手机页面都会自动响应适应。
 
 ## 布局设计
 ![布局设计](http://i11.tietuku.com/6d8e847f58ed535a.png)
@@ -55,16 +55,16 @@ ZkeaCMS采用了现代的响应式设计，可以自动适配不同大小的屏�
 
 组件，就是于丰富网站内容的小插件。你可以添加各式各样的组件来满足你网站的需求。同一组件区域可以添加多个组件并且可以对其进行拖拉排序。
 ## 显示模板
-ZkeaCMS 的模板组件可以更方便的进行扩展。直接更换显示模板就可以达到您想要的效果。
+ZKEACMS 的模板组件可以更方便的进行扩展。直接更换显示模板就可以达到您想要的效果。
 ## Theme/主题
-ZkeaCMS 使用LESS，可以轻松的创建主题。
+ZKEACMS 使用LESS，可以轻松的创建主题。
 
 ## 缩略图
-[http://www.zkea.net/zkeacms/thumbnail](http://www.zkea.net/zkeacms/thumbnail)
+[http://www.zkea.net/ZKEACMS/thumbnail](http://www.zkea.net/ZKEACMS/thumbnail)
 ## 站点
-[http://www.zkea.net/zkeacms](http://www.zkea.net/zkeacms)
+[http://www.zkea.net/ZKEACMS](http://www.zkea.net/ZKEACMS)
 ## 安装和部署
-[安装和部署](http://blog.zkea.net/2015/09/install-zkeacms/)
+[安装和部署](http://blog.zkea.net/2015/09/install-ZKEACMS/)
 ## 关注微信(ZKEASOFT)
 ![关注微信](http://i11.tietuku.com/263801921375bdf2.jpg)
 ## QQ群(493586356)
