@@ -23,7 +23,27 @@ namespace Easy.CMS.Product
 
         public override IEnumerable<AdminMenu> AdminMenu()
         {
-            throw new NotImplementedException();
+            yield return new AdminMenu
+            {
+                Title = "产品管理",
+                Icon = "glyphicon-list-alt",
+                Order = 6,
+                Children = new List<AdminMenu>
+                {
+                    new AdminMenu
+                    {
+                        Title = "产品列表",
+                        Url = "~/admin/Product",
+                        Icon = "glyphicon-align-justify"
+                    },
+                    new AdminMenu
+                    {
+                        Title = "产品类别",
+                        Url = "~/admin/ProductCategory",
+                        Icon = "glyphicon-th-list"
+                    }
+                }
+            };
         }
 
         public override void InitScript()

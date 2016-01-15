@@ -23,7 +23,7 @@ namespace Easy.CMS.Product
 
         public override IEnumerable<AdminMenu> AdminMenu()
         {
-            throw new NotImplementedException();
+            return null;
         }
 
         public override void InitScript()

@@ -23,7 +23,27 @@ namespace Easy.CMS.Article
 
         public override IEnumerable<AdminMenu> AdminMenu()
         {
-            throw new NotImplementedException();
+            yield return new AdminMenu
+            {
+                Title = "文章管理",
+                Icon = "glyphicon-font",
+                Order = 5,
+                Children = new List<AdminMenu>
+                {
+                    new AdminMenu
+                    {
+                        Title = "文章列表",
+                        Url = "~/admin/Article",
+                        Icon = "glyphicon-align-justify"
+                    },
+                    new AdminMenu
+                    {
+                        Title = "文章类别",
+                        Url = "~/admin/ArticleType",
+                        Icon = "glyphicon-th-list"
+                    }
+                }
+            };
         }
 
         public override void InitScript()
@@ -35,5 +55,6 @@ namespace Easy.CMS.Article
         {
             Style("Article").Include("~/Modules/Article/Content/Article.css");
         }
+
     }
 }

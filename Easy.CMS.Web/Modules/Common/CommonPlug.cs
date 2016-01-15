@@ -49,7 +49,55 @@ namespace Easy.CMS.Common
 
         public override IEnumerable<AdminMenu> AdminMenu()
         {
-            throw new NotImplementedException();
+            yield return new AdminMenu
+            {
+                Title = "布局",
+                Icon = "glyphicon-th-list",
+                Order = 1,
+                Children = new List<AdminMenu>
+                {
+                    new AdminMenu
+                    {
+                        Title = "布局列表",
+                        Url = "~/admin",
+                        Icon = "glyphicon-align-justify"
+                    },
+                    new AdminMenu
+                    {
+                        Title = "布局组件",
+                        Url = "~/admin/Layout/LayoutWidget",
+                        Icon = "glyphicon-th-list"
+                    }
+                }
+            };
+            yield return new AdminMenu
+            {
+                Title = "页面",
+                Icon = "glyphicon-eye-open",
+                Url = "~/admin/Page",
+                Order = 2
+            };
+            yield return new AdminMenu
+            {
+                Title = "导航",
+                Icon = "glyphicon-retweet",
+                Url = "~/admin/Navigation",
+                Order = 3
+            };
+            yield return new AdminMenu
+            {
+                Title = "焦点图",
+                Icon = "glyphicon-hd-video",
+                Url = "~/admin/Carousel",
+                Order = 4
+            };
+            yield return new AdminMenu
+            {
+                Title = "用户",
+                Icon = "glyphicon-user",
+                Url = "~/admin/User",
+                Order = 100,
+            };
         }
 
         public override void InitScript()
