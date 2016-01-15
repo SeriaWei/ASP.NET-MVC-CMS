@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CopyItems>
+  <Item From="bin\Easy.CMS.Standard.dll" To="..\..\bin\Easy.CMS.Standard.dll"></Item>
+</CopyItems>
