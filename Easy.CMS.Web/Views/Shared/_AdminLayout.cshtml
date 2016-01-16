@@ -6,14 +6,15 @@
     Script.Reqiured("admin").AtFoot();
     var applicationContext = ServiceLocator.Current.GetInstance<IApplicationContext>();
 
-    var plugs= ServiceLocator.Current.GetAllInstances<PluginBase>();
-    List<AdminMenu> menus=new List<AdminMenu>();
+    var plugs = ServiceLocator.Current.GetAllInstances<PluginBase>();
+    List<AdminMenu> menus = new List<AdminMenu>();
     plugs.Each(m =>
     {
         var menu = m.AdminMenu();
-        if (menu != null && menu.Any())
+        if (menu != null)
         {
-            menus.AddRange(menu);
+            var adminMenus = menu as AdminMenu[] ?? menu.ToArray();
+            menus.AddRange(adminMenus);
         }
     });
 }
@@ -33,34 +34,47 @@
 </head>
 <body>
 
-    <div id="wrap" class="container-fluid">
-        <div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <a href="~/" target="_self" class="navbar-brand" title="查看首页">
-                        <img src="~/Content/themes/Admin/images/logo_zkea.png" alt="" style="height: 20px;"/>
-                    </a>
-                </div>
-                <div class="navbar-header pull-right">
-                    <a href="~/Account/Logout" target="_self" class="navbar-brand" title="退出">
-                        <i class="glyphicon glyphicon-off"></i>
-                    </a>
-                </div>
+<div id="wrap" class="container-fluid">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a href="http://www.zkea.net" target="_blank" class="navbar-brand" title="ZKEASOFT">
+                    <img src="~/Content/themes/Admin/images/logo_zkea.png" alt="" style="height: 20px;"/>
+                </a>
             </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active">
+                        <a href="~/" target="_blank">查看站点</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="@Url.Action("Logout","Account")" target="_self" title="退出">
+                            <i class="glyphicon glyphicon-off"></i>
+                            退出
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
         </div>
-        <div class="navbar-collapse navbar-inverse">
-            <div class="beforNav"></div>
-            <div class="userInfo">
-                <img src="@Url.PathContent(applicationContext.CurrentUser.PhotoUrl)" class="img-circle" />
-                <strong>@applicationContext.CurrentUser.UserName</strong>
+    </nav>
+    <nav class="navbar navbar-inverse navbar-fixed-left">
+        <div class="">
+            <div class="navbar-header">
+                <div class="userInfo">
+                    <img src="@Url.PathContent(applicationContext.CurrentUser.PhotoUrl)" class="img-circle"/>
+                    <strong>@applicationContext.CurrentUser.UserName</strong>
+                </div>
             </div>
             <ul class="nav navbar-nav">
-                @foreach (AdminMenu menu in menus.OrderBy(m=>m.Order))
+                @foreach (AdminMenu menu in menus.OrderBy(m => m.Order))
                 {
                     if (menu.Children != null && menu.Children.Any())
                     {
                         <li class="accordion-group">
-                            <a class="b_F5C294" href="#">
+                            <a class="b_9FDDF6" href="#">
                                 <i class="glyphicon @menu.Icon"></i>
                                 @menu.Title
                                 <i class="glyphicon group"></i>
@@ -68,7 +82,7 @@
                             <div class="accordion-inner">
                                 @foreach (AdminMenu child in menu.Children.OrderBy(m => m.Order))
                                 {
-                                    <a id="menu@((menu.Url ?? menu.Title).GetHashCode())" class="b_F5C294" href="@Url.Content(child.Url)">
+                                    <a id="menu@((child.Url ?? child.Title).GetHashCode())" class="b_9FDDF6" href="@Url.Content(child.Url ?? "~/")">
                                         <i class="glyphicon @child.Icon"></i>
                                         @child.Title
                                     </a>
@@ -79,7 +93,7 @@
                     else
                     {
                         <li>
-                            <a id="menu@((menu.Url??menu.Title).GetHashCode())" class="b_F5C294" href="@Url.Content(menu.Url)">
+                            <a id="menu@((menu.Url ?? menu.Title).GetHashCode())" class="b_9FDDF6" href="@Url.Content(menu.Url ?? "~/")">
                                 <i class="glyphicon @menu.Icon"></i>
                                 @menu.Title
                             </a>
@@ -88,26 +102,14 @@
                 }
             </ul>
         </div>
-        <div class="main-container">
-            @RenderBody()
-        </div>
+        
+    </nav>
+    <div class="main-container">
+        @RenderBody()
     </div>
+</div>
     @StyleAtFoot()
     @ScriptAtFoot()
-    <script type="text/javascript">
-        tinymce.init({
-            content_css: ["../../../Content/bootstrap/css/bootstrap.css", "../../../Content/bootstrap/css/bootstrap-theme.css"],
-            selector: "textarea.html",
-            plugins: [
-                "advlist autolink lists link image charmap print preview anchor",
-                "searchreplace visualblocks code fullscreen",
-                "insertdatetime media table contextmenu paste"
-            ],
-            toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
-            height: 300,
-            relative_urls: false,
-            language: "zh_CN"
-        });
-    </script>
+    
 </body>
 </html>

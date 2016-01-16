@@ -28,7 +28,7 @@ namespace Easy.Web.CMS
 
             var routes = new List<RouteDescriptor>();
             Type plugBaseType = typeof(PluginBase);
-
+            
             BuildManager.GetReferencedAssemblies().Cast<Assembly>().Each(m => m.GetTypes().Each(p =>
             {
                 if (plugBaseType.IsAssignableFrom(p) && !p.IsAbstract && !p.IsInterface)

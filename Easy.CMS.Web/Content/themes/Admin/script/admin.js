@@ -15,30 +15,22 @@
         }
         $(this).addClass("active");
     });
+    var mainContainer = $(".main-container");
     $(window).resize(function () {
-        $(".main-container").height($(window).height() - 70);
+        mainContainer.height($(window).height() - 70);
     });
-    $(".main-container").height($(window).height() - 70);
-    $(".cancel").click(function () {
+    mainContainer.height($(window).height() - 70);
+    $(document).on("click", ".cancel", function () {
         window.history.back();
-    });
-    $(".publish").click(function () {
+    }).on("click", ".publish", function () {
         if (confirm("确认要发布吗？")) {
             return true;
         }
         return false;
-    });
-    $("input[type=submit]").click(function () {
+    }).on("click", "input[type=submit]", function () {
         $("#ActionType").val($(this).data("value"));
         return true;
-    });
-    $("#IsPublish").val("false");
-    $("#PublishDate").val("");
-    $(".select").each(function () {
-        $(this).prev(".input-group-addon").append('<span class="glyphicon glyphicon-search text-muted" data-url="' + $(this).data("url") + '"></span>');
-    });
-
-    $(document).on("click",".input-group-addon .glyphicon", function () {
+    }).on("click", ".input-group-addon .glyphicon", function () {
         var obj = $(this);
         window.top.Easy.ShowUrlWindow({
             url: $(this).data("url"), onLoad: function (box) {
@@ -47,13 +39,29 @@
                     obj.parent().next().val(win.GetSelected());
                     box.close();
                 });
-                $(this.document).on("click", ".confirm", function() {
+                $(this.document).on("click", ".confirm", function () {
                     obj.parent().next().val($(this).data("result"));
                     box.close();
                 });
             }
         });
+    }).on("click", ".input-group-collection .add", function () {
+        var index = $(this).parents(".input-group-collection").children(".item").size();
+        var html = $($(this).parents(".input-group-collection").children(".Template").html().replaceAll("{0}", index));
+        html.find("input.actionType").val($(this).data("value"));
+        $(this).parents(".input-group-collection").append(html);
+    }).on("click", ".input-group-collection .delete", function () {
+        $(this).parents(".item").find("input.actionType").val($(this).data("value"));
+        $(this).parents(".item").hide();
     });
+
+    $("#IsPublish").val("false");
+    $("#PublishDate").val("");
+
+    $(".select").each(function () {
+        $(this).prev(".input-group-addon").append('<span class="glyphicon glyphicon-search text-muted" data-url="' + $(this).data("url") + '"></span>');
+    });
+
     var currentSelect = $(".nav.navbar-nav a[href='" + location.pathname + "']");
     if (currentSelect.size()) {
         currentSelect.addClass("active");
@@ -68,14 +76,17 @@
         activeHref.parent().prev().addClass("active");
     }
 
-    $(document).on("click", ".input-group-collection .add", function () {
-        var index = $(this).parents(".input-group-collection").children(".item").size();
-        var html = $($(this).parents(".input-group-collection").children(".Template").html().replaceAll("{0}", index));
-        html.find("input.actionType").val($(this).data("value"));
-        $(this).parents(".input-group-collection").append(html);
-    });
-    $(document).on("click", ".input-group-collection .delete", function () {
-        $(this).parents(".item").find("input.actionType").val($(this).data("value"));
-        $(this).parents(".item").hide();
+    tinymce.init({
+        content_css: ["../../../Content/bootstrap/css/bootstrap.css", "../../../Content/bootstrap/css/bootstrap-theme.css"],
+        selector: "textarea.html",
+        plugins: [
+            "advlist autolink lists link image charmap print preview anchor",
+            "searchreplace visualblocks code fullscreen",
+            "insertdatetime media table contextmenu paste"
+        ],
+        toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
+        height: 300,
+        relative_urls: false,
+        language: "zh_CN"
     });
 });
