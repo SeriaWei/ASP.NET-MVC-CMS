@@ -16,14 +16,14 @@ namespace Easy.CMS.Standard
                 RouteName = "StandardPlug",
                 Url = "Standard/{controller}/{action}",
                 Defaults = new { action = "index", module = "Standard" },
-                Namespaces = new string[] { "Easy.CMS.Standard" },
+                Namespaces = new string[] { "Easy.CMS.Standard.Controllers" },
                 Priority = 1
             };
         }
 
         public override IEnumerable<AdminMenu> AdminMenu()
         {
-            throw new NotImplementedException();
+            return null;
         }
 
         public override void InitScript()
