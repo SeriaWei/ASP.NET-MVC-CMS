@@ -42,6 +42,7 @@ Easy.Grid = (function (json) {
     var QueryString = "";
     var deleteUrl = "";
     var heightFix = 15;
+    var jsonData;
     gridHtml.push("<div class='EasyGrid panel panel-default'>");
     gridHtml.push("<div class='GridContent'><div class='GridToolBar panel-heading'></div><div class='GridHeader'></div><div class='GridSearch'></div><div class='GridBody'></div></div>");
     gridHtml.push("<div class='Gridfoot'>");
@@ -144,18 +145,21 @@ Easy.Grid = (function (json) {
 
     function GetDataSucess(data) {
         isLoading = false;
-        var gdata;
         try {
-            gdata = eval("(" + data + ")");
+            if (typeof data === "string") {
+                jsonData = eval("(" + data + ")");
+            } else {
+                jsonData = data;
+            }
         }
         catch (ex) {
             alert(ex.message);
             return false;
         }
         if (!model) {
-            InitGrid(gdata);
+            InitGrid(jsonData);
         }
-        InitData(gdata);
+        InitData(jsonData);
         Grid.find("#PageGo").removeClass("InnerLonding");
     }
     function InitGrid(gdata) {
@@ -267,15 +271,9 @@ Easy.Grid = (function (json) {
         } else {
             gridSearch.hide();
         }
-        gridHeader.find(".CheckBoxAll").change(function () {
-            if ($(this).attr("checked")) {
-                gridBody.find("tr").find(".CheckBoxItem").attr("checked", $(this).attr("checked")).change();
-            }
-            else {
-                gridBody.find("tr").find(".CheckBoxItem").removeAttr("checked").change();
-            }
+        gridHeader.find(".CheckBoxAll").click(function () {
+            gridBody.find("tr").find(".CheckBoxItem").prop("checked", $(this).prop("checked"));
             CheckBack();
-            return false;
         });
         gridHeader.find("th[col]").click(function () {
             var deCol = $(this).attr("col");
@@ -348,7 +346,7 @@ Easy.Grid = (function (json) {
         tableBody.html(trBs);
         gridBody.html(tableBody);
         tableBody.width(width);
-        gridBody.find("tr").find(".CheckBoxItem").change(function () {
+        gridBody.find("tr").find(".CheckBoxItem").click(function () {
             CheckBack();
         });
         pageIndex = gdata.PageIndex;
@@ -487,8 +485,10 @@ Easy.Grid = (function (json) {
     }
     function CheckBack() {
         var select = [];
-        Grid.find(".CheckBoxItem:input:checked").each(function () {
-            select.push($(this).attr("val"));
+        Grid.find(".CheckBoxItem:input:checked").each(function (i) {
+            if ($(this).prop("checked")&&jsonData && jsonData.Rows) {
+                select.push(jsonData.Rows[i]);
+            }
         });
         if (checkBoxEventHandler) {
             checkBoxEventHandler.call(this, select);
