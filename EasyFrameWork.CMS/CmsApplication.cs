@@ -11,6 +11,7 @@ using Easy.Web.CMS.Widget;
 using Easy.Web.Route;
 using Easy.Web.ViewEngine;
 using Easy.Extend;
+using Easy.IOC;
 using Easy.Modules.DataDictionary;
 using Easy.Modules.MutiLanguage;
 using Easy.Modules.User.Service;
@@ -47,6 +48,7 @@ namespace Easy.Web.CMS
             ContainerAdapter.RegisterType<IUserService, UserService>();
             ContainerAdapter.RegisterType<IDataDictionaryService, DataDictionaryService>();
             ContainerAdapter.RegisterType<ILanguageService, LanguageService>();
+            ContainerAdapter.RegisterType<IApplicationContext, ApplicationContext>(DependencyLifeTime.PerRequest);
 
             //DisplayViewSupport.SupportMobileView();
             //DisplayViewSupport.SupportIEView();
