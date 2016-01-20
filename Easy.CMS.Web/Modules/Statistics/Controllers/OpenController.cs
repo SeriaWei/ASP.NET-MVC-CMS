@@ -10,17 +10,20 @@ namespace Easy.CMS.Statistics.Controllers
 {
     public class OpenController : Controller
     {
-
+        private static string _lockHelper = "LockHelper";
         public JsonResult Index()
         {
-            var service = new StatisticsService();
-            if (Request.UrlReferrer != null && service.Count(new DataFilter().Where("Host", OperatorType.Equal, Request.UrlReferrer.Host)) == 0)
+            lock (_lockHelper)
             {
-                service.Add(new Models.Statistics
+                var service = new StatisticsService();
+                if (Request.UrlReferrer != null && service.Count(new DataFilter().Where("Host", OperatorType.Equal, Request.UrlReferrer.Host)) == 0)
                 {
-                    Host = Request.UrlReferrer.Host,
-                    IpAddress = Request.UserHostAddress
-                });
+                    service.Add(new Models.Statistics
+                    {
+                        Host = Request.UrlReferrer.Host,
+                        IpAddress = Request.UserHostAddress
+                    });
+                }
             }
             return Json("", JsonRequestBehavior.AllowGet);
         }
