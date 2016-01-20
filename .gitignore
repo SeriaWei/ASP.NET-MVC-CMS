@@ -6,3 +6,4 @@ obj
 /Release
 /Easy.CMS.Web.sln.metaproj
 /Easy.CMS.Web.sln.metaproj.tmp
+*.suo
