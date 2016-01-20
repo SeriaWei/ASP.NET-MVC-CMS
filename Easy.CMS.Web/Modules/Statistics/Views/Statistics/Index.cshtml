@@ -1,0 +1,12 @@
+﻿@using Easy.CMS.Statistics.Models
+@using Easy.Data
+@{
+
+}
+@(
+ Html.Grid<Statistics>().SetColumnTemplate(col =>
+ {
+     col.Add(m => m.Host, "<a href='" + Url.Action("Edit") + "?ID={StatisticsId}'>{Host}</a>");
+ }).ShowCheckbox(m=>m.StatisticsId).OrderBy(m=>m.CreateDate, OrderType.Descending)
+)
+
