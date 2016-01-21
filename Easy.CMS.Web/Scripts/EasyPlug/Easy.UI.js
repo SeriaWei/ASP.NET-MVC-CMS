@@ -25,7 +25,7 @@ Easy.UI = {
             ListHtml.push("</div>");
             var selectList = $(ListHtml.join(""));
             selectList.insertAfter(oldSelect);
-            selectList.css("width", $(this).width() - 10);
+            selectList.css("width", $(this).outerWidth());
             oldSelect.change(function () {
                 text = $(this).find("option:selected").text();
                 selectList.removeClass("Open");
@@ -119,7 +119,7 @@ Easy.UI = {
             ListHtml.push("</div>");
             var selectList = $(ListHtml.join(""));
             selectList.insertAfter(oldSelect);
-            selectList.css("width", $(this).width() - 10);
+            selectList.css("width", $(this).outerWidth());
             oldSelect.change(function () {
                 text = "";
                 oldSelect.find("option[selected='selected']").each(function () {
