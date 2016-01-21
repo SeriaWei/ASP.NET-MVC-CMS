@@ -32,9 +32,11 @@ namespace Easy
                 .Include("~/Scripts/jstree/src/jstree.types.js")
                 .Include("~/Scripts/jstree/src/jstree.unique.js")
                 .Include("~/Scripts/jstree/src/jstree.wholerow.js")
-                .Include("~/Scripts/tinymce/tinymce.min.js");
-                
-                
+                .Include("~/Scripts/tinymce/tinymce.min.js")
+                .Include("~/Scripts/CryptoJS/components/core.js", "~/Scripts/CryptoJS/components/core-min.js")
+                .Include("~/Scripts/CryptoJS/components/enc-base64.js", "~/Scripts/CryptoJS/components/enc-base64-min.js")
+                .Include("~/Scripts/Statistics.js");
+
         }
 
         public override void InitStyle()
