@@ -78,6 +78,7 @@ Easy.Grid = (function (json) {
     var gridBody = Grid.find(".GridBody");
     var gridSearch = Grid.find(".GridSearch");
     gridBody.scroll(function () {
+        $(this).find(".RangeConditionBox").remove();
         gridHeader.scrollLeft($(this).scrollLeft());
         gridSearch.scrollLeft($(this).scrollLeft());
     });
@@ -206,10 +207,10 @@ Easy.Grid = (function (json) {
                 if (item.Hidden)
                     continue;
                 switch (item.DataType) {
-                    case "String": input = "<input type='text' DataType='" + item.DataType + "' id='Search_" + item.Name + "' name='" + item.Name + "' OperatorType='7'/>"; break;
+                    case "String": input = "<input type='text' DataType='" + item.DataType + "' id='Search_" + item.Name + "' name='" + item.Name + "' OperatorType='7' title='" + item.DisplayName + "'/>"; break;
                     case "Boolean":
                         {
-                            input = "<input type='hidden' DataType='" + item.DataType + "' id='Search_" + item.Name + "' name='" + item.Name + "' OperatorType='1'/>";
+                            input = "<input type='hidden' DataType='" + item.DataType + "' id='Search_" + item.Name + "' name='" + item.Name + "' OperatorType='1' title='" + item.DisplayName + "'/>";
                             var option = "<option></option>";
                             option += "<option value='true'>是</option><option value='false'>否</option>";
                             input += "<select class='easy' ValuePlace='Search_" + item.Name + "'>" + option + "</select>";
@@ -221,26 +222,26 @@ Easy.Grid = (function (json) {
                     case "Int64":
                     case "Int32":
                         {
-                            input = "<input type='hidden' DataType='" + item.DataType + "' id='Search_" + item.Name + "' name='" + item.Name + "' OperatorType='1'/>" +
-                            "<span><input class='NumAdd' type='button' ValuePlace='Search_" + item.Name + "' value=''/><input type='button' class='NumClear' ValuePlace='Search_" + item.Name + "' value='' /></span>";
+                            input = "<input type='hidden' DataType='" + item.DataType + "' id='Search_" + item.Name + "' name='" + item.Name + "' OperatorType='1' title='" + item.DisplayName + "'/>" +
+                            "<div class='RangeOption clearfix'><input class='RangeAdd' type='button' ValuePlace='Search_" + item.Name + "' value='' title='" + item.DisplayName + "'/><input type='button' class='RangeClear' ValuePlace='Search_" + item.Name + "' value='' title='" + item.DisplayName + "'/></div>";
                             break;
                         }
                     case "DateTime":
                         {
-                            input = "<input type='hidden' DataType='" + item.DataType + "' Format='" + item.Format + "' id='Search_" + item.Name + "' name='" + item.Name + "' OperatorType='1'/>" +
-                                 "<span><input class='NumAdd' type='button' ValuePlace='Search_" + item.Name + "' value=''/><input type='button' class='NumClear' ValuePlace='Search_" + item.Name + "' value='' /></span>";
+                            input = "<input type='hidden' DataType='" + item.DataType + "' Format='" + item.Format + "' id='Search_" + item.Name + "' name='" + item.Name + "' OperatorType='1' title='"+item.DisplayName+"'/>" +
+                                 "<div class='RangeOption clearfix'><input class='RangeAdd' type='button' ValuePlace='Search_" + item.Name + "' value='' title='" + item.DisplayName + "'/><input type='button' class='RangeClear' ValuePlace='Search_" + item.Name + "' value='' title='" + item.DisplayName + "'/></div>";
                             break;
                         }
                     case "Select":
                         {
-                            input = "<input type='hidden' DataType='" + item.DataType + "' id='Search_" + item.Name + "' name='" + item.Name + "' OperatorType='1'/>";
+                            input = "<input type='hidden' DataType='" + item.DataType + "' id='Search_" + item.Name + "' name='" + item.Name + "' OperatorType='1' title='" + item.DisplayName + "'/>";
                             var option = "<option></option>";
                             option += item.Data || "";
                             input += "<select class='easy' multiple='multiple' ValuePlace='Search_" + item.Name + "'>" + option + "</select>";
                             break;
                         }
                     case "None": input = "<span></span>"; break;
-                    default: input = "<input type='text' DataType='" + item.DataType + "' id='Search_" + item.Name + "' name='" + item.Name + "' OperatorType='7'/>"; break;
+                    default: input = "<input type='text' DataType='" + item.DataType + "' id='Search_" + item.Name + "' name='" + item.Name + "' OperatorType='7' title='" + item.DisplayName + "'/>"; break;
                 }
                 var colWidth = 150;
                 if (item.Width)
@@ -254,8 +255,8 @@ Easy.Grid = (function (json) {
             gridSearch.children("table").width(width + 20);
             gridHeader.children("table").width(width + 20);
             gridSearch.find("input").keydown(StartSearch);
-            gridSearch.find(".NumAdd").click(ShowNumCondition);
-            gridSearch.find(".NumClear").click(ClearCondition);
+            gridSearch.find(".RangeAdd").click(ShowRangeCondition);
+            gridSearch.find(".RangeClear").click(ClearCondition);
             gridSearch.find(".ClearSearch").click(ClearCondition);
             gridSearch.find("select").change(function () {
                 pageIndex = 0;
@@ -296,7 +297,7 @@ Easy.Grid = (function (json) {
         if (!constHeight) {
             $(window).resize(function () {
                 Easy.Processor(function () { Height(Grid.parent().height()); }, 200);
-                
+
             });
             $(function () {
                 setTimeout(function () { Height(Grid.parent().height()); }, 100);
@@ -423,19 +424,15 @@ Easy.Grid = (function (json) {
                         var values = $(this).val().split('@');
                         if (values.length == 3) {
                             if (values[0] != "") {
-                                var ConditionGreaterThanOrEqualTo = { Property: $(this).attr("name"), Value: values[0], DataType: $(this).attr("DataType"), OperatorType: 3, ConditionType: 1 };
-                                Conditions.push(ConditionGreaterThanOrEqualTo);
+                                Conditions.push({ Property: $(this).attr("name"), Value: values[0], DataType: $(this).attr("DataType"), OperatorType: 3, ConditionType: 1 });
                             }
                             if (values[1] != "") {
-                                var ConditionLessThanOrEqualTo = { Property: $(this).attr("name"), Value: values[1], DataType: $(this).attr("DataType"), OperatorType: 5, ConditionType: 1 };
-                                Conditions.push(ConditionLessThanOrEqualTo);
+                                Conditions.push({ Property: $(this).attr("name"), Value: values[1], DataType: $(this).attr("DataType"), OperatorType: 5, ConditionType: 1 });
                             }
                             if (values[2] != "") {
-                                var ConditionEqual = { Property: $(this).attr("name"), Value: values[2], DataType: $(this).attr("DataType"), OperatorType: 1, ConditionType: 1 };
-                                Conditions.push(ConditionEqual);
+                                Conditions.push({ Property: $(this).attr("name"), Value: values[2], DataType: $(this).attr("DataType"), OperatorType: 1, ConditionType: 1 });
                             }
-                            var ConditionItem = { Conditions: Conditions };
-                            Group.push(ConditionItem);
+                            Group.push({ Conditions: Conditions });
                         }
                         break;
                     }
@@ -444,12 +441,16 @@ Easy.Grid = (function (json) {
                         var values = $(this).val().split('@');
                         if (values.length == 3) {
                             if (values[0] != "") {
-                                values[0] += " 0:0:0";
+                                if (values[0].indexOf(":") < 0) {
+                                    values[0] += " 0:0:0";
+                                }
                                 var ConditionGreaterThanOrEqualTo = { Property: $(this).attr("name"), Value: values[0], DataType: $(this).attr("DataType"), OperatorType: 3, ConditionType: 1 };
                                 Conditions.push(ConditionGreaterThanOrEqualTo);
                             }
                             if (values[1] != "") {
-                                values[1] += " 23:59:59";
+                                if (values[1].indexOf(":") < 0) {
+                                    values[1] += " 23:59:59";
+                                }
                                 var ConditionLessThanOrEqualTo = { Property: $(this).attr("name"), Value: values[1], DataType: $(this).attr("DataType"), OperatorType: 5, ConditionType: 1 };
                                 Conditions.push(ConditionLessThanOrEqualTo);
                             }
@@ -486,7 +487,7 @@ Easy.Grid = (function (json) {
     function CheckBack() {
         var select = [];
         Grid.find(".CheckBoxItem:input:checked").each(function (i) {
-            if ($(this).prop("checked")&&jsonData && jsonData.Rows) {
+            if ($(this).prop("checked") && jsonData && jsonData.Rows) {
                 select.push(jsonData.Rows[i]);
             }
         });
@@ -535,32 +536,33 @@ Easy.Grid = (function (json) {
         }
     }
     /*条件窗口*/
-    function ShowNumCondition() {
-        if ($(".NumConditionBox").length >= 1) {
-            $(".NumConditionBox").remove();
-            $(document).unbind("click", RemoveConditionBox);
-            return;
+    function ShowRangeCondition() {
+        function removeConditionBox() {
+            $(".RangeConditionBox").remove();
         }
-        var Boxhtml = [];
-        Boxhtml.push("<div class='NumConditionBox'>");
-        Boxhtml.push("<div><label for='NumGreaterThanOrEqualTo'>>=</label><input type='text' id='NumGreaterThanOrEqualTo' /><div style='clear:both'></div></div>");
-        Boxhtml.push("<div><label for='NumLessThanOrEqualTo'><=</label><input type='text' id='NumLessThanOrEqualTo' /><div style='clear:both'></div></div>");
-        Boxhtml.push("<div><label for='NumEqual'>=</label><input type='text' id='NumEqual' /><div style='clear:both'></div></div>");
-        Boxhtml.push("</div>");
-        var numBox = $(Boxhtml.join(""));
-        var effect = gridSearch.find("#" + $(this).attr("ValuePlace"));
-        $("body").append(numBox);
+
+        var th = $(this);
+        removeConditionBox();
+        var rangeBox = $([
+            "<div class='RangeConditionBox form'>",
+             "<div class='clearfix'><label for='GreaterThanOrEqualTo'>" + th.attr("title") + "</label><button type='button' class='close' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>",
+            "<div class='form-group'><div class='input-group'><label for='GreaterThanOrEqualTo' class='input-group-addon'>>=</label><input  class='form-control' type='text' id='GreaterThanOrEqualTo' /></div></div>",
+            "<div class='form-group'><div class='input-group'><label for='LessThanOrEqualTo' class='input-group-addon'><=</label><input  class='form-control' type='text' id='LessThanOrEqualTo' /></div></div>",
+            "<div class='form-group'><div class='input-group'><label for='EqualTo' class='input-group-addon'>&nbsp;=&nbsp;</label><input type='text'  class='form-control' id='EqualTo' /></div></div>",
+            "</div>"
+        ].join(""));
+
+        var effect = gridSearch.find("#" + th.attr("ValuePlace"));
+        gridBody.append(rangeBox);
         switch (effect.attr("DataType")) {
             case "DateTime": {
                 var dateFormat = effect.attr("Format");
                 if (!dateFormat) {
-                    dateFormat = "yyyy/MM/dd";
+                    dateFormat = "YYYY/MM/DD";
                 }
-                numBox.find("input").attr("DateFormat", dateFormat);
-                numBox.find("input").attr("ValueType", "Date");
-                numBox.find("input").addClass("Date");
+                rangeBox.find(".form-control").attr("DateFormat", dateFormat).attr("ValueType", "Date").addClass("Date");
                 if (Easy.UI) {
-                    Easy.UI.DateInput(numBox.find("input"));
+                    Easy.UI.DateInput(rangeBox.find("input"));
                 }
                 break;
             }
@@ -569,70 +571,53 @@ Easy.Grid = (function (json) {
             case "Int16":
             case "Int64":
             case "Int32": {
-                numBox.find("input").attr("ValueType", "Num");
-                numBox.find("input").addClass("Number");
+                rangeBox.find("input").attr("ValueType", "Num").addClass("Number");
                 if (Easy.UI) {
                     Easy.UI.NumberInput();
                 }
                 break;
             }
         }
-        var left = $(this).offset().left;
-        if ($(this).offset().left + numBox.width() >= Easy.WindowSize().width) {
-            left = Easy.WindowSize().width - numBox.width() - 30;
-        }
-        numBox.css("left", left);
-        numBox.css("top", $(this).offset().top);
-        values = effect.val().split("@");
+        rangeBox.css("left", th.offset().left - gridBody.offset().left + gridBody.scrollLeft());
+        var values = effect.val().split("@");
         if (values.length == 3) {
-            numBox.find("#NumGreaterThanOrEqualTo").val(values[0]);
-            numBox.find("#NumLessThanOrEqualTo").val(values[1]);
-            numBox.find("#NumEqual").val(values[2]);
+            rangeBox.find("#GreaterThanOrEqualTo").val(values[0]);
+            rangeBox.find("#LessThanOrEqualTo").val(values[1]);
+            rangeBox.find("#EqualTo").val(values[2]);
         }
-
-        numBox.find("input").keydown(function (e) {
-            if (e.keyCode == 13) {
-                var value1 = numBox.find("#NumGreaterThanOrEqualTo").val();
-                var value2 = numBox.find("#NumLessThanOrEqualTo").val();
-                var value3 = numBox.find("#NumEqual").val();
-                effect.val(value1 + "@" + value2 + "@" + value3);
-                PlaceGrid();
-                if (effect.val() != "@@") {
-                    effect.parent().css("background-color", "#CCD4FF");
-                }
-                $(".NumConditionBox").remove();
-                $(document).unbind("click", RemoveConditionBox);
+        function setValue() {
+            var value1 = rangeBox.find("#GreaterThanOrEqualTo").val();
+            var value2 = rangeBox.find("#LessThanOrEqualTo").val();
+            var value3 = rangeBox.find("#EqualTo").val();
+            effect.val(value1 + "@" + value2 + "@" + value3);
+            if (effect.val() != "@@") {
+                effect.parent().addClass("bg-info");
             }
-        });
-        setTimeout(function () {
-            $(document).bind("click", RemoveConditionBox);
-        }, 10);
-    }
-    function RemoveConditionBox(e) {
-        var id = e.target.id;
-        if (id == "NumGreaterThanOrEqualTo" || id == "NumLessThanOrEqualTo" || id == "NumEqual") {
-            return false;
         }
-
-        $(".NumConditionBox").remove();
-        $(document).unbind("click", RemoveConditionBox);
+        rangeBox.find("input").keydown(function (e) {
+            if (e.keyCode == 13) {
+                removeConditionBox();
+                PlaceGrid();
+            }
+        }).on("dp.change", setValue);
+        rangeBox.find(".close").click(function () {
+            rangeBox.remove();
+            th.data("shown", false);
+        });
     }
     function ClearCondition() {
         if ($(this).attr("ValuePlace")) {
             var effect = gridSearch.find("#" + $(this).attr("ValuePlace"));
-            if (effect.val() == "")
-                return;
             effect.val("");
-            effect.parent().css("background-color", "");
-            PlaceGrid();
+            effect.parent().removeClass("bg-info");
         }
         else {
             gridSearch.find("input").val("");
             gridSearch.find("input").parent().css("background-color", "");
             gridSearch.find("select").children("option").removeAttr("selected");
             gridSearch.find("select").change();
-            PlaceGrid();
         }
+        PlaceGrid();
         return false;
     }
     /*public function*/

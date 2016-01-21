@@ -48,7 +48,7 @@
     display: block;
 }
 
-.EasyGrid .NumAdd, .EasyGrid .NumClear, .EasyGrid .ClearSearch {
+.EasyGrid .RangeAdd, .EasyGrid .RangeClear, .EasyGrid .ClearSearch {
     width: 16px;
     height: 16px;
     line-height: 14px;
@@ -58,11 +58,11 @@
     float: left;
 }
 
-.EasyGrid .NumAdd {
+.EasyGrid .RangeAdd {
     background: url(Images/add.png);
 }
 
-.EasyGrid .NumClear, .EasyGrid .ClearSearch {
+.EasyGrid .RangeClear, .EasyGrid .ClearSearch {
     background: url(Images/undo.png);
 }
 
@@ -102,7 +102,7 @@
         font-weight:normal;
     }
 
-.EasyGrid input[type='text'], .NumConditionBox input[type='text'] {
+.EasyGrid input[type='text'] {
     border: 1px solid #DDD;
     outline: none;
     margin: 0px auto 0px auto;
@@ -196,32 +196,17 @@
     background-repeat: no-repeat;
 }
 
-.NumConditionBox {
+.RangeConditionBox {
     position: absolute;
-    left: 0px;
-    top: 0px;
+    top: 1px;
     border: 1px solid #CCC;
     background-color: white;
-    padding: 2px;
+    padding: 5px;
+    width: 300px;
 }
-
-    .NumConditionBox > div {
-        padding: 2px;
-    }
-
-    .NumConditionBox input[type='text'] {
-        width: 160px;
-        float: left;
-    }
-
-    .NumConditionBox label {
-        display: block;
-        float: left;
-        width: 25px;
-        text-align: center;
-        line-height: 29px;
-    }
-
+.RangeConditionBox  .form-group {
+    margin-bottom: 5px;
+}
 .GridDelete {
     background: url(Images/Grid/remove.png) center center no-repeat;
     width: 20px;

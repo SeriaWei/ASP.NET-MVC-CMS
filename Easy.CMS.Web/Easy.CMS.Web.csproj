@@ -220,7 +220,6 @@
     <Content Include="Scripts\angular\angular-sanitize.min.js.map" />
     <Content Include="Scripts\angular\angular-touch.min.js.map" />
     <Content Include="Scripts\angular\angular.min.js.map" />
-    <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Images\bg1.jpg" />
     <Content Include="Images\bg2.jpg" />
     <Content Include="Images\head.png" />
@@ -249,6 +248,11 @@
     <Content Include="Scripts\angular\angular-touch.min.js" />
     <Content Include="Scripts\angular\angular.js" />
     <Content Include="Scripts\angular\angular.min.js" />
+    <Content Include="Scripts\bootstrap-datetimepicker\bootstrap-datetimepicker.css" />
+    <Content Include="Scripts\bootstrap-datetimepicker\bootstrap-datetimepicker.js" />
+    <Content Include="Scripts\bootstrap-datetimepicker\bootstrap-datetimepicker.min.css" />
+    <Content Include="Scripts\bootstrap-datetimepicker\bootstrap-datetimepicker.min.js" />
+    <Content Include="Scripts\bootstrap-datetimepicker\moment-with-locales.js" />
     <Content Include="Scripts\CryptoJS\components\aes-min.js" />
     <Content Include="Scripts\CryptoJS\components\aes.js" />
     <Content Include="Scripts\CryptoJS\components\cipher-core-min.js" />
@@ -536,8 +540,10 @@
     <Content Include="Scripts\ImagePlug\indexDb.js" />
     <Content Include="Scripts\ImagePlug\style.css" />
     <Content Include="Scripts\jquery-1.11.2.min.js" />
-    <Content Include="Scripts\jquery-1.8.2.js" />
-    <Content Include="Scripts\jquery-1.8.2.min.js" />
+    <None Include="Scripts\jquery-1.9.0.intellisense.js" />
+    <Content Include="Scripts\jquery-1.9.0.js" />
+    <Content Include="Scripts\jquery-1.9.0.min.js" />
+    <Content Include="Scripts\jquery-1.9.0.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery-ui\external\jquery\jquery.js" />
     <Content Include="Scripts\jquery-ui\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
