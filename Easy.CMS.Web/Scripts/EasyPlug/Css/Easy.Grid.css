@@ -93,7 +93,7 @@
     }
 
     .EasyGrid .GridContent .GridSearch .searchbox {
-        padding:2px 0;
+        padding: 2px 0;
     }
 
 .EasyGrid input[type='text'] {
@@ -103,7 +103,7 @@
     padding: 2px;
 }
 
-.EasyGrid .GridSearch input[type='text'] {
+.EasyGrid .GridSearch .condition {
     width: 90%;
 }
 
@@ -111,13 +111,10 @@
     text-align: left;
 }
 
-    .EasyGrid .GridContent .GridSearch .searchbox select {
-        width: 90%;
-    }
-    .EasyGrid .GridContent .GridSearch .searchbox .DropDownList {
-        display: block;
-        margin: 0 auto;
-    }
+.EasyGrid .GridContent .GridSearch .searchbox select {
+    width: 90%;
+}
+
 .EasyGrid .GridContent .GridBody table.body td {
     border-bottom: 1px solid #D7D7D7;
     overflow: hidden;
@@ -192,10 +189,11 @@
     position: absolute;
     top: 1px;
     border: 1px solid #CCC;
-    background-color: white;
+    background: white;
     padding: 5px;
     width: 300px;
     outline: 0;
+    z-index:1;
 }
 
     .RangeConditionBox .form-group {
@@ -227,3 +225,79 @@
 .GridDelete:active {
     background: none;
 }
+
+.DropDownList {
+    display: block;
+    margin: 0 auto;
+    vertical-align: top;
+    padding-right: 19px;
+    cursor: pointer;
+    border: 1px solid #CCC;
+    background-color: white;
+    text-align: left;
+    font-weight: normal;
+}
+
+    .DropDownList .TextPlace {
+        overflow: hidden;
+        width: 100%;
+        float: left;
+        height: 100%;
+        border-right: 1px solid #CCC;
+        margin-top: 0px;
+    }
+
+        .DropDownList .TextPlace > span {
+            padding-left: 2px;
+            line-height: 20px;
+            white-space: nowrap;
+        }
+
+        .DropDownList .TextPlace > .Clear {
+            position: absolute;
+            right: 0px;
+            width: 16px;
+            height: 16px;
+            background-image: url(Images/buttons.png);
+            background-repeat: no-repeat;
+            background-position: -27px 0px;
+            top: 2px;
+        }
+
+            .DropDownList .TextPlace > .Clear:hover {
+                background-position: -27px -16px;
+            }
+
+    .DropDownList .DropIcon {
+        height: 100%;
+        width: 18px;
+        margin-right: -19px;
+        float: left;
+        background-image: url(Images/triangle2.png);
+        background-position: center center;
+        background-repeat: no-repeat;
+    }
+
+.Open .DropIcon {
+    background-image: url(Images/triangle.png);
+}
+
+.DropDownList_Options {
+    overflow: auto;
+    font-size: 13px;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    margin: 0px;
+    padding: 0px;
+    background-color: white;
+    border: 1px solid #CCC;
+    cursor: pointer;
+    outline:0;
+}
+
+    .DropDownList_Options .checkbox {
+        margin: 0;
+        font-weight: normal;
+        line-height: 22px;
+    }

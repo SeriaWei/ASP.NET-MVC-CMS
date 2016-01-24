@@ -58,7 +58,7 @@ Easy.Grid = (function (json) {
     "</select>",
     "<label for='GridPageIdex'>",
     Easy.GridLan.CurrentPage,
-    "</label><input id='GridPageIdex' type='text' value='0' ValueType='Num' />",
+    "</label><input id='GridPageIdex' type='text' value='1' ValueType='Num' />",
     "<label id='PageInfo'></label>",
     "<label id='Count'></label>",
     "<a id='PageGo' class='glyphicon glyphicon-repeat' title='" + Easy.GridLan.PageGo + "'>",
@@ -86,7 +86,6 @@ Easy.Grid = (function (json) {
     var gridBody = grid.find(".GridBody");
     var search = $("<tbody class='GridSearch'></tbody>");
 
-
     var handlers = {};
     handlers.getPageIndex = function () {
         var pageIndex = parseInt(grid.find("#GridPageIdex").val());
@@ -102,116 +101,6 @@ Easy.Grid = (function (json) {
     handlers.setPageIndex = function (index) {
         index = parseInt(index) || 0;
         grid.find("#GridPageIdex").val(index + 1);
-    }
-    handlers.reload = function (query) {
-        if (isLoading) {
-            return;
-        }
-        if (!query) {
-            query = "";
-        }
-        if (query !== queryString && query !== "") {
-            queryString = query;
-            handlers.setPageIndex(0);
-        }
-        isLoading = true;
-        grid.find("#PageGo").addClass("InnerLonding");
-        scrollLeft = gridBody.scrollLeft();
-        var Group = [];
-        var Cond = [];
-        search.find("input").not("[type='button']").each(function () {
-            if ($(this).val() != "") {
-                switch ($(this).attr("DataType")) {
-                    case "Select": {
-                        var values = $(this).val().split(',');
-                        var Conditions = [];
-                        for (var i = 0; i < values.length; i++) {
-                            var Condition = { Property: $(this).attr("name"), Value: values[i], DataType: $(this).attr("DataType"), OperatorType: 1, ConditionType: 2 };
-                            Conditions.push(Condition);
-                        }
-                        var ConditionItem = { Conditions: Conditions };
-                        Group.push(ConditionItem);
-                        break;
-                    }
-                    case "Decimal":
-                    case "Single":
-                    case "Int16":
-                    case "Int64":
-                    case "Int32": {
-                        var Conditions = [];
-                        var values = $(this).val().split('@');
-                        if (values.length == 3) {
-                            if (values[0] != "") {
-                                Conditions.push({ Property: $(this).attr("name"), Value: values[0], DataType: $(this).attr("DataType"), OperatorType: 3, ConditionType: 1 });
-                            }
-                            if (values[1] != "") {
-                                Conditions.push({ Property: $(this).attr("name"), Value: values[1], DataType: $(this).attr("DataType"), OperatorType: 5, ConditionType: 1 });
-                            }
-                            if (values[2] != "") {
-                                Conditions.push({ Property: $(this).attr("name"), Value: values[2], DataType: $(this).attr("DataType"), OperatorType: 1, ConditionType: 1 });
-                            }
-                            Group.push({ Conditions: Conditions });
-                        }
-                        break;
-                    }
-                    case "DateTime": {
-                        var Conditions = [];
-                        var values = $(this).val().split('@');
-                        if (values.length == 3) {
-                            if (values[0] != "") {
-                                if (values[0].indexOf(":") < 0) {
-                                    values[0] += " 0:0:0";
-                                }
-                                Conditions.push({ Property: $(this).attr("name"), Value: values[0], DataType: $(this).attr("DataType"), OperatorType: 3, ConditionType: 1 });
-                            }
-                            if (values[1] != "") {
-                                if (values[1].indexOf(":") < 0) {
-                                    values[1] += " 23:59:59";
-                                }
-                                Conditions.push({ Property: $(this).attr("name"), Value: values[1], DataType: $(this).attr("DataType"), OperatorType: 5, ConditionType: 1 });
-                            }
-                            if (values[2] != "") {
-                                Conditions.push({ Property: $(this).attr("name"), Value: values[2] + " 0:00:00", DataType: $(this).attr("DataType"), OperatorType: 3, ConditionType: 1 });
-
-                                Conditions.push({ Property: $(this).attr("name"), Value: values[2] + " 23:59:59", DataType: $(this).attr("DataType"), OperatorType: 5, ConditionType: 1 });
-                            }
-                            Group.push({ Conditions: Conditions });
-                        }
-                        break;
-                    }
-                    default: {
-                        Cond.push({ Property: $(this).attr("name"), Value: $(this).val(), DataType: $(this).attr("DataType"), OperatorType: $(this).attr("OperatorType"), ConditionType: 1 });
-                        break;
-                    }
-                }
-            }
-        });
-        $.ajax({
-            url: dataUrl + (queryString === "" ? "" : "?" + queryString),
-            data: { ConditionGroups: Group, Conditions: Cond, PageIndex: handlers.getPageIndex(), PageSize: handlers.getPageSize(), OrderBy: orderArray },
-            type: "post",
-            success: function (data) {
-                isLoading = false;
-                try {
-                    if (typeof data === "string") {
-                        jsonData = eval("(" + data + ")");
-                    } else {
-                        jsonData = data;
-                    }
-                }
-                catch (ex) {
-                    alert(ex.message);
-                    return false;
-                }
-                handlers.initGridData(jsonData);
-                grid.find("#PageGo").removeClass("InnerLonding");
-            },
-            error: function (msg) {
-                isLoading = false;
-                grid.find("#PageGo").removeClass("InnerLonding");
-                gridBody.html("<h1>Grid.Ajax.Error:" + msg.status + "</h1>");
-            }
-        }, "json");
     }
     handlers.loadPage = function (index) {
         handlers.setPageIndex(index);
@@ -295,10 +184,9 @@ Easy.Grid = (function (json) {
                             }
                         case "Select":
                             {
-                                input = "<input class='condition' type='hidden' DataType='" + item.DataType + "'  name='" + item.Name + "' OperatorType='1' title='" + item.DisplayName + "'/>";
                                 var option = "<option></option>";
                                 option += item.Data || "";
-                                input += "<select class='easy' multiple='multiple' >" + option + "</select>";
+                                input = "<select class='easy condition' multiple='multiple' name='" + item.Name + "' DataType='" + item.DataType + "'  name='" + item.Name + "' OperatorType='1' title='" + item.DisplayName + "'>" + option + "</select>";
                                 break;
                             }
                         case "None":
@@ -314,52 +202,14 @@ Easy.Grid = (function (json) {
                     trH += "<th style='width:" + colWidth + "px'><div class='searchbox'>" + input + "</div></th>";
                 }
             }
-            trH += "<th style='width:20px'></th>";
             trH += " </tr>";
             search.html(trH);
             gridHeader.find("table").append(search);
-            search.find("input").keydown(function (e) {
-                if (e.keyCode === 13) {
-                    handlers.reload();
-                }
-            });
-            search.find(".RangeAdd").click(showRangeCondition);
-            search.find(".RangeClear").click(function() {
-                $(this).parent().find("input.condition").val("");
-            });
-            search.find(".ClearSearch").click(handlers.clearCondition);
-            search.find("select").change(handlers.reload);
-            if (Easy.UI) {
-                Easy.UI.DropDownList();
-                Easy.UI.MultiSelect();
-                Easy.UI.CheckBox();
-                Easy.UI.NumberInput();
-            }
+            handlers.multiSelect();
         } else {
             search.hide();
         }
-        gridHeader.find(".CheckBoxAll").click(function () {
-            gridBody.find("tr").find(".CheckBoxItem").prop("checked", $(this).prop("checked"));
-            checkBack();
-        });
-        gridHeader.find("th[col]").click(function () {
-            var deCol = $(this).attr("col");
-            if (deCol == orderCol) {
-                orderType = orderType == 1 ? 2 : 1;
-            }
-            else {
-                orderCol = deCol;
-                orderType = 1;
-            }
-            orderArray = [];
-            orderArray.push({ OrderCol: orderCol, OrderType: orderType });
-            gridHeader.find("th[col]").removeAttr("class");
-            if (orderType == 1)
-                $(this).addClass("OrderUp");
-            else $(this).addClass("OrderDown");
-            handlers.reload();
-            return false;
-        });
+
         if (!constHeight) {
             $(window).resize(function () {
                 Easy.Processor(function () { height(grid.parent().height()); }, 200);
@@ -380,76 +230,184 @@ Easy.Grid = (function (json) {
         var tableBody = $("<table class='body' cellpadding='0' cellspacing='0'></table>");
         var trBs = "";
         var width = 0;
-        for (var j = 0; j < gdata.Rows.length; j++) {
-            var cl = "trBe";
-            if (j % 2 === 0)
-                cl = "trAf";
-            var trB = "<tr class='" + cl + "'>";
-            if (checkBox && chVale) {
-                trB += "<td style='width:20px' align='center'><input type='checkbox' class='CheckBoxItem' val='" + gdata.Rows[j][chVale] + "' /></td>";
-                if (j === 0) {
-                    width += 20;
-                }
-            }
-            for (var p in model) {
-                if (model.hasOwnProperty(p)) {
-                    if (model[p].Hidden) {
-                        continue;
-                    }
-                    var dataWidth = 150;
-                    if (model[p].Width) {
-                        dataWidth = model[p].Width;
-                    }
-                    trB += "<td " + (j === 0 ? "style='width:" + dataWidth + "px'" : "") + "><div class='coData' style='width:" + dataWidth + "px'>" + getTempleteValue(p, gdata.Rows[j]) + "</div></td>";
+        if (gdata.Rows.length > 0) {
+            for (var j = 0; j < gdata.Rows.length; j++) {
+                var cl = "trBe";
+                if (j % 2 === 0)
+                    cl = "trAf";
+                var trB = "<tr class='" + cl + "'>";
+                if (checkBox && chVale) {
+                    trB += "<td style='width:20px' align='center'><input type='checkbox' class='CheckBoxItem' val='" + gdata.Rows[j][chVale] + "' /></td>";
                     if (j === 0) {
-                        width += dataWidth;
+                        width += 20;
                     }
                 }
+                for (var p in model) {
+                    if (model.hasOwnProperty(p)) {
+                        if (model[p].Hidden) {
+                            continue;
+                        }
+                        var dataWidth = 150;
+                        if (model[p].Width) {
+                            dataWidth = model[p].Width;
+                        }
+                        trB += "<td " + (j === 0 ? "style='width:" + dataWidth + "px'" : "") + "><div class='coData' style='width:" + dataWidth + "px'>" + handlers.getTempleteValue(p, gdata.Rows[j]) + "</div></td>";
+                        if (j === 0) {
+                            width += dataWidth;
+                        }
+                    }
+                }
+                trB += "</tr>";
+                trBs += trB;
+                if (rowDataBindEventHandler) {
+                    rowDataBindEventHandler.call(this, gdata.Rows[j]);
+                }
             }
-            trB += "</tr>";
-            trBs += trB;
-            if (rowDataBindEventHandler) {
-                rowDataBindEventHandler.call(this, gdata.Rows[j]);
-            }
         }
-        tableBody.html("<tbody>" + trBs + "</tbody>");
-        gridBody.html(tableBody);
-        tableBody.width(width);
-        gridBody.find("tr").find(".CheckBoxItem").click(function () {
-            checkBack();
-        });
-        handlers.setPageIndex(gdata.PageIndex);
-
-        allPage = gdata.RecordCount / gdata.PageSize;
-        allPage += gdata.RecordCount % gdata.PageSize === 0 ? 0 : 1;
-        grid.find("#PageInfo").html("[" + (gdata.PageIndex + 1) + "/" + allPage + "]");
-        grid.find("#Count").html(Easy.GridLan.AllRecord.replace("{0}", gdata.RecordCount));
-        gridBody.scrollLeft(scrollLeft);
-        if (Easy.UI) {
-            Easy.UI.CheckBox();
-        }
-        if (dataSuccessEventHandler != null) {
-            dataSuccessEventHandler.call();
-        }
-        if (gdata.Rows.length == 0) {
-            var emptyTable = "<table><tr>";
+        else {
+            var emptyTr = "<tr>";
             var noData = Easy.GridLan.NoData;
             for (var item in model) {
                 if (model.hasOwnProperty(item)) {
                     if (model[item].Hidden) {
                         continue;
                     }
-                    var colWidth = 150;
-                    if (model[item].Width) {
-                        colWidth = model[item].Width;
-                    }
-                    emptyTable += "<td style='width:" + colWidth + "px;border-bottom:none;'><div class='coData'>" + noData + "</div></td>";
+                    var colWidth = model[item].Width || 150;
+                    width += colWidth;
+                    emptyTr += "<td style='width:" + colWidth + "px;border-bottom:none;'><div class='coData'>" + noData + "</div></td>";
                     noData = "";
                 }
             }
-            emptyTable += "</tr></table>";
-            gridBody.html(emptyTable);
+            emptyTr += "</tr>";
+            trBs += emptyTr;
         }
+        tableBody.html("<tbody>" + trBs + "</tbody>");
+        gridBody.html(tableBody);
+        tableBody.width(width);
+
+        handlers.setPageIndex(gdata.PageIndex);
+
+        allPage = Math.floor(gdata.RecordCount / gdata.PageSize);
+        allPage += gdata.RecordCount % gdata.PageSize === 0 ? 0 : 1;
+        grid.find("#PageInfo").html("[" + (gdata.PageIndex + 1) + "/" + allPage + "]");
+        grid.find("#Count").html(Easy.GridLan.AllRecord.replace("{0}", gdata.RecordCount));
+        gridBody.scrollLeft(scrollLeft);
+
+        if (dataSuccessEventHandler != null) {
+            dataSuccessEventHandler.call();
+        }
+    }
+    handlers.reload = function () {
+        if (isLoading) {
+            return;
+        }
+        isLoading = true;
+        grid.find("#PageGo").addClass("InnerLonding");
+        scrollLeft = gridBody.scrollLeft();
+        var groups = [];
+        var conditions = [];
+        search.find(".condition").each(function () {
+            if ($(this).val()) {
+                switch ($(this).attr("DataType")) {
+                    case "Select":
+                        {
+                            var selectConditions = [];
+                            var select = $(this);
+                            $("option:selected", this).each(function (i) {
+                                selectConditions.push({ Property: select.attr("name"), Value: $(this).val(), DataType: select.attr("DataType"), OperatorType: 1, ConditionType: 2 });
+                            });
+                            groups.push({ Conditions: selectConditions });
+                            break;
+                        }
+                    case "Decimal":
+                    case "Single":
+                    case "Int16":
+                    case "Int64":
+                    case "Int32": {
+                        var numConditions = [];
+                        var numValues = $(this).val().split('@');
+                        if (numValues.length === 3) {
+                            if (numValues[0]) {
+                                numConditions.push({ Property: $(this).attr("name"), Value: numValues[0], DataType: $(this).attr("DataType"), OperatorType: 3, ConditionType: 1 });
+
+                            }
+                            if (numValues[1]) {
+                                numConditions.push({ Property: $(this).attr("name"), Value: numValues[1], DataType: $(this).attr("DataType"), OperatorType: 5, ConditionType: 1 });
+
+                            }
+                            if (numValues[2]) {
+                                numConditions.push({ Property: $(this).attr("name"), Value: numValues[2], DataType: $(this).attr("DataType"), OperatorType: 1, ConditionType: 1 });
+
+                            }
+                            groups.push({ Conditions: numConditions });
+                        }
+                        break;
+                    }
+                    case "DateTime": {
+                        var dateConditions = [];
+                        var values = $(this).val().split('@');
+                        if (values.length === 3) {
+                            if (values[0]) {
+                                if (values[0].indexOf(":") < 0) {
+                                    values[0] += " 0:0:0";
+                                }
+                                dateConditions.push({ Property: $(this).attr("name"), Value: values[0], DataType: $(this).attr("DataType"), OperatorType: 3, ConditionType: 1 });
+
+                            }
+                            if (values[1]) {
+                                if (values[1].indexOf(":") < 0) {
+                                    values[1] += " 23:59:59";
+                                }
+                                dateConditions.push({ Property: $(this).attr("name"), Value: values[1], DataType: $(this).attr("DataType"), OperatorType: 5, ConditionType: 1 });
+
+                            }
+                            if (values[2]) {
+                                var hasTime = values[2].indexOf(":") >= 0;
+                                dateConditions.push({ Property: $(this).attr("name"), Value: values[2] + hasTime ? "" : " 0:00:00", DataType: $(this).attr("DataType"), OperatorType: 3, ConditionType: 1 });
+
+                                dateConditions.push({ Property: $(this).attr("name"), Value: values[2] + hasTime ? "" : " 23:59:59", DataType: $(this).attr("DataType"), OperatorType: 5, ConditionType: 1 });
+
+                            }
+                            groups.push({ Conditions: dateConditions });
+
+                        }
+                        break;
+                    }
+                    default:
+                        {
+                            conditions.push({ Property: $(this).attr("name"), Value: $(this).val(), DataType: $(this).attr("DataType"), OperatorType: $(this).attr("OperatorType"), ConditionType: 1 });
+                            break;
+                        }
+                }
+            }
+        });
+        $.ajax({
+            url: dataUrl + (queryString === "" ? "" : "?" + queryString),
+            data: { ConditionGroups: groups, Conditions: conditions, PageIndex: handlers.getPageIndex(), PageSize: handlers.getPageSize(), OrderBy: orderArray },
+            type: "post",
+            success: function (data) {
+                isLoading = false;
+                try {
+                    if (typeof data === "string") {
+                        jsonData = eval("(" + data + ")");
+                    } else {
+                        jsonData = data;
+                    }
+                }
+                catch (ex) {
+                    alert(ex.message);
+                    return false;
+                }
+                handlers.initGridData(jsonData);
+                grid.find("#PageGo").removeClass("InnerLonding");
+                return true;
+            },
+            error: function (msg) {
+                isLoading = false;
+                grid.find("#PageGo").removeClass("InnerLonding");
+                gridBody.html("<h1>Grid.Ajax.Error:" + msg.status + "</h1>");
+            }
+        }, "json");
     }
     handlers.clearCondition = function () {
         search.find("input.condition").val("");
@@ -492,69 +450,7 @@ Easy.Grid = (function (json) {
             Easy.ShowMessageBox(Easy.GridLan.DeleteTitle, Easy.GridLan.SelectWorm);
         }
     }
-
-    gridBody.scroll(function () {
-        gridHeader.scrollLeft($(this).scrollLeft());
-    });
-    grid.find("#GridPageIdex").keyup(function (e) {
-        if (e.keyCode == 13) {
-            grid.find("#PageGo").click();
-        }
-    });
-    grid.find("#GridPageSize").change(function () {
-        handlers.loadPage(0);
-    });
-    grid.find("#PageGo").click(handlers.reload);
-    grid.find("#PageFirst").click(function () {
-        handlers.loadPage(0);
-    });
-    grid.find("#PagePre").click(function () {
-        var pageIndex = handlers.getPageIndex();
-        if (pageIndex > 0) {
-            handlers.loadPage(pageIndex - 1);
-        }
-    });
-    grid.find("#PageNext").click(function () {
-        var pageIndex = handlers.getPageIndex();
-        if (pageIndex < allPage - 1) {
-            handlers.loadPage(pageIndex + 1);
-        }
-    });
-    grid.find("#PageLast").click(function () {
-        handlers.loadPage(allPage - 1);
-    });
-    grid.find(".GridDelete").click(handlers.deleteData);
-
-
-    function checkBack() {
-        var select = [];
-        grid.find(".CheckBoxItem:input:checked").each(function (i) {
-            if ($(this).prop("checked") && jsonData && jsonData.Rows) {
-                select.push(jsonData.Rows[i]);
-            }
-        });
-        if (checkBoxEventHandler) {
-            checkBoxEventHandler.call(this, select);
-        }
-    }
-    function getTempleteValue(columnName, data) {
-        var ind = templetes.ValueIndex(columnName);
-        if (ind != -1) {
-            var reStr = templeteValues[ind];
-            for (var item in data) {
-                while (reStr.indexOf("{" + item + "}") >= 0) {
-                    reStr = reStr.replace("{" + item + "}", data[item]);
-                }
-            }
-            return reStr;
-        }
-        else {
-            return data[columnName];
-        }
-    }
-
-    /*条件窗口*/
-    function showRangeCondition() {
+    handlers.showRangeCondition = function () {
         var th = $(this);
         if (th.data("shown")) {
             return;
@@ -569,12 +465,13 @@ Easy.Grid = (function (json) {
         ].join(""));
 
         var effect = th.parent().find("input.condition");
-        gridBody.append(rangeBox);
-        var normalLeft = th.offset().left - gridBody.offset().left + gridBody.scrollLeft();
-        if (normalLeft + rangeBox.outerWidth() > grid.outerWidth() + gridBody.scrollLeft()) {
-            normalLeft -= normalLeft + rangeBox.outerWidth() - grid.outerWidth() - gridBody.scrollLeft() + 3;
+        th.parent().append(rangeBox);
+        var normalLeft = th.position().left;
+        if (normalLeft + rangeBox.outerWidth() > grid.outerWidth()) {
+            normalLeft = grid.outerWidth() - rangeBox.outerWidth();
         }
         rangeBox.css("left", normalLeft);
+        rangeBox.css("top", th.position().top + th.outerHeight());
         switch (effect.attr("DataType")) {
             case "DateTime": {
                 var dateFormat = effect.attr("Format");
@@ -582,9 +479,6 @@ Easy.Grid = (function (json) {
                     dateFormat = "YYYY/MM/DD";
                 }
                 rangeBox.find(".form-control").attr("DateFormat", dateFormat).attr("ValueType", "Date").addClass("Date");
-                if (Easy.UI) {
-                    Easy.UI.DateInput(rangeBox.find("input"));
-                }
                 break;
             }
             case "Decimal":
@@ -593,9 +487,6 @@ Easy.Grid = (function (json) {
             case "Int64":
             case "Int32": {
                 rangeBox.find("input").attr("ValueType", "Num").addClass("Number");
-                if (Easy.UI) {
-                    Easy.UI.NumberInput();
-                }
                 break;
             }
         }
@@ -621,7 +512,7 @@ Easy.Grid = (function (json) {
             closeThread = setTimeout(function () {
                 th.data("shown", false);
                 rangeBox.remove();
-            }, 50);
+            }, 100);
         }
 
         rangeBox.find("input").on("keyup", function (e) {
@@ -641,6 +532,196 @@ Easy.Grid = (function (json) {
             closeThread = null;
         }).on("blur", removeConditionBox).focus();
     }
+    handlers.getTempleteValue = function (columnName, data) {
+        var ind = templetes.ValueIndex(columnName);
+        if (ind !== -1) {
+            var reStr = templeteValues[ind];
+            for (var item in data) {
+                if (data.hasOwnProperty(item)) {
+                    while (reStr.indexOf("{" + item + "}") >= 0) {
+                        reStr = reStr.replace("{" + item + "}", data[item]);
+                    }
+                }
+            }
+            return reStr;
+        }
+        else {
+            return data[columnName];
+        }
+    }
+    handlers.multiSelect = function () {
+        $("select.easy[multiple]", gridHeader).each(function () {
+            if ($(this).attr("easy")) {
+                return;
+            }
+            $(this).attr("easy", "easy");
+            var oldSelect = $(this);
+            var selectList = $(["<div class='DropDownList'>",
+            "<div class='TextPlace' title=" + oldSelect.attr("title") + "><span></span></div><div class='DropIcon'>&nbsp;</div>",
+            "<div style='clear:both'></div>",
+            "</div>"].join(""));
+            selectList.insertAfter(oldSelect);
+            selectList.css("width", $(this).outerWidth());
+            selectList.on("click", ".Clear", function () {
+                $("option", oldSelect).prop("selected", false);
+                oldSelect.change();
+                selectList.removeClass("Open");
+                options.hide();
+                return false;
+            });
+            oldSelect.change(function () {
+                var text = "";
+                $("option:checked", oldSelect).each(function () {
+                    if (!text)
+                        text += $(this).text();
+                    else text += "," + $(this).text();
+                });
+                if (text) {
+                    var textplace = selectList.find(".TextPlace");
+                    textplace.attr("title", text);
+                    textplace.html("<span>" + text + "</span><div class='Clear'></div>");
+                }
+                else selectList.find(".TextPlace").html("<span>&nbsp;</span>");
+                selectList.find(".TextPlace").css("position", "relative");
+            });
+            var options = $("<ul class='DropDownList_Options dropdown-menu' tabindex='-1'></ul>");
+            var clickIn;
+            options.on("blur", function () {
+                if (!clickIn) {
+                    selectList.removeClass("Open");
+                    options.hide();
+                }
+                clickIn = false;
+            });
+            options.on("mousedown", function () {
+                clickIn = true;
+            });
+            options.on("click", ".checkbox input[type=checkbox]", function () {
+                var val = $(this).val();
+                var checked = $(this).prop("checked");
+                $("option", oldSelect).each(function () {
+                    if ($(this).val() === val) {
+                        $(this).prop("selected", checked);
+                    }
+                });
+                oldSelect.trigger("change");
+                options.focus();
+            });
+            oldSelect.hide();
+            options.hide();
+            options.insertAfter(selectList);
+            selectList.click(function () {
+                if (selectList.hasClass("Open")) {
+                    selectList.removeClass("Open");
+                    options.hide();
+                    return true;
+                }
+                selectList.addClass("Open");
+                var lists = [];
+                $("option", oldSelect).each(function () {
+                    var val = $(this).attr("value");
+                    if (val) {
+                        var txt = $(this).text();
+                        var selected = $(this).prop("selected");
+                        if (selected) {
+                            lists.push("<li val='" + val + "'><a><label class='checkbox'><input type='checkbox' checked='checked' value='" + val + "' />" + txt + "</label></a></li>");
+                        } else {
+                            lists.push("<li val='" + val + "'><a><label class='checkbox'><input type='checkbox' value='" + val + "' />" + txt + "</label></a></li>");
+                        }
+                    }
+                });
+                options.empty();
+                options.append(lists.join(""));
+                options.show();
+                options.focus();
+                options.css("left", $(this).position().left);
+                options.css("top", $(this).position().top + $(this).outerHeight());
+                return true;
+            });
+        });
+    }
+
+    handlers.checkBack = function () {
+        var select = [];
+        grid.find(".CheckBoxItem:input:checked").each(function (i) {
+            if ($(this).prop("checked") && jsonData && jsonData.Rows) {
+                select.push(jsonData.Rows[i]);
+            }
+        });
+        if (checkBoxEventHandler) {
+            checkBoxEventHandler.call(this, select);
+        }
+    }
+    gridBody.scroll(function () {
+        gridHeader.scrollLeft($(this).scrollLeft());
+    });
+
+    search.on("keydown", function (e) {
+        if (e.keyCode === 13) {
+            handlers.reload();
+        }
+    });
+    search.on("click", ".RangeAdd", handlers.showRangeCondition);
+    search.on("click", ".RangeClear", function () {
+        $(this).parent().find("input.condition").val("");
+        $(this).parent().removeClass("bg-info");
+        handlers.reload();
+    });
+    search.on("click", ".ClearSearch", handlers.clearCondition);
+    search.on("change", "select", handlers.reload);
+
+    grid.on("keyup", "#GridPageIdex", function (e) {
+        if (e.keyCode === 13) {
+            grid.find("#PageGo").click();
+        }
+    });
+    grid.on("change", "#GridPageSize", function () {
+        handlers.loadPage(0);
+    });
+    grid.on("click", "#PageGo", handlers.reload);
+    grid.on("click", "#PageFirst", function () {
+        handlers.loadPage(0);
+    });
+    grid.on("click", "#PagePre", function () {
+        var pageIndex = handlers.getPageIndex();
+        if (pageIndex > 0) {
+            handlers.loadPage(pageIndex - 1);
+        }
+    });
+    grid.on("click", "#PageNext", function () {
+        var pageIndex = handlers.getPageIndex();
+        if (pageIndex < allPage - 1) {
+            handlers.loadPage(pageIndex + 1);
+        }
+    });
+    grid.on("click", "#PageLast", function () {
+        handlers.loadPage(allPage - 1);
+    });
+    grid.on("click", ".GridDelete", handlers.deleteData);
+    gridBody.on("click", "CheckBoxItem", handlers.checkBack);
+    gridHeader.on("click", ".CheckBoxAll", function () {
+        gridBody.find("tr").find(".CheckBoxItem").prop("checked", $(this).prop("checked"));
+        handlers.checkBack();
+    });
+    gridHeader.on("click", "th[col]", function () {
+        var deCol = $(this).attr("col");
+        if (deCol === orderCol) {
+            orderType = orderType === 1 ? 2 : 1;
+        }
+        else {
+            orderCol = deCol;
+            orderType = 1;
+        }
+        orderArray = [];
+        orderArray.push({ OrderCol: orderCol, OrderType: orderType });
+        gridHeader.find("th[col]").removeAttr("class");
+        if (orderType === 1)
+            $(this).addClass("OrderUp");
+        else $(this).addClass("OrderDown");
+        handlers.reload();
+        return false;
+    });
+
     /*public function*/
 
 

@@ -21,7 +21,6 @@ namespace Easy
                 .Include("~/Scripts/jquery.validate.unobtrusive.js")
                 .Include("~/Content/themes/admin/script/admin.js")
                 .Include("~/Scripts/EasyPlug/Easy.Grid.js")
-                .Include("~/Scripts/EasyPlug/Easy.UI.js")
                 .Include("~/Scripts/jstree/src/jstree.js")
                 .Include("~/Scripts/jstree/src/jstree.checkbox.js")
                 .Include("~/Scripts/jstree/src/jstree.contextmenu.js")
