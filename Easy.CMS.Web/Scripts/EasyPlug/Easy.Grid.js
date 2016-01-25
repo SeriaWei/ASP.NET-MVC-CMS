@@ -251,7 +251,7 @@ Easy.Grid = (function (json) {
                         if (model[p].Width) {
                             dataWidth = model[p].Width;
                         }
-                        trB += "<td " + (j === 0 ? "style='width:" + dataWidth + "px'" : "") + "><div class='coData' style='width:" + dataWidth + "px'>" + handlers.getTempleteValue(p, gdata.Rows[j]) + "</div></td>";
+                        trB += "<td " + (j === 0 ? "style='width:" + dataWidth + "px'" : "") + "><div class='coData' style='width:" + dataWidth + "px'>" + handlers.getTempleteValue(p, gdata.Rows[j], model[p]) + "</div></td>";
                         if (j === 0) {
                             width += dataWidth;
                         }
@@ -297,6 +297,20 @@ Easy.Grid = (function (json) {
             dataSuccessEventHandler.call();
         }
     }
+    handlers.dataFormater = {
+        "Boolean": function (value) {
+            if (value === 'True') {
+                return Easy.GridLan.Yes;
+            }
+            return Easy.GridLan.No;
+        },
+        "None": function (value) {
+            return value;
+        },
+        Provider: function (m) {
+            return this[m.DataType] || this.None;
+        }
+    };
     handlers.reload = function () {
         if (isLoading) {
             return;
@@ -478,7 +492,11 @@ Easy.Grid = (function (json) {
                 if (!dateFormat) {
                     dateFormat = "YYYY/MM/DD";
                 }
-                rangeBox.find(".form-control").attr("DateFormat", dateFormat).attr("ValueType", "Date").addClass("Date");
+                rangeBox
+                    .find(".form-control")
+                    .attr("ValueType", "Date")
+                    .addClass("Date")
+                    .datetimepicker({ locale: "zh_cn", format: "YYYY/MM/DD" });
                 break;
             }
             case "Decimal":
@@ -515,7 +533,7 @@ Easy.Grid = (function (json) {
             }, 100);
         }
 
-        rangeBox.find("input").on("keyup", function (e) {
+        rangeBox.find("input").on("keydown", function (e) {
             if (e.keyCode === 13) {
                 removeConditionBox();
                 handlers.reload();
@@ -532,21 +550,21 @@ Easy.Grid = (function (json) {
             closeThread = null;
         }).on("blur", removeConditionBox).focus();
     }
-    handlers.getTempleteValue = function (columnName, data) {
+    handlers.getTempleteValue = function (columnName, data, m) {
         var ind = templetes.ValueIndex(columnName);
         if (ind !== -1) {
             var reStr = templeteValues[ind];
             for (var item in data) {
                 if (data.hasOwnProperty(item)) {
                     while (reStr.indexOf("{" + item + "}") >= 0) {
-                        reStr = reStr.replace("{" + item + "}", data[item]);
+                        reStr = reStr.replace("{" + item + "}", handlers.dataFormater.Provider(m)(data[item]));
                     }
                 }
             }
             return reStr;
         }
         else {
-            return data[columnName];
+            return handlers.dataFormater.Provider(m)(data[columnName]);
         }
     }
     handlers.multiSelect = function () {

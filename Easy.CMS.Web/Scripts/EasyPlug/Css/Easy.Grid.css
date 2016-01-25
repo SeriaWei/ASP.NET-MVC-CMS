@@ -87,24 +87,20 @@
     background: white;
 }
 
-    .EasyGrid .GridContent .GridSearch input[type='text'] {
-        display: block;
-        font-weight: normal;
-    }
-
     .EasyGrid .GridContent .GridSearch .searchbox {
         padding: 2px 0;
     }
 
-.EasyGrid input[type='text'] {
+
+
+.EasyGrid .GridSearch .condition {
+    width: 90%;
     border: 1px solid #DDD;
     outline: none;
     margin: 0 auto;
     padding: 2px;
-}
-
-.EasyGrid .GridSearch .condition {
-    width: 90%;
+    line-height: 18px;
+    height:24px;
 }
 
 .EasyGrid .GridContent .GridSearch th {
@@ -283,16 +279,8 @@
 }
 
 .DropDownList_Options {
+    max-height: 200px;
     overflow: auto;
-    font-size: 13px;
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    margin: 0px;
-    padding: 0px;
-    background-color: white;
-    border: 1px solid #CCC;
-    cursor: pointer;
     outline:0;
 }
 
