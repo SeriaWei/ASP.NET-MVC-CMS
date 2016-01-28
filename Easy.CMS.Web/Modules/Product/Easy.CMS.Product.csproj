@@ -124,6 +124,7 @@
     <Compile Include="ActionFilter\ViewData_ArticleTypeAttribute.cs" />
     <Compile Include="Controllers\ProductCategoryController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="FilterConfig.cs" />
     <Compile Include="Models\ProductCategory.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\ProductCategoryWidget.cs" />

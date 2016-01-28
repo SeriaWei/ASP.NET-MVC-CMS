@@ -127,6 +127,7 @@
     <Compile Include="ArticlePlug.cs" />
     <Compile Include="Controllers\ArticleController.cs" />
     <Compile Include="Controllers\ArticleTypeController.cs" />
+    <Compile Include="FilterConfig.cs" />
     <Compile Include="Models\ArticleDetailWidget.cs" />
     <Compile Include="Models\ArticleEntity.cs" />
     <Compile Include="Models\ArticleListWidget.cs" />

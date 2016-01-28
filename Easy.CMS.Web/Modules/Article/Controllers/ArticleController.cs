@@ -20,41 +20,17 @@ namespace Easy.CMS.Article.Controllers
         {
         }
 
-        [ViewData_ArticleType]
-        public override ActionResult Index()
-        {
-            return base.Index();
-        }
 
-        [ViewData_ArticleType]
-        public override ActionResult Create()
-        {
-            return base.Create();
-        }
-        [HttpPost, ViewData_ArticleType]
-        public override ActionResult Create(ArticleEntity entity)
-        {
-            return base.Create(entity);
-        }
-        [ViewData_ArticleType]
-        public override ActionResult Edit(long Id)
-        {
-            return base.Edit(Id);
-        }
-        [HttpPost, ViewData_ArticleType]
+        [HttpPost]
         public override ActionResult Edit(ArticleEntity entity)
         {
             var result = base.Edit(entity);
             if (entity.ActionType == ActionType.Publish)
             {
-                Service.Publish(entity.ID??0);
+                Service.Publish(entity.ID ?? 0);
             }
             return result;
         }
-        [ViewData_ArticleType]
-        public override JsonResult GetList()
-        {
-            return base.GetList();
-        }
+      
     }
 }

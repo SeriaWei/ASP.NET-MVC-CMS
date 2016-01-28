@@ -18,28 +18,7 @@ namespace Easy.CMS.Product.Controllers
             : base(new ProductService())
         {
         }
-
-        [ViewData_ProductCategory]
-        public override ActionResult Index()
-        {
-            return base.Index();
-        }
-
-        [ViewData_ProductCategory]
-        public override ActionResult Create()
-        {
-            return base.Create();
-        }
-        [HttpPost, ViewData_ProductCategory]
-        public override ActionResult Create(Models.Product entity)
-        {
-            return base.Create(entity);
-        }
-        [ViewData_ProductCategory]
-        public override ActionResult Edit(long Id)
-        {
-            return base.Edit(Id);
-        }
+       
         [HttpPost, ViewData_ProductCategory]
         public override ActionResult Edit(Models.Product entity)
         {
@@ -49,11 +28,6 @@ namespace Easy.CMS.Product.Controllers
                 Service.Publish(entity.ID ?? 0);
             }
             return result;
-        }
-        [HttpPost, ViewData_ProductCategory]
-        public override JsonResult GetList()
-        {
-            return base.GetList();
         }
     }
 }

@@ -4,8 +4,6 @@
 @{
     Style.Reqiured("admin").AtHead();
     Script.Reqiured("admin").AtFoot();
-    var applicationContext = ServiceLocator.Current.GetInstance<IApplicationContext>();
-
     var plugs = ServiceLocator.Current.GetAllInstances<PluginBase>();
     List<AdminMenu> menus = new List<AdminMenu>();
     plugs.Each(m =>
@@ -64,8 +62,8 @@
         <div class="">
             <div class="navbar-header">
                 <div class="userInfo">
-                    <img src="@Url.PathContent(applicationContext.CurrentUser.PhotoUrl)" class="img-circle"/>
-                    <strong>@applicationContext.CurrentUser.UserName</strong>
+                    <img src="@Url.PathContent(ApplicationContext.CurrentUser.PhotoUrl)" class="img-circle"/>
+                    <strong>@ApplicationContext.CurrentUser.UserName</strong>
                 </div>
             </div>
             <ul class="nav navbar-nav">
