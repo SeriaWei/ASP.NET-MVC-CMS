@@ -1,53 +1,58 @@
 ﻿/// <reference path="Easy.js" />
 
 var Easy = Easy || {};
-Easy.GridLan = {
-    PageSize: "分页大小",
-    CurrentPage: "当前",
-    PageGo: "刷新",
-    FirstPage: "首页",
-    PrePage: "上一页",
-    NextPage: "下一页",
-    LastPage: "尾页",
-    NoData: "无相关数据...",
-    AllRecord: "{0} 条记录",
-    DeleteTitle: "提示",
-    DeleteConfirm: "确定要删除选中项吗？",
-    SelectWorm: "请至少选择一项进行操作！",
-    Delete: "删除选中项",
-    Yes: "是",
-    No: "否"
-}
-Easy.Grid = (function (json) {
-    var dataUrl = "";
-    var ele;
-    var chVale;
-    var templetes = new Array();
-    var templeteValues = new Array();
-    var model = {};
-    var canSearch = false;
-    var rowDataBindEventHandler;
-    var checkBoxEventHandler;
-    var dataSuccessEventHandler;
-    var checkBox = false;
-    var orderArray = [];
-    var orderCol = "";
-    var orderType = 1;
-    var scrollLeft = 0;
-    var constHeight = false;
-    var isLoading = false;
-    var queryString = "";
-    var deleteUrl = "";
-    var heightFix = 15;
-    var jsonData;
-    var allPage = 0;
+Easy.Grid = (function () {
+    var gridOptions = {
+        text: {
+            PageSize: "分页大小",
+            CurrentPage: "当前",
+            Refresh: "刷新",
+            FirstPage: "首页",
+            PrePage: "上一页",
+            NextPage: "下一页",
+            LastPage: "尾页",
+            NoData: "无相关数据...",
+            AllRecord: "{0} 条记录",
+            DeleteTitle: "提示",
+            DeleteConfirm: "确定要删除选中项吗？",
+            SelectWorm: "请至少选择一项进行操作！",
+            Delete: "删除选中项",
+            Yes: "是",
+            No: "否"
+        },
+        dataUrl: "",
+        chVale: null,
+        templetes: new Array(),
+        templeteValues: new Array(),
+        model: {},
+        canSearch: false,
+        rowDataBindEventHandler: null,
+        checkBoxEventHandler: null,
+        dataSuccessEventHandler: null,
+        checkBox: false,
+        orderArray: [],
+        orderCol: "",
+        orderType: 1,
+        scrollLeft: 0,
+        constHeight: false,
+        isLoading: false,
+        queryString: "",
+        deleteUrl: "",
+        heightFix: 15,
+        jsonData: null,
+        allPage: 0
+    };
+    
 
-    var grid = $(["<div class='EasyGrid panel panel-default'>",
+    var grid = {};
+    var openMethod = {};
+
+    grid.body = $(["<div class='EasyGrid panel panel-default'>",
     "<div class='GridContent'><div class='GridToolBar panel-heading'></div><div class='GridHeader'></div><div class='GridBody'></div></div>",
     "<div class='Gridfoot'>",
-    "<div class='GridDelete' title='" + Easy.GridLan.Delete + "'>&nbsp;</div>",
+    "<div class='GridDelete' title='" + gridOptions.text.Delete + "'>&nbsp;</div>",
     "<label>",
-    Easy.GridLan.PageSize,
+    gridOptions.text.PageSize,
     "</label>",
     "<select id='GridPageSize' easy='easy'>",
     "<option value='10'>10</option>",
@@ -57,96 +62,86 @@ Easy.Grid = (function (json) {
     "<option value='100'>100</option>",
     "</select>",
     "<label for='GridPageIdex'>",
-    Easy.GridLan.CurrentPage,
+    gridOptions.text.CurrentPage,
     "</label><input id='GridPageIdex' type='text' value='1' ValueType='Num' />",
     "<label id='PageInfo'></label>",
     "<label id='Count'></label>",
-    "<a id='PageGo' class='glyphicon glyphicon-repeat' title='" + Easy.GridLan.PageGo + "'>",
+    "<a id='PageGo' class='glyphicon glyphicon-repeat' title='" + gridOptions.text.Refresh + "'>",
     "</a>",
-    "<a id='PageFirst' class='glyphicon glyphicon-fast-backward' title='" + Easy.GridLan.FirstPage + "'>",
+    "<a id='PageFirst' class='glyphicon glyphicon-fast-backward' title='" + gridOptions.text.FirstPage + "'>",
     "</a>",
-    "<a id='PagePre' class='glyphicon glyphicon-step-backward' title='" + Easy.GridLan.PrePage + "'>",
+    "<a id='PagePre' class='glyphicon glyphicon-step-backward' title='" + gridOptions.text.PrePage + "'>",
     "</a>",
-    "<a id='PageNext' class='glyphicon glyphicon-step-forward' title='" + Easy.GridLan.NextPage + "'>",
+    "<a id='PageNext' class='glyphicon glyphicon-step-forward' title='" + gridOptions.text.NextPage + "'>",
     "</a>",
-    "<a id='PageLast' class='glyphicon glyphicon-fast-forward' title='" + Easy.GridLan.LastPage + "'>",
+    "<a id='PageLast' class='glyphicon glyphicon-fast-forward' title='" + gridOptions.text.LastPage + "'>",
     "</a>",
     "</div></div>"].join(""));
 
+    var gridHeader = $(".GridHeader", grid.body);
+    var gridBody = $(".GridBody", grid.body);
+    var gridSearch = $("<tbody class='GridSearch'></tbody>");
 
-    if (json) {
-        if (json.url) { dataUrl = json.url; }
-        if (json.id) {
-            ele = "#" + json.id;
-            $(ele).append(grid);
-        }
-    }
-
-    var gridHeader = grid.find(".GridHeader");
-    var gridBody = grid.find(".GridBody");
-    var search = $("<tbody class='GridSearch'></tbody>");
-
-    var handlers = {};
-    handlers.getPageIndex = function () {
-        var pageIndex = parseInt(grid.find("#GridPageIdex").val());
+    grid.getPageIndex = function () {
+        var pageIndex = parseInt($("#GridPageIdex", grid.body).val());
         if (!(pageIndex >= 0)) {
             pageIndex = 1;
-            grid.find("#GridPageIdex").val(pageIndex);
+            $("#GridPageIdex", grid.body).val(pageIndex);
         }
         return pageIndex - 1;
     }
-    handlers.getPageSize = function () {
-        return parseInt(grid.find("#GridPageSize").val());
+    grid.getPageSize = function () {
+        return parseInt($("#GridPageSize", grid.body).val());
     }
-    handlers.setPageIndex = function (index) {
+    grid.setPageIndex = function (index) {
         index = parseInt(index) || 0;
-        grid.find("#GridPageIdex").val(index + 1);
+        $("#GridPageIdex", grid.body).val(index + 1);
     }
-    handlers.loadPage = function (index) {
-        handlers.setPageIndex(index);
-        handlers.reload();
+    grid.loadPage = function (index) {
+        grid.setPageIndex(index);
+        grid.reload();
     }
-    handlers.initGrid = function (viewModel) {
+    grid.initGrid = function (viewModel) {
         var width = 0;
         var tableHeader = $("<table class='header' cellpadding='0' cellspacing='0'></table>");
         var trH = "<tr class='trTitle'>";
-        if (checkBox && chVale) {
+        if (gridOptions.checkBox && gridOptions.chVale) {
             trH += "<th style='width:20px' align='center'><input type='checkbox' class='CheckBoxAll' /></th>";
             width += 20;
         }
-        model = viewModel;
-        for (var itemProperty in model) {
-            if (model.hasOwnProperty(itemProperty)) {
-                if (model[itemProperty].Hidden)
+        gridOptions.model = viewModel;
+        for (var itemProperty in gridOptions.model) {
+            if (gridOptions.model.hasOwnProperty(itemProperty)) {
+                if (gridOptions.model[itemProperty].Hidden)
                     continue;
                 var itemWidth = 150;
-                if (model[itemProperty].Width)
-                    itemWidth = model[itemProperty].Width;
-                if (!orderCol)
-                    orderCol = model[itemProperty].Name;
-                trH += "<th style='width:" + itemWidth + "px' col='" + model[itemProperty].Name + "'><div class='coData'>" + model[itemProperty].DisplayName + "</div></th>";
+                if (gridOptions.model[itemProperty].Width)
+                    itemWidth = gridOptions.model[itemProperty].Width;
+                if (!gridOptions.orderCol)
+                    gridOptions.orderCol = gridOptions.model[itemProperty].Name;
+                trH += "<th style='width:" + itemWidth + "px' col='" + gridOptions.model[itemProperty].Name + "'><div class='coData'>" + gridOptions.model[itemProperty].DisplayName + "</div></th>";
                 width += itemWidth;
             }
         }
         tableHeader.html("<thead>" + trH + "</thead>");
         tableHeader.width(width);
         gridHeader.html(tableHeader);
-        if (orderType === 1) {
-            gridHeader.find("th[col='" + orderCol + "']").addClass("OrderUp");
+        if (gridOptions.orderType === 1) {
+            gridHeader.find("th[col='" + gridOptions.orderCol + "']").addClass("OrderUp");
         }
         else {
-            gridHeader.find("th[col='" + orderCol + "']").addClass("OrderDown");
+            gridHeader.find("th[col='" + gridOptions.orderCol + "']").addClass("OrderDown");
         }
         trH = "";
-        if (canSearch) {
+        if (gridOptions.canSearch) {
             trH = "<tr>";
-            if (checkBox && chVale) {
+            if (gridOptions.checkBox && gridOptions.chVale) {
                 trH += "<th style='width:20px' align='center'><input type='button' class='ClearSearch' /></th>";
             }
-            for (var itemName in model) {
-                if (model.hasOwnProperty(itemName)) {
+            for (var itemName in gridOptions.model) {
+                if (gridOptions.model.hasOwnProperty(itemName)) {
                     var input = "";
-                    var item = model[itemName];
+                    var item = gridOptions.model[itemName];
                     if (item.Hidden)
                         continue;
                     switch (item.DataType) {
@@ -157,8 +152,8 @@ Easy.Grid = (function (json) {
                             {
                                 input = ["<select class='easy condition' DataType='" + item.DataType + "'  name='" + item.Name + "' OperatorType='1' title='" + item.DisplayName + "'>",
                                     "<option></option>",
-                                    "<option value='true'>" + Easy.GridLan.Yes + "</option>",
-                                    "<option value='false'>" + Easy.GridLan.No + "</option>",
+                                    "<option value='true'>" + gridOptions.text.Yes + "</option>",
+                                    "<option value='false'>" + gridOptions.text.No + "</option>",
                                     "</select>"].join("");
                                 break;
                             }
@@ -203,28 +198,28 @@ Easy.Grid = (function (json) {
                 }
             }
             trH += " </tr>";
-            search.html(trH);
-            gridHeader.find("table").append(search);
-            handlers.multiSelect();
+            gridSearch.html(trH);
+            gridHeader.find("table").append(gridSearch);
+            grid.multiSelect();
         } else {
-            search.hide();
+            gridSearch.hide();
         }
 
-        if (!constHeight) {
+        if (!gridOptions.constHeight) {
             $(window).resize(function () {
-                Easy.Processor(function () { height(grid.parent().height()); }, 200);
+                Easy.Processor(function () { grid.setHeight(grid.body.parent().height()); }, 200);
 
             });
             $(function () {
-                setTimeout(function () { height(grid.parent().height()); }, 100);
+                setTimeout(function () { grid.setHeight(grid.body.parent().height()); }, 100);
             });
         }
-        var pheight = grid.parent().height();
-        if (!constHeight) {
-            height(pheight);
+        var pheight = grid.body.parent().height();
+        if (!gridOptions.constHeight) {
+            grid.setHeight(pheight);
         }
     }
-    handlers.initGridData = function (gdata) {
+    grid.initGridData = function (gdata) {
         gridHeader.find(".CheckBoxAll").prop("checked", false).change();
         gridBody.html("");
         var tableBody = $("<table class='body' cellpadding='0' cellspacing='0'></table>");
@@ -236,22 +231,22 @@ Easy.Grid = (function (json) {
                 if (j % 2 === 0)
                     cl = "trAf";
                 var trB = "<tr class='" + cl + "'>";
-                if (checkBox && chVale) {
-                    trB += "<td style='width:20px' align='center'><input type='checkbox' class='CheckBoxItem' val='" + gdata.Rows[j][chVale] + "' /></td>";
+                if (gridOptions.checkBox && gridOptions.chVale) {
+                    trB += "<td style='width:20px' align='center'><input type='checkbox' class='CheckBoxItem' val='" + gdata.Rows[j][gridOptions.chVale] + "' /></td>";
                     if (j === 0) {
                         width += 20;
                     }
                 }
-                for (var p in model) {
-                    if (model.hasOwnProperty(p)) {
-                        if (model[p].Hidden) {
+                for (var p in gridOptions.model) {
+                    if (gridOptions.model.hasOwnProperty(p)) {
+                        if (gridOptions.model[p].Hidden) {
                             continue;
                         }
                         var dataWidth = 150;
-                        if (model[p].Width) {
-                            dataWidth = model[p].Width;
+                        if (gridOptions.model[p].Width) {
+                            dataWidth = gridOptions.model[p].Width;
                         }
-                        trB += "<td " + (j === 0 ? "style='width:" + dataWidth + "px'" : "") + "><div class='coData' style='width:" + dataWidth + "px'>" + handlers.getTempleteValue(p, gdata.Rows[j], model[p]) + "</div></td>";
+                        trB += "<td " + (j === 0 ? "style='width:" + dataWidth + "px'" : "") + "><div class='coData' style='width:" + dataWidth + "px'>" + grid.getTempleteValue(p, gdata.Rows[j], gridOptions.model[p]) + "</div></td>";
                         if (j === 0) {
                             width += dataWidth;
                         }
@@ -259,20 +254,20 @@ Easy.Grid = (function (json) {
                 }
                 trB += "</tr>";
                 trBs += trB;
-                if (rowDataBindEventHandler) {
-                    rowDataBindEventHandler.call(this, gdata.Rows[j]);
+                if (gridOptions.rowDataBindEventHandler) {
+                    gridOptions.rowDataBindEventHandler.call(this, gdata.Rows[j]);
                 }
             }
         }
         else {
             var emptyTr = "<tr>";
-            var noData = Easy.GridLan.NoData;
-            for (var item in model) {
-                if (model.hasOwnProperty(item)) {
-                    if (model[item].Hidden) {
+            var noData = gridOptions.text.NoData;
+            for (var item in gridOptions.model) {
+                if (gridOptions.model.hasOwnProperty(item)) {
+                    if (gridOptions.model[item].Hidden) {
                         continue;
                     }
-                    var colWidth = model[item].Width || 150;
+                    var colWidth = gridOptions.model[item].Width || 150;
                     width += colWidth;
                     emptyTr += "<td style='width:" + colWidth + "px;border-bottom:none;'><div class='coData'>" + noData + "</div></td>";
                     noData = "";
@@ -285,24 +280,24 @@ Easy.Grid = (function (json) {
         gridBody.html(tableBody);
         tableBody.width(width);
 
-        handlers.setPageIndex(gdata.PageIndex);
+        grid.setPageIndex(gdata.PageIndex);
 
-        allPage = Math.floor(gdata.RecordCount / gdata.PageSize);
-        allPage += gdata.RecordCount % gdata.PageSize === 0 ? 0 : 1;
-        grid.find("#PageInfo").html("[" + (gdata.PageIndex + 1) + "/" + allPage + "]");
-        grid.find("#Count").html(Easy.GridLan.AllRecord.replace("{0}", gdata.RecordCount));
-        gridBody.scrollLeft(scrollLeft);
+        gridOptions.allPage = Math.floor(gdata.RecordCount / gdata.PageSize);
+        gridOptions.allPage += gdata.RecordCount % gdata.PageSize === 0 ? 0 : 1;
+        grid.body.find("#PageInfo").html("[" + (gdata.PageIndex + 1) + "/" + gridOptions.allPage + "]");
+        grid.body.find("#Count").html(gridOptions.text.AllRecord.replace("{0}", gdata.RecordCount));
+        gridBody.scrollLeft(gridOptions.scrollLeft);
 
-        if (dataSuccessEventHandler != null) {
-            dataSuccessEventHandler.call();
+        if (gridOptions.dataSuccessEventHandler != null) {
+            gridOptions.dataSuccessEventHandler.call();
         }
     }
-    handlers.dataFormater = {
+    grid.dataFormater = {
         "Boolean": function (value) {
             if (value === 'True') {
-                return Easy.GridLan.Yes;
+                return gridOptions.text.Yes;
             }
-            return Easy.GridLan.No;
+            return gridOptions.text.No;
         },
         "None": function (value) {
             return value;
@@ -311,16 +306,16 @@ Easy.Grid = (function (json) {
             return this[m.DataType] || this.None;
         }
     };
-    handlers.reload = function () {
-        if (isLoading) {
+    grid.reload = function () {
+        if (gridOptions.isLoading) {
             return;
         }
-        isLoading = true;
-        grid.find("#PageGo").addClass("InnerLonding");
-        scrollLeft = gridBody.scrollLeft();
+        gridOptions.isLoading = true;
+        grid.body.find("#PageGo").addClass("InnerLonding");
+        gridOptions.scrollLeft = gridBody.scrollLeft();
         var groups = [];
         var conditions = [];
-        search.find(".condition").each(function () {
+        gridSearch.find(".condition").each(function () {
             if ($(this).val()) {
                 switch ($(this).attr("DataType")) {
                     case "Select":
@@ -396,75 +391,75 @@ Easy.Grid = (function (json) {
             }
         });
         $.ajax({
-            url: dataUrl + (queryString === "" ? "" : "?" + queryString),
-            data: { ConditionGroups: groups, Conditions: conditions, PageIndex: handlers.getPageIndex(), PageSize: handlers.getPageSize(), OrderBy: orderArray },
+            url: gridOptions.dataUrl + (gridOptions.queryString === "" ? "" : "?" + gridOptions.queryString),
+            data: { ConditionGroups: groups, Conditions: conditions, PageIndex: grid.getPageIndex(), PageSize: grid.getPageSize(), OrderBy: gridOptions.orderArray },
             type: "post",
             success: function (data) {
-                isLoading = false;
+                gridOptions.isLoading = false;
                 try {
                     if (typeof data === "string") {
-                        jsonData = eval("(" + data + ")");
+                        gridOptions.jsonData = eval("(" + data + ")");
                     } else {
-                        jsonData = data;
+                        gridOptions.jsonData = data;
                     }
                 }
                 catch (ex) {
                     alert(ex.message);
                     return false;
                 }
-                handlers.initGridData(jsonData);
-                grid.find("#PageGo").removeClass("InnerLonding");
+                grid.initGridData(gridOptions.jsonData);
+                grid.body.find("#PageGo").removeClass("InnerLonding");
                 return true;
             },
             error: function (msg) {
-                isLoading = false;
-                grid.find("#PageGo").removeClass("InnerLonding");
+                gridOptions.isLoading = false;
+                grid.body.find("#PageGo").removeClass("InnerLonding");
                 gridBody.html("<h1>Grid.Ajax.Error:" + msg.status + "</h1>");
             }
         }, "json");
     }
-    handlers.clearCondition = function () {
-        search.find("input.condition").val("");
-        search.find(".bg-info").removeClass("bg-info");
-        search.find("select.condition option").prop("selected", false);
-        search.find("select").change();
+    grid.clearCondition = function () {
+        gridSearch.find("input.condition").val("");
+        gridSearch.find(".bg-info").removeClass("bg-info");
+        gridSearch.find("select.condition option").prop("selected", false);
+        gridSearch.find("select").change();
         $(".RangeAdd").data("shown", false);
-        handlers.reload();
+        grid.reload();
         return false;
     }
-    handlers.deleteData = function () {
+    grid.deleteData = function () {
         var vals = [];
         gridBody.find(".CheckBoxItem:checked").each(function () {
             vals.push($(this).attr("val"));
         });
         if (vals.length > 0) {
-            Easy.ShowMessageBox(Easy.GridLan.DeleteTitle, Easy.GridLan.DeleteConfirm, function () {
-                grid.find(".GridDelete").addClass("InnerLonding");
+            Easy.ShowMessageBox(gridOptions.text.DeleteTitle, gridOptions.text.DeleteConfirm, function () {
+                grid.body.find(".GridDelete").addClass("InnerLonding");
                 $.ajax({
-                    url: deleteUrl,
+                    url: gridOptions.deleteUrl,
                     data: { ids: vals.join(',') },
                     success: function (data) {
                         if (data.Status != 1) {
-                            Easy.ShowMessageBox(Easy.GridLan.DeleteTitle, data.Message);
+                            Easy.ShowMessageBox(gridOptions.text.DeleteTitle, data.Message);
                         }
                         if (data.Status != 3) {
-                            handlers.reload();
+                            grid.reload();
                         }
-                        grid.find(".GridDelete").removeClass("InnerLonding");
+                        grid.body.find(".GridDelete").removeClass("InnerLonding");
                     },
                     error: function (msg) {
-                        grid.find(".GridDelete").removeClass("InnerLonding");
-                        Easy.ShowMessageBox(Easy.GridLan.DeleteTitle, msg.status);
+                        grid.body.find(".GridDelete").removeClass("InnerLonding");
+                        Easy.ShowMessageBox(gridOptions.text.DeleteTitle, msg.status);
                     },
                     type: "post"
                 }, "json");
             }, true);
         }
         else {
-            Easy.ShowMessageBox(Easy.GridLan.DeleteTitle, Easy.GridLan.SelectWorm);
+            Easy.ShowMessageBox(gridOptions.text.DeleteTitle, gridOptions.text.SelectWorm);
         }
     }
-    handlers.showRangeCondition = function () {
+    grid.showRangeCondition = function () {
         var th = $(this);
         if (th.data("shown")) {
             return;
@@ -481,8 +476,8 @@ Easy.Grid = (function (json) {
         var effect = th.parent().find("input.condition");
         th.parent().append(rangeBox);
         var normalLeft = th.position().left;
-        if (normalLeft + rangeBox.outerWidth() > grid.outerWidth()) {
-            normalLeft = grid.outerWidth() - rangeBox.outerWidth();
+        if (normalLeft + rangeBox.outerWidth() > grid.body.outerWidth()) {
+            normalLeft = grid.body.outerWidth() - rangeBox.outerWidth();
         }
         rangeBox.css("left", normalLeft);
         rangeBox.css("top", th.position().top + th.outerHeight());
@@ -536,7 +531,7 @@ Easy.Grid = (function (json) {
         rangeBox.find("input").on("keydown", function (e) {
             if (e.keyCode === 13) {
                 removeConditionBox();
-                handlers.reload();
+                grid.reload();
                 return;
             }
             setValue();
@@ -550,24 +545,24 @@ Easy.Grid = (function (json) {
             closeThread = null;
         }).on("blur", removeConditionBox).focus();
     }
-    handlers.getTempleteValue = function (columnName, data, m) {
-        var ind = templetes.ValueIndex(columnName);
+    grid.getTempleteValue = function (columnName, data, m) {
+        var ind = gridOptions.templetes.ValueIndex(columnName);
         if (ind !== -1) {
-            var reStr = templeteValues[ind];
+            var reStr = gridOptions.templeteValues[ind];
             for (var item in data) {
                 if (data.hasOwnProperty(item)) {
                     while (reStr.indexOf("{" + item + "}") >= 0) {
-                        reStr = reStr.replace("{" + item + "}", handlers.dataFormater.Provider(m)(data[item]));
+                        reStr = reStr.replace("{" + item + "}", grid.dataFormater.Provider(m)(data[item]));
                     }
                 }
             }
             return reStr;
         }
         else {
-            return handlers.dataFormater.Provider(m)(data[columnName]);
+            return grid.dataFormater.Provider(m)(data[columnName]);
         }
     }
-    handlers.multiSelect = function () {
+    grid.multiSelect = function () {
         $("select.easy[multiple]", gridHeader).each(function () {
             if ($(this).attr("easy")) {
                 return;
@@ -580,6 +575,7 @@ Easy.Grid = (function (json) {
             "</div>"].join(""));
             selectList.insertAfter(oldSelect);
             selectList.css("width", $(this).outerWidth());
+            var options = $("<ul class='DropDownList_Options dropdown-menu' tabindex='-1'></ul>");
             selectList.on("click", ".Clear", function () {
                 $("option", oldSelect).prop("selected", false);
                 oldSelect.change();
@@ -602,7 +598,6 @@ Easy.Grid = (function (json) {
                 else selectList.find(".TextPlace").html("<span>&nbsp;</span>");
                 selectList.find(".TextPlace").css("position", "relative");
             });
-            var options = $("<ul class='DropDownList_Options dropdown-menu' tabindex='-1'></ul>");
             var clickIn;
             options.on("blur", function () {
                 if (!clickIn) {
@@ -626,7 +621,6 @@ Easy.Grid = (function (json) {
                 options.focus();
             });
             oldSelect.hide();
-            options.hide();
             options.insertAfter(selectList);
             selectList.click(function () {
                 if (selectList.hasClass("Open")) {
@@ -651,208 +645,193 @@ Easy.Grid = (function (json) {
                 options.empty();
                 options.append(lists.join(""));
                 options.show();
-                options.focus();
                 options.css("left", $(this).position().left);
                 options.css("top", $(this).position().top + $(this).outerHeight());
+                options.focus();
                 return true;
             });
         });
     }
-
-    handlers.checkBack = function () {
-        var select = [];
-        grid.find(".CheckBoxItem:input:checked").each(function (i) {
-            if ($(this).prop("checked") && jsonData && jsonData.Rows) {
-                select.push(jsonData.Rows[i]);
-            }
-        });
-        if (checkBoxEventHandler) {
-            checkBoxEventHandler.call(this, select);
+    grid.checkBoxClick = function () {
+        if (gridOptions.checkBoxEventHandler) {
+            gridOptions.checkBoxEventHandler.call(this, grid.getSelectedRows());
         }
     }
-    gridBody.scroll(function () {
+    grid.getSelectedRows = function () {
+        var select = [];
+        grid.body.find(".CheckBoxItem:input:checked").each(function (i) {
+            if ($(this).prop("checked") && gridOptions.jsonData && gridOptions.jsonData.Rows) {
+                select.push(gridOptions.jsonData.Rows[i]);
+            }
+        });
+        return select;
+    }
+
+
+    grid.setUrl = function (value) {
+        gridOptions.dataUrl = value;
+        return openMethod;
+    }
+    grid.setGridArea = function (eleId) {
+        var pl = $("#" + eleId);
+        if (pl.length > 0) {
+            pl.addClass("easy-grid grid-" + $("easy-grid").size());
+            pl.append(grid.body);
+            pl.data("easy-grid", openMethod);
+        } else $("body").append(grid.body);
+        return openMethod;
+    }
+    grid.showCheckBox = function (valueColumn) {
+        gridOptions.chVale = valueColumn;
+        gridOptions.checkBox = true;
+        return openMethod;
+    }
+    grid.setHeight = function (value) {
+        $(".GridBody", grid.body).height(value - $(".GridHeader", grid.body).height() - $(".Gridfoot", grid.body).height() - $(".GridToolBar", grid.body).height() - gridOptions.heightFix);
+        gridOptions.constHeight = true;
+        return openMethod;
+    }
+    grid.setModel = function (viewModel) {
+        grid.initGrid(viewModel);
+        return openMethod;
+    }
+    grid.searchAble = function () {
+        gridOptions.canSearch = true;
+        return openMethod;
+    }
+    grid.orderBy = function (property, sortType) {
+        if (!gridOptions.orderCol) {
+            gridOptions.orderCol = property;
+            gridOptions.orderType = sortType;
+        }
+        gridOptions.orderArray.push({ OrderCol: property, OrderType: sortType });
+        return openMethod;
+    }
+    grid.setToolbar = function (selector) {
+        var toolBar = $(".GridToolBar", grid.body);
+        $(selector).appendTo(toolBar);
+        toolBar.show();
+        return openMethod;
+    }
+    grid.setDeleteUrl = function (url) {
+        gridOptions.deleteUrl = url;
+        $(".GridDelete", grid.body).show();
+        return openMethod;
+    }
+
+    grid.onRowDataBind = function (fun) {
+        gridOptions.rowDataBindEventHandler = fun;
+        return openMethod;
+    }
+    grid.onCheckBoxChange = function (fun) {
+        gridOptions.checkBoxEventHandler = fun;
+        return openMethod;
+    }
+    grid.onSuccess = function (fun) {
+        gridOptions.dataSuccessEventHandler = fun;
+        return openMethod;
+    }
+    grid.setColumnTemplete = function (columnName, strFormate) {
+        if (!gridOptions.templetes.ContainsValue(columnName)) {
+            gridOptions.templetes.push(columnName);
+            gridOptions.templeteValues.push(strFormate);
+        }
+        return openMethod;
+    }
+
+
+
+    gridBody.on("scroll", function () {
         gridHeader.scrollLeft($(this).scrollLeft());
     });
+    gridBody.on("click", "CheckBoxItem", grid.checkBoxClick);
 
-    search.on("keydown", function (e) {
+    gridSearch.on("keydown", function (e) {
         if (e.keyCode === 13) {
-            handlers.reload();
+            grid.reload();
         }
     });
-    search.on("click", ".RangeAdd", handlers.showRangeCondition);
-    search.on("click", ".RangeClear", function () {
-        $(this).parent().find("input.condition").val("");
+    gridSearch.on("click", ".RangeAdd", grid.showRangeCondition);
+    gridSearch.on("click", ".RangeClear", function () {
+        $("input.condition", $(this).parent()).val("");
         $(this).parent().removeClass("bg-info");
-        handlers.reload();
+        grid.reload();
     });
-    search.on("click", ".ClearSearch", handlers.clearCondition);
-    search.on("change", "select", handlers.reload);
+    gridSearch.on("click", ".ClearSearch", grid.clearCondition);
+    gridSearch.on("change", "select", grid.reload);
 
-    grid.on("keyup", "#GridPageIdex", function (e) {
+    grid.body.on("keyup", "#GridPageIdex", function (e) {
         if (e.keyCode === 13) {
-            grid.find("#PageGo").click();
+            $("#PageGo", grid.body).click();
         }
     });
-    grid.on("change", "#GridPageSize", function () {
-        handlers.loadPage(0);
+    grid.body.on("change", "#GridPageSize", function () {
+        grid.loadPage(0);
     });
-    grid.on("click", "#PageGo", handlers.reload);
-    grid.on("click", "#PageFirst", function () {
-        handlers.loadPage(0);
+    grid.body.on("click", "#PageGo", grid.reload);
+    grid.body.on("click", "#PageFirst", function () {
+        grid.loadPage(0);
     });
-    grid.on("click", "#PagePre", function () {
-        var pageIndex = handlers.getPageIndex();
+    grid.body.on("click", "#PagePre", function () {
+        var pageIndex = grid.getPageIndex();
         if (pageIndex > 0) {
-            handlers.loadPage(pageIndex - 1);
+            grid.loadPage(pageIndex - 1);
         }
     });
-    grid.on("click", "#PageNext", function () {
-        var pageIndex = handlers.getPageIndex();
-        if (pageIndex < allPage - 1) {
-            handlers.loadPage(pageIndex + 1);
+    grid.body.on("click", "#PageNext", function () {
+        var pageIndex = grid.getPageIndex();
+        if (pageIndex < gridOptions.allPage - 1) {
+            grid.loadPage(pageIndex + 1);
         }
     });
-    grid.on("click", "#PageLast", function () {
-        handlers.loadPage(allPage - 1);
+    grid.body.on("click", "#PageLast", function () {
+        grid.loadPage(gridOptions.allPage - 1);
     });
-    grid.on("click", ".GridDelete", handlers.deleteData);
-    gridBody.on("click", "CheckBoxItem", handlers.checkBack);
+    grid.body.on("click", ".GridDelete", grid.deleteData);
     gridHeader.on("click", ".CheckBoxAll", function () {
         gridBody.find("tr").find(".CheckBoxItem").prop("checked", $(this).prop("checked"));
-        handlers.checkBack();
+        grid.checkBoxClick();
     });
     gridHeader.on("click", "th[col]", function () {
         var deCol = $(this).attr("col");
-        if (deCol === orderCol) {
-            orderType = orderType === 1 ? 2 : 1;
+        if (deCol === gridOptions.orderCol) {
+            gridOptions.orderType = gridOptions.orderType === 1 ? 2 : 1;
         }
         else {
-            orderCol = deCol;
-            orderType = 1;
+            gridOptions.orderCol = deCol;
+            gridOptions.orderType = 1;
         }
-        orderArray = [];
-        orderArray.push({ OrderCol: orderCol, OrderType: orderType });
+        gridOptions.orderArray = [];
+        gridOptions.orderArray.push({ OrderCol: gridOptions.orderCol, OrderType: gridOptions.orderType });
         gridHeader.find("th[col]").removeAttr("class");
-        if (orderType === 1)
+        if (gridOptions.orderType === 1)
             $(this).addClass("OrderUp");
         else $(this).addClass("OrderDown");
-        handlers.reload();
+        grid.reload();
         return false;
     });
 
     /*public function*/
-
-
-    var returnObj = {
-        "Show": handlers.reload,
-        "Reload": handlers.reload,
-        "OnRowDataBind": onRowDataBind,
-        "SetColumnTemplete": setColumnTemplete,
-        "SetUrl": setUrl,
-        "SetGridArea": setGridArea,
-        "ShowCheckBox": showCheckBox,
-        "OnCheckBoxChange": onCheckBoxChange,
-        "Height": height,
-        "SetModel": setModel,
-        "SearchAble": searchAble,
-        "OnSuccess": onSuccess,
-        "OrderBy": orderBy,
-        "SetBoolBar": setToolbar,
-        "SetDeleteUrl": setDeleteUrl,
-        "Delete": handlers.deleteData
-    }
-    function setUrl(value) {
-        dataUrl = value;
-        return returnObj;
-    }
-    function setGridArea(eleID) {
-        ele = "#" + eleID;
-        var pl = $(ele);
-        if (pl.length > 0)
-            pl.append(grid);
-        else $("body").append(grid);
-        Easy.Grids.AddGrid(eleID, returnObj);
-        return returnObj;
-    }
-    function showCheckBox(valueColumn) {
-        chVale = valueColumn;
-        checkBox = true;
-        return returnObj;
-    }
-    function height(value) {
-        grid.find(".GridBody").height(value - grid.find(".GridHeader").height() - grid.find(".Gridfoot").height() - grid.find(".GridToolBar").height() - heightFix);
-        constHeight = true;
-        return returnObj;
-    }
-    function setModel(viewModel) {
-        handlers.initGrid(viewModel);
-        return returnObj;
-    }
-    function searchAble() {
-        canSearch = true;
-        return returnObj;
-    }
-    function orderBy(property, sortType) {
-        if (!orderCol) {
-            orderCol = property;
-            orderType = sortType;
-        }
-        orderArray.push({ OrderCol: property, OrderType: sortType });
-        return returnObj;
-    }
-    function setToolbar(selector) {
-        $(selector).appendTo(grid.find(".GridToolBar"));
-        grid.find(".GridToolBar").show();
-        return returnObj;
-    }
-    function setDeleteUrl(url) {
-        deleteUrl = url;
-        grid.find(".GridDelete").show();
-        return returnObj;
-    }
-
-    function onRowDataBind(fun) {
-        rowDataBindEventHandler = fun;
-        return returnObj;
-    }
-    function onCheckBoxChange(fun) {
-        checkBoxEventHandler = fun;
-        return returnObj;
-    }
-    function onSuccess(fun) {
-        dataSuccessEventHandler = fun;
-        return returnObj;
-    }
-    function setColumnTemplete(columnName, strFormate) {
-        if (!templetes.ContainsValue(columnName)) {
-            templetes.push(columnName);
-            templeteValues.push(strFormate);
-        }
-        return returnObj;
-    }
-    return returnObj;
+    openMethod.Show = grid.reload;
+    openMethod.Reload = grid.reload;
+    openMethod.OnRowDataBind = grid.onRowDataBind;
+    openMethod.SetColumnTemplete = grid.setColumnTemplete;
+    openMethod.SetUrl = grid.setUrl;
+    openMethod.SetGridArea = grid.setGridArea;
+    openMethod.ShowCheckBox = grid.showCheckBox;
+    openMethod.OnCheckBoxChange = grid.onCheckBoxChange;
+    openMethod.Height = grid.setHeight;
+    openMethod.SetModel = grid.setModel;
+    openMethod.SearchAble = grid.searchAble;
+    openMethod.OnSuccess = grid.onSuccess;
+    openMethod.OrderBy = grid.orderBy;
+    openMethod.SetBoolBar = grid.setToolbar;
+    openMethod.SetDeleteUrl = grid.setDeleteUrl;
+    openMethod.Delete = grid.deleteData;
+    openMethod.getSelectedRows = grid.getSelectedRows;
+    return openMethod;
 });
 
-Easy.Grids = (function () {
-    var gridNames = new Array();
-    var grids = new Array();
-    function AddGrid(name, grid) {
-        if (gridNames.ContainsValue(name)) {
-            var index = gridNames.ValueIndex(name);
-            grids[index] = grid;
-        }
-        else {
-            gridNames.push(name);
-            grids.push(grid);
-        }
-    }
-    function Find(gridName) {
-        if (gridNames.ContainsValue(gridName)) {
-            var index = gridNames.ValueIndex(gridName);
-            return grids[index];
-        }
-    }
-    return { AddGrid: AddGrid, Find: Find }
-})();
-
-
+$.fn.grid = function () {
+    return $(this).data("easy-grid");
+};
