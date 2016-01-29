@@ -36,7 +36,14 @@
     position: relative;
 }
 
-
+.EasyGrid .move-helper {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    cursor: e-resize;
+}
 
 .EasyGrid .RangeAdd, .EasyGrid .RangeClear, .EasyGrid .ClearSearch {
     width: 16px;
@@ -49,7 +56,7 @@
 }
 
 .EasyGrid .RangeAdd {
-    background: url(Images/add.png);
+    background: url(Images/Icons/filter.png);
 }
 
 .EasyGrid .RangeClear, .EasyGrid .ClearSearch {
@@ -82,6 +89,19 @@
         text-indent: 5px;
     }
 
+    .EasyGrid .GridContent .GridHeader .resize-col {
+        float: right;
+        border-left: 1px solid #ddd;
+        border-right: 1px solid #fff;
+        display: block;
+        height: 20px;
+        cursor: e-resize;
+    }
+     .EasyGrid .GridContent .GridHeader .resize-col:hover {
+         background: #8f8f8f;
+         padding: 0 1px;
+     }
+
 .EasyGrid .GridContent .GridSearch {
     border-top: 1px solid #D7D7D7;
     background: white;
@@ -94,38 +114,37 @@
 
 
 .EasyGrid .GridSearch .condition {
-    width: 90%;
+    display: block;
+    width: 98%;
     border: 1px solid #DDD;
     outline: none;
     margin: 0 auto;
-    padding: 2px;
+    padding: 2px 0;
     line-height: 18px;
-    height:24px;
+    height: 24px;
 }
 
 .EasyGrid .GridContent .GridSearch th {
     text-align: left;
 }
 
-.EasyGrid .GridContent .GridSearch .searchbox select {
-    width: 90%;
-}
-
 .EasyGrid .GridContent .GridBody table.body td {
-    border-bottom: 1px solid #D7D7D7;
+    border-bottom: 1px solid #eee;
     overflow: hidden;
 }
 
 .EasyGrid .GridContent .coData {
     overflow: hidden;
-    padding: 5px 1px;
+    padding: 5px 0;
     word-break: keep-all;
     word-wrap: normal;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
-
-
+.EasyGrid .GridContent table .trBe
+{
+    background-color: #f9f9f9;
+}
 .EasyGrid .GridContent table .trBe:hover {
     background-color: #FFFFCC;
 }
@@ -189,7 +208,8 @@
     padding: 5px;
     width: 300px;
     outline: 0;
-    z-index:1;
+    z-index: 1;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.175);
 }
 
     .RangeConditionBox .form-group {
@@ -281,7 +301,7 @@
 .DropDownList_Options {
     max-height: 200px;
     overflow: auto;
-    outline:0;
+    outline: 0;
 }
 
     .DropDownList_Options .checkbox {

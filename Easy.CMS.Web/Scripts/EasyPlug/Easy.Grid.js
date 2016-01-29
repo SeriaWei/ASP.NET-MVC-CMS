@@ -40,9 +40,10 @@ Easy.Grid = (function () {
         deleteUrl: "",
         heightFix: 15,
         jsonData: null,
-        allPage: 0
+        allPage: 0,
+        headerWidthDiff:20
     };
-    
+
 
     var grid = {};
     var openMethod = {};
@@ -100,12 +101,12 @@ Easy.Grid = (function () {
                     itemWidth = gridOptions.model[itemProperty].Width;
                 if (!gridOptions.orderCol)
                     gridOptions.orderCol = gridOptions.model[itemProperty].Name;
-                trH += "<th style='width:" + itemWidth + "px' col='" + gridOptions.model[itemProperty].Name + "'><div class='coData'>" + gridOptions.model[itemProperty].DisplayName + "<span class='resize-col'></span></div></th>";
+                trH += "<th style='width:" + itemWidth + "px' col='" + gridOptions.model[itemProperty].Name + "'><div class='coData' style='" + itemWidth + "px'>" + gridOptions.model[itemProperty].DisplayName + "<span class='resize-col'></span></div></th>";
                 width += itemWidth;
             }
         }
-        tableHeader.html("<thead>" + trH + "</thead>");
-        tableHeader.width(width);
+        tableHeader.html("<thead>" + trH + "<th style='width:" + gridOptions.headerWidthDiff + "px'></th></thead>");
+        tableHeader.width(width + gridOptions.headerWidthDiff);
         gridHeader.html(tableHeader);
         if (gridOptions.orderType === 1) {
             gridHeader.find("th[col='" + gridOptions.orderCol + "']").addClass("OrderUp");
@@ -117,7 +118,7 @@ Easy.Grid = (function () {
         if (gridOptions.canSearch) {
             trH = "<tr>";
             if (gridOptions.checkBox && gridOptions.chVale) {
-                trH += "<th style='width:20px' align='center'><input type='button' class='ClearSearch' /></th>";
+                trH += "<th align='center'><input type='button' class='ClearSearch' /></th>";
             }
             for (var itemName in gridOptions.model) {
                 if (gridOptions.model.hasOwnProperty(itemName)) {
@@ -175,10 +176,10 @@ Easy.Grid = (function () {
                     var colWidth = 150;
                     if (item.Width)
                         colWidth = item.Width;
-                    trH += "<th style='width:" + colWidth + "px'><div class='searchbox'>" + input + "</div></th>";
+                    trH += "<th><div class='searchbox'>" + input + "</div></th>";
                 }
             }
-            trH += " </tr>";
+            trH += " <th style='width:" + gridOptions.headerWidthDiff + "px'></th></tr>";
             gridSearch.html(trH);
             gridHeader.find("table").append(gridSearch);
             grid.multiSelect();
@@ -199,6 +200,41 @@ Easy.Grid = (function () {
         if (!gridOptions.constHeight) {
             grid.setHeight(pheight);
         }
+        grid.resizeColumn();
+    }
+    grid.resizeColumn = function () {
+        $(".resize-col", gridHeader).on("mousedown", function (e) {
+            var thHead = $(this).parents("th");
+            var modelCol= gridOptions.model[thHead.attr("col")];
+            var thBody = $("table.body tr:first>td:eq(" + thHead.index() + ")", gridBody);
+            var rows = $("table.body tr", gridBody);
+            var rowDataSelector = "td:eq(" + thHead.index() + ") .coData";
+            var tableHead = $("table.header", gridHeader);
+            var tableBody = $("table.body", gridBody);
+            var oldWidth = thHead.width();
+            var oldTWidth = tableBody.width();
+            var startX = e.clientX;
+            var moveHelper = $("<div class='move-helper'></div>");
+            moveHelper.on("mousemove", function (em) {
+                var newWidth = oldWidth + em.clientX - startX;
+                var newTWidth = oldTWidth + em.clientX - startX;
+                thHead.width(newWidth);
+                $(".coData", thHead).width(newWidth);
+
+                thBody.width(newWidth);
+                $(".coData", thBody).width(newWidth);
+                rows.each(function () {
+                    $(rowDataSelector, $(this)).width(newWidth);
+                });
+                modelCol.Width = newWidth;
+                tableHead.width(newTWidth + gridOptions.headerWidthDiff);
+                tableBody.width(newTWidth);
+            });
+            moveHelper.on("mouseup", function () {
+                $(this).remove();
+            });
+            grid.body.append(moveHelper);
+        });
     }
     grid.getPageIndex = function () {
         var pageIndex = parseInt($("#GridPageIdex", grid.body).val());
