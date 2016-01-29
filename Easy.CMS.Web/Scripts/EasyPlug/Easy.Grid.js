@@ -82,25 +82,6 @@ Easy.Grid = (function () {
     var gridBody = $(".GridBody", grid.body);
     var gridSearch = $("<tbody class='GridSearch'></tbody>");
 
-    grid.getPageIndex = function () {
-        var pageIndex = parseInt($("#GridPageIdex", grid.body).val());
-        if (!(pageIndex >= 0)) {
-            pageIndex = 1;
-            $("#GridPageIdex", grid.body).val(pageIndex);
-        }
-        return pageIndex - 1;
-    }
-    grid.getPageSize = function () {
-        return parseInt($("#GridPageSize", grid.body).val());
-    }
-    grid.setPageIndex = function (index) {
-        index = parseInt(index) || 0;
-        $("#GridPageIdex", grid.body).val(index + 1);
-    }
-    grid.loadPage = function (index) {
-        grid.setPageIndex(index);
-        grid.reload();
-    }
     grid.initGrid = function (viewModel) {
         var width = 0;
         var tableHeader = $("<table class='header' cellpadding='0' cellspacing='0'></table>");
@@ -119,7 +100,7 @@ Easy.Grid = (function () {
                     itemWidth = gridOptions.model[itemProperty].Width;
                 if (!gridOptions.orderCol)
                     gridOptions.orderCol = gridOptions.model[itemProperty].Name;
-                trH += "<th style='width:" + itemWidth + "px' col='" + gridOptions.model[itemProperty].Name + "'><div class='coData'>" + gridOptions.model[itemProperty].DisplayName + "</div></th>";
+                trH += "<th style='width:" + itemWidth + "px' col='" + gridOptions.model[itemProperty].Name + "'><div class='coData'>" + gridOptions.model[itemProperty].DisplayName + "<span class='resize-col'></span></div></th>";
                 width += itemWidth;
             }
         }
@@ -218,6 +199,25 @@ Easy.Grid = (function () {
         if (!gridOptions.constHeight) {
             grid.setHeight(pheight);
         }
+    }
+    grid.getPageIndex = function () {
+        var pageIndex = parseInt($("#GridPageIdex", grid.body).val());
+        if (!(pageIndex >= 0)) {
+            pageIndex = 1;
+            $("#GridPageIdex", grid.body).val(pageIndex);
+        }
+        return pageIndex - 1;
+    }
+    grid.getPageSize = function () {
+        return parseInt($("#GridPageSize", grid.body).val());
+    }
+    grid.setPageIndex = function (index) {
+        index = parseInt(index) || 0;
+        $("#GridPageIdex", grid.body).val(index + 1);
+    }
+    grid.loadPage = function (index) {
+        grid.setPageIndex(index);
+        grid.reload();
     }
     grid.initGridData = function (gdata) {
         gridHeader.find(".CheckBoxAll").prop("checked", false).change();
