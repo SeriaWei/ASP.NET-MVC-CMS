@@ -5,7 +5,7 @@ using System.Web;
 using Easy.Web.CMS;
 using Easy.Web.Route;
 
-namespace Easy.CMS.Product
+namespace Easy.CMS.Section
 {
     public class ProductPlug : PluginBase
     {
