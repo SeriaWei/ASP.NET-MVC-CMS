@@ -41,7 +41,7 @@ Easy.Grid = (function () {
         heightFix: 15,
         jsonData: null,
         allPage: 0,
-        headerWidthDiff:20
+        headerWidthDiff: 20
     };
 
 
@@ -205,7 +205,7 @@ Easy.Grid = (function () {
     grid.resizeColumn = function () {
         $(".resize-col", gridHeader).on("mousedown", function (e) {
             var thHead = $(this).parents("th");
-            var modelCol= gridOptions.model[thHead.attr("col")];
+            var modelCol = gridOptions.model[thHead.attr("col")];
             var thBody = $("table.body tr:first>td:eq(" + thHead.index() + ")", gridBody);
             var rows = $("table.body tr", gridBody);
             var rowDataSelector = "td:eq(" + thHead.index() + ") .coData";
@@ -305,7 +305,7 @@ Easy.Grid = (function () {
                     }
                     var colWidth = gridOptions.model[item].Width || 150;
                     width += colWidth;
-                    emptyTr += "<td style='width:" + colWidth + "px;border-bottom:none;'><div class='coData'>" + noData + "</div></td>";
+                    emptyTr += "<td style='width:" + colWidth + "px;border-bottom:none;'>" + noData + "</td>";
                     noData = "";
                 }
             }
@@ -408,9 +408,9 @@ Easy.Grid = (function () {
                             }
                             if (values[2]) {
                                 var hasTime = values[2].indexOf(":") >= 0;
-                                dateConditions.push({ Property: $(this).attr("name"), Value: values[2] + hasTime ? "" : " 0:00:00", DataType: $(this).attr("DataType"), OperatorType: 3, ConditionType: 1 });
+                                dateConditions.push({ Property: $(this).attr("name"), Value: values[2] + (hasTime ? "" : " 0:00:00"), DataType: $(this).attr("DataType"), OperatorType: 3, ConditionType: 1 });
 
-                                dateConditions.push({ Property: $(this).attr("name"), Value: values[2] + hasTime ? "" : " 23:59:59", DataType: $(this).attr("DataType"), OperatorType: 5, ConditionType: 1 });
+                                dateConditions.push({ Property: $(this).attr("name"), Value: values[2] + (hasTime ? "" : " 23:59:59"), DataType: $(this).attr("DataType"), OperatorType: 5, ConditionType: 1 });
 
                             }
                             groups.push({ Conditions: dateConditions });
@@ -523,11 +523,13 @@ Easy.Grid = (function () {
                 if (!dateFormat) {
                     dateFormat = "YYYY/MM/DD";
                 }
-                rangeBox
-                    .find(".form-control")
+                $(".form-control", rangeBox)
                     .attr("ValueType", "Date")
                     .addClass("Date")
-                    .datetimepicker({ locale: "zh_cn", format: "YYYY/MM/DD" });
+                    .datetimepicker({ locale: "zh_cn", format: "YYYY/MM/DD" })
+                    .on("keydown", false);
+
+
                 break;
             }
             case "Decimal":
@@ -546,13 +548,16 @@ Easy.Grid = (function () {
             rangeBox.find("#EqualTo").val(values[2]);
         }
         function setValue() {
-            var value1 = rangeBox.find("#GreaterThanOrEqualTo").val();
-            var value2 = rangeBox.find("#LessThanOrEqualTo").val();
-            var value3 = rangeBox.find("#EqualTo").val();
+            var value1 = $("#GreaterThanOrEqualTo", rangeBox).val();
+            var value2 = $("#LessThanOrEqualTo", rangeBox).val();
+            var value3 = $("#EqualTo", rangeBox).val();
             effect.val(value1 + "@" + value2 + "@" + value3);
             if (effect.val() !== "@@") {
                 effect.parent().addClass("bg-info");
+            } else {
+                effect.parent().removeClass("bg-info");
             }
+            grid.reload();
         }
 
         var closeThread;
@@ -564,10 +569,9 @@ Easy.Grid = (function () {
             }, 100);
         }
 
-        rangeBox.find("input").on("keydown", function (e) {
+        $("input.form-control", rangeBox).on("keyup", function (e) {
             if (e.keyCode === 13) {
                 removeConditionBox();
-                grid.reload();
                 return;
             }
             setValue();
@@ -610,7 +614,6 @@ Easy.Grid = (function () {
             "<div style='clear:both'></div>",
             "</div>"].join(""));
             selectList.insertAfter(oldSelect);
-            selectList.css("width", $(this).outerWidth());
             var options = $("<ul class='DropDownList_Options dropdown-menu' tabindex='-1'></ul>");
             selectList.on("click", ".Clear", function () {
                 $("option", oldSelect).prop("selected", false);
@@ -688,7 +691,20 @@ Easy.Grid = (function () {
             });
         });
     }
-    grid.checkBoxClick = function () {
+    grid.checkBoxClick = function (e) {
+        if (e) {
+            if ($(this).prop("checked")) {
+                $(this).parents("tr").addClass("selected");
+            } else {
+                $(this).parents("tr").removeClass("selected");
+            }
+        } else {
+           if ($(".CheckBoxAll", gridHeader).prop("checked")) {
+               $("tr.trAf,tr.trBe", gridBody).addClass("selected");
+           } else {
+               $("tr.trAf,tr.trBe", gridBody).removeClass("selected");
+           }
+        }
         if (gridOptions.checkBoxEventHandler) {
             gridOptions.checkBoxEventHandler.call(this, grid.getSelectedRows());
         }
@@ -780,7 +796,7 @@ Easy.Grid = (function () {
     gridBody.on("scroll", function () {
         gridHeader.scrollLeft($(this).scrollLeft());
     });
-    gridBody.on("click", "CheckBoxItem", grid.checkBoxClick);
+    gridBody.on("click", ".CheckBoxItem", grid.checkBoxClick);
 
     gridSearch.on("keydown", function (e) {
         if (e.keyCode === 13) {

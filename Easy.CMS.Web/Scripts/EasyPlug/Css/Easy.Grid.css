@@ -3,7 +3,7 @@
     overflow: hidden;
     position: relative;
     background-color: white;
-    margin-bottom: 0px;
+    margin-bottom: 0;
 }
 
     .EasyGrid .Busy {
@@ -12,8 +12,8 @@
         height: 100%;
         display: block;
         position: absolute;
-        left: 0px;
-        top: 0px;
+        left: 0;
+        top: 0;
     }
 
 .Gridfoot a:hover {
@@ -51,9 +51,14 @@
     line-height: 14px;
     border: none;
     cursor: pointer;
-    margin: 0px 2px 0px 2px;
+    margin: 0 2px 0 2px;
     float: left;
 }
+
+    .EasyGrid .RangeAdd:active, .EasyGrid .RangeClear:active, .EasyGrid .ClearSearch:active {
+        -ms-opacity: 0.3;
+        opacity: 0.3;
+    }
 
 .EasyGrid .RangeAdd {
     background: url(Images/Icons/filter.png);
@@ -68,18 +73,18 @@
 }
 
 .EasyGrid .GridContent .GridHeader {
-    background-image: -webkit-linear-gradient(top, #f5f5f5 0%, #e8e8e8 100%);
-    background-image: -o-linear-gradient(top, #f5f5f5 0%, #e8e8e8 100%);
-    background-image: -webkit-gradient(linear, left top, left bottom, from(#f5f5f5), to(#e8e8e8));
-    background-image: linear-gradient(to bottom, #f5f5f5 0%, #e8e8e8 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff5f5f5', endColorstr='#ffe8e8e8', GradientType=0);
-    background-repeat: repeat-x;
-    background-color: #F0F0EE;
     border-bottom: 1px solid #D7D7D7;
     overflow: hidden;
 }
 
-    .EasyGrid .GridContent .GridHeader .trTitle {
+    .EasyGrid .GridContent .GridHeader thead {
+        background-image: -webkit-linear-gradient(top, #f5f5f5 0%, #e8e8e8 100%);
+        background-image: -o-linear-gradient(top, #f5f5f5 0%, #e8e8e8 100%);
+        background-image: -webkit-gradient(linear, left top, left bottom, from(#f5f5f5), to(#e8e8e8));
+        background-image: linear-gradient(to bottom, #f5f5f5 0%, #e8e8e8 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff5f5f5', endColorstr='#ffe8e8e8', GradientType=0);
+        background-repeat: repeat-x;
+        background-color: #F0F0EE;
     }
 
     .EasyGrid .GridContent .GridHeader th {
@@ -87,6 +92,7 @@
         text-align: left;
         cursor: pointer;
         text-indent: 5px;
+        border-right: 1px solid transparent;
     }
 
     .EasyGrid .GridContent .GridHeader .resize-col {
@@ -97,10 +103,11 @@
         height: 20px;
         cursor: e-resize;
     }
-     .EasyGrid .GridContent .GridHeader .resize-col:hover {
-         background: #8f8f8f;
-         padding: 0 1px;
-     }
+
+        .EasyGrid .GridContent .GridHeader .resize-col:hover {
+            background: #8f8f8f;
+            padding: 0 1px;
+        }
 
 .EasyGrid .GridContent .GridSearch {
     border-top: 1px solid #D7D7D7;
@@ -118,7 +125,6 @@
     width: 98%;
     border: 1px solid #DDD;
     outline: none;
-    margin: 0 auto;
     padding: 2px 0;
     line-height: 18px;
     height: 24px;
@@ -141,21 +147,35 @@
     text-overflow: ellipsis;
     white-space: nowrap;
 }
-.EasyGrid .GridContent table .trBe
-{
-    background-color: #f9f9f9;
-}
-.EasyGrid .GridContent table .trBe:hover {
-    background-color: #FFFFCC;
+
+.EasyGrid .GridContent .GridBody .coData {
+    position: relative;
+    height: 30px;
+    text-indent: 2px;
 }
 
-.EasyGrid .GridContent table .trAf:hover {
-    background-color: #FFFFCC;
+    .EasyGrid .GridContent .GridBody .coData:after {
+        content: "";
+        border-right: 1px solid #eee;
+        height: 30px;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
+.EasyGrid .GridContent table .trBe {
+    background-color: #f9f9f9;
 }
+
+    .EasyGrid .GridContent table .trBe:hover,
+    .EasyGrid .GridContent table .trAf:hover,
+    .EasyGrid .GridContent table tr.selected {
+        background-color: #FFFFCC;
+    }
 
 .EasyGrid .Gridfoot {
     font-size: 13px;
-    margin-top: 0px;
+    margin-top: 0;
     background: #F0F0EE;
     padding: 2px;
     border-top: 1px solid #D7D7D7;
@@ -244,7 +264,6 @@
 
 .DropDownList {
     display: block;
-    margin: 0 auto;
     vertical-align: top;
     padding-right: 19px;
     cursor: pointer;
@@ -252,6 +271,7 @@
     background-color: white;
     text-align: left;
     font-weight: normal;
+    width: 98%;
 }
 
     .DropDownList .TextPlace {
@@ -260,7 +280,7 @@
         float: left;
         height: 100%;
         border-right: 1px solid #CCC;
-        margin-top: 0px;
+        margin-top: 0;
     }
 
         .DropDownList .TextPlace > span {
@@ -271,12 +291,12 @@
 
         .DropDownList .TextPlace > .Clear {
             position: absolute;
-            right: 0px;
+            right: 0;
             width: 16px;
             height: 16px;
             background-image: url(Images/buttons.png);
             background-repeat: no-repeat;
-            background-position: -27px 0px;
+            background-position: -27px 0;
             top: 2px;
         }
 
