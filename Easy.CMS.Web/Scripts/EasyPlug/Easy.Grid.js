@@ -4,7 +4,7 @@ var Easy = Easy || {};
 Easy.Grid = (function () {
     var gridOptions = {
         text: {
-            PageSize: "分页大小",
+            PageSize: "分页",
             CurrentPage: "当前",
             Refresh: "刷新",
             FirstPage: "首页",
@@ -12,7 +12,7 @@ Easy.Grid = (function () {
             NextPage: "下一页",
             LastPage: "尾页",
             NoData: "无相关数据...",
-            AllRecord: "{0} 条记录",
+            AllRecord: " 共 {0} 条记录",
             DeleteTitle: "提示",
             DeleteConfirm: "确定要删除选中项吗？",
             SelectWorm: "请至少选择一项进行操作！",
@@ -24,7 +24,7 @@ Easy.Grid = (function () {
         chVale: null,
         templetes: new Array(),
         templeteValues: new Array(),
-        model: {},
+        model: { Property: { Data: "", DataType: "", DisplayName: "", Format: "", Hidden: 0, Name: "", Width: 150 } },
         canSearch: false,
         rowDataBindEventHandler: null,
         checkBoxEventHandler: null,
@@ -45,7 +45,7 @@ Easy.Grid = (function () {
     };
 
 
-    var grid = {};
+    var grid = { name: "" };
     var openMethod = {};
 
     grid.body = $(["<div class='EasyGrid panel panel-default'>",
@@ -94,15 +94,15 @@ Easy.Grid = (function () {
         gridOptions.model = viewModel;
         for (var itemProperty in gridOptions.model) {
             if (gridOptions.model.hasOwnProperty(itemProperty)) {
-                if (gridOptions.model[itemProperty].Hidden)
+                var m = gridOptions.model[itemProperty];
+                if (m.Hidden)
                     continue;
-                var itemWidth = 150;
-                if (gridOptions.model[itemProperty].Width)
-                    itemWidth = gridOptions.model[itemProperty].Width;
+                if (!m.Width)
+                    m.Width = 150;
                 if (!gridOptions.orderCol)
-                    gridOptions.orderCol = gridOptions.model[itemProperty].Name;
-                trH += "<th style='width:" + itemWidth + "px' col='" + gridOptions.model[itemProperty].Name + "'><div class='coData' style='" + itemWidth + "px'>" + gridOptions.model[itemProperty].DisplayName + "<span class='resize-col'></span></div></th>";
-                width += itemWidth;
+                    gridOptions.orderCol = m.Name;
+                trH += "<th style='width:" + m.Width + "px' col='" + m.Name + "'><div class='coData' style='" + m.Width + "px'>" + m.DisplayName + "<span class='resize-col'></span></div></th>";
+                width += m.Width;
             }
         }
         tableHeader.html("<thead>" + trH + "<th style='width:" + gridOptions.headerWidthDiff + "px'></th></thead>");
@@ -173,9 +173,6 @@ Easy.Grid = (function () {
                             input = "<input class='condition' type='text' DataType='" + item.DataType + "'  name='" + item.Name + "' OperatorType='7' title='" + item.DisplayName + "'/>";
                             break;
                     }
-                    var colWidth = 150;
-                    if (item.Width)
-                        colWidth = item.Width;
                     trH += "<th><div class='searchbox'>" + input + "</div></th>";
                 }
             }
@@ -232,9 +229,16 @@ Easy.Grid = (function () {
             });
             moveHelper.on("mouseup", function () {
                 $(this).remove();
+                grid.setColumnWidth(modelCol.Name, modelCol.Width);
             });
             grid.body.append(moveHelper);
         });
+    }
+    grid.getColumnWidth = function (column) {
+        return Easy.Cookie.GetCookie(location.pathname + "_" + grid.name + "_" + column + "_width");
+    }
+    grid.setColumnWidth = function (column, width) {
+        return Easy.Cookie.SetCookie(location.pathname + "_" + grid.name + "_" + column + "_width", width, 365);
     }
     grid.getPageIndex = function () {
         var pageIndex = parseInt($("#GridPageIdex", grid.body).val());
@@ -275,16 +279,13 @@ Easy.Grid = (function () {
                 }
                 for (var p in gridOptions.model) {
                     if (gridOptions.model.hasOwnProperty(p)) {
-                        if (gridOptions.model[p].Hidden) {
+                        var m = gridOptions.model[p];
+                        if (m.Hidden) {
                             continue;
                         }
-                        var dataWidth = 150;
-                        if (gridOptions.model[p].Width) {
-                            dataWidth = gridOptions.model[p].Width;
-                        }
-                        trB += "<td " + (j === 0 ? "style='width:" + dataWidth + "px'" : "") + "><div class='coData' style='width:" + dataWidth + "px'>" + grid.getTempleteValue(p, gdata.Rows[j], gridOptions.model[p]) + "</div></td>";
+                        trB += "<td " + (j === 0 ? "style='width:" + m.Width + "px'" : "") + "><div class='coData' style='width:" + m.Width + "px'>" + grid.getTempleteValue(p, gdata.Rows[j], m) + "</div></td>";
                         if (j === 0) {
-                            width += dataWidth;
+                            width += m.Width;
                         }
                     }
                 }
@@ -699,11 +700,11 @@ Easy.Grid = (function () {
                 $(this).parents("tr").removeClass("selected");
             }
         } else {
-           if ($(".CheckBoxAll", gridHeader).prop("checked")) {
-               $("tr.trAf,tr.trBe", gridBody).addClass("selected");
-           } else {
-               $("tr.trAf,tr.trBe", gridBody).removeClass("selected");
-           }
+            if ($(".CheckBoxAll", gridHeader).prop("checked")) {
+                $("tr.trAf,tr.trBe", gridBody).addClass("selected");
+            } else {
+                $("tr.trAf,tr.trBe", gridBody).removeClass("selected");
+            }
         }
         if (gridOptions.checkBoxEventHandler) {
             gridOptions.checkBoxEventHandler.call(this, grid.getSelectedRows());
@@ -727,9 +728,11 @@ Easy.Grid = (function () {
     grid.setGridArea = function (eleId) {
         var pl = $("#" + eleId);
         if (pl.length > 0) {
-            pl.addClass("easy-grid grid-" + $("easy-grid").size());
+            var size = $(".easy-grid").size();
+            pl.addClass("easy-grid grid-" + size);
             pl.append(grid.body);
             pl.data("easy-grid", openMethod);
+            grid.name = "grid_" + size;
         } else $("body").append(grid.body);
         return openMethod;
     }
@@ -744,6 +747,14 @@ Easy.Grid = (function () {
         return openMethod;
     }
     grid.setModel = function (viewModel) {
+        for (var p in viewModel) {
+            if (viewModel.hasOwnProperty(p)) {
+                var width = parseInt(grid.getColumnWidth(p));
+                if (width) {
+                    viewModel[p].Width = width;
+                }
+            }
+        }
         grid.initGrid(viewModel);
         return openMethod;
     }
@@ -790,8 +801,6 @@ Easy.Grid = (function () {
         }
         return openMethod;
     }
-
-
 
     gridBody.on("scroll", function () {
         gridHeader.scrollLeft($(this).scrollLeft());
