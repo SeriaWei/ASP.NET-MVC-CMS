@@ -27,7 +27,7 @@ namespace Easy.CMS.Common.Controllers
                 LayoutID = context.LayoutID,
                 ZoneID = context.ZoneID,
                 ReturnUrl = context.ReturnUrl,
-                WidgetTemplates = Service.Get(new DataFilter().OrderBy("Order", OrderType.Ascending)).ToList()
+                WidgetTemplates = Service.Get(new DataFilter().OrderBy("[Order]", OrderType.Ascending)).ToList()
             };
             return View(viewModel);
         }
