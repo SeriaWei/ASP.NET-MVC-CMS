@@ -101,7 +101,7 @@ Easy.Grid = (function () {
                     m.Width = 150;
                 if (!gridOptions.orderCol)
                     gridOptions.orderCol = m.Name;
-                trH += "<th style='width:" + m.Width + "px' col='" + m.Name + "'><div class='coData' style='" + m.Width + "px'>" + m.DisplayName + "<span class='resize-col'></span></div></th>";
+                trH += "<th style='width:" + m.Width + "px' col='" + m.Name + "'><div class='coData clearfix' style='" + m.Width + "px'><span class='pull-left'>" + m.DisplayName + "</span><span class='resize-col'></span></div></th>";
                 width += m.Width;
             }
         }
@@ -232,6 +232,7 @@ Easy.Grid = (function () {
                 grid.setColumnWidth(modelCol.Name, modelCol.Width);
             });
             grid.body.append(moveHelper);
+            return false;
         });
     }
     grid.getColumnWidth = function (column) {

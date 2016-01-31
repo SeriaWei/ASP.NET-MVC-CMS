@@ -43,6 +43,9 @@
     width: 100%;
     height: 100%;
     cursor: e-resize;
+    -webkit-user-select: none;
+    background: #fff;
+    opacity: 0;
 }
 
 .EasyGrid .RangeAdd, .EasyGrid .RangeClear, .EasyGrid .ClearSearch {
@@ -94,6 +97,7 @@
             text-indent: 5px;
             background-position: right center;
             background-repeat: no-repeat;
+            -webkit-user-select: none;
         }
 
             .EasyGrid .GridContent .GridHeader thead th.OrderUp {
