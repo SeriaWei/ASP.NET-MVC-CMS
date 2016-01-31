@@ -360,9 +360,12 @@
     <Content Include="Scripts\EasyPlug\Css\Images\errorLayer_Top.gif" />
     <Content Include="Scripts\EasyPlug\Css\Images\Grid\ajax-loader.gif" />
     <Content Include="Scripts\EasyPlug\Css\Images\Grid\bg.png" />
+    <Content Include="Scripts\EasyPlug\Css\Images\Grid\down-arrow.png" />
     <Content Include="Scripts\EasyPlug\Css\Images\Grid\remove.png" />
     <Content Include="Scripts\EasyPlug\Css\Images\Grid\triangle.png" />
     <Content Include="Scripts\EasyPlug\Css\Images\Grid\triangle2.png" />
+    <Content Include="Scripts\EasyPlug\Css\Images\Grid\up-arrow.png" />
+    <Content Include="Scripts\EasyPlug\Css\Images\Grid\up-down-arrow.png" />
     <Content Include="Scripts\EasyPlug\Css\Images\Icons\add.png" />
     <Content Include="Scripts\EasyPlug\Css\Images\Icons\attachment.png" />
     <Content Include="Scripts\EasyPlug\Css\Images\Icons\audio.png" />

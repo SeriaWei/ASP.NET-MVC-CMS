@@ -87,27 +87,36 @@
         background-color: #F0F0EE;
     }
 
-    .EasyGrid .GridContent .GridHeader th {
-        font-weight: normal;
-        text-align: left;
-        cursor: pointer;
-        text-indent: 5px;
-        border-right: 1px solid transparent;
-    }
-
-    .EasyGrid .GridContent .GridHeader .resize-col {
-        float: right;
-        border-left: 1px solid #ddd;
-        border-right: 1px solid #fff;
-        display: block;
-        height: 20px;
-        cursor: e-resize;
-    }
-
-        .EasyGrid .GridContent .GridHeader .resize-col:hover {
-            background: #8f8f8f;
-            padding: 0 1px;
+        .EasyGrid .GridContent .GridHeader thead th {
+            font-weight: normal;
+            text-align: left;
+            cursor: pointer;
+            text-indent: 5px;
+            background-position: right center;
+            background-repeat: no-repeat;
         }
+
+            .EasyGrid .GridContent .GridHeader thead th.OrderUp {
+                background-image: url(Images/Grid/up-arrow.png);
+            }
+
+            .EasyGrid .GridContent .GridHeader thead th.OrderDown {
+                background-image: url(Images/Grid/down-arrow.png);
+            }
+
+        .EasyGrid .GridContent .GridHeader thead .resize-col {
+            float: right;
+            border-left: 1px solid #ddd;
+            border-right: 1px solid #fff;
+            display: block;
+            height: 20px;
+            cursor: e-resize;
+        }
+
+    .EasyGrid .GridContent .GridHeader .resize-col:hover {
+        background: #8f8f8f;
+        padding: 0 1px;
+    }
 
 .EasyGrid .GridContent .GridSearch {
     border-top: 1px solid #D7D7D7;
@@ -206,18 +215,6 @@
 
 .EasyGrid .CheckBox {
     padding: 2px;
-}
-
-.EasyGrid .OrderUp {
-    background-image: url(Images/Grid/triangle.png);
-    background-position: right center;
-    background-repeat: no-repeat;
-}
-
-.EasyGrid .OrderDown {
-    background-image: url(Images/Grid/triangle2.png);
-    background-position: right center;
-    background-repeat: no-repeat;
 }
 
 .RangeConditionBox {
