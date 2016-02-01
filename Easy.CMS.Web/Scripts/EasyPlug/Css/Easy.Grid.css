@@ -80,7 +80,7 @@
     overflow: hidden;
 }
 
-    .EasyGrid .GridContent .GridHeader thead {
+    .EasyGrid .GridContent .GridHeader .header > thead {
         background-image: -webkit-linear-gradient(top, #f5f5f5 0%, #e8e8e8 100%);
         background-image: -o-linear-gradient(top, #f5f5f5 0%, #e8e8e8 100%);
         background-image: -webkit-gradient(linear, left top, left bottom, from(#f5f5f5), to(#e8e8e8));
@@ -90,7 +90,7 @@
         background-color: #F0F0EE;
     }
 
-        .EasyGrid .GridContent .GridHeader thead th {
+        .EasyGrid .GridContent .GridHeader table.header > thead > .trTitle > th {
             font-weight: normal;
             text-align: left;
             cursor: pointer;
@@ -130,8 +130,14 @@
     .EasyGrid .GridContent .GridSearch .searchbox {
         padding: 2px 0;
     }
-
-
+    .EasyGrid .GridContent .GridSearch .searchbox .RangeOption{
+        padding: 2px 0;
+        margin: 0 3px 0 0;
+        border: 1px solid #FFF;
+    }
+    .EasyGrid .GridContent .GridSearch .searchbox .RangeOption.bg-info{
+        border: 1px solid #AFC6D2;
+    }
 
 .EasyGrid .GridSearch .condition {
     display: block;
@@ -143,7 +149,7 @@
     height: 24px;
 }
 
-.EasyGrid .GridContent .GridSearch th {
+.EasyGrid .GridContent .GridSearch .trTitle>th {
     text-align: left;
 }
 

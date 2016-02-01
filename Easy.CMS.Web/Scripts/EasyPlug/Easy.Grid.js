@@ -41,7 +41,8 @@ Easy.Grid = (function () {
         heightFix: 15,
         jsonData: null,
         allPage: 0,
-        headerWidthDiff: 20
+        headerWidthDiff: 20,
+        dateFormat: "YYYY/MM/DD"
     };
 
 
@@ -49,35 +50,35 @@ Easy.Grid = (function () {
     var openMethod = {};
 
     grid.body = $(["<div class='EasyGrid panel panel-default'>",
-    "<div class='GridContent'><div class='GridToolBar panel-heading'></div><div class='GridHeader'></div><div class='GridBody'></div></div>",
-    "<div class='Gridfoot'>",
-    "<div class='GridDelete' title='" + gridOptions.text.Delete + "'>&nbsp;</div>",
-    "<label>",
-    gridOptions.text.PageSize,
-    "</label>",
-    "<select id='GridPageSize' easy='easy'>",
-    "<option value='10'>10</option>",
-    "<option value='20' selected='selected'>20</option>",
-    "<option value='30'>30</option>",
-    "<option value='50'>50</option>",
-    "<option value='100'>100</option>",
-    "</select>",
-    "<label for='GridPageIdex'>",
-    gridOptions.text.CurrentPage,
-    "</label><input id='GridPageIdex' type='text' value='1' ValueType='Num' />",
-    "<label id='PageInfo'></label>",
-    "<label id='Count'></label>",
-    "<a id='PageGo' class='glyphicon glyphicon-repeat' title='" + gridOptions.text.Refresh + "'>",
-    "</a>",
-    "<a id='PageFirst' class='glyphicon glyphicon-fast-backward' title='" + gridOptions.text.FirstPage + "'>",
-    "</a>",
-    "<a id='PagePre' class='glyphicon glyphicon-step-backward' title='" + gridOptions.text.PrePage + "'>",
-    "</a>",
-    "<a id='PageNext' class='glyphicon glyphicon-step-forward' title='" + gridOptions.text.NextPage + "'>",
-    "</a>",
-    "<a id='PageLast' class='glyphicon glyphicon-fast-forward' title='" + gridOptions.text.LastPage + "'>",
-    "</a>",
-    "</div></div>"].join(""));
+        "<div class='GridContent'><div class='GridToolBar panel-heading'></div><div class='GridHeader'></div><div class='GridBody'></div></div>",
+        "<div class='Gridfoot'>",
+        "<div class='GridDelete' title='" + gridOptions.text.Delete + "'>&nbsp;</div>",
+        "<label>",
+        gridOptions.text.PageSize,
+        "</label>",
+        "<select id='GridPageSize' easy='easy'>",
+        "<option value='10'>10</option>",
+        "<option value='20' selected='selected'>20</option>",
+        "<option value='30'>30</option>",
+        "<option value='50'>50</option>",
+        "<option value='100'>100</option>",
+        "</select>",
+        "<label for='GridPageIdex'>",
+        gridOptions.text.CurrentPage,
+        "</label><input id='GridPageIdex' type='text' value='1' ValueType='Num' />",
+        "<label id='PageInfo'></label>",
+        "<label id='Count'></label>",
+        "<a id='PageGo' class='glyphicon glyphicon-repeat' title='" + gridOptions.text.Refresh + "'>",
+        "</a>",
+        "<a id='PageFirst' class='glyphicon glyphicon-fast-backward' title='" + gridOptions.text.FirstPage + "'>",
+        "</a>",
+        "<a id='PagePre' class='glyphicon glyphicon-step-backward' title='" + gridOptions.text.PrePage + "'>",
+        "</a>",
+        "<a id='PageNext' class='glyphicon glyphicon-step-forward' title='" + gridOptions.text.NextPage + "'>",
+        "</a>",
+        "<a id='PageLast' class='glyphicon glyphicon-fast-forward' title='" + gridOptions.text.LastPage + "'>",
+        "</a>",
+        "</div></div>"].join(""));
 
     var gridHeader = $(".GridHeader", grid.body);
     var gridBody = $(".GridBody", grid.body);
@@ -154,7 +155,7 @@ Easy.Grid = (function () {
                         case "DateTime":
                             {
                                 input = ["<div class='RangeOption clearfix'>",
-                                    "<input class='condition' type='hidden' DataType='" + item.DataType + "' Format='" + item.Format + "'  name='" + item.Name + "' OperatorType='1' title='" + item.DisplayName + "'/>",
+                                    "<input class='condition' type='hidden' DataType='" + item.DataType + "' Format='" + (item.JsDateFormat || gridOptions.dateFormat) + "'  name='" + item.Name + "' OperatorType='1' title='" + item.DisplayName + "'/>",
                                     "<input class='RangeAdd' type='button'  value='' title='" + item.DisplayName + "'/>",
                                     "<input type='button' class='RangeClear'  value='' title='" + item.DisplayName + "'/></div>"].join("");
                                 break;
@@ -173,10 +174,10 @@ Easy.Grid = (function () {
                             input = "<input class='condition' type='text' DataType='" + item.DataType + "'  name='" + item.Name + "' OperatorType='7' title='" + item.DisplayName + "'/>";
                             break;
                     }
-                    trH += "<th><div class='searchbox'>" + input + "</div></th>";
+                    trH += "<td><div class='searchbox'>" + input + "</div></td>";
                 }
             }
-            trH += " <th style='width:" + gridOptions.headerWidthDiff + "px'></th></tr>";
+            trH += " <td style='width:" + gridOptions.headerWidthDiff + "px'></td></tr>";
             gridSearch.html(trH);
             gridHeader.find("table").append(gridSearch);
             grid.multiSelect();
@@ -519,19 +520,16 @@ Easy.Grid = (function () {
         }
         rangeBox.css("left", normalLeft);
         rangeBox.css("top", th.position().top + th.outerHeight());
+        var valueParse=function(val){
+            return val;
+        }
         switch (effect.attr("DataType")) {
             case "DateTime": {
-                var dateFormat = effect.attr("Format");
-                if (!dateFormat) {
-                    dateFormat = "YYYY/MM/DD";
-                }
                 $(".form-control", rangeBox)
                     .attr("ValueType", "Date")
                     .addClass("Date")
-                    .datetimepicker({ locale: "zh_cn", format: "YYYY/MM/DD" })
+                    .datetimepicker({ locale: "zh_cn", format: effect.attr("Format") || gridOptions.dateFormat })
                     .on("keydown", false);
-
-
                 break;
             }
             case "Decimal":
@@ -539,7 +537,11 @@ Easy.Grid = (function () {
             case "Int16":
             case "Int64":
             case "Int32": {
-                rangeBox.find("input").attr("ValueType", "Num").addClass("Number");
+                rangeBox.find("input").attr("ValueType", "Num")
+                    .addClass("Number");
+                valueParse=function(val){
+                        return Number(val)||'';                        
+                    }
                 break;
             }
         }
@@ -553,7 +555,7 @@ Easy.Grid = (function () {
             var value1 = $("#GreaterThanOrEqualTo", rangeBox).val();
             var value2 = $("#LessThanOrEqualTo", rangeBox).val();
             var value3 = $("#EqualTo", rangeBox).val();
-            effect.val(value1 + "@" + value2 + "@" + value3);
+            effect.val(valueParse(value1) + "@" + valueParse(value2) + "@" + valueParse(value3));
             if (effect.val() !== "@@") {
                 effect.parent().addClass("bg-info");
             } else {
@@ -612,9 +614,9 @@ Easy.Grid = (function () {
             $(this).attr("easy", "easy");
             var oldSelect = $(this);
             var selectList = $(["<div class='DropDownList'>",
-            "<div class='TextPlace' title=" + oldSelect.attr("title") + "><span></span></div><div class='DropIcon'>&nbsp;</div>",
-            "<div style='clear:both'></div>",
-            "</div>"].join(""));
+                "<div class='TextPlace' title=" + oldSelect.attr("title") + "><span></span></div><div class='DropIcon'>&nbsp;</div>",
+                "<div style='clear:both'></div>",
+                "</div>"].join(""));
             selectList.insertAfter(oldSelect);
             var options = $("<ul class='DropDownList_Options dropdown-menu' tabindex='-1'></ul>");
             selectList.on("click", ".Clear", function () {
