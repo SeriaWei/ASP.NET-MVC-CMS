@@ -14,13 +14,16 @@
     @ScriptAtHead()
 </head>
 <body>
-<div style="padding-bottom: 30px;">
-        @RenderBody()
-        <div class="popUpToolBar">
-            <input id="confirm" type="button" value="确认" class="btn btn-primary btn-sm" />
-            <input type="button" value="取消" class="btn btn-default btn-sm" />
-        </div>
+<div style="padding:10px 0 40px;">
+    <div class="container">
+    @RenderBody()    
     </div>
+    
+    <div class="popUpToolBar">
+        <input id="confirm" type="button" value="确认" class="btn btn-primary btn-sm"/>
+        <input type="button" value="取消" class="btn btn-default btn-sm"/>
+    </div>
+</div>
     @StyleAtFoot()
     @ScriptAtFoot()
     <script type="text/javascript">

@@ -63,7 +63,7 @@
             var height = $(this).data("height");
             
             Easy.ShowUrlWindow({
-                url: $(this).attr("href"), title: $(this).text(), callBack: function () {
+                url: $(this).attr("href"), title: $(this).attr("title")||$(this).text(), callBack: function () {
                     reload();
                 }, isDialog: true, width: width||800, height: height||460
             });

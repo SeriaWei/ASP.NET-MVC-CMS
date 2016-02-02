@@ -30,7 +30,7 @@
     }).on("click", "input[type=submit]", function () {
         $("#ActionType").val($(this).data("value"));
         return true;
-    }).on("click", ".input-group-addon .glyphicon", function () {
+    }).on("click", ".control-label .glyphicon", function () {
         var obj = $(this);
         window.top.Easy.ShowUrlWindow({
             url: $(this).data("url"), onLoad: function (box) {
@@ -59,7 +59,7 @@
     $("#PublishDate").val("");
 
     $(".select").each(function () {
-        $(this).prev(".input-group-addon").append('<span class="glyphicon glyphicon-search text-muted" data-url="' + $(this).data("url") + '"></span>');
+        $(".control-label", $(this).parents(".form-group")).append(' <span class="glyphicon glyphicon-search text-muted" data-url="' + $(this).data("url") + '"></span>');
     });
 
     var currentSelect = $(".nav.navbar-nav a[href='" + location.pathname + "']");
