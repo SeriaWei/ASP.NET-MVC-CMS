@@ -75,7 +75,9 @@
         activeHref.parent().show();
         activeHref.parent().prev().addClass("active");
     }
-
+    $(".Date").each(function() {
+        $(this).datetimepicker({ locale: "zh_cn", format: $(this).attr("JsDateFormat") });
+    });
     tinymce.init({
         content_css: ["../../../Content/bootstrap/css/bootstrap.css", "../../../Content/bootstrap/css/bootstrap-theme.css"],
         selector: "textarea.html",

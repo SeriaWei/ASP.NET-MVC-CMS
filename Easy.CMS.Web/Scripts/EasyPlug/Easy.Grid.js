@@ -38,7 +38,7 @@ Easy.Grid = (function () {
         isLoading: false,
         queryString: "",
         deleteUrl: "",
-        heightFix: 15,
+        heightFix: 10,
         jsonData: null,
         allPage: 0,
         headerWidthDiff: 20,
@@ -745,7 +745,7 @@ Easy.Grid = (function () {
         return openMethod;
     }
     grid.setHeight = function (value) {
-        $(".GridBody", grid.body).height(value - $(".GridHeader", grid.body).height() - $(".Gridfoot", grid.body).height() - $(".GridToolBar", grid.body).height() - gridOptions.heightFix);
+        $(".GridBody", grid.body).height(value - $(".GridHeader", grid.body).outerHeight() - $(".Gridfoot", grid.body).outerHeight() - $(".GridToolBar", grid.body).outerHeight() - gridOptions.heightFix);
         gridOptions.constHeight = true;
         return openMethod;
     }
