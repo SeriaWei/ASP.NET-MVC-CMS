@@ -15,7 +15,7 @@ namespace Easy.CMS.Article
             {
                 RouteName = "articleAdmin",
                 Url = "admin/{controller}/{action}",
-                Defaults = new { action = "index", module = "Article" },
+                Defaults = new { action = "index", controller = "article", module = "Article" },
                 Namespaces = new string[] { "Easy.Web.CMS.Article.Controllers" },
                 Priority = 1
             };

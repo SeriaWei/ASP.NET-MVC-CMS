@@ -32,80 +32,84 @@
 </head>
 <body>
 
-<div id="wrap" class="container-fluid">
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a href="http://www.zkea.net" target="_blank" class="navbar-brand" title="ZKEASOFT">
-                    <img src="~/Content/themes/Admin/images/logo_zkea.png" alt="" style="height: 20px;"/>
-                </a>
+    <div id="wrap" class="container-fluid">
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a href="http://www.zkea.net" target="_blank" class="navbar-brand" title="ZKEASOFT">
+                        <img src="~/Content/themes/Admin/images/logo_zkea.png" alt="" style="height: 20px;" />
+                    </a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active">
+                            <a href="~/" target="_blank">查看站点</a>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="@Url.Action("Logout","Account")" target="_self" title="退出">
+                                <i class="glyphicon glyphicon-off"></i>
+                                退出
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
             </div>
-            <div class="collapse navbar-collapse">
+        </nav>
+        <nav class="navbar navbar-inverse navbar-fixed-left">
+            <div class="">
+                <div class="navbar-header">
+                    <div class="userInfo">
+                        <img src="@Url.PathContent(ApplicationContext.CurrentUser.PhotoUrl)" class="img-circle" />
+                        <strong>@ApplicationContext.CurrentUser.UserName</strong>
+                    </div>
+                </div>
                 <ul class="nav navbar-nav">
-                    <li class="active">
-                        <a href="~/" target="_blank">查看站点</a>
-                    </li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="@Url.Action("Logout","Account")" target="_self" title="退出">
-                            <i class="glyphicon glyphicon-off"></i>
-                            退出
-                        </a>
-                    </li>
+                    @foreach (AdminMenu menu in menus.OrderBy(m => m.Order))
+                    {
+                        if (menu.Children != null && menu.Children.Any())
+                        {
+                            <li class="accordion-group">
+                                <a class="b_9FDDF6" href="#">
+                                    <i class="glyphicon @menu.Icon"></i>
+                                    @menu.Title
+                                    <i class="glyphicon group"></i>
+                                </a>
+                                <div class="accordion-inner">
+                                    @foreach (AdminMenu child in menu.Children.OrderBy(m => m.Order))
+                                    {
+                                        <a id="menu@((child.Url ?? child.Title).GetHashCode())" class="b_9FDDF6" href="@Url.Content(child.Url ?? "~/")">
+                                            <i class="glyphicon @child.Icon"></i>
+                                            @child.Title
+                                        </a>
+                                    }
+                                </div>
+                            </li>
+                        }
+                        else
+                        {
+                            <li>
+                                <a id="menu@((menu.Url ?? menu.Title).GetHashCode())" class="b_9FDDF6" href="@Url.Content(menu.Url ?? "~/")">
+                                    <i class="glyphicon @menu.Icon"></i>
+                                    @menu.Title
+                                </a>
+                            </li>
+                        }
+                    }
                 </ul>
             </div>
 
-        </div>
-    </nav>
-    <nav class="navbar navbar-inverse navbar-fixed-left">
-        <div class="">
-            <div class="navbar-header">
-                <div class="userInfo">
-                    <img src="@Url.PathContent(ApplicationContext.CurrentUser.PhotoUrl)" class="img-circle"/>
-                    <strong>@ApplicationContext.CurrentUser.UserName</strong>
-                </div>
+        </nav>
+        <div class="main-container">
+            <div class="site-map">
+                @Html.MvcSiteMap().SiteMapPath()
             </div>
-            <ul class="nav navbar-nav">
-                @foreach (AdminMenu menu in menus.OrderBy(m => m.Order))
-                {
-                    if (menu.Children != null && menu.Children.Any())
-                    {
-                        <li class="accordion-group">
-                            <a class="b_9FDDF6" href="#">
-                                <i class="glyphicon @menu.Icon"></i>
-                                @menu.Title
-                                <i class="glyphicon group"></i>
-                            </a>
-                            <div class="accordion-inner">
-                                @foreach (AdminMenu child in menu.Children.OrderBy(m => m.Order))
-                                {
-                                    <a id="menu@((child.Url ?? child.Title).GetHashCode())" class="b_9FDDF6" href="@Url.Content(child.Url ?? "~/")">
-                                        <i class="glyphicon @child.Icon"></i>
-                                        @child.Title
-                                    </a>
-                                }
-                            </div>
-                        </li>
-                    }
-                    else
-                    {
-                        <li>
-                            <a id="menu@((menu.Url ?? menu.Title).GetHashCode())" class="b_9FDDF6" href="@Url.Content(menu.Url ?? "~/")">
-                                <i class="glyphicon @menu.Icon"></i>
-                                @menu.Title
-                            </a>
-                        </li>
-                    }
-                }
-            </ul>
+
+            @RenderBody()
         </div>
-        
-    </nav>
-    <div class="main-container">
-        @RenderBody()
     </div>
-</div>
     @StyleAtFoot()
     @ScriptAtFoot()
     <script type="text/javascript" async src="http://www.zkea.net/openstatistics"></script>
