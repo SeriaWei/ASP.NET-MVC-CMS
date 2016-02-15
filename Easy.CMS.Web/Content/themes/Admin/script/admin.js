@@ -96,4 +96,8 @@
         relative_urls: false,
         language: "zh_CN"
     });
+    $('.nav.nav-tabs a').click(function(e) {
+        e.preventDefault();
+        $(this).tab('show');
+    }).first().tab('show');
 });

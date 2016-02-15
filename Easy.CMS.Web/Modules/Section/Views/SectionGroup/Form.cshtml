@@ -1,42 +1,51 @@
 ﻿@model Easy.CMS.Section.Models.SectionGroup
-@using (Html.BeginForm("Save", "SectionGroup"))
+<div class="row">
+    @using (Html.BeginForm("Save", "SectionGroup"))
 {
-    @Html.EditModel()
-
-    <div class="container-fluid" style="margin: 5px 0">
-        <div class="panel panel-default">
-            <div class="panel-heading clearfix">
-                显示模板
-                <span id="PartialView-Badge" class="badge">@Model.PartialView</span>
-                <a href="http://www.zkea.net/zkeacms/templates" target="_blank" class="pull-right">下载更多模板>></a>
-            </div>
-            <div class="panel-body">
-                <div class="container-fluid">
-                    <div id="templates" class="row"></div>
+    <ul class="nav nav-tabs">
+        <li role="presentation"><a href="#info">基本信息</a></li>
+        <li role="presentation"><a href="#template">显示模板</a></li>
+    </ul>
+    <div class="panel panel-default  tab-content">
+        <div id="info" class="panel-body tab-pane">
+            @Html.EditModel()
+        </div>
+        <div id="template" class="tab-pane">
+            <div>
+                <div class="panel-body">
+                    <div class="container-fluid">
+                        <div id="templates" class="row"></div>
+                    </div>
+                </div>
+                <div class="panel-footer text-muted clearfix">
+                    把模板包拖到列表区域进行上传
+                    <span id="PartialView-Badge" class="badge">@Model.PartialView</span>
+                    <a href="http://www.zkea.net/zkeacms/templates" target="_blank" class="pull-right">下载更多模板>></a>
                 </div>
             </div>
-            <div class="panel-footer text-muted">
-                把模板包拖到列表区域进行上传
-            </div>
-        </div>
-    </div>
-    <div class="upload-process">
-        <h1 id="message-info">松开鼠标进行上传...</h1>
-        <div class="progress">
-            <div id="progress-bar" class="progress-bar" role="progressbar" style="width: 0;">
+            <div class="upload-process">
+                <h1 id="message-info">松开鼠标进行上传...</h1>
+                <div class="progress">
+                    <div id="progress-bar" class="progress-bar" role="progressbar" style="width: 0;">
 
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 }
+</div>
+
 <style>
     .caption {
         text-align: center;
     }
+
     #templates {
-        max-height: 305px;
+        max-height: 395px;
         overflow: auto;
     }
+
     .upload-process {
         display: none;
         background: #eee;

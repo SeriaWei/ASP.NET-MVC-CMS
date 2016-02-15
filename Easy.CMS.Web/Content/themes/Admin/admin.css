@@ -14,7 +14,11 @@ img {
     height: 100%;
 }
 
-
+.tab-content.panel {
+    border-top-color: #fff;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
 
 @media (min-width: 1300px) {
   .form-horizontal {

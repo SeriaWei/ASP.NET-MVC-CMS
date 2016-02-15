@@ -5,41 +5,36 @@
 }
 @using (Html.BeginForm())
 {
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            @(Model.ID.IsNullOrEmpty() ? "添加组件" : "编辑组件")
-        </div>
-        <div class="panel-body">
+    <ul class="nav nav-tabs">
+        <li role="presentation"><a href="#info">基本信息</a></li>
+        @if (Model.Groups != null)
+        {
+            <li role="presentation"><a href="#group">显示模板</a></li>
+        }
+    </ul>
+    <div class="panel panel-default  tab-content">
+        <div id="info" class="panel-body tab-pane">
             <input type="hidden" name="ReturnUrl" value="@ViewBag.ReturnUrl" />
             @Html.EditModel()
-            @if (Model.Groups != null)
-            {
-                <div class="container-fluid" style="margin-top: 5px;">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                        分组
-                                </div>
-                                <div class="panel-body" id="section-groups">
-                                    @foreach (SectionGroup group in Model.Groups.OrderBy(m => m.Order))
-                                    {
-                                        Html.RenderPartial("SectionGroup.Edit", group);
-                                    }
-                                </div>
-                                <div class="panel-footer">
-                                    <a href="@Url.Action("Create", "SectionGroup", new {sectionWidgetId = Model.ID})" class="btn btn-link btn-xs dialog" data-width="1000" data-height="600">
-                                        <i class="glyphicon glyphicon-plus"></i>
-                                        添加
-                                    </a>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            }
         </div>
+        @if (Model.Groups != null)
+        {
+            <div id="group" class="panel-body tab-pane">
+
+                <div id="section-groups">
+                    @foreach (SectionGroup group in Model.Groups.OrderBy(m => m.Order))
+                    {
+                        Html.RenderPartial("SectionGroup.Edit", group);
+                    }
+                </div>
+                <div>
+                    <a href="@Url.Action("Create", "SectionGroup", new {sectionWidgetId = Model.ID})" class="btn btn-link btn-xs dialog" data-width="1000" data-height="600">
+                        <i class="glyphicon glyphicon-plus"></i>
+                        添加
+                    </a>
+                </div>
+            </div>
+        }
         <div class="panel-footer">
             @if (Model.ID.IsNullOrEmpty())
             {
@@ -61,11 +56,11 @@
         $(document).on("click", "a.dialog", function () {
             var width = $(this).data("width");
             var height = $(this).data("height");
-            
+
             Easy.ShowUrlWindow({
-                url: $(this).attr("href"), title: $(this).attr("title")||$(this).text(), callBack: function () {
+                url: $(this).attr("href"), title: $(this).attr("title") || $(this).text(), callBack: function () {
                     reload();
-                }, isDialog: true, width: width||800, height: height||460
+                }, isDialog: true, width: width || 800, height: height || 460
             });
             return false;
         });
@@ -109,7 +104,7 @@
             });
         }
 
-        $(function() {
+        $(function () {
             sortGroup();
         });
     </script>
