@@ -215,7 +215,7 @@ a.badge:hover {
 .input-group-collection {
     background-color: white;
     border: 1px solid #ccc;
-    border-radius: 0 4px 4px 0;
+    border-radius: 4px;
     padding-top: 3px;
     padding-bottom: 3px;
 }
