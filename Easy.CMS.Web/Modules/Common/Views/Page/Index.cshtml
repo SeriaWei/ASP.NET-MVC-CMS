@@ -60,6 +60,7 @@
             window.location.href = '@Url.Action("Design", "Page", new { module = "admin" })' + '?ID=' + id;
         }
         function ActiveNode(node, selected) {
+            location.hash = selected.node.id;
             $.post("@Url.Action("PageZones", "Page", new { module = "admin" })", { PageID: selected.node.id }, function (html) {
                 $("#pageZones").html(html);
             }, "html");
@@ -73,10 +74,9 @@
             }, "json");
         }
         function loadedPage(p) {
-            @if (pageId.IsNotNullAndWhiteSpace())
-            {
-                @:$(p.target).find("a#@(pageId)").trigger("click");
-            }
+           if (location.hash) {
+               $(p.target).find("a"+location.hash).trigger("click");
+           }
         }
         $(document).on("click", ".fullRowList .delete", function () {
             var id = $(this).data("widgetid");
@@ -87,6 +87,12 @@
                     }
                 }, "json");
             }
+        });
+        $(function () {
+            if (!location.hash) {
+                location.hash = '@(pageId)';
+            }
+            
         });
     </script>
 }

@@ -83,6 +83,14 @@
     $(".Date").each(function () {
         $(this).datetimepicker({ locale: "zh_cn", format: $(this).attr("JsDateFormat") });
     });
+    $('.nav.nav-tabs a').click(function (e) {
+        $(this).tab('show');
+        return false;
+    }).each(function(i) {
+        if (i === 0 || location.hash===$(this).attr("href")) {
+            $(this).tab("show");
+        }
+    });
     tinymce.init({
         content_css: ["../../../Content/bootstrap/css/bootstrap.css", "../../../Content/bootstrap/css/bootstrap-theme.css"],
         selector: "textarea.html",
@@ -96,8 +104,4 @@
         relative_urls: false,
         language: "zh_CN"
     });
-    $('.nav.nav-tabs a').click(function(e) {
-        e.preventDefault();
-        $(this).tab('show');
-    }).first().tab('show');
 });
