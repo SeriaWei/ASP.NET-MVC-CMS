@@ -34,7 +34,7 @@
         $("#layouts>li").click(function () {
             $(this).siblings().removeClass("actived");
             $(this).addClass("actived");
-            $.post("@Url.Action("LayoutZones", "Layout", new { module="Common"})", { ID: $(this).data("id") }, function (html) {
+            $.post("@Url.Action("LayoutZones", "Layout", new { module="admin"})", { ID: $(this).data("id") }, function (html) {
                 $("#layoutZones").html(html);
             }, "html");
         });
@@ -42,7 +42,7 @@
         $(document).on("click", ".fullRowList .delete", function () {
             var id = $(this).data("widgetid");
             if (confirm("确定要删除该组件吗？")) {
-                $.post("@Url.Action("DeleteWidget", "Widget",new { module="Common"})", { ID: id }, function (data) {
+                $.post("@Url.Action("DeleteWidget", "Widget", new { module = "admin" })", { ID: id }, function (data) {
                     if (data) {
                         $("#widget_" + id).remove();
                     }

@@ -29,7 +29,7 @@ namespace Easy.CMS.Common.Models
         protected override void ViewConfigure()
         {
             ViewConfig(m => m.ID).AsHidden();
-            ViewConfig(m => m.CarouselItems).AsCollectionArea();
+            ViewConfig(m => m.CarouselItems).AsListEditor();
             ViewConfig(m => m.Height).AsHidden();
         }
     }

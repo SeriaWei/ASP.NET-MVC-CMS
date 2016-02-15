@@ -1,7 +1,7 @@
 ﻿@model Easy.CMS.Common.ViewModels.LayoutZonesViewModel
 @{
     Layout = null;
-    string returnUrl = Url.Action("LayoutWidget", "Layout", new { module = "Common" });
+    string returnUrl = Url.Action("LayoutWidget", "Layout", new { module = "admin" });
     var noZoneWidgets = Model.Widgets.Where(m => Model.Zones.All(n => n.ID != m.ZoneID));
     var zoneStart = false;
 }
@@ -17,7 +17,7 @@
                 @foreach (var widget in noZoneWidgets.OrderBy(m => m.Position))
                 {
                     <li id="widget_@widget.ID" class="widget" data-widgetid="@widget.ID">
-                        <a href="@Url.Action("Edit", "Widget", new { module = "Common", ID = widget.ID, ReturnUrl = returnUrl })"><i class="glyphicon glyphicon-edit"></i></a>
+                        <a href="@Url.Action("Edit", "Widget", new { module = "admin", ID = widget.ID, ReturnUrl = returnUrl })"><i class="glyphicon glyphicon-edit"></i></a>
                         <a href="javascript:void(0)" class="delete" data-widgetid="@widget.ID"><i class="glyphicon glyphicon-trash"></i></a>
                         @widget.WidgetName
                     </li>
@@ -54,8 +54,8 @@
                     {
                         <div class="panel panel-success  panel-relative">
                             <div class="panel-toolbar">
-                                <a class="label label-danger" title="添加组件到该区域" href="@Url.Action("SelectWidget", "WidgetTemplate", new { module = "Common", PageID = Model.PageID, ZoneID = item.ID, ReturnUrl = returnUrl,LayoutID=item.LayoutId })">
-                                    <i class="glyphicon glyphicon-share-alt"></i>
+                                <a class="label label-danger" title="添加组件到该区域" href="@Url.Action("SelectWidget", "WidgetTemplate", new { module = "admin", PageID = Model.PageID, ZoneID = item.ID, ReturnUrl = returnUrl, LayoutID = item.LayoutId })">
+                                    <i class="glyphicon glyphicon-plus"></i>
                                     @item.ZoneName
                                 </a>
                             </div>
@@ -63,7 +63,7 @@
                                 @foreach (var widget in Model.Widgets.Where(m => m.ZoneID == item.ID).OrderBy(m => m.Position).ThenBy(m => m.WidgetName))
                                 {
                                     <li id="widget_@widget.ID" class="widget" data-widgetid="@widget.ID">
-                                        <a href="@Url.Action("Edit", "Widget", new {module = "Common", ID = widget.ID, ReturnUrl = returnUrl})"><i class="glyphicon glyphicon-edit"></i></a>
+                                        <a href="@Url.Action("Edit", "Widget", new { module = "admin", ID = widget.ID, ReturnUrl = returnUrl })"><i class="glyphicon glyphicon-edit"></i></a>
                                         <a href="javascript:void(0)" class="delete" data-widgetid="@widget.ID"><i class="glyphicon glyphicon-trash"></i></a>
                                         @widget.WidgetName
                                     </li>
@@ -96,7 +96,7 @@
                 tempForm += "&widgets[" + i + "].ID=" + $(ui).data("widgetid") + "&widgets[" + i + "].Position=" + (i + 1);
             });
             if (tempForm) {
-                $.post("@Url.Action("SaveWidgetPosition", "Widget", new { module="Common"})", tempForm, function (data) {
+                $.post("@Url.Action("SaveWidgetPosition", "Widget", new { module = "admin" })", tempForm, function (data) {
 
                 }, "html");
             }
@@ -114,7 +114,7 @@
             target.removeAttr("style")
             $(this).append(target);
             ui.draggable.remove();
-            $.post("@Url.Action("SaveWidgetZone", "Widget", new { module="Common" })",
+            $.post("@Url.Action("SaveWidgetZone", "Widget", new { module = "admin" })",
                 {
                     ID: target.data("widgetid"),
                     ZoneId: $(this).data("zoneid"),

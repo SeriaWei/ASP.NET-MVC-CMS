@@ -12,7 +12,7 @@
             @foreach (LayoutEntity item in Model)
             {
                 <li class="thumbnail">
-                    <a href="@Url.Action("Edit", "Layout", new {module = "Common", ID = item.ID})">
+                    <a href="@Url.Action("Edit", "Layout", new { module = "admin", ID = item.ID })">
                         @if (item.ImageUrl.IsNullOrEmpty())
                         {
                             <img src="@Url.Content(LayoutEntity.DefaultThumbnial)" alt="@item.LayoutName"/>
@@ -32,7 +32,7 @@
 
     </div>
     <div class="panel-footer">
-        <a href="@Url.Action("Create", new { module = "Common" })" class="btn btn-link btn-xs">
+        <a href="@Url.Action("Create", new { module = "admin" })" class="btn btn-link btn-xs">
             <i class="glyphicon glyphicon-plus"></i>
             添加布局
         </a>

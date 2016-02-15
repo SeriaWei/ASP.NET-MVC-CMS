@@ -19,7 +19,7 @@
     @ScriptAtHead()
 </head>
 <body class="front">
-    @using (Html.BeginForm("SaveLayout", "Layout", new { module = "Common" }, FormMethod.Post, new { id = "LayoutInfo" }))
+    @using (Html.BeginForm("SaveLayout", "Layout", new { module = "admin" }, FormMethod.Post, new { id = "LayoutInfo" }))
     {
         <nav id="toolBar" class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
@@ -98,12 +98,12 @@
                                 </a>
                                 @if (Model.Page != null)
                                 {
-                                    <a class="btn btn-primary" href="@Url.Action("Design","Page" ,new {module = "Common",ID = Model.Page.ID})">
+                                    <a class="btn btn-primary" href="@Url.Action("Design", "Page", new { module = "admin", ID = Model.Page.ID })">
                                         <i class="glyphicon glyphicon-wrench"></i>
                                         页面设计
                                     </a>
                                 }
-                                <a href="@Url.Action("Edit", "Layout", new {ID = Model.ID, module = "Common"})" class="btn btn-primary">
+                                <a href="@Url.Action("Edit", "Layout", new { ID = Model.ID, module = "admin" })" class="btn btn-primary">
                                     <i class="glyphicon glyphicon-edit"></i>
                                     属性
                                 </a>

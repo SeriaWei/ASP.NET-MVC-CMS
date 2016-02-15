@@ -3,45 +3,39 @@
 @{
 
 }
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-md-4">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    导航
-                </div>
-                <div class="panel-body">
+<div class="panel panel-default">
+    <div class="panel-heading">
+        导航
+    </div>
+    <div class="panel-body">
 
-                    @(
- Html.Tree<NavigationEntity>().Source("GetPageTree", "Navigation", new { module = "Common" })
+        @(
+ Html.Tree<NavigationEntity>().Source("GetPageTree", "Navigation")
         .AddPlugin(Plugins.ContextMenu)
         .AddPlugin(Plugins.DragAndDrop)
         .CheckCallBack("checkCallBack")
         .AddContextMenuItem(new ContextmenuItem { Label = "新建", Action = "Create" })
         .AddContextMenuItem(new ContextmenuItem { Label = "编辑", Action = "Edit" })
         .On(Events.MoveNode, "moveNode")
-                    )
+        )
 
-                </div>
-                <div class="panel-footer">
-                    <a href="@Url.Action("Create", new { ParentID ="#"})" class="btn btn-link btn-xs">
-                        <i class="glyphicon glyphicon-plus"></i>
-                        添加导航
-                    </a>
-                </div>
-            </div>
-        </div>
+    </div>
+    <div class="panel-footer">
+        <a href="@Url.Action("Create", new { ParentID ="#"})" class="btn btn-link btn-xs">
+            <i class="glyphicon glyphicon-plus"></i>
+            添加导航
+        </a>
     </div>
 </div>
 
 <script type="text/javascript">
     function Create(node) {
         var parent = node.reference.attr("id");
-        window.location.href = '@Url.Action("Create", "Navigation", new { module = "Common" })' + '?ParentID=' + parent;
+        window.location.href = '@Url.Action("Create", "Navigation", new { module = "admin" })' + '?ParentID=' + parent;
     }
     function Edit(node) {
         var id = node.reference.attr("id");
-        window.location.href = '@Url.Action("Edit", "Navigation", new { module = "Common" })' + '?ID=' + id;
+        window.location.href = '@Url.Action("Edit", "Navigation", new { module = "admin" })' + '?ID=' + id;
     }
     function checkCallBack(operation, node, node_parent, node_position, more) {
         return true;

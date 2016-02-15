@@ -62,11 +62,11 @@ namespace Easy.CMS.Common.Controllers
             }
             else if (!widget.PageID.IsNullOrEmpty())
             {
-                return RedirectToAction("Design", "Page", new { module = "Common", ID = widget.PageID });
+                return RedirectToAction("Design", "Page", new { module = "admin", ID = widget.PageID });
             }
             else
             {
-                return RedirectToAction("LayoutWidget", "Layout", new { module = "Common" });
+                return RedirectToAction("LayoutWidget", "Layout", new { module = "admin" });
             }
         }
         [ViewData_Zones]
@@ -98,11 +98,11 @@ namespace Easy.CMS.Common.Controllers
             }
             if (!widget.PageID.IsNullOrEmpty())
             {
-                return RedirectToAction("Design", "Page", new { module = "Common", ID = widget.PageID });
+                return RedirectToAction("Design", "Page", new { module = "admin", ID = widget.PageID });
             }
             else
             {
-                return RedirectToAction("LayoutWidget", "Layout", new { module = "Common" });
+                return RedirectToAction("LayoutWidget", "Layout", new { module = "admin" });
             }
         }
         [HttpPost]

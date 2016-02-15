@@ -46,15 +46,15 @@
                 <a class="btn btn-primary sort-handle">
                     <i class="glyphicon glyphicon-move"></i>
                 </a>
-                <a class="btn btn-primary" href="@Url.Action("Design", "Page", new {module = "common", ID = layOut.Page.ID})">
+                <a class="btn btn-primary" href="@Url.Action("Design", "Page", new { module = "admin", ID = layOut.Page.ID })">
                     <i class="glyphicon glyphicon-wrench"></i>
                     设计
                 </a>
-                <a class="btn btn-primary" href="@Url.Action("Index", "Page", new { module = "Common", PageID = layOut.Page.ID })">
+                <a class="btn btn-primary" href="@Url.Action("Index", "Page", new { module = "admin", PageID = layOut.Page.ID })">
                     <i class="glyphicon glyphicon-th"></i>
                     概览
                 </a>
-                <a class="btn btn-primary" href="@Url.Action("Edit", "Page", new {module = "common", ID = layOut.Page.ID})">
+                <a class="btn btn-primary" href="@Url.Action("Edit", "Page", new { module = "admin", ID = layOut.Page.ID })">
                     <i class="glyphicon glyphicon-edit"></i>
                     属性
                 </a>

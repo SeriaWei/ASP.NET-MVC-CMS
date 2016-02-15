@@ -44,12 +44,12 @@
       <HintPath>..\packages\Autofac.3.5.2\lib\net40\Autofac.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Easy, Version=1.0.4.3, Culture=neutral, PublicKeyToken=1964c83ce4e03f58, processorArchitecture=MSIL">
-      <HintPath>..\packages\EasyFrameWork.1.0.4.3\lib\net40\Easy.dll</HintPath>
+    <Reference Include="Easy, Version=1.0.4.4, Culture=neutral, PublicKeyToken=1964c83ce4e03f58, processorArchitecture=MSIL">
+      <HintPath>..\packages\EasyFrameWork.1.0.4.4\lib\net40\Easy.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Easy.Web, Version=1.0.4.3, Culture=neutral, PublicKeyToken=3aaa4da33a984374, processorArchitecture=MSIL">
-      <HintPath>..\packages\EasyFrameWork.Web.1.0.4.3\lib\net40\Easy.Web.dll</HintPath>
+    <Reference Include="Easy.Web, Version=1.0.4.4, Culture=neutral, PublicKeyToken=3aaa4da33a984374, processorArchitecture=MSIL">
+      <HintPath>..\packages\EasyFrameWork.Web.1.0.4.4\lib\net40\Easy.Web.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="EasyZip">
@@ -214,7 +214,9 @@
     <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="Mvc.sitemap" />
+    <Content Include="Mvc.sitemap">
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="MvcSiteMapSchema.xsd">
       <SubType>Designer</SubType>
     </None>

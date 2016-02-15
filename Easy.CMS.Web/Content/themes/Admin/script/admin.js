@@ -30,21 +30,6 @@
     }).on("click", "input[type=submit]", function () {
         $("#ActionType").val($(this).data("value"));
         return true;
-    }).on("click", ".control-label .glyphicon", function () {
-        var obj = $(this);
-        window.top.Easy.ShowUrlWindow({
-            url: $(this).data("url"), onLoad: function (box) {
-                var win = this;
-                $(this.document).find("#confirm").click(function () {
-                    obj.parent().next().val(win.GetSelected());
-                    box.close();
-                });
-                $(this.document).on("click", ".confirm", function () {
-                    obj.parent().next().val($(this).data("result"));
-                    box.close();
-                });
-            }
-        });
     }).on("click", ".input-group-collection .add", function () {
         var index = $(this).parents(".input-group-collection").children(".item").size();
         var html = $($(this).parents(".input-group-collection").children(".Template").html().replaceAll("{0}", index));
@@ -53,13 +38,33 @@
     }).on("click", ".input-group-collection .delete", function () {
         $(this).parents(".item").find("input.actionType").val($(this).data("value"));
         $(this).parents(".item").hide();
-    });
+    }).on("click", ".glyphicon.glyphicon-search.text-muted", function () {
+        var obj = $(this);
+        window.top.Easy.ShowUrlWindow({
+            url: $(this).data("url"),
+            onLoad: function (box) {
+                var win = this;
+                $(this.document).find("#confirm").click(function () {
+                    var target = obj.data("target-input") || obj.parent().next().find("input.form-control");
+                    target.val(win.GetSelected());
+                    box.close();
+                });
+                $(this.document).on("click", ".confirm", function () {
+                    var target = obj.data("target-input") || obj.parent().next().find("input.form-control");
+                    target.val($(this).data("result"));
+                    box.close();
+                });
+            }
+        });
+    });;
 
     $("#IsPublish").val("false");
     $("#PublishDate").val("");
 
     $(".select").each(function () {
-        $(".control-label", $(this).parents(".form-group")).append(' <span class="glyphicon glyphicon-search text-muted" data-url="' + $(this).data("url") + '"></span>');
+        var selectBtn = $(' <span class="glyphicon glyphicon-search text-muted" data-url="' + $(this).data("url") + '"></span>');
+        selectBtn.data("target-input", $(this));
+        $(this).parent().siblings(".control-label").append(selectBtn);
     });
 
     var currentSelect = $(".nav.navbar-nav a[href='" + location.pathname + "']");
@@ -75,7 +80,7 @@
         activeHref.parent().show();
         activeHref.parent().prev().addClass("active");
     }
-    $(".Date").each(function() {
+    $(".Date").each(function () {
         $(this).datetimepicker({ locale: "zh_cn", format: $(this).attr("JsDateFormat") });
     });
     tinymce.init({

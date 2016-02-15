@@ -3,36 +3,54 @@
             xmlns="http://mvcsitemap.codeplex.com/schemas/MvcSiteMap-File-4.0"
             xsi:schemaLocation="http://mvcsitemap.codeplex.com/schemas/MvcSiteMap-File-4.0 MvcSiteMapSchema.xsd">
 
-  <mvcSiteMapNode title="后台" controller="layout" action="index">
-    <mvcSiteMapNode title="布局" controller="layout" action="index" module="common"/>
-    <mvcSiteMapNode title="布局组件" controller="layout" action="LayoutWidget" module="common"/>
-    
-    <mvcSiteMapNode title="页面" controller="page" action="index" module="common">
-      <mvcSiteMapNode title="新建" controller="page" action="create" module="common"/>
-      <mvcSiteMapNode title="编辑" controller="page" action="edit" module="common"/>
-    </mvcSiteMapNode>
-
-    <mvcSiteMapNode title="导航" controller="navigation" action="index" module="common">
-      <mvcSiteMapNode title="新建" controller="navigation" action="create" module="common"/>
-      <mvcSiteMapNode title="编辑" controller="navigation" action="edit" module="common"/>
-    </mvcSiteMapNode>
-
-    <mvcSiteMapNode title="焦点图" controller="carousel" action="index" module="common">
-      <mvcSiteMapNode title="新建" controller="carousel" action="create" module="common"/>
-      <mvcSiteMapNode title="编辑" controller="carousel" action="edit" module="common"/>
+  <mvcSiteMapNode title="管理" controller="layout" action="index">
+    <mvcSiteMapNode title="布局" controller="layout" action="index" module="admin">
+      <mvcSiteMapNode title="布局组件" controller="layout" action="LayoutWidget" module="admin"/>
     </mvcSiteMapNode>
     
-    <mvcSiteMapNode title="文章" controller="article" action="index" module="article">
-      <mvcSiteMapNode title="新建" controller="article" action="create" module="article"/>
-      <mvcSiteMapNode title="编辑" controller="article" action="edit" module="article"/>
+    <mvcSiteMapNode title="页面" controller="page" action="index" module="admin">
+      <mvcSiteMapNode title="新建" controller="page" action="create" module="admin"/>
+      <mvcSiteMapNode title="编辑" controller="page" action="edit" module="admin"/>
+      <mvcSiteMapNode title="选择组件" controller="widgettemplate" action="SelectWidget" module="admin"/>
 
-      <mvcSiteMapNode title="文章类别" controller="articletype" action="index" module="article">
-        <mvcSiteMapNode title="新建" controller="articletype" action="create" module="article"/>
-        <mvcSiteMapNode title="编辑" controller="articletype" action="edit" module="article"/>
+      <mvcSiteMapNode title="创建组件" controller="widget" action="create" module="admin"/>
+      <mvcSiteMapNode title="编辑组件" controller="widget" action="edit" module="admin"/>
+    </mvcSiteMapNode>
+
+    <mvcSiteMapNode title="导航" controller="navigation" action="index" module="admin">
+      <mvcSiteMapNode title="新建" controller="navigation" action="create" module="admin"/>
+      <mvcSiteMapNode title="编辑" controller="navigation" action="edit" module="admin"/>
+    </mvcSiteMapNode>
+
+    <mvcSiteMapNode title="焦点图" controller="carousel" action="index" module="admin">
+      <mvcSiteMapNode title="新建" controller="carousel" action="create" module="admin"/>
+      <mvcSiteMapNode title="编辑" controller="carousel" action="edit" module="admin"/>
+    </mvcSiteMapNode>
+    
+    <mvcSiteMapNode title="文章" controller="article" action="index" module="admin">
+      <mvcSiteMapNode title="新建" controller="article" action="create" module="admin"/>
+      <mvcSiteMapNode title="编辑" controller="article" action="edit" module="admin"/>
+
+      <mvcSiteMapNode title="类别" controller="articletype" action="index" module="admin">
+        <mvcSiteMapNode title="新建" controller="articletype" action="create" module="admin"/>
+        <mvcSiteMapNode title="编辑" controller="articletype" action="edit" module="admin"/>
       </mvcSiteMapNode>
-
     </mvcSiteMapNode>
 
+    <mvcSiteMapNode title="产品" controller="product" action="index" module="admin">
+      <mvcSiteMapNode title="新建" controller="product" action="create" module="admin"/>
+      <mvcSiteMapNode title="编辑" controller="product" action="edit" module="admin"/>
+      
+      <mvcSiteMapNode title="类别" controller="productcategory" action="index" module="admin">
+        <mvcSiteMapNode title="新建" controller="productcategory" action="create" module="admin"/>
+        <mvcSiteMapNode title="编辑" controller="productcategory" action="edit" module="admin"/>
+      </mvcSiteMapNode>
+    </mvcSiteMapNode>
+
+    <mvcSiteMapNode title="用户" controller="user" action="index" module="admin">
+      <mvcSiteMapNode title="新建" controller="user" action="create" module="admin"/>
+      <mvcSiteMapNode title="编辑" controller="user" action="edit" module="admin"/>
+    </mvcSiteMapNode>
 
   </mvcSiteMapNode>
 

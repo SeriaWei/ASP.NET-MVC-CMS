@@ -66,7 +66,7 @@ a.badge:hover {
     }
 
 .main-container {
-    margin: 60px 0 0 180px;
+    margin: 55px 0 0 180px;
     overflow: auto;
 }
 
@@ -221,18 +221,16 @@ a.badge:hover {
 }
 
     .input-group-collection .row {
-        padding: 2px 0;
+        margin-top: 3px;
+        margin-bottom: 3px;
+        position: relative;
     }
+     .input-group-collection .delete {
+         position: absolute;
+         right: 0;
+         top: 50%;
+     }
 
-        .input-group-collection .row:last-child {
-        }
-
-    .input-group-collection .input-group {
-    }
-
-.input-group {
-    margin: 3px 0;
-}
 
 .jstree a[ispublish="false"] {
     color: gray;
@@ -242,7 +240,10 @@ a.badge:hover {
     font-weight: bold;
     color: red;
 }
-
+.site-map {
+    padding: 3px;
+    margin-bottom: 5px;
+}
 .form-control[type=checkbox] {
     width: 15px;
     box-shadow: none;
@@ -255,6 +256,7 @@ a.badge:hover {
 }
 .control-label .glyphicon {
     cursor: pointer;
+    margin-left: 3px;
 }
 .control-label .glyphicon:hover {
     color: red;

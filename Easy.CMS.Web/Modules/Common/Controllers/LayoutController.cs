@@ -98,9 +98,9 @@ namespace Easy.CMS.Common.Controllers
             Service.UpdateDesign(layout);
             if (layout.Page != null)
             {
-                return RedirectToAction("Design", "Page", new {module = "Common", ID = layout.Page.ID});
+                return RedirectToAction("Design", "Page", new {module = "admin", ID = layout.Page.ID});
             }
-            return RedirectToAction("Edit", new { ID = layout.ID, module = "Common" });
+            return RedirectToAction("Edit", new { ID = layout.ID, module = "admin" });
         }
     }
 }

@@ -6,7 +6,7 @@
 
 
 @(
- Html.Tree<PageEntity>().Source("GetPageTree", "Page", new { module = "Common" }).On(Events.SelectNode, "Select")
+ Html.Tree<PageEntity>().Source("GetPageTree", "Page", new { module = "admin" }).On(Events.SelectNode, "Select")
 )
 @using (Script.AtFoot())
 {

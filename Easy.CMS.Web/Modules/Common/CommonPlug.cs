@@ -23,10 +23,9 @@ namespace Easy.CMS.Common
             };
             yield return new RouteDescriptor
             {
-                RouteName = "layoutAdmin",
+                RouteName = "admin",
                 Url = "admin/{controller}/{action}",
-                Defaults = new { controller = "layout", action = "index", module = "common" },
-                Namespaces = new string[] { "Easy.CMS.Common.Controllers" },
+                Defaults = new { controller = "layout", action = "index", module = "admin" },
                 Priority = 10
             };
             yield return new RouteDescriptor
@@ -34,14 +33,6 @@ namespace Easy.CMS.Common
                 RouteName = "AccountAdmin",
                 Url = "Account/{action}",
                 Defaults = new { controller = "Account", action = "Login", module = "common" },
-                Namespaces = new string[] { "Easy.CMS.Common.Controllers" },
-                Priority = 10
-            };
-            yield return new RouteDescriptor
-            {
-                RouteName = "UserAdmin",
-                Url = "User/{action}",
-                Defaults = new { controller = "User", action = "Index", module = "common" },
                 Namespaces = new string[] { "Easy.CMS.Common.Controllers" },
                 Priority = 10
             };
