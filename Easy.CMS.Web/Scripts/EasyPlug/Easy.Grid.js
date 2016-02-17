@@ -184,20 +184,25 @@ Easy.Grid = (function () {
         } else {
             gridSearch.hide();
         }
-
+        function getHeight() {
+            var totalHeight = grid.body.parent().parent().height();
+            grid.body.parent().siblings(":not(script)").each(function() {
+                totalHeight -= $(this).outerHeight();
+                totalHeight -= parseInt($(this).css("margin-top"));
+                totalHeight -= parseInt($(this).css("margin-bottom"));
+            });
+            return totalHeight;
+        }
         if (!gridOptions.constHeight) {
             $(window).resize(function () {
-                Easy.Processor(function () { grid.setHeight(grid.body.parent().height()); }, 200);
-
+                Easy.Processor(function () { grid.setHeight(getHeight()); }, 200);
             });
             $(function () {
-                setTimeout(function () { grid.setHeight(grid.body.parent().height()); }, 100);
+                setTimeout(function () { grid.setHeight(getHeight()); }, 50);
             });
         }
-        var pheight = grid.body.parent().height();
-        if (!gridOptions.constHeight) {
-            grid.setHeight(pheight);
-        }
+       
+        
         grid.resizeColumn();
     }
     grid.resizeColumn = function () {
@@ -745,7 +750,11 @@ Easy.Grid = (function () {
         return openMethod;
     }
     grid.setHeight = function (value) {
-        $(".GridBody", grid.body).height(value - $(".GridHeader", grid.body).outerHeight() - $(".Gridfoot", grid.body).outerHeight() - $(".GridToolBar", grid.body).outerHeight() - gridOptions.heightFix);
+        $(".GridBody", grid.body).height(value -
+            $(".GridHeader", grid.body).outerHeight() -
+            $(".Gridfoot", grid.body).outerHeight() -
+            $(".GridToolBar", grid.body).outerHeight() -
+            gridOptions.heightFix);
         gridOptions.constHeight = true;
         return openMethod;
     }
