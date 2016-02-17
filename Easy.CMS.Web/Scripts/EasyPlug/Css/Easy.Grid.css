@@ -237,6 +237,7 @@
     outline: 0;
     z-index: 1;
     box-shadow: 0 6px 12px rgba(0,0,0,0.175);
+    border-radius: 3px;
 }
 
     .RangeConditionBox .form-group {
@@ -332,7 +333,7 @@
 }
 
     .DropDownList_Options .checkbox {
-        margin: 0;
+        margin: 0 0 0 5px;
         font-weight: normal;
         line-height: 22px;
     }
