@@ -189,6 +189,7 @@
     <Content Include="web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Widget.Script.cshtml" />
+    <Content Include="Views\Layout\SelectZone.cshtml" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>

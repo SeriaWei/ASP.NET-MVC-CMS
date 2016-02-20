@@ -98,9 +98,24 @@ namespace Easy.CMS.Common.Controllers
             Service.UpdateDesign(layout);
             if (layout.Page != null)
             {
-                return RedirectToAction("Design", "Page", new {module = "admin", ID = layout.Page.ID});
+                return RedirectToAction("Design", "Page", new { module = "admin", ID = layout.Page.ID });
             }
             return RedirectToAction("Edit", new { ID = layout.ID, module = "admin" });
+        }
+        [PopUp]
+        public ActionResult SelectZone(string layoutId, string pageId, string zoneId)
+        {
+            LayoutEntity layou = null;
+            if (layoutId.IsNotNullAndWhiteSpace())
+            {
+                layou = Service.Get(layoutId);
+            }
+            else if (pageId.IsNotNullAndWhiteSpace())
+            {
+                layou = Service.Get(new PageService().Get(pageId).LayoutId);
+            }
+            ViewBag.ZoneId = zoneId;
+            return View(layou);
         }
     }
 }

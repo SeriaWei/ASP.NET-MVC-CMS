@@ -7,42 +7,44 @@
         <span class="badge sort-handle">
             <i class="glyphicon glyphicon-resize-vertical"></i>
         </span>
+        |
         <span class="badge">
             @Model.GroupName
+            [@Model.PartialView]
         </span>
-        <span class="badge">@Model.PartialView</span>
     </div>
-<ul class="list-group">
-    @foreach (SectionContent content in Model.SectionContents.OrderBy(m => m.Order))
-    {
-        Html.RenderEditContent(content);
-    }
-</ul>
-<div class="panel-footer">
-    <a href="@Url.Action("Create", "SectionContentTitle", new { sectionGroupId=Model.ID,sectionWidgetId=Model.SectionWidgetId })" class="btn btn-link btn-xs dialog" data-width="800" data-height="170">
-        <i class="glyphicon glyphicon-plus"></i>
-        添加标题
-    </a>
-    <a href="@Url.Action("Create", "SectionContentParagraph", new { sectionGroupId=Model.ID,sectionWidgetId=Model.SectionWidgetId })" class="btn btn-link btn-xs dialog" data-width="800" data-height="510">
-        <i class="glyphicon glyphicon-plus"></i>
-        添加段落
-    </a>
-    <a href="@Url.Action("Create", "SectionContentCallToAction", new { sectionGroupId=Model.ID,sectionWidgetId=Model.SectionWidgetId })" class="btn btn-link btn-xs dialog" data-width="800" data-height="170">
-        <i class="glyphicon glyphicon-plus"></i>
-        添加链接
-    </a>
-    <a href="@Url.Action("Create", "SectionContentImage", new {sectionGroupId = Model.ID, sectionWidgetId = Model.SectionWidgetId})" class="btn btn-link btn-xs dialog" data-width="800" data-height="350">
-        <i class="glyphicon glyphicon-plus"></i>
-        添加图片
-    </a>
-    |
-    <a href="@Url.Action("Edit", "SectionGroup", new {Id= Model.ID })" class="btn btn-link btn-xs dialog" data-width="1000" data-height="600">
-        <i class="glyphicon glyphicon-edit"></i>
-        修改
-    </a>
-    <a href="@Url.Action("Delete", "SectionGroup", new {Id= Model.ID })" class="btn btn-link btn-xs ajax">
-        <i class="glyphicon glyphicon-remove"></i>
-        删除
-    </a>
-</div>
+    <ul class="list-group">
+        @foreach (SectionContent content in Model.SectionContents.OrderBy(m => m.Order))
+        {
+            Html.RenderEditContent(content);
+        }
+    </ul>
+    <div class="panel-footer">
+        <a href="@Url.Action("Create", "SectionContentTitle", new { sectionGroupId=Model.ID,sectionWidgetId=Model.SectionWidgetId })" class="btn btn-link btn-xs dialog" data-width="800" data-height="170">
+            <i class="glyphicon glyphicon-plus"></i>
+            添加标题
+        </a>
+        <a href="@Url.Action("Create", "SectionContentParagraph", new { sectionGroupId=Model.ID,sectionWidgetId=Model.SectionWidgetId })" class="btn btn-link btn-xs dialog" data-width="800" data-height="510">
+            <i class="glyphicon glyphicon-plus"></i>
+            添加段落
+        </a>
+        <a href="@Url.Action("Create", "SectionContentCallToAction", new { sectionGroupId=Model.ID,sectionWidgetId=Model.SectionWidgetId })" class="btn btn-link btn-xs dialog" data-width="800" data-height="170">
+            <i class="glyphicon glyphicon-plus"></i>
+            添加链接
+        </a>
+        <a href="@Url.Action("Create", "SectionContentImage", new {sectionGroupId = Model.ID, sectionWidgetId = Model.SectionWidgetId})" class="btn btn-link btn-xs dialog" data-width="800" data-height="350">
+            <i class="glyphicon glyphicon-plus"></i>
+            添加图片
+        </a>
+        |
+
+        <a href="@Url.Action("Edit", "SectionGroup", new {Id= Model.ID })" class="btn btn-link btn-xs dialog" data-width="1000" data-height="600">
+            <i class="glyphicon glyphicon-edit"></i>
+            修改
+        </a>
+        <a href="@Url.Action("Delete", "SectionGroup", new {Id= Model.ID })" class="btn btn-link btn-xs ajax">
+            <i class="glyphicon glyphicon-remove"></i>
+            删除
+        </a>
+    </div>
 </div>

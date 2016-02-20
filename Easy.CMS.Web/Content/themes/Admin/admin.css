@@ -157,8 +157,10 @@ a.badge:hover {
 
 .field-validation-error {
     display: block;
-    padding: 3px;
+    font-size: 13px;
     color: red;
+    background:url(images/Error-16.png) left center no-repeat;
+    padding:5px 0 0 20px;
 }
 
 .input-group .mce-panel {
@@ -339,4 +341,7 @@ a.badge:hover {
     background-image: linear-gradient(to bottom, #f5f5f5 0%, #f5f5f5 100%);
     background-repeat: repeat-x;
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff5f5f5', endColorstr='#fff5f5f5', GradientType=0);
+}
+.form-group select#ZoneID{
+    cursor:pointer;
 }

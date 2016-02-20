@@ -56,8 +56,23 @@
                 });
             }
         });
-    });;
-
+    }).on("click", ".form-group select#ZoneID", function () {
+        var obj = $(this);
+        var url = "/admin/Layout/SelectZone?layoutId=" + $("#Hiddens #LayoutID").val() + "&pageId=" + $("#Hiddens #PageID").val() + "&zoneId=" + obj.val();
+        window.top.Easy.ShowUrlWindow({
+            url: url,
+            width: 1000,
+            title:"选择区域",
+            onLoad: function (box) {
+                var win = this;
+                $(this.document).find("#confirm").click(function () {
+                    obj.val(win.GetSelected());
+                    box.close();
+                });
+            }
+        });
+    });
+    $(".form-group select#ZoneID").on("mousedown",false);
     $("#IsPublish").val("false");
     $("#PublishDate").val("");
 
