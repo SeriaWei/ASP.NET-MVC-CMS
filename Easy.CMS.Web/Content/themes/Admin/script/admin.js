@@ -62,7 +62,7 @@
         window.top.Easy.ShowUrlWindow({
             url: url,
             width: 1000,
-            title:"选择区域",
+            title: "选择区域",
             onLoad: function (box) {
                 var win = this;
                 $(this.document).find("#confirm").click(function () {
@@ -72,7 +72,7 @@
             }
         });
     });
-    $(".form-group select#ZoneID").on("mousedown",false);
+    $(".form-group select#ZoneID").on("mousedown", false);
     $("#IsPublish").val("false");
     $("#PublishDate").val("");
 
@@ -101,10 +101,30 @@
     $('.nav.nav-tabs a').click(function (e) {
         $(this).tab('show');
         return false;
-    }).each(function(i) {
-        if (i === 0 || location.hash===$(this).attr("href")) {
+    }).each(function (i) {
+        if (i === 0 || location.hash === $(this).attr("href")) {
             $(this).tab("show");
         }
+    });
+    $('#StyleClass.form-control').popover({
+        trigger: "focus",
+        html: true,
+        content: function () {
+            var activeClass = [
+                { name: "边框", value: "border" },
+                { name: "文字居中", value: "align-center" },
+                { name: "文字右对齐", value: "align-right" },
+                { name: "图片边框", value: "image-border" },
+                { name: "阴影", value: "box-shadow" }
+            ];
+            var html = "<p clss='text-nowrap'>直接写样式例：<code>style=\"color:#fff\"</code></p><p>预定义样式：<ol>";
+            for (var i = 0; i < activeClass.length; i++) {
+                html += "<li>" + activeClass[i].name + ":<code>" + activeClass[i].value + "</code></li>";
+            }
+            html += "</ol></p>";
+            return html;
+        },
+        placement: "bottom"
     });
     tinymce.init({
         content_css: ["../../../Content/bootstrap/css/bootstrap.css", "../../../Content/bootstrap/css/bootstrap-theme.css"],
