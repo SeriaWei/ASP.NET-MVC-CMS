@@ -28,8 +28,7 @@ namespace Easy.CMS.Product.Models
             base.ViewConfigure();
             ViewConfig(m => m.ProductCategoryID).AsDropDownList().DataSource(() =>
             {
-                var dicts = new Dictionary<string, string>();
-                dicts.Add("", "所有类别");
+                var dicts = new Dictionary<string, string> {{"", "所有类别"}};
                 new ProductCategoryService().Get().Each(m => { dicts.Add(m.ID.ToString(), m.Title); });
                 return dicts;
             });

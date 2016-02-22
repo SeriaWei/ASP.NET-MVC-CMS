@@ -83,7 +83,7 @@ namespace Easy.CMS.Product.Models
             ViewConfig(m => m.ImageUrl).AsTextBox().AddClass("select").AddProperty("data-url",Urls.SelectImage);
             ViewConfig(m => m.ImageThumbUrl).AsTextBox().AddClass("select").AddProperty("data-url", Urls.SelectImage);
             ViewConfig(m => m.BrandCD).AsHidden();
-            ViewConfig(m => m.ProductCategory).AsDropDownList().DataSource(ViewDataKeys.ProductCategory, Constant.SourceType.ViewData);
+            ViewConfig(m => m.ProductCategory).AsDropDownList().Required().DataSource(ViewDataKeys.ProductCategory, Constant.SourceType.ViewData);
             ViewConfig(m => m.ShelfLife).AsHidden();
             ViewConfig(m => m.Norm).AsHidden();
             ViewConfig(m => m.Color).AsHidden();
