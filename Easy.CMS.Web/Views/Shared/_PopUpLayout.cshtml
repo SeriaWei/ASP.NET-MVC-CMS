@@ -14,13 +14,13 @@
     @ScriptAtHead()
 </head>
 <body>
-<div style="padding-bottom: 30px;">
-        @RenderBody()
-        <div class="popUpToolBar">
-            <input id="confirm" type="button" value="确认" class="btn btn-primary btn-sm" />
-            <input type="button" value="取消" class="btn btn-default btn-sm" />
-        </div>
+<div style="padding:10px 10px 40px;">
+   @RenderBody()    
+    <div class="popUpToolBar">
+        <input id="confirm" type="button" value="确认" class="btn btn-primary btn-sm"/>
+        <input type="button" value="取消" class="btn btn-default btn-sm"/>
     </div>
+</div>
     @StyleAtFoot()
     @ScriptAtFoot()
     <script type="text/javascript">
@@ -46,21 +46,5 @@
             return selectedArray;
         }
     </script>
-    <script type="text/javascript">
-        tinymce.init({
-            content_css: ["../../../Content/bootstrap/css/bootstrap.css", "../../../Content/bootstrap/css/bootstrap-theme.css"],
-            selector: "textarea.html",
-            plugins: [
-                "advlist autolink lists link image charmap print preview anchor",
-                "searchreplace visualblocks code fullscreen",
-                "insertdatetime media table contextmenu paste"
-            ],
-            toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
-            height: 300,
-            relative_urls:false,
-            language: "zh_CN"
-        });
-    </script>
-
 </body>
 </html>

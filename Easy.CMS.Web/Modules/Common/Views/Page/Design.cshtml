@@ -19,8 +19,8 @@
         {
             <div class="zoneid" data-id="@item.Html"></div>
             <div class="zoneName">
-                <a title="添加组件到该区域" class="add-widget label label-danger" href="@Url.Action("SelectWidget", "WidgetTemplate", new { module = "common", pageId=layOut.Page.ID,ZoneId=item.Html })">
-                    <i class="glyphicon glyphicon-share-alt"></i>
+                <a title="添加组件到该区域" class="add-widget label label-danger" href="@Url.Action("SelectWidget", "WidgetTemplate", new { module = "admin", pageId = layOut.Page.ID, ZoneId = item.Html })">
+                    <i class="glyphicon glyphicon-plus"></i>
                     @layOut.Zones.First(m => m.ID == item.Html).ZoneName
                 </a>
 
@@ -45,7 +45,7 @@
                                     <div class="pull-right">
                                         @if (widgetPart.Widget.LayoutID.IsNullOrEmpty())
                                         {
-                                            <a href="@Url.Action("Edit","Widget",new{module="Common",ID=widgetPart.Widget.ID})"><i class="glyphicon glyphicon-edit"></i></a>
+                                            <a href="@Url.Action("Edit", "Widget", new { module = "admin", ID = widgetPart.Widget.ID })"><i class="glyphicon glyphicon-edit"></i></a>
                                             <a href="javascript:void(0)" class="delete" data-id="@widgetPart.Widget.ID"><i class="glyphicon glyphicon-trash"></i></a>
                                         }
                                     </div>
@@ -83,7 +83,7 @@
                         tempForm += "&widgets[" + i + "].ID=" + $(ui).data("widgetid") + "&widgets[" + i + "].Position=" + (i + 1);
                     });
                     if (tempForm) {
-                        $.post("@Url.Action("SaveWidgetPosition", "Widget", new { module="Common"})", tempForm, function (data) {
+                        $.post("@Url.Action("SaveWidgetPosition", "Widget", new { module = "admin" })", tempForm, function (data) {
                             InitMinHeight();
                         }, "html");
                     }
@@ -101,7 +101,7 @@
                     target.removeAttr("style");
                     $(this).append(target);
                     ui.draggable.remove();
-                    $.post("@Url.Action("SaveWidgetZone", "Widget", new { module="Common" })",
+                    $.post("@Url.Action("SaveWidgetZone", "Widget", new { module = "admin" })",
                         {
                             ID: target.data("widgetid"),
                             ZoneId: $(this).data("id"),
@@ -115,7 +115,7 @@
             $(document).on("click", ".delete", function () {
                 var id = $(this).data("id");
                 if (confirm("确定要删除该组件吗？")) {
-                    $.post("@Url.Action("DeleteWidget", "Widget",new { module="Common"})", { ID: id }, function (data) {
+                    $.post("@Url.Action("DeleteWidget", "Widget", new { module = "admin" })", { ID: id }, function (data) {
                         if (data) {
                             $("#widget_" + id).remove();
                             InitMinHeight();

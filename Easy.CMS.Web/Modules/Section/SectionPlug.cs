@@ -5,20 +5,13 @@ using System.Web;
 using Easy.Web.CMS;
 using Easy.Web.Route;
 
-namespace Easy.CMS.Product
+namespace Easy.CMS.Section
 {
     public class ProductPlug : PluginBase
     {
         public override IEnumerable<RouteDescriptor> RegistRoute()
         {
-            yield return new RouteDescriptor()
-            {
-                RouteName = "sectionAdmin",
-                Url = "admin/{controller}/{action}",
-                Defaults = new { action = "index", module = "Section" },
-                Namespaces = new string[] { "Easy.CMS.Section.Controllers" },
-                Priority = 1
-            };
+            return null;
         }
 
         public override IEnumerable<AdminMenu> AdminMenu()

@@ -65,6 +65,8 @@ ZKEACMS 使用LESS，可以轻松的创建主题。
 [http://www.zkea.net/ZKEACMS](http://www.zkea.net/ZKEACMS)
 ## 安装和部署
 [安装和部署](http://blog.zkea.net/2015/09/install-ZKEACMS/)
+## DEMO站点
+[DEMO站点](http://zkeacms.ngrok.natapp.cn/)
 ## 关注微信(ZKEASOFT)
 ![关注微信](http://i11.tietuku.com/263801921375bdf2.jpg)
 ## QQ群(493586356)

@@ -27,11 +27,12 @@ namespace Easy.CMS.Common.Controllers
         [AdminTheme]
         public override ActionResult Index()
         {
-            return View(Service.Get(new DataFilter()));
+            return View(Service.Get());
         }
         [AdminTheme]
-        public ActionResult LayoutWidget()
+        public ActionResult LayoutWidget(string LayoutID)
         {
+            ViewBag.LayoutID = LayoutID;
             return View(Service.Get());
         }
         [HttpPost]
@@ -42,6 +43,7 @@ namespace Easy.CMS.Common.Controllers
             var layout = Service.Get(ID);
             var viewModel = new LayoutZonesViewModel
             {
+                LayoutID = ID,
                 Zones = zoneService.GetZonesByLayoutId(ID),
                 Widgets = widgetService.GetByLayoutId(ID),
                 LayoutHtml = layout.Html
@@ -98,9 +100,24 @@ namespace Easy.CMS.Common.Controllers
             Service.UpdateDesign(layout);
             if (layout.Page != null)
             {
-                return RedirectToAction("Design", "Page", new {module = "Common", ID = layout.Page.ID});
+                return RedirectToAction("Design", "Page", new { module = "admin", ID = layout.Page.ID });
             }
-            return RedirectToAction("Edit", new { ID = layout.ID, module = "Common" });
+            return RedirectToAction("Edit", new { ID = layout.ID, module = "admin" });
+        }
+        [PopUp]
+        public ActionResult SelectZone(string layoutId, string pageId, string zoneId)
+        {
+            LayoutEntity layou = null;
+            if (layoutId.IsNotNullAndWhiteSpace())
+            {
+                layou = Service.Get(layoutId);
+            }
+            else if (pageId.IsNotNullAndWhiteSpace())
+            {
+                layou = Service.Get(new PageService().Get(pageId).LayoutId);
+            }
+            ViewBag.ZoneId = zoneId;
+            return View(layou);
         }
     }
 }

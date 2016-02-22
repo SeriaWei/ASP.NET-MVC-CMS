@@ -44,12 +44,12 @@
       <HintPath>..\packages\Autofac.3.5.2\lib\net40\Autofac.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Easy, Version=1.0.4.1, Culture=neutral, PublicKeyToken=1964c83ce4e03f58, processorArchitecture=MSIL">
-      <HintPath>..\packages\EasyFrameWork.1.0.4.1\lib\net40\Easy.dll</HintPath>
+    <Reference Include="Easy, Version=1.0.5.1, Culture=neutral, PublicKeyToken=1964c83ce4e03f58, processorArchitecture=MSIL">
+      <HintPath>..\packages\EasyFrameWork.1.0.5.1\lib\net40\Easy.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Easy.Web, Version=1.0.4.1, Culture=neutral, PublicKeyToken=3aaa4da33a984374, processorArchitecture=MSIL">
-      <HintPath>..\packages\EasyFrameWork.Web.1.0.4.1\lib\net40\Easy.Web.dll</HintPath>
+    <Reference Include="Easy.Web, Version=1.0.5.1, Culture=neutral, PublicKeyToken=3aaa4da33a984374, processorArchitecture=MSIL">
+      <HintPath>..\packages\EasyFrameWork.Web.1.0.5.1\lib\net40\Easy.Web.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="EasyZip">
@@ -70,8 +70,12 @@
       <HintPath>..\packages\Unity.2.1.505.2\lib\NET35\Microsoft.Practices.Unity.Configuration.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="MySql.Data, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
-      <HintPath>..\packages\MySql.Data.6.9.8\lib\net40\MySql.Data.dll</HintPath>
+    <Reference Include="MvcSiteMapProvider, Version=4.6.22.0, Culture=neutral, PublicKeyToken=1923abe4657913cc, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvcSiteMapProvider.MVC4.Core.4.6.22\lib\net40\MvcSiteMapProvider.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MvcSiteMapProvider.WebActivator, Version=4.6.22.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvcSiteMapProvider.MVC4.4.6.22\lib\net40\MvcSiteMapProvider.WebActivator.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
@@ -170,6 +174,10 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebActivatorEx.2.0.1\lib\net40\WebActivatorEx.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\AuthConfig.cs" />
@@ -197,6 +205,7 @@
     </Content>
     <Content Include="Content\themes\Admin\admin.css" />
     <Content Include="Content\themes\Admin\images\dotted.png" />
+    <Content Include="Content\themes\Admin\images\Error-16.png" />
     <Content Include="Content\themes\Admin\images\logo_zkea.png" />
     <Content Include="Content\themes\Admin\script\admin.js" />
     <Content Include="favicon.ico" />
@@ -206,6 +215,12 @@
     <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Mvc.sitemap">
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="MvcSiteMapSchema.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\PublishProfiles\PubLocal.pubxml">
       <SubType>Designer</SubType>
     </None>
@@ -220,7 +235,6 @@
     <Content Include="Scripts\angular\angular-sanitize.min.js.map" />
     <Content Include="Scripts\angular\angular-touch.min.js.map" />
     <Content Include="Scripts\angular\angular.min.js.map" />
-    <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Images\bg1.jpg" />
     <Content Include="Images\bg2.jpg" />
     <Content Include="Images\head.png" />
@@ -249,6 +263,99 @@
     <Content Include="Scripts\angular\angular-touch.min.js" />
     <Content Include="Scripts\angular\angular.js" />
     <Content Include="Scripts\angular\angular.min.js" />
+    <Content Include="Scripts\bootstrap-datetimepicker\bootstrap-datetimepicker.css" />
+    <Content Include="Scripts\bootstrap-datetimepicker\bootstrap-datetimepicker.js" />
+    <Content Include="Scripts\bootstrap-datetimepicker\bootstrap-datetimepicker.min.css" />
+    <Content Include="Scripts\bootstrap-datetimepicker\bootstrap-datetimepicker.min.js" />
+    <Content Include="Scripts\bootstrap-datetimepicker\moment-with-locales.js" />
+    <Content Include="Scripts\CryptoJS\components\aes-min.js" />
+    <Content Include="Scripts\CryptoJS\components\aes.js" />
+    <Content Include="Scripts\CryptoJS\components\cipher-core-min.js" />
+    <Content Include="Scripts\CryptoJS\components\cipher-core.js" />
+    <Content Include="Scripts\CryptoJS\components\core-min.js" />
+    <Content Include="Scripts\CryptoJS\components\core.js" />
+    <Content Include="Scripts\CryptoJS\components\enc-base64-min.js" />
+    <Content Include="Scripts\CryptoJS\components\enc-base64.js" />
+    <Content Include="Scripts\CryptoJS\components\enc-utf16-min.js" />
+    <Content Include="Scripts\CryptoJS\components\enc-utf16.js" />
+    <Content Include="Scripts\CryptoJS\components\evpkdf-min.js" />
+    <Content Include="Scripts\CryptoJS\components\evpkdf.js" />
+    <Content Include="Scripts\CryptoJS\components\format-hex-min.js" />
+    <Content Include="Scripts\CryptoJS\components\format-hex.js" />
+    <Content Include="Scripts\CryptoJS\components\hmac-min.js" />
+    <Content Include="Scripts\CryptoJS\components\hmac.js" />
+    <Content Include="Scripts\CryptoJS\components\lib-typedarrays-min.js" />
+    <Content Include="Scripts\CryptoJS\components\lib-typedarrays.js" />
+    <Content Include="Scripts\CryptoJS\components\md5-min.js" />
+    <Content Include="Scripts\CryptoJS\components\md5.js" />
+    <Content Include="Scripts\CryptoJS\components\mode-cfb-min.js" />
+    <Content Include="Scripts\CryptoJS\components\mode-cfb.js" />
+    <Content Include="Scripts\CryptoJS\components\mode-ctr-gladman-min.js" />
+    <Content Include="Scripts\CryptoJS\components\mode-ctr-gladman.js" />
+    <Content Include="Scripts\CryptoJS\components\mode-ctr-min.js" />
+    <Content Include="Scripts\CryptoJS\components\mode-ctr.js" />
+    <Content Include="Scripts\CryptoJS\components\mode-ecb-min.js" />
+    <Content Include="Scripts\CryptoJS\components\mode-ecb.js" />
+    <Content Include="Scripts\CryptoJS\components\mode-ofb-min.js" />
+    <Content Include="Scripts\CryptoJS\components\mode-ofb.js" />
+    <Content Include="Scripts\CryptoJS\components\pad-ansix923-min.js" />
+    <Content Include="Scripts\CryptoJS\components\pad-ansix923.js" />
+    <Content Include="Scripts\CryptoJS\components\pad-iso10126-min.js" />
+    <Content Include="Scripts\CryptoJS\components\pad-iso10126.js" />
+    <Content Include="Scripts\CryptoJS\components\pad-iso97971-min.js" />
+    <Content Include="Scripts\CryptoJS\components\pad-iso97971.js" />
+    <Content Include="Scripts\CryptoJS\components\pad-nopadding-min.js" />
+    <Content Include="Scripts\CryptoJS\components\pad-nopadding.js" />
+    <Content Include="Scripts\CryptoJS\components\pad-zeropadding-min.js" />
+    <Content Include="Scripts\CryptoJS\components\pad-zeropadding.js" />
+    <Content Include="Scripts\CryptoJS\components\pbkdf2-min.js" />
+    <Content Include="Scripts\CryptoJS\components\pbkdf2.js" />
+    <Content Include="Scripts\CryptoJS\components\rabbit-legacy-min.js" />
+    <Content Include="Scripts\CryptoJS\components\rabbit-legacy.js" />
+    <Content Include="Scripts\CryptoJS\components\rabbit-min.js" />
+    <Content Include="Scripts\CryptoJS\components\rabbit.js" />
+    <Content Include="Scripts\CryptoJS\components\rc4-min.js" />
+    <Content Include="Scripts\CryptoJS\components\rc4.js" />
+    <Content Include="Scripts\CryptoJS\components\ripemd160-min.js" />
+    <Content Include="Scripts\CryptoJS\components\ripemd160.js" />
+    <Content Include="Scripts\CryptoJS\components\sha1-min.js" />
+    <Content Include="Scripts\CryptoJS\components\sha1.js" />
+    <Content Include="Scripts\CryptoJS\components\sha224-min.js" />
+    <Content Include="Scripts\CryptoJS\components\sha224.js" />
+    <Content Include="Scripts\CryptoJS\components\sha256-min.js" />
+    <Content Include="Scripts\CryptoJS\components\sha256.js" />
+    <Content Include="Scripts\CryptoJS\components\sha3-min.js" />
+    <Content Include="Scripts\CryptoJS\components\sha3.js" />
+    <Content Include="Scripts\CryptoJS\components\sha384-min.js" />
+    <Content Include="Scripts\CryptoJS\components\sha384.js" />
+    <Content Include="Scripts\CryptoJS\components\sha512-min.js" />
+    <Content Include="Scripts\CryptoJS\components\sha512.js" />
+    <Content Include="Scripts\CryptoJS\components\tripledes-min.js" />
+    <Content Include="Scripts\CryptoJS\components\tripledes.js" />
+    <Content Include="Scripts\CryptoJS\components\x64-core-min.js" />
+    <Content Include="Scripts\CryptoJS\components\x64-core.js" />
+    <Content Include="Scripts\CryptoJS\rollups\aes.js" />
+    <Content Include="Scripts\CryptoJS\rollups\hmac-md5.js" />
+    <Content Include="Scripts\CryptoJS\rollups\hmac-ripemd160.js" />
+    <Content Include="Scripts\CryptoJS\rollups\hmac-sha1.js" />
+    <Content Include="Scripts\CryptoJS\rollups\hmac-sha224.js" />
+    <Content Include="Scripts\CryptoJS\rollups\hmac-sha256.js" />
+    <Content Include="Scripts\CryptoJS\rollups\hmac-sha3.js" />
+    <Content Include="Scripts\CryptoJS\rollups\hmac-sha384.js" />
+    <Content Include="Scripts\CryptoJS\rollups\hmac-sha512.js" />
+    <Content Include="Scripts\CryptoJS\rollups\md5.js" />
+    <Content Include="Scripts\CryptoJS\rollups\pbkdf2.js" />
+    <Content Include="Scripts\CryptoJS\rollups\rabbit-legacy.js" />
+    <Content Include="Scripts\CryptoJS\rollups\rabbit.js" />
+    <Content Include="Scripts\CryptoJS\rollups\rc4.js" />
+    <Content Include="Scripts\CryptoJS\rollups\ripemd160.js" />
+    <Content Include="Scripts\CryptoJS\rollups\sha1.js" />
+    <Content Include="Scripts\CryptoJS\rollups\sha224.js" />
+    <Content Include="Scripts\CryptoJS\rollups\sha256.js" />
+    <Content Include="Scripts\CryptoJS\rollups\sha3.js" />
+    <Content Include="Scripts\CryptoJS\rollups\sha384.js" />
+    <Content Include="Scripts\CryptoJS\rollups\sha512.js" />
+    <Content Include="Scripts\CryptoJS\rollups\tripledes.js" />
     <Content Include="Scripts\EasyPlug\Css\Animate.css" />
     <Content Include="Scripts\EasyPlug\Css\Base.css" />
     <Content Include="Scripts\EasyPlug\Css\Easy.css" />
@@ -268,9 +375,12 @@
     <Content Include="Scripts\EasyPlug\Css\Images\errorLayer_Top.gif" />
     <Content Include="Scripts\EasyPlug\Css\Images\Grid\ajax-loader.gif" />
     <Content Include="Scripts\EasyPlug\Css\Images\Grid\bg.png" />
+    <Content Include="Scripts\EasyPlug\Css\Images\Grid\down-arrow.png" />
     <Content Include="Scripts\EasyPlug\Css\Images\Grid\remove.png" />
     <Content Include="Scripts\EasyPlug\Css\Images\Grid\triangle.png" />
     <Content Include="Scripts\EasyPlug\Css\Images\Grid\triangle2.png" />
+    <Content Include="Scripts\EasyPlug\Css\Images\Grid\up-arrow.png" />
+    <Content Include="Scripts\EasyPlug\Css\Images\Grid\up-down-arrow.png" />
     <Content Include="Scripts\EasyPlug\Css\Images\Icons\add.png" />
     <Content Include="Scripts\EasyPlug\Css\Images\Icons\attachment.png" />
     <Content Include="Scripts\EasyPlug\Css\Images\Icons\audio.png" />
@@ -448,8 +558,10 @@
     <Content Include="Scripts\ImagePlug\indexDb.js" />
     <Content Include="Scripts\ImagePlug\style.css" />
     <Content Include="Scripts\jquery-1.11.2.min.js" />
-    <Content Include="Scripts\jquery-1.8.2.js" />
-    <Content Include="Scripts\jquery-1.8.2.min.js" />
+    <None Include="Scripts\jquery-1.9.0.intellisense.js" />
+    <Content Include="Scripts\jquery-1.9.0.js" />
+    <Content Include="Scripts\jquery-1.9.0.min.js" />
+    <Content Include="Scripts\jquery-1.9.0.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery-ui\external\jquery\jquery.js" />
     <Content Include="Scripts\jquery-ui\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
@@ -584,6 +696,7 @@
     <Content Include="Scripts\jstree\test\libs\qunit.css" />
     <Content Include="Scripts\jstree\test\libs\qunit.js" />
     <Content Include="Scripts\jstree\test\test.js" />
+    <Content Include="Scripts\Statistics.js" />
     <Content Include="Scripts\tinymce\langs\zh_CN.js" />
     <Content Include="Scripts\tinymce\license.txt" />
     <Content Include="Scripts\tinymce\plugins\advlist\plugin.min.js" />
@@ -860,6 +973,14 @@
     <Content Include="Themes\Default\css\Section.css.map">
       <DependentUpon>Section.css</DependentUpon>
     </Content>
+    <Content Include="Views\Shared\DisplayTemplates\SiteMapTitleHelperModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\SiteMapPathHelperModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\SiteMapNodeModelList.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\SiteMapNodeModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\SiteMapHelperModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\MetaRobotsHelperModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\MenuHelperModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\CanonicalHelperModel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EasyFrameWork.CMS\Easy.Web.CMS.csproj">

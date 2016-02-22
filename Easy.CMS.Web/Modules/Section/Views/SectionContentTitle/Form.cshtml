@@ -2,7 +2,6 @@
 {
     @Html.EditModel()
 }
-
 @using (Script.AtFoot())
 {
     <script type="text/javascript">
@@ -12,7 +11,7 @@
         $(function () {
             if (@(ViewBag.Close!=null?1:0)) {
                 $(".popUpToolBar .btn-default").click();
-            }
+        }
         });
     </script>
 }

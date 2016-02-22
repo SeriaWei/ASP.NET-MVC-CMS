@@ -73,7 +73,7 @@ input.helper:checked + span {
 
 .design .additional.row {
     min-height: 100px;
-    border: 1px solid #46b8da;
+    border: 1px solid #337ab7;
     background-color: white;
     margin: 3px -13px;
     cursor: move;
@@ -89,7 +89,7 @@ input.helper:checked + span {
 
 .design .zone,
 .design-border .zone {
-    border: 1px dotted red;
+    border: 1px dotted #ec971f;
     background-color: white;
     margin: 6px;
     min-height: 80px;
@@ -142,7 +142,7 @@ input.helper:checked + span {
 
 .design .colContent {
     cursor: move;
-    border: 1px dashed orange;
+    border: 1px dashed #5cb85c;
     margin: 2px -13px;
 }
 
@@ -259,13 +259,6 @@ input.helper:checked + span {
 #toolBar {
     border-radius: 0;
 }
-
-
-
-    #toolBar .badge {
-        padding: 4px 8px;
-        font-size: 14px;
-    }
 
     #toolBar.dropWarning > .deleteBar {
         display: block;

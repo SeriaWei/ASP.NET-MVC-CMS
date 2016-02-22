@@ -64,24 +64,24 @@
                     </ul>
                     <div class="navbar-form navbar-right">
                         <div class="btn-group">
-                            <a class="btn btn-primary" href="@Url.Action("RedirectView", "Page", new { module = "Common", ID = layOut.Page.ID })">
+                            <a class="btn btn-primary" href="@Url.Action("RedirectView", "Page", new { module = "admin", ID = layOut.Page.ID })">
                                 <i class="glyphicon glyphicon-search"></i>
                                 预览
                             </a>
-                            <a class="btn btn-primary" href="@Url.Action("Index", "Page", new { module = "Common", PageID = layOut.Page.ID })">
+                            <a class="btn btn-primary" href="@Url.Action("Index", "Page", new { module = "admin", PageID = layOut.Page.ID })">
                                 <i class="glyphicon glyphicon-th"></i>
                                 概览
                             </a>
-                            <a class="btn btn-primary" href="@Url.Action("Design", "Layout", new {module = "Common", ID = layOut.ID ,PageID=layOut.Page.ID})">
+                            <a class="btn btn-primary" href="@Url.Action("Design", "Layout", new { module = "admin", ID = layOut.ID, PageID = layOut.Page.ID })">
                                 <i class="glyphicon glyphicon-th-list"></i>
                                 布局
                             </a>
-                            <a class="btn btn-primary" href="@Url.Action("Edit", "Page", new {module = "Common", ID = layOut.Page.ID})">
+                            <a class="btn btn-primary" href="@Url.Action("Edit", "Page", new { module = "admin", ID = layOut.Page.ID })">
                                 <i class="glyphicon glyphicon-edit"></i>
                                 属性
                             </a>
-                            <a class="btn btn-primary" href="@Url.Action("SelectWidget", "WidgetTemplate", new {module = "Common", pageId = layOut.Page.ID})">
-                                <i class="glyphicon glyphicon-share-alt"></i>
+                            <a class="btn btn-primary" href="@Url.Action("SelectWidget", "WidgetTemplate", new { module = "admin", pageId = layOut.Page.ID })">
+                                <i class="glyphicon glyphicon-plus"></i>
                                 添加组件
                             </a>
                             @Html.Partial("Partial.Menu", layOut)

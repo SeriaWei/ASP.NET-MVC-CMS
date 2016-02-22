@@ -1,4 +1,5 @@
 ﻿$(function () {
+
     $(".accordion-group>a").click(function () {
         if ($(this).nextAll(".accordion-inner").hasClass("active")) {
             return false;
@@ -20,6 +21,8 @@
         mainContainer.height($(window).height() - 70);
     });
     mainContainer.height($(window).height() - 70);
+
+
     $(document).on("click", ".cancel", function () {
         window.history.back();
     }).on("click", ".publish", function () {
@@ -30,21 +33,6 @@
     }).on("click", "input[type=submit]", function () {
         $("#ActionType").val($(this).data("value"));
         return true;
-    }).on("click", ".input-group-addon .glyphicon", function () {
-        var obj = $(this);
-        window.top.Easy.ShowUrlWindow({
-            url: $(this).data("url"), onLoad: function (box) {
-                var win = this;
-                $(this.document).find("#confirm").click(function () {
-                    obj.parent().next().val(win.GetSelected());
-                    box.close();
-                });
-                $(this.document).on("click", ".confirm", function () {
-                    obj.parent().next().val($(this).data("result"));
-                    box.close();
-                });
-            }
-        });
     }).on("click", ".input-group-collection .add", function () {
         var index = $(this).parents(".input-group-collection").children(".item").size();
         var html = $($(this).parents(".input-group-collection").children(".Template").html().replaceAll("{0}", index));
@@ -53,13 +41,48 @@
     }).on("click", ".input-group-collection .delete", function () {
         $(this).parents(".item").find("input.actionType").val($(this).data("value"));
         $(this).parents(".item").hide();
+    }).on("click", ".input-group .glyphicon.glyphicon-search", function () {
+        var obj = $(this);
+        window.top.Easy.ShowUrlWindow({
+            url: $(this).data("url"),
+            onLoad: function (box) {
+                var win = this;
+                $(this.document).find("#confirm").click(function () {
+                    var target = obj.data("target-input") || obj.parent().siblings("input.form-control");
+                    target.val(win.GetSelected());
+                    box.close();
+                });
+                $(this.document).on("click", ".confirm", function () {
+                    var target = obj.data("target-input") || obj.parent().siblings("input.form-control");
+                    target.val($(this).data("result"));
+                    box.close();
+                });
+            }
+        });
+    }).on("click", ".form-group select#ZoneID", function () {
+        var obj = $(this);
+        var url = "/admin/Layout/SelectZone?layoutId=" + $("#Hiddens #LayoutID").val() + "&pageId=" + $("#Hiddens #PageID").val() + "&zoneId=" + obj.val();
+        window.top.Easy.ShowUrlWindow({
+            url: url,
+            width: 1000,
+            title: "选择区域",
+            onLoad: function (box) {
+                var win = this;
+                $(this.document).find("#confirm").click(function () {
+                    obj.val(win.GetSelected());
+                    box.close();
+                });
+            }
+        });
     });
-
+    $(".form-group select#ZoneID").on("mousedown", false);
     $("#IsPublish").val("false");
     $("#PublishDate").val("");
 
     $(".select").each(function () {
-        $(this).prev(".input-group-addon").append('<span class="glyphicon glyphicon-search text-muted" data-url="' + $(this).data("url") + '"></span>');
+        var inputGroup = $(' <div class="input-group"><div class="input-group-addon"><span class="glyphicon glyphicon-search" data-url="' + $(this).data("url") + '"></span></div></div>');
+        inputGroup.insertAfter($(this));
+        $(this).insertBefore(inputGroup.find(".input-group-addon"));
     });
 
     var currentSelect = $(".nav.navbar-nav a[href='" + location.pathname + "']");
@@ -75,6 +98,60 @@
         activeHref.parent().show();
         activeHref.parent().prev().addClass("active");
     }
+
+    $(".Date").each(function () {
+        $(this).datetimepicker({ locale: "zh_cn", format: $(this).attr("JsDateFormat") });
+    });
+
+    $('.nav.nav-tabs a').click(function (e) {
+        $(this).tab('show');
+        return false;
+    }).each(function (i) {
+        if (i === 0 || location.hash === $(this).attr("href")) {
+            $(this).tab("show");
+        }
+    });
+
+    $('#StyleClass.form-control').popover({
+        trigger: "focus",
+        html: true,
+        title: "自定义样式用法",
+        content: function () {
+            var activeClass = [
+                { name: "边框", value: "border" },
+                { name: "文字居中", value: "align-center" },
+                { name: "文字右对齐", value: "align-right" },
+                { name: "图片边框", value: "image-border" },
+                { name: "阴影", value: "box-shadow" }
+            ];
+            var html = "<p clss='text-nowrap'>直接写样式例：<code>style='color:#fff'</code></p><p>预定义样式：<ol>";
+            for (var i = 0; i < activeClass.length; i++) {
+                html += "<li>" + activeClass[i].name + ":<code>" + activeClass[i].value + "</code></li>";
+            }
+            html += "</ol></p>";
+            return html;
+        },
+        placement: "bottom"
+    });
+
+
+
+    $("input.select-image").popover({
+        trigger: "focus",
+        html: true,
+        title:"图片预览",
+        content: function () {
+            var url = $(this).val();
+            if (url) {
+                if (url.indexOf("~") === 0) {
+                    url = url.replace("~", location.origin);
+                }
+                return "<div style='width:245px;'><img src='" + url + "'/></div>";
+            }
+            return null;
+        },
+        placement: "bottom"
+    });
 
     tinymce.init({
         content_css: ["../../../Content/bootstrap/css/bootstrap.css", "../../../Content/bootstrap/css/bootstrap-theme.css"],

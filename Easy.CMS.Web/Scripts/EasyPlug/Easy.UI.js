@@ -25,7 +25,7 @@ Easy.UI = {
             ListHtml.push("</div>");
             var selectList = $(ListHtml.join(""));
             selectList.insertAfter(oldSelect);
-            selectList.css("width", $(this).width() - 10);
+            selectList.css("width", $(this).outerWidth());
             oldSelect.change(function () {
                 text = $(this).find("option:selected").text();
                 selectList.removeClass("Open");
@@ -119,7 +119,7 @@ Easy.UI = {
             ListHtml.push("</div>");
             var selectList = $(ListHtml.join(""));
             selectList.insertAfter(oldSelect);
-            selectList.css("width", $(this).width() - 10);
+            selectList.css("width", $(this).outerWidth());
             oldSelect.change(function () {
                 text = "";
                 oldSelect.find("option[selected='selected']").each(function () {
@@ -255,130 +255,14 @@ Easy.UI = {
             selector = "input.easy[ValueType='Date']";
         }
         $(selector).each(function () {
-            if ($(this).attr("easy")) {
+            var th = $(this);
+            if (th.attr("easy")) {
                 return;
             }
-            $(this).attr("easy", "easy");
-            var SupportFormat = {
-                "yyyy": { index: -1, endIndex: -1, max: 0 },
-                "MM": { index: -1, endIndex: -1, max: 12 },
-                "dd": { index: -1, endIndex: -1, max: 31 },
-                "HH": { index: -1, endIndex: -1, max: 23 },
-                "mm": { index: -1, endIndex: -1, max: 59 },
-                "ss": { index: -1, endIndex: -1, max: 59 }
-            };
-            var format = $(this).attr("DateFormat");
-            for (var item in SupportFormat) {
-                SupportFormat[item].index = format.indexOf(item, 0);
-                if (SupportFormat[item].index >= 0) {
-                    SupportFormat[item].endIndex = SupportFormat[item].index + item.length;
-                }
-            }
-            $(this).keydown(function (e) {
-                if ((e.keyCode >= 48 && e.keyCode <= 57) || (e.keyCode >= 8 && e.keyCode <= 9) || (e.keyCode >= 96 && e.keyCode <= 105)) {
-                    if (e.keyCode == 8 || e.keyCode == 9) {
-                        return true;
-                    }
-                    var currentIndex = $(this).val().length;
-                    if (currentIndex == format.length) {
-                        return false;
-                    }
-                    for (var item in SupportFormat) {
-                        if (currentIndex == SupportFormat[item].endIndex) {
-                            $(this).val($(this).val() + format.substring(currentIndex, currentIndex + 1));
-                        }
-                    }
-                }
-                else {
-                    return false;
-                }
-            });
-            $(this).keyup(function (e) {
-                var currentIndex = $(this).val().length;
-                for (var item in SupportFormat) {
-                    if (currentIndex == SupportFormat[item].endIndex) {
-                        if (SupportFormat[item].max) {
-                            var val = parseInt($(this).val().substring(SupportFormat[item].index, SupportFormat[item].endIndex));
-                            if (val > SupportFormat[item].max) {
-                                var end = Math.floor(val / 10) + format.substring(currentIndex, currentIndex + 1) + val % 10;
-                                $(this).val($(this).val().substring(0, SupportFormat[item].index) + "0" + end);
-                                if ($(this).val().length > format.length) {
-                                    $(this).val($(this).val().substring(0, format.length));
-                                }
-                                return false;
-                            }
-                        }
-                    }
-                }
-            });
-            $(this).blur(function () {
-                if ($(this).val() == "")
-                    return;
-                var date = new Date();
-                var year = date.getFullYear();
-                var month = date.getMonth();
-                var day = date.getDate();
-                var hour = date.getHours();
-                var min = date.getMinutes();
-                var sec = date.getSeconds();
-                if (SupportFormat.yyyy.index >= 0) {
-                    year = parseInt($(this).val().substring(SupportFormat.yyyy.index, SupportFormat.yyyy.endIndex));
-                    if (!year) {
-                        year = date.getFullYear();
-                    }
-                }
-                if (SupportFormat.MM.index >= 0) {
-                    month = parseInt($(this).val().substring(SupportFormat.MM.index, SupportFormat.MM.endIndex));
-                    if (!month) {
-                        month = date.getMonth() + 1;
-                    }
-                }
-                if (SupportFormat.dd.index >= 0) {
-                    day = parseInt($(this).val().substring(SupportFormat.dd.index, SupportFormat.dd.endIndex));
-                    if (!day) {
-                        day = date.getDate();
-                    }
-                }
-                if (SupportFormat.HH.index >= 0) {
-                    hour = parseInt($(this).val().substring(SupportFormat.HH.index, SupportFormat.HH.endIndex));
-                    if (!hour) {
-                        hour = 0;
-                    }
-                }
-                if (SupportFormat.mm.index >= 0) {
-                    min = parseInt($(this).val().substring(SupportFormat.mm.index, SupportFormat.mm.endIndex));
-                    if (!min) {
-                        min = 0;
-                    }
-                }
-                if (SupportFormat.ss.index >= 0) {
-                    sec = parseInt($(this).val().substring(SupportFormat.ss.index, SupportFormat.ss.endIndex));
-                    if (!sec) {
-                        sec = 0;
-                    }
-                }
-                date.setFullYear(year, month - 1, day);
-                date.setHours(hour);
-                date.setMinutes(min);
-                date.setSeconds(sec);
-                var result = format;
-                result = result.replace("yyyy", date.getFullYear());
-                result = result.replace("MM", FormateNumber(date.getMonth() + 1));
-                result = result.replace("dd", FormateNumber(date.getDate()));
-                result = result.replace("HH", FormateNumber(date.getHours()));
-                result = result.replace("mm", FormateNumber(date.getMinutes()));
-                result = result.replace("ss", FormateNumber(date.getSeconds()));
-                $(this).val(result);
-            });
+            var format = th.attr("DateFormat");
+            th.parent().css("position", "relative");
+            $(this).datetimepicker({ locale: "zh_cn", format: "YYYY/MM/DD H:mm:ss" });
         });
-        function FormateNumber(num) {
-            if (!num) {
-                num = 0;
-            }
-            if (num < 10)
-                return "0" + num;
-            else return num;
-        }
     },
     NumberInput: function () {
         $("input.easy[ValueType='Num']").each(function () {

@@ -6,7 +6,7 @@ GO
 CREATE TABLE [dbo].[ProductListWidget](
 	[ID] [nvarchar](255) NOT NULL,
 	[IsPageable] [bit] NOT NULL,
-	[ProductCategoryID] [int] NOT NULL,
+	[ProductCategoryID] [int] NULL,
 	[DetailPageUrl] [nvarchar](255) NULL,
 	[Columns] [nvarchar](255) NULL,
 	[PageSize] [int] NULL,

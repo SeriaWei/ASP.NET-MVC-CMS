@@ -29,7 +29,7 @@ namespace Easy.Web.CMS
 
             var routes = new List<RouteDescriptor>();
             Type plugBaseType = typeof(PluginBase);
-            
+
             BuildManager.GetReferencedAssemblies().Cast<Assembly>().Each(m => m.GetTypes().Each(p =>
             {
                 if (plugBaseType.IsAssignableFrom(p) && !p.IsAbstract && !p.IsInterface)
@@ -37,7 +37,11 @@ namespace Easy.Web.CMS
                     var plug = Activator.CreateInstance(p) as PluginBase;
                     if (plug != null)
                     {
-                        routes.AddRange(plug.RegistRoute());
+                        var moduleRoutes = plug.RegistRoute();
+                        if (moduleRoutes != null && moduleRoutes.Any())
+                        {
+                            routes.AddRange(moduleRoutes);
+                        }
                         plug.InitScript();
                         plug.InitStyle();
                     }

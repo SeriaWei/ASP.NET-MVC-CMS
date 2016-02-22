@@ -1,7 +1,7 @@
 ﻿@model Easy.CMS.Common.ViewModels.LayoutZonesViewModel
 @{
     Layout = null;
-    string returnUrl = Url.Action("Index", "Page", new { module = "Common", PageID = Model.PageID });
+    string returnUrl = Url.Action("Index", "Page", new { module = "admin", PageID = Model.PageID });
 
     var noZoneWidgets = Model.Widgets.Where(m => Model.Zones.All(n => n.ID != m.ZoneID));
     var zoneStart = false;
@@ -20,7 +20,7 @@
                     <li id="widget_@widget.ID" class="@(widget.LayoutID.IsNullOrEmpty() ? "widget-design" : "")" data-widgetid="@widget.ID">
                         @if (widget.LayoutID.IsNullOrEmpty())
                         {
-                            <a href="@Url.Action("Edit", "Widget", new { module = "Common", ID = widget.ID, ReturnUrl = returnUrl })"><i class="glyphicon glyphicon-edit"></i></a>
+                            <a href="@Url.Action("Edit", "Widget", new { module = "admin", ID = widget.ID, ReturnUrl = returnUrl })"><i class="glyphicon glyphicon-edit"></i></a>
                             <a href="javascript:void(0)" class="delete" data-widgetid="@widget.ID"><i class="glyphicon glyphicon-trash"></i></a>
                         }
                         else
@@ -65,8 +65,8 @@
                         {
                             <div class="panel panel-success panel-relative">
                                 <div class="panel-toolbar">
-                                    <a class="label label-danger" title="添加组件到该区域" href="@Url.Action("SelectWidget", "WidgetTemplate", new {module = "Common", PageID = Model.PageID, ZoneID = item.ID, ReturnUrl = returnUrl})">
-                                        <i class="glyphicon glyphicon-share-alt"></i>
+                                    <a class="label label-danger" title="添加组件到该区域" href="@Url.Action("SelectWidget", "WidgetTemplate", new { module = "admin", PageID = Model.PageID, ZoneID = item.ID, ReturnUrl = returnUrl })">
+                                        <i class="glyphicon glyphicon-plus"></i>
                                         @item.ZoneName
                                     </a>
                                 </div>
@@ -76,7 +76,7 @@
                                         <li id="widget_@widget.ID" class="@(widget.LayoutID.IsNullOrEmpty() ? "widget" : "")" data-widgetid="@widget.ID">
                                             @if (widget.LayoutID.IsNullOrEmpty())
                                                 {
-                                                <a href="@Url.Action("Edit", "Widget", new {module = "Common", ID = widget.ID, ReturnUrl = returnUrl})"><i class="glyphicon glyphicon-edit"></i></a>
+                                                <a href="@Url.Action("Edit", "Widget", new { module = "admin", ID = widget.ID, ReturnUrl = returnUrl })"><i class="glyphicon glyphicon-edit"></i></a>
                                                 <a href="javascript:void(0)" class="delete" data-widgetid="@widget.ID"><i class="glyphicon glyphicon-trash"></i></a>
                                                 }
                                                 else
@@ -104,7 +104,7 @@
         </div>
     </div>
     <div class="panel-footer">
-        <a class="btn btn-primary btn-sm" href="@Url.Action("RedirectView", "Page", new { module = "Common", ID = Model.PageID })">
+        <a class="btn btn-primary btn-sm" href="@Url.Action("RedirectView", "Page", new { module = "admin", ID = Model.PageID })">
             <i class="glyphicon glyphicon-search"></i>
             预览
         </a>
@@ -112,7 +112,7 @@
             <i class="glyphicon glyphicon-wrench"></i>
             设计
         </a>
-        <a class="btn btn-primary btn-sm" href="@Url.Action("Design", "Layout", new { module = "Common", ID = Model.LayoutID, PageID = Model.PageID })">
+        <a class="btn btn-primary btn-sm" href="@Url.Action("Design", "Layout", new { module = "admin", ID = Model.LayoutID, PageID = Model.PageID })">
             <i class="glyphicon glyphicon-th-list"></i>
             布局
         </a>
@@ -130,7 +130,7 @@
                 tempForm += "&widgets[" + i + "].ID=" + $(ui).data("widgetid") + "&widgets[" + i + "].Position=" + (i + 1);
             });
             if (tempForm) {
-                $.post("@Url.Action("SaveWidgetPosition", "Widget", new { module="Common"})", tempForm, function (data) {
+                $.post("@Url.Action("SaveWidgetPosition", "Widget", new { module = "admin" })", tempForm, function (data) {
 
                 }, "html");
             }
@@ -148,7 +148,7 @@
             target.removeAttr("style");
             $(this).append(target);
             ui.draggable.remove();
-            $.post("@Url.Action("SaveWidgetZone", "Widget", new { module="Common" })",
+            $.post("@Url.Action("SaveWidgetZone", "Widget", new { module = "admin" })",
                 {
                     ID: target.data("widgetid"),
                     ZoneId: $(this).data("zoneid"),

@@ -14,7 +14,7 @@
                 <div class="panel-body">
 
                     @(
-    Html.Tree<PageEntity>().Source("GetPageTree", "Page", new {module = "Common"})
+ Html.Tree<PageEntity>().Source("GetPageTree", "Page", new { module = "admin" })
         .AddPlugin(Plugins.ContextMenu)
         .AddPlugin(Plugins.DragAndDrop)
         .AddContextMenuItem(new ContextmenuItem {Label = "新建", Action = "Create"})
@@ -45,22 +45,23 @@
     <script type="text/javascript">
         function Create(node) {
             var parent = node.reference.attr("id");
-            window.location.href = '@Url.Action("Create", "Page", new { module = "Common" })' + '?ParentID=' + parent;
+            window.location.href = '@Url.Action("Create", "Page", new { module = "admin" })' + '?ParentID=' + parent;
         }
         function Edit(node) {
             var id = node.reference.attr("id");
-            window.location.href = '@Url.Action("Edit", "Page", new { module = "Common" })' + '?ID=' + id;
+            window.location.href = '@Url.Action("Edit", "Page", new { module = "admin" })' + '?ID=' + id;
         }
         function View(node) {
             var id = node.reference.attr("id");
-            window.location.href ='@Url.Action("RedirectView", "Page", new {module="Common" })' + '?ID=' + id;
+            window.location.href ='@Url.Action("RedirectView", "Page", new { module = "admin" })' + '?ID=' + id;
         }
         function Design(node) {
             var id = node.reference.attr("id");
-            window.location.href = '@Url.Action("Design", "Page", new {module="Common" })' + '?ID=' + id;
+            window.location.href = '@Url.Action("Design", "Page", new { module = "admin" })' + '?ID=' + id;
         }
         function ActiveNode(node, selected) {
-            $.post("@Url.Action("PageZones", "Page", new { module="Common" })", { PageID: selected.node.id }, function (html) {
+            location.hash = selected.node.id;
+            $.post("@Url.Action("PageZones", "Page", new { module = "admin" })", { PageID: selected.node.id }, function (html) {
                 $("#pageZones").html(html);
             }, "html");
         }
@@ -73,20 +74,25 @@
             }, "json");
         }
         function loadedPage(p) {
-            @if (pageId.IsNotNullAndWhiteSpace())
-            {
-                @:$(p.target).find("a#@(pageId)").trigger("click");
-            }
+           if (location.hash) {
+               $(p.target).find("a"+location.hash).trigger("click");
+           }
         }
         $(document).on("click", ".fullRowList .delete", function () {
             var id = $(this).data("widgetid");
             if (confirm("确定要删除该组件吗？")) {
-                $.post("@Url.Action("DeleteWidget", "Widget",new { module="Common"})", { ID: id }, function (data) {
+                $.post("@Url.Action("DeleteWidget", "Widget", new { module = "admin" })", { ID: id }, function (data) {
                     if (data) {
                         $("#widget_" + id).remove();
                     }
                 }, "json");
             }
+        });
+        $(function () {
+            if (!location.hash) {
+                location.hash = '@(pageId)';
+            }
+            
         });
     </script>
 }

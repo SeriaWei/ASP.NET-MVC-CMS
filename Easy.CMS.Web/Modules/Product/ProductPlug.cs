@@ -11,14 +11,7 @@ namespace Easy.CMS.Product
     {
         public override IEnumerable<RouteDescriptor> RegistRoute()
         {
-            yield return new RouteDescriptor()
-            {
-                RouteName = "productAdmin",
-                Url = "admin/{controller}/{action}",
-                Defaults = new { action = "index", module = "Product" },
-                Namespaces = new string[] { "Easy.CMS.Product.Controllers" },
-                Priority = 1
-            };
+            return null;
         }
 
         public override IEnumerable<AdminMenu> AdminMenu()

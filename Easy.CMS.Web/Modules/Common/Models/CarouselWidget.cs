@@ -28,7 +28,7 @@ namespace Easy.CMS.Common.Models
                 new CarouselService().Get().Each(m => result.Add(m.ID.ToString(), m.Title));
                 return result;
             });
-            ViewConfig(m => m.CarouselItems).AsCollectionArea();
+            ViewConfig(m => m.CarouselItems).AsListEditor();
         }
     }
 

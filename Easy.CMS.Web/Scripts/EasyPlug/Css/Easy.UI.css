@@ -1,27 +1,4 @@
 ﻿
-.DropDownList { display: inline-block; vertical-align: top; padding-right: 19px; cursor: pointer; border: 1px solid #CCC; background-color: white; text-align: left; font-weight: normal; }
-
-.DropDownList { *display: inline; *zoom: 1; }
-
-    .DropDownList .TextPlace { overflow: hidden; width: 100%; float: left; height: 100%; border-right: 1px solid #CCC; margin-top: 0px; }
-
-        .DropDownList .TextPlace > span { padding-left: 2px; line-height: 20px; white-space: nowrap; }
-
-        .DropDownList .TextPlace > .Clear { position: absolute; right: 0px; width: 16px; height: 16px; background-image: url(Images/buttons.png); background-repeat: no-repeat; background-position: -27px 0px; top: 2px; }
-
-            .DropDownList .TextPlace > .Clear:hover { background-position: -27px -16px; }
-
-    .DropDownList .DropIcon {  height: 100%; width: 18px; margin-right: -19px; float: left; background-image: url(Images/triangle2.png); background-position: center center; background-repeat: no-repeat; }
-
-.Open > .DropIcon { background-image: url(Images/triangle.png); }
-
-.DropDownList_Options { overflow: auto; font-size: 13px; position: absolute; left: 0px; top: 0px; margin: 0px; padding: 0px; background-color: white; border: 1px solid #CCC; cursor: pointer; }
-
-    .DropDownList_Options li { list-style: none; display: block; border-bottom: 1px solid #eaeaea; padding: 3px; margin: 3px 0px 3px 0px; }
-
-        .DropDownList_Options li:last-child { border-bottom: none; }
-
-        .DropDownList_Options li:hover { background-color: #7fb2d0; color: white; }
 
 .CheckBox { display: inline-block; vertical-align: middle; width: 16px; height: 16px; background-image: url(Images/checkboxNo.png); background-position: center center; background-repeat: no-repeat; }
 
@@ -35,7 +12,7 @@ input.Date { background-image: url(Images/Icons/date.png); background-repeat: no
 input.Number { background-image: url(Images/Icons/number.png); background-repeat: no-repeat; background-position: right center; }
 input.Email { background-image: url(Images/Icons/Email.png); background-repeat: no-repeat; background-position: right center; }
 input.autocomplete { background-image: url(Images/Icons/autocomplete.png); background-repeat: no-repeat; background-position: right center; }
-input.required {  }
+input.required { background:#FFF2F2; }
 .error { background-color: #ffc333; }
 .autocompleteResult { position: absolute; margin: 0px; padding: 0px; background-color: white; border: 1px solid #DDD; }
     .autocompleteResult > li { margin: 3px; padding: 5px 0px 5px 0px; list-style: none; cursor: pointer; border-bottom: 1px solid #DDD; }

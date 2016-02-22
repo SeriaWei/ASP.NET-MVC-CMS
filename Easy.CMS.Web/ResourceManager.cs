@@ -21,7 +21,6 @@ namespace Easy
                 .Include("~/Scripts/jquery.validate.unobtrusive.js")
                 .Include("~/Content/themes/admin/script/admin.js")
                 .Include("~/Scripts/EasyPlug/Easy.Grid.js")
-                .Include("~/Scripts/EasyPlug/Easy.UI.js")
                 .Include("~/Scripts/jstree/src/jstree.js")
                 .Include("~/Scripts/jstree/src/jstree.checkbox.js")
                 .Include("~/Scripts/jstree/src/jstree.contextmenu.js")
@@ -32,9 +31,13 @@ namespace Easy
                 .Include("~/Scripts/jstree/src/jstree.types.js")
                 .Include("~/Scripts/jstree/src/jstree.unique.js")
                 .Include("~/Scripts/jstree/src/jstree.wholerow.js")
-                .Include("~/Scripts/tinymce/tinymce.min.js");
-                
-                
+                .Include("~/Scripts/tinymce/tinymce.min.js")
+                .Include("~/Scripts/CryptoJS/components/core.js", "~/Scripts/CryptoJS/components/core-min.js")
+                .Include("~/Scripts/CryptoJS/components/enc-base64.js", "~/Scripts/CryptoJS/components/enc-base64-min.js")
+                .Include("~/Scripts/Statistics.js")
+                .Include("~/Scripts/bootstrap-datetimepicker/moment-with-locales.js")
+                .Include("~/Scripts/bootstrap-datetimepicker/bootstrap-datetimepicker.js", "~/Scripts/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js");
+
         }
 
         public override void InitStyle()
@@ -48,12 +51,14 @@ namespace Easy
                 .Include("~/Scripts/jquery-ui/jquery-ui.structure.css", "~/Scripts/jquery-ui/jquery-ui.structure.css");
             Style("Easy")
                 .Include("~/Scripts/EasyPlug/Css/Easy.css");
+
             Style("admin")
                 .Include("~/Content/themes/admin/admin.css")
                 .Include("~/Scripts/EasyPlug/Css/Easy.css")
                 .Include("~/Scripts/EasyPlug/Css/Easy.Grid.css")
                 .Include("~/Scripts/EasyPlug/Css/Easy.UI.css")
-                .Include("~/Scripts/jstree/src/themes/default/style.css");
+                .Include("~/Scripts/jstree/src/themes/default/style.css")
+                .Include("~/Scripts/bootstrap-datetimepicker/bootstrap-datetimepicker.css", "~/Scripts/bootstrap-datetimepicker/bootstrap-datetimepicker.min.css");
         }
     }
 }
