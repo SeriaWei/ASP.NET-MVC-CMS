@@ -45,7 +45,7 @@ namespace Easy.Web.CMS.Layout
             if (item.Zones != null)
             {
                 var zoneService = new ZoneService();
-                var zones = zoneService.Get(new Data.DataFilter().Where<ZoneEntity>(m => m.LayoutId, OperatorType.Equal, item.ID));
+                var zones = zoneService.Get(m => m.LayoutId == item.ID);
 
                 item.Zones.Where(m => zones.All(n => n.ID != m.ID)).Each(m =>
                 {
@@ -62,7 +62,7 @@ namespace Easy.Web.CMS.Layout
             if (item.Html != null)
             {
                 var layoutHtmlService = new LayoutHtmlService();
-                layoutHtmlService.Delete(new Data.DataFilter().Where<LayoutHtml>(m => m.LayoutId, OperatorType.Equal, item.ID));
+                layoutHtmlService.Delete(m => m.LayoutId == item.ID);
                 item.Html.Each(m =>
                 {
                     m.LayoutId = item.ID;
@@ -107,10 +107,10 @@ namespace Easy.Web.CMS.Layout
             if (deletes.Any())
             {
                 var layoutHtmlService = new LayoutHtmlService();
-                layoutHtmlService.Delete(new Data.DataFilter().Where<LayoutHtml>(m => m.LayoutId, OperatorType.In, deletes));
+                layoutHtmlService.Delete(new Data.DataFilter().Where("LayoutId", OperatorType.In, deletes));
 
                 var zoneService = new ZoneService();
-                zoneService.Delete(new Data.DataFilter().Where<ZoneEntity>(m => m.LayoutId, OperatorType.In, deletes));
+                zoneService.Delete(new Data.DataFilter().Where("LayoutId", OperatorType.In, deletes));
 
 
                 var pageService = new Page.PageService();
@@ -131,10 +131,10 @@ namespace Easy.Web.CMS.Layout
         {
             LayoutEntity layout = Get(primaryKeys);
             var layoutHtmlService = new LayoutHtmlService();
-            layoutHtmlService.Delete(new Data.DataFilter().Where<LayoutHtml>(m => m.LayoutId, OperatorType.Equal, layout.ID));
+            layoutHtmlService.Delete(m => m.LayoutId == layout.ID);
 
             var zoneService = new ZoneService();
-            zoneService.Delete(new Data.DataFilter().Where<ZoneEntity>(m => m.LayoutId, OperatorType.Equal, layout.ID));
+            zoneService.Delete(new Data.DataFilter().Where("LayoutId", OperatorType.Equal, layout.ID));
 
 
             var pageService = new Page.PageService();

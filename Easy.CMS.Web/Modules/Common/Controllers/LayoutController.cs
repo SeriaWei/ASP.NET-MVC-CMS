@@ -27,11 +27,12 @@ namespace Easy.CMS.Common.Controllers
         [AdminTheme]
         public override ActionResult Index()
         {
-            return View(Service.Get(new DataFilter()));
+            return View(Service.Get());
         }
         [AdminTheme]
-        public ActionResult LayoutWidget()
+        public ActionResult LayoutWidget(string LayoutID)
         {
+            ViewBag.LayoutID = LayoutID;
             return View(Service.Get());
         }
         [HttpPost]
@@ -42,6 +43,7 @@ namespace Easy.CMS.Common.Controllers
             var layout = Service.Get(ID);
             var viewModel = new LayoutZonesViewModel
             {
+                LayoutID = ID,
                 Zones = zoneService.GetZonesByLayoutId(ID),
                 Widgets = widgetService.GetByLayoutId(ID),
                 LayoutHtml = layout.Html

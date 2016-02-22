@@ -14,9 +14,16 @@
                     <ul id="layouts" class="fullRowList">
                         @foreach (LayoutEntity item in Model)
                     {
-                            <li data-id="@item.ID">
-                                <i class="glyphicon glyphicon-compressed"></i> @item.LayoutName
-                            </li>
+                        <li id="@item.ID" class="clearfix" data-id="@item.ID">
+                            <div class="pull-left">
+                                <i class="glyphicon glyphicon-equalizer"></i> @item.LayoutName    
+                            </div>
+                            <div class="pull-right">
+                                <a href="@Url.Action("Design", new {ID = item.ID})" title="设计">
+                                    <i class="glyphicon glyphicon-edit"></i>
+                                </a>
+                            </div>
+                        </li>
                     }
                     </ul>
                 </div>
@@ -31,14 +38,15 @@
 @using (Script.AtFoot())
 {
     <script type="text/javascript">
-        $("#layouts>li").click(function () {
-            $(this).siblings().removeClass("actived");
-            $(this).addClass("actived");
-            $.post("@Url.Action("LayoutZones", "Layout", new { module="admin"})", { ID: $(this).data("id") }, function (html) {
-                $("#layoutZones").html(html);
-            }, "html");
+        $(function() {
+            if (!location.hash) {
+                location.hash = '@ViewBag.LayoutID';
+            }
+            if (location.hash) {
+                $("li" + location.hash).trigger("click");
+            }
         });
-        
+
         $(document).on("click", ".fullRowList .delete", function () {
             var id = $(this).data("widgetid");
             if (confirm("确定要删除该组件吗？")) {
@@ -48,6 +56,13 @@
                     }
                 }, "json");
             }
+        }).on("click", "#layouts>li",function () {
+            $(this).siblings().removeClass("actived");
+            $(this).addClass("actived");
+            location.hash = $(this).data("id");
+            $.post("@Url.Action("LayoutZones", "Layout", new { module="admin"})", { ID: $(this).data("id") }, function (html) {
+                $("#layoutZones").html(html);
+            }, "html");
         });
     </script>
 }

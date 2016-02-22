@@ -111,14 +111,14 @@ namespace Easy.CMS.Common.Controllers
             var widgetService = new WidgetService();
             widgets.Each(m =>
             {
-                widgetService.Update(m, new Data.DataFilter(new List<string> { "Position" }).Where<WidgetBase>(n => n.ID, OperatorType.Equal, m.ID));
+                widgetService.Update(m, new Data.DataFilter(new List<string> { "Position" }).Where("ID", OperatorType.Equal, m.ID));
             });
             return Json(true);
         }
         [HttpPost]
         public JsonResult SaveWidgetZone(WidgetBase widget)
         {
-            new WidgetService().Update(widget, new Data.DataFilter(new List<string> { "ZoneID", "Position" }).Where<WidgetBase>(n => n.ID, OperatorType.Equal, widget.ID));
+            new WidgetService().Update(widget, new Data.DataFilter(new List<string> { "ZoneID", "Position" }).Where("ID", OperatorType.Equal, widget.ID));
             return Json(true);
         }
         [HttpPost]

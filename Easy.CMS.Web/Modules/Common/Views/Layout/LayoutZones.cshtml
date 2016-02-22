@@ -1,7 +1,7 @@
 ﻿@model Easy.CMS.Common.ViewModels.LayoutZonesViewModel
 @{
     Layout = null;
-    string returnUrl = Url.Action("LayoutWidget", "Layout", new { module = "admin" });
+    string returnUrl = Url.Action("LayoutWidget", "Layout", new { module = "admin",LayoutID=Model.LayoutID });
     var noZoneWidgets = Model.Widgets.Where(m => Model.Zones.All(n => n.ID != m.ZoneID));
     var zoneStart = false;
 }
@@ -54,7 +54,7 @@
                     {
                         <div class="panel panel-success  panel-relative">
                             <div class="panel-toolbar">
-                                <a class="label label-danger" title="添加组件到该区域" href="@Url.Action("SelectWidget", "WidgetTemplate", new { module = "admin", PageID = Model.PageID, ZoneID = item.ID, ReturnUrl = returnUrl, LayoutID = item.LayoutId })">
+                                <a class="label label-danger" title="添加组件到该区域" href="@Url.Action("SelectWidget", "WidgetTemplate", new { module = "admin", PageID = Model.PageID, ZoneID = item.ID, LayoutID = item.LayoutId,ReturnUrl = returnUrl })">
                                     <i class="glyphicon glyphicon-plus"></i>
                                     @item.ZoneName
                                 </a>

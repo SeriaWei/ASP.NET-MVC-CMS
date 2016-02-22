@@ -31,7 +31,7 @@ namespace Easy.Web.CMS.Filter
                 var layout = layoutService.Get(page.LayoutId);
                 layout.Page = page;
                 WidgetService widgetService = new WidgetService();
-                IEnumerable<WidgetBase> widgets = widgetService.Get(new DataFilter().Where<WidgetBase>(m => m.PageID, OperatorType.Equal, page.ID));
+                IEnumerable<WidgetBase> widgets = widgetService.Get(m => m.PageID == page.ID);
                 Action<WidgetBase> processWidget = m =>
                 {
                     IWidgetPartDriver partDriver = Activator.CreateInstance(m.AssemblyName, m.ServiceTypeName).Unwrap() as IWidgetPartDriver;
@@ -52,7 +52,7 @@ namespace Easy.Web.CMS.Filter
                 };
                 widgets.Each(processWidget);
 
-                IEnumerable<WidgetBase> Layoutwidgets = widgetService.Get(new Data.DataFilter().Where<WidgetBase>(m => m.LayoutID, OperatorType.Equal, page.LayoutId));
+                IEnumerable<WidgetBase> Layoutwidgets = widgetService.Get(m => m.LayoutID == page.LayoutId);
 
                 Layoutwidgets.Each(processWidget);
 

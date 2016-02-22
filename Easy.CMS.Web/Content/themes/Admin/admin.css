@@ -132,7 +132,7 @@ a.badge:hover {
 }
 
 #main-menu .menu-item.active {
-    background: url(images/dotted.png);
+    background: #eaeaea;
     color: #000;
     text-shadow: none;
 }

@@ -61,6 +61,9 @@ namespace Easy.Web.CMS.Layout
                 });
                 return themes;
             });
+
+            ViewConfig(m => m.ImageThumbUrl).AsTextBox().AddClass("select select-image").AddProperty("data-url", Urls.SelectImage);
+            ViewConfig(m => m.ImageUrl).AsTextBox().AddClass("select select-image").AddProperty("data-url", Urls.SelectImage);
         }
     }
 

@@ -62,13 +62,12 @@ namespace Easy.Web.CMS.Filter
                 var layoutWidgetsTask = Task.Factory.StartNew(layoutId =>
                 {
                     var widgetServiceIn = new WidgetService();
-                    IEnumerable<WidgetBase> layoutwidgets = widgetServiceIn.Get(new DataFilter().Where("LayoutID", OperatorType.Equal, layoutId));
+                    IEnumerable<WidgetBase> layoutwidgets = widgetServiceIn.Get(m => m.LayoutID == layoutId.ToString());
                     layoutwidgets.Each(processWidget);
                 }, page.LayoutId);
 
-
                 var widgetService = new WidgetService();
-                IEnumerable<WidgetBase> widgets = widgetService.Get(new DataFilter().Where("PageID", OperatorType.Equal, page.ID));
+                IEnumerable<WidgetBase> widgets = widgetService.Get(m => m.PageID == page.ID);
                 int middle = widgets.Count() / 2;
                 var pageWidgetsTask = Task.Factory.StartNew(() => widgets.Skip(middle).Each(processWidget));
                 widgets.Take(middle).Each(processWidget);

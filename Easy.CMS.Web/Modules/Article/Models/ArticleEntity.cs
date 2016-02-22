@@ -41,8 +41,8 @@ namespace Easy.CMS.Article.Models
         {
             ViewConfig(m => m.ID).AsHidden();
             ViewConfig(m => m.Status).AsDropDownList().DataSource(DicKeys.RecordStatus, SourceType.Dictionary);
-            ViewConfig(m => m.ImageThumbUrl).AsTextBox().AddClass("select").AddProperty("data-url", Urls.SelectImage);
-            ViewConfig(m => m.ImageUrl).AsTextBox().AddClass("select").AddProperty("data-url", Urls.SelectImage);
+            ViewConfig(m => m.ImageThumbUrl).AsTextBox().AddClass("select select-image").AddProperty("data-url", Urls.SelectImage);
+            ViewConfig(m => m.ImageUrl).AsTextBox().AddClass("select select-image").AddProperty("data-url", Urls.SelectImage);
             ViewConfig(m => m.ArticleCategoryID).AsDropDownList().DataSource(ViewDataKeys.ArticleCategory, SourceType.ViewData);
             ViewConfig(m => m.ArticleContent).AsMutiLineTextBox().AddClass("html").HideInGrid();
             ViewConfig(m => m.PublishDate).AsTextBox().Hide();

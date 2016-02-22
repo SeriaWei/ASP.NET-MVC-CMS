@@ -34,7 +34,7 @@ namespace Easy.CMS.Common.Controllers
         [HttpPost]
         public ActionResult RedirectToWidget(QueryContext context)
         {
-            return RedirectToAction("Create", "Widget", new { module = "admin", context.PageID, context.LayoutID, context.ZoneID, context.ReturnUrl, context.WidgetTemplateID });
+            return RedirectToAction("Create", "Widget", new { module = "admin", context.PageID, context.LayoutID, context.ZoneID, context.WidgetTemplateID, context.ReturnUrl });
         }
     }
 }
