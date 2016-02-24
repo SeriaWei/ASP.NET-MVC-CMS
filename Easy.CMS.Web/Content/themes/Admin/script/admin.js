@@ -8,14 +8,14 @@
         $(this).nextAll(".accordion-inner").addClass("active").show(200);
         return false;
     });
-    $(".navbar-nav a").click(function () {
-        if (!$(this).parents("li").hasClass("accordion-group")) {
-            $(this).parents("ul").find("a.active").removeClass("active");
-        } else {
-            $(this).parents("ul").find("li.accordion-group>a.active").removeClass("active");
-        }
-        $(this).addClass("active");
-    });
+    //$(".navbar-nav a").click(function () {
+    //    if (!$(this).parents("li").hasClass("accordion-group")) {
+    //        $(this).parents("ul").find("a.active").removeClass("active");
+    //    } else {
+    //        $(this).parents("ul").find("li.accordion-group>a.active").removeClass("active");
+    //    }
+    //    $(this).addClass("active");
+    //});
     var mainContainer = $(".main-container");
     $(window).resize(function () {
         mainContainer.height($(window).height() - 70);
@@ -84,20 +84,28 @@
         inputGroup.insertAfter($(this));
         $(this).insertBefore(inputGroup.find(".input-group-addon"));
     });
-
-    var currentSelect = $(".nav.navbar-nav a[href='" + location.pathname + "']");
-    if (currentSelect.size()) {
+    var mainMenu = $("#main-menu");
+    var currentSelect;
+    var match = 0;
+    $("a.menu-item", mainMenu).each(function () {
+        var href = $(this).attr("href");
+        if (href) {
+            if (location.pathname.toLocaleLowerCase().indexOf(href.toLowerCase()) === 0) {
+                if (href.length > match) {
+                    currentSelect = $(this);
+                    match = href.length;
+                }
+            }
+        }
+    });
+    if (currentSelect&&currentSelect.size()) {
         currentSelect.addClass("active");
-        Easy.Cookie.SetCookie("selectAble", location.pathname);
+        if (currentSelect.parent().hasClass("accordion-inner")) {
+            currentSelect.parent().show();
+            currentSelect.parent().prev().addClass("active");
+        }
     }
-    else {
-        $(".nav.navbar-nav a[href='" + Easy.Cookie.GetCookie("selectAble") + "']").addClass("active");
-    }
-    var activeHref = $(".nav.navbar-nav a.active");
-    if (activeHref.parent().hasClass("accordion-inner")) {
-        activeHref.parent().show();
-        activeHref.parent().prev().addClass("active");
-    }
+
 
     $(".Date").each(function () {
         $(this).datetimepicker({ locale: "zh_cn", format: $(this).attr("JsDateFormat") });
@@ -139,7 +147,7 @@
     $("input.select-image").popover({
         trigger: "focus",
         html: true,
-        title:"图片预览",
+        title: "图片预览",
         content: function () {
             var url = $(this).val();
             if (url) {

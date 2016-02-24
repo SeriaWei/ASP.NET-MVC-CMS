@@ -177,6 +177,12 @@ p {
   margin-bottom: 0;
   padding: 10px;
 }
+.footer a {
+  color: #fff;
+}
+.footer a:hover {
+  color: #d9534f;
+}
 .align-center {
   text-align: center;
 }

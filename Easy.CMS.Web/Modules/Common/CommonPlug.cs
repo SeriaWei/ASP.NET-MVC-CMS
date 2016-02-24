@@ -25,7 +25,7 @@ namespace Easy.CMS.Common
             {
                 RouteName = "admin",
                 Url = "admin/{controller}/{action}",
-                Defaults = new { controller = "layout", action = "index", module = "admin" },
+                Defaults = new { controller = "page", action = "index", module = "admin" },
                 Priority = 10
             };
             yield return new RouteDescriptor
@@ -50,7 +50,7 @@ namespace Easy.CMS.Common
                     new AdminMenu
                     {
                         Title = "布局列表",
-                        Url = "~/admin",
+                        Url = "~/admin/Layout",
                         Icon = "glyphicon-align-justify"
                     },
                     new AdminMenu
@@ -65,7 +65,7 @@ namespace Easy.CMS.Common
             {
                 Title = "页面",
                 Icon = "glyphicon-eye-open",
-                Url = "~/admin/Page",
+                Url = "~/admin",
                 Order = 2
             };
             yield return new AdminMenu

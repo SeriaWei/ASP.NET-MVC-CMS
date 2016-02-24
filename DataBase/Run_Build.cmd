@@ -1,14 +1,14 @@
 @echo off
 REM: 请根据您的个人实际情况修改以下信息：
 set server=(local)
-set dataBase=ZkeaCMS
+set dataBase=ZKEACMS
 set dbUserId=sa
 set dbPassword=sa
 set dbPath=E:\GitHub\CMS\Easy.CMS.Web\App_Data
 @echo -----------------------------------------------------------------------------
-@echo *** 欢迎使用 ZkeaCMS ***
+@echo *** 欢迎使用 ZKEACMS ***
 @echo -----------------------------------------------------------------------------
-@echo 运行该命令将初始化 ZkeaCMS 的数据库。
+@echo 运行该命令将初始化 ZKEACMS 的数据库。
 @echo 在开始之前，请根据您的个人实际情况修改以下信息。（用记事打开这个文件）
 @echo -----------------------------------------------------------------------------
 @echo 请认真核对以下信息，确保正确：
