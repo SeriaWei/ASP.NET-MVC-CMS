@@ -251,7 +251,10 @@ a.badge:hover {
 
 
 .jstree a[ispublish="false"] {
-    color: gray;
+    color: #FFA500;
+}
+.jstree a[ispublish="false"]::after{
+    content:" [未发布]"
 }
 
 .jstree a[ishomepage="true"] {
