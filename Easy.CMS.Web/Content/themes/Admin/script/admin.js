@@ -132,7 +132,7 @@
                 { name: "图片边框", value: "image-border" },
                 { name: "阴影", value: "box-shadow" }
             ];
-            var html = "<p clss='text-nowrap'>直接写样式例：<code>style='color:#fff'</code></p><p>预定义样式：<ol>";
+            var html = "<p clss='text-nowrap'>直接写样式例：<code>style=\"color:#fff\"</code></p><p>预定义样式：<ol>";
             for (var i = 0; i < activeClass.length; i++) {
                 html += "<li>" + activeClass[i].name + ":<code>" + activeClass[i].value + "</code></li>";
             }
