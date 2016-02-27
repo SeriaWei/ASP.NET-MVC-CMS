@@ -45,8 +45,8 @@
       <HintPath>..\..\..\packages\Autofac.3.5.2\lib\net40\Autofac.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Easy, Version=1.0.5.1, Culture=neutral, PublicKeyToken=1964c83ce4e03f58, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\EasyFrameWork.1.0.5.1\lib\net40\Easy.dll</HintPath>
+    <Reference Include="Easy, Version=1.0.5.2, Culture=neutral, PublicKeyToken=1964c83ce4e03f58, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\EasyFrameWork.1.0.5.2\lib\net40\Easy.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Easy.Web, Version=1.0.5.1, Culture=neutral, PublicKeyToken=3aaa4da33a984374, processorArchitecture=MSIL">

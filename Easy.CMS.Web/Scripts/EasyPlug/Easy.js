@@ -845,6 +845,7 @@ Easy.ShowUrlWindow = function (op) {
         deOp.onLoad.call(this.contentWindow, boxWindow);
     });
     boxWindow.find("iframe").attr("src", deOp.url);
+    return boxWindow;
 }
 
 Easy.KeyEvent = (function () {

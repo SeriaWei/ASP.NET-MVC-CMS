@@ -76,6 +76,8 @@
         function loadedPage(p) {
            if (location.hash) {
                $(p.target).find("a"+location.hash).trigger("click");
+           } else {
+               $(".jstree-node:first a.jstree-anchor:first", p.target).trigger("click");
            }
         }
         $(document).on("click", ".fullRowList .delete", function () {
