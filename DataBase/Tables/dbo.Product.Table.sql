@@ -9,7 +9,7 @@ CREATE TABLE [dbo].[Product](
 	[ImageUrl] [nvarchar](255) NULL,
 	[ImageThumbUrl] [nvarchar](255) NULL,
 	[BrandCD] [int] NULL,
-	[ProductCategory] [int] NULL,
+	[ProductCategoryID] [int] NULL,
 	[Color] [nvarchar](255) NULL,
 	[Price] [money] NULL,
 	[RebatePrice] [money] NULL,

@@ -11,24 +11,33 @@ namespace Easy.CMS.Product.Service
 {
     public class ProductCategoryService : ServiceBase<ProductCategory>
     {
+        private ProductService _productService;
         public override void Add(ProductCategory item)
         {
             item.ParentID = item.ParentID ?? 0;
             base.Add(item);
         }
 
-        public IEnumerable<ProductCategory> GetChildren(int Id)
+
+        public IEnumerable<ProductCategory> GetChildren(long id)
         {
-            var category = Get(Id);
-            if (category == null) return null;
-            return InitChildren(category);
+            return Get(m => m.ParentID == id);
         }
-        private IEnumerable<ProductCategory> InitChildren(ProductCategory model)
+
+        public override int Delete(params object[] primaryKeys)
         {
-            IEnumerable<ProductCategory> result = Get(new DataFilter().Where("ParentID", OperatorType.Equal, model.ID));
-            List<ProductCategory> listResult = result.ToList();
-            result.Each(m => listResult.AddRange(InitChildren(m)));
-            return listResult;
+            _productService = _productService ?? new ProductService();
+            var item = Get(primaryKeys);
+            if (item != null)
+            {
+                GetChildren(item.ID ?? 0).Each(m =>
+                {
+                    _productService.Delete(n => n.ProductCategoryID == m.ID);
+                    Delete(m.ID);
+                });
+                _productService.Delete(n => n.ProductCategoryID == item.ID);
+            }
+            return base.Delete(primaryKeys);
         }
     }
 }

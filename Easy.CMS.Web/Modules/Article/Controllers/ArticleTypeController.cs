@@ -13,8 +13,8 @@ namespace Easy.CMS.Article.Controllers
     [AdminTheme, Authorize]
     public class ArticleTypeController : BasicController<ArticleType, long, ArticleTypeService>
     {
-        public ArticleTypeController()
-            : base(new ArticleTypeService())
+        public ArticleTypeController(ArticleTypeService service)
+            : base(service)
         {
         }
 

@@ -134,7 +134,7 @@
     <Compile Include="Widget\WidgetCollection.cs" />
     <Compile Include="Widget\WidgetPart.cs" />
     <Compile Include="Widget\WidgetService.cs" />
-    <Compile Include="Widget\ViewData_ZonesAttribute.cs" />
+    <Compile Include="Widget\ViewDataZonesAttribute.cs" />
     <Compile Include="Widget\ZoneWidgetCollection.cs" />
     <Compile Include="Zone\Helper.cs" />
     <Compile Include="Zone\ZoneCollection.cs" />

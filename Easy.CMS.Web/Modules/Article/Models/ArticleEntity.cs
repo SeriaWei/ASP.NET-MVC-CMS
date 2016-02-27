@@ -24,7 +24,7 @@ namespace Easy.CMS.Article.Models
 
         public string ImageUrl { get; set; }
 
-        public int? ArticleCategoryID { get; set; }
+        public int? ArticleTypeID { get; set; }
         public DateTime? PublishDate { get; set; }
         public bool IsPublish { get; set; }
     }
@@ -43,7 +43,7 @@ namespace Easy.CMS.Article.Models
             ViewConfig(m => m.Status).AsDropDownList().DataSource(DicKeys.RecordStatus, SourceType.Dictionary);
             ViewConfig(m => m.ImageThumbUrl).AsTextBox().AddClass("select select-image").AddProperty("data-url", Urls.SelectImage);
             ViewConfig(m => m.ImageUrl).AsTextBox().AddClass("select select-image").AddProperty("data-url", Urls.SelectImage);
-            ViewConfig(m => m.ArticleCategoryID).AsDropDownList().DataSource(ViewDataKeys.ArticleCategory, SourceType.ViewData);
+            ViewConfig(m => m.ArticleTypeID).AsDropDownList().DataSource(ViewDataKeys.ArticleCategory, SourceType.ViewData);
             ViewConfig(m => m.ArticleContent).AsMutiLineTextBox().AddClass("html").HideInGrid();
             ViewConfig(m => m.PublishDate).AsTextBox().Hide();
             ViewConfig(m => m.IsPublish).AsTextBox().Hide();

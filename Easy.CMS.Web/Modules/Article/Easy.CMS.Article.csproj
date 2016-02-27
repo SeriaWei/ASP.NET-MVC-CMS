@@ -119,7 +119,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ActionFilter\ViewData_ArticleTypeAttribute.cs" />
+    <Compile Include="ActionFilter\ViewDataArticleTypeAttribute.cs" />
     <Compile Include="ArticlePlug.cs" />
     <Compile Include="Controllers\ArticleController.cs" />
     <Compile Include="Controllers\ArticleTypeController.cs" />

@@ -11,12 +11,12 @@ namespace Easy.CMS.Product
         }
         public override void Configure()
         {
-            Registry.Register<ProductController, ViewData_ProductCategoryAttribute>(m => m.Index());
-            Registry.Register<ProductController, ViewData_ProductCategoryAttribute>(m => m.Create());
-            Registry.Register<ProductController, ViewData_ProductCategoryAttribute>(m => m.Create(null));
-            Registry.Register<ProductController, ViewData_ProductCategoryAttribute>(m => m.Edit(0));
-            Registry.Register<ProductController, ViewData_ProductCategoryAttribute>(m => m.Edit(null));
-            Registry.Register<ProductController, ViewData_ProductCategoryAttribute>(m => m.GetList());
+            Registry.Register<ProductController, ViewDataProductCategoryAttribute>(m => m.Index());
+            Registry.Register<ProductController, ViewDataProductCategoryAttribute>(m => m.Create());
+            Registry.Register<ProductController, ViewDataProductCategoryAttribute>(m => m.Create(null));
+            Registry.Register<ProductController, ViewDataProductCategoryAttribute>(m => m.Edit(0));
+            Registry.Register<ProductController, ViewDataProductCategoryAttribute>(m => m.Edit(null));
+            Registry.Register<ProductController, ViewDataProductCategoryAttribute>(m => m.GetList());
         }
 
     }

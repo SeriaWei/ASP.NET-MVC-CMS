@@ -9,7 +9,7 @@ using Easy.Web.Attribute;
 
 namespace Easy.Web.CMS.Widget
 {
-    public class ViewData_ZonesAttribute : ViewDataAttribute
+    public class ViewDataZonesAttribute : ViewDataAttribute
     {
         public override void OnActionExecuted(System.Web.Mvc.ActionExecutedContext filterContext)
         {

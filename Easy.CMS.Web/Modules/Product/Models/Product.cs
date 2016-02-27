@@ -27,7 +27,7 @@ namespace Easy.CMS.Product.Models
         /// <summary>
         /// 类别
         /// </summary>
-        public int? ProductCategory { get; set; }
+        public int? ProductCategoryID { get; set; }
         /// <summary>
         /// 颜色
         /// </summary>
@@ -83,7 +83,7 @@ namespace Easy.CMS.Product.Models
             ViewConfig(m => m.ImageUrl).AsTextBox().AddClass("select select-image").AddProperty("data-url", Urls.SelectImage);
             ViewConfig(m => m.ImageThumbUrl).AsTextBox().AddClass("select select-image").AddProperty("data-url", Urls.SelectImage);
             ViewConfig(m => m.BrandCD).AsHidden();
-            ViewConfig(m => m.ProductCategory).AsDropDownList().Required().DataSource(ViewDataKeys.ProductCategory, Constant.SourceType.ViewData);
+            ViewConfig(m => m.ProductCategoryID).AsDropDownList().Required().DataSource(ViewDataKeys.ProductCategory, Constant.SourceType.ViewData);
             ViewConfig(m => m.ShelfLife).AsHidden();
             ViewConfig(m => m.Norm).AsHidden();
             ViewConfig(m => m.Color).AsHidden();

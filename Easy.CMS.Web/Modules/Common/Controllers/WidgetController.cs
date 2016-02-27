@@ -18,7 +18,7 @@ namespace Easy.CMS.Common.Controllers
     [AdminTheme, Authorize]
     public class WidgetController : Controller
     {
-        [ViewData_Zones]
+        [ViewDataZones]
         public ActionResult Create(QueryContext context)
         {
             var template = new WidgetTemplateService().Get(context.WidgetTemplateID);
@@ -43,7 +43,7 @@ namespace Easy.CMS.Common.Controllers
             }
             return View(widget);
         }
-        [HttpPost, ViewData_Zones]
+        [HttpPost, ViewDataZones]
         [ValidateInput(false)]
         public ActionResult Create(WidgetBase widget, string ReturnUrl)
         {
@@ -69,7 +69,7 @@ namespace Easy.CMS.Common.Controllers
                 return RedirectToAction("LayoutWidget", "Layout", new { module = "admin" });
             }
         }
-        [ViewData_Zones]
+        [ViewDataZones]
         public ActionResult Edit(string ID, string ReturnUrl)
         {
             var widgetService = new WidgetService();
@@ -83,7 +83,7 @@ namespace Easy.CMS.Common.Controllers
             return View(widget);
         }
 
-        [HttpPost, ViewData_Zones]
+        [HttpPost, ViewDataZones]
         [ValidateInput(false)]
         public ActionResult Edit(WidgetBase widget, string ReturnUrl)
         {

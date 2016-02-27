@@ -48,7 +48,7 @@ namespace Easy.CMS.Common.Controllers
             return base.Create();
         }
 
-        [AdminTheme, ViewData_Layouts, Authorize]
+        [AdminTheme, ViewDataLayouts, Authorize]
         public ActionResult Create(string ParentID)
         {
             var page = new PageEntity
@@ -69,18 +69,18 @@ namespace Easy.CMS.Common.Controllers
             return View(page);
 
         }
-        [AdminTheme, ViewData_Layouts, HttpPost, Authorize]
+        [AdminTheme, ViewDataLayouts, HttpPost, Authorize]
         public override ActionResult Create(PageEntity entity)
         {
             base.Create(entity);
             return RedirectToAction("Design", new { ID = entity.ID });
         }
-        [AdminTheme, ViewData_Layouts, Authorize]
+        [AdminTheme, ViewDataLayouts, Authorize]
         public override ActionResult Edit(string Id)
         {
             return base.Edit(Id);
         }
-        [AdminTheme, ViewData_Layouts, Authorize]
+        [AdminTheme, ViewDataLayouts, Authorize]
         [HttpPost]
         public override ActionResult Edit(PageEntity entity)
         {

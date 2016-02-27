@@ -9,7 +9,7 @@ using Easy.Web.CMS;
 
 namespace Easy.CMS.Product.ActionFilter
 {
-    public class ViewData_ProductCategoryAttribute : ViewDataAttribute
+    public class ViewDataProductCategoryAttribute : ViewDataAttribute
     {
         public override void OnActionExecuted(ActionExecutedContext filterContext)
         {

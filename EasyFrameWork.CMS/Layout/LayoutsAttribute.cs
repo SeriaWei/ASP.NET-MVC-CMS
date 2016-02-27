@@ -7,7 +7,7 @@ using Easy.Extend;
 
 namespace Easy.Web.CMS.Layout
 {
-    public class ViewData_LayoutsAttribute : ViewDataAttribute
+    public class ViewDataLayoutsAttribute : ViewDataAttribute
     {
         public override void OnActionExecuted(System.Web.Mvc.ActionExecutedContext filterContext)
         {

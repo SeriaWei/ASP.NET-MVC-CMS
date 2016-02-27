@@ -19,7 +19,7 @@ namespace Easy.CMS.Product.Controllers
         {
         }
        
-        [HttpPost, ViewData_ProductCategory]
+        [HttpPost, ViewDataProductCategory]
         public override ActionResult Edit(Models.Product entity)
         {
             var result = base.Edit(entity);

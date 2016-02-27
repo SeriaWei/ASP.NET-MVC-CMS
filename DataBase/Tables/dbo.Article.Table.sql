@@ -10,7 +10,7 @@ CREATE TABLE [dbo].[Article](
 	[MetaKeyWords] [nvarchar](255) NULL,
 	[MetaDescription] [nvarchar](255) NULL,
 	[Counter] [int] NULL,
-	[ArticleCategoryID] [int] NULL,
+	[ArticleTypeID] [int] NULL,
 	[Description] [nvarchar](255) NULL,
 	[ArticleContent] [nvarchar](max) NULL,
 	[Status] [int] NULL,
