@@ -197,6 +197,9 @@ input.helper:checked + span {
     color: white;
     top: -23px;
 }
+.zoneToolbar .tools {
+    padding: 0 10px;
+}
 
     .zoneToolbar.red {
         background-color: #c7302b;

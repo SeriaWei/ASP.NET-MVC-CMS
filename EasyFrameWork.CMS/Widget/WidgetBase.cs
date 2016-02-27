@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
+using System.Web;
 using Easy.Cache;
 using Easy.Extend;
 using Easy.MetaData;
@@ -13,6 +15,8 @@ namespace Easy.Web.CMS.Widget
     [DataConfigure(typeof(WidgetBaseMetaData))]
     public class WidgetBase : EditorEntity
     {
+
+      private  static readonly Regex StyleRegex = new Regex("^style=\"(.+?)\"$", RegexOptions.Compiled | RegexOptions.IgnoreCase);
         public string ID { get; set; }
         public string WidgetName { get; set; }
         public int? Position { get; set; }
@@ -25,6 +29,19 @@ namespace Easy.Web.CMS.Widget
         public string ViewModelTypeName { get; set; }
         public string FormView { get; set; }
         public string StyleClass { get; set; }
+
+        public IHtmlString StyleClassResult(bool design=false)
+        {
+            if (StyleClass.IsNullOrWhiteSpace()) return null;
+            if (!design)
+            {
+                return new HtmlString(StyleRegex.IsMatch(StyleClass) ? StyleClass : "class=\"" + StyleClass + "\"");    
+            }
+            return
+                new HtmlString(StyleRegex.IsMatch(StyleClass ?? "")
+                    ? StyleClass + " class=\"widget-design\""
+                    : "class=\"" + StyleClass + " widget-design\"");
+        }
         public WidgetPart ToWidgetPart()
         {
             return new WidgetPart

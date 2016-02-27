@@ -4,67 +4,69 @@
     Style.Reqiured("Layout").AtHead();
     Script.Reqiured("jQueryUi").AtFoot();
     Easy.Web.CMS.Layout.LayoutEntity layOut = ViewData[Easy.Web.CMS.Layout.LayoutEntity.LayoutKey] as Easy.Web.CMS.Layout.LayoutEntity;
-    Regex styleRegex = new Regex("^style=\"(.+?)\"$", RegexOptions.Compiled | RegexOptions.IgnoreCase);
+    if (layOut == null)
+    {
+        return;
+    }
+    //Stack<string> colors = new Stack<string>(new[] { "blue", "lightBlue", "red", "green", "orange" });
 }
 @{
-    bool zoneStart = false;
-    foreach (var item in layOut.Html)
+    for (int i = 0; i < layOut.Html.Count; i++)
     {
+        var item = layOut.Html[i];
         if (item.Html == Easy.Web.CMS.Zone.ZoneEntity.ZoneTag)
         {
-            zoneStart = true;
-            continue;
-        }
-        if (zoneStart)
-        {
-            <div class="zoneid" data-id="@item.Html"></div>
+            i++;
+            var zoneId = layOut.Html[i].Html;
+
+            <div class="zoneid" data-id="@zoneId"></div>
             <div class="zoneName">
-                <a title="添加组件到该区域" class="add-widget label label-danger" href="@Url.Action("SelectWidget", "WidgetTemplate", new { module = "admin", pageId = layOut.Page.ID, ZoneId = item.Html })">
+                <a title="添加组件到该区域"
+                   class="add-widget label label-danger"
+                   href="@Url.Action("SelectWidget", "WidgetTemplate", new { module = "admin", pageId = layOut.Page.ID, ZoneId = zoneId })">
                     <i class="glyphicon glyphicon-plus"></i>
-                    @layOut.Zones.First(m => m.ID == item.Html).ZoneName
+                    @layOut.Zones.First(m => m.ID == zoneId).ZoneName
                 </a>
-
             </div>
-            if (layOut.ZoneWidgets.ContainsKey(item.Html))
-            {
-                foreach (WidgetPart widgetPart in layOut.ZoneWidgets[item.Html].OrderBy(m => m.Widget.Position).ThenBy(m => m.Widget.WidgetName))
-                {
-                    var attr = MvcHtmlString.Create(styleRegex.IsMatch(widgetPart.Widget.StyleClass ?? "") ? widgetPart.Widget.StyleClass + " class='widget-design'" : "class='" + widgetPart.Widget.StyleClass + " widget-design'");
-                    <div @(attr) id="widget_@widgetPart.Widget.ID" data-widgetid="@widgetPart.Widget.ID">
-                        <div class="zoneToolbar container-fluid blue">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="pull-left">
-                                        <span class="sort-handle">
-                                            <i class="glyphicon glyphicon-move ">
-                                            </i>
-                                            @widgetPart.Widget.WidgetName
-                                        </span>
 
-                                    </div>
-                                    <div class="pull-right">
-                                        @if (widgetPart.Widget.LayoutID.IsNullOrEmpty())
+            if (layOut.ZoneWidgets.ContainsKey(zoneId))
+            {
+                foreach (WidgetPart widgetPart in layOut.ZoneWidgets[zoneId].OrderBy(m => m.Widget.Position).ThenBy(m => m.Widget.WidgetName))
+                {
+                    <div @(widgetPart.Widget.StyleClassResult(true))
+                         id="widget_@widgetPart.Widget.ID"
+                         data-widgetid="@widgetPart.Widget.ID">
+                        <div class="zoneToolbar blue">
+                            <div class="tools clearfix">
+                                <div class="pull-left">
+                                    <span class="sort-handle">
+                                        <i class="glyphicon glyphicon-move ">
+                                        </i>
+                                        @widgetPart.Widget.WidgetName
+                                    </span>
+                                </div>
+                                <div class="pull-right">
+                                    @if (widgetPart.Widget.LayoutID.IsNullOrEmpty())
                                         {
-                                            <a href="@Url.Action("Edit", "Widget", new { module = "admin", ID = widgetPart.Widget.ID })"><i class="glyphicon glyphicon-edit"></i></a>
-                                            <a href="javascript:void(0)" class="delete" data-id="@widgetPart.Widget.ID"><i class="glyphicon glyphicon-trash"></i></a>
+                                        <a href="@Url.Action("Edit", "Widget", new {module = "admin", ID = widgetPart.Widget.ID})"><i class="glyphicon glyphicon-edit"></i></a>
+                                        <a href="javascript:void(0)" class="delete" data-id="@widgetPart.Widget.ID"><i class="glyphicon glyphicon-trash"></i></a>
                                         }
-                                    </div>
                                 </div>
                             </div>
                         </div>
-                        @Html.Partial(widgetPart.Widget.PartialView, widgetPart.ViewModel)
+                        @{
+                        Html.RenderPartial(widgetPart.Widget.PartialView, widgetPart.ViewModel);
+                        }
                     </div>
                 }
             }
-            zoneStart = false;
-            continue;
+
+            i++;
         }
-        if (item.Html == Easy.Web.CMS.Zone.ZoneEntity.ZoneEndTag)
+        else
         {
-            zoneStart = false;
-            continue;
+            @Html.Raw(item.Html)
         }
-        @Html.Raw(item.Html)
     }
 }
 @using (Script.AtFoot())

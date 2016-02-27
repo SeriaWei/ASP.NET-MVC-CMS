@@ -210,8 +210,9 @@
                         }
                     }
                 }
+                $(".layout-html", form).remove();
                 for (var i = 0; i < allZoneResult.length; i++) {
-                    form.append($('<input type="hidden" name="html"/>').val($.trim(allZoneResult[i])));
+                    form.append($('<input type="hidden" class="layout-html" name="html"/>').val($.trim(allZoneResult[i])));
                 }
                 form.submit();
             });
