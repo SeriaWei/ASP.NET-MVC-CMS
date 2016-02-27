@@ -35,7 +35,7 @@ namespace Easy.CMS.Article.Controllers
 
         public JsonResult GetArticleTypeTree()
         {
-            var pages = Service.Get(new Data.DataFilter());
+            var allNodes = Service.Get();
             var node = new Easy.HTML.jsTree.Tree<ArticleType>().Source(pages).ToNode(m => m.ID.ToString(), m => m.Title, m => m.ParentID.ToString(), "0");
             return Json(node, JsonRequestBehavior.AllowGet);
         }
