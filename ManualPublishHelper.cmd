@@ -1,7 +1,7 @@
 @echo off
 
 for /f %%a in ('dir Release\Application\Modules /b') do (
-	xcopy Release\Application\Modules\%%a\bin\Easy.CMS.%%a.dll Release\Application\bin /S /F /Y
+	xcopy Release\Application\Modules\%%a\bin\*.dll Release\Application\bin /S /F /Y
 	@echo Delete Release\Application\Modules\%%a\bin
 	rd /S /Q Release\Application\Modules\%%a\bin
 	@echo Delete Release\Application\Modules\%%a\*.config
