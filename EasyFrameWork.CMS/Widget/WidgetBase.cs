@@ -16,7 +16,7 @@ namespace Easy.Web.CMS.Widget
     public class WidgetBase : EditorEntity
     {
 
-      private  static readonly Regex StyleRegex = new Regex("^style=\"(.+?)\"$", RegexOptions.Compiled | RegexOptions.IgnoreCase);
+        private static readonly Regex StyleRegex = new Regex("^style=\"(.+?)\"$", RegexOptions.Compiled | RegexOptions.IgnoreCase);
         public string ID { get; set; }
         public string WidgetName { get; set; }
         public int? Position { get; set; }
@@ -30,12 +30,12 @@ namespace Easy.Web.CMS.Widget
         public string FormView { get; set; }
         public string StyleClass { get; set; }
 
-        public IHtmlString StyleClassResult(bool design=false)
+        public IHtmlString StyleClassResult(bool design = false)
         {
-            if (StyleClass.IsNullOrWhiteSpace()) return null;
             if (!design)
             {
-                return new HtmlString(StyleRegex.IsMatch(StyleClass) ? StyleClass : "class=\"" + StyleClass + "\"");    
+                if (StyleClass.IsNullOrWhiteSpace()) return null;
+                return new HtmlString(StyleRegex.IsMatch(StyleClass) ? StyleClass : "class=\"" + StyleClass + "\"");
             }
             return
                 new HtmlString(StyleRegex.IsMatch(StyleClass ?? "")
@@ -97,33 +97,6 @@ namespace Easy.Web.CMS.Widget
                 }));
                 return type;
             });
-        }
-        public WidgetBase ToWidgetBase()
-        {
-            return new WidgetBase
-            {
-                AssemblyName = this.AssemblyName,
-                CreateBy = this.CreateBy,
-                CreatebyName = this.CreatebyName,
-                CreateDate = this.CreateDate,
-                Description = this.Description,
-                ID = this.ID,
-                LastUpdateBy = this.LastUpdateBy,
-                LastUpdateByName = this.LastUpdateByName,
-                LastUpdateDate = this.LastUpdateDate,
-                LayoutID = this.LayoutID,
-                PageID = this.PageID,
-                PartialView = this.PartialView,
-                Position = this.Position,
-                ServiceTypeName = this.ServiceTypeName,
-                Status = this.Status,
-                Title = this.Title,
-                ViewModelTypeName = this.ViewModelTypeName,
-                WidgetName = this.WidgetName,
-                ZoneID = this.ZoneID,
-                FormView = this.FormView,
-                StyleClass = this.StyleClass
-            };
         }
     }
     class WidgetBaseMetaData : DataViewMetaData<WidgetBase>

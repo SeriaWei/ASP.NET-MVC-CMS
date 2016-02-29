@@ -195,7 +195,11 @@ input.helper:checked + span {
     width: 100%;
     z-index: 1;
     color: white;
-    top: -23px;
+    line-height: 25px;
+    top: -28px;
+}
+.zoneToolbar:hover {
+    z-index: 2;
 }
 .zoneToolbar .tools {
     padding: 0 10px;

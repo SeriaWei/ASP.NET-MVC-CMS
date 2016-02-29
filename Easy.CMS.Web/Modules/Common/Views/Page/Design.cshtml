@@ -3,6 +3,7 @@
 @{
     Style.Reqiured("Layout").AtHead();
     Script.Reqiured("jQueryUi").AtFoot();
+    Script.Reqiured("PageDesign").AtFoot();
     Easy.Web.CMS.Layout.LayoutEntity layOut = ViewData[Easy.Web.CMS.Layout.LayoutEntity.LayoutKey] as Easy.Web.CMS.Layout.LayoutEntity;
     if (layOut == null)
     {
@@ -10,134 +11,63 @@
     }
     //Stack<string> colors = new Stack<string>(new[] { "blue", "lightBlue", "red", "green", "orange" });
 }
-@{
-    for (int i = 0; i < layOut.Html.Count; i++)
+<input type="hidden" id="save-widget-position-url" value="@Url.Action("SaveWidgetPosition", "Widget", new {module = "admin"})"/>
+<input type="hidden" id="save-widget-zone-url" value="@Url.Action("SaveWidgetZone", "Widget", new { module = "admin" })" />
+@for (int i = 0; i < layOut.Html.Count; i++)
+{
+    var item = layOut.Html[i];
+    if (item.Html == Easy.Web.CMS.Zone.ZoneEntity.ZoneTag)
     {
-        var item = layOut.Html[i];
-        if (item.Html == Easy.Web.CMS.Zone.ZoneEntity.ZoneTag)
+        i++;
+        var zoneId = layOut.Html[i].Html;
+        <input type="hidden" class="zoneId" value="@zoneId" />
+        <div class="zoneName">
+            <a title="添加组件到该区域"
+               class="add-widget label label-danger"
+               href="@Url.Action("SelectWidget", "WidgetTemplate", new { module = "admin", pageId = layOut.Page.ID, ZoneId = zoneId })">
+                <i class="glyphicon glyphicon-plus"></i>
+                @layOut.Zones.First(m => m.ID == zoneId).ZoneName
+            </a>
+        </div>
+
+        if (layOut.ZoneWidgets.ContainsKey(zoneId))
         {
-            i++;
-            var zoneId = layOut.Html[i].Html;
-
-            <div class="zoneid" data-id="@zoneId"></div>
-            <div class="zoneName">
-                <a title="添加组件到该区域"
-                   class="add-widget label label-danger"
-                   href="@Url.Action("SelectWidget", "WidgetTemplate", new { module = "admin", pageId = layOut.Page.ID, ZoneId = zoneId })">
-                    <i class="glyphicon glyphicon-plus"></i>
-                    @layOut.Zones.First(m => m.ID == zoneId).ZoneName
-                </a>
-            </div>
-
-            if (layOut.ZoneWidgets.ContainsKey(zoneId))
+            foreach (WidgetPart widgetPart in layOut.ZoneWidgets[zoneId].OrderBy(m => m.Widget.Position).ThenBy(m => m.Widget.WidgetName))
             {
-                foreach (WidgetPart widgetPart in layOut.ZoneWidgets[zoneId].OrderBy(m => m.Widget.Position).ThenBy(m => m.Widget.WidgetName))
-                {
-                    <div @(widgetPart.Widget.StyleClassResult(true))
-                         id="widget_@widgetPart.Widget.ID"
-                         data-widgetid="@widgetPart.Widget.ID">
-                        <div class="zoneToolbar blue">
-                            <div class="tools clearfix">
-                                <div class="pull-left">
-                                    <span class="sort-handle">
-                                        <i class="glyphicon glyphicon-move ">
-                                        </i>
-                                        @widgetPart.Widget.WidgetName
-                                    </span>
-                                </div>
-                                <div class="pull-right">
-                                    @if (widgetPart.Widget.LayoutID.IsNullOrEmpty())
-                                        {
-                                        <a href="@Url.Action("Edit", "Widget", new {module = "admin", ID = widgetPart.Widget.ID})"><i class="glyphicon glyphicon-edit"></i></a>
-                                        <a href="javascript:void(0)" class="delete" data-id="@widgetPart.Widget.ID"><i class="glyphicon glyphicon-trash"></i></a>
-                                        }
-                                </div>
+                <div @(widgetPart.Widget.StyleClassResult(true))
+                     id="widget_@widgetPart.Widget.ID"
+                     data-widgetid="@widgetPart.Widget.ID">
+                    <div class="zoneToolbar blue">
+                        <div class="tools clearfix">
+                            <div class="pull-left">
+                                <span class="sort-handle">
+                                    <i class="glyphicon glyphicon-move ">
+                                    </i>
+                                    @widgetPart.Widget.WidgetName
+                                </span>
+                            </div>
+                            <div class="pull-right">
+                                @if (widgetPart.Widget.LayoutID.IsNullOrEmpty())
+                                {
+                                    <a href="@Url.Action("Edit", "Widget", new {module = "admin", ID = widgetPart.Widget.ID})"><i class="glyphicon glyphicon-edit"></i></a>
+                                    <a href="javascript:void(0)" class="delete"
+                                       data-url="@Url.Action("DeleteWidget", "Widget", new {module = "admin"})"
+                                       data-id="@widgetPart.Widget.ID"><i class="glyphicon glyphicon-trash"></i></a>
+                                }
                             </div>
                         </div>
-                        @{
-                        Html.RenderPartial(widgetPart.Widget.PartialView, widgetPart.ViewModel);
-                        }
                     </div>
-                }
+                    @{
+                Html.RenderPartial(widgetPart.Widget.PartialView, widgetPart.ViewModel);
+                    }
+                </div>
             }
+        }
 
-            i++;
-        }
-        else
-        {
-            @Html.Raw(item.Html)
-        }
+        i++;
     }
-}
-@using (Script.AtFoot())
-{
-    <script type="text/javascript">
-        $(function () {
-            $(".zoneid").each(function () {
-                $(this).parent().data("id", $(this).data("id"));
-                $(this).remove();
-            });
-            $(".zone").sortable({
-                handle: ".sort-handle",
-                stop: function (event, ui) {
-                    var tempForm = "";
-                    ui.item.parent().children(".widget-design").each(function (i, ui) {
-                        tempForm += "&widgets[" + i + "].ID=" + $(ui).data("widgetid") + "&widgets[" + i + "].Position=" + (i + 1);
-                    });
-                    if (tempForm) {
-                        $.post("@Url.Action("SaveWidgetPosition", "Widget", new { module = "admin" })", tempForm, function (data) {
-                            InitMinHeight();
-                        }, "html");
-                    }
-                }
-            }).droppable({
-                hoverClass: "dropWarning",
-                accept: ".widget-design",
-                greedy: true,
-                tolerance: "pointer",
-                drop: function (event, ui) {
-                    if (ui.draggable.parent().data("id") == $(this).data("id")) {
-                        return true;
-                    }
-                    var target = ui.draggable.clone();
-                    target.removeAttr("style");
-                    $(this).append(target);
-                    ui.draggable.remove();
-                    $.post("@Url.Action("SaveWidgetZone", "Widget", new { module = "admin" })",
-                        {
-                            ID: target.data("widgetid"),
-                            ZoneId: $(this).data("id"),
-                            Position: $(this).children().size()
-                        },
-                        function (data) {
-                            InitMinHeight();
-                        }, "html");
-                }
-            });
-            $(document).on("click", ".delete", function () {
-                var id = $(this).data("id");
-                if (confirm("确定要删除该组件吗？")) {
-                    $.post("@Url.Action("DeleteWidget", "Widget", new { module = "admin" })", { ID: id }, function (data) {
-                        if (data) {
-                            $("#widget_" + id).remove();
-                            InitMinHeight();
-                        }
-                    }, "json");
-                }
-            });
-            $(".helper").click(function () {
-                $("#container").toggleClass($(this).data("class"));
-            });
-            InitMinHeight();
-        });
-        function InitMinHeight() {
-            $(".zone").each(function () {
-                if ($(this).children(":not(.zoneName)").size() == 0) {
-                    $(this).addClass("empty-zone");
-                } else {
-                    $(this).removeClass("empty-zone");
-                }
-            });
-        }
-    </script>
+    else
+    {
+        @Html.Raw(item.Html)
+    }
 }

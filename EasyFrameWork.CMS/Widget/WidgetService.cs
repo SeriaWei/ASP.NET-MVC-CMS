@@ -37,38 +37,38 @@ namespace Easy.Web.CMS.Widget
         }
         public WidgetService WidgetBaseService { get; private set; }
 
-        private void CopyProperty(WidgetBase widget, T model)
+        private void CopyTo(WidgetBase from, T to)
         {
-            if (model != null)
+            if (to != null)
             {
-                model.AssemblyName = widget.AssemblyName;
-                model.CreateBy = widget.CreateBy;
-                model.CreatebyName = widget.CreatebyName;
-                model.CreateDate = widget.CreateDate;
-                model.Description = widget.Description;
-                model.ID = widget.ID;
-                model.LastUpdateBy = widget.LastUpdateBy;
-                model.LastUpdateByName = widget.LastUpdateByName;
-                model.LastUpdateDate = widget.LastUpdateDate;
-                model.LayoutID = widget.LayoutID;
-                model.PageID = widget.PageID;
-                model.PartialView = widget.PartialView;
-                model.Position = widget.Position;
-                model.ServiceTypeName = widget.ServiceTypeName;
-                model.Status = widget.Status;
-                model.Title = widget.Title;
-                model.ViewModelTypeName = widget.ViewModelTypeName;
-                model.WidgetName = widget.WidgetName;
-                model.ZoneID = widget.ZoneID;
-                model.FormView = widget.FormView;
-                model.StyleClass = widget.StyleClass;
+                to.AssemblyName = from.AssemblyName;
+                to.CreateBy = from.CreateBy;
+                to.CreatebyName = from.CreatebyName;
+                to.CreateDate = from.CreateDate;
+                to.Description = from.Description;
+                to.ID = from.ID;
+                to.LastUpdateBy = from.LastUpdateBy;
+                to.LastUpdateByName = from.LastUpdateByName;
+                to.LastUpdateDate = from.LastUpdateDate;
+                to.LayoutID = from.LayoutID;
+                to.PageID = from.PageID;
+                to.PartialView = from.PartialView;
+                to.Position = from.Position;
+                to.ServiceTypeName = from.ServiceTypeName;
+                to.Status = from.Status;
+                to.Title = from.Title;
+                to.ViewModelTypeName = from.ViewModelTypeName;
+                to.WidgetName = from.WidgetName;
+                to.ZoneID = from.ZoneID;
+                to.FormView = from.FormView;
+                to.StyleClass = from.StyleClass;
             }
         }
 
         public override void Add(T item)
         {
             item.ID = Guid.NewGuid().ToString("N");
-            WidgetBaseService.Add(item.ToWidgetBase());
+            WidgetBaseService.Add(item);
             if (typeof(T) != typeof(WidgetBase))
             {
                 base.Add(item);
@@ -76,7 +76,7 @@ namespace Easy.Web.CMS.Widget
         }
         public override bool Update(T item, params object[] primaryKeys)
         {
-            bool result = WidgetBaseService.Update(item.ToWidgetBase(), primaryKeys);
+            bool result = WidgetBaseService.Update(item, primaryKeys);
             if (typeof(T) != typeof(WidgetBase))
             {
                 return base.Update(item, primaryKeys);
@@ -86,7 +86,7 @@ namespace Easy.Web.CMS.Widget
         }
         public override bool Update(T item, DataFilter filter)
         {
-            bool result = WidgetBaseService.Update(item.ToWidgetBase(), filter);
+            bool result = WidgetBaseService.Update(item, filter);
             if (typeof(T) != typeof(WidgetBase))
             {
                 return base.Update(item, filter);
@@ -104,7 +104,7 @@ namespace Easy.Web.CMS.Widget
                 lists = base.Get(filter).ToList();
                 for (int i = 0; i < widgetBases.Count; i++)
                 {
-                    CopyProperty(widgetBases[i], lists[i]);
+                    CopyTo(widgetBases[i], lists[i]);
                 }
             }
             else
@@ -123,7 +123,7 @@ namespace Easy.Web.CMS.Widget
                 lists = base.Get(filter, pagin).ToList();
                 for (int i = 0; i < widgetBases.Count(); i++)
                 {
-                    CopyProperty(widgetBases[i], lists[i]);
+                    CopyTo(widgetBases[i], lists[i]);
                 }
             }
             else
@@ -157,14 +157,14 @@ namespace Easy.Web.CMS.Widget
             T model = base.Get(primaryKeys);
             if (typeof(T) != typeof(WidgetBase))
             {
-                CopyProperty(WidgetBaseService.Get(primaryKeys), model);
+                CopyTo(WidgetBaseService.Get(primaryKeys), model);
             }
             return model;
         }
         public virtual WidgetBase GetWidget(WidgetBase widget)
         {
             T result = base.Get(widget.ID);
-            CopyProperty(widget, result);
+            CopyTo(widget, result);
             return result;
         }
 

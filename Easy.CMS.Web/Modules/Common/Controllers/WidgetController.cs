@@ -129,7 +129,7 @@ namespace Easy.CMS.Common.Controllers
             if (widget != null)
             {
                 widget.CreateServiceInstance().DeleteWidget(ID);
-                return Json(true);
+                return Json(ID);
             }
             return Json(false);
         }

@@ -7,30 +7,29 @@
         return;
     }
 }
-@{
-    for (int i = 0; i < layOut.Html.Count; i++)
+@for (int i = 0; i < layOut.Html.Count; i++)
+{
+    var item = layOut.Html[i];
+    if (item.Html == Easy.Web.CMS.Zone.ZoneEntity.ZoneTag)
     {
-        var item = layOut.Html[i];
-        if (item.Html == Easy.Web.CMS.Zone.ZoneEntity.ZoneTag)
+        i++;
+        var zoneId = layOut.Html[i].Html;
+        if (layOut.ZoneWidgets.ContainsKey(zoneId))
         {
-            i++;
-            var zoneId = layOut.Html[i].Html;
-            if (layOut.ZoneWidgets.ContainsKey(zoneId))
+            foreach (var widgetPart in layOut.ZoneWidgets[zoneId].OrderBy(m => m.Widget.Position).ThenBy(m => m.Widget.WidgetName))
             {
-                foreach (var widgetPart in layOut.ZoneWidgets[zoneId].OrderBy(m => m.Widget.Position).ThenBy(m => m.Widget.WidgetName))
-                {
-                    <div @widgetPart.Widget.StyleClassResult()>
-                        @{
-                    Html.RenderPartial(widgetPart.Widget.PartialView, widgetPart.ViewModel);
-                        }
-                    </div>
-                }
+                <div @widgetPart.Widget.StyleClassResult()>
+                    @{
+                Html.RenderPartial(widgetPart.Widget.PartialView, widgetPart.ViewModel);
+                    }
+                </div>
             }
-            i++;
         }
-        else
-        {
-            @Html.Raw(item.Html)
-        }
+        i++;
+    }
+    else
+    {
+        @Html.Raw(item.Html)
     }
 }
+

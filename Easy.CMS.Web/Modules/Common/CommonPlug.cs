@@ -95,6 +95,9 @@ namespace Easy.CMS.Common
         {
             Script("OWL.Carousel").Include("~/Modules/Common/Scripts/OwlCarousel/owl.carousel.min.js")
                 .Include("~/Modules/Common/Scripts/Owl.Carousel.js", "~/Modules/Common/Scripts/Owl.Carousel.min.js");
+
+            Script("LayoutDesign").Include("~/Modules/Common/Scripts/LayoutDesign.js");
+            Script("PageDesign").Include("~/Modules/Common/Scripts/PageDesign.js");
         }
 
         public override void InitStyle()
