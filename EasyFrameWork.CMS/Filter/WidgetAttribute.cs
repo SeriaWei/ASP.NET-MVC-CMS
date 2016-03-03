@@ -27,15 +27,15 @@ namespace Easy.Web.CMS.Filter
                 filterContext.Result = new RedirectResult(path);
                 return null;
             }
-            bool publish = true;
+            bool isPreView = false;
             if (filterContext.RequestContext.HttpContext.Request.IsAuthenticated)
             {
-                publish = !ReView.Review.Equals(
+                isPreView = ReView.Review.Equals(
                     filterContext.RequestContext.HttpContext.Request.QueryString[ReView.QueryKey],
                     StringComparison.CurrentCultureIgnoreCase);
             }
 
-            return new PageService().GetByPath(path, publish);
+            return new PageService().GetByPath(path, isPreView);
         }
 
         public virtual string GetLayout()
@@ -74,8 +74,7 @@ namespace Easy.Web.CMS.Filter
                     }
                 };
                 var widgetService = new WidgetService();
-                List<WidgetBase> widgets = widgetService.Get(m => m.LayoutID == page.LayoutId).ToList();
-                widgets.AddRange(widgetService.Get(m => m.PageID == page.ID));
+                IEnumerable<WidgetBase> widgets = widgetService.GetAllByPageId(page.ID);
                 var parallel = from widget in widgets.AsParallel() select widget;
                 parallel.ForAll(processWidget);
 

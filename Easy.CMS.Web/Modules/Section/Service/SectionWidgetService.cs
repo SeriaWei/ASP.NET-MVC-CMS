@@ -27,6 +27,20 @@ namespace Easy.CMS.Section.Service
             _sectionContentProviderService = sectionContentProviderService;
         }
 
+        public override void AddWidget(WidgetBase widget)
+        {
+            base.AddWidget(widget);
+            var sectionWidget = (SectionWidget)widget;
+            if (sectionWidget.Groups != null && sectionWidget.Groups.Any())
+            {
+                sectionWidget.Groups.Each(m =>
+                {
+                    m.SectionWidgetId = widget.ID;
+                    _sectionGroupService.Add(m);
+                });
+            }
+        }
+
         public override WidgetBase GetWidget(WidgetBase widget)
         {
             SectionWidget sectionWidget = base.GetWidget(widget) as SectionWidget;
@@ -51,7 +65,7 @@ namespace Easy.CMS.Section.Service
             }
             widget.Groups.Each(m =>
             {
-                m.SectionContents = contents.Where(n => n.SectionGroupId == m.ID);
+                m.SectionContents = contents.Where(n => n.SectionGroupId == m.ID).ToList();
             });
             return widget;
         }

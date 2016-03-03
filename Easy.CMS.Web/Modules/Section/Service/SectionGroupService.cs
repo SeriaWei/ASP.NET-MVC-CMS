@@ -11,6 +11,22 @@ namespace Easy.CMS.Section.Service
 {
     public class SectionGroupService : ServiceBase<SectionGroup>, ISectionGroupService
     {
+        public override void Add(SectionGroup item)
+        {
+            base.Add(item);
+            if (item.SectionContents != null && item.SectionContents.Any())
+            {
+                var contentService = new SectionContentProviderService();
+                item.SectionContents.Each(m =>
+                {
+                    m.SectionGroupId = item.ID;
+                    m.SectionWidgetId = item.SectionWidgetId;
+                    contentService.Add(m);
+                });
+                
+            }
+        }
+
         public override int Delete(params object[] primaryKeys)
         {
             var group = Get(primaryKeys);

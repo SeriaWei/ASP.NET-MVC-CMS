@@ -38,7 +38,7 @@ namespace Easy.CMS.Common.Controllers
 
         public JsonResult GetPageTree()
         {
-            var pages = Service.Get(new DataFilter().OrderBy("DisplayOrder", OrderType.Ascending));
+            var pages = Service.Get(new DataFilter().Where("IsPublishedPage", OperatorType.Equal, false).OrderBy("DisplayOrder", OrderType.Ascending));
             var node = new Easy.HTML.jsTree.Tree<PageEntity>().Source(pages).ToNode(m => m.ID, m => m.PageName, m => m.ParentId, "#");
             return Json(node, JsonRequestBehavior.AllowGet);
         }
@@ -91,7 +91,7 @@ namespace Easy.CMS.Common.Controllers
             var result = base.Edit(entity);
             if (entity.ActionType == ActionType.Publish)
             {
-                Service.Publish(entity.ID);
+                Service.Publish(entity);
                 HttpResponse.RemoveOutputCacheItem(entity.Url.Replace("~", ""));
                 if (entity.IsHomePage)
                 {
@@ -106,9 +106,9 @@ namespace Easy.CMS.Common.Controllers
             return View();
         }
         [Authorize]
-        public ActionResult RedirectView(string Id)
+        public ActionResult RedirectView(string Id, bool? preview)
         {
-            return Redirect(Service.Get(Id).Url + "?ViewType=Review");
+            return Redirect(Service.Get(Id).Url + ((preview ?? true) ? "?ViewType=" + ReView.Review : ""));
         }
         [PopUp, Authorize]
         public ActionResult Select()
@@ -137,6 +137,12 @@ namespace Easy.CMS.Common.Controllers
         public JsonResult MovePage(string id, int position, int oldPosition)
         {
             Service.Move(id, position, oldPosition);
+            return Json(true);
+        }
+        [HttpPost, Authorize]
+        public JsonResult Publish(string id)
+        {
+            Service.Publish(Service.Get(id));
             return Json(true);
         }
     }

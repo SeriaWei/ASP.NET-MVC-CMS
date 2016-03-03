@@ -1,17 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using Easy.Data;
 using Easy.RepositoryPattern;
 using System.Web;
 using Easy.Cache;
+using Easy.Extend;
 using Easy.Web.CMS.Page;
 
 namespace Easy.Web.CMS.Widget
 {
     public class WidgetService : ServiceBase<WidgetBase>
     {
+        public WidgetService()
+        {
+            PageService = new PageService();
+        }
+
+        private void TriggerPage(WidgetBase widget)
+        {
+            if (widget != null && widget.PageID.IsNotNullAndWhiteSpace())
+            {
+                PageService.MarkChanged(widget.PageID);
+            }
+        }
+        public PageService PageService { get; private set; }
         public IEnumerable<WidgetBase> GetByLayoutId(string layoutId)
         {
             return this.Get(new DataFilter().Where("LayoutID", OperatorType.Equal, layoutId));
@@ -27,6 +42,49 @@ namespace Easy.Web.CMS.Widget
             List<WidgetBase> widgets = result.ToList();
             widgets.AddRange(this.Get(new DataFilter().Where("PageID", OperatorType.Equal, pageId)));
             return widgets;
+        }
+
+        public override void Add(WidgetBase item)
+        {
+            base.Add(item);
+            TriggerPage(item);
+        }
+
+        public override bool Update(WidgetBase item, DataFilter filter)
+        {
+            Get(filter).Each(TriggerPage);
+            return base.Update(item, filter);
+        }
+
+        public override bool Update(WidgetBase item, params object[] primaryKeys)
+        {
+            TriggerPage(item);
+            return base.Update(item, primaryKeys);
+        }
+
+        public override int Delete(params object[] primaryKeys)
+        {
+            TriggerPage(Get(primaryKeys));
+            return base.Delete(primaryKeys);
+        }
+
+        public override int Delete(DataFilter filter)
+        {
+            Get(filter).Each(TriggerPage);
+            return base.Delete(filter);
+        }
+
+        public override int Delete(Expression<Func<WidgetBase, bool>> expression)
+        {
+            Get(expression).Each(TriggerPage);
+            return base.Delete(expression);
+        }
+
+        public override int Delete(WidgetBase item)
+        {
+            TriggerPage(item);
+            return base.Delete(item);
+
         }
     }
     public abstract class WidgetService<T> : ServiceBase<T>, IWidgetPartDriver where T : WidgetBase
