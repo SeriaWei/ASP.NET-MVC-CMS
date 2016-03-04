@@ -118,7 +118,7 @@ namespace Easy.Web.CMS.Page
             }
             else
             {
-                filter.Where("Url", OperatorType.Equal, "~" + path);
+                filter.Where("Url", OperatorType.Equal, (path.StartsWith("~") ? "" : "~") + path);
             }
 
             filter.Where("IsPublishedPage", OperatorType.Equal, !isPreView);
