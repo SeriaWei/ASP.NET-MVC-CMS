@@ -11,6 +11,7 @@ using Easy.Constant;
 using Easy.Extend;
 using System.Net;
 using Easy.Cache;
+using Microsoft.Practices.ServiceLocation;
 
 namespace Easy.Web.CMS.Filter
 {
@@ -35,7 +36,7 @@ namespace Easy.Web.CMS.Filter
                     StringComparison.CurrentCultureIgnoreCase);
             }
 
-            return new PageService().GetByPath(path, isPreView);
+            return ServiceLocator.Current.GetInstance<IPageService>().GetByPath(path, isPreView);
         }
 
         public virtual string GetLayout()
@@ -51,7 +52,7 @@ namespace Easy.Web.CMS.Filter
             if (page != null)
             {
                 var cache = new StaticCache();
-                var layoutService = new LayoutService();
+                var layoutService = ServiceLocator.Current.GetInstance<ILayoutService>();
                 LayoutEntity layout = layoutService.Get(page.LayoutId);
                 layout.Page = page;
                 Action<WidgetBase> processWidget = m =>
@@ -73,7 +74,7 @@ namespace Easy.Web.CMS.Filter
                         }
                     }
                 };
-                var widgetService = new WidgetService();
+                var widgetService = ServiceLocator.Current.GetInstance<IWidgetService>();
                 IEnumerable<WidgetBase> widgets = widgetService.GetAllByPageId(page.ID);
                 var parallel = from widget in widgets.AsParallel() select widget;
                 parallel.ForAll(processWidget);

@@ -141,7 +141,10 @@
     <Compile Include="Service\CarouselItemService.cs" />
     <Compile Include="Service\CarouselService.cs" />
     <Compile Include="Service\CarouselWidgetService.cs" />
+    <Compile Include="Service\ICarouselItemService.cs" />
+    <Compile Include="Service\ICarouselService.cs" />
     <Compile Include="Service\ImageWidgetService.cs" />
+    <Compile Include="Service\INavigationService.cs" />
     <Compile Include="Service\NavigationService.cs" />
     <Compile Include="Service\NavigationWidgetService.cs" />
     <Compile Include="Service\ScriptWidgetService.cs" />

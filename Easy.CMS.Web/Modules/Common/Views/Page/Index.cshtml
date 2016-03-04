@@ -17,12 +17,12 @@
  Html.Tree<PageEntity>().Source("GetPageTree", "Page", new { module = "admin" })
         .AddPlugin(Plugins.ContextMenu)
         .AddPlugin(Plugins.DragAndDrop)
-        .AddContextMenuItem(new ContextmenuItem { Label = "新建", Action = "Create" })
-        .AddContextMenuItem(new ContextmenuItem { Label = "编辑", Action = "Edit" })
-        .AddContextMenuItem(new ContextmenuItem { Label = "预览", Action = "PreView" })
-        .AddContextMenuItem(new ContextmenuItem { Label = "查看(已发布)", Action = "View" })
-        .AddContextMenuItem(new ContextmenuItem { Label = "发布", Action = "Publish" })
-        .AddContextMenuItem(new ContextmenuItem { Label = "设计", Action = "Design" })
+.AddContextMenuItem(new ContextmenuItem { Label = "新建", Action = "Create", Icon = "glyphicon glyphicon-plus" })
+.AddContextMenuItem(new ContextmenuItem { Label = "编辑", Action = "Edit", Icon = "glyphicon glyphicon-edit", SeparatorAfter = true })
+.AddContextMenuItem(new ContextmenuItem { Label = "预览", Action = "PreView", Icon = "glyphicon glyphicon-search" })
+.AddContextMenuItem(new ContextmenuItem { Label = "查看", Action = "View", Icon = "glyphicon glyphicon-new-window" })
+.AddContextMenuItem(new ContextmenuItem { Label = "发布", Action = "Publish", Icon = "glyphicon glyphicon-open" })
+.AddContextMenuItem(new ContextmenuItem { Label = "设计", Action = "Design", Icon = "glyphicon glyphicon-wrench" })
         .On(Events.Loaded, "loadedPage")
         .CheckCallBack("checkCallBack")
         .On(Events.MoveNode, "moveNode")
@@ -31,11 +31,30 @@
 
                 </div>
                 <div class="panel-footer">
-                    <a href="@Url.Action("Create", new { ParentID = "#" })" class="btn btn-link btn-xs">
+                    <a href="@Url.Action("Create", new {ParentID = "#"})" class="btn btn-link btn-xs">
                         <i class="glyphicon glyphicon-plus"></i>
                         添加页面
                     </a>
                 </div>
+            </div>
+            <div class="alert alert-info">
+                <p>
+                    <strong>说明：</strong>
+                </p>
+                <ul>
+                    <li>
+                        "查看":查看已发布版本
+                    </li>
+                    <li>
+                        "预览":查看最新修改版本
+                    </li>
+                </ul>
+                <hr />
+                <p>
+                    <strong>注：</strong>
+                    页面必须要发布才可以通过网址访问。对页面进行修改不会影响到已发布版本，直到下一次发布。
+                </p>
+
             </div>
         </div>
         <div class="col-md-8" id="pageZones"></div>
@@ -104,11 +123,8 @@
                 }, "json");
             }
         });
-        $(function () {
-            if (!location.hash) {
-                location.hash = '@(pageId)';
-            }
-
-        });
+        if (!location.hash) {
+            location.hash = '@(pageId)';
+        }
     </script>
 }

@@ -9,7 +9,7 @@ using Easy.Extend;
 
 namespace Easy.CMS.Common.Service
 {
-    public class NavigationService : ServiceBase<NavigationEntity>
+    public class NavigationService : ServiceBase<NavigationEntity>, INavigationService
     {
         public override void Add(NavigationEntity item)
         {

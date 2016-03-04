@@ -8,24 +8,42 @@ using Easy.RepositoryPattern;
 using Easy.Extend;
 using Easy.Web.CMS.Zone;
 using Easy.Constant;
+using Easy.Web.CMS.Page;
 using Easy.Web.CMS.Widget;
+using Microsoft.Practices.ServiceLocation;
 
 namespace Easy.Web.CMS.Layout
 {
-    public class LayoutService : ServiceBase<LayoutEntity>
+    public class LayoutService : ServiceBase<LayoutEntity>, ILayoutService
     {
         public const string LayoutChanged = "LayoutChanged";
+        private IPageService _pageService;
+        public IPageService PageService
+        {
+            get { return _pageService ?? (_pageService = ServiceLocator.Current.GetInstance<IPageService>()); }
+        }
+        private IZoneService _zoneService;
+        public IZoneService ZoneService
+        {
+            get { return _zoneService ?? (_zoneService = ServiceLocator.Current.GetInstance<IZoneService>()); }
+        }
+
+        private IWidgetService _widgetService;
+
+        public IWidgetService WidgetService
+        {
+            get { return _widgetService ?? (_widgetService = ServiceLocator.Current.GetInstance<IWidgetService>()); }
+        }
         public override void Add(LayoutEntity item)
         {
             item.ID = Guid.NewGuid().ToString("N");
             base.Add(item);
             if (item.Zones != null)
             {
-                ZoneService zoneService = new ZoneService();
                 item.Zones.Each(m =>
                 {
                     m.LayoutId = item.ID;
-                    zoneService.Add(m);
+                    ZoneService.Add(m);
                 });
             }
             if (item.Html != null)
@@ -44,20 +62,19 @@ namespace Easy.Web.CMS.Layout
             this.Update(item, new Data.DataFilter(new List<string> { "ContainerClass" }).Where("ID", OperatorType.Equal, item.ID));
             if (item.Zones != null)
             {
-                var zoneService = new ZoneService();
-                var zones = zoneService.Get(m => m.LayoutId == item.ID);
+                var zones = ZoneService.Get(m => m.LayoutId == item.ID);
 
                 item.Zones.Where(m => zones.All(n => n.ID != m.ID)).Each(m =>
                 {
                     m.LayoutId = item.ID;
-                    zoneService.Add(m);
+                    ZoneService.Add(m);
                 });
                 item.Zones.Where(m => zones.Any(n => n.ID == m.ID)).Each(m =>
                 {
                     m.LayoutId = item.ID;
-                    zoneService.Update(m);
+                    ZoneService.Update(m);
                 });
-                zones.Where(m => item.Zones.All(n => n.ID != m.ID)).Each(m => zoneService.Delete(m.ID));
+                zones.Where(m => item.Zones.All(n => n.ID != m.ID)).Each(m => ZoneService.Delete(m.ID));
             }
             if (item.Html != null)
             {
@@ -90,7 +107,7 @@ namespace Easy.Web.CMS.Layout
                 LayoutEntity entity = base.Get(primaryKeys);
                 if (entity == null)
                     return null;
-                IEnumerable<ZoneEntity> zones = new ZoneService().Get(new Data.DataFilter().Where("LayoutId", OperatorType.Equal, entity.ID));
+                IEnumerable<ZoneEntity> zones = ZoneService.Get(new Data.DataFilter().Where("LayoutId", OperatorType.Equal, entity.ID));
                 entity.Zones = new ZoneCollection();
                 zones.Each(entity.Zones.Add);
                 IEnumerable<LayoutHtml> htmls = new LayoutHtmlService().Get(new Data.DataFilter().OrderBy("LayoutHtmlId", OrderType.Ascending).Where("LayoutId", OperatorType.Equal, entity.ID));
@@ -109,15 +126,12 @@ namespace Easy.Web.CMS.Layout
                 var layoutHtmlService = new LayoutHtmlService();
                 layoutHtmlService.Delete(new Data.DataFilter().Where("LayoutId", OperatorType.In, deletes));
 
-                var zoneService = new ZoneService();
-                zoneService.Delete(new Data.DataFilter().Where("LayoutId", OperatorType.In, deletes));
+                ZoneService.Delete(new Data.DataFilter().Where("LayoutId", OperatorType.In, deletes));
 
 
-                var pageService = new Page.PageService();
-                pageService.Delete(new Data.DataFilter().Where("LayoutId", OperatorType.In, deletes));
+                PageService.Delete(new Data.DataFilter().Where("LayoutId", OperatorType.In, deletes));
 
-                var widgetService = new Widget.WidgetService();
-                var widgets = widgetService.Get(new Data.DataFilter().Where("LayoutId", OperatorType.In, deletes));
+                var widgets = WidgetService.Get(new Data.DataFilter().Where("LayoutId", OperatorType.In, deletes));
                 widgets.Each(m =>
                 {
                     m.CreateServiceInstance().DeleteWidget(m.ID);
@@ -133,15 +147,12 @@ namespace Easy.Web.CMS.Layout
             var layoutHtmlService = new LayoutHtmlService();
             layoutHtmlService.Delete(m => m.LayoutId == layout.ID);
 
-            var zoneService = new ZoneService();
-            zoneService.Delete(new Data.DataFilter().Where("LayoutId", OperatorType.Equal, layout.ID));
+            ZoneService.Delete(new Data.DataFilter().Where("LayoutId", OperatorType.Equal, layout.ID));
 
 
-            var pageService = new Page.PageService();
-            pageService.Delete(new DataFilter().Where("LayoutId", OperatorType.Equal, layout.ID));
+            PageService.Delete(new DataFilter().Where("LayoutId", OperatorType.Equal, layout.ID));
 
-            var widgetService = new WidgetService();
-            var widgets = widgetService.Get(new DataFilter().Where("LayoutId", OperatorType.Equal, layout.ID));
+            var widgets = WidgetService.Get(new DataFilter().Where("LayoutId", OperatorType.Equal, layout.ID));
             widgets.Each(m =>
             {
                 m.CreateServiceInstance().DeleteWidget(m.ID);

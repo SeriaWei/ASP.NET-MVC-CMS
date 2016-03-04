@@ -12,8 +12,8 @@
         @(
  Html.Tree<ArticleType>().Source("GetArticleTypeTree", "ArticleType", new { module = "admin" })
         .AddPlugin(Plugins.ContextMenu)
-        .AddContextMenuItem(new ContextmenuItem { Label = "新建", Action = "Create" })
-        .AddContextMenuItem(new ContextmenuItem { Label = "编辑", Action = "Edit" })
+        .AddContextMenuItem(new ContextmenuItem { Label = "新建", Action = "Create", Icon = "glyphicon glyphicon-plus" })
+        .AddContextMenuItem(new ContextmenuItem { Label = "编辑", Action = "Edit", Icon = "glyphicon glyphicon-edit" })
         )
 
     </div>

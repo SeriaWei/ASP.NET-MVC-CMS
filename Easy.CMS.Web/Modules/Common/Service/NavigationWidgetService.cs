@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using Easy.Constant;
 using Easy.Extend;
+using Microsoft.Practices.ServiceLocation;
 
 namespace Easy.CMS.Common.Service
 {
@@ -13,7 +14,7 @@ namespace Easy.CMS.Common.Service
     {
         public override WidgetPart Display(WidgetBase widget, HttpContextBase httpContext)
         {
-            var navs = new NavigationService().Get(new DataFilter().OrderBy("DisplayOrder", OrderType.Ascending)).Where(m => m.Status == (int)RecordStatus.Active);
+            var navs = ServiceLocator.Current.GetInstance<INavigationService>().Get(new DataFilter().OrderBy("DisplayOrder", OrderType.Ascending)).Where(m => m.Status == (int)RecordStatus.Active);
             string path = "~" + httpContext.Request.Path.ToLower();
             NavigationEntity current = null;
             int length = 0;

@@ -13,17 +13,22 @@ using Easy.Web.CMS.Zone;
 using Easy.CMS.Common.ViewModels;
 using Easy.Web.CMS.Page;
 using Easy.Web.CMS.Widget;
+using Microsoft.Practices.ServiceLocation;
 
 namespace Easy.CMS.Common.Controllers
 {
     [Authorize]
-    public class LayoutController : BasicController<LayoutEntity, string, LayoutService>
+    public class LayoutController : BasicController<LayoutEntity, string, ILayoutService>
     {
-        public LayoutController()
-            : base(new LayoutService())
+        private readonly IPageService _pageService;
+        private readonly IZoneService _zoneService;
+        public LayoutController(ILayoutService service, IPageService pageService, IZoneService zoneService)
+            : base(service)
         {
-
+            _pageService = pageService;
+            _zoneService = zoneService;
         }
+
         [AdminTheme]
         public override ActionResult Index()
         {
@@ -38,13 +43,12 @@ namespace Easy.CMS.Common.Controllers
         [HttpPost]
         public ActionResult LayoutZones(string ID)
         {
-            var zoneService = new ZoneService();
-            var widgetService = new WidgetService();
+            var widgetService = ServiceLocator.Current.GetInstance<IWidgetService>();
             var layout = Service.Get(ID);
             var viewModel = new LayoutZonesViewModel
             {
                 LayoutID = ID,
-                Zones = zoneService.GetZonesByLayoutId(ID),
+                Zones = _zoneService.GetZonesByLayoutId(ID),
                 Widgets = widgetService.GetByLayoutId(ID),
                 LayoutHtml = layout.Html
             };
@@ -81,7 +85,7 @@ namespace Easy.CMS.Common.Controllers
             LayoutEntity layout = null;
             if (ID.IsNotNullAndWhiteSpace())
             {
-                layout = new LayoutService().Get(ID);
+                layout = Service.Get(ID);
             }
             if (PageID.IsNotNullAndWhiteSpace())
             {
@@ -114,7 +118,7 @@ namespace Easy.CMS.Common.Controllers
             }
             else if (pageId.IsNotNullAndWhiteSpace())
             {
-                layou = Service.Get(new PageService().Get(pageId).LayoutId);
+                layou = Service.Get(_pageService.Get(pageId).LayoutId);
             }
             ViewBag.ZoneId = zoneId;
             return View(layou);

@@ -6,6 +6,7 @@ using System.Text;
 using System.Web.Mvc;
 using Easy.Extend;
 using Easy.Web.Attribute;
+using Microsoft.Practices.ServiceLocation;
 
 namespace Easy.Web.CMS.Widget
 {
@@ -19,13 +20,14 @@ namespace Easy.Web.CMS.Widget
                 if (result.Model is WidgetBase)
                 {
                     WidgetBase widget = result.Model as WidgetBase;
+                    var zoneService = ServiceLocator.Current.GetInstance<IZoneService>();
                     if (!widget.PageID.IsNullOrEmpty())
                     {
-                        filterContext.Controller.ViewData[ViewDataKeys.Zones] = new ZoneService().GetZonesByPageId(widget.PageID).ToDictionary(m => m.ID, m => m.ZoneName);
+                        filterContext.Controller.ViewData[ViewDataKeys.Zones] = zoneService.GetZonesByPageId(widget.PageID).ToDictionary(m => m.ID, m => m.ZoneName);
                     }
                     else if (!widget.LayoutID.IsNullOrEmpty())
                     {
-                        filterContext.Controller.ViewData[ViewDataKeys.Zones] = new ZoneService().GetZonesByLayoutId(widget.LayoutID).ToDictionary(m => m.ID, m => m.ZoneName);
+                        filterContext.Controller.ViewData[ViewDataKeys.Zones] = zoneService.GetZonesByLayoutId(widget.LayoutID).ToDictionary(m => m.ID, m => m.ZoneName);
                     }
                 }
             }

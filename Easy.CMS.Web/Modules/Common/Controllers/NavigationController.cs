@@ -13,10 +13,10 @@ using Easy.Extend;
 namespace Easy.CMS.Common.Controllers
 {
     [AdminTheme, Authorize]
-    public class NavigationController : BasicController<NavigationEntity, string, NavigationService>
+    public class NavigationController : BasicController<NavigationEntity, string, INavigationService>
     {
-        public NavigationController()
-            : base(new NavigationService())
+        public NavigationController(INavigationService service)
+            : base(service)
         {
 
         }

@@ -110,6 +110,7 @@
     <Compile Include="Filter\EditWidgetAttribute.cs" />
     <Compile Include="Filter\WidgetAttribute.cs" />
     <Compile Include="HtmlHelperExtend.cs" />
+    <Compile Include="Layout\ILayoutService.cs" />
     <Compile Include="Layout\LayoutEntity.cs" />
     <Compile Include="Layout\LayoutHtml.cs" />
     <Compile Include="Layout\LayoutHtmlService.cs" />
@@ -117,6 +118,7 @@
     <Compile Include="Layout\LayoutService.cs" />
     <Compile Include="MetaData\WidgetMetaData.cs" />
     <Compile Include="ModelBinder\WidgetBinder.cs" />
+    <Compile Include="Page\IPageService.cs" />
     <Compile Include="Page\PageEntity.cs" />
     <Compile Include="Page\PageService.cs" />
     <Compile Include="PluginBase.cs" />
@@ -124,11 +126,13 @@
     <Compile Include="QueryContext.cs" />
     <Compile Include="Route\UrlRoute.cs" />
     <Compile Include="UrlHelperExtend.cs" />
+    <Compile Include="WidgetTemplate\IWidgetTemplateService.cs" />
     <Compile Include="WidgetTemplate\WidgetTemplateEntity.cs" />
     <Compile Include="WidgetTemplate\WidgetTemplateService.cs" />
     <Compile Include="WidgetTemplate\WidgetTemplateViewModel.cs" />
     <Compile Include="Widget\HtmlWidget.cs" />
     <Compile Include="Widget\HtmlWidgetService.cs" />
+    <Compile Include="Widget\IWidgetService.cs" />
     <Compile Include="Widget\WidgetPartDriver.cs" />
     <Compile Include="Widget\WidgetBase.cs" />
     <Compile Include="Widget\WidgetCollection.cs" />
@@ -137,6 +141,7 @@
     <Compile Include="Widget\ViewDataZonesAttribute.cs" />
     <Compile Include="Widget\ZoneWidgetCollection.cs" />
     <Compile Include="Zone\Helper.cs" />
+    <Compile Include="Zone\IZoneService.cs" />
     <Compile Include="Zone\ZoneCollection.cs" />
     <Compile Include="Zone\ZoneEntity.cs" />
     <Compile Include="Zone\ZoneService.cs" />

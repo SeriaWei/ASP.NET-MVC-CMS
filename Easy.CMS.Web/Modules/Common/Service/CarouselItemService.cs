@@ -8,7 +8,7 @@ using Easy.Data;
 
 namespace Easy.CMS.Common.Service
 {
-    public class CarouselItemService : ServiceBase<CarouselItemEntity>
+    public class CarouselItemService : ServiceBase<CarouselItemEntity>, ICarouselItemService
     {
         public override void Add(CarouselItemEntity item)
         {

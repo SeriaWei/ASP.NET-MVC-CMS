@@ -9,14 +9,15 @@ using Easy.Extend;
 
 namespace Easy.CMS.Common.Service
 {
-    public class CarouselService : ServiceBase<CarouselEntity>
+    public class CarouselService : ServiceBase<CarouselEntity>, ICarouselService
     {
-        private readonly CarouselItemService _carouselItemService;
+        private readonly ICarouselItemService _carouselItemService;
 
-        public CarouselService()
+        public CarouselService(ICarouselItemService carouselItemService)
         {
-            _carouselItemService = new CarouselItemService();
+            _carouselItemService = carouselItemService;
         }
+
         public override void Add(CarouselEntity item)
         {
             base.Add(item);

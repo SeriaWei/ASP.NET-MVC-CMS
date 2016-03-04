@@ -15,13 +15,14 @@ using System.Web;
 using System.Web.Mvc;
 using Easy.Extend;
 using Easy.Web.CMS.Layout;
+using Microsoft.Practices.ServiceLocation;
 
 namespace Easy.CMS.Common.Controllers
 {
-    public class PageController : BasicController<PageEntity, string, PageService>
+    public class PageController : BasicController<PageEntity, string, IPageService>
     {
-        public PageController()
-            : base(new PageService())
+        public PageController(IPageService service)
+            : base(service)
         {
 
         }
@@ -88,7 +89,8 @@ namespace Easy.CMS.Common.Controllers
             {
                 return RedirectToAction("Design", new { ID = entity.ID });
             }
-            var result = base.Edit(entity);
+            string id = entity.ID;
+            base.Edit(entity);
             if (entity.ActionType == ActionType.Publish)
             {
                 Service.Publish(entity);
@@ -98,7 +100,7 @@ namespace Easy.CMS.Common.Controllers
                     HttpResponse.RemoveOutputCacheItem("/");
                 }
             }
-            return result;
+            return RedirectToAction("Index", new { PageID = id });
         }
         [EditWidget, Authorize]
         public ActionResult Design(string ID)
@@ -118,10 +120,10 @@ namespace Easy.CMS.Common.Controllers
         [Authorize]
         public ActionResult PageZones(QueryContext context)
         {
-            var zoneService = new ZoneService();
-            var widgetService = new WidgetService();
+            var zoneService = ServiceLocator.Current.GetInstance<IZoneService>();
+            var widgetService = ServiceLocator.Current.GetInstance<IWidgetService>();
             var page = Service.Get(context.PageID);
-            var layoutService = new LayoutService();
+            var layoutService = ServiceLocator.Current.GetInstance<ILayoutService>();
             var layout = layoutService.Get(page.LayoutId);
             var viewModel = new ViewModels.LayoutZonesViewModel
                 {

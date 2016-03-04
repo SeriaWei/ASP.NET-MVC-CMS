@@ -12,16 +12,24 @@ using System.Web.Mvc;
 using Easy.Extend;
 using Easy.Constant;
 using Easy.Web.CMS.Widget;
+using Microsoft.Practices.ServiceLocation;
 
 namespace Easy.CMS.Common.Controllers
 {
     [AdminTheme, Authorize]
     public class WidgetController : Controller
     {
+        private readonly IWidgetService _widgetService;
+
+        public WidgetController(IWidgetService widgetService)
+        {
+            _widgetService = widgetService;
+        }
+
         [ViewDataZones]
         public ActionResult Create(QueryContext context)
         {
-            var template = new WidgetTemplateService().Get(context.WidgetTemplateID);
+            var template = ServiceLocator.Current.GetInstance<IWidgetTemplateService>().Get(context.WidgetTemplateID);
             var widget = template.CreateWidgetInstance();
             widget.PageID = context.PageID;
             widget.LayoutID = context.LayoutID;
@@ -29,12 +37,11 @@ namespace Easy.CMS.Common.Controllers
             widget.FormView = template.FormView;
             if (widget.PageID.IsNotNullAndWhiteSpace())
             {
-                widget.Position =
-                    new WidgetService().GetAllByPageId(context.PageID).Count(m => m.ZoneID == context.ZoneID) + 1;
+                widget.Position = _widgetService.GetAllByPageId(context.PageID).Count(m => m.ZoneID == context.ZoneID) + 1;
             }
             else
             {
-                widget.Position = new WidgetService().GetByLayoutId(context.LayoutID).Count(m => m.ZoneID == context.ZoneID) + 1;
+                widget.Position = _widgetService.GetByLayoutId(context.LayoutID).Count(m => m.ZoneID == context.ZoneID) + 1;
             }
             ViewBag.ReturnUrl = context.ReturnUrl;
             if (template.FormView.IsNotNullAndWhiteSpace())
@@ -72,8 +79,7 @@ namespace Easy.CMS.Common.Controllers
         [ViewDataZones]
         public ActionResult Edit(string ID, string ReturnUrl)
         {
-            var widgetService = new WidgetService();
-            var widgetBase = widgetService.Get(ID);
+            var widgetBase = _widgetService.Get(ID);
             var widget = widgetBase.CreateServiceInstance().GetWidget(widgetBase);
             ViewBag.ReturnUrl = ReturnUrl;
             if (widget.FormView.IsNotNullAndWhiteSpace())
@@ -108,24 +114,22 @@ namespace Easy.CMS.Common.Controllers
         [HttpPost]
         public JsonResult SaveWidgetPosition(List<WidgetBase> widgets)
         {
-            var widgetService = new WidgetService();
             widgets.Each(m =>
             {
-                widgetService.Update(m, new Data.DataFilter(new List<string> { "Position" }).Where("ID", OperatorType.Equal, m.ID));
+                _widgetService.Update(m, new Data.DataFilter(new List<string> { "Position" }).Where("ID", OperatorType.Equal, m.ID));
             });
             return Json(true);
         }
         [HttpPost]
         public JsonResult SaveWidgetZone(WidgetBase widget)
         {
-            new WidgetService().Update(widget, new Data.DataFilter(new List<string> { "ZoneID", "Position" }).Where("ID", OperatorType.Equal, widget.ID));
+            _widgetService.Update(widget, new Data.DataFilter(new List<string> { "ZoneID", "Position" }).Where("ID", OperatorType.Equal, widget.ID));
             return Json(true);
         }
         [HttpPost]
         public JsonResult DeleteWidget(string ID)
         {
-            WidgetService widgetService = new WidgetService();
-            WidgetBase widget = widgetService.Get(ID);
+            WidgetBase widget = _widgetService.Get(ID);
             if (widget != null)
             {
                 widget.CreateServiceInstance().DeleteWidget(ID);

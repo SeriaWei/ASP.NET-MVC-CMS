@@ -7,11 +7,18 @@ using Easy.RepositoryPattern;
 using Easy.Extend;
 using Easy.Constant;
 using Easy.Web.CMS.Widget;
+using Microsoft.Practices.ServiceLocation;
 
 namespace Easy.Web.CMS.Page
 {
-    public class PageService : ServiceBase<PageEntity>
+    public class PageService : ServiceBase<PageEntity>, IPageService
     {
+        private IWidgetService _widgetService;
+
+        public IWidgetService WidgetService
+        {
+            get { return _widgetService ?? (_widgetService = ServiceLocator.Current.GetInstance<IWidgetService>()); }
+        }
         public override void Add(PageEntity item)
         {
             item.ID = Guid.NewGuid().ToString("N");
@@ -32,14 +39,14 @@ namespace Easy.Web.CMS.Page
 
             item.IsPublishedPage = true;
             item.PublishDate = DateTime.Now;
-            var widgets = new WidgetService().GetByPageId(item.ID);
+            var widgets = WidgetService.GetByPageId(item.ID);
             Add(item);
             widgets.Each(m =>
             {
                 var widgetService = m.CreateServiceInstance();
                 m = widgetService.GetWidget(m);
                 m.PageID = item.ID;
-                widgetService.AddWidget(m);
+                widgetService.Publish(m);
             });
         }
         public override int Delete(DataFilter filter)
@@ -51,8 +58,7 @@ namespace Easy.Web.CMS.Page
             }
             if (deletes.Any())
             {
-                var widgetService = new Widget.WidgetService();
-                var widgets = widgetService.Get(new DataFilter().Where("PageID", OperatorType.In, deletes));
+                var widgets = WidgetService.Get(new DataFilter().Where("PageID", OperatorType.In, deletes));
                 widgets.Each(m => m.CreateServiceInstance().DeleteWidget(m.ID));
             }
             return base.Delete(filter);
@@ -62,8 +68,7 @@ namespace Easy.Web.CMS.Page
             PageEntity page = Get(primaryKeys);
             this.Delete(new DataFilter().Where("ParentId", OperatorType.Equal, page.ID));
 
-            var widgetService = new Widget.WidgetService();
-            var widgets = widgetService.Get(new DataFilter().Where("PageID", OperatorType.Equal, page.ID));
+            var widgets = WidgetService.Get(new DataFilter().Where("PageID", OperatorType.Equal, page.ID));
             widgets.Each(m => m.CreateServiceInstance().DeleteWidget(m.ID));
             return base.Delete(primaryKeys);
         }

@@ -12,6 +12,7 @@ namespace Easy.Web.CMS.Widget
         void AddWidget(WidgetBase widget);
         void DeleteWidget(string widgetId);
         void UpdateWidget(WidgetBase widget);
+        void Publish(WidgetBase widget);
         WidgetBase GetWidget(WidgetBase widget);
         WidgetPart Display(WidgetBase widget, System.Web.HttpContextBase httpContext);
     }

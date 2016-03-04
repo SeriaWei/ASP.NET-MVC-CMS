@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Easy.Extend;
+using Microsoft.Practices.ServiceLocation;
 
 namespace Easy.Web.CMS.Layout
 {
@@ -11,7 +12,7 @@ namespace Easy.Web.CMS.Layout
     {
         public override void OnActionExecuted(System.Web.Mvc.ActionExecutedContext filterContext)
         {
-            filterContext.Controller.ViewData[ViewDataKeys.Layouts] = new LayoutService().Get().ToDictionary(m => m.ID, m => m.LayoutName);
+            filterContext.Controller.ViewData[ViewDataKeys.Layouts] = ServiceLocator.Current.GetInstance<ILayoutService>(). Get().ToDictionary(m => m.ID, m => m.LayoutName);
         }
 
         public override void OnActionExecuting(System.Web.Mvc.ActionExecutingContext filterContext)

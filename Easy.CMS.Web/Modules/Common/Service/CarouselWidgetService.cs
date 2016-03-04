@@ -6,12 +6,18 @@ using System.Web;
 using Easy.Data;
 using Easy.Extend;
 using Easy.Web.CMS.Widget;
+using Microsoft.Practices.ServiceLocation;
 
 namespace Easy.CMS.Common.Service
 {
     public class CarouselWidgetService : WidgetService<CarouselWidget>
     {
-        readonly CarouselItemService _carouselItemService = new CarouselItemService();
+        private readonly ICarouselItemService _carouselItemService;
+
+        public CarouselWidgetService()
+        {
+            _carouselItemService = ServiceLocator.Current.GetInstance<ICarouselItemService>();
+        }
 
         public override WidgetBase GetWidget(WidgetBase widget)
         {

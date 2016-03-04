@@ -10,6 +10,7 @@ using Easy.Web.CMS.Page;
 using Easy.Web.CMS.Layout;
 using Easy.Constant;
 using Easy.Extend;
+using Microsoft.Practices.ServiceLocation;
 
 namespace Easy.Web.CMS.Filter
 {
@@ -18,7 +19,7 @@ namespace Easy.Web.CMS.Filter
         public override PageEntity GetPage(ActionExecutedContext filterContext)
         {
             string pageId = filterContext.RequestContext.HttpContext.Request.QueryString["ID"];
-            return new PageService().Get(pageId);
+            return ServiceLocator.Current.GetInstance<IPageService>().Get(pageId);
         }
 
         public override string GetLayout()

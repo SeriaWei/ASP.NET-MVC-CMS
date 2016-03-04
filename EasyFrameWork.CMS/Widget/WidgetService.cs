@@ -9,15 +9,12 @@ using System.Web;
 using Easy.Cache;
 using Easy.Extend;
 using Easy.Web.CMS.Page;
+using Microsoft.Practices.ServiceLocation;
 
 namespace Easy.Web.CMS.Widget
 {
-    public class WidgetService : ServiceBase<WidgetBase>
+    public class WidgetService : ServiceBase<WidgetBase>, IWidgetService
     {
-        public WidgetService()
-        {
-            PageService = new PageService();
-        }
 
         private void TriggerPage(WidgetBase widget)
         {
@@ -26,7 +23,13 @@ namespace Easy.Web.CMS.Widget
                 PageService.MarkChanged(widget.PageID);
             }
         }
-        public PageService PageService { get; private set; }
+
+        private IPageService _pageService;
+
+        public IPageService PageService
+        {
+            get { return _pageService ?? (_pageService = ServiceLocator.Current.GetInstance<IPageService>()); }
+        }
         public IEnumerable<WidgetBase> GetByLayoutId(string layoutId)
         {
             return this.Get(new DataFilter().Where("LayoutID", OperatorType.Equal, layoutId));
@@ -37,7 +40,7 @@ namespace Easy.Web.CMS.Widget
         }
         public IEnumerable<WidgetBase> GetAllByPageId(string pageId)
         {
-            var page = new PageService().Get(pageId);
+            var page = PageService.Get(pageId);
             var result = GetByLayoutId(page.LayoutId);
             List<WidgetBase> widgets = result.ToList();
             widgets.AddRange(this.Get(new DataFilter().Where("PageID", OperatorType.Equal, pageId)));
@@ -91,9 +94,9 @@ namespace Easy.Web.CMS.Widget
     {
         protected WidgetService()
         {
-            WidgetBaseService = new WidgetService();
+            WidgetBaseService = ServiceLocator.Current.GetInstance<IWidgetService>();
         }
-        public WidgetService WidgetBaseService { get; private set; }
+        public IWidgetService WidgetBaseService { get; private set; }
 
         private void CopyTo(WidgetBase from, T to)
         {
@@ -248,5 +251,11 @@ namespace Easy.Web.CMS.Widget
             this.Update((T)widget);
         }
         #endregion
+
+
+        public virtual void Publish(WidgetBase widget)
+        {
+            AddWidget(widget);
+        }
     }
 }
