@@ -1,0 +1,9 @@
+﻿@using System.Text
+@using Easy.Web.Metadata
+@model int?
+@{
+    var meteData = ViewData.ModelMetadata as EasyModelMetaData;
+   
+    
+}
+@Html.TextBox("", Model, meteData.GetAttributes())

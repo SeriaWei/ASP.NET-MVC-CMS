@@ -6,12 +6,14 @@
         <div>页面</div>
     </div>
     <div class="panel-body">
+        @{ Html.EnableClientValidation(true);}
+        @Html.ValidationSummary()
         @using (Html.BeginForm())
         {
-            @Html.EditModel()
+            @Html.EditorForModel()
             <div class="toolBar">
-                <input type="submit" class="btn btn-primary" value="保存" />
-                <input type="button" class="btn btn-default cancel" value="取消" />
+                <input type="submit" class="btn btn-primary" value="保存"/>
+                <input type="button" class="btn btn-default cancel" value="取消"/>
             </div>
         }
     </div>

@@ -1,0 +1,6 @@
+﻿@using Easy.Web.Metadata
+@model Object
+@{
+    var meteData = ViewData.ModelMetadata as EasyModelMetaData;
+}
+@Html.Hidden("", Model, meteData.GetAttributes())

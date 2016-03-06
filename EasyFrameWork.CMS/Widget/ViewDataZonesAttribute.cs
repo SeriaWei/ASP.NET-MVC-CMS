@@ -23,11 +23,11 @@ namespace Easy.Web.CMS.Widget
                     var zoneService = ServiceLocator.Current.GetInstance<IZoneService>();
                     if (!widget.PageID.IsNullOrEmpty())
                     {
-                        filterContext.Controller.ViewData[ViewDataKeys.Zones] = zoneService.GetZonesByPageId(widget.PageID).ToDictionary(m => m.ID, m => m.ZoneName);
+                        filterContext.Controller.ViewData[ViewDataKeys.Zones] = new SelectList(zoneService.GetZonesByPageId(widget.PageID), "ID", "ZoneName");
                     }
                     else if (!widget.LayoutID.IsNullOrEmpty())
                     {
-                        filterContext.Controller.ViewData[ViewDataKeys.Zones] = zoneService.GetZonesByLayoutId(widget.LayoutID).ToDictionary(m => m.ID, m => m.ZoneName);
+                        filterContext.Controller.ViewData[ViewDataKeys.Zones] = new SelectList(zoneService.GetZonesByLayoutId(widget.LayoutID), "ID", "ZoneName");
                     }
                 }
             }

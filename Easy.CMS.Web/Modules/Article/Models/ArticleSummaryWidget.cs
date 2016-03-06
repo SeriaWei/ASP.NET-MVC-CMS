@@ -34,7 +34,7 @@ namespace Easy.CMS.Article.Models
                     { "bs-callout-success", "成功" } 
             }); ;
             ViewConfig(m => m.DetailLink).AsTextBox().Order(7).AddClass("select").AddProperty("data-url", Urls.SelectPage);
-            ViewConfig(m => m.Summary).AsMutiLineTextBox().Order(8).AddClass("html");
+            ViewConfig(m => m.Summary).AsTextArea().Order(8).AddClass("html");
         }
     }
 

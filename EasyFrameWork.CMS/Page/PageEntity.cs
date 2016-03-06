@@ -15,16 +15,19 @@ namespace Easy.Web.CMS.Page
         public string ID { get; set; }
         public string ParentId { get; set; }
         public string Url { get; set; }
+        private string _pageUrl;
         public string PageUrl
         {
             get
             {
+                if (_pageUrl.IsNotNullAndWhiteSpace()) return _pageUrl;
                 if (!this.Url.IsNullOrEmpty())
                 {
                     return this.Url.Substring(this.Url.LastIndexOf("/") + 1, this.Url.Length - this.Url.LastIndexOf("/") - 1);
                 }
                 return this.Url;
             }
+            set { _pageUrl = value; }
         }
         public int? DisplayOrder { get; set; }
         public string LayoutId { get; set; }

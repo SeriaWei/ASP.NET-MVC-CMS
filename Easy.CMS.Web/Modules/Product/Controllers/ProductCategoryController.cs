@@ -7,7 +7,7 @@ using Easy.CMS.Product.Models;
 using Easy.CMS.Product.Service;
 using Easy.Web.Controller;
 using Easy.Web.Attribute;
-using Easy.HTML.jsTree;
+using Easy.ViewPort.jsTree;
 
 namespace Easy.CMS.Product.Controllers
 {

@@ -46,7 +46,7 @@ namespace Easy.CMS.Common.Service
         public override CarouselEntity Get(params object[] primaryKeys)
         {
             CarouselEntity entity = base.Get(primaryKeys);
-            entity.CarouselItems = _carouselItemService.Get("CarouselID", OperatorType.Equal, entity.ID);
+            entity.CarouselItems = _carouselItemService.Get("CarouselID", OperatorType.Equal, entity.ID).ToList();
             entity.CarouselItems.Each(m => m.ActionType = Constant.ActionType.Update);
             return entity;
         }
@@ -56,7 +56,7 @@ namespace Easy.CMS.Common.Service
             var carousels= base.Get(filter);
             carousels.Each(m =>
             {
-                m.CarouselItems = _carouselItemService.Get("CarouselID", OperatorType.Equal, m.ID);
+                m.CarouselItems = _carouselItemService.Get("CarouselID", OperatorType.Equal, m.ID).ToList();
             });
             return carousels;
         }

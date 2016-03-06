@@ -21,7 +21,7 @@ namespace Easy.CMS.Article.ActionFilter
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
             _articleTypeService = _articleTypeService ?? new ArticleTypeService();
-            filterContext.Controller.ViewData[ViewDataKeys.ArticleCategory] = _articleTypeService.Get().ToDictionary(m => m.ID.ToString(), m => m.Title);
+            filterContext.Controller.ViewData[ViewDataKeys.ArticleCategory] = new SelectList(_articleTypeService.Get(), "ID", "Title");
         }
     }
 }

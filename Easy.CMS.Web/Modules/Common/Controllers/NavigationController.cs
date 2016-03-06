@@ -38,7 +38,7 @@ namespace Easy.CMS.Common.Controllers
         public JsonResult GetPageTree()
         {
             var navs = Service.Get(new Data.DataFilter().OrderBy("DisplayOrder", OrderType.Ascending));
-            var node = new Easy.HTML.jsTree.Tree<NavigationEntity>().Source(navs).ToNode(m => m.ID, m => m.Title, m => m.ParentId, "#");
+            var node = new Easy.ViewPort.jsTree.Tree<NavigationEntity>().Source(navs).ToNode(m => m.ID, m => m.Title, m => m.ParentId, "#");
             return Json(node, JsonRequestBehavior.AllowGet);
         }
 

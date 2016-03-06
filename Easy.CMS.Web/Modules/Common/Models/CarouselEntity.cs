@@ -14,7 +14,7 @@ namespace Easy.CMS.Common.Models
 
         public int? Height { get; set; }
 
-        public IEnumerable<CarouselItemEntity> CarouselItems { get; set; }
+        public List<CarouselItemEntity> CarouselItems { get; set; }
 
     }
     class CarouselEntityMetaData : DataViewMetaData<CarouselEntity>

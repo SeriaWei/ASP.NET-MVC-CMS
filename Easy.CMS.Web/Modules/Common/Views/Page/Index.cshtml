@@ -1,5 +1,5 @@
 ﻿@using Easy.Web.CMS.Page
-@using Easy.HTML.jsTree
+@using Easy.ViewPort.jsTree
 @{
     string pageId = Request.QueryString["PageID"];
     Script.Reqiured("jQueryUi").AtFoot();
@@ -7,7 +7,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-4">
-            <div class="panel panel-default">
+            <div class="panel panel-info">
                 <div class="panel-heading">
                     页面
                 </div>

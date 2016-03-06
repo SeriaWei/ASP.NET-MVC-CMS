@@ -42,12 +42,12 @@
       <HintPath>..\packages\Autofac.3.5.2\lib\net40\Autofac.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Easy, Version=1.0.5.2, Culture=neutral, PublicKeyToken=1964c83ce4e03f58, processorArchitecture=MSIL">
-      <HintPath>..\packages\EasyFrameWork.1.0.5.2\lib\net40\Easy.dll</HintPath>
+    <Reference Include="Easy, Version=1.0.5.3, Culture=neutral, PublicKeyToken=1964c83ce4e03f58, processorArchitecture=MSIL">
+      <HintPath>..\packages\EasyFrameWork.1.0.5.3\lib\net40\Easy.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Easy.Web, Version=1.0.5.1, Culture=neutral, PublicKeyToken=3aaa4da33a984374, processorArchitecture=MSIL">
-      <HintPath>..\packages\EasyFrameWork.Web.1.0.5.1\lib\net40\Easy.Web.dll</HintPath>
+    <Reference Include="Easy.Web, Version=1.0.5.2, Culture=neutral, PublicKeyToken=3aaa4da33a984374, processorArchitecture=MSIL">
+      <HintPath>..\packages\EasyFrameWork.Web.1.0.5.2\lib\net40\Easy.Web.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -114,12 +114,13 @@
     <Compile Include="Layout\LayoutEntity.cs" />
     <Compile Include="Layout\LayoutHtml.cs" />
     <Compile Include="Layout\LayoutHtmlService.cs" />
-    <Compile Include="Layout\LayoutsAttribute.cs" />
+    <Compile Include="Layout\ViewDataLayoutsAttribute.cs" />
     <Compile Include="Layout\LayoutService.cs" />
     <Compile Include="MetaData\WidgetMetaData.cs" />
     <Compile Include="ModelBinder\WidgetBinder.cs" />
     <Compile Include="Page\IPageService.cs" />
     <Compile Include="Page\PageEntity.cs" />
+    <Compile Include="Page\PageExistException.cs" />
     <Compile Include="Page\PageService.cs" />
     <Compile Include="PluginBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

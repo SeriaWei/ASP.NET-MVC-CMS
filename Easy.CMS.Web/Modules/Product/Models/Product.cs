@@ -88,8 +88,8 @@ namespace Easy.CMS.Product.Models
             ViewConfig(m => m.Norm).AsHidden();
             ViewConfig(m => m.Color).AsHidden();
             ViewConfig(m => m.PurchasePrice).AsHidden();
-            ViewConfig(m => m.ProductContent).AsMutiLineTextBox().AddClass("html").HideInGrid();
-            ViewConfig(m => m.Description).AsMutiLineTextBox();
+            ViewConfig(m => m.ProductContent).AsTextArea().AddClass("html").HideInGrid();
+            ViewConfig(m => m.Description).AsTextArea();
             ViewConfig(m => m.IsPublish).AsTextBox().Hide();
         }
     }

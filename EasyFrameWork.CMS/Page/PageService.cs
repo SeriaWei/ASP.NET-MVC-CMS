@@ -21,14 +21,28 @@ namespace Easy.Web.CMS.Page
         }
         public override void Add(PageEntity item)
         {
+            if (!item.IsPublishedPage && Count(m => m.Url == item.Url && m.IsPublishedPage == false) > 0)
+            {
+                throw new PageExistException(item);
+            }
             item.ID = Guid.NewGuid().ToString("N");
-
             if (item.ParentId.IsNullOrEmpty())
             {
                 item.ParentId = "#";
             }
             base.Add(item);
         }
+
+        public override bool Update(PageEntity item, params object[] primaryKeys)
+        {
+            if (Count(m => m.ID != item.ID && m.Url == item.Url && m.IsPublishedPage == false) > 0)
+            {
+                throw new PageExistException(item);
+            }
+            item.IsPublish = false;
+            return base.Update(item, primaryKeys);
+        }
+
         public void Publish(PageEntity item)
         {
             this.Update(new PageEntity { IsPublish = true, PublishDate = DateTime.Now },

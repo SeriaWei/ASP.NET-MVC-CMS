@@ -1,0 +1,26 @@
+﻿@using Easy.Web.Metadata
+@{
+    var metaData = ViewData.ModelMetadata as EasyModelMetaData;
+}
+
+
+<div class="row item">
+    @foreach (EasyModelMetaData item in metaData.Properties.Where(m => m.ShowForEdit && !m.HideSurroundingHtml).OrderBy(m => m.Order))
+    {
+        <div class="col-lg-3 col-md-4 col-sm-6">
+            @Html.Label(item.PropertyName, item.DisplayName, new { @class = "control-label" })
+            <div>
+                @Html.Editor(item.PropertyName)
+                @Html.ValidationMessage(item.PropertyName)
+            </div>
+        </div>
+    }
+    <button type="button" class="close delete" data-value="@ActionType.Delete"><span aria-hidden="true">×</span></button>
+    <div class="hide">
+        @foreach (EasyModelMetaData item in metaData.Properties.Where(m => !m.ShowForEdit || m.HideSurroundingHtml))
+        {
+            @Html.Hidden(item.PropertyName,null,item.GetAttributes())
+        }
+    </div>
+
+</div>

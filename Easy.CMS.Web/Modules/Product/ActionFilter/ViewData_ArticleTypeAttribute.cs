@@ -18,7 +18,7 @@ namespace Easy.CMS.Product.ActionFilter
 
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            filterContext.Controller.ViewData[ViewDataKeys.ProductCategory] = new ProductCategoryService().Get().ToDictionary(m => m.ID.ToString(), m => m.Title);
+            filterContext.Controller.ViewData[ViewDataKeys.ProductCategory] = new SelectList(new ProductCategoryService().Get(), "ID", "Title");
         }
     }
 }

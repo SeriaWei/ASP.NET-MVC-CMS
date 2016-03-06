@@ -40,7 +40,7 @@ namespace Easy.CMS.Common.Controllers
         public JsonResult GetPageTree()
         {
             var pages = Service.Get(new DataFilter().Where("IsPublishedPage", OperatorType.Equal, false).OrderBy("DisplayOrder", OrderType.Ascending));
-            var node = new Easy.HTML.jsTree.Tree<PageEntity>().Source(pages).ToNode(m => m.ID, m => m.PageName, m => m.ParentId, "#");
+            var node = new Easy.ViewPort.jsTree.Tree<PageEntity>().Source(pages).ToNode(m => m.ID, m => m.PageName, m => m.ParentId, "#");
             return Json(node, JsonRequestBehavior.AllowGet);
         }
         [NonAction]
@@ -73,8 +73,20 @@ namespace Easy.CMS.Common.Controllers
         [AdminTheme, ViewDataLayouts, HttpPost, Authorize]
         public override ActionResult Create(PageEntity entity)
         {
-            base.Create(entity);
-            return RedirectToAction("Design", new { ID = entity.ID });
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    Service.Add(entity);
+                }
+                catch (PageExistException ex)
+                {
+                    ModelState.AddModelError("PageUrl",ex.Message);
+                    return View(entity);
+                }
+                return RedirectToAction("Design", new { ID = entity.ID });
+            }
+            return View(entity);
         }
         [AdminTheme, ViewDataLayouts, Authorize]
         public override ActionResult Edit(string Id)

@@ -15,7 +15,7 @@
     <div class="panel panel-default  tab-content">
         <div id="info" class="panel-body tab-pane">
             <input type="hidden" name="ReturnUrl" value="@ViewBag.ReturnUrl" />
-            @Html.EditModel()
+           @Html.EditorForModel()
         </div>
         @if (Model.Groups != null)
         {
