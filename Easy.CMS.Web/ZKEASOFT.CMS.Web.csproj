@@ -989,6 +989,7 @@
     <Content Include="Views\Shared\EditorTemplates\TextArea.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\DateTime.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Hidden.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\FileInput.cshtml" />
     <None Include="Views\Shared\EditorTemplates\ListEditor.cshtml" />
     <Content Include="Views\Shared\ListEditorItem.cshtml" />
     <None Include="Views\Shared\EditorTemplates\ListEditorItem.cshtml" />
