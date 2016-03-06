@@ -80,9 +80,9 @@ namespace Easy.Web.CMS.Page
         public override int Delete(params object[] primaryKeys)
         {
             PageEntity page = Get(primaryKeys);
-            this.Delete(new DataFilter().Where("ParentId", OperatorType.Equal, page.ID));
+            this.Delete(m => m.ParentId == page.ID);
 
-            var widgets = WidgetService.Get(new DataFilter().Where("PageID", OperatorType.Equal, page.ID));
+            var widgets = WidgetService.Get(m => m.PageID == page.ID);
             widgets.Each(m => m.CreateServiceInstance().DeleteWidget(m.ID));
             return base.Delete(primaryKeys);
         }

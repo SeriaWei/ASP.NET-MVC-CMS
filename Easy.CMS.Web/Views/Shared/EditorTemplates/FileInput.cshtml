@@ -1,0 +1,8 @@
+﻿@using System.Text
+@using Easy.Web.Metadata
+@model string
+@{
+    var meteData = ViewData.ModelMetadata as EasyModelMetaData;
+}
+@Html.Hidden("", Model, meteData.GetAttributes())
+<input type="file" name="file" class="form-control"/>
