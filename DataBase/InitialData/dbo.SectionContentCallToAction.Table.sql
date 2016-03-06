@@ -3,4 +3,9 @@ INSERT [dbo].[SectionContentCallToAction] ([ID], [SectionWidgetId], [InnerText],
 INSERT [dbo].[SectionContentCallToAction] ([ID], [SectionWidgetId], [InnerText], [Href]) VALUES (4, N'604b2461f7c545e28dbb21fb15def5c7', N'捐助', N'http://www.zkea.net/zkeacms/donate')
 INSERT [dbo].[SectionContentCallToAction] ([ID], [SectionWidgetId], [InnerText], [Href]) VALUES (5, N'604b2461f7c545e28dbb21fb15def5c7', N'ZKEASOFT', N'http://www.zkea.net')
 INSERT [dbo].[SectionContentCallToAction] ([ID], [SectionWidgetId], [InnerText], [Href]) VALUES (6, N'604b2461f7c545e28dbb21fb15def5c7', N'开源中国', N'http://git.oschina.net/seriawei/ASP.NET-MVC-CMS')
+INSERT [dbo].[SectionContentCallToAction] ([ID], [SectionWidgetId], [InnerText], [Href]) VALUES (7, N'8aa84a350d4242be889dcbec18e24b2a', N'GitHub', N'https://github.com/SeriaWei/ASP.NET-MVC-CMS')
+INSERT [dbo].[SectionContentCallToAction] ([ID], [SectionWidgetId], [InnerText], [Href]) VALUES (8, N'8aa84a350d4242be889dcbec18e24b2a', N'捐助', N'http://www.zkea.net/zkeacms/donate')
+INSERT [dbo].[SectionContentCallToAction] ([ID], [SectionWidgetId], [InnerText], [Href]) VALUES (9, N'8aa84a350d4242be889dcbec18e24b2a', N'ZKEASOFT', N'http://www.zkea.net')
+INSERT [dbo].[SectionContentCallToAction] ([ID], [SectionWidgetId], [InnerText], [Href]) VALUES (10, N'8aa84a350d4242be889dcbec18e24b2a', N'开源中国', N'http://git.oschina.net/seriawei/ASP.NET-MVC-CMS')
+INSERT [dbo].[SectionContentCallToAction] ([ID], [SectionWidgetId], [InnerText], [Href]) VALUES (11, N'223a591f9d434539a2bae9e6de7bc3cf', N'登录后台', N'~/admin')
 GO
