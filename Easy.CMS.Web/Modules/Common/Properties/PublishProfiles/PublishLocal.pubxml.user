@@ -67,16 +67,16 @@
       <publishTime>09/08/2015 09:26:45</publishTime>
     </File>
     <File Include="bin/Easy.CMS.Common.dll">
-      <publishTime>02/24/2016 09:28:43</publishTime>
+      <publishTime>03/07/2016 09:09:23</publishTime>
     </File>
     <File Include="bin/Easy.dll">
-      <publishTime>02/22/2016 15:50:23</publishTime>
+      <publishTime>03/07/2016 08:39:56</publishTime>
     </File>
     <File Include="bin/Easy.Web.CMS.dll">
-      <publishTime>02/24/2016 09:27:38</publishTime>
+      <publishTime>03/07/2016 09:03:13</publishTime>
     </File>
     <File Include="bin/Easy.Web.dll">
-      <publishTime>02/22/2016 15:50:23</publishTime>
+      <publishTime>03/07/2016 08:39:56</publishTime>
     </File>
     <File Include="bin/edit.cshtml.37f34e2f.compiled">
       <publishTime>09/08/2015 09:26:44</publishTime>
@@ -229,19 +229,22 @@
       <publishTime>01/30/2015 22:48:00</publishTime>
     </File>
     <File Include="Content/Layout.css">
-      <publishTime>02/22/2016 09:01:44</publishTime>
+      <publishTime>02/29/2016 16:20:35</publishTime>
     </File>
     <File Include="CopyItems.xml">
       <publishTime>10/23/2014 16:11:50</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>02/22/2016 15:50:40</publishTime>
+      <publishTime>03/07/2016 08:39:56</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>02/24/2016 09:28:44</publishTime>
+      <publishTime>03/07/2016 09:09:24</publishTime>
     </File>
     <File Include="Scripts/jquery-1.8.2.js">
       <publishTime>01/30/2015 22:48:00</publishTime>
+    </File>
+    <File Include="Scripts/LayoutDesign.js">
+      <publishTime>02/29/2016 15:03:37</publishTime>
     </File>
     <File Include="Scripts/Owl.Carousel.js">
       <publishTime>09/21/2015 13:13:06</publishTime>
@@ -270,89 +273,92 @@
     <File Include="Scripts/OwlCarousel/owl.transitions.min.css">
       <publishTime>09/09/2015 11:32:15</publishTime>
     </File>
+    <File Include="Scripts/PageDesign.js">
+      <publishTime>02/29/2016 16:13:51</publishTime>
+    </File>
     <File Include="Views/Account/Login.cshtml">
-      <publishTime>01/18/2016 10:38:01</publishTime>
+      <publishTime>03/04/2016 08:22:52</publishTime>
     </File>
     <File Include="Views/Carousel/Create.cshtml">
-      <publishTime>09/09/2015 16:05:19</publishTime>
+      <publishTime>03/07/2016 08:39:56</publishTime>
     </File>
     <File Include="Views/Carousel/Edit.cshtml">
-      <publishTime>09/09/2015 16:05:43</publishTime>
+      <publishTime>03/07/2016 08:39:56</publishTime>
     </File>
     <File Include="Views/Carousel/Index.cshtml">
       <publishTime>09/09/2015 16:06:31</publishTime>
     </File>
     <File Include="Views/Layout/Create.cshtml">
-      <publishTime>09/09/2015 16:07:15</publishTime>
+      <publishTime>03/07/2016 08:39:56</publishTime>
     </File>
     <File Include="Views/Layout/Design.cshtml">
-      <publishTime>09/09/2015 11:03:02</publishTime>
+      <publishTime>02/29/2016 14:59:01</publishTime>
     </File>
     <File Include="Views/Layout/Edit.cshtml">
-      <publishTime>09/09/2015 16:07:40</publishTime>
+      <publishTime>03/07/2016 08:39:56</publishTime>
     </File>
     <File Include="Views/Layout/Index.cshtml">
-      <publishTime>02/22/2016 16:19:26</publishTime>
+      <publishTime>02/25/2016 10:53:05</publishTime>
     </File>
     <File Include="Views/Layout/LayoutWidget.cshtml">
-      <publishTime>02/22/2016 16:39:43</publishTime>
+      <publishTime>02/25/2016 10:53:05</publishTime>
     </File>
     <File Include="Views/Layout/LayoutZones.cshtml">
-      <publishTime>02/22/2016 16:28:08</publishTime>
+      <publishTime>02/25/2016 10:53:05</publishTime>
     </File>
     <File Include="Views/Layout/SelectZone.cshtml">
-      <publishTime>02/22/2016 09:01:44</publishTime>
+      <publishTime>02/25/2016 10:53:05</publishTime>
     </File>
     <File Include="Views/Navigation/Create.cshtml">
-      <publishTime>09/09/2015 16:08:20</publishTime>
+      <publishTime>03/07/2016 08:39:56</publishTime>
     </File>
     <File Include="Views/Navigation/Edit.cshtml">
-      <publishTime>09/09/2015 16:08:43</publishTime>
+      <publishTime>03/07/2016 08:39:56</publishTime>
     </File>
     <File Include="Views/Navigation/Index.cshtml">
-      <publishTime>02/15/2016 16:28:06</publishTime>
+      <publishTime>03/07/2016 08:39:56</publishTime>
     </File>
     <File Include="Views/Page/Create.cshtml">
-      <publishTime>09/09/2015 16:09:37</publishTime>
+      <publishTime>03/07/2016 08:39:56</publishTime>
     </File>
     <File Include="Views/Page/Design.cshtml">
-      <publishTime>02/15/2016 16:28:06</publishTime>
+      <publishTime>02/29/2016 16:17:46</publishTime>
     </File>
     <File Include="Views/Page/Edit.cshtml">
-      <publishTime>02/15/2016 16:28:06</publishTime>
+      <publishTime>03/07/2016 08:39:56</publishTime>
     </File>
     <File Include="Views/Page/Index.cshtml">
-      <publishTime>02/16/2016 17:16:14</publishTime>
+      <publishTime>03/07/2016 08:39:56</publishTime>
     </File>
     <File Include="Views/Page/PageZones.cshtml">
-      <publishTime>02/15/2016 16:28:06</publishTime>
+      <publishTime>03/07/2016 08:39:56</publishTime>
     </File>
     <File Include="Views/Page/PreView.cshtml">
-      <publishTime>10/21/2015 09:55:01</publishTime>
+      <publishTime>02/29/2016 16:15:36</publishTime>
     </File>
     <File Include="Views/Page/Select.cshtml">
-      <publishTime>02/15/2016 16:28:06</publishTime>
+      <publishTime>03/07/2016 08:39:56</publishTime>
     </File>
     <File Include="Views/Shared/Partial.Menu.cshtml">
-      <publishTime>02/15/2016 16:28:06</publishTime>
+      <publishTime>02/25/2016 10:53:05</publishTime>
     </File>
     <File Include="Views/Shared/_DesignLayout.cshtml">
-      <publishTime>02/22/2016 09:01:44</publishTime>
+      <publishTime>02/25/2016 10:53:05</publishTime>
     </File>
     <File Include="Views/Shared/_DesignPageLayout.cshtml">
-      <publishTime>02/15/2016 16:28:06</publishTime>
+      <publishTime>02/25/2016 10:53:05</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>02/15/2016 16:28:06</publishTime>
+      <publishTime>03/07/2016 08:39:56</publishTime>
     </File>
     <File Include="Views/Shared/_LayoutNormal.cshtml">
       <publishTime>07/27/2015 16:38:15</publishTime>
     </File>
     <File Include="Views/User/Create.cshtml">
-      <publishTime>02/22/2016 09:28:53</publishTime>
+      <publishTime>03/07/2016 08:39:56</publishTime>
     </File>
     <File Include="Views/User/Edit.cshtml">
-      <publishTime>02/22/2016 09:28:29</publishTime>
+      <publishTime>03/07/2016 08:39:56</publishTime>
     </File>
     <File Include="Views/User/Index.cshtml">
       <publishTime>09/09/2015 16:14:36</publishTime>
@@ -370,25 +376,25 @@
       <publishTime>10/20/2015 15:25:51</publishTime>
     </File>
     <File Include="Views/Widget.Navigation.cshtml">
-      <publishTime>01/18/2016 10:38:01</publishTime>
+      <publishTime>02/29/2016 08:43:54</publishTime>
     </File>
     <File Include="Views/Widget.Script.cshtml">
       <publishTime>09/02/2015 15:57:04</publishTime>
     </File>
     <File Include="Views/Widget/Create.cshtml">
-      <publishTime>09/09/2015 16:10:26</publishTime>
+      <publishTime>03/07/2016 08:39:56</publishTime>
     </File>
     <File Include="Views/Widget/Edit.cshtml">
-      <publishTime>09/09/2015 16:10:36</publishTime>
+      <publishTime>03/07/2016 08:39:56</publishTime>
     </File>
     <File Include="Views/WidgetTemplate/SelectWidget.cshtml">
-      <publishTime>02/15/2016 16:28:06</publishTime>
+      <publishTime>02/25/2016 10:53:06</publishTime>
     </File>
     <File Include="Views/_ViewStart.cshtml">
       <publishTime>07/27/2015 16:34:27</publishTime>
     </File>
     <File Include="web.config">
-      <publishTime>02/24/2016 09:28:43</publishTime>
+      <publishTime>03/07/2016 09:09:24</publishTime>
     </File>
   </ItemGroup>
 </Project>
