@@ -2,5 +2,9 @@
 @model Object
 @{
     var meteData = ViewData.ModelMetadata as EasyModelMetaData;
+    if (meteData.IsComplexType)
+    {
+        return;
+    }
 }
 @Html.Hidden("", Model, meteData.GetAttributes())

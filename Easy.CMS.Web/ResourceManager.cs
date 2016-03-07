@@ -16,6 +16,10 @@ namespace Easy
 
             Script("Easy")
                 .Include("~/Scripts/EasyPlug/Easy.js").RequiredAtHead();
+
+            Script("lightBox")
+                .Include("~/Scripts/lightbox/js/lightbox.js");
+
             Script("admin")
                 .Include("~/Scripts/jquery.validate.js")
                 .Include("~/Scripts/jquery.validate.unobtrusive.js")
@@ -51,6 +55,9 @@ namespace Easy
                 .Include("~/Scripts/jquery-ui/jquery-ui.structure.css", "~/Scripts/jquery-ui/jquery-ui.structure.css");
             Style("Easy")
                 .Include("~/Scripts/EasyPlug/Css/Easy.css");
+
+            Style("lightBox")
+               .Include("~/Scripts/lightbox/css/lightbox.css");
 
             Style("admin")
                 .Include("~/Content/themes/admin/admin.css")

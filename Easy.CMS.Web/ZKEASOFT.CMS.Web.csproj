@@ -696,6 +696,12 @@
     <Content Include="Scripts\jstree\test\libs\qunit.css" />
     <Content Include="Scripts\jstree\test\libs\qunit.js" />
     <Content Include="Scripts\jstree\test\test.js" />
+    <Content Include="Scripts\lightbox\css\lightbox.css" />
+    <Content Include="Scripts\lightbox\images\close.png" />
+    <Content Include="Scripts\lightbox\images\loading.gif" />
+    <Content Include="Scripts\lightbox\images\next.png" />
+    <Content Include="Scripts\lightbox\images\prev.png" />
+    <Content Include="Scripts\lightbox\js\lightbox.js" />
     <Content Include="Scripts\Statistics.js" />
     <Content Include="Scripts\tinymce\langs\zh_CN.js" />
     <Content Include="Scripts\tinymce\license.txt" />

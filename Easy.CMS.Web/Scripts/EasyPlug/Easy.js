@@ -128,7 +128,6 @@ Easy.MousePosition = function (e) {
 }
 
 Easy.OpacityBackGround = (function () {
-    var bgs = new Array();
     var opa = 0.5;
     function ShowOpactiyBg(zindex, callBack) {
         /// <summary>显示半透明遮罩层</summary>
@@ -137,10 +136,7 @@ Easy.OpacityBackGround = (function () {
 
         if (typeof zindex != "number")
             zindex = 1;
-        var Ele = $("<div id='SeriaWeiOBg' class='OpacityBackGround'></div>");
-        Ele.addClass("OtherFixed");
-        Ele.attr("id", "SeriaWeiOBg" + bgs.length);
-        bgs.push("#" + Ele.attr("id"));
+        var Ele = $("<div class='OpacityBackGround OtherFixed'></div>");
         $("body").append(Ele);
         Ele.css("z-index", zindex);
         Ele.fadeTo(0, 0);
@@ -151,8 +147,7 @@ Easy.OpacityBackGround = (function () {
     function CloseOpacityBg(callBack) {
         /// <summary>关闭最近一次添加的半透明遮罩层</summary>
         /// <param name="callBack" type="Function">完成后的回调函数</param>
-        var Bele = $(bgs[bgs.length - 1]);
-        bgs = bgs.DelbyIndex(bgs.length - 1);
+        var Bele = $(".OpacityBackGround:last");
         Bele.fadeTo(300, 0, function () { $(this).remove(); if (callBack) callBack.call(); });
     }
     function SetOpacity(opacity) {

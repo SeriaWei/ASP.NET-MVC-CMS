@@ -240,6 +240,7 @@
     <Content Include="Views\SectionTemplate.ListGroup.cshtml" />
     <Content Include="Views\Thumbnail\Web.config" />
     <Content Include="Views\SectionTemplate.ListView.cshtml" />
+    <Content Include="Views\SectionTemplate.Thumbnail.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

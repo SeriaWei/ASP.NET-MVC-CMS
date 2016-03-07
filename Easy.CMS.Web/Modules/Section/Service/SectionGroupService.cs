@@ -23,7 +23,7 @@ namespace Easy.CMS.Section.Service
                     m.SectionWidgetId = item.SectionWidgetId;
                     contentService.Add(m);
                 });
-                
+
             }
         }
 

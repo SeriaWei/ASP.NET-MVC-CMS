@@ -2,6 +2,9 @@
 @model SectionWidget
 @{
     Script.Reqiured("jQueryUi").AtHead();
+
+    Script.Reqiured("lightBox").AtFoot();
+    Style.Reqiured("lightBox").AtFoot();
 }
 @using (Html.BeginForm())
 {
@@ -63,7 +66,7 @@
                 }, isDialog: true, width: width || 800, height: height || 460
             });
             return false;
-        }).on("click", "a.ajax.glyphicon-remove", function () {
+        }).on("click", "a.ajax.delete", function () {
             var link = $(this).attr("href");
             Easy.ShowMessageBox("提示", "确定要删除吗？", function () {
                 $.get(link, {}, function (data) {
