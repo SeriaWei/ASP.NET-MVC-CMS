@@ -197,9 +197,9 @@ a.badge:hover {
 }
 
     .fullRowList li {
-        padding: 5px;
+        padding: 6px;
         border: 1px solid #ddd;
-        border-left: 3px solid green;
+        border-left: 5px solid green;
         margin: 5px;
         cursor: pointer;
         background-color: white;
@@ -216,8 +216,7 @@ a.badge:hover {
     }
 
     .fullRowList li.actived {
-        border: 1px solid #E28271;
-        border-left: 3px solid green;
+        border-left:5px solid  #E28271;
         color: #E28271;
     }
 

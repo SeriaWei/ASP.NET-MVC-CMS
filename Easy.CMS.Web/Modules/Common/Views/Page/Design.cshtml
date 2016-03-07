@@ -37,7 +37,7 @@
                 <div @(widgetPart.Widget.StyleClassResult(true))
                      id="widget_@widgetPart.Widget.ID"
                      data-widgetid="@widgetPart.Widget.ID">
-                    <div class="zoneToolbar blue">
+                    <div class="zoneToolbar @(widgetPart.Widget.LayoutID.IsNullOrEmpty() ? "blue" : "green")">
                         <div class="tools clearfix">
                             <div class="pull-left">
                                 <span class="sort-handle">

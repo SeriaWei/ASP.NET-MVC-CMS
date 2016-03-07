@@ -35,32 +35,59 @@
                         <i class="glyphicon glyphicon-plus"></i>
                         添加页面
                     </a>
+                    <i class="glyphicon glyphicon-question-sign" style="cursor:help" data-toggle="modal" data-target="#help"></i>
                 </div>
-            </div>
-            <div class="alert alert-info">
-                <p>
-                    <strong>说明：</strong>
-                </p>
-                <ul>
-                    <li>
-                        "查看"：查看已发布版本
-                    </li>
-                    <li>
-                        "预览"：查看最新修改版本
-                    </li>
-                </ul>
-                <hr />
-                <p>
-                    <strong>注：</strong>
-                    页面必须要发布才可以通过网址访问。对页面进行修改不会影响到已发布版本，直到下一次发布。
-                </p>
-
             </div>
         </div>
         <div class="col-md-8" id="pageZones"></div>
     </div>
 </div>
-
+<div id="help" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">说明</h4>
+            </div>
+            <div class="modal-body">
+                <ul>
+                    <li>
+                        “添加页面”：添加顶级页面，即域名下的一级子页面。~/xxxxx
+                    </li>
+                    <li>
+                        “添加”：添加子页面
+                    </li>
+                    <li>
+                        “编辑”：编辑选中页面的属性，像标题，SEO关键字等
+                    </li>
+                    <li>
+                        “预览”：查看最新修改版本
+                    </li>
+                    <li>
+                        “查看”：查看已发布版本
+                    </li>
+                    <li>
+                        “发布”：将页面发布到前端可查看
+                    </li>
+                    <li>
+                        “设计”：进入页面的设计模式
+                    </li>
+                    <li>
+                        “布局”：修改页面布局。<code>会影响所有使用该布局的页面</code>
+                    </li>
+                </ul>
+                <hr/>
+                <p>
+                    <strong>注：</strong>
+                    页面必须要发布才可以通过网址访问。对页面进行修改不会影响到已发布版本，直到下一次发布。
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 @using (Script.AtFoot())
 {
     <script type="text/javascript">
