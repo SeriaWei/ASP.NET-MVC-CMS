@@ -154,6 +154,7 @@
     <Content Include="Views\Thumbnail\SectionTemplate.ListGroup.png" />
     <Content Include="Views\Thumbnail\SectionTemplate.Default.png" />
     <Content Include="Views\Thumbnail\SectionTemplate.ListView.png" />
+    <Content Include="Views\Thumbnail\SectionTemplate.Thumbnail.png" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

@@ -23,6 +23,8 @@ namespace Easy.Web.CMS.Widget
         public string LayoutID { get; set; }
         public string PageID { get; set; }
         public string ZoneID { get; set; }
+        public bool IsTemplate { get; set; }
+        public string Thumbnail { get; set; }
         public string PartialView { get; set; }
         public string AssemblyName { get; set; }
         public string ServiceTypeName { get; set; }

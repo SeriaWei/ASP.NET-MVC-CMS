@@ -159,5 +159,6 @@ namespace Easy.CMS.Common.Controllers
             Service.Publish(Service.Get(id));
             return Json(true);
         }
+
     }
 }

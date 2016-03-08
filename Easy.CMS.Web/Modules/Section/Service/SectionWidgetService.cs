@@ -74,16 +74,14 @@ namespace Easy.CMS.Section.Service
             return base.Delete(primaryKeys);
         }
 
-        public override void Publish(WidgetBase widget)
+        public override void Add(SectionWidget item)
         {
-            base.Publish(widget);
-
-            var sectionWidget = (SectionWidget)widget;
-            if (sectionWidget.Groups != null && sectionWidget.Groups.Any())
+            base.Add(item);
+            if (item.Groups != null && item.Groups.Any())
             {
-                sectionWidget.Groups.Each(m =>
+                item.Groups.Each(m =>
                 {
-                    m.SectionWidgetId = widget.ID;
+                    m.SectionWidgetId = item.ID;
                     _sectionGroupService.Add(m);
                 });
             }

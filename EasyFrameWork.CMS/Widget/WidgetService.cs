@@ -89,6 +89,13 @@ namespace Easy.Web.CMS.Widget
             return base.Delete(item);
 
         }
+
+
+        public WidgetBase GetWidget(string widgetId)
+        {
+            var widgetBase = Get(widgetId);
+            return widgetBase.CreateServiceInstance().GetWidget(widgetBase);
+        }
     }
     public abstract class WidgetService<T> : ServiceBase<T>, IWidgetPartDriver where T : WidgetBase
     {
@@ -128,6 +135,11 @@ namespace Easy.Web.CMS.Widget
 
         public override void Add(T item)
         {
+            if (item.ID.IsNotNullAndWhiteSpace() && item.IsTemplate)
+            {
+                item.IsTemplate = false;
+                item.Thumbnail = null;
+            }
             item.ID = Guid.NewGuid().ToString("N");
             WidgetBaseService.Add(item);
             if (typeof(T) != typeof(WidgetBase))
@@ -162,7 +174,7 @@ namespace Easy.Web.CMS.Widget
             List<T> lists = new List<T>();
             if (typeof(T) != typeof(WidgetBase))
             {
-                lists = base.Get(filter).ToList();
+                lists = base.Get(new DataFilter().Where("ID", OperatorType.In, widgetBases.ToList(m => m.ID))).ToList();
                 for (int i = 0; i < widgetBases.Count; i++)
                 {
                     CopyTo(widgetBases[i], lists[i]);
@@ -181,7 +193,7 @@ namespace Easy.Web.CMS.Widget
             List<T> lists = new List<T>();
             if (typeof(T) != typeof(WidgetBase))
             {
-                lists = base.Get(filter, pagin).ToList();
+                lists = base.Get(new DataFilter().Where("ID", OperatorType.In, widgetBases.ToList(m => m.ID)), pagin).ToList();
                 for (int i = 0; i < widgetBases.Count(); i++)
                 {
                     CopyTo(widgetBases[i], lists[i]);

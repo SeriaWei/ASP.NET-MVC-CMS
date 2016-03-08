@@ -8,5 +8,6 @@ namespace Easy.Web.CMS.Widget
         IEnumerable<WidgetBase> GetByLayoutId(string layoutId);
         IEnumerable<WidgetBase> GetByPageId(string pageId);
         IEnumerable<WidgetBase> GetAllByPageId(string pageId);
+        WidgetBase GetWidget(string widgetId);
     }
 }

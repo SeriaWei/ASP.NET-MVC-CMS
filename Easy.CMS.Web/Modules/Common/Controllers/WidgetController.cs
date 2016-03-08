@@ -138,5 +138,24 @@ namespace Easy.CMS.Common.Controllers
             return Json(false);
         }
 
+        public PartialViewResult Templates()
+        {
+            return PartialView(_widgetService.Get(m => m.IsTemplate == true));
+        }
+
+        [HttpPost]
+        public PartialViewResult AppendWidget(WidgetBase widget)
+        {
+            var widgetBase = _widgetService.GetWidget(widget.ID);
+
+            widgetBase.PageID = widget.PageID;
+            widgetBase.ZoneID = widget.ZoneID;
+            widgetBase.Position = widget.Position;
+
+            var service = widgetBase.CreateServiceInstance();
+            var widgetPart = service.Display(widgetBase, HttpContext);
+            service.AddWidget(widgetBase);
+            return PartialView("DesignWidget", widgetPart);
+        }
     }
 }
