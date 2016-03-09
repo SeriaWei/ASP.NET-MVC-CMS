@@ -27,6 +27,7 @@ CREATE TABLE [dbo].[CMS_WidgetBase](
 	[Status] [int] NULL,
 	[IsTemplate] [bit] NULL DEFAULT ((0)),
 	[Thumbnail] [nvarchar](200) NULL,
+	[IsSystem] [bit] NULL DEFAULT ((0)),
  CONSTRAINT [PK_CMS_WidgetBase] PRIMARY KEY CLUSTERED 
 (
 	[ID] ASC
