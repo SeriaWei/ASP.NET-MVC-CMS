@@ -305,18 +305,21 @@ input.helper:checked + span {
 
 .templates {
     position: fixed;
-    width: 225px;
-    background: #acacac;
-    border-left: solid 1px #777;
+    background: #ddd;
+    width: 0;
     right: 0;
     top: 0;
     height: 100%;
     z-index: 10;
+    transition: all 0.5s ease-in-out;
+    box-shadow: 0 0 5px rgba(0, 0, 0,0.2);
 }
-
+.templates.active {
+    width: 225px;
+}
     .templates ul {
         list-style: none;
-        margin: 10px;
+        margin: 0 10px;
         padding: 0;
         height: 100%;
         overflow: auto;
@@ -324,10 +327,22 @@ input.helper:checked + span {
 
         .templates ul li {
             cursor: pointer;
-            margin:10px 3px;
+            margin: 10px 3px;
         }
 
+    .templates .tool-open {
+        position: absolute;
+        left: -22px;
+        cursor: pointer;
+        background: #ddd;
+        top: 100px;
+        padding: 8px 4px;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+    }
+
     .templates img.template {
+        width: 182px;
         box-shadow: 0 0 5px rgba(0, 0, 0,0.2);
     }
 

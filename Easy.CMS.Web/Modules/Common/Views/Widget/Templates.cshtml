@@ -7,11 +7,12 @@
     }
 }
 <div class="templates">
+    <div class="tool-open glyphicon glyphicon-chevron-right"></div>
     <ul>
-        @foreach (WidgetBase item in Model)
+        @foreach (WidgetBase item in Model.OrderBy(m=>m.Position))
         {
             <li class="widget-design" data-add="true" data-id="@item.ID">
-                <img class="template" src="@Url.Content(item.Thumbnail)" />
+                <img class="template" src="@Url.Content(item.Thumbnail)"/>
             </li>
         }
     </ul>

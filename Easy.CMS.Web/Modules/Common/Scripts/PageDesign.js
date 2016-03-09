@@ -71,8 +71,14 @@
             }, "json");
         }
     });
+    $(document).on("click", ".templates .tool-open", function() {
+        $(this).parent().toggleClass("active");
+    });
     $(".helper").click(function () {
         $("#container").toggleClass($(this).data("class"));
     });
     checkEmptyZone();
+    if ($(window).width() > 1600) {
+        $(".templates").addClass("active");
+    }
 });

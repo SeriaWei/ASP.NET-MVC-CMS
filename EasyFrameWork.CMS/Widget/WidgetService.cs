@@ -43,7 +43,7 @@ namespace Easy.Web.CMS.Widget
             var page = PageService.Get(pageId);
             var result = GetByLayoutId(page.LayoutId);
             List<WidgetBase> widgets = result.ToList();
-            widgets.AddRange(this.Get(new DataFilter().Where("PageID", OperatorType.Equal, pageId)));
+            widgets.AddRange(GetByPageId(pageId));
             return widgets;
         }
 
@@ -130,6 +130,9 @@ namespace Easy.Web.CMS.Widget
                 to.ZoneID = from.ZoneID;
                 to.FormView = from.FormView;
                 to.StyleClass = from.StyleClass;
+                to.IsTemplate = from.IsTemplate;
+                to.Thumbnail = from.Thumbnail;
+                to.IsSystem = from.IsSystem;
             }
         }
 
@@ -139,6 +142,7 @@ namespace Easy.Web.CMS.Widget
             {
                 item.IsTemplate = false;
                 item.Thumbnail = null;
+                item.LayoutID = null;
             }
             item.ID = Guid.NewGuid().ToString("N");
             WidgetBaseService.Add(item);

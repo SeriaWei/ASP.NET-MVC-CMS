@@ -1,0 +1,26 @@
+﻿@using System.Linq
+@using Easy.CMS.Section
+@using Easy.CMS.Section.Models
+@model SectionGroup
+<div class="section-group-listView">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12 col-sm-8 col-md-9 col-lg-9">
+                @{
+                    Html.RenderContent(Model.SectionTitle);
+                }
+                <div class="text-muted small">
+                    @{
+                        Html.RenderContent(Model.Paragraph);
+                    }
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
+                @{
+                    Html.RenderContent(Model.SectionImage);
+                }
+            </div>
+        </div>
+    </div>
+</div>
+

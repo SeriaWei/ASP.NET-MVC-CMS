@@ -25,6 +25,7 @@ namespace Easy.Web.CMS.Widget
         public string ZoneID { get; set; }
         public bool IsTemplate { get; set; }
         public string Thumbnail { get; set; }
+        public bool IsSystem { get; set; }
         public string PartialView { get; set; }
         public string AssemblyName { get; set; }
         public string ServiceTypeName { get; set; }
@@ -107,6 +108,7 @@ namespace Easy.Web.CMS.Widget
         {
             DataTable("CMS_WidgetBase");
             DataConfig(m => m.ID).AsPrimaryKey();
+            DataConfig(m => m.IsSystem).Update(false).Insert(false);
         }
 
         protected override void ViewConfigure()
