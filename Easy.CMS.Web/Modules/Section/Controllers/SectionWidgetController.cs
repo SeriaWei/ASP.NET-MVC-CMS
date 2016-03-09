@@ -22,5 +22,6 @@ namespace Easy.CMS.Section.Controllers
             return View(_sectionWidgetService.Get(sectionWidgetId));
         }
 
+
     }
 }

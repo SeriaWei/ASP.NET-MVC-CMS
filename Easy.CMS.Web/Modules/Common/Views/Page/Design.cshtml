@@ -11,8 +11,10 @@
     }
     //Stack<string> colors = new Stack<string>(new[] { "blue", "lightBlue", "red", "green", "orange" });
 }
-<input type="hidden" id="save-widget-position-url" value="@Url.Action("SaveWidgetPosition", "Widget", new {module = "admin"})"/>
-<input type="hidden" id="save-widget-zone-url" value="@Url.Action("SaveWidgetZone", "Widget", new { module = "admin" })" />
+<input type="hidden" id="save-widget-position-url" value="@Url.Action("SaveWidgetPosition", "Widget", new {module = "admin"})" />
+<input type="hidden" id="save-widget-zone-url" value="@Url.Action("SaveWidgetZone", "Widget", new {module = "admin"})"/>
+<input type="hidden" id="append-widget-url" value="@Url.Action("AppendWidget", "Widget", new { module = "admin" })" />
+<input type="hidden" id="pageId" value="@layOut.Page.ID"/>
 @for (int i = 0; i < layOut.Html.Count; i++)
 {
     var item = layOut.Html[i];
@@ -34,33 +36,7 @@
         {
             foreach (WidgetPart widgetPart in layOut.ZoneWidgets[zoneId].OrderBy(m => m.Widget.Position).ThenBy(m => m.Widget.WidgetName))
             {
-                <div @(widgetPart.Widget.StyleClassResult(true))
-                     id="widget_@widgetPart.Widget.ID"
-                     data-widgetid="@widgetPart.Widget.ID">
-                    <div class="zoneToolbar @(widgetPart.Widget.LayoutID.IsNullOrEmpty() ? "blue" : "green")">
-                        <div class="tools clearfix">
-                            <div class="pull-left">
-                                <span class="sort-handle">
-                                    <i class="glyphicon glyphicon-move ">
-                                    </i>
-                                    @widgetPart.Widget.WidgetName
-                                </span>
-                            </div>
-                            <div class="pull-right">
-                                @if (widgetPart.Widget.LayoutID.IsNullOrEmpty())
-                                {
-                                    <a href="@Url.Action("Edit", "Widget", new {module = "admin", ID = widgetPart.Widget.ID})"><i class="glyphicon glyphicon-edit"></i></a>
-                                    <a href="javascript:void(0)" class="delete"
-                                       data-url="@Url.Action("DeleteWidget", "Widget", new {module = "admin"})"
-                                       data-id="@widgetPart.Widget.ID"><i class="glyphicon glyphicon-trash"></i></a>
-                                }
-                            </div>
-                        </div>
-                    </div>
-                    @{
-                Html.RenderPartial(widgetPart.Widget.PartialView, widgetPart.ViewModel);
-                    }
-                </div>
+                Html.RenderPartial("DesignWidget", widgetPart);
             }
         }
 
@@ -71,3 +47,6 @@
         @Html.Raw(item.Html)
     }
 }
+
+@Html.Action("Templates", "Widget", new { module = "admin" })
+

@@ -187,9 +187,11 @@ input.helper:checked + span {
 .widget-design {
     position: relative;
 }
+
 .sort-handle {
     cursor: move;
 }
+
 .zoneToolbar {
     position: absolute;
     width: 100%;
@@ -198,12 +200,14 @@ input.helper:checked + span {
     line-height: 25px;
     top: -28px;
 }
-.zoneToolbar:hover {
-    z-index: 2;
-}
-.zoneToolbar .tools {
-    padding: 0 10px;
-}
+
+    .zoneToolbar:hover {
+        z-index: 2;
+    }
+
+    .zoneToolbar .tools {
+        padding: 0 10px;
+    }
 
     .zoneToolbar.red {
         background-color: #c7302b;
@@ -298,3 +302,37 @@ input.helper:checked + span {
     margin: 3px auto;
     padding: 0;
 }
+
+.templates {
+    position: fixed;
+    width: 225px;
+    background: #acacac;
+    border-left: solid 1px #777;
+    right: 0;
+    top: 0;
+    height: 100%;
+    z-index: 10;
+}
+
+    .templates ul {
+        list-style: none;
+        margin: 10px;
+        padding: 0;
+        height: 100%;
+        overflow: auto;
+    }
+
+        .templates ul li {
+            cursor: pointer;
+            margin:10px 3px;
+        }
+
+    .templates img.template {
+        box-shadow: 0 0 5px rgba(0, 0, 0,0.2);
+    }
+
+        .templates img.template:hover {
+            outline: rgba(0, 0, 0, 0.5) 1px solid;
+            opacity: 0.5;
+            transition: all 0.2s ease-in-out;
+        }

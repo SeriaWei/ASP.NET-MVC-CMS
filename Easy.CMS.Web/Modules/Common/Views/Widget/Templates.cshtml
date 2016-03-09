@@ -1,0 +1,18 @@
+﻿@using Easy.Web.CMS.Widget
+@model IEnumerable<WidgetBase>
+@{
+    if (!Model.Any())
+    {
+        return;
+    }
+}
+<div class="templates">
+    <ul>
+        @foreach (WidgetBase item in Model)
+        {
+            <li class="widget-design" data-add="true" data-id="@item.ID">
+                <img class="template" src="@Url.Content(item.Thumbnail)" />
+            </li>
+        }
+    </ul>
+</div>
