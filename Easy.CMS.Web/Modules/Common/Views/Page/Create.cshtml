@@ -6,8 +6,6 @@
         <div>页面</div>
     </div>
     <div class="panel-body">
-        @{ Html.EnableClientValidation(true);}
-        @Html.ValidationSummary()
         @using (Html.BeginForm())
         {
             @Html.EditorForModel()

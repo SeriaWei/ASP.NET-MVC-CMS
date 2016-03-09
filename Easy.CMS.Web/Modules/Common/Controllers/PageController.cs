@@ -102,7 +102,15 @@ namespace Easy.CMS.Common.Controllers
                 return RedirectToAction("Design", new { ID = entity.ID });
             }
             string id = entity.ID;
-            base.Edit(entity);
+            try
+            {
+                Service.Update(entity);
+            }
+            catch (PageExistException ex)
+            {
+                ModelState.AddModelError("PageUrl", ex.Message);
+                return View(entity);
+            }
             if (entity.ActionType == ActionType.Publish)
             {
                 Service.Publish(entity);

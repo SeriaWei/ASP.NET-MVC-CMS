@@ -250,12 +250,14 @@ a.badge:hover {
 
 
 .jstree a[ispublish="false"] {
-    color: #FFA500;
+    color: #808080;
 }
 .jstree a[ispublish="false"]::after{
+    content:" [已修改]"
+}
+.jstree a[publishdate="null"]::after {
     content:" [未发布]"
 }
-
 .jstree a[ishomepage="true"] {
     font-weight: bold;
     color: red;
