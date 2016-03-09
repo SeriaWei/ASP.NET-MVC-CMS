@@ -62,14 +62,15 @@
     });
     $(".templates ul li").draggable({ helper: "clone" });
     $(document).on("click", ".delete", function () {
-        if (confirm("确定要删除该组件吗？")) {
-            $.post($(this).data("url"), { ID: $(this).data("id") }, function (data) {
+        var th = $(this);
+        Easy.ShowMessageBox("提示", "确定要删除该组件吗？", function() {
+            $.post(th.data("url"), { ID: th.data("id") }, function (data) {
                 if (data) {
                     $("#widget_" + data).remove();
                     checkEmptyZone();
                 }
             }, "json");
-        }
+        }, true);
     });
     $(document).on("click", ".templates .tool-open", function() {
         $(this).parent().toggleClass("active");

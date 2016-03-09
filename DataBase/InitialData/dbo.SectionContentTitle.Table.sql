@@ -9,4 +9,9 @@ INSERT [dbo].[SectionContentTitle] ([ID], [SectionWidgetId], [InnerText], [Href]
 INSERT [dbo].[SectionContentTitle] ([ID], [SectionWidgetId], [InnerText], [Href]) VALUES (47, N'1fb967867e3b440e86336bc5a51e8719', N'Printing', NULL)
 INSERT [dbo].[SectionContentTitle] ([ID], [SectionWidgetId], [InnerText], [Href]) VALUES (48, N'1fb967867e3b440e86336bc5a51e8719', N'Typesetting', NULL)
 INSERT [dbo].[SectionContentTitle] ([ID], [SectionWidgetId], [InnerText], [Href]) VALUES (49, N'1fb967867e3b440e86336bc5a51e8719', N'Typesetting', NULL)
+INSERT [dbo].[SectionContentTitle] ([ID], [SectionWidgetId], [InnerText], [Href]) VALUES (105, N'f41174cfa4d247f4974c47f4d2b000fd', N'Feature Item', NULL)
+INSERT [dbo].[SectionContentTitle] ([ID], [SectionWidgetId], [InnerText], [Href]) VALUES (107, N'f41174cfa4d247f4974c47f4d2b000fd', N'Feature Item', NULL)
+INSERT [dbo].[SectionContentTitle] ([ID], [SectionWidgetId], [InnerText], [Href]) VALUES (109, N'0f66ab8ff0df44e2b5e57fd8d8c5d8ff', N'Feature Item', NULL)
+INSERT [dbo].[SectionContentTitle] ([ID], [SectionWidgetId], [InnerText], [Href]) VALUES (111, N'0f66ab8ff0df44e2b5e57fd8d8c5d8ff', N'Feature Item', NULL)
+INSERT [dbo].[SectionContentTitle] ([ID], [SectionWidgetId], [InnerText], [Href]) VALUES (113, N'0f66ab8ff0df44e2b5e57fd8d8c5d8ff', N'Feature Item', NULL)
 GO

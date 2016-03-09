@@ -1,4 +1,5 @@
 INSERT [dbo].[SectionWidget] ([ID], [SectionTitle], [IsHorizontal]) VALUES (N'00f62c5acfe840e0bee3ca2979f0f025', NULL, NULL)
+INSERT [dbo].[SectionWidget] ([ID], [SectionTitle], [IsHorizontal]) VALUES (N'0f66ab8ff0df44e2b5e57fd8d8c5d8ff', NULL, NULL)
 INSERT [dbo].[SectionWidget] ([ID], [SectionTitle], [IsHorizontal]) VALUES (N'1fb967867e3b440e86336bc5a51e8719', NULL, NULL)
 INSERT [dbo].[SectionWidget] ([ID], [SectionTitle], [IsHorizontal]) VALUES (N'223a591f9d434539a2bae9e6de7bc3cf', N'管理', NULL)
 INSERT [dbo].[SectionWidget] ([ID], [SectionTitle], [IsHorizontal]) VALUES (N'2b3eb61307d24c50a6b3aaa75db3810e', NULL, NULL)
@@ -9,5 +10,6 @@ INSERT [dbo].[SectionWidget] ([ID], [SectionTitle], [IsHorizontal]) VALUES (N'80
 INSERT [dbo].[SectionWidget] ([ID], [SectionTitle], [IsHorizontal]) VALUES (N'8aa84a350d4242be889dcbec18e24b2a', N'相关链接', NULL)
 INSERT [dbo].[SectionWidget] ([ID], [SectionTitle], [IsHorizontal]) VALUES (N'b568ff7f4a894870adaf9afadf787bf9', NULL, NULL)
 INSERT [dbo].[SectionWidget] ([ID], [SectionTitle], [IsHorizontal]) VALUES (N'ed837392097f4e60b812bc57111dd762', NULL, NULL)
+INSERT [dbo].[SectionWidget] ([ID], [SectionTitle], [IsHorizontal]) VALUES (N'f41174cfa4d247f4974c47f4d2b000fd', NULL, NULL)
 INSERT [dbo].[SectionWidget] ([ID], [SectionTitle], [IsHorizontal]) VALUES (N'f6f11ba2fec844de883acf0a1fe3eb89', NULL, NULL)
 GO

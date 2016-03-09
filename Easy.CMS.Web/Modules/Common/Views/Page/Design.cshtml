@@ -2,6 +2,7 @@
 @using Easy.Web.CMS.Widget
 @{
     Style.Reqiured("Layout").AtHead();
+    Style.Reqiured("Easy").AtHead();
     Script.Reqiured("jQueryUi").AtFoot();
     Script.Reqiured("PageDesign").AtFoot();
     Easy.Web.CMS.Layout.LayoutEntity layOut = ViewData[Easy.Web.CMS.Layout.LayoutEntity.LayoutKey] as Easy.Web.CMS.Layout.LayoutEntity;
