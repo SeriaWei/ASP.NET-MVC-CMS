@@ -33,10 +33,12 @@ namespace Easy.CMS.Product.Service
             {
                 filter.Where("ProductCategoryID", OperatorType.Equal, c);
             }
-            else if (pwidget.ProductCategoryID.HasValue)
+            else
             {
                 filter.Where("ProductCategoryID", OperatorType.Equal, pwidget.ProductCategoryID);
             }
+
+
             var service = new ProductService();
             IEnumerable<Models.Product> products = null;
             var page = new Pagination { PageIndex = p, PageSize = pwidget.PageSize ?? 20 };

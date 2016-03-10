@@ -14,7 +14,7 @@ namespace Easy.CMS.Article.Models
     [DataConfigure(typeof(ArticleTypeWidgetMetaData))]
     public class ArticleTypeWidget : WidgetBase
     {
-        public int? ArticleTypeID { get; set; }
+        public int ArticleTypeID { get; set; }
         public string TargetPage { get; set; }
     }
     class ArticleTypeWidgetMetaData : WidgetMetaData<ArticleTypeWidget>
@@ -25,7 +25,7 @@ namespace Easy.CMS.Article.Models
             ViewConfig(m => m.ArticleTypeID).AsDropDownList().DataSource(() =>
             {
                 return new ArticleTypeService().Get().ToDictionary(m => m.ID.ToString(), m => m.Title);
-            });
+            }).Required();
             ViewConfig(m => m.TargetPage).AsTextBox().AddClass("select").AddProperty("data-url", Urls.SelectPage);
         }
     }

@@ -54,8 +54,6 @@ sqlcmd -S %server% -d %dataBase% -U %dbUserId% -P %dbPassword% -b -i "Tables\dbo
 if %ERRORLEVEL% NEQ 0 goto errors
 sqlcmd -S %server% -d %dataBase% -U %dbUserId% -P %dbPassword% -b -i "Tables\dbo.ArticleTopWidget.Table.sql"
 if %ERRORLEVEL% NEQ 0 goto errors
-sqlcmd -S %server% -d %dataBase% -U %dbUserId% -P %dbPassword% -b -i "Tables\dbo.ArticleTypeDetailWidget.Table.sql"
-if %ERRORLEVEL% NEQ 0 goto errors
 sqlcmd -S %server% -d %dataBase% -U %dbUserId% -P %dbPassword% -b -i "Tables\dbo.ArticleTypeWidget.Table.sql"
 if %ERRORLEVEL% NEQ 0 goto errors
 sqlcmd -S %server% -d %dataBase% -U %dbUserId% -P %dbPassword% -b -i "Tables\dbo.Carousel.Table.sql"
@@ -144,8 +142,6 @@ if %ERRORLEVEL% NEQ 0 goto errors
 sqlcmd -S %server% -d %dataBase% -U %dbUserId% -P %dbPassword% -b -i "InitialData\dbo.ArticleSummaryWidget.Table.sql"
 if %ERRORLEVEL% NEQ 0 goto errors
 sqlcmd -S %server% -d %dataBase% -U %dbUserId% -P %dbPassword% -b -i "InitialData\dbo.ArticleTopWidget.Table.sql"
-if %ERRORLEVEL% NEQ 0 goto errors
-sqlcmd -S %server% -d %dataBase% -U %dbUserId% -P %dbPassword% -b -i "InitialData\dbo.ArticleTypeDetailWidget.Table.sql"
 if %ERRORLEVEL% NEQ 0 goto errors
 sqlcmd -S %server% -d %dataBase% -U %dbUserId% -P %dbPassword% -b -i "InitialData\dbo.ArticleTypeWidget.Table.sql"
 if %ERRORLEVEL% NEQ 0 goto errors

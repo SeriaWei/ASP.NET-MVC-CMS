@@ -142,7 +142,6 @@
     <Compile Include="ViewModel\ArticleDetailViewModel.cs" />
     <Compile Include="ViewModel\ArticleListWidgetViewModel.cs" />
     <Compile Include="ViewModel\ArticleTopWidgetViewModel.cs" />
-    <Compile Include="ViewModel\ArticleTypeDetailWidgetViewModel.cs" />
     <Compile Include="ViewModel\ArticleTypeWidgetViewModel.cs" />
   </ItemGroup>
   <ItemGroup>

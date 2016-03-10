@@ -12,13 +12,7 @@ namespace Easy.CMS.Product.Service
     public class ProductCategoryService : ServiceBase<ProductCategory>
     {
         private ProductService _productService;
-        public override void Add(ProductCategory item)
-        {
-            item.ParentID = item.ParentID ?? 0;
-            base.Add(item);
-        }
-
-
+   
         public IEnumerable<ProductCategory> GetChildren(long id)
         {
             return Get(m => m.ParentID == id);
@@ -30,7 +24,7 @@ namespace Easy.CMS.Product.Service
             var item = Get(primaryKeys);
             if (item != null)
             {
-                GetChildren(item.ID ?? 0).Each(m =>
+                GetChildren(item.ID).Each(m =>
                 {
                     _productService.Delete(n => n.ProductCategoryID == m.ID);
                     Delete(m.ID);

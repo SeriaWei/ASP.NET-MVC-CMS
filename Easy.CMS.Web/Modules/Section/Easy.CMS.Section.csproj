@@ -153,6 +153,7 @@
     <Content Include="Views\Thumbnail\SectionTemplate.LinkGroup.png" />
     <Content Include="Views\Thumbnail\SectionTemplate.ListGroup.png" />
     <Content Include="Views\Thumbnail\SectionTemplate.Default.png" />
+    <Content Include="Views\Thumbnail\SectionTemplate.ImageRight.png" />
     <Content Include="Views\Thumbnail\SectionTemplate.ListView.png" />
     <Content Include="Views\Thumbnail\SectionTemplate.Thumbnail.png" />
     <Content Include="Web.config">
@@ -242,6 +243,7 @@
     <Content Include="Views\Thumbnail\Web.config" />
     <Content Include="Views\SectionTemplate.ListView.cshtml" />
     <Content Include="Views\SectionTemplate.Thumbnail.cshtml" />
+    <Content Include="Views\SectionTemplate.ImageRight.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

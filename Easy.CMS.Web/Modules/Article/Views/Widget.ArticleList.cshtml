@@ -7,30 +7,28 @@
 }
 <div class="widget article-list">
     @if (Model.Articles != null)
-    {
-        <ul class="media-list">
-            @foreach (var item in Model.Articles)
-            {
-                <li class="media">
-                    <h4>
-                        <a href="@(Model.Widget.DetailPageUrl + "?id=" + item.ID)" target="_blank">
-                            @item.Title
-                        </a>
-                    </h4>
-                    @if (!item.ImageThumbUrl.IsNullOrEmpty())
-                    {
-                        <a class="media-left" href="@(Model.Widget.DetailPageUrl + "?id=" + item.ID)" target="_blank">
-                            <img class="media-object img-thumbnail" src="@item.ImageThumbUrl" alt="@item.Title" data-holder-rendered="true">
-                        </a>
-                    }
-                    <div class="media-body">
-                        @item.Summary
-                    </div>
-                </li>
-            }
-        </ul>
-        <div class="clearfix"></div>
-    }
+{
+    <ul class="media-list">
+        @foreach (var item in Model.Articles)
+        {
+        <li class="media">
+            <div class="media-left">
+                <a href="@(Model.Widget.DetailPageUrl + "?id=" + item.ID)">
+                    <img class="media-object" src="@Url.Content(item.ImageThumbUrl)" alt="@item.Title">
+                </a>
+            </div>
+            <div class="media-body">
+                <h4 class="media-heading">
+                    <a href="@(Model.Widget.DetailPageUrl + "?id=" + item.ID)">
+                        @item.Title
+                    </a>
+                </h4>
+                @item.Summary
+            </div>
+        </li>
+        }
+    </ul>
+}
     @if (Model.IsPageable)
     {
         Html.RenderPartial("Partial_Pagination", Model.Pagin);

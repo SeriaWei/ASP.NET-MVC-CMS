@@ -5,7 +5,7 @@ SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[ArticleTopWidget](
 	[ID] [nvarchar](255) NOT NULL,
-	[ArticleCategoryID] [int] NULL,
+	[ArticleTypeID] [int] NULL,
 	[Tops] [int] NULL,
 	[SubTitle] [nvarchar](255) NULL,
 	[MoreLink] [nvarchar](255) NULL,

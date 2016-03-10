@@ -12,7 +12,7 @@ namespace Easy.CMS.Article.Models
     [DataConfigure(typeof(ArticleEntityMeta))]
     public class ArticleEntity : EditorEntity, IImage
     {
-        public long? ID { get; set; }
+        public long ID { get; set; }
 
         public string Summary { get; set; }
         public string MetaKeyWords { get; set; }
@@ -40,10 +40,11 @@ namespace Easy.CMS.Article.Models
         protected override void ViewConfigure()
         {
             ViewConfig(m => m.ID).AsHidden();
+            ViewConfig(m => m.Title).AsTextBox().Required().Order(1);
             ViewConfig(m => m.Status).AsDropDownList().DataSource(DicKeys.RecordStatus, SourceType.Dictionary);
             ViewConfig(m => m.ImageThumbUrl).AsTextBox().AddClass("select select-image").AddProperty("data-url", Urls.SelectImage);
             ViewConfig(m => m.ImageUrl).AsTextBox().AddClass("select select-image").AddProperty("data-url", Urls.SelectImage);
-            ViewConfig(m => m.ArticleTypeID).AsDropDownList().DataSource(ViewDataKeys.ArticleCategory, SourceType.ViewData);
+            ViewConfig(m => m.ArticleTypeID).AsDropDownList().DataSource(ViewDataKeys.ArticleCategory, SourceType.ViewData).Required();
             ViewConfig(m => m.ArticleContent).AsTextArea().AddClass("html").HideInGrid();
             ViewConfig(m => m.PublishDate).AsTextBox().Hide();
             ViewConfig(m => m.IsPublish).AsTextBox().Hide();
