@@ -22,7 +22,7 @@ namespace Easy.CMS.Product.Service
             {
                 Categorys = categoryService.Get(filter),
                 CurrentCategory = c,
-                TargetPage = currentWidget.TargetPage.IsNullOrEmpty() ? httpContext.Request.Path.ToLower() : currentWidget.TargetPage
+                TargetPage = currentWidget.TargetPage.IsNullOrEmpty() ? httpContext.Request.Url.PathAndQuery.ToLower() : currentWidget.TargetPage
             });
         }
     }

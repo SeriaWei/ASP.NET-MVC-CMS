@@ -1,5 +1,4 @@
 INSERT [dbo].[SectionContentTitle] ([ID], [SectionWidgetId], [InnerText], [Href]) VALUES (2, N'80f365c7991a49a0b04aa11006018814', N'用户名:admin 密码:admin', NULL)
-INSERT [dbo].[SectionContentTitle] ([ID], [SectionWidgetId], [InnerText], [Href]) VALUES (12, N'223a591f9d434539a2bae9e6de7bc3cf', N'用户名:admin 密码:admin', NULL)
 INSERT [dbo].[SectionContentTitle] ([ID], [SectionWidgetId], [InnerText], [Href]) VALUES (14, N'2b3eb61307d24c50a6b3aaa75db3810e', N'Lorem Ipsum is simply dummy text', NULL)
 INSERT [dbo].[SectionContentTitle] ([ID], [SectionWidgetId], [InnerText], [Href]) VALUES (17, N'00f62c5acfe840e0bee3ca2979f0f025', N'Lorem Ipsum is simply dummy text', NULL)
 INSERT [dbo].[SectionContentTitle] ([ID], [SectionWidgetId], [InnerText], [Href]) VALUES (20, N'f6f11ba2fec844de883acf0a1fe3eb89', N'Lorem Ipsum is simply dummy text', NULL)
@@ -14,4 +13,5 @@ INSERT [dbo].[SectionContentTitle] ([ID], [SectionWidgetId], [InnerText], [Href]
 INSERT [dbo].[SectionContentTitle] ([ID], [SectionWidgetId], [InnerText], [Href]) VALUES (109, N'0f66ab8ff0df44e2b5e57fd8d8c5d8ff', N'Feature Item', NULL)
 INSERT [dbo].[SectionContentTitle] ([ID], [SectionWidgetId], [InnerText], [Href]) VALUES (111, N'0f66ab8ff0df44e2b5e57fd8d8c5d8ff', N'Feature Item', NULL)
 INSERT [dbo].[SectionContentTitle] ([ID], [SectionWidgetId], [InnerText], [Href]) VALUES (113, N'0f66ab8ff0df44e2b5e57fd8d8c5d8ff', N'Feature Item', NULL)
+INSERT [dbo].[SectionContentTitle] ([ID], [SectionWidgetId], [InnerText], [Href]) VALUES (132, N'a08b97638c6148d38a4bff172523e2f9', N'用户名:admin 密码:admin', NULL)
 GO

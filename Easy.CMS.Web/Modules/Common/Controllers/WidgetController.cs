@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Easy.CMS.Common.ViewModels;
 using Easy.Extend;
 using Easy.Constant;
 using Easy.Web.CMS.Widget;
@@ -147,7 +148,7 @@ namespace Easy.CMS.Common.Controllers
         public PartialViewResult AppendWidget(WidgetBase widget)
         {
             var widgetPart = _widgetService.ApplyTemplate(widget, HttpContext);
-            return PartialView("DesignWidget", widgetPart);
+            return PartialView("DesignWidget", new DesignWidgetViewModel(widgetPart, widget.PageID));
         }
         [HttpPost]
         public JsonResult CancelTemplate(string Id)

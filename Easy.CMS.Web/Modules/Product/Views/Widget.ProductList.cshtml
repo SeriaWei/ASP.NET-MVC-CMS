@@ -7,10 +7,13 @@
         {
             <div class="@Model.Columns">
                 <div class="thumbnail colChild">
-                    <img alt="@item.Title" title="@item.Title" src="@item.ImageThumbUrl" />
+                    @if (item.ImageThumbUrl.IsNotNullAndWhiteSpace())
+                    {
+                        <img alt="@item.Title" title="@item.Title" src="@Url.Content(item.ImageThumbUrl)" />
+                    }
                     <div class="caption">
                         <h4>
-                            <a href="@(item.Url.IsNullOrEmpty() && !Model.DetailPageUrl.IsNullOrEmpty() ? Url.Content(Model.DetailPageUrl) + "?id=" + item.ID : item.Url)" target="_blank">
+                            <a href="@(item.Url.IsNullOrEmpty() && !Model.DetailPageUrl.IsNullOrEmpty() ? Url.Content(Model.DetailPageUrl) + "?id=" + item.ID : item.Url)">
                                 @item.Title
                             </a>
                         </h4>

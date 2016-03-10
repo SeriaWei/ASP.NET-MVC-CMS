@@ -26,7 +26,7 @@ namespace Easy.CMS.Product.Models
             {
                 return new ProductCategoryService().Get().ToDictionary(m => m.ID.ToString(), m => m.Title);
             }).Required();
-            ViewConfig(m => m.TargetPage).AsTextBox().AddClass("select").AddProperty("data-url", Urls.SelectPage);
+            ViewConfig(m => m.TargetPage).AsHidden();
         }
     }
 }

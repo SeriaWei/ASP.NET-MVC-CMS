@@ -148,6 +148,7 @@
     <Compile Include="Service\NavigationService.cs" />
     <Compile Include="Service\NavigationWidgetService.cs" />
     <Compile Include="Service\ScriptWidgetService.cs" />
+    <Compile Include="ViewModels\DesignWidgetViewModel.cs" />
     <Compile Include="ViewModels\LayoutZonesViewModel.cs" />
     <Compile Include="ViewModels\NavigationWidgetViewModel.cs" />
   </ItemGroup>

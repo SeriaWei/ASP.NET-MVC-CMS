@@ -3,6 +3,7 @@
     Script.Reqiured("jQueryUi").AtFoot();
     Style.Reqiured("Layout").AtHead();
     Script.Reqiured("admin").AtFoot();
+    Model.ContainerClass = Model.ContainerClass ?? "container";
 }
 @model Easy.Web.CMS.Layout.LayoutEntity
 <!DOCTYPE html>
@@ -119,7 +120,7 @@
                                 </a>
                                 @Html.Partial("Partial.Menu", Model)
                             </div>
-                            <input type="hidden" id="ContainerClass" name="ContainerClass" value="@Model.ContainerClass" />
+                            <input type="hidden" id="ContainerClass" name="ContainerClass" value="@(Model.ContainerClass)" />
                             <input type="hidden" id="LayoutId" name="ID" value="@Model.ID"/>
                             @if (Model.Page != null)
                             {
@@ -134,7 +135,7 @@
             </div>
         </nav>
     }
-    <div id="container" class="@(Model.ContainerClass ?? "container") RowDroppable design">
+    <div id="container" class="@(Model.ContainerClass) RowDroppable design">
         @RenderBody()
     </div>
     @if (!Model.Style.IsNullOrEmpty())

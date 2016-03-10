@@ -1,4 +1,4 @@
-﻿@model Easy.Web.CMS.Widget.WidgetPart
+﻿@model Easy.CMS.Common.ViewModels.DesignWidgetViewModel
 <div @(Model.Widget.StyleClassResult(true))
      id="widget_@Model.Widget.ID"
      data-widgetid="@Model.Widget.ID">
@@ -8,21 +8,23 @@
                 <span class="sort-handle">
                     <i class="glyphicon glyphicon-move ">
                     </i>
+                    @if (Model.Widget.LayoutID.IsNotNullAndWhiteSpace())
+                    {
+                        <span class="badge">布局</span>
+                    }
                     @Model.Widget.WidgetName
                 </span>
             </div>
             <div class="pull-right">
-                @if (Model.Widget.LayoutID.IsNullOrEmpty())
-                {
-                    <a href="@Url.Action("Edit", "Widget", new {module = "admin", ID = Model.Widget.ID})"><i class="glyphicon glyphicon-edit"></i></a>
-                    <a href="javascript:void(0)" class="delete"
-                       data-url="@Url.Action("DeleteWidget", "Widget", new {module = "admin"})"
-                       data-id="@Model.Widget.ID"><i class="glyphicon glyphicon-trash"></i></a>
-                }
+                <a href="@Url.Action("Edit", "Widget", new { module = "admin", ID = Model.Widget.ID, ReturnUrl = Url.Action("Design", "Page", new { ID = Model.PageID }) })"><i class="glyphicon glyphicon-edit"></i></a>
+                <a href="javascript:void(0)" class="delete"
+                   data-url="@Url.Action("DeleteWidget", "Widget", new {module = "admin"})"
+                   data-id="@Model.Widget.ID"><i class="glyphicon glyphicon-trash"></i></a>
             </div>
         </div>
     </div>
-    @{
+    @if (Model.ViewModel != null)
+    {
         Html.RenderPartial(Model.Widget.PartialView, Model.ViewModel);
     }
 </div>

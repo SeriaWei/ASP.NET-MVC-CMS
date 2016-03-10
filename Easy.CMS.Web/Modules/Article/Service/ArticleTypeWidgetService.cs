@@ -22,7 +22,7 @@ namespace Easy.CMS.Article.Service
             {
                 ArticleTypes = service.Get(filter),
                 CurrentType = service.Get(currentWidget.ArticleTypeID),
-                TargetPage = currentWidget.TargetPage.IsNullOrEmpty() ? httpContext.Request.Path.ToLower() : currentWidget.TargetPage,
+                TargetPage = currentWidget.TargetPage.IsNullOrEmpty() ? httpContext.Request.Url.PathAndQuery.ToLower() : currentWidget.TargetPage,
                 ArticleTypeID = ac
             });
         }

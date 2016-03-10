@@ -18,19 +18,17 @@
                 @foreach (var widget in noZoneWidgets.OrderBy(m => m.Position))
                 {
                     <li id="widget_@widget.ID" class="@(widget.LayoutID.IsNullOrEmpty() ? "widget-design" : "")" data-widgetid="@widget.ID">
-                        @if (widget.LayoutID.IsNullOrEmpty())
-                        {
-                            <a href="@Url.Action("Edit", "Widget", new { module = "admin", ID = widget.ID, ReturnUrl = returnUrl })"><i class="glyphicon glyphicon-edit"></i></a>
-                            <a href="javascript:void(0)" class="delete" data-widgetid="@widget.ID"><i class="glyphicon glyphicon-trash"></i></a>
-                        }
-                        else
+                        @if (widget.LayoutID.IsNotNullAndWhiteSpace())
                         {
                             <span class="badge">布局</span>
                         }
+                        <a href="@Url.Action("Edit", "Widget", new {module = "admin", ID = widget.ID, ReturnUrl = returnUrl})"><i class="glyphicon glyphicon-edit"></i></a>
+                        <a href="javascript:void(0)" class="delete" data-widgetid="@widget.ID"><i class="glyphicon glyphicon-trash"></i></a>
                         @widget.WidgetName
                     </li>
                 }
             </ul>
+
         </div>
         <div class="panel-footer">
             <span class="description">
@@ -74,15 +72,12 @@
                                     @foreach (var widget in Model.Widgets.Where(m => m.ZoneID == item.ID).OrderBy(m => m.Position).ThenBy(m => m.WidgetName))
                                         {
                                         <li id="widget_@widget.ID" class="@(widget.LayoutID.IsNullOrEmpty() ? "widget" : "")" data-widgetid="@widget.ID">
-                                            @if (widget.LayoutID.IsNullOrEmpty())
-                                                {
-                                                <a href="@Url.Action("Edit", "Widget", new { module = "admin", ID = widget.ID, ReturnUrl = returnUrl })"><i class="glyphicon glyphicon-edit"></i></a>
-                                                <a href="javascript:void(0)" class="delete" data-widgetid="@widget.ID"><i class="glyphicon glyphicon-trash"></i></a>
-                                                }
-                                                else
-                                                {
+                                            @if (widget.LayoutID.IsNotNullAndWhiteSpace())
+                                            {
                                                 <span class="label label-info">布局</span>
-                                                }
+                                            }
+                                            <a href="@Url.Action("Edit", "Widget", new { module = "admin", ID = widget.ID, ReturnUrl = returnUrl })"><i class="glyphicon glyphicon-edit"></i></a>
+                                            <a href="javascript:void(0)" class="delete" data-widgetid="@widget.ID"><i class="glyphicon glyphicon-trash"></i></a>
                                             @widget.WidgetName
                                         </li>
                                         }
