@@ -146,16 +146,19 @@ namespace Easy.CMS.Common.Controllers
         [HttpPost]
         public PartialViewResult AppendWidget(WidgetBase widget)
         {
-            var widgetBase = _widgetService.GetWidget(widget.ID);
-
-            widgetBase.PageID = widget.PageID;
-            widgetBase.ZoneID = widget.ZoneID;
-            widgetBase.Position = widget.Position;
-
-            var service = widgetBase.CreateServiceInstance();
-            var widgetPart = service.Display(widgetBase, HttpContext);
-            service.AddWidget(widgetBase);
+            var widgetPart = _widgetService.ApplyTemplate(widget, HttpContext);
             return PartialView("DesignWidget", widgetPart);
+        }
+        [HttpPost]
+        public JsonResult CancelTemplate(string Id)
+        {
+            var widget = _widgetService.Get(Id);
+            if (!widget.IsSystem)
+            {
+                widget.IsTemplate = false;
+                _widgetService.Update(widget);
+            }
+            return Json(Id);
         }
     }
 }

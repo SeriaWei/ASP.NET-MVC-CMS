@@ -37,13 +37,13 @@
       <publishTime>07/27/2015 08:41:42</publishTime>
     </File>
     <File Include="bin/Easy.CMS.Section.dll">
-      <publishTime>03/08/2016 10:57:54</publishTime>
+      <publishTime>03/10/2016 15:02:46</publishTime>
     </File>
     <File Include="bin/Easy.dll">
       <publishTime>03/07/2016 08:39:56</publishTime>
     </File>
     <File Include="bin/Easy.Web.CMS.dll">
-      <publishTime>03/07/2016 09:03:13</publishTime>
+      <publishTime>03/10/2016 15:01:02</publishTime>
     </File>
     <File Include="bin/Easy.Web.dll">
       <publishTime>03/07/2016 08:39:56</publishTime>
@@ -166,7 +166,7 @@
       <publishTime>03/07/2016 08:39:56</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>03/08/2016 11:12:15</publishTime>
+      <publishTime>03/10/2016 15:02:55</publishTime>
     </File>
     <File Include="Views/SectionContentCallToAction/Form.cshtml">
       <publishTime>03/07/2016 08:39:56</publishTime>
@@ -188,6 +188,9 @@
     </File>
     <File Include="Views/SectionTemplate.Default.cshtml">
       <publishTime>10/28/2015 15:45:34</publishTime>
+    </File>
+    <File Include="Views/SectionTemplate.ImageRight.cshtml">
+      <publishTime>03/09/2016 14:15:19</publishTime>
     </File>
     <File Include="Views/SectionTemplate.LinkGroup.cshtml">
       <publishTime>10/28/2015 15:44:47</publishTime>
@@ -243,6 +246,9 @@
     <File Include="Views/Thumbnail/SectionTemplate.Default.png">
       <publishTime>10/20/2015 10:46:43</publishTime>
     </File>
+    <File Include="Views/Thumbnail/SectionTemplate.ImageRight.png">
+      <publishTime>03/09/2016 14:12:59</publishTime>
+    </File>
     <File Include="Views/Thumbnail/SectionTemplate.LinkGroup.png">
       <publishTime>11/06/2015 15:35:11</publishTime>
     </File>
@@ -251,6 +257,9 @@
     </File>
     <File Include="Views/Thumbnail/SectionTemplate.ListView.png">
       <publishTime>11/06/2015 15:47:15</publishTime>
+    </File>
+    <File Include="Views/Thumbnail/SectionTemplate.Thumbnail.png">
+      <publishTime>03/08/2016 09:33:45</publishTime>
     </File>
     <File Include="Views/Thumbnail/Web.config">
       <publishTime>02/22/2016 17:00:05</publishTime>

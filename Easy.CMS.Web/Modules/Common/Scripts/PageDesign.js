@@ -70,10 +70,19 @@
                     checkEmptyZone();
                 }
             }, "json");
-        }, true);
+        }, true,10);
     });
     $(document).on("click", ".templates .tool-open", function() {
         $(this).parent().toggleClass("active");
+    }).on("click", ".templates .delete-template", function () {
+        var th = $(this);
+        Easy.ShowMessageBox("提示", "确定要删除该模板吗？", function () {
+            $.post(th.data("url"), { Id: th.data("id") }, function (data) {
+                if (data) {
+                    $("#template_" + data).remove();
+                }
+            }, "json");
+        }, true,10);
     });
     $(".helper").click(function () {
         $("#container").toggleClass($(this).data("class"));

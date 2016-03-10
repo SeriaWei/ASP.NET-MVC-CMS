@@ -91,10 +91,22 @@ namespace Easy.Web.CMS.Widget
         }
 
 
-        public WidgetBase GetWidget(string widgetId)
+        public WidgetPart ApplyTemplate(WidgetBase widget,HttpContextBase httpContext)
         {
-            var widgetBase = Get(widgetId);
-            return widgetBase.CreateServiceInstance().GetWidget(widgetBase);
+            var widgetBase = Get(widget.ID);
+            var service = widgetBase.CreateServiceInstance();
+            widgetBase = service.GetWidget(widgetBase);
+
+            widgetBase.PageID = widget.PageID;
+            widgetBase.ZoneID = widget.ZoneID;
+            widgetBase.Position = widget.Position;
+            widgetBase.IsTemplate = false;
+            widgetBase.Thumbnail = null;
+            widgetBase.LayoutID = null;
+
+            var widgetPart = service.Display(widgetBase, httpContext);
+            service.AddWidget(widgetBase);
+            return widgetPart;
         }
     }
     public abstract class WidgetService<T> : ServiceBase<T>, IWidgetPartDriver where T : WidgetBase
@@ -138,12 +150,6 @@ namespace Easy.Web.CMS.Widget
 
         public override void Add(T item)
         {
-            if (item.ID.IsNotNullAndWhiteSpace() && item.IsTemplate)
-            {
-                item.IsTemplate = false;
-                item.Thumbnail = null;
-                item.LayoutID = null;
-            }
             item.ID = Guid.NewGuid().ToString("N");
             WidgetBaseService.Add(item);
             if (typeof(T) != typeof(WidgetBase))

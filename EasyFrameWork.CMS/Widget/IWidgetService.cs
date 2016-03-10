@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Web;
 using Easy.RepositoryPattern;
 
 namespace Easy.Web.CMS.Widget
@@ -8,6 +9,6 @@ namespace Easy.Web.CMS.Widget
         IEnumerable<WidgetBase> GetByLayoutId(string layoutId);
         IEnumerable<WidgetBase> GetByPageId(string pageId);
         IEnumerable<WidgetBase> GetAllByPageId(string pageId);
-        WidgetBase GetWidget(string widgetId);
+        WidgetPart ApplyTemplate(WidgetBase widget, HttpContextBase httpContext);
     }
 }

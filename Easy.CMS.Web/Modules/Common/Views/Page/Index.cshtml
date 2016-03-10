@@ -76,7 +76,7 @@
                         “布局”：修改页面布局。<code>会影响所有使用该布局的页面</code>
                     </li>
                 </ul>
-                <hr/>
+                <hr />
                 <p>
                     <strong>注：</strong>
                     页面必须要发布才可以通过网址访问。对页面进行修改不会影响到已发布版本，直到下一次发布。
@@ -142,13 +142,13 @@
         }
         $(document).on("click", ".fullRowList .delete", function () {
             var id = $(this).data("widgetid");
-            if (confirm("确定要删除该组件吗？")) {
+            Easy.ShowMessageBox("提示", "确定要删除该模板吗？", function () {
                 $.post("@Url.Action("DeleteWidget", "Widget", new { module = "admin" })", { ID: id }, function (data) {
                     if (data) {
                         $("#widget_" + id).remove();
                     }
                 }, "json");
-            }
+            }, true, 10);
         });
         if (!location.hash) {
             location.hash = '@(pageId)';
