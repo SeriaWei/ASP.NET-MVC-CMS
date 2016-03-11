@@ -8,3 +8,4 @@ obj
 /Easy.CMS.Web.sln.metaproj.tmp
 *.suo
 /Easy.CMS.Web/UpLoad
+/Easy.CMS.Web/App_Data

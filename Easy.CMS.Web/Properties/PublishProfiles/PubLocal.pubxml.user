@@ -16,10 +16,10 @@
       <publishTime>07/02/2014 21:58:06</publishTime>
     </File>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>03/10/2016 15:01:26</publishTime>
+      <publishTime>03/11/2016 11:35:57</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>03/10/2016 15:01:26</publishTime>
+      <publishTime>03/11/2016 11:35:57</publishTime>
     </File>
     <File Include="bin/App_Web_dljcttax.dll">
       <publishTime>09/08/2015 09:16:14</publishTime>
@@ -58,7 +58,7 @@
       <publishTime>07/02/2014 21:58:05</publishTime>
     </File>
     <File Include="bin/Easy.CMS.Web.dll">
-      <publishTime>03/10/2016 15:01:03</publishTime>
+      <publishTime>03/11/2016 11:35:33</publishTime>
     </File>
     <File Include="bin/Easy.CMS.Web.Views.dll">
       <publishTime>09/08/2015 09:17:52</publishTime>
@@ -67,7 +67,7 @@
       <publishTime>03/07/2016 08:39:56</publishTime>
     </File>
     <File Include="bin/Easy.Web.CMS.dll">
-      <publishTime>03/10/2016 15:01:02</publishTime>
+      <publishTime>03/11/2016 11:35:33</publishTime>
     </File>
     <File Include="bin/Easy.Web.dll">
       <publishTime>03/07/2016 08:39:56</publishTime>
@@ -392,6 +392,9 @@
     </File>
     <File Include="Content/Images/bg.gif">
       <publishTime>12/13/2014 17:18:00</publishTime>
+    </File>
+    <File Include="Content/Images/close_red.png">
+      <publishTime>03/10/2016 15:29:29</publishTime>
     </File>
     <File Include="Content/Images/logo_zkea.png">
       <publishTime>09/21/2015 11:33:32</publishTime>
@@ -735,6 +738,9 @@
     <File Include="Images/template %289%29.png">
       <publishTime>03/09/2016 12:40:37</publishTime>
     </File>
+    <File Include="Images/template.png">
+      <publishTime>03/10/2016 16:24:38</publishTime>
+    </File>
     <File Include="Mvc.sitemap">
       <publishTime>02/25/2016 10:53:06</publishTime>
     </File>
@@ -742,7 +748,7 @@
       <publishTime>03/07/2016 08:39:56</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>03/10/2016 15:01:19</publishTime>
+      <publishTime>03/11/2016 11:35:49</publishTime>
     </File>
     <File Include="Scripts/angular/angular-animate.js">
       <publishTime>01/07/2016 15:49:06</publishTime>
@@ -2653,16 +2659,16 @@
       <publishTime>03/10/2016 14:39:59</publishTime>
     </File>
     <File Include="Themes/Default/css/Base.css">
-      <publishTime>03/10/2016 14:39:22</publishTime>
+      <publishTime>03/11/2016 11:09:50</publishTime>
     </File>
     <File Include="Themes/Default/css/Base.css.map">
-      <publishTime>03/10/2016 14:39:22</publishTime>
+      <publishTime>03/11/2016 11:09:50</publishTime>
     </File>
     <File Include="Themes/Default/css/Base.less">
-      <publishTime>03/10/2016 14:39:21</publishTime>
+      <publishTime>03/11/2016 11:09:50</publishTime>
     </File>
     <File Include="Themes/Default/css/Base.min.css">
-      <publishTime>03/10/2016 14:39:22</publishTime>
+      <publishTime>03/11/2016 11:09:50</publishTime>
     </File>
     <File Include="Themes/Default/css/Carousel.css">
       <publishTime>11/07/2015 09:39:45</publishTime>
@@ -2713,16 +2719,16 @@
       <publishTime>12/12/2014 23:22:23</publishTime>
     </File>
     <File Include="Themes/Default/css/Product.css">
-      <publishTime>11/07/2015 09:39:46</publishTime>
+      <publishTime>03/11/2016 09:47:32</publishTime>
     </File>
     <File Include="Themes/Default/css/Product.css.map">
-      <publishTime>11/07/2015 09:39:46</publishTime>
+      <publishTime>03/11/2016 09:47:32</publishTime>
     </File>
     <File Include="Themes/Default/css/Product.less">
-      <publishTime>11/07/2015 09:35:36</publishTime>
+      <publishTime>03/11/2016 09:47:32</publishTime>
     </File>
     <File Include="Themes/Default/css/Product.min.css">
-      <publishTime>08/31/2015 08:40:02</publishTime>
+      <publishTime>03/11/2016 09:47:32</publishTime>
     </File>
     <File Include="Themes/Default/css/Section.css">
       <publishTime>11/10/2015 16:20:47</publishTime>
@@ -2737,28 +2743,28 @@
       <publishTime>11/10/2015 16:20:46</publishTime>
     </File>
     <File Include="Themes/Default/css/Theme.css">
-      <publishTime>03/10/2016 14:40:50</publishTime>
+      <publishTime>03/11/2016 11:09:51</publishTime>
     </File>
     <File Include="Themes/Default/css/Theme.css.map">
-      <publishTime>03/10/2016 14:40:50</publishTime>
+      <publishTime>03/11/2016 11:09:51</publishTime>
     </File>
     <File Include="Themes/Default/css/Theme.less">
       <publishTime>11/07/2015 12:32:19</publishTime>
     </File>
     <File Include="Themes/Default/css/Theme.min.css">
-      <publishTime>03/10/2016 14:39:59</publishTime>
+      <publishTime>03/11/2016 11:09:51</publishTime>
     </File>
     <File Include="Themes/Default/css/widget.css">
-      <publishTime>03/09/2016 12:35:26</publishTime>
+      <publishTime>03/11/2016 09:53:17</publishTime>
     </File>
     <File Include="Themes/Default/css/widget.css.map">
-      <publishTime>03/09/2016 12:35:26</publishTime>
+      <publishTime>03/11/2016 09:53:17</publishTime>
     </File>
     <File Include="Themes/Default/css/Widget.less">
-      <publishTime>03/09/2016 12:35:25</publishTime>
+      <publishTime>03/11/2016 09:53:16</publishTime>
     </File>
     <File Include="Themes/Default/css/widget.min.css">
-      <publishTime>03/09/2016 12:35:27</publishTime>
+      <publishTime>03/11/2016 09:53:16</publishTime>
     </File>
     <File Include="Themes/Default/images/bg.gif">
       <publishTime>12/13/2014 17:32:00</publishTime>

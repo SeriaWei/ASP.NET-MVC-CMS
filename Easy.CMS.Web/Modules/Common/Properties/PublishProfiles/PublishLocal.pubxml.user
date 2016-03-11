@@ -67,13 +67,13 @@
       <publishTime>09/08/2015 09:26:45</publishTime>
     </File>
     <File Include="bin/Easy.CMS.Common.dll">
-      <publishTime>03/10/2016 15:02:20</publishTime>
+      <publishTime>03/11/2016 11:39:50</publishTime>
     </File>
     <File Include="bin/Easy.dll">
       <publishTime>03/07/2016 08:39:56</publishTime>
     </File>
     <File Include="bin/Easy.Web.CMS.dll">
-      <publishTime>03/10/2016 15:01:02</publishTime>
+      <publishTime>03/11/2016 11:35:33</publishTime>
     </File>
     <File Include="bin/Easy.Web.dll">
       <publishTime>03/07/2016 08:39:56</publishTime>
@@ -229,7 +229,7 @@
       <publishTime>01/30/2015 22:48:00</publishTime>
     </File>
     <File Include="Content/Layout.css">
-      <publishTime>03/10/2016 08:18:44</publishTime>
+      <publishTime>03/10/2016 15:59:35</publishTime>
     </File>
     <File Include="CopyItems.xml">
       <publishTime>10/23/2014 16:11:50</publishTime>
@@ -238,7 +238,7 @@
       <publishTime>03/07/2016 08:39:56</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>03/10/2016 15:02:22</publishTime>
+      <publishTime>03/11/2016 11:39:52</publishTime>
     </File>
     <File Include="Scripts/jquery-1.8.2.js">
       <publishTime>01/30/2015 22:48:00</publishTime>
@@ -274,7 +274,7 @@
       <publishTime>09/09/2015 11:32:15</publishTime>
     </File>
     <File Include="Scripts/PageDesign.js">
-      <publishTime>03/10/2016 08:18:44</publishTime>
+      <publishTime>03/10/2016 17:13:46</publishTime>
     </File>
     <File Include="Views/Account/Login.cshtml">
       <publishTime>03/04/2016 08:22:52</publishTime>
@@ -322,16 +322,16 @@
       <publishTime>03/08/2016 11:35:16</publishTime>
     </File>
     <File Include="Views/Page/Design.cshtml">
-      <publishTime>03/10/2016 08:18:44</publishTime>
+      <publishTime>03/11/2016 08:22:29</publishTime>
     </File>
     <File Include="Views/Page/Edit.cshtml">
       <publishTime>03/07/2016 08:39:56</publishTime>
     </File>
     <File Include="Views/Page/Index.cshtml">
-      <publishTime>03/07/2016 14:17:45</publishTime>
+      <publishTime>03/10/2016 17:15:09</publishTime>
     </File>
     <File Include="Views/Page/PageZones.cshtml">
-      <publishTime>03/07/2016 08:39:56</publishTime>
+      <publishTime>03/11/2016 08:22:29</publishTime>
     </File>
     <File Include="Views/Page/PreView.cshtml">
       <publishTime>02/29/2016 16:15:36</publishTime>
@@ -340,13 +340,13 @@
       <publishTime>03/07/2016 08:39:56</publishTime>
     </File>
     <File Include="Views/Shared/DesignWidget.cshtml">
-      <publishTime>03/09/2016 08:19:31</publishTime>
+      <publishTime>03/11/2016 08:22:29</publishTime>
     </File>
     <File Include="Views/Shared/Partial.Menu.cshtml">
       <publishTime>02/25/2016 10:53:05</publishTime>
     </File>
     <File Include="Views/Shared/_DesignLayout.cshtml">
-      <publishTime>02/25/2016 10:53:05</publishTime>
+      <publishTime>03/11/2016 08:22:29</publishTime>
     </File>
     <File Include="Views/Shared/_DesignPageLayout.cshtml">
       <publishTime>02/25/2016 10:53:05</publishTime>
@@ -370,16 +370,16 @@
       <publishTime>02/22/2016 16:59:58</publishTime>
     </File>
     <File Include="Views/Widget.Carousel.cshtml">
-      <publishTime>09/16/2015 15:24:25</publishTime>
+      <publishTime>03/11/2016 09:45:20</publishTime>
     </File>
     <File Include="Views/Widget.HTML.cshtml">
-      <publishTime>09/01/2015 09:51:12</publishTime>
+      <publishTime>03/11/2016 09:45:25</publishTime>
     </File>
     <File Include="Views/Widget.Image.cshtml">
-      <publishTime>10/20/2015 15:25:51</publishTime>
+      <publishTime>03/11/2016 09:45:42</publishTime>
     </File>
     <File Include="Views/Widget.Navigation.cshtml">
-      <publishTime>02/29/2016 08:43:54</publishTime>
+      <publishTime>03/11/2016 09:46:04</publishTime>
     </File>
     <File Include="Views/Widget.Script.cshtml">
       <publishTime>09/02/2015 15:57:04</publishTime>
@@ -391,7 +391,7 @@
       <publishTime>03/07/2016 08:39:56</publishTime>
     </File>
     <File Include="Views/Widget/Templates.cshtml">
-      <publishTime>03/10/2016 08:18:44</publishTime>
+      <publishTime>03/10/2016 16:35:53</publishTime>
     </File>
     <File Include="Views/WidgetTemplate/SelectWidget.cshtml">
       <publishTime>02/25/2016 10:53:06</publishTime>

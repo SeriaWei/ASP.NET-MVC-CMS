@@ -28,13 +28,13 @@
       <publishTime>09/08/2015 09:26:23</publishTime>
     </File>
     <File Include="bin/Easy.CMS.Article.dll">
-      <publishTime>03/10/2016 15:02:08</publishTime>
+      <publishTime>03/11/2016 11:39:38</publishTime>
     </File>
     <File Include="bin/Easy.dll">
       <publishTime>03/07/2016 08:39:56</publishTime>
     </File>
     <File Include="bin/Easy.Web.CMS.dll">
-      <publishTime>03/10/2016 15:01:02</publishTime>
+      <publishTime>03/11/2016 11:35:33</publishTime>
     </File>
     <File Include="bin/Easy.Web.dll">
       <publishTime>03/07/2016 08:39:56</publishTime>
@@ -163,7 +163,7 @@
       <publishTime>03/07/2016 08:39:56</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>03/10/2016 15:02:09</publishTime>
+      <publishTime>03/11/2016 11:39:39</publishTime>
     </File>
     <File Include="Scripts/jquery-1.8.2.js">
       <publishTime>07/02/2014 22:06:45</publishTime>
@@ -226,19 +226,19 @@
       <publishTime>02/22/2016 16:59:55</publishTime>
     </File>
     <File Include="Views/Widget.ArticleDetail.cshtml">
-      <publishTime>08/31/2015 08:40:02</publishTime>
+      <publishTime>03/11/2016 11:30:37</publishTime>
     </File>
     <File Include="Views/Widget.ArticleList.cshtml">
-      <publishTime>03/10/2016 14:22:47</publishTime>
+      <publishTime>03/11/2016 09:56:11</publishTime>
     </File>
     <File Include="Views/Widget.ArticleSummary.cshtml">
-      <publishTime>09/02/2015 13:53:33</publishTime>
+      <publishTime>03/11/2016 09:45:03</publishTime>
     </File>
     <File Include="Views/Widget.ArticleTops.cshtml">
-      <publishTime>08/31/2015 08:40:02</publishTime>
+      <publishTime>03/11/2016 09:45:07</publishTime>
     </File>
     <File Include="Views/Widget.ArticleType.cshtml">
-      <publishTime>08/31/2015 08:40:02</publishTime>
+      <publishTime>03/11/2016 09:45:11</publishTime>
     </File>
     <File Include="web.config">
       <publishTime>03/07/2016 09:09:09</publishTime>
