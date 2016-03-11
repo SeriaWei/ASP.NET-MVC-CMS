@@ -1,10 +1,4 @@
-﻿.ProductList {
-  margin: 10px 0;
-}
-.ProductList .thumbnail > img {
-  width: 100%;
-}
-.ProductList .pagination {
+﻿.productlist .pagination {
   margin: 10px 0;
 }
 /*# sourceMappingURL=Product.css.map */

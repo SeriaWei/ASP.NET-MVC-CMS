@@ -13,7 +13,7 @@
     var carouselItems = Model.CarouselItems.ToList();
 }
 
-<div class="widget owl-carousel">
+<div class="owl-carousel">
     @foreach (CarouselItemEntity item in carouselItems)
     {
         <div class="item" style="background-image: url('@Url.PathContent(item.ImageUrl)');" data-image-url="@Url.PathContent(item.ImageUrl)">

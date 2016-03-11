@@ -1,7 +1,7 @@
 ﻿.widget {
   margin: 5px;
 }
-.border .widget {
+.widget.border {
   border: 1px solid #dedede;
   border-radius: 3px;
   padding: 5px;

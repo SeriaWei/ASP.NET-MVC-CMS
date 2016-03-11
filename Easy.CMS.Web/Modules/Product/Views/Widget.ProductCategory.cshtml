@@ -15,13 +15,14 @@
         }
     }
 }
-<div class="widget ProductCategory">
+
+<div class="ProductCategory">
     <div class="list-group">
         @foreach (var item in Model.Categorys)
-        {
-            <a href="@Regex.Replace(currentUrl, @"pc=\d", "pc=" + item.ID)" class="list-group-item @(item.ID==Model.CurrentCategory?"active":"")">
+            {
+            <a href="@Regex.Replace(currentUrl, @"pc=\d", "pc=" + item.ID)" class="list-group-item @(item.ID == Model.CurrentCategory ? "active" : "")">
                 @item.Title
             </a>
-        }
+            }
     </div>
 </div>

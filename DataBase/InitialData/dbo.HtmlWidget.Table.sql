@@ -1,3 +1,4 @@
+INSERT [dbo].[HtmlWidget] ([ID], [HTML]) VALUES (N'062018a8e5cf48b4a0d90296e7f4e965', N'<hr />')
 INSERT [dbo].[HtmlWidget] ([ID], [HTML]) VALUES (N'09617f6142934daaadee6cfb9df6d66f', N'<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry''s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus leo ante, consectetur sit amet vulputate vel, dapibus sit amet lectus.</p>')
 INSERT [dbo].[HtmlWidget] ([ID], [HTML]) VALUES (N'34af73e7363d40ca9fbf866b679847a1', N'<h1>欢迎使用ZKEACMS进行创作</h1>')
 INSERT [dbo].[HtmlWidget] ([ID], [HTML]) VALUES (N'50f810582d28440eb3bdff9ee5b1ef24', N'<div class="container-fluid">

@@ -37,13 +37,12 @@ namespace Easy.Web.CMS.Widget
         {
             if (!design)
             {
-                if (StyleClass.IsNullOrWhiteSpace()) return null;
-                return new HtmlString(StyleRegex.IsMatch(StyleClass) ? StyleClass : "class=\"" + StyleClass + "\"");
+                return new HtmlString(StyleRegex.IsMatch(StyleClass??"") ? StyleClass +" class=\"widget\"": "class=\"widget " + StyleClass + "\"");
             }
             return
                 new HtmlString(StyleRegex.IsMatch(StyleClass ?? "")
-                    ? StyleClass + " class=\"widget-design\""
-                    : "class=\"" + StyleClass + " widget-design\"");
+                    ? StyleClass + " class=\"widget widget-design\""
+                    : "class=\"widget widget-design " + StyleClass + "\"");
         }
         public WidgetPart ToWidgetPart()
         {

@@ -1,25 +1,34 @@
 ﻿@using System.Text.RegularExpressions
 @model Easy.CMS.Product.ViewModel.ProductListWidgetViewModel
 
-<div class="widget ProductList container-fluid">
+<div class="productlist container-fluid">
     <div class="row">
         @foreach (var item in Model.Products)
         {
             <div class="@Model.Columns">
-                <div class="thumbnail colChild">
+                <div class="thumbnail">
                     @if (item.ImageThumbUrl.IsNotNullAndWhiteSpace())
                     {
                         <img alt="@item.Title" title="@item.Title" src="@Url.Content(item.ImageThumbUrl)" />
                     }
                     <div class="caption">
                         <h4>
-                            <a href="@(item.Url.IsNullOrEmpty() && !Model.DetailPageUrl.IsNullOrEmpty() ? Url.Content(Model.DetailPageUrl) + "?id=" + item.ID : item.Url)">
-                                @item.Title
-                            </a>
+                                 @item.Title
                         </h4>
-                        <p>
+                        <p class="text-muted small">
                             @item.Description
                         </p>
+                        @if (item.Url.IsNotNullAndWhiteSpace() || Model.DetailPageUrl.IsNotNullAndWhiteSpace())
+                        {
+                            string url = item.Url;
+                            if (url.IsNullOrWhiteSpace())
+                            {
+                                url = Url.Content(Model.DetailPageUrl) + "?id=" + item.ID;
+                            }
+                        <p class="clearfix">
+                            <a href="@url" class="btn btn-info pull-right">查看</a>
+                        </p>
+                        }
                     </div>
                 </div>
             </div>

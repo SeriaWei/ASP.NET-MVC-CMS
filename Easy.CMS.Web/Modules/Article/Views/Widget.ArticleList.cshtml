@@ -5,32 +5,36 @@
         Model.Widget.DetailPageUrl = Url.Content(Model.Widget.DetailPageUrl);
     }
 }
-<div class="widget article-list">
+<div class="article-list container-fluid">
     @if (Model.Articles != null)
-{
-    <ul class="media-list">
-        @foreach (var item in Model.Articles)
-        {
-        <li class="media">
-            <div class="media-left">
-                <a href="@(Model.Widget.DetailPageUrl + "?id=" + item.ID)">
-                    <img class="media-object" src="@Url.Content(item.ImageThumbUrl)" alt="@item.Title">
-                </a>
-            </div>
-            <div class="media-body">
-                <h4 class="media-heading">
-                    <a href="@(Model.Widget.DetailPageUrl + "?id=" + item.ID)">
-                        @item.Title
-                    </a>
-                </h4>
-                @item.Summary
-            </div>
-        </li>
-        }
-    </ul>
-}
-    @if (Model.IsPageable)
     {
-        Html.RenderPartial("Partial_Pagination", Model.Pagin);
+        <div class="row">
+            <div class="col-sm-12">
+                <ul class="media-list">
+                    @foreach (var item in Model.Articles)
+                         {
+                        <li class="media">
+                            <div class="media-left">
+                                <a href="@(Model.Widget.DetailPageUrl + "?id=" + item.ID)">
+                                    <img class="media-object" src="@Url.Content(item.ImageThumbUrl)" alt="@item.Title">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">
+                                    <a href="@(Model.Widget.DetailPageUrl + "?id=" + item.ID)">
+                                        @item.Title
+                                    </a>
+                                </h4>
+                                @item.Summary
+                            </div>
+                        </li>
+                         }
+                </ul>
+                @if (Model.IsPageable)
+                {
+                    Html.RenderPartial("Partial_Pagination", Model.Pagin);
+                }
+            </div>
+        </div>
     }
 </div>
