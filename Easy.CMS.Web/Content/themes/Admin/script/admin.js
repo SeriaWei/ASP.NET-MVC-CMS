@@ -8,11 +8,11 @@
         $(this).nextAll(".accordion-inner").addClass("active").show(200);
         return false;
     });
-    var mainContainer = $(".main-container");
+    var mainContainer = $("#main-body");
     $(window).resize(function () {
-        mainContainer.height($(window).height() - 70);
+        mainContainer.height($(window).height() - 100);
     });
-    mainContainer.height($(window).height() - 70);
+    mainContainer.height($(window).height() - 100);
 
 
     $(document).on("click", ".cancel", function () {

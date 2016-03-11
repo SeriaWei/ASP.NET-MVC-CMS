@@ -29,6 +29,9 @@
       <mvcSiteMapNode title="编辑" controller="carousel" action="edit" module="admin"/>
     </mvcSiteMapNode>
     
+    <mvcSiteMapNode title="图片管理" controller="image" action="index" module="admin">
+    </mvcSiteMapNode>
+    
     <mvcSiteMapNode title="文章" controller="article" action="index" module="admin">
       <mvcSiteMapNode title="新建" controller="article" action="create" module="admin"/>
       <mvcSiteMapNode title="编辑" controller="article" action="edit" module="admin"/>

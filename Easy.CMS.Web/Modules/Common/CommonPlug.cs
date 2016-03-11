@@ -77,10 +77,17 @@ namespace Easy.CMS.Common
             };
             yield return new AdminMenu
             {
-                Title = "焦点图",
-                Icon = "glyphicon-hd-video",
-                Url = "~/admin/Carousel",
+                Title = "图片",
+                Icon = "glyphicon glyphicon-picture",
+                Url = "~/admin/Image",
                 Order = 4
+            };
+            yield return new AdminMenu
+            {
+                Title = "焦点图",
+                Icon = "glyphicon glyphicon-eye-open",
+                Url = "~/admin/Carousel",
+                Order = 5
             };
             yield return new AdminMenu
             {

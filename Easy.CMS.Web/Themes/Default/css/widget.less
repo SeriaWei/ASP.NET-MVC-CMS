@@ -2,13 +2,39 @@
 
 .widget {
     margin: @margin-base * 0.5;
-}
 
-    .widget.border {
+    &.border {
         border: 1px solid @color-border;
         border-radius: 3px;
         padding: 5px;
     }
+
+    &.footer {
+        text-align: center;
+        border-top: 1px solid @color-border;
+        background: @color-main;
+        color: #FFF;
+        margin:0;
+        p {
+            margin: 0;
+        }
+
+        .html-widget {
+            margin-bottom: 0;
+            padding: @padding-base;
+        }
+
+        a {
+            color: #fff;
+
+            &:hover {
+                color: @color-danger;
+            }
+        }
+    }
+}
+
+
 
 .header {
     h1 {
@@ -18,29 +44,7 @@
     color: @color-main;
 }
 
-.footer {
-    text-align: center;
-    border-top: 1px solid @color-border;
-    background: @color-main;
-    color: #FFF;
 
-    p {
-        margin: 0;
-    }
-
-    .html-widget {
-        margin-bottom: 0;
-        padding: @padding-base;
-    }
-
-    a {
-        color: #fff;
-
-        &:hover {
-            color: @color-danger;
-        }
-    }
-}
 
 .align-center {
     text-align: center;

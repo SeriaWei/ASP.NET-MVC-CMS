@@ -20,7 +20,7 @@ namespace Easy.CMS.Article
             {
                 Title = "文章管理",
                 Icon = "glyphicon-font",
-                Order = 5,
+                Order = 10,
                 Children = new List<AdminMenu>
                 {
                     new AdminMenu

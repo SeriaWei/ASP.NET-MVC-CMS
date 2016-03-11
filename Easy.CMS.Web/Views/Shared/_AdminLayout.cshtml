@@ -112,8 +112,9 @@
             <div class="site-map">
                 @Html.MvcSiteMap().SiteMapPath()
             </div>
-
-            @RenderBody()
+            <div id="main-body">
+                @RenderBody()
+            </div>
         </div>
     </div>
     @StyleAtFoot()

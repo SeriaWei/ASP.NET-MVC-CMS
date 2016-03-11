@@ -40,14 +40,14 @@
 	<a href="http://open.tietuku.com/manager" target="_blank">查看</a>
 </div>
 <div class="row">
-	<div class="col-lg-3 col-md-3 col-sm-4 col-xs-6" ng-repeat="album in albumInfo.album">
-		<div class="thumbnail">
-			<a ng-href="#/albumpic/{{album.aid}}/{{album.albumname}}">
-				<img ng-if="album.pic&&album.pic.length>0" ng-src="{{album.pic[0].url}}">
-				<div class="caption">
-					<span ng-bind="album.albumname"></span>
-				</div>
-			</a>
-		</div>
-	</div>
+    <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6" ng-repeat="album in albumInfo.album">
+        <div class="thumbnail">
+            <a class="album" ng-href="#/albumpic/{{album.aid}}/{{album.albumname}}">
+                <img ng-if="album.pic&&album.pic.length>0" ng-src="{{album.pic[0].url}}">
+            </a>
+            <div class="caption">
+                <span ng-bind="album.albumname"></span>
+            </div>
+        </div>
+    </div>
 </div>
