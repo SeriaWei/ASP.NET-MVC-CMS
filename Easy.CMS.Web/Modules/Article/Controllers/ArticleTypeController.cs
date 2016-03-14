@@ -13,8 +13,8 @@ namespace Easy.CMS.Article.Controllers
     [AdminTheme, Authorize]
     public class ArticleTypeController : BasicController<ArticleType, long, ArticleTypeService>
     {
-        public ArticleTypeController()
-            : base(new ArticleTypeService())
+        public ArticleTypeController(ArticleTypeService service)
+            : base(service)
         {
         }
 
@@ -35,8 +35,8 @@ namespace Easy.CMS.Article.Controllers
 
         public JsonResult GetArticleTypeTree()
         {
-            var pages = Service.Get(new Data.DataFilter());
-            var node = new Easy.HTML.jsTree.Tree<ArticleType>().Source(pages).ToNode(m => m.ID.ToString(), m => m.Title, m => m.ParentID.ToString(), "0");
+            var allNodes = Service.Get();
+            var node = new ViewPort.jsTree.Tree<ArticleType>().Source(allNodes).ToNode(m => m.ID.ToString(), m => m.Title, m => m.ParentID.ToString(), "0");
             return Json(node, JsonRequestBehavior.AllowGet);
         }
     }

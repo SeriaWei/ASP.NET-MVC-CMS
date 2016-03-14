@@ -45,12 +45,12 @@
       <HintPath>..\..\..\packages\Autofac.3.5.2\lib\net40\Autofac.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Easy, Version=1.0.5.1, Culture=neutral, PublicKeyToken=1964c83ce4e03f58, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\EasyFrameWork.1.0.5.1\lib\net40\Easy.dll</HintPath>
+    <Reference Include="Easy, Version=1.0.5.3, Culture=neutral, PublicKeyToken=1964c83ce4e03f58, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\EasyFrameWork.1.0.5.3\lib\net40\Easy.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Easy.Web, Version=1.0.5.1, Culture=neutral, PublicKeyToken=3aaa4da33a984374, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\EasyFrameWork.Web.1.0.5.1\lib\net40\Easy.Web.dll</HintPath>
+    <Reference Include="Easy.Web, Version=1.0.5.2, Culture=neutral, PublicKeyToken=3aaa4da33a984374, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\EasyFrameWork.Web.1.0.5.2\lib\net40\Easy.Web.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
@@ -124,6 +124,7 @@
     <Compile Include="CommonPlug.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CarouselController.cs" />
+    <Compile Include="Controllers\ImageController.cs" />
     <Compile Include="Controllers\LayoutController.cs" />
     <Compile Include="Controllers\NavigationController.cs" />
     <Compile Include="Controllers\PageController.cs" />
@@ -141,10 +142,14 @@
     <Compile Include="Service\CarouselItemService.cs" />
     <Compile Include="Service\CarouselService.cs" />
     <Compile Include="Service\CarouselWidgetService.cs" />
+    <Compile Include="Service\ICarouselItemService.cs" />
+    <Compile Include="Service\ICarouselService.cs" />
     <Compile Include="Service\ImageWidgetService.cs" />
+    <Compile Include="Service\INavigationService.cs" />
     <Compile Include="Service\NavigationService.cs" />
     <Compile Include="Service\NavigationWidgetService.cs" />
     <Compile Include="Service\ScriptWidgetService.cs" />
+    <Compile Include="ViewModels\DesignWidgetViewModel.cs" />
     <Compile Include="ViewModels\LayoutZonesViewModel.cs" />
     <Compile Include="ViewModels\NavigationWidgetViewModel.cs" />
   </ItemGroup>
@@ -153,6 +158,7 @@
     <Content Include="CopyItems.xml" />
     <Content Include="Content\Images\demoLayout.jpg" />
     <Content Include="Scripts\jquery-1.8.2.js" />
+    <Content Include="Scripts\LayoutDesign.js" />
     <Content Include="Scripts\Owl.Carousel.js" />
     <None Include="Properties\PublishProfiles\PublishLocal.pubxml" />
     <Content Include="Scripts\Owl.Carousel.min.js.map">
@@ -172,6 +178,7 @@
     <Content Include="Scripts\OwlCarousel\owl.transitions.min.css">
       <DependentUpon>owl.transitions.css</DependentUpon>
     </Content>
+    <Content Include="Scripts\PageDesign.js" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Layout\LayoutZones.cshtml" />
     <Content Include="Views\Page\PageZones.cshtml" />
@@ -190,6 +197,9 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Widget.Script.cshtml" />
     <Content Include="Views\Layout\SelectZone.cshtml" />
+    <Content Include="Views\Shared\DesignWidget.cshtml" />
+    <Content Include="Views\Widget\Templates.cshtml" />
+    <Content Include="Views\Image\Index.cshtml" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>

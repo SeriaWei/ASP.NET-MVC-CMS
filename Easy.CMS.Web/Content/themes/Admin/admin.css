@@ -81,7 +81,7 @@ a.badge:hover {
 .accordion-inner {
     background-color: #3D3E43;
     border: none;
-    padding: 9px 0 9px 0;
+    padding: 5px 0 5px 0;
     display: none;
 }
 
@@ -197,9 +197,9 @@ a.badge:hover {
 }
 
     .fullRowList li {
-        padding: 5px;
+        padding: 6px;
         border: 1px solid #ddd;
-        border-left: 3px solid green;
+        border-left: 5px solid green;
         margin: 5px;
         cursor: pointer;
         background-color: white;
@@ -216,8 +216,7 @@ a.badge:hover {
     }
 
     .fullRowList li.actived {
-        border: 1px solid #E28271;
-        border-left: 3px solid green;
+        border-left:5px solid  #E28271;
         color: #E28271;
     }
 
@@ -251,9 +250,14 @@ a.badge:hover {
 
 
 .jstree a[ispublish="false"] {
-    color: gray;
+    color: #808080;
 }
-
+.jstree a[ispublish="false"]::after{
+    content:" [已修改]"
+}
+.jstree a[publishdate="null"]::after {
+    content:" [未发布]"
+}
 .jstree a[ishomepage="true"] {
     font-weight: bold;
     color: red;

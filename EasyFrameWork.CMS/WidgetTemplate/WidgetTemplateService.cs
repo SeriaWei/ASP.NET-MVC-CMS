@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Easy.Web.CMS.WidgetTemplate
 {
-    public class WidgetTemplateService : ServiceBase<WidgetTemplateEntity>
+    public class WidgetTemplateService : ServiceBase<WidgetTemplateEntity>, IWidgetTemplateService
     {
     }
 }

@@ -11,12 +11,12 @@ namespace Easy.CMS.Article
         }
         public override void Configure()
         {
-            Registry.Register<ArticleController, ViewData_ArticleTypeAttribute>(m => m.Index());
-            Registry.Register<ArticleController, ViewData_ArticleTypeAttribute>(m => m.Create());
-            Registry.Register<ArticleController, ViewData_ArticleTypeAttribute>(m => m.Create(null));
-            Registry.Register<ArticleController, ViewData_ArticleTypeAttribute>(m => m.Edit(0));
-            Registry.Register<ArticleController, ViewData_ArticleTypeAttribute>(m => m.Edit(null));
-            Registry.Register<ArticleController, ViewData_ArticleTypeAttribute>(m => m.GetList());
+            Registry.Register<ArticleController, ViewDataArticleTypeAttribute>(m => m.Index());
+            Registry.Register<ArticleController, ViewDataArticleTypeAttribute>(m => m.Create());
+            Registry.Register<ArticleController, ViewDataArticleTypeAttribute>(m => m.Create(null));
+            Registry.Register<ArticleController, ViewDataArticleTypeAttribute>(m => m.Edit(0));
+            Registry.Register<ArticleController, ViewDataArticleTypeAttribute>(m => m.Edit(null));
+            Registry.Register<ArticleController, ViewDataArticleTypeAttribute>(m => m.GetList());
         }
 
     }

@@ -37,16 +37,16 @@
       <publishTime>07/27/2015 08:41:42</publishTime>
     </File>
     <File Include="bin/Easy.CMS.Section.dll">
-      <publishTime>11/07/2015 13:41:39</publishTime>
+      <publishTime>03/11/2016 11:40:20</publishTime>
     </File>
     <File Include="bin/Easy.dll">
-      <publishTime>10/20/2015 10:46:43</publishTime>
+      <publishTime>03/07/2016 08:39:56</publishTime>
     </File>
     <File Include="bin/Easy.Web.CMS.dll">
-      <publishTime>11/07/2015 13:40:28</publishTime>
+      <publishTime>03/11/2016 11:35:33</publishTime>
     </File>
     <File Include="bin/Easy.Web.dll">
-      <publishTime>10/20/2015 10:46:43</publishTime>
+      <publishTime>03/07/2016 08:39:56</publishTime>
     </File>
     <File Include="bin/EasyZip.dll">
       <publishTime>10/22/2015 14:47:33</publishTime>
@@ -85,7 +85,7 @@
       <publishTime>08/31/2015 08:40:04</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
-      <publishTime>07/17/2015 10:18:58</publishTime>
+      <publishTime>01/20/2016 12:05:05</publishTime>
     </File>
     <File Include="bin/sectiongroup.edit.cshtml.639c3968.compiled">
       <publishTime>09/08/2015 09:27:18</publishTime>
@@ -163,31 +163,34 @@
       <publishTime>07/17/2015 10:18:58</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>10/20/2015 10:46:43</publishTime>
+      <publishTime>03/07/2016 08:39:56</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>11/07/2015 13:41:41</publishTime>
+      <publishTime>03/11/2016 11:40:21</publishTime>
     </File>
     <File Include="Views/SectionContentCallToAction/Form.cshtml">
-      <publishTime>07/17/2015 10:18:58</publishTime>
+      <publishTime>03/07/2016 08:39:56</publishTime>
     </File>
     <File Include="Views/SectionContentImage/Form.cshtml">
-      <publishTime>07/17/2015 10:18:58</publishTime>
+      <publishTime>03/07/2016 08:39:56</publishTime>
     </File>
     <File Include="Views/SectionContentParagraph/Form.cshtml">
-      <publishTime>07/17/2015 10:18:58</publishTime>
+      <publishTime>02/25/2016 10:53:06</publishTime>
     </File>
     <File Include="Views/SectionContentTitle/Form.cshtml">
-      <publishTime>07/17/2015 10:18:58</publishTime>
+      <publishTime>03/07/2016 08:39:56</publishTime>
     </File>
     <File Include="Views/SectionGroup/Form.cshtml">
-      <publishTime>11/06/2015 15:48:42</publishTime>
+      <publishTime>03/07/2016 08:39:56</publishTime>
     </File>
     <File Include="Views/SectionTemplate.Column.cshtml">
       <publishTime>10/28/2015 15:43:28</publishTime>
     </File>
     <File Include="Views/SectionTemplate.Default.cshtml">
       <publishTime>10/28/2015 15:45:34</publishTime>
+    </File>
+    <File Include="Views/SectionTemplate.ImageRight.cshtml">
+      <publishTime>03/09/2016 14:15:19</publishTime>
     </File>
     <File Include="Views/SectionTemplate.LinkGroup.cshtml">
       <publishTime>10/28/2015 15:44:47</publishTime>
@@ -198,47 +201,53 @@
     <File Include="Views/SectionTemplate.ListView.cshtml">
       <publishTime>11/07/2015 09:54:16</publishTime>
     </File>
+    <File Include="Views/SectionTemplate.Thumbnail.cshtml">
+      <publishTime>03/08/2016 09:33:45</publishTime>
+    </File>
     <File Include="Views/SectionWidget/Editor.cshtml">
       <publishTime>10/28/2015 14:16:19</publishTime>
     </File>
     <File Include="Views/SectionWidgetForm.cshtml">
-      <publishTime>11/07/2015 13:02:33</publishTime>
+      <publishTime>03/08/2016 09:33:45</publishTime>
     </File>
     <File Include="Views/Shared/SectionContent.Switcher.cshtml">
       <publishTime>09/18/2015 19:29:14</publishTime>
     </File>
     <File Include="Views/Shared/SectionGroup.Edit.cshtml">
-      <publishTime>10/28/2015 15:47:38</publishTime>
+      <publishTime>03/08/2016 09:33:45</publishTime>
     </File>
     <File Include="Views/Shared/SectionPartial.CallToAction.cshtml">
       <publishTime>10/28/2015 14:16:20</publishTime>
     </File>
     <File Include="Views/Shared/SectionPartial.CallToAction.Edit.cshtml">
-      <publishTime>11/06/2015 17:05:07</publishTime>
+      <publishTime>03/08/2016 09:33:45</publishTime>
     </File>
     <File Include="Views/Shared/SectionPartial.Image.cshtml">
       <publishTime>10/20/2015 15:23:21</publishTime>
     </File>
     <File Include="Views/Shared/SectionPartial.Image.Edit.cshtml">
-      <publishTime>11/06/2015 17:05:10</publishTime>
+      <publishTime>03/08/2016 09:33:45</publishTime>
     </File>
     <File Include="Views/Shared/SectionPartial.Paragraph.cshtml">
       <publishTime>09/18/2015 16:33:47</publishTime>
     </File>
     <File Include="Views/Shared/SectionPartial.Paragraph.Edit.cshtml">
-      <publishTime>11/06/2015 17:05:04</publishTime>
+      <publishTime>03/08/2016 09:33:45</publishTime>
     </File>
     <File Include="Views/Shared/SectionPartial.Title.cshtml">
       <publishTime>10/16/2015 09:11:37</publishTime>
     </File>
     <File Include="Views/Shared/SectionPartial.Title.Edit.cshtml">
-      <publishTime>11/06/2015 17:05:12</publishTime>
+      <publishTime>03/08/2016 09:33:45</publishTime>
     </File>
     <File Include="Views/Thumbnail/SectionTemplate.Column.png">
       <publishTime>10/22/2015 15:39:25</publishTime>
     </File>
     <File Include="Views/Thumbnail/SectionTemplate.Default.png">
       <publishTime>10/20/2015 10:46:43</publishTime>
+    </File>
+    <File Include="Views/Thumbnail/SectionTemplate.ImageRight.png">
+      <publishTime>03/09/2016 14:12:59</publishTime>
     </File>
     <File Include="Views/Thumbnail/SectionTemplate.LinkGroup.png">
       <publishTime>11/06/2015 15:35:11</publishTime>
@@ -249,17 +258,20 @@
     <File Include="Views/Thumbnail/SectionTemplate.ListView.png">
       <publishTime>11/06/2015 15:47:15</publishTime>
     </File>
+    <File Include="Views/Thumbnail/SectionTemplate.Thumbnail.png">
+      <publishTime>03/08/2016 09:33:45</publishTime>
+    </File>
     <File Include="Views/Thumbnail/Web.config">
-      <publishTime>10/16/2015 16:25:25</publishTime>
+      <publishTime>02/22/2016 17:00:05</publishTime>
     </File>
     <File Include="Views/Web.config">
-      <publishTime>07/27/2015 08:41:42</publishTime>
+      <publishTime>02/22/2016 17:00:05</publishTime>
     </File>
     <File Include="Views/Widget.Section.cshtml">
-      <publishTime>10/20/2015 16:51:26</publishTime>
+      <publishTime>03/11/2016 09:52:21</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>11/07/2015 13:41:40</publishTime>
+      <publishTime>03/07/2016 09:09:48</publishTime>
     </File>
   </ItemGroup>
 </Project>

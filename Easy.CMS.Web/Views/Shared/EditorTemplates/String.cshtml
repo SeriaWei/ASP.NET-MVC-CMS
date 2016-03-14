@@ -1,0 +1,27 @@
+﻿@using System.Text
+@using Easy.Web.Metadata
+@model String
+@{
+    var metaData = ViewData.ModelMetadata as EasyModelMetaData;
+    bool additional = false;
+    metaData.ViewPortDescriptor.Classes.ForEach(m =>
+    {
+        if (m.Contains("select"))
+        {
+            additional = true;
+        }
+    });
+}
+@if (additional)
+{
+    <div class="input-group">
+        @Html.TextBox("", Model, metaData.GetAttributes())
+        <div class="input-group-addon">
+            <span class="glyphicon glyphicon-search"></span>
+        </div>
+    </div>
+}
+else
+{
+    @Html.TextBox("", Model, metaData.GetAttributes())
+}

@@ -8,19 +8,11 @@
         $(this).nextAll(".accordion-inner").addClass("active").show(200);
         return false;
     });
-    $(".navbar-nav a").click(function () {
-        if (!$(this).parents("li").hasClass("accordion-group")) {
-            $(this).parents("ul").find("a.active").removeClass("active");
-        } else {
-            $(this).parents("ul").find("li.accordion-group>a.active").removeClass("active");
-        }
-        $(this).addClass("active");
-    });
-    var mainContainer = $(".main-container");
+    var mainContainer = $("#main-body");
     $(window).resize(function () {
-        mainContainer.height($(window).height() - 70);
+        mainContainer.height($(window).height() - 100);
     });
-    mainContainer.height($(window).height() - 70);
+    mainContainer.height($(window).height() - 100);
 
 
     $(document).on("click", ".cancel", function () {
@@ -34,26 +26,33 @@
         $("#ActionType").val($(this).data("value"));
         return true;
     }).on("click", ".input-group-collection .add", function () {
-        var index = $(this).parents(".input-group-collection").children(".item").size();
-        var html = $($(this).parents(".input-group-collection").children(".Template").html().replaceAll("{0}", index));
-        html.find("input.actionType").val($(this).data("value"));
-        $(this).parents(".input-group-collection").append(html);
+        var index = $(this).siblings(".items").children(".item").size();
+        var namePrefix = $(this).data("name-prefex");
+        var template = $($(this).siblings(".Template").html());
+        $("input,select,area", template).attr("data-val", true).each(function () {
+            var name = $(this).attr("name");
+            if (name) {
+                $(this).attr("name", name.replace(namePrefix, namePrefix + "[" + index + "]"));
+            }
+        });
+        template.find(".ActionType").val($(this).data("value"));
+        $(this).siblings(".items").append(template);
     }).on("click", ".input-group-collection .delete", function () {
-        $(this).parents(".item").find("input.actionType").val($(this).data("value"));
-        $(this).parents(".item").hide();
+        $(this).parent().hide();
+        $(this).siblings(".hide").find(".ActionType").val($(this).data("value"));
     }).on("click", ".input-group .glyphicon.glyphicon-search", function () {
         var obj = $(this);
         window.top.Easy.ShowUrlWindow({
-            url: $(this).data("url"),
+            url: obj.parent().siblings("input.form-control").data("url"),
             onLoad: function (box) {
                 var win = this;
                 $(this.document).find("#confirm").click(function () {
-                    var target = obj.data("target-input") || obj.parent().siblings("input.form-control");
+                    var target = obj.parent().siblings("input.form-control");
                     target.val(win.GetSelected());
                     box.close();
                 });
                 $(this.document).on("click", ".confirm", function () {
-                    var target = obj.data("target-input") || obj.parent().siblings("input.form-control");
+                    var target = obj.parent().siblings("input.form-control");
                     target.val($(this).data("result"));
                     box.close();
                 });
@@ -76,28 +75,29 @@
         });
     });
     $(".form-group select#ZoneID").on("mousedown", false);
-    $("#IsPublish").val("false");
-    $("#PublishDate").val("");
-
-    $(".select").each(function () {
-        var inputGroup = $(' <div class="input-group"><div class="input-group-addon"><span class="glyphicon glyphicon-search" data-url="' + $(this).data("url") + '"></span></div></div>');
-        inputGroup.insertAfter($(this));
-        $(this).insertBefore(inputGroup.find(".input-group-addon"));
+    
+    var mainMenu = $("#main-menu");
+    var currentSelect;
+    var match = 0;
+    $("a.menu-item", mainMenu).each(function () {
+        var href = $(this).attr("href");
+        if (href) {
+            if (location.pathname.toLocaleLowerCase().indexOf(href.toLowerCase()) === 0) {
+                if (href.length > match) {
+                    currentSelect = $(this);
+                    match = href.length;
+                }
+            }
+        }
     });
-
-    var currentSelect = $(".nav.navbar-nav a[href='" + location.pathname + "']");
-    if (currentSelect.size()) {
+    if (currentSelect && currentSelect.size()) {
         currentSelect.addClass("active");
-        Easy.Cookie.SetCookie("selectAble", location.pathname);
+        if (currentSelect.parent().hasClass("accordion-inner")) {
+            currentSelect.parent().show();
+            currentSelect.parent().prev().addClass("active");
+        }
     }
-    else {
-        $(".nav.navbar-nav a[href='" + Easy.Cookie.GetCookie("selectAble") + "']").addClass("active");
-    }
-    var activeHref = $(".nav.navbar-nav a.active");
-    if (activeHref.parent().hasClass("accordion-inner")) {
-        activeHref.parent().show();
-        activeHref.parent().prev().addClass("active");
-    }
+
 
     $(".Date").each(function () {
         $(this).datetimepicker({ locale: "zh_cn", format: $(this).attr("JsDateFormat") });
@@ -122,9 +122,10 @@
                 { name: "文字居中", value: "align-center" },
                 { name: "文字右对齐", value: "align-right" },
                 { name: "图片边框", value: "image-border" },
-                { name: "阴影", value: "box-shadow" }
+                { name: "阴影", value: "box-shadow" },
+                 { name: "图片圆形", value: "image-circle" }
             ];
-            var html = "<p clss='text-nowrap'>直接写样式例：<code>style='color:#fff'</code></p><p>预定义样式：<ol>";
+            var html = "<p clss='text-nowrap'>直接写样式例：<code>style=\"color:#fff\"</code></p><p>预定义样式：<ol>";
             for (var i = 0; i < activeClass.length; i++) {
                 html += "<li>" + activeClass[i].name + ":<code>" + activeClass[i].value + "</code></li>";
             }
@@ -139,7 +140,7 @@
     $("input.select-image").popover({
         trigger: "focus",
         html: true,
-        title:"图片预览",
+        title: "图片预览",
         content: function () {
             var url = $(this).val();
             if (url) {

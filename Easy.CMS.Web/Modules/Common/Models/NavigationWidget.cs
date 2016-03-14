@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Easy.MetaData;
+using Easy.Web.CMS;
 using Easy.Web.CMS.MetaData;
 
 namespace Easy.CMS.Common.Models
@@ -26,6 +27,7 @@ namespace Easy.CMS.Common.Models
             base.ViewConfigure();
             ViewConfig(m => m.Title).AsTextBox();
             ViewConfig(m => m.CustomerClass).AsHidden();
+            ViewConfig(m => m.Logo).AsTextBox().AddClass("select select-image").AddProperty("data-url", Urls.SelectImage);
         }
     }
 

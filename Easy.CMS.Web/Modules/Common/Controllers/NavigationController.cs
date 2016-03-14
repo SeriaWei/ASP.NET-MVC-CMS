@@ -13,10 +13,10 @@ using Easy.Extend;
 namespace Easy.CMS.Common.Controllers
 {
     [AdminTheme, Authorize]
-    public class NavigationController : BasicController<NavigationEntity, string, NavigationService>
+    public class NavigationController : BasicController<NavigationEntity, string, INavigationService>
     {
-        public NavigationController()
-            : base(new NavigationService())
+        public NavigationController(INavigationService service)
+            : base(service)
         {
 
         }
@@ -38,7 +38,7 @@ namespace Easy.CMS.Common.Controllers
         public JsonResult GetPageTree()
         {
             var navs = Service.Get(new Data.DataFilter().OrderBy("DisplayOrder", OrderType.Ascending));
-            var node = new Easy.HTML.jsTree.Tree<NavigationEntity>().Source(navs).ToNode(m => m.ID, m => m.Title, m => m.ParentId, "#");
+            var node = new Easy.ViewPort.jsTree.Tree<NavigationEntity>().Source(navs).ToNode(m => m.ID, m => m.Title, m => m.ParentId, "#");
             return Json(node, JsonRequestBehavior.AllowGet);
         }
 

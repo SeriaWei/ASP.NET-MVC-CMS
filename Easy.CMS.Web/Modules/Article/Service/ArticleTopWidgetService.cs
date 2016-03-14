@@ -28,7 +28,8 @@ namespace Easy.CMS.Article.Service
             var filter = new DataFilter();
             filter.Where("IsPublish", OperatorType.Equal, true);
             filter.OrderBy("PublishDate", OrderType.Descending);
-            viewModel.Articles = new ArticleService().Get(filter.Where("ArticleCategoryID", OperatorType.Equal, currentWidget.ArticleCategoryID), page);
+            filter.Where("ArticleTypeID", OperatorType.Equal, currentWidget.ArticleTypeID);
+            viewModel.Articles = new ArticleService().Get(filter, page);
             return widget.ToWidgetPart(viewModel);
         }
     }

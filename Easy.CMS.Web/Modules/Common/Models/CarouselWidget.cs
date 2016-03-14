@@ -7,6 +7,7 @@ using System.Web;
 using Easy.MetaData;
 using Easy.CMS.Common.Service;
 using Easy.Extend;
+using Microsoft.Practices.ServiceLocation;
 
 namespace Easy.CMS.Common.Models
 {
@@ -25,7 +26,7 @@ namespace Easy.CMS.Common.Models
             ViewConfig(m => m.CarouselID).AsDropDownList().DataSource(() =>
             {
                 var result = new Dictionary<string, string> {{"","---请选择---"}};
-                new CarouselService().Get().Each(m => result.Add(m.ID.ToString(), m.Title));
+                ServiceLocator.Current.GetInstance<ICarouselService>().Get().Each(m => result.Add(m.ID.ToString(), m.Title));
                 return result;
             });
             ViewConfig(m => m.CarouselItems).AsListEditor();

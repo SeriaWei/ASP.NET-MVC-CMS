@@ -3,7 +3,7 @@
 @IF NOT EXIST %windir%\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe (GOTO :noBuildengine) ELSE GOTO :execute
 :execute
 rd /S /Q Release
-%windir%\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe Easy.CMS.Web.sln /p:Configuration=Release
+%windir%\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe ZKEASOFT.CMS.Web.sln /p:Configuration=Release;PrecompileBeforePublish=true;
 %windir%\Microsoft.NET\Framework\v4.0.30319\MSBuild.exe Release.xml /p:Configuration=Release;SolutionName=Easy.CMS.Web;ProjectName=Easy.CMS.Web.csproj;ProjectPath=Easy.CMS.Web;ReleasePath=Release\Application /v:m
 
 for /f %%a in ('dir Easy.CMS.Web\Modules /b') do (

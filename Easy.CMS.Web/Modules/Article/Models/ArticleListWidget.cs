@@ -13,7 +13,7 @@ namespace Easy.CMS.Article.Models
     [DataConfigure(typeof(ArticleListWidgetMeta))]
     public class ArticleListWidget : WidgetBase
     {
-        public int? ArticleCategoryID { get; set; }
+        public int ArticleTypeID { get; set; }
         public string DetailPageUrl { get; set; }
         public bool IsPageable { get; set; }
         public int? PageSize { get; set; }
@@ -24,7 +24,7 @@ namespace Easy.CMS.Article.Models
         {
             base.ViewConfigure();
             ViewConfig(m => m.Title).AsTextBox().Order(4);
-            ViewConfig(m => m.ArticleCategoryID).AsDropDownList().Order(5).DataSource(new ArticleTypeService().Get().ToDictionary(m => m.ID.ToString(), m => m.Title));
+            ViewConfig(m => m.ArticleTypeID).AsDropDownList().Order(5).DataSource(new ArticleTypeService().Get().ToDictionary(m => m.ID.ToString(), m => m.Title)).Required();
             ViewConfig(m => m.DetailPageUrl).AsTextBox().Order(6).AddClass("select").AddProperty("data-url", Urls.SelectPage);
         }
     }

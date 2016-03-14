@@ -1,4 +1,4 @@
-/****** Object:  Table [dbo].[CMS_WidgetBase]    Script Date: 2015/9/1 星期二 16:54:56 ******/
+/****** Object:  Table [dbo].[CMS_WidgetBase]    Script Date: 2016/03/08 星期二 23:14:54 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -25,6 +25,9 @@ CREATE TABLE [dbo].[CMS_WidgetBase](
 	[LastUpdateDate] [datetime] NULL,
 	[Description] [nvarchar](max) NULL,
 	[Status] [int] NULL,
+	[IsTemplate] [bit] NULL DEFAULT ((0)),
+	[Thumbnail] [nvarchar](200) NULL,
+	[IsSystem] [bit] NULL DEFAULT ((0)),
  CONSTRAINT [PK_CMS_WidgetBase] PRIMARY KEY CLUSTERED 
 (
 	[ID] ASC

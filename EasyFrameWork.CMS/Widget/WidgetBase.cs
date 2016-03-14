@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
+using System.Web;
 using Easy.Cache;
 using Easy.Extend;
 using Easy.MetaData;
@@ -13,18 +15,35 @@ namespace Easy.Web.CMS.Widget
     [DataConfigure(typeof(WidgetBaseMetaData))]
     public class WidgetBase : EditorEntity
     {
+
+        private static readonly Regex StyleRegex = new Regex("^style=\"(.+?)\"$", RegexOptions.Compiled | RegexOptions.IgnoreCase);
         public string ID { get; set; }
         public string WidgetName { get; set; }
         public int? Position { get; set; }
         public string LayoutID { get; set; }
         public string PageID { get; set; }
         public string ZoneID { get; set; }
+        public bool IsTemplate { get; set; }
+        public string Thumbnail { get; set; }
+        public bool IsSystem { get; set; }
         public string PartialView { get; set; }
         public string AssemblyName { get; set; }
         public string ServiceTypeName { get; set; }
         public string ViewModelTypeName { get; set; }
         public string FormView { get; set; }
         public string StyleClass { get; set; }
+
+        public IHtmlString StyleClassResult(bool design = false)
+        {
+            if (!design)
+            {
+                return new HtmlString(StyleRegex.IsMatch(StyleClass??"") ? StyleClass +" class=\"widget\"": "class=\"widget " + StyleClass + "\"");
+            }
+            return
+                new HtmlString(StyleRegex.IsMatch(StyleClass ?? "")
+                    ? StyleClass + " class=\"widget widget-design\""
+                    : "class=\"widget widget-design " + StyleClass + "\"");
+        }
         public WidgetPart ToWidgetPart()
         {
             return new WidgetPart
@@ -81,33 +100,6 @@ namespace Easy.Web.CMS.Widget
                 return type;
             });
         }
-        public WidgetBase ToWidgetBase()
-        {
-            return new WidgetBase
-            {
-                AssemblyName = this.AssemblyName,
-                CreateBy = this.CreateBy,
-                CreatebyName = this.CreatebyName,
-                CreateDate = this.CreateDate,
-                Description = this.Description,
-                ID = this.ID,
-                LastUpdateBy = this.LastUpdateBy,
-                LastUpdateByName = this.LastUpdateByName,
-                LastUpdateDate = this.LastUpdateDate,
-                LayoutID = this.LayoutID,
-                PageID = this.PageID,
-                PartialView = this.PartialView,
-                Position = this.Position,
-                ServiceTypeName = this.ServiceTypeName,
-                Status = this.Status,
-                Title = this.Title,
-                ViewModelTypeName = this.ViewModelTypeName,
-                WidgetName = this.WidgetName,
-                ZoneID = this.ZoneID,
-                FormView = this.FormView,
-                StyleClass = this.StyleClass
-            };
-        }
     }
     class WidgetBaseMetaData : DataViewMetaData<WidgetBase>
     {
@@ -115,6 +107,7 @@ namespace Easy.Web.CMS.Widget
         {
             DataTable("CMS_WidgetBase");
             DataConfig(m => m.ID).AsPrimaryKey();
+            DataConfig(m => m.IsSystem).Update(false).Insert(false);
         }
 
         protected override void ViewConfigure()

@@ -1,9 +1,9 @@
 ﻿@using Easy.CMS.Product.Models
-@using Easy.HTML.jsTree
+@using Easy.ViewPort.jsTree
 @{
    
 }
-<div class="panel panel-default">
+<div class="panel panel-info">
     <div class="panel-heading">
         产品类别
     </div>
@@ -12,13 +12,13 @@
         @(
  Html.Tree<ProductCategory>().Source("GetProductCategoryTree", "ProductCategory")
         .AddPlugin(Plugins.ContextMenu)
-        .AddContextMenuItem(new ContextmenuItem { Label = "新建", Action = "Create" })
-        .AddContextMenuItem(new ContextmenuItem { Label = "编辑", Action = "Edit" })
+        .AddContextMenuItem(new ContextmenuItem { Label = "新建", Action = "Create", Icon = "glyphicon glyphicon-plus" })
+        .AddContextMenuItem(new ContextmenuItem { Label = "编辑", Action = "Edit", Icon = "glyphicon glyphicon-edit" })
         )
 
     </div>
     <div class="panel-footer">
-        <a href="@Url.Action("Create")" class="btn btn-primary btn-xs">
+        <a href="@Url.Action("Create")" class="btn btn-link btn-xs">
             <i class="glyphicon glyphicon-plus"></i>
             添加类别
         </a>

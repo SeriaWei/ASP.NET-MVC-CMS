@@ -1,15 +1,28 @@
 ﻿@model Easy.CMS.Product.Models.Product
 @{
-    
+
 }
-<div class="widget ProductDetail">
+<div class="ProductDetail">
     <div class="page-header">
-        <h2>@Model.Title</h2>
-        <div class="date">
-            @((Model.PublishDate ?? DateTime.Now).ToString("yyyy/MM/dd"))
+        <h1 class="align-center">
+            @Model.Title
+        </h1>
+        <div class="align-right">
+            <span>
+                <i class="glyphicon glyphicon-user"></i>
+                @Model.CreatebyName
+            </span>
+            <span>
+                <i class="glyphicon glyphicon-calendar"></i>
+                @((Model.PublishDate ?? DateTime.Now).ToString("yyyy/MM/dd"))
+            </span>
         </div>
     </div>
-    <div class="detail">
+    <div class="detail clearfix">
+        @if (Model.ImageUrl.IsNotNullAndWhiteSpace())
+        {
+            <img class="thumbnail" src="@Url.Content(Model.ImageUrl)" alt="@Model.Title" />
+        }
         @Html.Raw(Model.ProductContent)
     </div>
 </div>

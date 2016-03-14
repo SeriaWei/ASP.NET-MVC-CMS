@@ -187,16 +187,27 @@ input.helper:checked + span {
 .widget-design {
     position: relative;
 }
+
 .sort-handle {
     cursor: move;
 }
+
 .zoneToolbar {
     position: absolute;
     width: 100%;
     z-index: 1;
     color: white;
-    top: -23px;
+    line-height: 25px;
+    top: -28px;
 }
+
+    .zoneToolbar:hover {
+        z-index: 2;
+    }
+
+    .zoneToolbar .tools {
+        padding: 0 10px;
+    }
 
     .zoneToolbar.red {
         background-color: #c7302b;
@@ -291,3 +302,57 @@ input.helper:checked + span {
     margin: 3px auto;
     padding: 0;
 }
+
+.templates {
+    position: fixed;
+    background: #ddd;
+    width: 0;
+    right: 0;
+    top: 0;
+    height: 100%;
+    z-index: 10;
+    transition: all 0.5s ease-in-out;
+    box-shadow: 0 0 5px rgba(0, 0, 0,0.2);
+}
+.templates.active {
+    width: 233px;
+}
+    .templates ul {
+        list-style: none;
+        margin:0;
+        padding: 0 0 0 10px;
+        height: 100%;
+        overflow: auto;
+    }
+
+        .templates ul li {
+            cursor: pointer;
+            margin: 10px 3px;
+        }
+
+    .templates .tool-open {
+        position: absolute;
+        left: -22px;
+        cursor: pointer;
+        background: #ddd;
+        top: 100px;
+        padding: 8px 4px;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+    }
+
+    .templates img.template {
+        width: 190px;
+        box-shadow: 0 0 5px rgba(0, 0, 0,0.2);
+    }
+
+        .templates img.template:hover {
+            outline: rgba(0, 0, 0, 0.5) 1px solid;
+            opacity: 0.5;
+            transition: all 0.2s ease-in-out;
+        }
+       .templates .delete-template {
+           position: absolute;
+           top: -8px;
+           left: -8px;
+        }

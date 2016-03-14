@@ -11,10 +11,10 @@ using Easy.CMS.Common.Service;
 namespace Easy.CMS.Common.Controllers
 {
     [AdminTheme, Authorize]
-    public class CarouselController : BasicController<CarouselEntity, long, CarouselService>
+    public class CarouselController : BasicController<CarouselEntity, long, ICarouselService>
     {
-        public CarouselController()
-            : base(new CarouselService())
+        public CarouselController(ICarouselService service)
+            : base(service)
         {
 
         }

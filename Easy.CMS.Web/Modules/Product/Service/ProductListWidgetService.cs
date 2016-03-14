@@ -26,17 +26,19 @@ namespace Easy.CMS.Product.Service
             ProductListWidget pwidget = widget as ProductListWidget;
             var filter = new DataFilter();
             filter.Where("IsPublish", OperatorType.Equal, true);
-            int p = 0;
+            int p;
             int.TryParse(httpContext.Request.QueryString["p"], out p);
-            int c = 0;
+            int c;
             if (int.TryParse(httpContext.Request.QueryString["pc"], out c))
             {
-                filter.Where("ProductCategory", OperatorType.Equal, c);
+                filter.Where("ProductCategoryID", OperatorType.Equal, c);
             }
-            else if (pwidget.ProductCategoryID.HasValue)
+            else
             {
-                filter.Where("ProductCategory", OperatorType.Equal, pwidget.ProductCategoryID);
+                filter.Where("ProductCategoryID", OperatorType.Equal, pwidget.ProductCategoryID);
             }
+
+
             var service = new ProductService();
             IEnumerable<Models.Product> products = null;
             var page = new Pagination { PageIndex = p, PageSize = pwidget.PageSize ?? 20 };

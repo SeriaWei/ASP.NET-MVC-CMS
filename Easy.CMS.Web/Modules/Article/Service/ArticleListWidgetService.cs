@@ -17,7 +17,7 @@ namespace Easy.CMS.Article.Service
         {
             var currentWidget = widget as ArticleListWidget;
             var articleTypeService = new ArticleTypeService();
-            var categoryEntity = articleTypeService.Get(currentWidget.ArticleCategoryID);
+            var categoryEntity = articleTypeService.Get(currentWidget.ArticleTypeID);
             int pageIndex = 0;
             int ac = 0;
             int.TryParse(httpContext.Request.QueryString["ac"], out ac);
@@ -29,11 +29,11 @@ namespace Easy.CMS.Article.Service
             var page = new Data.Pagination { PageIndex = pageIndex, PageSize = currentWidget.PageSize ?? 20 };
             if (ac != 0)
             {
-                filter.Where("ArticleCategoryID", OperatorType.Equal, ac);
+                filter.Where("ArticleTypeID", OperatorType.Equal, ac);
             }
-            else if (currentWidget.ArticleCategoryID.HasValue)
+            else
             {
-                filter.Where("ArticleCategoryID", OperatorType.Equal, currentWidget.ArticleCategoryID);
+                filter.Where("ArticleTypeID", OperatorType.Equal, currentWidget.ArticleTypeID);
             }
             return widget.ToWidgetPart(new ArticleListWidgetViewModel
             {

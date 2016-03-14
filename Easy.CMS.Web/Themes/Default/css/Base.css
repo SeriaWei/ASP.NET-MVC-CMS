@@ -14,7 +14,6 @@ img {
   max-width: 100%;
 }
 a {
-  text-decoration: underline;
   color: #31b0d5;
 }
 a:hover {
@@ -149,5 +148,9 @@ p {
   .bs-callout {
     border-radius: 0;
   }
+}
+.space {
+  padding: 5px 0;
+  line-height: normal;
 }
 /*# sourceMappingURL=Base.css.map */

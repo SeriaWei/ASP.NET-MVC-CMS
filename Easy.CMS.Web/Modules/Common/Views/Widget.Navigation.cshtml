@@ -1,16 +1,14 @@
 ﻿@using Easy.CMS.Common.Models
 @using Easy.Web.CMS
+@model Easy.CMS.Common.ViewModels.NavigationWidgetViewModel
 @{
-    NavigationEntity homePage = Model.Navigations.Where(m => m.ParentId == "#").FirstOrDefault();
-    string currentPath = Request.Path;
+    NavigationEntity homePage = Model.Navigations.FirstOrDefault(m => m.ParentId == "#");
     if (homePage == null)
     {
         return;
     }
-    int index = 0;
 }
-@model Easy.CMS.Common.ViewModels.NavigationWidgetViewModel
-@helper DropDown(IEnumerable<NavigationEntity> items, string currentPath)
+@helper DropDown(IEnumerable<NavigationEntity> items)
 {
     if (items != null && items.Any())
     {
@@ -23,21 +21,20 @@
 
                     <li class="dropdown hoveropen">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">@child.Title <b class="caret right"></b></a>
-                        @DropDown(children, currentPath)
+                        @DropDown(children)
                     </li>
                 }
                 else
                 {
-                    var path = Url.PathContent(child.Url);
-                    <li class="@(currentPath.StartsWith(path) ? "active" : "")">
-                        @Html.SmartLink(path, child.Title)
+                    <li class="@(child.IsCurrent ? "active" : "")">
+                        @Html.SmartLink(Url.PathContent(child.Url), child.Title)
                     </li>
                 }
             }
         </ul>
     }
 }
-<div class="widget navigation">
+<div class="navigation">
     <div class="navbar navbar-default" role="navigation">
         <div class="container">
             <div class="navbar-header">
@@ -68,18 +65,16 @@
                         {
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">@item.Title <b class="caret"></b></a>
-                                @DropDown(Model.Navigations.Where(m => m.ParentId == item.ID), currentPath)
+                                @DropDown(Model.Navigations.Where(m => m.ParentId == item.ID))
                             </li>
 
                         }
                         else
                         {
-                            var path = Url.PathContent(item.Url);
-                            <li class="@(currentPath.StartsWith(path) || (currentPath == "/" && index == 0) ? "active" : "")">
-                                @Html.SmartLink(path, item.Title)
+                            <li class="@(item.IsCurrent ? "active" : "")">
+                                @Html.SmartLink(Url.PathContent(item.Url), item.Title)
                             </li>
                         }
-                        index++;
                     }
                 </ul>
             </div>
@@ -87,13 +82,3 @@
 
     </div>
 </div>
-@using (Script.AtFoot())
-{
-    <script type="text/javascript">
-        $(".hoveropen").mouseenter(function () {
-            $(this).addClass("open");
-        }).mouseleave(function () {
-            $(this).removeClass("open");
-        });
-    </script>
-}

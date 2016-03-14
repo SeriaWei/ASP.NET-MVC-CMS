@@ -20,7 +20,7 @@ namespace Easy.CMS.Product
             {
                 Title = "产品管理",
                 Icon = "glyphicon-list-alt",
-                Order = 6,
+                Order = 11,
                 Children = new List<AdminMenu>
                 {
                     new AdminMenu

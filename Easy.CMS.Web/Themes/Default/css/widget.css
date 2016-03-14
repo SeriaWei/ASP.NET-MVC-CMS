@@ -1,29 +1,36 @@
 ﻿.widget {
   margin: 5px;
 }
-.border .widget {
+.widget.border {
   border: 1px solid #dedede;
   border-radius: 3px;
   padding: 5px;
+}
+.widget.footer {
+  text-align: center;
+  border-top: 1px solid #dedede;
+  background: #31b0d5;
+  color: #FFF;
+  margin: 0;
+}
+.widget.footer p {
+  margin: 0;
+}
+.widget.footer .html-widget {
+  margin-bottom: 0;
+  padding: 10px;
+}
+.widget.footer a {
+  color: #fff;
+}
+.widget.footer a:hover {
+  color: #d9534f;
 }
 .header {
   color: #31b0d5;
 }
 .header h1 {
   color: #31b0d5;
-}
-.footer {
-  text-align: center;
-  border-top: 1px solid #dedede;
-  background: #31b0d5;
-  color: #FFF;
-}
-.footer p {
-  margin: 0;
-}
-.footer .html-widget {
-  margin-bottom: 0;
-  padding: 10px;
 }
 .align-center {
   text-align: center;
@@ -44,5 +51,8 @@
 }
 .box-shadow .widget {
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.075);
+}
+.image-circle img {
+  border-radius: 50%;
 }
 /*# sourceMappingURL=Widget.css.map */

@@ -51,7 +51,7 @@ namespace Easy.CMS.Section.Service
             }
             widget.Groups.Each(m =>
             {
-                m.SectionContents = contents.Where(n => n.SectionGroupId == m.ID);
+                m.SectionContents = contents.Where(n => n.SectionGroupId == m.ID).ToList();
             });
             return widget;
         }
@@ -72,6 +72,19 @@ namespace Easy.CMS.Section.Service
                 _sectionGroupService.Delete(m.ID);
             });
             return base.Delete(primaryKeys);
+        }
+
+        public override void Add(SectionWidget item)
+        {
+            base.Add(item);
+            if (item.Groups != null && item.Groups.Any())
+            {
+                item.Groups.Each(m =>
+                {
+                    m.SectionWidgetId = item.ID;
+                    _sectionGroupService.Add(m);
+                });
+            }
         }
     }
 }

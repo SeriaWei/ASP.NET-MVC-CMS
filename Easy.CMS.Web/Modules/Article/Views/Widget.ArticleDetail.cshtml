@@ -8,14 +8,27 @@
     Easy.Web.CMS.Layout.LayoutEntity layout = (Easy.Web.CMS.Layout.LayoutEntity)ViewData[Easy.Web.CMS.Layout.LayoutEntity.LayoutKey];
     layout.Page.Title = Model.Current.Title;
 }
-<div class="widget articleDetail">
+<div class="articleDetail">
     <div class="page-header">
-        <h2>@Model.Current.Title</h2>
-        <div class="date">
-            @((Model.Current.PublishDate ?? DateTime.Now).ToString("yyyy/MM/dd"))
+        <h1 class="align-center">
+            @Model.Current.Title
+        </h1>
+        <div class="align-right">
+            <span>
+                <i class="glyphicon glyphicon-user"></i>
+                @Model.Current.CreatebyName
+            </span>
+            <span>
+                <i class="glyphicon glyphicon-calendar"></i>
+                @((Model.Current.PublishDate ?? DateTime.Now).ToString("yyyy/MM/dd"))
+            </span>
         </div>
     </div>
-    <div class="detail">
+    <div class="detail clearfix">
+        @if (Model.Current.ImageUrl.IsNotNullAndWhiteSpace())
+        {
+            <img class="thumbnail" src="@Url.Content(Model.Current.ImageUrl)" alt="@Model.Current.Title" />
+        }
         @Html.Raw(Model.Current.ArticleContent)
     </div>
 </div>

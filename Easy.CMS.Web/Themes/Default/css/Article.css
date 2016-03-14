@@ -1,7 +1,7 @@
 ﻿.article-list .media .media-left {
   width: 155px;
 }
-.article-list .media .media-left .img-thumbnail {
-  width: 100%;
+.article-list .media-body {
+  width: auto;
 }
 /*# sourceMappingURL=Article.css.map */

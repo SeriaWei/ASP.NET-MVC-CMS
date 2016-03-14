@@ -9,7 +9,7 @@ CREATE TABLE [dbo].[Product](
 	[ImageUrl] [nvarchar](255) NULL,
 	[ImageThumbUrl] [nvarchar](255) NULL,
 	[BrandCD] [int] NULL,
-	[ProductCategory] [int] NULL,
+	[ProductCategoryID] [int] NULL,
 	[Color] [nvarchar](255) NULL,
 	[Price] [money] NULL,
 	[RebatePrice] [money] NULL,
@@ -42,7 +42,7 @@ CREATE TABLE [dbo].[Product](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 
 GO
-ALTER TABLE [dbo].[Product]  WITH CHECK ADD  CONSTRAINT [FK_Product_ProductCategory] FOREIGN KEY([ProductCategory])
+ALTER TABLE [dbo].[Product]  WITH CHECK ADD  CONSTRAINT [FK_Product_ProductCategory] FOREIGN KEY([ProductCategoryID])
 REFERENCES [dbo].[ProductCategory] ([ID])
 GO
 ALTER TABLE [dbo].[Product] CHECK CONSTRAINT [FK_Product_ProductCategory]

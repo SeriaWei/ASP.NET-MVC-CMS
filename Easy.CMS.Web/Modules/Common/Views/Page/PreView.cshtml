@@ -2,37 +2,34 @@
 @{
     Layout = "~/Modules/Common/Views/Shared/_Layout.cshtml";
     Easy.Web.CMS.Layout.LayoutEntity layOut = ViewData[Easy.Web.CMS.Layout.LayoutEntity.LayoutKey] as Easy.Web.CMS.Layout.LayoutEntity;
-    Regex styleRegex = new Regex("^style=\"(.+?)\"$", RegexOptions.Compiled | RegexOptions.IgnoreCase);
-}
-@{
-    bool zoneStart = false;
-    foreach (var item in layOut.Html)
+    if (layOut == null)
     {
-        if (item.Html == Easy.Web.CMS.Zone.ZoneEntity.ZoneTag)
+        return;
+    }
+}
+@for (int i = 0; i < layOut.Html.Count; i++)
+{
+    var item = layOut.Html[i];
+    if (item.Html == Easy.Web.CMS.Zone.ZoneEntity.ZoneTag)
+    {
+        i++;
+        var zoneId = layOut.Html[i].Html;
+        if (layOut.ZoneWidgets.ContainsKey(zoneId))
         {
-            zoneStart = true;
-            continue;
-        }
-        if (zoneStart)
-        {
-            if (layOut.ZoneWidgets.ContainsKey(item.Html))
+            foreach (var widgetPart in layOut.ZoneWidgets[zoneId].OrderBy(m => m.Widget.Position).ThenBy(m => m.Widget.WidgetName))
             {
-                foreach (var widgetPart in layOut.ZoneWidgets[item.Html].OrderBy(m => m.Widget.Position).ThenBy(m => m.Widget.WidgetName))
-                {
-                    var attr = MvcHtmlString.Create(styleRegex.IsMatch(widgetPart.Widget.StyleClass ?? "") ? widgetPart.Widget.StyleClass : "class='" + widgetPart.Widget.StyleClass + "'");
-                    <div @(attr)>
-                        @Html.Partial(widgetPart.Widget.PartialView, widgetPart.ViewModel)
-                    </div>
-                }
+                <div @widgetPart.Widget.StyleClassResult()>
+                    @{
+                Html.RenderPartial(widgetPart.Widget.PartialView, widgetPart.ViewModel);
+                    }
+                </div>
             }
-            zoneStart = false;
-            continue;
         }
-        if (item.Html == Easy.Web.CMS.Zone.ZoneEntity.ZoneEndTag)
-        {
-            zoneStart = false;
-            continue;
-        }
+        i++;
+    }
+    else
+    {
         @Html.Raw(item.Html)
     }
 }
+

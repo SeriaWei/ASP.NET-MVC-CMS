@@ -19,7 +19,7 @@ namespace Easy.CMS.Common.Models
         protected override void ViewConfigure()
         {
             base.ViewConfigure();
-            ViewConfig(m => m.Script).AsMutiLineTextBox();
+            ViewConfig(m => m.Script).AsTextArea();
         }
     }
 }

@@ -43,12 +43,12 @@
       <HintPath>..\..\..\packages\Autofac.3.5.2\lib\net40\Autofac.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Easy, Version=1.0.5.1, Culture=neutral, PublicKeyToken=1964c83ce4e03f58, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\EasyFrameWork.1.0.5.1\lib\net40\Easy.dll</HintPath>
+    <Reference Include="Easy, Version=1.0.5.3, Culture=neutral, PublicKeyToken=1964c83ce4e03f58, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\EasyFrameWork.1.0.5.3\lib\net40\Easy.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Easy.Web, Version=1.0.5.1, Culture=neutral, PublicKeyToken=3aaa4da33a984374, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\EasyFrameWork.Web.1.0.5.1\lib\net40\Easy.Web.dll</HintPath>
+    <Reference Include="Easy.Web, Version=1.0.5.2, Culture=neutral, PublicKeyToken=3aaa4da33a984374, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\EasyFrameWork.Web.1.0.5.2\lib\net40\Easy.Web.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="EasyZip">
@@ -153,8 +153,12 @@
     <Content Include="Views\Thumbnail\SectionTemplate.LinkGroup.png" />
     <Content Include="Views\Thumbnail\SectionTemplate.ListGroup.png" />
     <Content Include="Views\Thumbnail\SectionTemplate.Default.png" />
+    <Content Include="Views\Thumbnail\SectionTemplate.ImageRight.png" />
     <Content Include="Views\Thumbnail\SectionTemplate.ListView.png" />
-    <Content Include="Web.config" />
+    <Content Include="Views\Thumbnail\SectionTemplate.Thumbnail.png" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -238,6 +242,8 @@
     <Content Include="Views\SectionTemplate.ListGroup.cshtml" />
     <Content Include="Views\Thumbnail\Web.config" />
     <Content Include="Views\SectionTemplate.ListView.cshtml" />
+    <Content Include="Views\SectionTemplate.Thumbnail.cshtml" />
+    <Content Include="Views\SectionTemplate.ImageRight.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -16,6 +16,7 @@ namespace Easy.CMS.Common.Models
 
         public string ParentId { get; set; }
         public string Url { get; set; }
+        public bool IsCurrent { get; set; }
     }
     class NavigationEntityMeta : DataViewMetaData<NavigationEntity>
     {
@@ -23,6 +24,7 @@ namespace Easy.CMS.Common.Models
         {
             DataTable("Navigation");
             DataConfig(m => m.ID).AsPrimaryKey();
+            DataConfig(m => m.IsCurrent).Ignore();
         }
 
         protected override void ViewConfigure()
@@ -31,6 +33,7 @@ namespace Easy.CMS.Common.Models
             ViewConfig(m => m.ParentId).AsHidden();
             ViewConfig(m => m.DisplayOrder).AsHidden();
             ViewConfig(m => m.Url).AsTextBox().AddClass("select").AddProperty("data-url", Urls.SelectPage);
+            ViewConfig(m => m.IsCurrent).AsHidden();
         }
     }
 

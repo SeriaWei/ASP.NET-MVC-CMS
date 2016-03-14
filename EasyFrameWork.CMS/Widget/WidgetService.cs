@@ -1,17 +1,35 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using Easy.Data;
 using Easy.RepositoryPattern;
 using System.Web;
 using Easy.Cache;
+using Easy.Extend;
 using Easy.Web.CMS.Page;
+using Microsoft.Practices.ServiceLocation;
 
 namespace Easy.Web.CMS.Widget
 {
-    public class WidgetService : ServiceBase<WidgetBase>
+    public class WidgetService : ServiceBase<WidgetBase>, IWidgetService
     {
+
+        private void TriggerPage(WidgetBase widget)
+        {
+            if (widget != null && widget.PageID.IsNotNullAndWhiteSpace())
+            {
+                PageService.MarkChanged(widget.PageID);
+            }
+        }
+
+        private IPageService _pageService;
+
+        public IPageService PageService
+        {
+            get { return _pageService ?? (_pageService = ServiceLocator.Current.GetInstance<IPageService>()); }
+        }
         public IEnumerable<WidgetBase> GetByLayoutId(string layoutId)
         {
             return this.Get(new DataFilter().Where("LayoutID", OperatorType.Equal, layoutId));
@@ -22,53 +40,118 @@ namespace Easy.Web.CMS.Widget
         }
         public IEnumerable<WidgetBase> GetAllByPageId(string pageId)
         {
-            var page = new PageService().Get(pageId);
+            var page = PageService.Get(pageId);
             var result = GetByLayoutId(page.LayoutId);
             List<WidgetBase> widgets = result.ToList();
-            widgets.AddRange(this.Get(new DataFilter().Where("PageID", OperatorType.Equal, pageId)));
+            widgets.AddRange(GetByPageId(pageId));
             return widgets;
+        }
+
+        public override void Add(WidgetBase item)
+        {
+            base.Add(item);
+            TriggerPage(item);
+        }
+
+        public override bool Update(WidgetBase item, DataFilter filter)
+        {
+            Get(filter).Each(TriggerPage);
+            return base.Update(item, filter);
+        }
+
+        public override bool Update(WidgetBase item, params object[] primaryKeys)
+        {
+            TriggerPage(item);
+            return base.Update(item, primaryKeys);
+        }
+
+        public override int Delete(params object[] primaryKeys)
+        {
+            TriggerPage(Get(primaryKeys));
+            return base.Delete(primaryKeys);
+        }
+
+        public override int Delete(DataFilter filter)
+        {
+            Get(filter).Each(TriggerPage);
+            return base.Delete(filter);
+        }
+
+        public override int Delete(Expression<Func<WidgetBase, bool>> expression)
+        {
+            Get(expression).Each(TriggerPage);
+            return base.Delete(expression);
+        }
+
+        public override int Delete(WidgetBase item)
+        {
+            TriggerPage(item);
+            return base.Delete(item);
+
+        }
+
+
+        public WidgetPart ApplyTemplate(WidgetBase widget,HttpContextBase httpContext)
+        {
+            var widgetBase = Get(widget.ID);
+            var service = widgetBase.CreateServiceInstance();
+            widgetBase = service.GetWidget(widgetBase);
+
+            widgetBase.PageID = widget.PageID;
+            widgetBase.ZoneID = widget.ZoneID;
+            widgetBase.Position = widget.Position;
+            widgetBase.IsTemplate = false;
+            widgetBase.Thumbnail = null;
+            widgetBase.LayoutID = null;
+
+            var widgetPart = service.Display(widgetBase, httpContext);
+            service.AddWidget(widgetBase);
+            return widgetPart;
         }
     }
     public abstract class WidgetService<T> : ServiceBase<T>, IWidgetPartDriver where T : WidgetBase
     {
         protected WidgetService()
         {
-            WidgetBaseService = new WidgetService();
+            WidgetBaseService = ServiceLocator.Current.GetInstance<IWidgetService>();
         }
-        public WidgetService WidgetBaseService { get; private set; }
+        public IWidgetService WidgetBaseService { get; private set; }
 
-        private void CopyProperty(WidgetBase widget, T model)
+        private void CopyTo(WidgetBase from, T to)
         {
-            if (model != null)
+            if (to != null)
             {
-                model.AssemblyName = widget.AssemblyName;
-                model.CreateBy = widget.CreateBy;
-                model.CreatebyName = widget.CreatebyName;
-                model.CreateDate = widget.CreateDate;
-                model.Description = widget.Description;
-                model.ID = widget.ID;
-                model.LastUpdateBy = widget.LastUpdateBy;
-                model.LastUpdateByName = widget.LastUpdateByName;
-                model.LastUpdateDate = widget.LastUpdateDate;
-                model.LayoutID = widget.LayoutID;
-                model.PageID = widget.PageID;
-                model.PartialView = widget.PartialView;
-                model.Position = widget.Position;
-                model.ServiceTypeName = widget.ServiceTypeName;
-                model.Status = widget.Status;
-                model.Title = widget.Title;
-                model.ViewModelTypeName = widget.ViewModelTypeName;
-                model.WidgetName = widget.WidgetName;
-                model.ZoneID = widget.ZoneID;
-                model.FormView = widget.FormView;
-                model.StyleClass = widget.StyleClass;
+                to.AssemblyName = from.AssemblyName;
+                to.CreateBy = from.CreateBy;
+                to.CreatebyName = from.CreatebyName;
+                to.CreateDate = from.CreateDate;
+                to.Description = from.Description;
+                to.ID = from.ID;
+                to.LastUpdateBy = from.LastUpdateBy;
+                to.LastUpdateByName = from.LastUpdateByName;
+                to.LastUpdateDate = from.LastUpdateDate;
+                to.LayoutID = from.LayoutID;
+                to.PageID = from.PageID;
+                to.PartialView = from.PartialView;
+                to.Position = from.Position;
+                to.ServiceTypeName = from.ServiceTypeName;
+                to.Status = from.Status;
+                to.Title = from.Title;
+                to.ViewModelTypeName = from.ViewModelTypeName;
+                to.WidgetName = from.WidgetName;
+                to.ZoneID = from.ZoneID;
+                to.FormView = from.FormView;
+                to.StyleClass = from.StyleClass;
+                to.IsTemplate = from.IsTemplate;
+                to.Thumbnail = from.Thumbnail;
+                to.IsSystem = from.IsSystem;
             }
         }
 
         public override void Add(T item)
         {
             item.ID = Guid.NewGuid().ToString("N");
-            WidgetBaseService.Add(item.ToWidgetBase());
+            WidgetBaseService.Add(item);
             if (typeof(T) != typeof(WidgetBase))
             {
                 base.Add(item);
@@ -76,7 +159,7 @@ namespace Easy.Web.CMS.Widget
         }
         public override bool Update(T item, params object[] primaryKeys)
         {
-            bool result = WidgetBaseService.Update(item.ToWidgetBase(), primaryKeys);
+            bool result = WidgetBaseService.Update(item, primaryKeys);
             if (typeof(T) != typeof(WidgetBase))
             {
                 return base.Update(item, primaryKeys);
@@ -86,7 +169,7 @@ namespace Easy.Web.CMS.Widget
         }
         public override bool Update(T item, DataFilter filter)
         {
-            bool result = WidgetBaseService.Update(item.ToWidgetBase(), filter);
+            bool result = WidgetBaseService.Update(item, filter);
             if (typeof(T) != typeof(WidgetBase))
             {
                 return base.Update(item, filter);
@@ -101,10 +184,10 @@ namespace Easy.Web.CMS.Widget
             List<T> lists = new List<T>();
             if (typeof(T) != typeof(WidgetBase))
             {
-                lists = base.Get(filter).ToList();
+                lists = base.Get(new DataFilter().Where("ID", OperatorType.In, widgetBases.ToList(m => m.ID))).ToList();
                 for (int i = 0; i < widgetBases.Count; i++)
                 {
-                    CopyProperty(widgetBases[i], lists[i]);
+                    CopyTo(widgetBases[i], lists[i]);
                 }
             }
             else
@@ -120,10 +203,10 @@ namespace Easy.Web.CMS.Widget
             List<T> lists = new List<T>();
             if (typeof(T) != typeof(WidgetBase))
             {
-                lists = base.Get(filter, pagin).ToList();
+                lists = base.Get(new DataFilter().Where("ID", OperatorType.In, widgetBases.ToList(m => m.ID)), pagin).ToList();
                 for (int i = 0; i < widgetBases.Count(); i++)
                 {
-                    CopyProperty(widgetBases[i], lists[i]);
+                    CopyTo(widgetBases[i], lists[i]);
                 }
             }
             else
@@ -157,14 +240,14 @@ namespace Easy.Web.CMS.Widget
             T model = base.Get(primaryKeys);
             if (typeof(T) != typeof(WidgetBase))
             {
-                CopyProperty(WidgetBaseService.Get(primaryKeys), model);
+                CopyTo(WidgetBaseService.Get(primaryKeys), model);
             }
             return model;
         }
         public virtual WidgetBase GetWidget(WidgetBase widget)
         {
             T result = base.Get(widget.ID);
-            CopyProperty(widget, result);
+            CopyTo(widget, result);
             return result;
         }
 
@@ -190,5 +273,11 @@ namespace Easy.Web.CMS.Widget
             this.Update((T)widget);
         }
         #endregion
+
+
+        public virtual void Publish(WidgetBase widget)
+        {
+            AddWidget(widget);
+        }
     }
 }

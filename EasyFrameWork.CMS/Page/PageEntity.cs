@@ -15,18 +15,19 @@ namespace Easy.Web.CMS.Page
         public string ID { get; set; }
         public string ParentId { get; set; }
         public string Url { get; set; }
-        string _PageUrl;
+        private string _pageUrl;
         public string PageUrl
         {
             get
             {
+                if (_pageUrl.IsNotNullAndWhiteSpace()) return _pageUrl;
                 if (!this.Url.IsNullOrEmpty())
                 {
                     return this.Url.Substring(this.Url.LastIndexOf("/") + 1, this.Url.Length - this.Url.LastIndexOf("/") - 1);
                 }
                 return this.Url;
             }
-            set { _PageUrl = value; }
+            set { _pageUrl = value; }
         }
         public int? DisplayOrder { get; set; }
         public string LayoutId { get; set; }
@@ -40,6 +41,8 @@ namespace Easy.Web.CMS.Page
 
         public DateTime? PublishDate { get; set; }
         public bool IsPublish { get; set; }
+
+        public bool IsPublishedPage { get; set; }
     }
     class PageBaseMetaData : DataViewMetaData<PageEntity>
     {
@@ -61,6 +64,7 @@ namespace Easy.Web.CMS.Page
             ViewConfig(m => m.Content).AsHidden();
             ViewConfig(m => m.PublishDate).AsTextBox().Hide();
             ViewConfig(m => m.IsPublish).AsTextBox().Hide();
+            ViewConfig(m => m.IsPublishedPage).AsTextBox().Hide();
         }
     }
 

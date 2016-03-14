@@ -15,13 +15,14 @@ using System.Web;
 using System.Web.Mvc;
 using Easy.Extend;
 using Easy.Web.CMS.Layout;
+using Microsoft.Practices.ServiceLocation;
 
 namespace Easy.CMS.Common.Controllers
 {
-    public class PageController : BasicController<PageEntity, string, PageService>
+    public class PageController : BasicController<PageEntity, string, IPageService>
     {
-        public PageController()
-            : base(new PageService())
+        public PageController(IPageService service)
+            : base(service)
         {
 
         }
@@ -38,8 +39,8 @@ namespace Easy.CMS.Common.Controllers
 
         public JsonResult GetPageTree()
         {
-            var pages = Service.Get(new DataFilter().OrderBy("DisplayOrder", OrderType.Ascending));
-            var node = new Easy.HTML.jsTree.Tree<PageEntity>().Source(pages).ToNode(m => m.ID, m => m.PageName, m => m.ParentId, "#");
+            var pages = Service.Get(new DataFilter().Where("IsPublishedPage", OperatorType.Equal, false).OrderBy("DisplayOrder", OrderType.Ascending));
+            var node = new Easy.ViewPort.jsTree.Tree<PageEntity>().Source(pages).ToNode(m => m.ID, m => m.PageName, m => m.ParentId, "#");
             return Json(node, JsonRequestBehavior.AllowGet);
         }
         [NonAction]
@@ -48,7 +49,7 @@ namespace Easy.CMS.Common.Controllers
             return base.Create();
         }
 
-        [AdminTheme, ViewData_Layouts, Authorize]
+        [AdminTheme, ViewDataLayouts, Authorize]
         public ActionResult Create(string ParentID)
         {
             var page = new PageEntity
@@ -69,18 +70,30 @@ namespace Easy.CMS.Common.Controllers
             return View(page);
 
         }
-        [AdminTheme, ViewData_Layouts, HttpPost, Authorize]
+        [AdminTheme, ViewDataLayouts, HttpPost, Authorize]
         public override ActionResult Create(PageEntity entity)
         {
-            base.Create(entity);
-            return RedirectToAction("Design", new { ID = entity.ID });
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    Service.Add(entity);
+                }
+                catch (PageExistException ex)
+                {
+                    ModelState.AddModelError("PageUrl",ex.Message);
+                    return View(entity);
+                }
+                return RedirectToAction("Design", new { ID = entity.ID });
+            }
+            return View(entity);
         }
-        [AdminTheme, ViewData_Layouts, Authorize]
+        [AdminTheme, ViewDataLayouts, Authorize]
         public override ActionResult Edit(string Id)
         {
             return base.Edit(Id);
         }
-        [AdminTheme, ViewData_Layouts, Authorize]
+        [AdminTheme, ViewDataLayouts, Authorize]
         [HttpPost]
         public override ActionResult Edit(PageEntity entity)
         {
@@ -88,17 +101,26 @@ namespace Easy.CMS.Common.Controllers
             {
                 return RedirectToAction("Design", new { ID = entity.ID });
             }
-            var result = base.Edit(entity);
+            string id = entity.ID;
+            try
+            {
+                Service.Update(entity);
+            }
+            catch (PageExistException ex)
+            {
+                ModelState.AddModelError("PageUrl", ex.Message);
+                return View(entity);
+            }
             if (entity.ActionType == ActionType.Publish)
             {
-                Service.Publish(entity.ID);
+                Service.Publish(entity);
                 HttpResponse.RemoveOutputCacheItem(entity.Url.Replace("~", ""));
                 if (entity.IsHomePage)
                 {
                     HttpResponse.RemoveOutputCacheItem("/");
                 }
             }
-            return result;
+            return RedirectToAction("Index", new { PageID = id });
         }
         [EditWidget, Authorize]
         public ActionResult Design(string ID)
@@ -106,9 +128,9 @@ namespace Easy.CMS.Common.Controllers
             return View();
         }
         [Authorize]
-        public ActionResult RedirectView(string Id)
+        public ActionResult RedirectView(string Id, bool? preview)
         {
-            return Redirect(Service.Get(Id).Url + "?ViewType=Review");
+            return Redirect(Service.Get(Id).Url + ((preview ?? true) ? "?ViewType=" + ReView.Review : ""));
         }
         [PopUp, Authorize]
         public ActionResult Select()
@@ -118,10 +140,10 @@ namespace Easy.CMS.Common.Controllers
         [Authorize]
         public ActionResult PageZones(QueryContext context)
         {
-            var zoneService = new ZoneService();
-            var widgetService = new WidgetService();
+            var zoneService = ServiceLocator.Current.GetInstance<IZoneService>();
+            var widgetService = ServiceLocator.Current.GetInstance<IWidgetService>();
             var page = Service.Get(context.PageID);
-            var layoutService = new LayoutService();
+            var layoutService = ServiceLocator.Current.GetInstance<ILayoutService>();
             var layout = layoutService.Get(page.LayoutId);
             var viewModel = new ViewModels.LayoutZonesViewModel
                 {
@@ -139,5 +161,12 @@ namespace Easy.CMS.Common.Controllers
             Service.Move(id, position, oldPosition);
             return Json(true);
         }
+        [HttpPost, Authorize]
+        public JsonResult Publish(string id)
+        {
+            Service.Publish(Service.Get(id));
+            return Json(true);
+        }
+
     }
 }

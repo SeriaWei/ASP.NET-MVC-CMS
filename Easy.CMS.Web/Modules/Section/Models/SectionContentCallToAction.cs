@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using Easy.MetaData;
 using Easy.Models;
+using Easy.Web.CMS;
 
 namespace Easy.CMS.Section.Models
 {
@@ -34,7 +35,7 @@ namespace Easy.CMS.Section.Models
         protected override void ViewConfigure()
         {
             ViewConfig(m => m.InnerText).AsTextBox().Required();
-            ViewConfig(m => m.Href).AsTextBox().Required();
+            ViewConfig(m => m.Href).AsTextBox().Required().AddClass("select").AddProperty("data-url", Urls.SelectPage);
         }
     }
 }
