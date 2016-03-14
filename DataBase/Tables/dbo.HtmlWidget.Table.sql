@@ -4,7 +4,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[HtmlWidget](
-	[ID] [nvarchar](255) NOT NULL,
+	[ID] [nvarchar](100) NOT NULL,
 	[HTML] [nvarchar](max) NULL,
  CONSTRAINT [PK_HtmlWidget] PRIMARY KEY CLUSTERED 
 (

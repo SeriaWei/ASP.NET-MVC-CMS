@@ -4,7 +4,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[ProductListWidget](
-	[ID] [nvarchar](255) NOT NULL,
+	[ID] [nvarchar](100) NOT NULL,
 	[IsPageable] [bit] NOT NULL,
 	[ProductCategoryID] [int] NULL,
 	[DetailPageUrl] [nvarchar](255) NULL,

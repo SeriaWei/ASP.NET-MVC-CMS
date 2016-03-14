@@ -4,7 +4,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[ImageWidget](
-	[ID] [nvarchar](255) NOT NULL,
+	[ID] [nvarchar](100) NOT NULL,
 	[ImageUrl] [nvarchar](255) NULL,
 	[Width] [int] NULL,
 	[Height] [int] NULL,

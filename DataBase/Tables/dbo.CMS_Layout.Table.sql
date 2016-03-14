@@ -4,7 +4,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[CMS_Layout](
-	[ID] [nvarchar](255) NOT NULL,
+	[ID] [nvarchar](100) NOT NULL,
 	[LayoutName] [nvarchar](255) NULL,
 	[Title] [nvarchar](255) NULL,
 	[ContainerClass] [nvarchar](255) NULL,

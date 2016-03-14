@@ -4,13 +4,13 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[CMS_WidgetBase](
-	[ID] [nvarchar](255) NOT NULL,
+	[ID] [nvarchar](100) NOT NULL,
 	[WidgetName] [nvarchar](255) NULL,
 	[Title] [nvarchar](255) NULL,
 	[Position] [int] NULL,
-	[LayoutId] [nvarchar](255) NULL,
-	[PageId] [nvarchar](255) NULL,
-	[ZoneId] [nvarchar](255) NULL,
+	[LayoutId] [nvarchar](100) NULL,
+	[PageId] [nvarchar](100) NULL,
+	[ZoneId] [nvarchar](100) NULL,
 	[PartialView] [nvarchar](255) NULL,
 	[AssemblyName] [nvarchar](255) NULL,
 	[ServiceTypeName] [nvarchar](255) NULL,

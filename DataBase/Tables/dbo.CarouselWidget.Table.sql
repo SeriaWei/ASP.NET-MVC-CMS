@@ -4,7 +4,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[CarouselWidget](
-	[ID] [nvarchar](255) NOT NULL,
+	[ID] [nvarchar](100) NOT NULL,
 	[CarouselID] [int] NULL,
  CONSTRAINT [PK_CarouselWidget] PRIMARY KEY CLUSTERED 
 (
