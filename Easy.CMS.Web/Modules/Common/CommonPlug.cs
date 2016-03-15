@@ -30,6 +30,13 @@ namespace Easy.CMS.Common
             };
             yield return new RouteDescriptor
             {
+                RouteName = "error",
+                Url = "error/{action}",
+                Defaults = new { controller = "Error",  module = "admin" },
+                Priority = 10
+            };
+            yield return new RouteDescriptor
+            {
                 RouteName = "AccountAdmin",
                 Url = "Account/{action}",
                 Defaults = new { controller = "Account", action = "Login", module = "common" },

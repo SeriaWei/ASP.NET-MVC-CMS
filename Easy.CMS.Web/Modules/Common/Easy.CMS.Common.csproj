@@ -124,6 +124,7 @@
     <Compile Include="CommonPlug.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CarouselController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\ImageController.cs" />
     <Compile Include="Controllers\LayoutController.cs" />
     <Compile Include="Controllers\NavigationController.cs" />
@@ -200,6 +201,7 @@
     <Content Include="Views\Shared\DesignWidget.cshtml" />
     <Content Include="Views\Widget\Templates.cshtml" />
     <Content Include="Views\Image\Index.cshtml" />
+    <Content Include="Views\Error\NoPage.cshtml" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
