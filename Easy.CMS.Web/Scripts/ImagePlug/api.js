@@ -1,10 +1,10 @@
 var tieTuKu = (function () {
     function tieTuKu(accessKey, secretKey, openKey) {
         this.methd = "POST";
-        this.host = "http://api.tietuku.com/v2/api/";
-        this.albumUrl = "http://api.tietuku.com/v1/Album";
-        this.picListUrl = "http://api.tietuku.com/v1/List";
-        this.picUrl = "http://api.tietuku.com/v1/Pic";
+        this.host = "http://api.tietuku.cn/v2/api/";
+        this.albumUrl = "http://api.tietuku.cn/v1/Album";
+        this.picListUrl = "http://api.tietuku.cn/v1/List";
+        this.picUrl = "http://api.tietuku.cn/v1/Pic";
         this.returnType = "json";
         this.onprogress = function () { };
         this.accessKey = accessKey;
@@ -78,7 +78,7 @@ var tieTuKu = (function () {
         var formData = new FormData();
         formData.append("Token", this.getToken({ deadline: Date.now() + 60, "aid": aid }));
         formData.append("file", file.files[0]);
-        this.processRequest(formData, "http://up.tietuku.com/", callback);
+        this.processRequest(formData, "http://up.tietuku.cn/", callback);
     };
     tieTuKu.prototype.deletePic = function (pid, callBack) {
         var formData = new FormData();
