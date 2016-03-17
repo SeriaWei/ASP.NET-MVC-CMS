@@ -160,7 +160,7 @@
     <Content Include="Views\Widget.ProductCategory.cshtml" />
     <Content Include="Views\Widget.ProductDetail.cshtml" />
     <None Include="Properties\PublishProfiles\PublishLocal.pubxml" />
-    <None Include="Views\Widget.ProductList.cshtml" />
+    <Content Include="Views\Widget.ProductList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="web.config" />

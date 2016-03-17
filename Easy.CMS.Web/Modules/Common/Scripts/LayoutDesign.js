@@ -63,7 +63,7 @@
         greedy: true,
         tolerance: "pointer",
         drop: rowDropToContent
-    }).sortable();
+    });
 
     var opRowDrop = {
         hoverClass: "dropWarning",
@@ -86,9 +86,9 @@
             }
         }
     };
-    $("#container .additional.row").droppable(opRowDrop).sortable();
+    $("#container .additional.row").droppable(opRowDrop);
     $("#container .colContent").droppable(opColDrop).sortable();
-
+    $("#container").sortable({ items: ".additional.row:not(.layout.templates)" });
     function rowDropToContent(event, ui, obj) {
         if (obj == null)
             obj = this;

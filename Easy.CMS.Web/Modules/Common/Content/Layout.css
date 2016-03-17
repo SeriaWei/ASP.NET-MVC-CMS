@@ -314,13 +314,15 @@ input.helper:checked + span {
     transition: all 0.5s ease-in-out;
     box-shadow: 0 0 5px rgba(0, 0, 0,0.2);
 }
-.templates.active {
-    width: 233px;
-}
+
+    .templates.active {
+        width: 233px;
+    }
+
     .templates ul {
         list-style: none;
-        margin:0;
-        padding: 0 0 0 10px;
+        margin: 0;
+        padding: 0 10px 0 10px;
         height: 100%;
         overflow: auto;
     }
@@ -351,8 +353,23 @@ input.helper:checked + span {
             opacity: 0.5;
             transition: all 0.2s ease-in-out;
         }
-       .templates .delete-template {
-           position: absolute;
-           top: -8px;
-           left: -8px;
+
+    .templates .delete-template {
+        position: absolute;
+        top: -8px;
+        left: -8px;
+    }
+
+.layout.templates {
+    width: 213px;
+}
+
+    .layout.templates .widget-design .row {
+        background: #fff;
+    }
+
+        .layout.templates .widget-design .row .border-helper {
+            margin: 5px -10px;
+            min-height: 80px;
+            border: 1px solid #ddd;
         }

@@ -190,7 +190,6 @@
     <Compile Include="ResourceManager.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\DataBase.mdb" />
     <Content Include="Content\bootstrap\css\bootstrap-theme.css" />
     <Content Include="Content\bootstrap\css\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap\css\bootstrap.css" />
@@ -1032,9 +1031,9 @@
     <Content Include="Views\Shared\EditorTemplates\DateTime.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Hidden.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\FileInput.cshtml" />
-    <None Include="Views\Shared\EditorTemplates\ListEditor.cshtml" />
-    <Content Include="Views\Shared\ListEditorItem.cshtml" />
-    <None Include="Views\Shared\EditorTemplates\ListEditorItem.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\ListEditor.cshtml" />
+    <Content Include="Views\Shared\ListEditorItemTemplate.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\ListEditorItem.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Decimal.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -1045,6 +1044,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

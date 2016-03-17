@@ -202,6 +202,7 @@
     <Content Include="Views\Widget\Templates.cshtml" />
     <Content Include="Views\Image\Index.cshtml" />
     <Content Include="Views\Error\NoPage.cshtml" />
+    <Content Include="Views\Layout\Templates.cshtml" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
