@@ -60,7 +60,7 @@
         });
     }).on("click", ".form-group select#ZoneID", function () {
         var obj = $(this);
-        var url = "/admin/Layout/SelectZone?layoutId=" + $("#Hiddens #LayoutID").val() + "&pageId=" + $("#Hiddens #PageID").val() + "&zoneId=" + obj.val();
+        var url = "/admin/Layout/SelectZone?layoutId=" + $(".hide #LayoutID").val() + "&pageId=" + $(".hide #PageID").val() + "&zoneId=" + obj.val();
         window.top.Easy.ShowUrlWindow({
             url: url,
             width: 1000,
