@@ -75,7 +75,7 @@ input.helper:checked + span {
     min-height: 100px;
     border: 1px solid #337ab7;
     background-color: white;
-    margin: 3px -13px;
+    margin: 10px -5px;
     cursor: move;
 }
 
@@ -91,7 +91,7 @@ input.helper:checked + span {
 .design-border .zone {
     border: 1px dotted #ec971f;
     background-color: white;
-    margin: 6px;
+    margin: 10px;
     min-height: 80px;
 }
 
@@ -143,7 +143,7 @@ input.helper:checked + span {
 .design .colContent {
     cursor: move;
     border: 1px dashed #5cb85c;
-    margin: 2px -13px;
+    margin: 10px -5px;
 }
 
 .pagePreview {
@@ -360,9 +360,7 @@ input.helper:checked + span {
         left: -8px;
     }
 
-.layout.templates {
-    width: 213px;
-}
+
 
     .layout.templates .widget-design .row {
         background: #fff;
@@ -371,5 +369,9 @@ input.helper:checked + span {
         .layout.templates .widget-design .row .border-helper {
             margin: 5px -10px;
             min-height: 80px;
+            border: 1px solid #ddd;
+        }
+        .layout .ui-draggable-handle.ui-draggable-dragging {
+            width:200px;
             border: 1px solid #ddd;
         }
