@@ -364,6 +364,7 @@ input.helper:checked + span {
 
     .layout.templates .widget-design .row {
         background: #fff;
+        box-shadow: 0 0 5px rgba(0, 0, 0,0.2);
     }
 
         .layout.templates .widget-design .row .border-helper {

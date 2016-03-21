@@ -131,5 +131,30 @@ namespace Easy.CMS.Section.Controllers
 
             return Json(new AjaxResult { Status = AjaxStatus.Normal, Message = "上传成功" });
         }
+
+        [HttpPost]
+        public JsonResult SplitColumn(List<SectionGroup> groups)
+        {
+            if (groups != null)
+            {
+                groups.Each(g =>
+                {
+                    if (g.ID > 0)
+                    {
+                        var group = _sectionGroupService.Get(g.ID);
+                        if (group != null)
+                        {
+                            group.PercentWidth = g.PercentWidth;
+                        }
+                        _sectionGroupService.Update(group);
+                    }
+                    else
+                    {
+                        _sectionGroupService.Add(g);
+                    }
+                });
+            }
+            return Json(new { Groups = groups.Count });
+        }
     }
 }

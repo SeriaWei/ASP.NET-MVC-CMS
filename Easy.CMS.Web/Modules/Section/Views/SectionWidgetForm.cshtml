@@ -2,9 +2,23 @@
 @model SectionWidget
 @{
     Script.Reqiured("jQueryUi").AtHead();
-
     Script.Reqiured("lightBox").AtFoot();
-    Style.Reqiured("lightBox").AtFoot();
+
+    Style.Reqiured("lightBox").AtHead();
+    Style.Reqiured("SectionAdmin").AtHead();
+    var templates = new List<List<string>>
+    {
+        new List<string>{""},
+        new List<string>{"col-sm-6","col-sm-6"},
+        new List<string>{"col-sm-8","col-sm-4"},
+        new List<string>{"col-sm-9","col-sm-3"},
+        new List<string>{"col-sm-4","col-sm-8"},
+        new List<string>{"col-sm-3","col-sm-9"},
+        new List<string>{"col-sm-4","col-sm-4","col-sm-4"},
+        new List<string>{"col-sm-3","col-sm-6","col-sm-3"},
+        new List<string>{"col-sm-3","col-sm-3","col-sm-3","col-sm-3"}
+    };
+
 }
 @using (Html.BeginForm())
 {
@@ -18,7 +32,7 @@
     <div class="panel panel-default  tab-content">
         <div id="info" class="panel-body tab-pane">
             <input type="hidden" name="ReturnUrl" value="@ViewBag.ReturnUrl" />
-           @Html.EditorForModel()
+            @Html.EditorForModel()
         </div>
         @if (Model.Groups != null)
         {
@@ -30,12 +44,39 @@
                         Html.RenderPartial("SectionGroup.Edit", group);
                     }
                 </div>
-                <div>
-                    <a href="@Url.Action("Create", "SectionGroup", new {sectionWidgetId = Model.ID})" class="btn btn-link btn-xs dialog" data-width="1000" data-height="600">
-                        <i class="glyphicon glyphicon-plus"></i>
-                        添加
-                    </a>
+                <div class="group-template">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-xs-1">
+                                <div class="text-center">
+                                    <a href="@Url.Action("Create", "SectionGroup", new {sectionWidgetId = Model.ID})" class="btn btn-link btn-xs dialog" data-width="1000" data-height="600">
+                                        <i class="glyphicon glyphicon-plus"></i>
+                                        添加
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-xs-1">
+                                <div class="text-center">
+                                    组分列：
+                                </div>
+                            </div>
+                            @foreach (var template in templates)
+                            {
+                                <div class="col-xs-1 item @(template.Count == 1 || !Model.Groups.Any() || template.Count == Model.Groups.Count() ? "" : "hide")">
+                                    <div class="row border">
+                                        @foreach (var col in template)
+                                        {
+                                            <div class="col @col" data-col="@col">
+                                                <div class="content-helper"></div>
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
                 </div>
+
             </div>
         }
         <div class="panel-footer">
@@ -104,10 +145,77 @@
                     $.post("@Url.Action("SortContent","SectionGroup")", result, function (data) { reload(); }, "json");
                 }
             });
+            var groups = $(".section-group");
+            var templateItem = $(".group-template .item");
+            $(".actived", templateItem).removeClass("actived");
+            templateItem.each(function () {
+                var allMatch = true;
+                var cols = $(".col", this);
+                cols.each(function (i) {
+                    if ($(".section-group:eq(" + i + ")").data("col") !== $(this).data("col")) {
+                        allMatch = false;
+                    }
+                });
+                if (allMatch && groups.size() === cols.size()) {
+                    $(".row", this).addClass("actived");
+                }
+                if (groups.size() === 0 || cols.size() === 1 || groups.size() === cols.size()) {
+                    $(this).removeClass("hide");
+                } else {
+                    $(this).addClass("hide");
+                }
+            });
+            if ($(".actived", templateItem).size() === 0) {
+                var full = true;
+                groups.each(function () {
+                    if ($(this).data("col")) {
+                        full = false;
+                    }
+                });
+                if (full && groups.size() > 0) {
+                    templateItem.first().children().addClass("actived");
+                }
+            }
         }
-
         $(function () {
             sortGroup();
+        });
+        $(document).on("click", ".group-template .row.border", function () {
+            $(".group-template .row.border").removeClass("actived");
+            $(this).addClass("actived");
+            var groups = [];
+            $(".col", this).each(function (i) {
+                groups[i] = {};
+                groups[i].PercentWidth = $(this).data("col");
+                groups[i].SectionWidgetId = '@Model.ID';
+                groups[i].GroupName = "组" + (i + 1);
+                groups[i].PartialView = "SectionTemplate.Default";
+                groups[i].Order = (i + 1);
+                groups[i].ID = $(".section-group:eq(" + i + ")").data("id") || 0;
+            });
+            var sGroup = $(".section-group");
+            if (groups.length !== sGroup.size() && sGroup.size() > 0) {
+                groups = [];
+                sGroup.each(function (i) {
+                    groups[i] = {};
+                    groups[i].ID = $(this).data("id");
+                    groups[i].PercentWidth = "";
+                });
+            }
+            $.ajax({
+                type: 'POST',
+                dataType: 'json',
+                url: "@Url.Action("SplitColumn","SectionGroup",new{module="admin"})",
+                data: JSON.stringify(groups),
+                contentType: 'application/json; charset=utf-8',
+                async: false,
+                success: function (data) {
+                    if (data.Groups) {
+
+                        reload();
+                    }
+                }
+            });
         });
     </script>
 }

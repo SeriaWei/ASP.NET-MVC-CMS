@@ -26,7 +26,7 @@ namespace Easy.CMS.Section
 
         public override void InitStyle()
         {
-            
+            Style("SectionAdmin").Include("~/Modules/Section/Content/Section.css");
         }
     }
 }
