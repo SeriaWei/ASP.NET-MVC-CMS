@@ -1,4 +1,4 @@
-# ZKEACMS
+﻿# ZKEACMS
 #### [Fork me on GitHub](https://github.com/SeriaWei/ASP.NET-MVC-CMS)
 ZKEACMS是基于EasyFrameWork，使用ASP.NET MVC4开发的开源CMS。
 
@@ -28,21 +28,21 @@ Microsoft Sql Server 2005 以上
 ZKEACMS采用了现代的响应式设计，可以自动适配不同大小的屏幕和设备。从PC，笔记本，电视，平板到手机页面都会自动响应适应。
 
 ## 布局设计
-![布局设计](http://i11.tietuku.com/6d8e847f58ed535a.png)
+![布局设计](http://i11.tietuku.cn/6d8e847f58ed535a.png)
 
 布局，用于对页面做区域划分，用户使用拖拉“行”，“列”的方式进行布局的设计。布局的划分，采用行，列的方式进行划分，可嵌套。
 
 一个布局里面，可以添加任意行，每一行使用12等分进行栅格，最多可划分为12列。行列划分完成以后，要在列中加入“组件区域”，才可以在该列中加入组件。
 
 ## 概览设计
-![概览设计](http://i13.tietuku.com/d853329b9fe66212.png)
+![概览设计](http://i13.tietuku.cn/d853329b9fe66212.png)
 
 概览页面，是页面的缩略显示。在这个页面里面，用户可以直接看到页面的布局，和页面中的组件。
 
 在概览页面中，用户可以添加组件到任意区域。可以对任意区域内的组件进行排序或者拖放到别的区域显示。
 
 ## 预览设计
-![预览设计](http://i13.tietuku.com/1ca9aab4fabcfede.png)
+![预览设计](http://i13.tietuku.cn/1ca9aab4fabcfede.png)
 
 预览页面，是页面的真实显示。在这个页面里面，用户可以直接看到页面的真实情况，和页面中组件的真实情况。
 
@@ -68,8 +68,8 @@ ZKEACMS 使用LESS，可以轻松的创建主题。
 ## DEMO站点
 [DEMO站点](http://zkeacms.ngrok.natapp.cn/)
 ## 关注微信(ZKEASOFT)
-![关注微信](http://i11.tietuku.com/263801921375bdf2.jpg)
+![关注微信](http://i11.tietuku.cn/263801921375bdf2.jpg)
 ## QQ群(493586356)
-![QQ群493586356](http://i5.tietuku.com/00c84f6600d8c3e0.jpg)
+![QQ群493586356](http://i5.tietuku.cn/00c84f6600d8c3e0.jpg)
 ## License
 [许可协议](http://www.zkea.net/licenses)
