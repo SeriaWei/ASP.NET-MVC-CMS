@@ -49,7 +49,7 @@ ZKEACMS采用了现代的响应式设计，可以自动适配不同大小的屏�
 在预览页面中，用户可以添加组件到任意区域。可以对任意区域内的组件进行排序或者拖放到别的区域显示。
 
 ## 组件
-![组件](http://i1291.photobucket.cn/albums/b560/SeriaWei/BlogPic/QQ_zpsclxjh67u.jpg)
+![组件](http://i1291.photobucket.com/albums/b560/SeriaWei/BlogPic/QQ_zpsclxjh67u.jpg)
 
 在布局中添加了组件区域后，这些区域就可用于添加组件，不同的组件拥有不同的功能。
 
