@@ -75,7 +75,7 @@
         });
     });
     $(".form-group select#ZoneID").on("mousedown", false);
-    
+
     var mainMenu = $("#main-menu");
     var currentSelect;
     var match = 0;
@@ -102,13 +102,24 @@
     $(".Date").each(function () {
         $(this).datetimepicker({ locale: "zh_cn", format: $(this).attr("JsDateFormat") });
     });
-
-    $('.nav.nav-tabs a').click(function (e) {
+    $(document).on("click", ".nav.nav-tabs a", function () {
         $(this).tab('show');
         return false;
-    }).each(function (i) {
-        if (i === 0 || location.hash === $(this).attr("href")) {
-            $(this).tab("show");
+    });
+    $('.nav.nav-tabs').each(function () {
+        var shown = false;
+        $("li", this).each(function () {
+            if ($(this).hasClass("active")) {
+                $(this).removeClass("active");
+                $("a", this).tab("show");
+                shown = true;
+            }
+        });
+        if (!shown) {
+            $("li:first a", this).tab("show");
+            if (location.hash) {
+                $("li a[href='" + location.hash + "']", this).tab("show");
+            }
         }
     });
 
