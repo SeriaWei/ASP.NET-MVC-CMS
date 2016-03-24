@@ -16,7 +16,6 @@ namespace Easy.Web.CMS.Layout
     [DataConfigure(typeof(LayoutEntityMetaData))]
     public class LayoutEntity : EditorEntity, IImage
     {
-        public const string LayoutKey = "ViewDataKey_Layout";
         public const string DefaultThumbnial = "~/Modules/Common/Content/Images/demoLayout.jpg";
         public string ID { get; set; }
 

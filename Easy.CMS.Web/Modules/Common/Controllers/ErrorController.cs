@@ -9,9 +9,16 @@ namespace Easy.CMS.Common.Controllers
     
     public class ErrorController : Controller
     {
-        [HandleError]
-        public ActionResult NoPage()
+        
+        public ActionResult Index()
         {
+            Response.StatusCode = 500;
+            return View();
+        }
+    
+        public ActionResult NotFond()
+        {
+            Response.StatusCode = 404;
             return View();
         }
 

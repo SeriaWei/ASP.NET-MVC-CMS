@@ -84,6 +84,15 @@ namespace Easy.Web.CMS.Page
 
             var widgets = WidgetService.Get(m => m.PageID == page.ID);
             widgets.Each(m => m.CreateServiceInstance().DeleteWidget(m.ID));
+            if (page.IsPublish)
+            {
+                var publishedPage = GetByPath(page.Url, false);
+                if (publishedPage != null)
+                {
+                    this.Delete(publishedPage.ID);
+                }
+            }
+
             return base.Delete(primaryKeys);
         }
 
@@ -92,6 +101,7 @@ namespace Easy.Web.CMS.Page
             var page = this.Get(id);
             page.DisplayOrder = position;
             var filter = new DataFilter()
+                .Where("IsPublishedPage", OperatorType.Equal, false)
                 .Where("ParentId", OperatorType.Equal, page.ParentId)
                 .Where("Id", OperatorType.NotEqual, page.ID);
             if (position > oldPosition)
@@ -128,14 +138,14 @@ namespace Easy.Web.CMS.Page
 
             if (path == "/")
             {
-                filter.Where("IsHomePage", OperatorType.Equal, true);
+                filter.Where("ParentId", OperatorType.Equal, "#");
             }
             else
             {
                 filter.Where("Url", OperatorType.Equal, (path.StartsWith("~") ? "" : "~") + path);
             }
 
-            filter.Where("IsPublishedPage", OperatorType.Equal, !isPreView);
+            filter.Where("IsPublishedPage", OperatorType.Equal, !isPreView).OrderBy("DisplayOrder", OrderType.Ascending);
             var pages = Get(filter);
 
             return pages.FirstOrDefault();

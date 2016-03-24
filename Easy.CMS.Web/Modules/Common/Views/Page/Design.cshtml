@@ -1,13 +1,14 @@
 ﻿@using System.Text.RegularExpressions
 @using Easy.CMS.Common.ViewModels
 @using Easy.Web.CMS.Widget
+@using Easy.Web.CMS.Layout
+@model LayoutEntity
 @{
     Style.Reqiured("Layout").AtHead();
     Style.Reqiured("Easy").AtHead();
     Script.Reqiured("jQueryUi").AtFoot();
     Script.Reqiured("PageDesign").AtFoot();
-    Easy.Web.CMS.Layout.LayoutEntity layOut = ViewData[Easy.Web.CMS.Layout.LayoutEntity.LayoutKey] as Easy.Web.CMS.Layout.LayoutEntity;
-    if (layOut == null)
+    if (Model == null)
     {
         return;
     }
@@ -16,29 +17,29 @@
 <input type="hidden" id="save-widget-position-url" value="@Url.Action("SaveWidgetPosition", "Widget", new {module = "admin"})" />
 <input type="hidden" id="save-widget-zone-url" value="@Url.Action("SaveWidgetZone", "Widget", new {module = "admin"})"/>
 <input type="hidden" id="append-widget-url" value="@Url.Action("AppendWidget", "Widget", new { module = "admin" })" />
-<input type="hidden" id="pageId" value="@layOut.Page.ID"/>
-@for (int i = 0; i < layOut.Html.Count; i++)
+<input type="hidden" id="pageId" value="@Model.Page.ID"/>
+@for (int i = 0; i < Model.Html.Count; i++)
 {
-    var item = layOut.Html[i];
+    var item = Model.Html[i];
     if (item.Html == Easy.Web.CMS.Zone.ZoneEntity.ZoneTag)
     {
         i++;
-        var zoneId = layOut.Html[i].Html;
+        var zoneId = Model.Html[i].Html;
         <input type="hidden" class="zoneId" value="@zoneId" />
         <div class="zoneName">
             <a title="添加组件到该区域"
                class="add-widget label label-danger"
-               href="@Url.Action("SelectWidget", "WidgetTemplate", new { module = "admin", pageId = layOut.Page.ID, ZoneId = zoneId })">
+               href="@Url.Action("SelectWidget", "WidgetTemplate", new { module = "admin", pageId = Model.Page.ID, ZoneId = zoneId })">
                 <i class="glyphicon glyphicon-plus"></i>
-                @layOut.Zones.First(m => m.ID == zoneId).ZoneName
+                @Model.Zones.First(m => m.ID == zoneId).ZoneName
             </a>
         </div>
 
-        if (layOut.ZoneWidgets.ContainsKey(zoneId))
+        if (Model.ZoneWidgets.ContainsKey(zoneId))
         {
-            foreach (WidgetPart widgetPart in layOut.ZoneWidgets[zoneId].OrderBy(m => m.Widget.Position).ThenBy(m => m.Widget.WidgetName))
+            foreach (WidgetPart widgetPart in Model.ZoneWidgets[zoneId].OrderBy(m => m.Widget.Position).ThenBy(m => m.Widget.WidgetName))
             {
-                Html.RenderPartial("DesignWidget", new DesignWidgetViewModel(widgetPart, layOut.Page.ID));
+                Html.RenderPartial("DesignWidget", new DesignWidgetViewModel(widgetPart, Model.Page.ID));
             }
         }
 

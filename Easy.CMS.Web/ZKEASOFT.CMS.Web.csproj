@@ -994,7 +994,6 @@
     <Content Include="Themes\Default\css\Carousel.css.map">
       <DependentUpon>Carousel.css</DependentUpon>
     </Content>
-    <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\Partial_Pagination.cshtml" />
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Views\Shared\_PopUpLayout.cshtml" />

@@ -32,7 +32,7 @@ namespace Easy.CMS.Common
             {
                 RouteName = "error",
                 Url = "error/{action}",
-                Defaults = new { controller = "Error",  module = "admin" },
+                Defaults = new { controller = "Error",  action="index",module = "admin" },
                 Priority = 10
             };
             yield return new RouteDescriptor

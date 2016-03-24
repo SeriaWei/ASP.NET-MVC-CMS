@@ -201,8 +201,9 @@
     <Content Include="Views\Shared\DesignWidget.cshtml" />
     <Content Include="Views\Widget\Templates.cshtml" />
     <Content Include="Views\Image\Index.cshtml" />
-    <Content Include="Views\Error\NoPage.cshtml" />
+    <Content Include="Views\Error\NotFond.cshtml" />
     <Content Include="Views\Layout\Templates.cshtml" />
+    <Content Include="Views\Error\Index.cshtml" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>

@@ -62,6 +62,7 @@ namespace Easy.Web.CMS.Page
             ViewConfig(m => m.ParentId).AsHidden();
             ViewConfig(m => m.ID).AsHidden();
             ViewConfig(m => m.Content).AsHidden();
+            ViewConfig(m => m.IsHomePage).AsHidden();
             ViewConfig(m => m.PublishDate).AsTextBox().Hide();
             ViewConfig(m => m.IsPublish).AsTextBox().Hide();
             ViewConfig(m => m.IsPublishedPage).AsTextBox().Hide();

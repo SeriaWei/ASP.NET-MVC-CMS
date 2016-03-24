@@ -41,7 +41,7 @@ namespace Easy.Web.CMS.Filter
 
         public virtual string GetLayout()
         {
-            return null;
+            return "~/Modules/Common/Views/Shared/_Layout.cshtml";
         }
 
         public void OnActionExecuted(ActionExecutedContext filterContext)
@@ -83,17 +83,14 @@ namespace Easy.Web.CMS.Filter
                 var viewResult = (filterContext.Result as ViewResult);
                 if (viewResult != null)
                 {
-                    string layoutView = GetLayout();
-                    if (layoutView.IsNotNullAndWhiteSpace())
-                    {
-                        viewResult.MasterName = layoutView;
-                    }
-                    viewResult.ViewData[LayoutEntity.LayoutKey] = layout;
+                    viewResult.MasterName = GetLayout();
+
+                    filterContext.Controller.ViewData.Model = layout;
                 }
             }
             else
             {
-                filterContext.Result = new HttpStatusCodeResult(404);
+                filterContext.Result = new RedirectResult("~/error/notfond");
             }
         }
 
