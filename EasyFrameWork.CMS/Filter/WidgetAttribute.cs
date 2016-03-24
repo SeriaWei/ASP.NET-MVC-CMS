@@ -76,15 +76,12 @@ namespace Easy.Web.CMS.Filter
                 };
                 var widgetService = ServiceLocator.Current.GetInstance<IWidgetService>();
                 IEnumerable<WidgetBase> widgets = widgetService.GetAllByPageId(page.ID);
-                var parallel = from widget in widgets.AsParallel() select widget;
-                parallel.ForAll(processWidget);
-
+                widgets.AsParallel().ForAll(processWidget);
                 layout.ZoneWidgets = Zones;
                 var viewResult = (filterContext.Result as ViewResult);
                 if (viewResult != null)
                 {
                     viewResult.MasterName = GetLayout();
-
                     filterContext.Controller.ViewData.Model = layout;
                 }
             }
