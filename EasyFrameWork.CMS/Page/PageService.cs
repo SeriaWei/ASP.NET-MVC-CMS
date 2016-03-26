@@ -40,7 +40,21 @@ namespace Easy.Web.CMS.Page
                 throw new PageExistException(item);
             }
             item.IsPublish = false;
-            return base.Update(item, primaryKeys);
+            var oldPage = Get(item.ID);
+            if (oldPage != null)
+            {
+                if (oldPage.Url != item.Url && oldPage.PublishDate.HasValue)
+                {
+                    var publishedPage = GetByPath(oldPage.Url, false);
+                    if (publishedPage != null)
+                    {
+                        publishedPage.Url = item.Url;
+                        base.Update(publishedPage);
+                    }
+                }
+                return base.Update(item, primaryKeys);
+            }
+            return false;
         }
 
         public void Publish(PageEntity item)

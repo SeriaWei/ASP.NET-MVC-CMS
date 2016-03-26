@@ -2,8 +2,9 @@
 @model Easy.CMS.Product.ViewModel.ProductCategoryWidgetViewModel
 
 @{
+    Regex categoryRegex = new Regex(@"pc=(\d+)", RegexOptions.Compiled);
     string currentUrl = Url.Content(Model.TargetPage);
-    if (!currentUrl.Contains("pc="))
+    if (!categoryRegex.IsMatch(currentUrl))
     {
         if (currentUrl.Contains("?"))
         {
@@ -19,10 +20,10 @@
 <div class="ProductCategory">
     <div class="list-group">
         @foreach (var item in Model.Categorys)
-            {
-            <a href="@Regex.Replace(currentUrl, @"pc=\d", "pc=" + item.ID)" class="list-group-item @(item.ID == Model.CurrentCategory ? "active" : "")">
+        {
+            <a href="@categoryRegex.Replace(currentUrl, "pc=" + item.ID)" class="list-group-item @(item.ID == Model.CurrentCategory ? "active" : "")">
                 @item.Title
             </a>
-            }
+        }
     </div>
 </div>
