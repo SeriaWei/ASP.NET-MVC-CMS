@@ -316,7 +316,7 @@ input.helper:checked + span {
 }
 
     .templates.active {
-        width: 233px;
+        width: 223px;
     }
 
     .templates ul {
@@ -326,6 +326,29 @@ input.helper:checked + span {
         height: 100%;
         overflow: auto;
     }
+
+        .templates ul::-webkit-scrollbar {
+            width: 7px;
+            height: 7px;
+        }
+
+        .templates ul::-webkit-scrollbar-corner,
+        .templates ul::-webkit-scrollbar-thumb:window-inactive {
+            background: rgba(100,100,100,0.4);
+        }
+
+        .templates ul::-webkit-scrollbar-thumb {
+            border-radius: 1em;
+            background-color: rgba(50,50,50,0.3);
+        }
+
+        .templates ul::-webkit-scrollbar-thumb {
+            background: rgba(100,100,100,0.8);
+        }
+
+        .templates ul::-webkit-scrollbar-track {
+            box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+        }
 
         .templates ul li {
             cursor: pointer;
@@ -362,17 +385,18 @@ input.helper:checked + span {
 
 
 
-    .layout.templates .widget-design .row {
-        background: #fff;
-        box-shadow: 0 0 5px rgba(0, 0, 0,0.2);
+.layout.templates .widget-design .row {
+    background: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0,0.2);
+}
+
+    .layout.templates .widget-design .row .border-helper {
+        margin: 5px -10px;
+        min-height: 80px;
+        border: 1px solid #ddd;
     }
 
-        .layout.templates .widget-design .row .border-helper {
-            margin: 5px -10px;
-            min-height: 80px;
-            border: 1px solid #ddd;
-        }
-        .layout .ui-draggable-handle.ui-draggable-dragging {
-            width:200px;
-            border: 1px solid #ddd;
-        }
+.layout .ui-draggable-handle.ui-draggable-dragging {
+    width: 200px;
+    border: 1px solid #ddd;
+}
