@@ -213,6 +213,7 @@ INSERT [dbo].[Language] ([LanKey], [LanID], [LanValue], [Module], [LanType]) VAL
 INSERT [dbo].[Language] ([LanKey], [LanID], [LanValue], [Module], [LanType]) VALUES (N'CarouselWidget@Description', 2052, N'描述', N'CarouselWidget', N'EntityProperty')
 INSERT [dbo].[Language] ([LanKey], [LanID], [LanValue], [Module], [LanType]) VALUES (N'CarouselWidget@FormView', 2052, N'FormView', N'CarouselWidget', N'EntityProperty')
 INSERT [dbo].[Language] ([LanKey], [LanID], [LanValue], [Module], [LanType]) VALUES (N'CarouselWidget@ID', 2052, N'ID', N'CarouselWidget', N'EntityProperty')
+INSERT [dbo].[Language] ([LanKey], [LanID], [LanValue], [Module], [LanType]) VALUES (N'CarouselWidget@IsSystem', 2052, N'IsSystem', N'CarouselWidget', N'EntityProperty')
 INSERT [dbo].[Language] ([LanKey], [LanID], [LanValue], [Module], [LanType]) VALUES (N'CarouselWidget@IsTemplate', 2052, N'保存为模板', N'CarouselWidget', N'EntityProperty')
 INSERT [dbo].[Language] ([LanKey], [LanID], [LanValue], [Module], [LanType]) VALUES (N'CarouselWidget@LastUpdateBy', 2052, N'LastUpdateBy', N'CarouselWidget', N'EntityProperty')
 INSERT [dbo].[Language] ([LanKey], [LanID], [LanValue], [Module], [LanType]) VALUES (N'CarouselWidget@LastUpdateByName', 2052, N'更新人', N'CarouselWidget', N'EntityProperty')
@@ -299,8 +300,8 @@ INSERT [dbo].[Language] ([LanKey], [LanID], [LanValue], [Module], [LanType]) VAL
 INSERT [dbo].[Language] ([LanKey], [LanID], [LanValue], [Module], [LanType]) VALUES (N'ImageWidget@Thumbnail', 2052, N'模板缩略图', N'ImageWidget', N'EntityProperty')
 INSERT [dbo].[Language] ([LanKey], [LanID], [LanValue], [Module], [LanType]) VALUES (N'ImageWidget@Title', 2052, N'标题', N'ImageWidget', N'EntityProperty')
 INSERT [dbo].[Language] ([LanKey], [LanID], [LanValue], [Module], [LanType]) VALUES (N'ImageWidget@ViewModelTypeName', 2052, N'ViewModelTypeName', N'ImageWidget', N'EntityProperty')
-INSERT [dbo].[Language] ([LanKey], [LanID], [LanValue], [Module], [LanType]) VALUES (N'ImageWidget@WidgetName', 2052, N'组件名称', N'ImageWidget', N'EntityProperty')
 GO
+INSERT [dbo].[Language] ([LanKey], [LanID], [LanValue], [Module], [LanType]) VALUES (N'ImageWidget@WidgetName', 2052, N'组件名称', N'ImageWidget', N'EntityProperty')
 INSERT [dbo].[Language] ([LanKey], [LanID], [LanValue], [Module], [LanType]) VALUES (N'ImageWidget@Width', 2052, N'宽度(px)', N'ImageWidget', N'EntityProperty')
 INSERT [dbo].[Language] ([LanKey], [LanID], [LanValue], [Module], [LanType]) VALUES (N'ImageWidget@ZoneID', 2052, N'区域', N'ImageWidget', N'EntityProperty')
 INSERT [dbo].[Language] ([LanKey], [LanID], [LanValue], [Module], [LanType]) VALUES (N'LayoutEntity@ActionType', 2052, N'ActionType', N'LayoutEntity', N'EntityProperty')
@@ -400,8 +401,9 @@ INSERT [dbo].[Language] ([LanKey], [LanID], [LanValue], [Module], [LanType]) VAL
 INSERT [dbo].[Language] ([LanKey], [LanID], [LanValue], [Module], [LanType]) VALUES (N'PageEntity@PageName', 2052, N'名称', N'PageEntity', N'EntityProperty')
 INSERT [dbo].[Language] ([LanKey], [LanID], [LanValue], [Module], [LanType]) VALUES (N'PageEntity@PageUrl', 2052, N'页面地址', N'PageEntity', N'EntityProperty')
 INSERT [dbo].[Language] ([LanKey], [LanID], [LanValue], [Module], [LanType]) VALUES (N'PageEntity@ParentId', 2052, N'ParentId', N'PageEntity', N'EntityProperty')
-INSERT [dbo].[Language] ([LanKey], [LanID], [LanValue], [Module], [LanType]) VALUES (N'PageEntity@PublishDate', 2052, N'发布日期', N'PageEntity', N'EntityProperty')
 GO
+INSERT [dbo].[Language] ([LanKey], [LanID], [LanValue], [Module], [LanType]) VALUES (N'PageEntity@PublishDate', 2052, N'发布日期', N'PageEntity', N'EntityProperty')
+INSERT [dbo].[Language] ([LanKey], [LanID], [LanValue], [Module], [LanType]) VALUES (N'PageEntity@ReferencePageID', 2052, N'ReferencePageID', N'PageEntity', N'EntityProperty')
 INSERT [dbo].[Language] ([LanKey], [LanID], [LanValue], [Module], [LanType]) VALUES (N'PageEntity@Script', 2052, N'脚本', N'PageEntity', N'EntityProperty')
 INSERT [dbo].[Language] ([LanKey], [LanID], [LanValue], [Module], [LanType]) VALUES (N'PageEntity@Status', 2052, N'状态', N'PageEntity', N'EntityProperty')
 INSERT [dbo].[Language] ([LanKey], [LanID], [LanValue], [Module], [LanType]) VALUES (N'PageEntity@Style', 2052, N'样式', N'PageEntity', N'EntityProperty')
@@ -500,9 +502,9 @@ INSERT [dbo].[Language] ([LanKey], [LanID], [LanValue], [Module], [LanType]) VAL
 INSERT [dbo].[Language] ([LanKey], [LanID], [LanValue], [Module], [LanType]) VALUES (N'ProductDetailWidget@ServiceTypeName', 2052, N'ServiceTypeName', N'ProductDetailWidget', N'EntityProperty')
 INSERT [dbo].[Language] ([LanKey], [LanID], [LanValue], [Module], [LanType]) VALUES (N'ProductDetailWidget@Status', 2052, N'状态', N'ProductDetailWidget', N'EntityProperty')
 INSERT [dbo].[Language] ([LanKey], [LanID], [LanValue], [Module], [LanType]) VALUES (N'ProductDetailWidget@StyleClass', 2052, N'自定义样式', N'ProductDetailWidget', N'EntityProperty')
+GO
 INSERT [dbo].[Language] ([LanKey], [LanID], [LanValue], [Module], [LanType]) VALUES (N'ProductDetailWidget@Thumbnail', 2052, N'模板缩略图', N'ProductDetailWidget', N'EntityProperty')
 INSERT [dbo].[Language] ([LanKey], [LanID], [LanValue], [Module], [LanType]) VALUES (N'ProductDetailWidget@Title', 2052, N'标题', N'ProductDetailWidget', N'EntityProperty')
-GO
 INSERT [dbo].[Language] ([LanKey], [LanID], [LanValue], [Module], [LanType]) VALUES (N'ProductDetailWidget@ViewModelTypeName', 2052, N'ViewModelTypeName', N'ProductDetailWidget', N'EntityProperty')
 INSERT [dbo].[Language] ([LanKey], [LanID], [LanValue], [Module], [LanType]) VALUES (N'ProductDetailWidget@WidgetName', 2052, N'组件名称', N'ProductDetailWidget', N'EntityProperty')
 INSERT [dbo].[Language] ([LanKey], [LanID], [LanValue], [Module], [LanType]) VALUES (N'ProductDetailWidget@ZoneID', 2052, N'区域', N'ProductDetailWidget', N'EntityProperty')
@@ -601,9 +603,9 @@ INSERT [dbo].[Language] ([LanKey], [LanID], [LanValue], [Module], [LanType]) VAL
 INSERT [dbo].[Language] ([LanKey], [LanID], [LanValue], [Module], [LanType]) VALUES (N'SectionContentImage@Height', 2052, N'高度(px)', N'SectionContentImage', N'EntityProperty')
 INSERT [dbo].[Language] ([LanKey], [LanID], [LanValue], [Module], [LanType]) VALUES (N'SectionContentImage@Href', 2052, N'链接', N'SectionContentImage', N'EntityProperty')
 INSERT [dbo].[Language] ([LanKey], [LanID], [LanValue], [Module], [LanType]) VALUES (N'SectionContentImage@ID', 2052, N'ID', N'SectionContentImage', N'EntityProperty')
+GO
 INSERT [dbo].[Language] ([LanKey], [LanID], [LanValue], [Module], [LanType]) VALUES (N'SectionContentImage@ImageAlt', 2052, N'说明', N'SectionContentImage', N'EntityProperty')
 INSERT [dbo].[Language] ([LanKey], [LanID], [LanValue], [Module], [LanType]) VALUES (N'SectionContentImage@ImageSrc', 2052, N'图片', N'SectionContentImage', N'EntityProperty')
-GO
 INSERT [dbo].[Language] ([LanKey], [LanID], [LanValue], [Module], [LanType]) VALUES (N'SectionContentImage@ImageTitle', 2052, N'标题', N'SectionContentImage', N'EntityProperty')
 INSERT [dbo].[Language] ([LanKey], [LanID], [LanValue], [Module], [LanType]) VALUES (N'SectionContentImage@LastUpdateBy', 2052, N'LastUpdateBy', N'SectionContentImage', N'EntityProperty')
 INSERT [dbo].[Language] ([LanKey], [LanID], [LanValue], [Module], [LanType]) VALUES (N'SectionContentImage@LastUpdateByName', 2052, N'更新人', N'SectionContentImage', N'EntityProperty')
@@ -702,9 +704,9 @@ INSERT [dbo].[Language] ([LanKey], [LanID], [LanValue], [Module], [LanType]) VAL
 INSERT [dbo].[Language] ([LanKey], [LanID], [LanValue], [Module], [LanType]) VALUES (N'UserEntity@Age', 2052, N'年龄', N'UserEntity', N'EntityProperty')
 INSERT [dbo].[Language] ([LanKey], [LanID], [LanValue], [Module], [LanType]) VALUES (N'UserEntity@ApiLoginToken', 2052, N'ApiLoginToken', N'UserEntity', N'EntityProperty')
 INSERT [dbo].[Language] ([LanKey], [LanID], [LanValue], [Module], [LanType]) VALUES (N'UserEntity@Birthday', 2052, N'出生日期', N'UserEntity', N'EntityProperty')
+GO
 INSERT [dbo].[Language] ([LanKey], [LanID], [LanValue], [Module], [LanType]) VALUES (N'UserEntity@Birthplace', 2052, N'出生地', N'UserEntity', N'EntityProperty')
 INSERT [dbo].[Language] ([LanKey], [LanID], [LanValue], [Module], [LanType]) VALUES (N'UserEntity@CreateBy', 2052, N'CreateBy', N'UserEntity', N'EntityProperty')
-GO
 INSERT [dbo].[Language] ([LanKey], [LanID], [LanValue], [Module], [LanType]) VALUES (N'UserEntity@CreatebyName', 2052, N'创建人', N'UserEntity', N'EntityProperty')
 INSERT [dbo].[Language] ([LanKey], [LanID], [LanValue], [Module], [LanType]) VALUES (N'UserEntity@CreateDate', 2052, N'创建日期', N'UserEntity', N'EntityProperty')
 INSERT [dbo].[Language] ([LanKey], [LanID], [LanValue], [Module], [LanType]) VALUES (N'UserEntity@Description', 2052, N'描述', N'UserEntity', N'EntityProperty')

@@ -1,4 +1,5 @@
 ﻿@using System.Text.RegularExpressions
+@using Easy.Web.CMS
 @using Easy.Web.CMS.Layout
 @model LayoutEntity
 @{
@@ -20,7 +21,7 @@
             {
                 <div @widgetPart.Widget.StyleClassResult()>
                     @{
-                Html.RenderPartial(widgetPart.Widget.PartialView, widgetPart.ViewModel);
+                Html.DisPlayWidget(widgetPart);
                     }
                 </div>
             }

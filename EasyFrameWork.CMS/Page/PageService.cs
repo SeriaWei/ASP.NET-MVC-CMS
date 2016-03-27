@@ -40,21 +40,7 @@ namespace Easy.Web.CMS.Page
                 throw new PageExistException(item);
             }
             item.IsPublish = false;
-            var oldPage = Get(item.ID);
-            if (oldPage != null)
-            {
-                if (oldPage.Url != item.Url && oldPage.PublishDate.HasValue)
-                {
-                    var publishedPage = GetByPath(oldPage.Url, false);
-                    if (publishedPage != null)
-                    {
-                        publishedPage.Url = item.Url;
-                        base.Update(publishedPage);
-                    }
-                }
-                return base.Update(item, primaryKeys);
-            }
-            return false;
+            return base.Update(item, primaryKeys);
         }
 
         public void Publish(PageEntity item)
@@ -63,8 +49,9 @@ namespace Easy.Web.CMS.Page
                new DataFilter(new List<string> { "IsPublish", "PublishDate" })
                .Where("ID", OperatorType.Equal, item.ID));
 
-            this.Delete(m => m.Url == item.Url && m.IsPublishedPage == true);
-
+            this.Delete(m => m.ReferencePageID == item.ID && m.IsPublishedPage == true); 
+            
+            item.ReferencePageID = item.ID;
             item.IsPublishedPage = true;
             item.PublishDate = DateTime.Now;
             var widgets = WidgetService.GetByPageId(item.ID);
@@ -83,6 +70,7 @@ namespace Easy.Web.CMS.Page
             if (deletes.Any() && this.Get(new DataFilter().Where("ParentId", OperatorType.In, deletes)).Any())
             {
                 this.Delete(new DataFilter().Where("ParentId", OperatorType.In, deletes));
+                this.Delete(new DataFilter().Where("ReferencePageID", OperatorType.In, deletes));
             }
             if (deletes.Any())
             {
@@ -98,13 +86,9 @@ namespace Easy.Web.CMS.Page
 
             var widgets = WidgetService.Get(m => m.PageID == page.ID);
             widgets.Each(m => m.CreateServiceInstance().DeleteWidget(m.ID));
-            if (page.IsPublish)
+            if (page.PublishDate.HasValue)
             {
-                var publishedPage = GetByPath(page.Url, false);
-                if (publishedPage != null)
-                {
-                    this.Delete(publishedPage.ID);
-                }
+                this.Delete(m => m.ReferencePageID == page.ID);
             }
 
             return base.Delete(primaryKeys);

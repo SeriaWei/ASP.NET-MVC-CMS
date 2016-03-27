@@ -231,6 +231,7 @@
     <Content Include="Images\14.jpg" />
     <Content Include="Images\28.jpg" />
     <Content Include="Images\30.jpg" />
+    <Content Include="Images\donate.png" />
     <Content Include="Images\gruntjs.png" />
     <Content Include="Images\template %281%29.png" />
     <Content Include="Images\template %2810%29.png" />
@@ -1034,6 +1035,7 @@
     <Content Include="Views\Shared\ListEditorItemTemplate.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\ListEditorItem.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Decimal.cshtml" />
+    <Content Include="Views\Shared\Widget.Error.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EasyFrameWork.CMS\Easy.Web.CMS.csproj">

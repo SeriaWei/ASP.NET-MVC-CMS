@@ -131,6 +131,7 @@
     <Compile Include="WidgetTemplate\WidgetTemplateEntity.cs" />
     <Compile Include="WidgetTemplate\WidgetTemplateService.cs" />
     <Compile Include="WidgetTemplate\WidgetTemplateViewModel.cs" />
+    <Compile Include="Widget\DesignWidgetViewModel.cs" />
     <Compile Include="Widget\HtmlWidget.cs" />
     <Compile Include="Widget\HtmlWidgetService.cs" />
     <Compile Include="Widget\IWidgetService.cs" />

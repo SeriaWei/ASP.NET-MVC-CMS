@@ -13,6 +13,8 @@ namespace Easy.Web.CMS.Page
     public class PageEntity : EditorEntity
     {
         public string ID { get; set; }
+        public string ReferencePageID { get; set; }
+        public bool IsPublishedPage { get; set; }
         public string ParentId { get; set; }
         public string Url { get; set; }
         private string _pageUrl;
@@ -42,7 +44,6 @@ namespace Easy.Web.CMS.Page
         public DateTime? PublishDate { get; set; }
         public bool IsPublish { get; set; }
 
-        public bool IsPublishedPage { get; set; }
     }
     class PageBaseMetaData : DataViewMetaData<PageEntity>
     {
@@ -61,6 +62,7 @@ namespace Easy.Web.CMS.Page
             ViewConfig(m => m.LayoutId).AsDropDownList().DataSource(ViewDataKeys.Layouts, SourceType.ViewData);
             ViewConfig(m => m.ParentId).AsHidden();
             ViewConfig(m => m.ID).AsHidden();
+            ViewConfig(m => m.ReferencePageID).AsHidden();
             ViewConfig(m => m.Content).AsHidden();
             ViewConfig(m => m.IsHomePage).AsHidden();
             ViewConfig(m => m.PublishDate).AsTextBox().Hide();

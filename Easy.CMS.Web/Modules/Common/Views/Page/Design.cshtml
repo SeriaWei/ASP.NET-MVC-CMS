@@ -1,5 +1,6 @@
 ﻿@using System.Text.RegularExpressions
 @using Easy.CMS.Common.ViewModels
+@using Easy.Web.CMS
 @using Easy.Web.CMS.Widget
 @using Easy.Web.CMS.Layout
 @model LayoutEntity
@@ -39,7 +40,7 @@
         {
             foreach (WidgetPart widgetPart in Model.ZoneWidgets[zoneId].OrderBy(m => m.Widget.Position).ThenBy(m => m.Widget.WidgetName))
             {
-                Html.RenderPartial("DesignWidget", new DesignWidgetViewModel(widgetPart, Model.Page.ID));
+                Html.DesignWidget(new DesignWidgetViewModel(widgetPart, Model.Page.ID));
             }
         }
 

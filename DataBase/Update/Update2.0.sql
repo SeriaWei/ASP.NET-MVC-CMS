@@ -59,3 +59,14 @@ IF EXISTS ( SELECT  *
             @newname = N'ArticleTypeID', @objtype = 'COLUMN';
     END;
 	GO
+
+	IF NOT EXISTS ( SELECT  *
+                FROM    syscolumns
+                WHERE   id = OBJECT_ID('CMS_Page')
+                        AND name = 'ReferencePageID' )
+    BEGIN
+        ALTER TABLE dbo.CMS_Page ADD ReferencePageID NVARCHAR(255);
+    END;
+	GO
+	UPDATE T0 SET T0.ReferencePageID=(SELECT TOP 1 ID FROM dbo.CMS_Page WHERE IsPublishedPage=0 AND Url=T0.Url) FROM dbo.CMS_Page T0 WHERE T0.IsPublishedPage=1
+GO
