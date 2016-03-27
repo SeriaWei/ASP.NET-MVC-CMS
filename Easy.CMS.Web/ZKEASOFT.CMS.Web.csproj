@@ -231,6 +231,8 @@
     <Content Include="Images\14.jpg" />
     <Content Include="Images\28.jpg" />
     <Content Include="Images\30.jpg" />
+    <Content Include="Images\bg3.jpg" />
+    <Content Include="Images\bg4.jpg" />
     <Content Include="Images\donate.png" />
     <Content Include="Images\gruntjs.png" />
     <Content Include="Images\template %281%29.png" />
