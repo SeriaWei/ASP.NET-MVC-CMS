@@ -28,14 +28,14 @@ Microsoft Sql Server 2005 以上
 ZKEACMS采用了现代的响应式设计，可以自动适配不同大小的屏幕和设备。从PC，笔记本，电视，平板到手机页面都会自动响应适应。
 
 ## 布局设计
-![布局设计](http://i11.tietuku.cn/6d8e847f58ed535a.png)
+![布局设计](http://blog.zkea.net/wp-content/uploads/2016/03/layoutdesign.png)
 
 布局，用于对页面做区域划分，用户使用拖拉“行”，“列”的方式进行布局的设计。布局的划分，采用行，列的方式进行划分，可嵌套。
 
 一个布局里面，可以添加任意行，每一行使用12等分进行栅格，最多可划分为12列。行列划分完成以后，要在列中加入“组件区域”，才可以在该列中加入组件。
 
 ## 概览设计
-![概览设计](http://i13.tietuku.cn/d853329b9fe66212.png)
+![概览设计](http://blog.zkea.net/wp-content/uploads/2016/03/galindview.png)
 
 概览页面，是页面的缩略显示。在这个页面里面，用户可以直接看到页面的布局，和页面中的组件。
 
@@ -60,16 +60,16 @@ ZKEACMS 的模板组件可以更方便的进行扩展。直接更换显示模板
 ZKEACMS 使用LESS，可以轻松的创建主题。
 
 ## 缩略图
-[http://www.zkea.net/ZKEACMS/thumbnail](http://www.zkea.net/ZKEACMS/thumbnail)
-## 站点
-[http://www.zkea.net/ZKEACMS](http://www.zkea.net/ZKEACMS)
+[http://www.zkea.net/zkeacms/thumbnail](http://www.zkea.net/zkeacms/thumbnail)
+## 网站
+[http://www.zkea.net/zkeacms](http://www.zkea.net/zkeacms)
 ## 安装和部署
 [安装和部署](http://blog.zkea.net/2015/09/install-ZKEACMS/)
 ## DEMO站点
 [DEMO站点](http://zkeacms.ngrok.natapp.cn/)
 ## 关注微信(ZKEASOFT)
-![关注微信](http://i11.tietuku.cn/263801921375bdf2.jpg)
+![关注微信](http://blog.zkea.net/wp-content/uploads/2016/03/263801921375bdf2.jpg)
 ## QQ群(493586356)
-![QQ群493586356](http://i5.tietuku.cn/00c84f6600d8c3e0.jpg)
+![QQ群493586356](http://blog.zkea.net/wp-content/uploads/2016/03/00c84f6600d8c3e0.jpg)
 ## License
 [许可协议](http://www.zkea.net/licenses)
