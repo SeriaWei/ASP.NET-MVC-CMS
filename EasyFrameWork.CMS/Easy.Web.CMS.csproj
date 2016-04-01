@@ -116,6 +116,9 @@
     <Compile Include="Layout\LayoutHtmlService.cs" />
     <Compile Include="Layout\ViewDataLayoutsAttribute.cs" />
     <Compile Include="Layout\LayoutService.cs" />
+    <Compile Include="Media\IMediaService.cs" />
+    <Compile Include="Media\MediaEntity.cs" />
+    <Compile Include="Media\MediaService.cs" />
     <Compile Include="MetaData\WidgetMetaData.cs" />
     <Compile Include="ModelBinder\WidgetBinder.cs" />
     <Compile Include="Page\IPageService.cs" />

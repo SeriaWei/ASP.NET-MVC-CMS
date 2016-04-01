@@ -1,12 +1,10 @@
-/****** Object:  Table [dbo].[CMS_Page]    Script Date: 2016/03/27 星期日 14:39:27 ******/
+/****** Object:  Table [dbo].[CMS_Page]    Script Date: 2016/4/1 星期五 17:21:36 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[CMS_Page](
 	[ID] [nvarchar](255) NOT NULL,
-	[ReferencePageID] [nvarchar](255) NULL,
-	[IsPublishedPage] [bit] NULL,
 	[ParentId] [nvarchar](255) NULL,
 	[PageName] [nvarchar](255) NULL,
 	[IsHomePage] [bit] NOT NULL,
@@ -29,6 +27,7 @@ CREATE TABLE [dbo].[CMS_Page](
 	[LastUpdateBy] [nvarchar](255) NULL,
 	[LastUpdateByName] [nvarchar](255) NULL,
 	[LastUpdateDate] [datetime] NULL,
+	[IsPublishedPage] [bit] NULL,
  CONSTRAINT [PK_CMS_Page] PRIMARY KEY CLUSTERED 
 (
 	[ID] ASC

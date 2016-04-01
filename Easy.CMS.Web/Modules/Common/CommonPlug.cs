@@ -84,9 +84,9 @@ namespace Easy.CMS.Common
             };
             yield return new AdminMenu
             {
-                Title = "图片",
+                Title = "媒体库",
                 Icon = "glyphicon glyphicon-picture",
-                Url = "~/admin/Image",
+                Url = "~/admin/Media",
                 Order = 4
             };
             yield return new AdminMenu

@@ -127,6 +127,7 @@
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\ImageController.cs" />
     <Compile Include="Controllers\LayoutController.cs" />
+    <Compile Include="Controllers\MediaController.cs" />
     <Compile Include="Controllers\NavigationController.cs" />
     <Compile Include="Controllers\PageController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -151,6 +152,7 @@
     <Compile Include="Service\NavigationWidgetService.cs" />
     <Compile Include="Service\ScriptWidgetService.cs" />
     <Compile Include="ViewModels\LayoutZonesViewModel.cs" />
+    <Compile Include="ViewModels\MediaViewModel.cs" />
     <Compile Include="ViewModels\NavigationWidgetViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -203,6 +205,7 @@
     <Content Include="Views\Error\NotFond.cshtml" />
     <Content Include="Views\Layout\Templates.cshtml" />
     <Content Include="Views\Error\Index.cshtml" />
+    <Content Include="Views\Media\Index.cshtml" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>

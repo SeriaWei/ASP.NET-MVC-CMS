@@ -1,4 +1,5 @@
 ﻿@using System.Text.RegularExpressions
+@using Easy.Web.CMS
 @model Easy.CMS.Product.ViewModel.ProductListWidgetViewModel
 
 <div class="productlist container-fluid">
@@ -38,7 +39,7 @@
     
     @if (Model.IsPageable)
     {
-        Html.RenderPartial("Partial_Pagination", Model.Page);
+        Html.Pagin(Model.Page);
     }
 </div>
 

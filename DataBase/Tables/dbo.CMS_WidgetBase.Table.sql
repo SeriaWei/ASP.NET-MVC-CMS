@@ -1,4 +1,4 @@
-/****** Object:  Table [dbo].[CMS_WidgetBase]    Script Date: 2016/03/08 星期二 23:14:54 ******/
+/****** Object:  Table [dbo].[CMS_WidgetBase]    Script Date: 2016/4/1 星期五 17:21:36 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON

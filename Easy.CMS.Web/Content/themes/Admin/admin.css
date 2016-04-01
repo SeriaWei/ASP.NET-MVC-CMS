@@ -349,3 +349,24 @@ a.badge:hover {
 .form-group select#ZoneID{
     cursor:pointer;
 }
+#media-list .edit {
+    width: 100%;
+    line-height: normal;
+    margin: 0;
+    padding: 0;
+}
+#media-list .thumbnail>a {
+    display: block;
+    height: 150px;
+    overflow: hidden;
+}
+#media-list .thumbnail>a img {
+    max-height: 100%;
+}
+#media-list .thumbnail .caption {
+    text-align: center;
+    padding: 9px 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}

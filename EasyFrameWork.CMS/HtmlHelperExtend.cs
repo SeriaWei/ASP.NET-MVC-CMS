@@ -5,6 +5,7 @@ using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Mvc.Html;
+using Easy.Data;
 using Easy.Extend;
 using Easy.Web.CMS.Widget;
 
@@ -60,6 +61,11 @@ namespace Easy.Web.CMS
         public static void WidgetError(this HtmlHelper html)
         {
              html.RenderPartial("Widget.Error");
+        }
+
+        public static void Pagin(this HtmlHelper html, Pagination pagin)
+        {
+            html.RenderPartial("Partial_Pagination", pagin);
         }
     }
 }
