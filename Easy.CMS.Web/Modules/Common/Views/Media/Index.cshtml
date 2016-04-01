@@ -181,9 +181,11 @@
                 $("#fileUp").trigger("click");
             });
             $(document).on("change", "#fileUp", function () {
+                var threads = [];
                 for (var i = 0; i < this.files.length; i++) {
                     var newitem = $($("#item-template").html());
                     newitem.find(".img").attr("src", "@Url.Content("~/Images/loader.gif")");
+                    newitem.find(".caption").html('<label class="label label-danger">排队中...</label>');
                     if ($("#media-list > div").size() > 0) {
                         newitem.insertBefore($("#media-list > div:first"));
                     } else {
@@ -202,13 +204,22 @@
                             .addClass("confirm").attr("data-result", "~" + result.Url);
                         this.target.find(".caption").html(result.Title);
                         this.target.removeClass("new-folder");
+
+                        if (threads.length > 0) {
+                            var task = threads.pop();
+                            task.Req.send(task.Data);
+                        }
                     };
                     xhr.upload.target = newitem;
                     xhr.upload.onprogress = function (e) {
                         var persecnt = e.loaded / e.total * 100;
                         this.target.find(".caption").html('<label class="label label-danger">' + Math.round(persecnt) + "%" + '</label>');
                     }
-                    xhr.send(formData);
+                    threads.push({Req:xhr,Data:formData});
+                }
+                if (threads.length > 0) {
+                    var task = threads.pop();
+                    task.Req.send(task.Data);
                 }
             });
             $(document).on("click", ".close", function () {
