@@ -26,7 +26,7 @@ namespace Easy.Web.CMS
     public class Urls
     {
         public const string SelectPage = "/admin/page/select";
-        public const string SelectImage = "/Scripts/ImagePlug/index.html";
+        public const string SelectImage = "/admin/Media/Select";
     }
 
     public enum MediaType

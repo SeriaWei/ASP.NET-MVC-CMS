@@ -1,21 +1,32 @@
 ﻿@using Easy.Web.CMS
+@using Easy.Web.CMS.Media
 @model Easy.CMS.Common.ViewModels.MediaViewModel
 @{
-
+    ViewBag.Title = "媒体库";
+    var action = Html.ViewContext.RouteData.Values["action"].ToString();
 }
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-md-12">
-            @if (Model.Parent != null)
-            {
-                <a href="@Url.Action("Index", new { ParentId = Model.Parent.ParentID })" class="btn btn-primary">返回</a>
-            }
-            <input type="button" class="btn btn-primary upload" value="上传文件"/>
-            <input type="button" class="btn btn-primary create-folder" value="创建文件夹"/>
+    <div class="clearfix thumbnail">
+        <div class="pull-left">
+            <span style="line-height:30px">
+                &nbsp;<a href="@Url.Action(action)">媒体库</a>
+                @if (Model.Parents != null)
+                {
+                    foreach (MediaEntity item in Model.Parents)
+                    {
+                        <span>/</span>
+                        <a href="@Url.Action(action, new {ParentId = item.ID})">@item.Title</a>
+                    }
+                }
+            </span>
         </div>
+        <div class="pull-right">
+            <input type="button" class="btn btn-primary btn-sm upload" value="上传文件" />
+            <input type="button" class="btn btn-primary btn-sm create-folder" value="创建文件夹" />
+        </div>
+
     </div>
-    <br />
-    <div id="media-list" class="row" data-parent="@Request.QueryString["ParentId"]">
+    <div id="media-list" class="row" data-parent="@Model.ParentID">
         @if (Model.Medias != null)
         {
             foreach (var media in Model.Medias)
@@ -24,39 +35,97 @@
                     <div class="thumbnail">
                         @if (media.MediaType == (int)MediaType.Folder)
                         {
-                            <a href="@Url.Action("Index", new {ParentId = media.ID})">
-                                <img src="~/Images/folder.png" />
+                            <a href="@Url.Action(action, new {ParentId = media.ID})">
+                                <img class="img" src="~/Images/folder.png" />
                             </a>
                         }
-                        else if (media.MediaType == (int) MediaType.Image)
+                        else if (media.MediaType == (int)MediaType.Image)
                         {
                             <a href="javascript:void(0)" class="confirm" data-result="@media.Url">
-                                <img src="@Url.Content(media.Url)"/>
+                                <img class="img" src="@Url.Content(media.Url)" />
                             </a>
                         }
                         else
                         {
                             <a href="javascript:void(0)" class="confirm" data-result="@media.Url">
-                                <img src="@Url.Content("~/Images/{0}.png".FormatWith(media.MediaTypeImage))" />
+                                <img class="img" src="@Url.Content("~/Images/{0}.png".FormatWith(media.MediaTypeImage))" />
                             </a>
                         }
                         <div class="caption" data-id="@media.ID">
                             @media.Title
+                        </div>
+                        <div class="close">
+                            <img src="~/Content/Images/close_red.png" />
                         </div>
                     </div>
                 </div>
             }
         }
     </div>
+
+    <ul class="pagination">
+        @if (Model.Pagin.PageIndex >= 1)
+        {
+            <li><a href="@Url.Action(action, new {ParentId = Model.ParentID})">«</a></li>
+        }
+        else
+        {
+            <li class="disabled"><a href="javascript:void(0)">«</a></li>
+        }
+        @{
+            if (Model.Pagin.PageIndex >= 5)
+            {
+                <li>
+                    <a>...</a>
+                </li>
+            }
+            int start = Model.Pagin.PageIndex - 4;
+            int end = Model.Pagin.PageIndex + 4;
+            if (start < 0)
+            {
+                start = 0;
+            }
+            for (; start < Model.Pagin.AllPage && start <= end; start++)
+            {
+                <li class="@(start == Model.Pagin.PageIndex ? "active" : "")">
+                    <a href="@Url.Action(action, new {parentId = Model.ParentID, pageIndex = start})">@(start + 1)</a>
+                </li>
+            }
+            if (Model.Pagin.AllPage - Model.Pagin.PageIndex > 5)
+            {
+                <li>
+                    <a>...</a>
+                </li>
+            }
+        }
+
+        @if (Model.Pagin.PageIndex < Model.Pagin.AllPage - 1)
+        {
+            <li>
+                <a href="@Url.Action(action, new {parentId = Model.ParentID, pageIndex = Model.Pagin.PageIndex + 1})">»</a>
+            </li>
+        }
+        else
+        {
+            <li class="disabled">
+                <a href="javascript:void(0)">»</a>
+            </li>
+        }
+    </ul>
+
     <div class="hide">
-        <input type="file" id="fileUp" />
+        <input type="file" id="fileUp" multiple />
+        <img src="~/Images/loader.gif" />
         <div id="item-template">
-            <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
-                <div class="thumbnail new-folder">
+            <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6 new-folder">
+                <div class="thumbnail">
                     <a>
-                        <img src="~/Images/folder.png">
+                        <img class="img" src="~/Images/folder.png">
                     </a>
                     <div class="caption">
+                    </div>
+                    <div class="close">
+                        <img src="~/Content/Images/close_red.png" />
                     </div>
                 </div>
             </div>
@@ -87,7 +156,7 @@
                             if (caption.data("id")) {
                                 input.replaceWith(data.Title);
                             } else {
-                                input.closest(".new-folder").removeClass("new-folder").find("a").attr("href", "@Url.Action("Index")" + "?ParentId=" + data.ID);
+                                input.closest(".new-folder").removeClass("new-folder").find("a").attr("href", "@Url.Action(action)" + "?ParentId=" + data.ID);
                                 caption.data("id", data.ID);
                                 input.replaceWith(data.Title);
                             }
@@ -112,29 +181,43 @@
                 $("#fileUp").trigger("click");
             });
             $(document).on("change", "#fileUp", function () {
-                var newitem = $($("#item-template").html());
-                newitem.find("img").attr("src", "@Url.Content("~/Images/loader.gif")");
-                if ($("#media-list > div").size() > 0) {
-                    newitem.insertBefore($("#media-list > div:first"));
-                } else {
-                    $("#media-list").append(newitem);
+                for (var i = 0; i < this.files.length; i++) {
+                    var newitem = $($("#item-template").html());
+                    newitem.find(".img").attr("src", "@Url.Content("~/Images/loader.gif")");
+                    if ($("#media-list > div").size() > 0) {
+                        newitem.insertBefore($("#media-list > div:first"));
+                    } else {
+                        $("#media-list").append(newitem);
+                    }
+                    var formData = new FormData();
+                    formData.append('file', this.files[i]);
+                    formData.append("parentId", $("#media-list").data("parent"));
+                    var xhr = new XMLHttpRequest();
+                    xhr.open('POST', '@Url.Action("Upload")');
+                    xhr.target = newitem;
+                    xhr.onload = function (e) {
+                        var result = JSON.parse(e.target.response);
+                        this.target.find(".img").attr("src", result.Url)
+                            .parent().attr("href", "javascript:void(0)")
+                            .addClass("confirm").attr("data-result", "~" + result.Url);
+                        this.target.find(".caption").html(result.Title);
+                        this.target.removeClass("new-folder");
+                    };
+                    xhr.upload.target = newitem;
+                    xhr.upload.onprogress = function (e) {
+                        var persecnt = e.loaded / e.total * 100;
+                        this.target.find(".caption").html('<label class="label label-danger">' + Math.round(persecnt) + "%" + '</label>');
+                    }
+                    xhr.send(formData);
                 }
-                var formData = new FormData();
-                formData.append('file', this.files[0]);
-                formData.append("parentId", $("#media-list").data("parent"));
-                var xhr = new XMLHttpRequest();
-                xhr.open('POST', '@Url.Action("Upload")');
-                xhr.onload = function (e) {
-                    var result = JSON.parse(e.target.response);
-                    newitem.find("img").attr("src", result.Url);
-                    newitem.find(".caption").html(result.Title);
-                    newitem.find(".new-folder").removeClass("new-folder");
-                };
-                xhr.upload.onprogress = function (e) {
-                    var persecnt = e.loaded / e.total * 100;
-                    newitem.find(".caption").html(Math.round(persecnt) + "%");
-                }
-                xhr.send(formData);
+            });
+            $(document).on("click", ".close", function () {
+                var caption = $(this).siblings(".caption");
+                Easy.ShowMessageBox("提示", "确定要删除吗？", function () {
+                    $.post("@Url.Action("Delete")", { ids: caption.data("id") }, function () {
+                        caption.closest(".thumbnail").parent().remove();
+                    });
+                }, true);
             });
         });
 

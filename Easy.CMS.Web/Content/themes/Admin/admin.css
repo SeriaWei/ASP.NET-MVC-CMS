@@ -19,10 +19,12 @@ img {
     border-top-left-radius: 0;
     border-top-right-radius: 0;
 }
+
 .form-horizontal {
     padding-left: 15px;
     padding-right: 15px;
 }
+
 @media (min-width: 1300px) {
     .form-horizontal {
         width: 70%;
@@ -74,6 +76,8 @@ a.badge:hover {
 
 .main-container {
     margin: 60px 0 0 190px;
+}
+#main-body {
     overflow: auto;
 }
 
@@ -159,8 +163,8 @@ a.badge:hover {
     display: block;
     font-size: 13px;
     color: red;
-    background:url(images/Error-16.png) left center no-repeat;
-    padding:5px 0 0 20px;
+    background: url(images/Error-16.png) left center no-repeat;
+    padding: 5px 0 0 20px;
 }
 
 .input-group .mce-panel {
@@ -186,6 +190,7 @@ a.badge:hover {
     bottom: 0;
     padding: 5px;
     left: 0;
+    z-index:10;
 }
 
 .fullRowList {
@@ -216,7 +221,7 @@ a.badge:hover {
     }
 
     .fullRowList li.actived {
-        border-left:5px solid  #E28271;
+        border-left: 5px solid #E28271;
         color: #E28271;
     }
 
@@ -252,12 +257,15 @@ a.badge:hover {
 .jstree a[ispublish="false"] {
     color: #808080;
 }
-.jstree a[ispublish="false"]::after{
-    content:" [已修改]"
-}
+
+    .jstree a[ispublish="false"]::after {
+        content: " [已修改]";
+    }
+
 .jstree a[publishdate="null"]::after {
-    content:" [未发布]"
+    content: " [未发布]";
 }
+
 .jstree a[ishomepage="true"] {
     font-weight: bold;
     color: red;
@@ -346,27 +354,47 @@ a.badge:hover {
     background-repeat: repeat-x;
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff5f5f5', endColorstr='#fff5f5f5', GradientType=0);
 }
-.form-group select#ZoneID{
-    cursor:pointer;
+
+.form-group select#ZoneID {
+    cursor: pointer;
 }
+
 #media-list .edit {
     width: 100%;
     line-height: normal;
     margin: 0;
     padding: 0;
 }
-#media-list .thumbnail>a {
+
+#media-list .thumbnail > a {
     display: block;
-    height: 150px;
+    height: 130px;
     overflow: hidden;
 }
-#media-list .thumbnail>a img {
-    max-height: 100%;
-}
+
+    #media-list .thumbnail > a img {
+        max-height: 100%;
+    }
+
 #media-list .thumbnail .caption {
     text-align: center;
     padding: 9px 0;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+}
+
+#media-list .thumbnail .close {
+    position: absolute;
+    right: 8px;
+    top: -12px;
+    opacity: .7;
+}
+
+    #media-list .thumbnail .close:hover {
+        opacity: 1;
+    }
+
+#media-list .new-folder .close {
+    display: none;
 }

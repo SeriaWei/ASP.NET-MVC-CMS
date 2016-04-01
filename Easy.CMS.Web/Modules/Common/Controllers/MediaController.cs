@@ -15,7 +15,7 @@ using Easy.Web.Extend;
 
 namespace Easy.CMS.Common.Controllers
 {
-    [AdminTheme, Authorize]
+    [Authorize]
     public class MediaController : BasicController<MediaEntity, string, IMediaService>
     {
         public MediaController(IMediaService service)
@@ -27,20 +27,48 @@ namespace Easy.CMS.Common.Controllers
         {
             return base.Index();
         }
-
+        [AdminTheme]
         public ActionResult Index(string ParentId, int? pageIndex)
         {
             ParentId = ParentId ?? "#";
             Pagination pagin = new Pagination { PageIndex = pageIndex ?? 0 };
             var medias = Service.Get(new DataFilter().Where("ParentID", OperatorType.Equal, ParentId).OrderBy("CreateDate", OrderType.Descending), pagin);
-            var viewModel = new MediaViewModel { Medias = medias, Pagin = pagin };
+            var viewModel = new MediaViewModel
+            {
+                ParentID = ParentId,
+                Medias = medias,
+                Pagin = pagin
+            };
             if (ParentId != "#")
             {
                 viewModel.Parent = Service.Get(ParentId);
+                viewModel.Parents = new List<MediaEntity>();
+                LoadParents(viewModel.Parent, viewModel.Parents);
             }
-            return View(viewModel);
+            return View("Index", viewModel);
         }
 
+        private void LoadParents(MediaEntity parent, List<MediaEntity> parents)
+        {
+            if (parent != null)
+            {
+                parents.Insert(0, parent);
+                if (parent.ParentID != "#")
+                {
+                    var p = Service.Get(parent.ParentID);
+                    if (p != null)
+                    {
+                        LoadParents(p, parents);
+                    }
+                }
+            }
+        }
+
+        [PopUp]
+        public ActionResult Select(string ParentId, int? pageIndex)
+        {
+            return Index(ParentId, pageIndex);
+        }
         [HttpPost]
         public JsonResult Save(string id, string title, string parentId)
         {
