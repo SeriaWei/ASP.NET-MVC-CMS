@@ -366,22 +366,27 @@ a.badge:hover {
     padding: 0;
 }
 
-#media-list .thumbnail > a {
+#media-list .thumbnail > a.img-link {
     display: block;
     height: 130px;
+    background: #F7F7F7;
     overflow: hidden;
 }
 
-    #media-list .thumbnail > a img {
+    #media-list .thumbnail > a.img-link img {
         max-height: 100%;
     }
 
 #media-list .thumbnail .caption {
     text-align: center;
-    padding: 9px 0;
+    padding: 5px 0;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+}
+
+#media-list .thumbnail .caption .edit {
+    text-align: center;
 }
 
 #media-list .thumbnail .close {
@@ -389,6 +394,11 @@ a.badge:hover {
     right: 8px;
     top: -12px;
     opacity: .7;
+}
+
+#media-list .thumbnail .tool a {
+ margin:0 3px;
+ color:#3D3E43;   
 }
 
     #media-list .thumbnail .close:hover {

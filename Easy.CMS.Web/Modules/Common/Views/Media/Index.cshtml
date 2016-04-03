@@ -4,6 +4,10 @@
 @{
     ViewBag.Title = "媒体库";
     var action = Html.ViewContext.RouteData.Values["action"].ToString();
+
+    Script.Reqiured("lightBox").AtFoot();
+    Style.Reqiured("lightBox").AtHead();
+
 }
 <div class="container-fluid">
     <div class="clearfix thumbnail">
@@ -35,24 +39,39 @@
                     <div class="thumbnail">
                         @if (media.MediaType == (int)MediaType.Folder)
                         {
-                            <a href="@Url.Action(action, new {ParentId = media.ID})">
+                            <a class="img-link" href="@Url.Action(action, new {ParentId = media.ID})">
                                 <img class="img" src="~/Images/folder.png" />
                             </a>
                         }
                         else if (media.MediaType == (int)MediaType.Image)
                         {
-                            <a href="javascript:void(0)" class="confirm" data-result="@media.Url">
+                            <a href="javascript:void(0)" class="img-link confirm" data-result="@media.Url">
                                 <img class="img" src="@Url.Content(media.Url)" />
                             </a>
                         }
                         else
                         {
-                            <a href="javascript:void(0)" class="confirm" data-result="@media.Url">
+                            <a href="javascript:void(0)" class="img-link confirm" data-result="@media.Url">
                                 <img class="img" src="@Url.Content("~/Images/{0}.png".FormatWith(media.MediaTypeImage))" />
                             </a>
                         }
                         <div class="caption" data-id="@media.ID">
                             @media.Title
+                        </div>
+                        <div class="tool">
+                            @if (media.MediaType == (int)MediaType.Image && media.Url.IsNotNullAndWhiteSpace())
+                            {
+                                <a target="_blank" class="preview" href="@Url.Content(media.Url)"
+                                   data-lightbox="thumbnail" data-title="@media.Title">
+                                    <i class="glyphicon glyphicon-eye-open"></i>
+                                </a>
+                            }
+                            @if (media.MediaType != (int)MediaType.Folder && media.Url.IsNotNullAndWhiteSpace())
+                            {
+                                <a target="_blank" class="download" href="@Url.Content(media.Url)">
+                                    <i class="glyphicon glyphicon-download-alt"></i>
+                                </a>
+                            }
                         </div>
                         <div class="close">
                             <img src="~/Content/Images/close_red.png" />
@@ -119,11 +138,12 @@
         <div id="item-template">
             <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6 new-folder">
                 <div class="thumbnail">
-                    <a>
+                    <a class="img-link">
                         <img class="img" src="~/Images/folder.png">
                     </a>
                     <div class="caption">
                     </div>
+                    <div class="tool"></div>
                     <div class="close">
                         <img src="~/Content/Images/close_red.png" />
                     </div>
@@ -145,36 +165,39 @@
                 } else {
                     $("#media-list").append(newfolder);
                 }
-                newfolder.find(".edit").focus();
+                newfolder.find(".edit").focus()[0].select();
             });
+            function save(input) {
+                if (!$.trim(input.val())) {
+                    return false;
+                }
+                $.post("@Url.Action("Save")", { id: input.closest(".caption").data("id"), title: input.val(), parentId: $("#media-list").data("parent") }, function (data) {
+                    if (data) {
+                        var caption = input.closest(".caption");
+                        if (caption.data("id")) {
+                            input.replaceWith(data.Title);
+                        } else {
+                            input.closest(".new-folder").removeClass("new-folder").find("a").attr("href", "@Url.Action(action)" + "?ParentId=" + data.ID);
+                            caption.data("id", data.ID);
+                            input.replaceWith(data.Title);
+                        }
+                    }
+                });
+            }
             $(document).on("keyup", ".edit", function (e) {
                 if (e.keyCode === 13) {
-                    var input = $(this);
-                    $.post("@Url.Action("Save")", { id: $(this).closest(".caption").data("id"), title: $(this).val(), parentId: $("#media-list").data("parent") }, function (data) {
-                        if (data) {
-                            var caption = input.closest(".caption");
-                            if (caption.data("id")) {
-                                input.replaceWith(data.Title);
-                            } else {
-                                input.closest(".new-folder").removeClass("new-folder").find("a").attr("href", "@Url.Action(action)" + "?ParentId=" + data.ID);
-                                caption.data("id", data.ID);
-                                input.replaceWith(data.Title);
-                            }
-                        }
-                    });
+                    save($(this));
                 }
             });
             $(document).on("blur", ".edit", function () {
-                if (!$(this).closest(".caption").data("id")) {
-                    $(this).closest(".thumbnail").parent().remove();
-                } else {
-                    $(this).replaceWith($(this).val());
-                }
+                save($(this));
             });
             $(document).on("click", ".caption", function () {
-                if ($(this).find(".edit").size() === 0) {
-                    $(this).html('<input type="text" class="edit" value="' + $.trim($(this).text()) + '"/>');
-                    $(this).find(".edit").focus();
+                var cap = $(this);
+                if (cap.find(".edit").size() === 0) {
+                    var text = $.trim(cap.text());
+                    cap.html('<input type="text" class="edit"/>');
+                    cap.find(".edit").val(text).focus()[0].select();
                 }
             });
             $(document).on("click", ".upload", function () {
@@ -204,7 +227,15 @@
                             .addClass("confirm").attr("data-result", "~" + result.Url);
                         this.target.find(".caption").html(result.Title);
                         this.target.removeClass("new-folder");
-
+                        if (result.MediaType == '@(MediaType.Image.ToString("D"))') {
+                            var preview = $('<a target="_blank" class="preview" data-lightbox="thumbnail"><i class="glyphicon glyphicon-eye-open"></i></a>');
+                            preview.attr("href", result.Url);
+                            preview.data("title", result.Title);
+                            this.target.find(".tool").append(preview);
+                        }
+                        var downLoad = $('<a target="_blank" class="download"><i class="glyphicon glyphicon-download-alt"></i></a>');
+                        downLoad.attr("href", result.Url);
+                        this.target.find(".tool").append(downLoad);
                         if (threads.length > 0) {
                             var task = threads.pop();
                             task.Req.send(task.Data);
@@ -215,7 +246,7 @@
                         var persecnt = e.loaded / e.total * 100;
                         this.target.find(".caption").html('<label class="label label-danger">' + Math.round(persecnt) + "%" + '</label>');
                     }
-                    threads.push({Req:xhr,Data:formData});
+                    threads.push({ Req: xhr, Data: formData });
                 }
                 if (threads.length > 0) {
                     var task = threads.pop();
