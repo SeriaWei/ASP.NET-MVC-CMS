@@ -77,16 +77,16 @@ namespace Easy.CMS.Common
             };
             yield return new AdminMenu
             {
-                Title = "主题",
-                Icon = "glyphicon-blackboard",
-                Url = "~/admin/Theme",
+                Title = "导航",
+                Icon = "glyphicon-retweet",
+                Url = "~/admin/Navigation",
                 Order = 3
             };
             yield return new AdminMenu
             {
-                Title = "导航",
-                Icon = "glyphicon-retweet",
-                Url = "~/admin/Navigation",
+                Title = "主题",
+                Icon = "glyphicon-blackboard",
+                Url = "~/admin/Theme",
                 Order = 4
             };
             yield return new AdminMenu

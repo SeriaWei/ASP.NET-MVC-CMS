@@ -60,7 +60,7 @@ namespace Easy.CMS.Common.Controllers
                     writer.Dispose();
                     ZipFile zipFile = new ZipFile();
                     zipFile.AddDirectory(new DirectoryInfo(path));
-                    return File(zipFile.ToMemoryStream(), "application/theme", theme.Title + ".zip");
+                    return File(zipFile.ToMemoryStream(), "application/zip", theme.Title + ".zip");
                 }
             }
             return null;
@@ -82,27 +82,37 @@ namespace Easy.CMS.Common.Controllers
                     if (Service.Count(m => m.ID == newTheme.ID) == 0)
                     {
                         var themePath = Server.MapPath(ThemePath);
+                        
                         foreach (ZipFileInfo item in files)
                         {
+                            string folder= Path.GetDirectoryName(themePath + item.RelativePath);
+                            if (!Directory.Exists(folder))
+                            {
+                                Directory.CreateDirectory(folder);
+                            }
                             using (
-                              var fs =
-                                  System.IO.File.Create(themePath + item.RelativePath)
-                              )
+                                var fs =
+                                    System.IO.File.Create(themePath + item.RelativePath)
+                                )
                             {
                                 fs.Write(item.FileBytes, 0, item.FileBytes.Length);
                             }
                         }
                         Service.Add(newTheme);
                     }
+                    else
+                    {
+                        return Json(new AjaxResult { Status = AjaxStatus.Warn, Message = "主题已存在！" });
+                    }
                 }
                 catch (Exception ex)
                 {
                     Logger.Error(ex);
-                    return Json(new AjaxResult { Status = AjaxStatus.Error, Message = "上传的模板不正确" });
+                    return Json(new AjaxResult { Status = AjaxStatus.Error, Message = "上传的主题不正确！" });
                 }
             }
 
-            return Json(new AjaxResult { Status = AjaxStatus.Normal, Message = "上传成功" });
+            return Json(new AjaxResult { Status = AjaxStatus.Normal, Message = "主题安装成功！" });
         }
     }
 }

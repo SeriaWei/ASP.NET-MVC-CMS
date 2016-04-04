@@ -17,12 +17,14 @@
                             <label>
                                 <input type="radio" name="theme" @(item.IsActived ? "checked" : "") value="@item.ID"> @item.Title
                             </label>
-
-                            <div class="pull-right">
-                                <a target="_blank" class="download" href="@Url.Action("ThemePackage", new { id = item.ID })">
-                                    <i class="glyphicon glyphicon-download-alt"></i>
-                                </a>
-                            </div>
+                            @if (HttpContext.Current.IsDebuggingEnabled)
+                            {
+                                <div class="pull-right">
+                                    <a target="_blank" class="download" href="@Url.Action("ThemePackage", new { id = item.ID })">
+                                        <i class="glyphicon glyphicon-download-alt"></i>
+                                    </a>
+                                </div>
+                            }
                         </div>
 
                     </div>
@@ -31,15 +33,11 @@
         </div>
     </div>
     <div class="panel-footer">
-        @using (Html.BeginForm("UploadTheme", "Theme", new { module = "admin" }, FormMethod.Post, new { enctype = "multipart/form-data" }))
-        {
-            <input type="button" value="安装主题" class="btn btn-primary select-theme"/>
-            <a target="_blank" href="http://www.zkea.net/zkeacms/theme">下载更多主题</a>
-            <div class="hide">
-                <input id="file" type="file" name="file"/>
-            </div>
-
-        }
+        <input type="button" value="安装主题" class="btn btn-primary select-theme" />
+        <a target="_blank" href="http://www.zkea.net/zkeacms/theme">下载更多主题</a>
+        <div class="hide">
+            <input id="file" type="file" name="file" />
+        </div>
     </div>
 </div>
 @using (Script.AtFoot())
@@ -47,6 +45,7 @@
     <script type="text/javascript">
         $(function () {
             $(document).on("click", "input[name='theme']", function () {
+                Easy.MessageTip.Show("切换主题中...");
                 $.post("@Url.Action("ChangeTheme")", { id: $(this).val() }, function (data) {
                     Easy.MessageTip.Show("切换主题成功！");
                 });
@@ -55,7 +54,21 @@
                 $("#file").trigger("click");
             });
             $(document).on("change", "#file", function () {
-                $("form").submit();
+                var formData = new FormData();
+                formData.append('file', this.files[0]);
+                var xhr = new XMLHttpRequest();
+                xhr.open('POST', '@Url.Action("UploadTheme")');
+                xhr.onload = function (e) {
+                    var result = JSON.parse(e.target.response);
+                    if (result.Status === 1) {
+                        setTimeout(function () {
+                            window.location.reload();
+                        }, 1000);
+                    }
+                    Easy.MessageTip.Show(result.Message);
+                }
+                Easy.MessageTip.Show("主题安装中...");
+                xhr.send(formData);
             });
         });
     </script>
