@@ -39,15 +39,15 @@ namespace Easy.CMS.Product
             };
         }
 
-        public override void InitScript()
+        protected override void InitScript(Func<string, Web.Resource.ResourceHelper> script)
         {
-            Script("PhotoWall")
+            script("PhotoWall")
                 .Include("~/Modules/Product/Scripts/jquery-photowall/jquery-photowall.js");
         }
 
-        public override void InitStyle()
+        protected override void InitStyle(Func<string, Web.Resource.ResourceHelper> style)
         {
-            Style("PhotoWall")
+            style("PhotoWall")
                 .Include("~/Modules/Product/Scripts/jquery-photowall/jquery-photowall.css");
         }
     }

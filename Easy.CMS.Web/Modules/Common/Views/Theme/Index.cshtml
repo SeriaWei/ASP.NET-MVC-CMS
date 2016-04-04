@@ -1,0 +1,62 @@
+﻿@using Easy.Web.CMS.Theme
+@model IEnumerable<ThemeEntity>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        主题
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            @foreach (ThemeEntity item in Model)
+            {
+                <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
+                    <div class="thumbnail">
+                        <a href="@Url.Action("PreView", "Theme", new {module = "admin", id = item.ID})">
+                            <img src="@Url.Content(item.Thumbnail ?? ThemeEntity.DefaultThumbnail)" alt="@item.Title" />
+                        </a>
+                        <div class="radio clearfix">
+                            <label>
+                                <input type="radio" name="theme" @(item.IsActived ? "checked" : "") value="@item.ID"> @item.Title
+                            </label>
+
+                            <div class="pull-right">
+                                <a target="_blank" class="download" href="@Url.Action("ThemePackage", new { id = item.ID })">
+                                    <i class="glyphicon glyphicon-download-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+    <div class="panel-footer">
+        @using (Html.BeginForm("UploadTheme", "Theme", new { module = "admin" }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <input type="button" value="安装主题" class="btn btn-primary select-theme"/>
+            <a target="_blank" href="http://www.zkea.net/zkeacms/theme">下载更多主题</a>
+            <div class="hide">
+                <input id="file" type="file" name="file"/>
+            </div>
+
+        }
+    </div>
+</div>
+@using (Script.AtFoot())
+{
+    <script type="text/javascript">
+        $(function () {
+            $(document).on("click", "input[name='theme']", function () {
+                $.post("@Url.Action("ChangeTheme")", { id: $(this).val() }, function (data) {
+                    Easy.MessageTip.Show("切换主题成功！");
+                });
+            });
+            $(document).on("click", ".select-theme", function () {
+                $("#file").trigger("click");
+            });
+            $(document).on("change", "#file", function () {
+                $("form").submit();
+            });
+        });
+    </script>
+}

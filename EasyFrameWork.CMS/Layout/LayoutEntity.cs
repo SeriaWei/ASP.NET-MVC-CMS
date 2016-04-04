@@ -9,6 +9,7 @@ using Easy.MetaData;
 using Easy.Web.CMS.Zone;
 using Easy.Models;
 using Easy.Web.CMS.Page;
+using Easy.Web.CMS.Theme;
 using Easy.Web.CMS.Widget;
 
 namespace Easy.Web.CMS.Layout
@@ -32,7 +33,8 @@ namespace Easy.Web.CMS.Layout
         public string ImageUrl { get; set; }
         public string ImageThumbUrl { get; set; }
 
-        public string Theme { get; set; }
+        public ThemeEntity CurrentTheme { get; set; }
+
     }
 
     class LayoutEntityMetaData : DataViewMetaData<LayoutEntity>
@@ -49,17 +51,7 @@ namespace Easy.Web.CMS.Layout
             ViewConfig(m => m.ContainerClass).AsHidden();
             ViewConfig(m => m.Title).AsHidden();
             ViewConfig(m => m.LayoutName).AsTextBox().Required();
-            ViewConfig(m => m.Theme).AsDropDownList().DataSource(() =>
-            {
-                var themes = new Dictionary<string, string>();
-                
-                Directory.GetDirectories(HttpContext.Current.Server.MapPath("~/Themes")).Each(m =>
-                {
-                    var dic = new DirectoryInfo(m);
-                    themes.Add(dic.Name, dic.Name);
-                });
-                return themes;
-            });
+           
 
             ViewConfig(m => m.ImageThumbUrl).AsTextBox().AddClass("select select-image").AddProperty("data-url", Urls.SelectImage);
             ViewConfig(m => m.ImageUrl).AsTextBox().AddClass("select select-image").AddProperty("data-url", Urls.SelectImage);

@@ -134,3 +134,19 @@ p {
     padding:5px 0;
     line-height:normal;
 }
+
+.list-group-item.active,
+.list-group-item.active:hover,
+.list-group-item.active:focus {
+  text-shadow: 0 -1px 0 @color-main-actived;
+  .background-image(@color-main-light,@color-main-actived);
+  border-color: @color-main-actived;
+}
+.preview-theme{
+    position:fixed;
+    right:10px;
+    top:10px;
+    a{
+        color:#fff;
+    }
+}

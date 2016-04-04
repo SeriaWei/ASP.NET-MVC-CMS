@@ -11,6 +11,7 @@ using Easy.Constant;
 using Easy.Extend;
 using System.Net;
 using Easy.Cache;
+using Easy.Web.CMS.Theme;
 using Microsoft.Practices.ServiceLocation;
 
 namespace Easy.Web.CMS.Filter
@@ -55,6 +56,7 @@ namespace Easy.Web.CMS.Filter
                 var layoutService = ServiceLocator.Current.GetInstance<ILayoutService>();
                 LayoutEntity layout = layoutService.Get(page.LayoutId);
                 layout.Page = page;
+                layout.CurrentTheme = ServiceLocator.Current.GetInstance<IThemeService>().GetCurrentTheme();
                 Action<WidgetBase> processWidget = m =>
                 {
                     IWidgetPartDriver partDriver = cache.Get("IWidgetPartDriver_" + m.AssemblyName + m.ServiceTypeName, source =>

@@ -48,8 +48,8 @@
       <HintPath>..\..\..\packages\EasyFrameWork.1.0.5.3\lib\net40\Easy.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Easy.Web, Version=1.0.5.2, Culture=neutral, PublicKeyToken=3aaa4da33a984374, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\EasyFrameWork.Web.1.0.5.2\lib\net40\Easy.Web.dll</HintPath>
+    <Reference Include="Easy.Web, Version=1.0.5.3, Culture=neutral, PublicKeyToken=3aaa4da33a984374, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\EasyFrameWork.Web.1.0.5.3\lib\net40\Easy.Web.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />

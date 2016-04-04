@@ -19,14 +19,14 @@ namespace Easy.CMS.Section
             return null;
         }
 
-        public override void InitScript()
+        protected override void InitScript(Func<string, Web.Resource.ResourceHelper> script)
         {
             
         }
 
-        public override void InitStyle()
+        protected override void InitStyle(Func<string, Web.Resource.ResourceHelper> style)
         {
-            Style("SectionAdmin").Include("~/Modules/Section/Content/Section.css");
+            style("SectionAdmin").Include("~/Modules/Section/Content/Section.css");
         }
     }
 }

@@ -18,9 +18,7 @@ namespace Easy.CMS.Web
             //BundleConfig.RegisterBundles(BundleTable.Bundles);
             //AuthConfig.RegisterAuth();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
-            var reMan = new ResourceManager();
-            reMan.InitScript();
-            reMan.InitStyle();
+            new ResourceManager().Excute();
         }
 
     }

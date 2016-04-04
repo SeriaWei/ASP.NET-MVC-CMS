@@ -39,15 +39,17 @@ namespace Easy.CMS.Article
             };
         }
 
-        public override void InitScript()
-        {
 
+
+
+        protected override void InitScript(Func<string, Web.Resource.ResourceHelper> script)
+        {
+            
         }
 
-        public override void InitStyle()
+        protected override void InitStyle(Func<string, Web.Resource.ResourceHelper> style)
         {
-            Style("Article").Include("~/Modules/Article/Content/Article.css");
+            style("Article").Include("~/Modules/Article/Content/Article.css");
         }
-
     }
 }

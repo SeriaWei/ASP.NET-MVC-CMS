@@ -7,20 +7,20 @@ namespace Easy
 {
     public class ResourceManager : Easy.Web.Resource.ResourceManager
     {
-        public override void InitScript()
+        protected override void InitScript(Func<string, Web.Resource.ResourceHelper> script)
         {
-            Script("jQuery").Include("~/Scripts/jquery-1.11.2.min.js", "~/Scripts/jquery-1.11.2.min.js").RequiredAtHead();
-            Script("bootStrap").Include("~/Content/bootstrap/js/bootstrap.js", "~/Content/bootstrap/js/bootstrap.min.js").RequiredAtFoot();
-            Script("jQueryUi")
+            script("jQuery").Include("~/Scripts/jquery-1.11.2.min.js", "~/Scripts/jquery-1.11.2.min.js").RequiredAtHead();
+            script("bootStrap").Include("~/Content/bootstrap/js/bootstrap.js", "~/Content/bootstrap/js/bootstrap.min.js").RequiredAtFoot();
+            script("jQueryUi")
                 .Include("~/Scripts/jquery-ui/jquery-ui.js", "~/Scripts/jquery-ui/jquery-ui.min.js");
 
-            Script("Easy")
+            script("Easy")
                 .Include("~/Scripts/EasyPlug/Easy.js").RequiredAtHead();
 
-            Script("lightBox")
+            script("lightBox")
                 .Include("~/Scripts/lightbox/js/lightbox.js");
 
-            Script("admin")
+            script("admin")
                 .Include("~/Scripts/jquery.validate.js")
                 .Include("~/Scripts/jquery.validate.unobtrusive.js")
                 .Include("~/Content/themes/admin/script/admin.js")
@@ -44,22 +44,22 @@ namespace Easy
 
         }
 
-        public override void InitStyle()
+        protected override void InitStyle(Func<string, Web.Resource.ResourceHelper> style)
         {
-            Style("bootStrap").Include("~/Content/bootstrap/css/bootstrap.css", "~/Content/bootstrap/css/bootstrap.min.css").RequiredAtHead();
-            Style("bootStrapTheme").Include("~/Content/bootstrap/css/bootstrap-theme.css", "~/Content/bootstrap/css/bootstrap-theme.min.css").RequiredAtHead();
-            Style("Site").Include("~/Content/Site.css", "~/Content/Site.min.css").RequiredAtFoot();
-            Style("jQueryUi")
+            style("bootStrap").Include("~/Content/bootstrap/css/bootstrap.css", "~/Content/bootstrap/css/bootstrap.min.css").RequiredAtHead();
+            style("bootStrapTheme").Include("~/Content/bootstrap/css/bootstrap-theme.css", "~/Content/bootstrap/css/bootstrap-theme.min.css").RequiredAtHead();
+            style("Site").Include("~/Content/Site.css", "~/Content/Site.min.css").RequiredAtFoot();
+            style("jQueryUi")
                 .Include("~/Scripts/jquery-ui/jquery-ui.css", "~/Scripts/jquery-ui/jquery-ui.min.css")
                 .Include("~/Scripts/jquery-ui/jquery-ui.theme.css", "~/Scripts/jquery-ui/jquery-ui.theme.min.css")
                 .Include("~/Scripts/jquery-ui/jquery-ui.structure.css", "~/Scripts/jquery-ui/jquery-ui.structure.css");
-            Style("Easy")
+            style("Easy")
                 .Include("~/Scripts/EasyPlug/Css/Easy.css");
 
-            Style("lightBox")
+            style("lightBox")
                .Include("~/Scripts/lightbox/css/lightbox.css");
 
-            Style("admin")
+            style("admin")
                 .Include("~/Content/themes/admin/admin.css")
                 .Include("~/Scripts/EasyPlug/Css/Easy.css")
                 .Include("~/Scripts/EasyPlug/Css/Easy.Grid.css")

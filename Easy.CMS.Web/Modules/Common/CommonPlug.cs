@@ -77,24 +77,31 @@ namespace Easy.CMS.Common
             };
             yield return new AdminMenu
             {
+                Title = "主题",
+                Icon = "glyphicon-blackboard",
+                Url = "~/admin/Theme",
+                Order = 3
+            };
+            yield return new AdminMenu
+            {
                 Title = "导航",
                 Icon = "glyphicon-retweet",
                 Url = "~/admin/Navigation",
-                Order = 3
+                Order = 4
             };
             yield return new AdminMenu
             {
                 Title = "媒体库",
                 Icon = "glyphicon glyphicon-picture",
                 Url = "~/admin/Media",
-                Order = 4
+                Order = 5
             };
             yield return new AdminMenu
             {
                 Title = "焦点图",
                 Icon = "glyphicon glyphicon-eye-open",
                 Url = "~/admin/Carousel",
-                Order = 5
+                Order = 6
             };
             yield return new AdminMenu
             {
@@ -105,19 +112,19 @@ namespace Easy.CMS.Common
             };
         }
 
-        public override void InitScript()
+        protected override void InitScript(Func<string, Web.Resource.ResourceHelper> script)
         {
-            Script("OWL.Carousel").Include("~/Modules/Common/Scripts/OwlCarousel/owl.carousel.min.js")
+            script("OWL.Carousel").Include("~/Modules/Common/Scripts/OwlCarousel/owl.carousel.min.js")
                 .Include("~/Modules/Common/Scripts/Owl.Carousel.js", "~/Modules/Common/Scripts/Owl.Carousel.min.js");
 
-            Script("LayoutDesign").Include("~/Modules/Common/Scripts/LayoutDesign.js");
-            Script("PageDesign").Include("~/Modules/Common/Scripts/PageDesign.js");
+            script("LayoutDesign").Include("~/Modules/Common/Scripts/LayoutDesign.js");
+            script("PageDesign").Include("~/Modules/Common/Scripts/PageDesign.js");
         }
 
-        public override void InitStyle()
+        protected override void InitStyle(Func<string, Web.Resource.ResourceHelper> style)
         {
-            Style("Layout").Include("~/Modules/Common/Content/Layout.css");
-            Style("OWL.Carousel")
+            style("Layout").Include("~/Modules/Common/Content/Layout.css");
+            style("OWL.Carousel")
                 .Include("~/Modules/Common/Scripts/OwlCarousel/owl.carousel.css", "~/Modules/Common/Scripts/OwlCarousel/owl.carousel.min.css")
                 .Include("~/Modules/Common/Scripts/OwlCarousel/owl.transitions.css", "~/Modules/Common/Scripts/OwlCarousel/owl.transitions.min.css");
         }

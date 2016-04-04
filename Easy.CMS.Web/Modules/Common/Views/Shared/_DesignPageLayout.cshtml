@@ -22,9 +22,16 @@
     <meta name="viewport" content="width=device-width" />
     @StyleAtHead()
     @ScriptAtHead()
-    @if (!Model.Theme.IsNullOrEmpty())
+    @if (Model.CurrentTheme != null)
     {
-        <link type="text/css" rel="stylesheet" href="@Url.Content("~/Themes/{0}/css/Theme.css".FormatWith(Model.Theme))" />
+        if (HttpContext.Current.IsDebuggingEnabled)
+        {
+            <link type="text/css" rel="stylesheet" href="@Url.Content(Model.CurrentTheme.UrlDebugger)" />
+        }
+        else
+        {
+            <link type="text/css" rel="stylesheet" href="@Url.Content(Model.CurrentTheme.Url))" />
+        }
     }
 </head>
 <body class="front">
