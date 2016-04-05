@@ -41,6 +41,8 @@ sqlcmd -S %server% -d %dataBase% -U %dbUserId% -P %dbPassword% -b -i "Tables\dbo
 if %ERRORLEVEL% NEQ 0 goto errors
 sqlcmd -S %server% -d %dataBase% -U %dbUserId% -P %dbPassword% -b -i "Tables\dbo.CMS_Media.Table.sql"
 if %ERRORLEVEL% NEQ 0 goto errors
+sqlcmd -S %server% -d %dataBase% -U %dbUserId% -P %dbPassword% -b -i "Tables\dbo.CMS_Theme.Table.sql"
+if %ERRORLEVEL% NEQ 0 goto errors
 sqlcmd -S %server% -d %dataBase% -U %dbUserId% -P %dbPassword% -b -i "Tables\dbo.ArticleType.Table.sql"
 if %ERRORLEVEL% NEQ 0 goto errors
 sqlcmd -S %server% -d %dataBase% -U %dbUserId% -P %dbPassword% -b -i "Tables\dbo.Article.Table.sql"
@@ -128,6 +130,8 @@ if %ERRORLEVEL% NEQ 0 goto errors
 sqlcmd -S %server% -d %dataBase% -U %dbUserId% -P %dbPassword% -b -i "InitialData\dbo.CMS_Media.Table.sql"
 if %ERRORLEVEL% NEQ 0 goto errors
 sqlcmd -S %server% -d %dataBase% -U %dbUserId% -P %dbPassword% -b -i "InitialData\dbo.CMS_Page.Table.sql"
+if %ERRORLEVEL% NEQ 0 goto errors
+sqlcmd -S %server% -d %dataBase% -U %dbUserId% -P %dbPassword% -b -i "InitialData\dbo.CMS_Theme.Table.sql"
 if %ERRORLEVEL% NEQ 0 goto errors
 sqlcmd -S %server% -d %dataBase% -U %dbUserId% -P %dbPassword% -b -i "InitialData\dbo.Navigation.Table.sql"
 if %ERRORLEVEL% NEQ 0 goto errors
