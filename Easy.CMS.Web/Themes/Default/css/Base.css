@@ -179,12 +179,15 @@ p {
   background-repeat: repeat-x;
   background-color: #7ecae0;
   border-color: #2890af;
-  text-shadow: 0 1px 0 #7ecae0;
+  text-shadow: none;
+  color: #fff;
 }
 .btn-default:hover,
 .btn-default:focus {
   background-color: #2890af;
   background-position: 0 -15px;
+  text-shadow: none;
+  color: #EEF2F5;
 }
 .btn-default:active:hover,
 .btn-default.active:hover,
@@ -199,5 +202,7 @@ p {
 .btn-default.active {
   background-color: #2890af;
   border-color: #2890af;
+  text-shadow: none;
+  color: #EEF2F5;
 }
 /*# sourceMappingURL=Base.css.map */

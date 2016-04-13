@@ -157,13 +157,16 @@ p {
 .btn-default {
     .background-image(@color-main-light,@color-main-actived);
     border-color: @color-main-actived;
-    text-shadow: 0 1px 0 @color-main-light;
+    text-shadow: none;
+    color:#fff;
 }
 
 .btn-default:hover,
 .btn-default:focus {
     background-color: @color-main-actived;
     background-position: 0 -15px;
+    text-shadow: none;
+    color:#EEF2F5;
 }
 
 .btn-default:active:hover,
@@ -179,4 +182,6 @@ p {
 .btn-default.active {
     background-color: @color-main-actived;
     border-color: @color-main-actived;
+    text-shadow: none;
+    color:#EEF2F5;
 }
