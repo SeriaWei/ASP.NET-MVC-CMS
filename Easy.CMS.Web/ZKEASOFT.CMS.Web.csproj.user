@@ -3,6 +3,7 @@
   <PropertyGroup>
     <ProjectView>ProjectFiles</ProjectView>
     <NameOfLastUsedPublishProfile>PubLocal</NameOfLastUsedPublishProfile>
+    <UseIISExpress>true</UseIISExpress>
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>

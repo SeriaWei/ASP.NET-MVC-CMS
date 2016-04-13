@@ -132,6 +132,14 @@ namespace Easy.CMS.Section.Controllers
             return Json(new AjaxResult { Status = AjaxStatus.Normal, Message = "上传成功" });
         }
 
+        public FileResult TemplatePackage(string name)
+        {
+            ZipFile zipFile = new ZipFile();
+            zipFile.AddFile(new System.IO.FileInfo(Server.MapPath("~/Modules/Section/Views/") + name + ".cshtml"));
+            zipFile.AddFile(new System.IO.FileInfo(Server.MapPath("~/Modules/Section/Views/Thumbnail/") + name + ".png"));
+            return File(zipFile.ToMemoryStream(), "application/zip", name + ".zip");
+        }
+
         [HttpPost]
         public JsonResult SplitColumn(List<SectionGroup> groups)
         {

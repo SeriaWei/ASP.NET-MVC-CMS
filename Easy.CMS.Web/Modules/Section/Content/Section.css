@@ -45,7 +45,15 @@
 .group-form #template {
     position: relative;
 }
-
+.group-form #template .pack{
+    position:absolute;
+    right:20px;
+    bottom:30px;
+    display:none;
+}
+.group-form.developer #template .pack{
+    display:block;
+}
 .group-form #templates {
     max-height: 395px;
     overflow: auto;
