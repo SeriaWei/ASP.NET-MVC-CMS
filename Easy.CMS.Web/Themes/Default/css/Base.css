@@ -172,4 +172,32 @@ p {
 .preview-theme a {
   color: #fff;
 }
+.btn-default {
+  background-image: -webkit-linear-gradient(top, #7ecae0 0%, #2890af 100%);
+  background-image: -o-linear-gradient(top, #7ecae0 0%, #2890af 100%);
+  background-image: linear-gradient(to bottom, #7ecae0 0%, #2890af 100%);
+  background-repeat: repeat-x;
+  background-color: #7ecae0;
+  border-color: #2890af;
+  text-shadow: 0 1px 0 #7ecae0;
+}
+.btn-default:hover,
+.btn-default:focus {
+  background-color: #2890af;
+  background-position: 0 -15px;
+}
+.btn-default:active:hover,
+.btn-default.active:hover,
+.open > .dropdown-toggle.btn-default:hover,
+.btn-default:active:focus,
+.btn-default.active:focus,
+.open > .dropdown-toggle.btn-default:focus,
+.btn-default:active.focus,
+.btn-default.active.focus,
+.open > .dropdown-toggle.btn-default.focus,
+.btn-default:active,
+.btn-default.active {
+  background-color: #2890af;
+  border-color: #2890af;
+}
 /*# sourceMappingURL=Base.css.map */
