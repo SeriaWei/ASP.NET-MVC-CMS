@@ -2,8 +2,9 @@
 @model Easy.Data.Pagination
 
 @{
+    Regex pageRegex = new Regex(@"p=(\d+)",RegexOptions.Compiled);
     string currentUrl = Request.RawUrl.ToLower();
-    if (!currentUrl.Contains("p="))
+    if (!pageRegex.IsMatch(currentUrl))
     {
         if (currentUrl.Contains("?"))
         {
@@ -14,42 +15,40 @@
             currentUrl += "?p=0";
         }
     }
+    Func<int, string> pageFormat = index => "p=" + index;
 }
 <ul class="pagination">
     @if (Model.PageIndex >= 1)
     {
-        <li><a href="@Regex.Replace(currentUrl, @"p=\d", "p=" + (Model.PageIndex - 1))">«</a></li>
-
+        <li><a href="@pageRegex.Replace(currentUrl, pageFormat(0))">«</a></li>
     }
     else
     {
         <li class="disabled"><a href="javascript:void(0)">«</a></li>
     }
     @{
-        int start = Model.PageIndex - 3;
-        if (start < 1)
+        if (Model.PageIndex >= 5)
         {
-            start = 1;
-        }
-        else
-        {
-            start++;
             <li>
-                <a href="@Regex.Replace(currentUrl, @"p=\d", "p=" + (start-2))">...</a>
+                <a>...</a>
             </li>
         }
-        int max = 0;
-        for (; start <= Model.AllPage && max < 5; start++)
+        int start = Model.PageIndex - 4;
+        int end = Model.PageIndex + 4;
+        if (start < 0)
         {
-            <li class="@(start - 1 == Model.PageIndex ? "active" : "")">
-                <a href="@Regex.Replace(currentUrl, @"p=\d", "p=" + (start - 1))">@start</a>
-            </li>
-            max++;
+            start = 0;
         }
-        if (start < Model.AllPage)
+        for (; start < Model.AllPage && start <= end; start++)
         {
-            <li>                
-                <a href="@Regex.Replace(currentUrl, @"p=\d", "p=" + (start-1))">...</a>
+            <li class="@(start == Model.PageIndex ? "active" : "")">
+                <a href="@pageRegex.Replace(currentUrl, pageFormat(start))">@(start+1)</a>
+            </li>
+        }
+        if (Model.AllPage-Model.PageIndex>5)
+        {
+            <li>
+                <a>...</a>
             </li>
         }
     }
@@ -57,7 +56,7 @@
     @if (Model.PageIndex < Model.AllPage - 1)
     {
         <li>
-            <a href="@Regex.Replace(currentUrl, @"p=\d", "p=" + (Model.PageIndex + 1))">»</a>
+            <a href="@pageRegex.Replace(currentUrl, pageFormat(Model.PageIndex + 1))">»</a>
         </li>
     }
     else

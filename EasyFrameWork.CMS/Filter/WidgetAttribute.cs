@@ -11,6 +11,7 @@ using Easy.Constant;
 using Easy.Extend;
 using System.Net;
 using Easy.Cache;
+using Easy.Web.CMS.Theme;
 using Microsoft.Practices.ServiceLocation;
 
 namespace Easy.Web.CMS.Filter
@@ -41,7 +42,7 @@ namespace Easy.Web.CMS.Filter
 
         public virtual string GetLayout()
         {
-            return null;
+            return "~/Modules/Common/Views/Shared/_Layout.cshtml";
         }
 
         public void OnActionExecuted(ActionExecutedContext filterContext)
@@ -55,6 +56,7 @@ namespace Easy.Web.CMS.Filter
                 var layoutService = ServiceLocator.Current.GetInstance<ILayoutService>();
                 LayoutEntity layout = layoutService.Get(page.LayoutId);
                 layout.Page = page;
+                layout.CurrentTheme = ServiceLocator.Current.GetInstance<IThemeService>().GetCurrentTheme();
                 Action<WidgetBase> processWidget = m =>
                 {
                     IWidgetPartDriver partDriver = cache.Get("IWidgetPartDriver_" + m.AssemblyName + m.ServiceTypeName, source =>
@@ -76,24 +78,18 @@ namespace Easy.Web.CMS.Filter
                 };
                 var widgetService = ServiceLocator.Current.GetInstance<IWidgetService>();
                 IEnumerable<WidgetBase> widgets = widgetService.GetAllByPageId(page.ID);
-                var parallel = from widget in widgets.AsParallel() select widget;
-                parallel.ForAll(processWidget);
-
+                widgets.AsParallel().ForAll(processWidget);
                 layout.ZoneWidgets = Zones;
                 var viewResult = (filterContext.Result as ViewResult);
                 if (viewResult != null)
                 {
-                    string layoutView = GetLayout();
-                    if (layoutView.IsNotNullAndWhiteSpace())
-                    {
-                        viewResult.MasterName = layoutView;
-                    }
-                    viewResult.ViewData[LayoutEntity.LayoutKey] = layout;
+                    viewResult.MasterName = GetLayout();
+                    filterContext.Controller.ViewData.Model = layout;
                 }
             }
             else
             {
-                filterContext.Result = new HttpStatusCodeResult(404);
+                filterContext.Result = new RedirectResult("~/error/notfond");
             }
         }
 

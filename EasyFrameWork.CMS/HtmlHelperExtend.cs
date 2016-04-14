@@ -4,12 +4,31 @@ using System.Linq;
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Mvc.Html;
+using Easy.Data;
 using Easy.Extend;
+using Easy.Web.CMS.Widget;
 
 namespace Easy.Web.CMS
 {
     public static class HtmlHelperExtend
     {
+        public static void DisPlayWidget(this HtmlHelper html, WidgetPart widget)
+        {
+            if (widget.ViewModel != null)
+            {
+                html.RenderPartial(widget.Widget.PartialView, widget.ViewModel);
+            }
+            else
+            {
+                html.WidgetError();
+            }
+        }
+
+        public static void DesignWidget(this HtmlHelper html, DesignWidgetViewModel viewModel)
+        {
+            html.RenderPartial("DesignWidget", viewModel);
+        }
         public static MvcHtmlString SmartLink(this HtmlHelper html, string link, string text, string cssClass = null)
         {
             if (link.IsNullOrEmpty())
@@ -37,6 +56,16 @@ namespace Easy.Web.CMS
                 return new Uri(link).Host.Equals(HttpContext.Current.Request.Url.Host);
             }
             return true;
+        }
+
+        public static void WidgetError(this HtmlHelper html)
+        {
+             html.RenderPartial("Widget.Error");
+        }
+
+        public static void Pagin(this HtmlHelper html, Pagination pagin)
+        {
+            html.RenderPartial("Partial_Pagination", pagin);
         }
     }
 }

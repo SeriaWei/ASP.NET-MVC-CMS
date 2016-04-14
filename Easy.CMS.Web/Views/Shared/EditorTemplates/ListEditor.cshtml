@@ -6,7 +6,7 @@
 }
 <div class="input-group-collection container-fluid">
     <div class="Template hide">
-        @Html.Partial("ListEditorItem", ServiceLocator.Current.GetInstance(type))
+        @Html.Partial("ListEditorItemTemplate", ServiceLocator.Current.GetInstance(type))
     </div>
     <div class="items">
         @if (Model != null)

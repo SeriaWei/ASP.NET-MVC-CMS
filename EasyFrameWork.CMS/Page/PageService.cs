@@ -49,8 +49,9 @@ namespace Easy.Web.CMS.Page
                new DataFilter(new List<string> { "IsPublish", "PublishDate" })
                .Where("ID", OperatorType.Equal, item.ID));
 
-            this.Delete(m => m.Url == item.Url && m.IsPublishedPage == true);
-
+            this.Delete(m => m.ReferencePageID == item.ID && m.IsPublishedPage == true); 
+            
+            item.ReferencePageID = item.ID;
             item.IsPublishedPage = true;
             item.PublishDate = DateTime.Now;
             var widgets = WidgetService.GetByPageId(item.ID);
@@ -69,6 +70,7 @@ namespace Easy.Web.CMS.Page
             if (deletes.Any() && this.Get(new DataFilter().Where("ParentId", OperatorType.In, deletes)).Any())
             {
                 this.Delete(new DataFilter().Where("ParentId", OperatorType.In, deletes));
+                this.Delete(new DataFilter().Where("ReferencePageID", OperatorType.In, deletes));
             }
             if (deletes.Any())
             {
@@ -84,6 +86,11 @@ namespace Easy.Web.CMS.Page
 
             var widgets = WidgetService.Get(m => m.PageID == page.ID);
             widgets.Each(m => m.CreateServiceInstance().DeleteWidget(m.ID));
+            if (page.PublishDate.HasValue)
+            {
+                this.Delete(m => m.ReferencePageID == page.ID);
+            }
+
             return base.Delete(primaryKeys);
         }
 
@@ -92,6 +99,7 @@ namespace Easy.Web.CMS.Page
             var page = this.Get(id);
             page.DisplayOrder = position;
             var filter = new DataFilter()
+                .Where("IsPublishedPage", OperatorType.Equal, false)
                 .Where("ParentId", OperatorType.Equal, page.ParentId)
                 .Where("Id", OperatorType.NotEqual, page.ID);
             if (position > oldPosition)
@@ -128,14 +136,14 @@ namespace Easy.Web.CMS.Page
 
             if (path == "/")
             {
-                filter.Where("IsHomePage", OperatorType.Equal, true);
+                filter.Where("ParentId", OperatorType.Equal, "#");
             }
             else
             {
                 filter.Where("Url", OperatorType.Equal, (path.StartsWith("~") ? "" : "~") + path);
             }
 
-            filter.Where("IsPublishedPage", OperatorType.Equal, !isPreView);
+            filter.Where("IsPublishedPage", OperatorType.Equal, !isPreView).OrderBy("DisplayOrder", OrderType.Ascending);
             var pages = Get(filter);
 
             return pages.FirstOrDefault();

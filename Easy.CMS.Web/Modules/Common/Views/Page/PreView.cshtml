@@ -1,26 +1,27 @@
 ﻿@using System.Text.RegularExpressions
+@using Easy.Web.CMS
+@using Easy.Web.CMS.Layout
+@model LayoutEntity
 @{
-    Layout = "~/Modules/Common/Views/Shared/_Layout.cshtml";
-    Easy.Web.CMS.Layout.LayoutEntity layOut = ViewData[Easy.Web.CMS.Layout.LayoutEntity.LayoutKey] as Easy.Web.CMS.Layout.LayoutEntity;
-    if (layOut == null)
+    if (Model == null)
     {
         return;
     }
 }
-@for (int i = 0; i < layOut.Html.Count; i++)
+@for (int i = 0; i < Model.Html.Count; i++)
 {
-    var item = layOut.Html[i];
+    var item = Model.Html[i];
     if (item.Html == Easy.Web.CMS.Zone.ZoneEntity.ZoneTag)
     {
         i++;
-        var zoneId = layOut.Html[i].Html;
-        if (layOut.ZoneWidgets.ContainsKey(zoneId))
+        var zoneId = Model.Html[i].Html;
+        if (Model.ZoneWidgets.ContainsKey(zoneId))
         {
-            foreach (var widgetPart in layOut.ZoneWidgets[zoneId].OrderBy(m => m.Widget.Position).ThenBy(m => m.Widget.WidgetName))
+            foreach (var widgetPart in Model.ZoneWidgets[zoneId].OrderBy(m => m.Widget.Position).ThenBy(m => m.Widget.WidgetName))
             {
                 <div @widgetPart.Widget.StyleClassResult()>
                     @{
-                Html.RenderPartial(widgetPart.Widget.PartialView, widgetPart.ViewModel);
+                Html.DisPlayWidget(widgetPart);
                     }
                 </div>
             }

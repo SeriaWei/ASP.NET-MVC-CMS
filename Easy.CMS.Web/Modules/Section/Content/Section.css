@@ -1,0 +1,85 @@
+﻿.group-template {
+    margin-top: 10px;
+    border-top: 1px solid #eee;
+    padding-top: 10px;
+}
+
+    .group-template .row.border {
+        border: 1px solid #ddd;
+        margin: 0 -10px;
+        background: #fff;
+        cursor: pointer;
+        box-shadow: 0 0 3px rgba(0, 0, 0,0.2);
+    }
+
+        .group-template .row.border.actived {
+            background: #337ab7;
+        }
+        .group-template .row.border .col {
+            padding-left: 2px;
+            padding-right: 2px;
+        }
+          .group-template .row.border .col:first-child {
+            padding-left: 4px;
+        }
+          .group-template .row.border .col:last-child {
+            padding-right: 4px;
+        }
+
+    .group-template .border .content-helper {
+        min-height: 35px;
+        border: 1px solid #ddd;
+        margin-top: 4px;
+        margin-bottom: 4px;
+        background: #fff;
+    }
+
+    .group-template .text-center {
+        line-height: 40px;
+    }
+
+.group-form .caption {
+    text-align: center;
+}
+
+.group-form #template {
+    position: relative;
+}
+.group-form #template .pack{
+    position:absolute;
+    right:20px;
+    bottom:30px;
+    display:none;
+}
+.group-form.developer #template .pack{
+    display:block;
+}
+.group-form #templates {
+    max-height: 395px;
+    overflow: auto;
+}
+
+.group-form .upload-process {
+    display: none;
+    background: #eee;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    top: 0;
+    z-index: 1000;
+    padding: 0 20px;
+    height: 120px;
+    border-bottom: 1px solid #ddd;
+}
+
+    .group-form .upload-process.hover {
+        display: block;
+    }
+
+.group-form .progress .progress-bar {
+    -moz-transition: width .3s ease;
+    -o-transition: width .3s ease;
+    -webkit-transition: width .3s ease;
+    transition: width .3s ease;
+}

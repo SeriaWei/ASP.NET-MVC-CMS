@@ -1,7 +1,8 @@
 ﻿@using Easy.Web.CMS.Widget
+@using Easy.Web.CMS.Layout
+@model LayoutEntity
 @{
-    var layOut = ViewData[Easy.Web.CMS.Layout.LayoutEntity.LayoutKey] as Easy.Web.CMS.Layout.LayoutEntity;
-    if (layOut == null)
+    if (Model == null)
     {
         return;
     }
@@ -16,14 +17,21 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
-    <title>[设计]@layOut.Page.Title</title>
+    <title>[设计]@Model.Page.Title</title>
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <meta name="viewport" content="width=device-width" />
     @StyleAtHead()
     @ScriptAtHead()
-    @if (!layOut.Theme.IsNullOrEmpty())
+    @if (Model.CurrentTheme != null)
     {
-        <link type="text/css" rel="stylesheet" href="@Url.Content("~/Themes/{0}/css/Theme.css".FormatWith(layOut.Theme))" />
+        if (HttpContext.Current.IsDebuggingEnabled)
+        {
+            <link type="text/css" rel="stylesheet" href="@Url.Content(Model.CurrentTheme.UrlDebugger)" />
+        }
+        else
+        {
+            <link type="text/css" rel="stylesheet" href="@Url.Content(Model.CurrentTheme.Url))" />
+        }
     }
 </head>
 <body class="front">
@@ -64,27 +72,27 @@
                     </ul>
                     <div class="navbar-form navbar-right">
                         <div class="btn-group">
-                            <a class="btn btn-primary" href="@Url.Action("RedirectView", "Page", new { module = "admin", ID = layOut.Page.ID })">
+                            <a class="btn btn-primary" href="@Url.Action("RedirectView", "Page", new { module = "admin", ID = Model.Page.ID })">
                                 <i class="glyphicon glyphicon-search"></i>
                                 预览
                             </a>
-                            <a class="btn btn-primary" href="@Url.Action("Index", "Page", new { module = "admin", PageID = layOut.Page.ID })">
+                            <a class="btn btn-primary" href="@Url.Action("Index", "Page", new { module = "admin", PageID = Model.Page.ID })">
                                 <i class="glyphicon glyphicon-th"></i>
                                 概览
                             </a>
-                            <a class="btn btn-primary" href="@Url.Action("Design", "Layout", new { module = "admin", ID = layOut.ID, PageID = layOut.Page.ID })">
+                            <a class="btn btn-primary" href="@Url.Action("Design", "Layout", new { module = "admin", ID = Model.ID, PageID = Model.Page.ID })">
                                 <i class="glyphicon glyphicon-th-list"></i>
                                 布局
                             </a>
-                            <a class="btn btn-primary" href="@Url.Action("Edit", "Page", new { module = "admin", ID = layOut.Page.ID })">
+                            <a class="btn btn-primary" href="@Url.Action("Edit", "Page", new { module = "admin", ID = Model.Page.ID })">
                                 <i class="glyphicon glyphicon-edit"></i>
                                 属性
                             </a>
-                            <a class="btn btn-primary" href="@Url.Action("SelectWidget", "WidgetTemplate", new { module = "admin", pageId = layOut.Page.ID })">
+                            <a class="btn btn-primary" href="@Url.Action("SelectWidget", "WidgetTemplate", new { module = "admin", pageId = Model.Page.ID })">
                                 <i class="glyphicon glyphicon-plus"></i>
                                 添加组件
                             </a>
-                            @Html.Partial("Partial.Menu", layOut)
+                            @Html.Partial("Partial.Menu", Model)
                         </div>
 
                     </div>
@@ -92,29 +100,29 @@
             </div>
         </div>
     </nav>
-    <div id="container" class="@layOut.ContainerClass pagePreview design-border">
+    <div id="container" class="@Model.ContainerClass pagePreview design-border">
         @RenderBody()
     </div>
 
     @StyleAtFoot()
     @ScriptAtFoot()
-    @if (!layOut.Style.IsNullOrEmpty())
+    @if (!Model.Style.IsNullOrEmpty())
     {
-        <link href="@Url.Content(layOut.Style)" rel="stylesheet" />
+        <link href="@Url.Content(Model.Style)" rel="stylesheet" />
 
     }
-    @if (!layOut.Page.Style.IsNullOrEmpty())
+    @if (!Model.Page.Style.IsNullOrEmpty())
     {
-        <link href="@Url.Content(layOut.Page.Style)" rel="stylesheet" />
+        <link href="@Url.Content(Model.Page.Style)" rel="stylesheet" />
 
     }
-    @if (!layOut.Script.IsNullOrEmpty())
+    @if (!Model.Script.IsNullOrEmpty())
     {
-        <script type="text/javascript" src="@Url.Content(layOut.Script)"></script>
+        <script type="text/javascript" src="@Url.Content(Model.Script)"></script>
     }
-    @if (!layOut.Page.Script.IsNullOrEmpty())
+    @if (!Model.Page.Script.IsNullOrEmpty())
     {
-        <script type="text/javascript" src="@Url.Content(layOut.Page.Script)"></script>
+        <script type="text/javascript" src="@Url.Content(Model.Page.Script)"></script>
     }
 </body>
 </html>

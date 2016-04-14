@@ -1,4 +1,4 @@
-/****** Object:  Table [dbo].[SectionContentCallToAction]    Script Date: 2015/9/1 星期二 16:54:57 ******/
+/****** Object:  Table [dbo].[SectionContentCallToAction]    Script Date: 2016/4/1 星期五 17:21:36 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON

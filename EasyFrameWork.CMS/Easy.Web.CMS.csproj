@@ -46,8 +46,8 @@
       <HintPath>..\packages\EasyFrameWork.1.0.5.3\lib\net40\Easy.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Easy.Web, Version=1.0.5.2, Culture=neutral, PublicKeyToken=3aaa4da33a984374, processorArchitecture=MSIL">
-      <HintPath>..\packages\EasyFrameWork.Web.1.0.5.2\lib\net40\Easy.Web.dll</HintPath>
+    <Reference Include="Easy.Web, Version=1.0.5.4, Culture=neutral, PublicKeyToken=3aaa4da33a984374, processorArchitecture=MSIL">
+      <HintPath>..\packages\EasyFrameWork.Web.1.0.5.4\lib\net40\Easy.Web.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -116,6 +116,12 @@
     <Compile Include="Layout\LayoutHtmlService.cs" />
     <Compile Include="Layout\ViewDataLayoutsAttribute.cs" />
     <Compile Include="Layout\LayoutService.cs" />
+    <Compile Include="Theme\IThemeService.cs" />
+    <Compile Include="Theme\ThemeEntity.cs" />
+    <Compile Include="Theme\ThemeService.cs" />
+    <Compile Include="Media\IMediaService.cs" />
+    <Compile Include="Media\MediaEntity.cs" />
+    <Compile Include="Media\MediaService.cs" />
     <Compile Include="MetaData\WidgetMetaData.cs" />
     <Compile Include="ModelBinder\WidgetBinder.cs" />
     <Compile Include="Page\IPageService.cs" />
@@ -131,6 +137,7 @@
     <Compile Include="WidgetTemplate\WidgetTemplateEntity.cs" />
     <Compile Include="WidgetTemplate\WidgetTemplateService.cs" />
     <Compile Include="WidgetTemplate\WidgetTemplateViewModel.cs" />
+    <Compile Include="Widget\DesignWidgetViewModel.cs" />
     <Compile Include="Widget\HtmlWidget.cs" />
     <Compile Include="Widget\HtmlWidgetService.cs" />
     <Compile Include="Widget\IWidgetService.cs" />

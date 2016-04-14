@@ -1,1 +1,7 @@
+SET IDENTITY_INSERT [dbo].[CarouselItem] ON 
+
+INSERT [dbo].[CarouselItem] ([ID], [Title], [CarouselID], [CarouselWidgetID], [TargetLink], [ImageUrl], [Description], [Status], [CreateBy], [CreatebyName], [CreateDate], [LastUpdateBy], [LastUpdateByName], [LastUpdateDate]) VALUES (1, N'ͼ1', 1, NULL, N'http://www.zkea.net/zkeacms/donate', N'~/Images/bg1.jpg', NULL, N'1', N'admin', N'ZKEASOFT', CAST(N'2016-03-27 15:14:17.217' AS DateTime), N'admin', N'ZKEASOFT', CAST(N'2016-03-27 15:17:54.053' AS DateTime))
+INSERT [dbo].[CarouselItem] ([ID], [Title], [CarouselID], [CarouselWidgetID], [TargetLink], [ImageUrl], [Description], [Status], [CreateBy], [CreatebyName], [CreateDate], [LastUpdateBy], [LastUpdateByName], [LastUpdateDate]) VALUES (2, N'ͼ2', 1, NULL, N'http://www.zkea.net/zkeacms/donate', N'~/Images/bg2.jpg', NULL, N'1', N'admin', N'ZKEASOFT', CAST(N'2016-03-27 15:14:17.570' AS DateTime), N'admin', N'ZKEASOFT', CAST(N'2016-03-27 15:17:54.420' AS DateTime))
+INSERT [dbo].[CarouselItem] ([ID], [Title], [CarouselID], [CarouselWidgetID], [TargetLink], [ImageUrl], [Description], [Status], [CreateBy], [CreatebyName], [CreateDate], [LastUpdateBy], [LastUpdateByName], [LastUpdateDate]) VALUES (3, N'ͼ3', 1, NULL, N'http://www.zkea.net/zkeacms/donate', N'~/Images/bg3.jpg', NULL, N'1', N'admin', N'ZKEASOFT', CAST(N'2016-03-27 15:14:17.573' AS DateTime), N'admin', N'ZKEASOFT', CAST(N'2016-03-27 15:17:54.433' AS DateTime))
+SET IDENTITY_INSERT [dbo].[CarouselItem] OFF
 GO

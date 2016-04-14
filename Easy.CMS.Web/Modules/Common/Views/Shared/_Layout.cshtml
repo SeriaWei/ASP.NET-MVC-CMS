@@ -1,9 +1,10 @@
 ﻿@using Easy
 @using Easy.Web.CMS.Page
+@using Easy.Web.CMS.Layout
 @using Microsoft.Practices.ServiceLocation
+@model LayoutEntity
 @{
-    var layOut = ViewData[Easy.Web.CMS.Layout.LayoutEntity.LayoutKey] as Easy.Web.CMS.Layout.LayoutEntity;
-    if (layOut == null)
+    if (Model == null)
     {
         return;
     }
@@ -18,48 +19,47 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
-    <title>@layOut.Page.Title</title>
-    <meta name="keywords" content="@layOut.Page.MetaKeyWorlds" />
-    <meta name="description" content="@layOut.Page.MetaDescription" />
+    <title>@Model.Page.Title</title>
+    <meta name="keywords" content="@Model.Page.MetaKeyWorlds" />
+    <meta name="description" content="@Model.Page.MetaDescription" />
     <meta name="author" content="www.zkea.net" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,maximum-scale=1.0" />
     @StyleAtHead()
     @ScriptAtHead()
-    @if (!layOut.Theme.IsNullOrEmpty())
+    @if (Model.CurrentTheme != null)
     {
         if (HttpContext.Current.IsDebuggingEnabled)
         {
-            <link type="text/css" rel="stylesheet" href="@Url.Content("~/Themes/{0}/css/Theme.css".FormatWith(layOut.Theme))" />
+            <link type="text/css" rel="stylesheet" href="@Url.Content(Model.CurrentTheme.UrlDebugger)" />
         }
         else
         {
-            <link type="text/css" rel="stylesheet" href="@Url.Content("~/Themes/{0}/css/Theme.min.css".FormatWith(layOut.Theme))" />
+            <link type="text/css" rel="stylesheet" href="@Url.Content(Model.CurrentTheme.Url)" />
         }
     }
-
 </head>
 <body class="front">
-    @if (Request.IsAuthenticated&&!layOut.Page.IsPublishedPage)
+    @if (Request.IsAuthenticated && !Model.Page.IsPublishedPage)
     {
         <div class="preview-toolbar">
             <div class="btn-group">
                 <a class="btn btn-primary sort-handle">
                     <i class="glyphicon glyphicon-move"></i>
                 </a>
-                <a class="btn btn-primary" href="@Url.Action("Design", "Page", new { module = "admin", ID = layOut.Page.ID })">
+                <a class="btn btn-primary" href="@Url.Action("Design", "Page", new { module = "admin", ID = Model.Page.ID })">
                     <i class="glyphicon glyphicon-wrench"></i>
                     设计
                 </a>
-                <a class="btn btn-primary" href="@Url.Action("Index", "Page", new { module = "admin", PageID = layOut.Page.ID })">
+                <a class="btn btn-primary" href="@Url.Action("Index", "Page", new { module = "admin", PageID = Model.Page.ID })">
                     <i class="glyphicon glyphicon-th"></i>
                     概览
                 </a>
-                <a class="btn btn-primary" href="@Url.Action("Edit", "Page", new { module = "admin", ID = layOut.Page.ID })">
+                <a class="btn btn-primary" href="@Url.Action("Edit", "Page", new { module = "admin", ID = Model.Page.ID })">
                     <i class="glyphicon glyphicon-edit"></i>
                     属性
                 </a>
-                @Html.Partial("Partial.Menu", layOut)
+                @Html.Partial("Partial.Menu", Model)
             </div>
         </div>
         Style.Reqiured("Easy").AtFoot();
@@ -71,29 +71,37 @@
             </script>
         }
     }
-    <div id="container" class="@layOut.ContainerClass">
+    @if (Model.CurrentTheme != null && Model.CurrentTheme.IsPreView)
+    {
+        <div class="preview-theme">
+            <label class="label label-info">
+                @Html.ActionLink("退出主题预览", "CancelPreView", new { controller = "Theme", module = "admin" })
+            </label>
+        </div>
+    }
+    <div id="container" class="@Model.ContainerClass">
         @RenderBody()
     </div>
 
     @StyleAtFoot()
     @ScriptAtFoot()
-    @if (!layOut.Style.IsNullOrEmpty())
+    @if (!Model.Style.IsNullOrEmpty())
     {
-        <link href="@Url.Content(layOut.Style)" rel="stylesheet" />
+        <link href="@Url.Content(Model.Style)" rel="stylesheet" />
 
     }
-    @if (!layOut.Page.Style.IsNullOrEmpty())
+    @if (!Model.Page.Style.IsNullOrEmpty())
     {
-        <link href="@Url.Content(layOut.Page.Style)" rel="stylesheet" />
+        <link href="@Url.Content(Model.Page.Style)" rel="stylesheet" />
 
     }
-    @if (!layOut.Script.IsNullOrEmpty())
+    @if (!Model.Script.IsNullOrEmpty())
     {
-        <script type="text/javascript" src="@Url.Content(layOut.Script)"></script>
+        <script type="text/javascript" src="@Url.Content(Model.Script)"></script>
     }
-    @if (!layOut.Page.Script.IsNullOrEmpty())
+    @if (!Model.Page.Script.IsNullOrEmpty())
     {
-        <script type="text/javascript" src="@Url.Content(layOut.Page.Script)"></script>
+        <script type="text/javascript" src="@Url.Content(Model.Page.Script)"></script>
     }
 </body>
 

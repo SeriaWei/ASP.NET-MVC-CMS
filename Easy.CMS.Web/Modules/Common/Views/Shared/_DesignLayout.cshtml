@@ -94,7 +94,7 @@
                             </label>
                             <span class="badge" data-toggle="modal" data-target="#question" style="cursor:help">?</span>
 
-                            
+
 
                         </div>
                         <div class="navbar-form navbar-right">
@@ -105,10 +105,10 @@
                                 </a>
                                 @if (Model.Page != null)
                                 {
-                                    <a class="btn btn-primary" href="@Url.Action("Design", "Page", new { module = "admin", ID = Model.Page.ID })">
-                                        <i class="glyphicon glyphicon-wrench"></i>
-                                        页面设计
-                                    </a>
+                                <a class="btn btn-primary" href="@Url.Action("Design", "Page", new { module = "admin", ID = Model.Page.ID })">
+                                    <i class="glyphicon glyphicon-wrench"></i>
+                                    页面设计
+                                </a>
                                 }
                                 <a href="@Url.Action("Edit", "Layout", new { ID = Model.ID, module = "admin" })" class="btn btn-primary">
                                     <i class="glyphicon glyphicon-edit"></i>
@@ -121,10 +121,10 @@
                                 @Html.Partial("Partial.Menu", Model)
                             </div>
                             <input type="hidden" id="ContainerClass" name="ContainerClass" value="@(Model.ContainerClass)" />
-                            <input type="hidden" id="LayoutId" name="ID" value="@Model.ID"/>
+                            <input type="hidden" id="LayoutId" name="ID" value="@Model.ID" />
                             @if (Model.Page != null)
                             {
-                                <input type="hidden" name="Page.ID" value="@Model.Page.ID"/>
+                            <input type="hidden" name="Page.ID" value="@Model.Page.ID" />
                             }
                         </div>
                     </div>
@@ -138,6 +138,7 @@
     <div id="container" class="@(Model.ContainerClass) RowDroppable design">
         @RenderBody()
     </div>
+    @Html.Partial("Layout/Templates")
     @if (!Model.Style.IsNullOrEmpty())
     {
         <link href="@Url.Content(Model.Style)" rel="stylesheet" />
@@ -199,17 +200,19 @@
                     </h3>
                     <ol>
                         <li>
-                            <p><code>拖放操作步骤：</code>1.行 -> 容器，2.列 -> 行，3.组件区域 -> 列</p>                                                
+                            <p><code>拖放操作步骤：</code>1.行 -> 容器，2.列 -> 行，3.组件区域 -> 列</p>
                         </li>
                         <li>
-                            <p>行，直接加入到主容器中。</p>                            
+                            <p>行，直接加入到主容器中。</p>
                         </li>
                         <li>
-                           <p>列，只能加入到“行”中。列宽分成12等分，选择任意宽度划分行。</p>
+                            <p>列，只能加入到“行”中。列宽分成12等分，选择任意宽度划分行。</p>
                         </li>
                         <li>
-                           <p>组件区域，用于放置组件。只有在列中加入了组件区域，<code>才可以</code>在该列中加入组件。
-                            一个组件区域中可加入多个组件，所以一个列中，只加入一个组件区域即可。</p> 
+                            <p>
+                                组件区域，用于放置组件。只有在列中加入了组件区域，<code>才可以</code>在该列中加入组件。
+                                一个组件区域中可加入多个组件，所以一个列中，只加入一个组件区域即可。
+                            </p>
                         </li>
                     </ol>
                 </div>

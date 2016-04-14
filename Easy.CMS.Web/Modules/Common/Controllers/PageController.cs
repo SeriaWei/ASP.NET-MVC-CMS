@@ -102,6 +102,11 @@ namespace Easy.CMS.Common.Controllers
                 return RedirectToAction("Design", new { ID = entity.ID });
             }
             string id = entity.ID;
+            if (entity.ActionType == ActionType.Delete)
+            {
+                Service.Delete(id);
+                return RedirectToAction("Index");
+            }
             try
             {
                 Service.Update(entity);

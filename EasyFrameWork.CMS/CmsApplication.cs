@@ -15,6 +15,7 @@ using Easy.IOC;
 using Easy.Modules.DataDictionary;
 using Easy.Modules.MutiLanguage;
 using Easy.Modules.User.Service;
+using Easy.Web.ValueProvider;
 
 namespace Easy.Web.CMS
 {
@@ -42,8 +43,7 @@ namespace Easy.Web.CMS
                         {
                             routes.AddRange(moduleRoutes);
                         }
-                        plug.InitScript();
-                        plug.InitStyle();
+                        plug.Excute();
                     }
                 }
             }));

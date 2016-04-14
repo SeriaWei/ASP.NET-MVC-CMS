@@ -20,6 +20,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -48,8 +49,8 @@
       <HintPath>..\packages\EasyFrameWork.1.0.5.3\lib\net40\Easy.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Easy.Web, Version=1.0.5.2, Culture=neutral, PublicKeyToken=3aaa4da33a984374, processorArchitecture=MSIL">
-      <HintPath>..\packages\EasyFrameWork.Web.1.0.5.2\lib\net40\Easy.Web.dll</HintPath>
+    <Reference Include="Easy.Web, Version=1.0.5.4, Culture=neutral, PublicKeyToken=3aaa4da33a984374, processorArchitecture=MSIL">
+      <HintPath>..\packages\EasyFrameWork.Web.1.0.5.4\lib\net40\Easy.Web.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="EasyZip">
@@ -190,7 +191,6 @@
     <Compile Include="ResourceManager.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\DataBase.mdb" />
     <Content Include="Content\bootstrap\css\bootstrap-theme.css" />
     <Content Include="Content\bootstrap\css\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap\css\bootstrap.css" />
@@ -201,13 +201,22 @@
     <Content Include="Content\Images\bg.gif" />
     <Content Include="Content\Images\close_red.png" />
     <Content Include="Content\Images\logo_zkea.png" />
+    <Content Include="Content\Images\theme.jpg" />
     <Content Include="Content\Site.min.css">
       <DependentUpon>Site.css</DependentUpon>
     </Content>
     <Content Include="Content\themes\Admin\admin.css" />
+    <Content Include="Images\Doc.png" />
     <Content Include="Content\themes\Admin\images\dotted.png" />
     <Content Include="Content\themes\Admin\images\Error-16.png" />
+    <Content Include="Images\Excel.png" />
     <Content Include="Content\themes\Admin\images\logo_zkea.png" />
+    <Content Include="Images\Pdf.png" />
+    <Content Include="Images\Ppt.png" />
+    <Content Include="Images\Txt.png" />
+    <Content Include="Images\Other.png" />
+    <Content Include="Images\Video.png" />
+    <Content Include="Images\Zip.png" />
     <Content Include="Content\themes\Admin\script\admin.js" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
@@ -232,7 +241,12 @@
     <Content Include="Images\14.jpg" />
     <Content Include="Images\28.jpg" />
     <Content Include="Images\30.jpg" />
+    <Content Include="Images\bg3.jpg" />
+    <Content Include="Images\bg4.jpg" />
+    <Content Include="Images\donate.png" />
+    <Content Include="Images\folder.png" />
     <Content Include="Images\gruntjs.png" />
+    <Content Include="Images\loader.gif" />
     <Content Include="Images\template %281%29.png" />
     <Content Include="Images\template %2810%29.png" />
     <Content Include="Images\template %2811%29.png" />
@@ -841,6 +855,12 @@
     <Content Include="Scripts\zTree\js\jquery.ztree.exedit-3.5.min.js" />
     <Content Include="Scripts\zTree\js\jquery.ztree.exhide-3.5.js" />
     <Content Include="Scripts\zTree\js\jquery.ztree.exhide-3.5.min.js" />
+    <Content Include="Themes\Default\css\Pagination.css">
+      <DependentUpon>Pagination.less</DependentUpon>
+    </Content>
+    <Content Include="Themes\Default\css\Pagination.min.css">
+      <DependentUpon>Pagination.css</DependentUpon>
+    </Content>
     <Content Include="Themes\Default\css\Article.css">
       <DependentUpon>Article.less</DependentUpon>
     </Content>
@@ -904,6 +924,7 @@
     <Content Include="Themes\Default\images\logo_z.png" />
     <Content Include="Themes\Default\images\more.png" />
     <Content Include="Themes\Default\images\prd_sort_title.gif" />
+    <Content Include="Themes\Default\thumbnail.jpg" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -995,7 +1016,6 @@
     <Content Include="Themes\Default\css\Carousel.css.map">
       <DependentUpon>Carousel.css</DependentUpon>
     </Content>
-    <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\Partial_Pagination.cshtml" />
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Views\Shared\_PopUpLayout.cshtml" />
@@ -1032,10 +1052,15 @@
     <Content Include="Views\Shared\EditorTemplates\DateTime.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Hidden.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\FileInput.cshtml" />
-    <None Include="Views\Shared\EditorTemplates\ListEditor.cshtml" />
-    <Content Include="Views\Shared\ListEditorItem.cshtml" />
-    <None Include="Views\Shared\EditorTemplates\ListEditorItem.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\ListEditor.cshtml" />
+    <Content Include="Views\Shared\ListEditorItemTemplate.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\ListEditorItem.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Decimal.cshtml" />
+    <Content Include="Views\Shared\Widget.Error.cshtml" />
+    <Content Include="Themes\Default\css\Pagination.less" />
+    <Content Include="Themes\Default\css\Pagination.css.map">
+      <DependentUpon>Pagination.css</DependentUpon>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EasyFrameWork.CMS\Easy.Web.CMS.csproj">
@@ -1045,6 +1070,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

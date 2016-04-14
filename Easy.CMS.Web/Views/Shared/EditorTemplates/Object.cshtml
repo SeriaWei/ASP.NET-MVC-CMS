@@ -2,7 +2,7 @@
 @{
     var metaData = ViewData.ModelMetadata as EasyModelMetaData;
 }
-
+@model Object
 <div class="form-horizontal">
     @foreach (EasyModelMetaData item in metaData.Properties.Where(m => m.ShowForEdit && !m.HideSurroundingHtml).OrderBy(m => m.Order))
     {

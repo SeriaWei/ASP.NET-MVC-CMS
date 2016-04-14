@@ -1,8 +1,9 @@
 ﻿@using System.Text.RegularExpressions
 @model Easy.CMS.Article.ViewModel.ArticleTypeWidgetViewModel
 @{
+    Regex categoryRegex = new Regex(@"ac=(\d+)", RegexOptions.Compiled);
     string currentUrl = Url.Content(Model.TargetPage);
-    if (!currentUrl.Contains("ac="))
+    if (!categoryRegex.IsMatch(currentUrl))
     {
         if (currentUrl.Contains("?"))
         {
@@ -20,7 +21,7 @@
         {
             foreach (var item in Model.ArticleTypes)
             {
-                <a href="@Regex.Replace(currentUrl, @"ac=\d", "ac=" + item.ID)" class="list-group-item @(item.ID == Model.ArticleTypeID ? "active" : "")">@item.Title</a>
+                <a href="@categoryRegex.Replace(currentUrl, "ac=" + item.ID)" class="list-group-item @(item.ID == Model.ArticleTypeID ? "active" : "")">@item.Title</a>
             }
         }
     </div>

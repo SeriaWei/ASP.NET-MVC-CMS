@@ -22,13 +22,13 @@ a {
     color: @color-main;
 }
 
-    a:hover {
-        color: @color-main-actived;
-    }
+a:hover {
+    color: @color-main-actived;
+}
 
-    a.btn, .dropdown-menu a {
-        text-decoration: none;
-    }
+a.btn, .dropdown-menu a {
+    text-decoration: none;
+}
 
 p {
     margin: 0 0 @margin-base * 0.5;
@@ -69,46 +69,46 @@ p {
     border-radius: 5px;
 }
 
-    .bs-callout .pull-left h4 {
-        margin-top: @margin-base * 0.5;
-        color: @color-text;
-    }
+.bs-callout .pull-left h4 {
+    margin-top: @margin-base * 0.5;
+    color: @color-text;
+}
 
-    .bs-callout .pull-right h5 {
-        color: @color-text-description;
-    }
+.bs-callout .pull-right h5 {
+    color: @color-text-description;
+}
 
 .bs-callout-danger {
     border-top-color: @color-danger;
 }
 
-    .bs-callout-danger .pull-left h4 {
-        color: @color-danger;
-    }
+.bs-callout-danger .pull-left h4 {
+    color: @color-danger;
+}
 
 .bs-callout-warning {
     border-top-color: @color-warning;
 }
 
-    .bs-callout-warning .pull-left h4 {
-        color: @color-warning;
-    }
+.bs-callout-warning .pull-left h4 {
+    color: @color-warning;
+}
 
 .bs-callout-info {
     border-top-color: @color-info;
 }
 
-    .bs-callout-info .pull-left h4 {
-        color: @color-info;
-    }
+.bs-callout-info .pull-left h4 {
+    color: @color-info;
+}
 
 .bs-callout-success {
     border-top-color: @color-success;
 }
 
-    .bs-callout-success .pull-left h4 {
-        color: @color-success;
-    }
+.bs-callout-success .pull-left h4 {
+    color: @color-success;
+}
 
 
 .list-group {
@@ -130,7 +130,58 @@ p {
         border-radius: 0;
     }
 }
-.space{
-    padding:5px 0;
-    line-height:normal;
+
+.space {
+    padding: 5px 0;
+    line-height: normal;
+}
+
+.list-group-item.active,
+.list-group-item.active:hover,
+.list-group-item.active:focus {
+    text-shadow: 0 -1px 0 @color-main-actived;
+    .background-image(@color-main-light,@color-main-actived);
+    border-color: @color-main-actived;
+}
+
+.preview-theme {
+    position: fixed;
+    right: 10px;
+    top: 10px;
+
+    a {
+        color: #fff;
+    }
+}
+
+.btn-default {
+    .background-image(@color-main-light,@color-main-actived);
+    border-color: @color-main-actived;
+    text-shadow: none;
+    color:#fff;
+}
+
+.btn-default:hover,
+.btn-default:focus {
+    background-color: @color-main-actived;
+    background-position: 0 -15px;
+    text-shadow: none;
+    color:#EEF2F5;
+}
+
+.btn-default:active:hover,
+.btn-default.active:hover,
+.open > .dropdown-toggle.btn-default:hover,
+.btn-default:active:focus,
+.btn-default.active:focus,
+.open > .dropdown-toggle.btn-default:focus,
+.btn-default:active.focus,
+.btn-default.active.focus,
+.open > .dropdown-toggle.btn-default.focus,
+.btn-default:active,
+.btn-default.active {
+    background-color: @color-main-actived;
+    border-color: @color-main-actived;
+    text-shadow: none;
+    color:#EEF2F5;
 }

@@ -41,7 +41,15 @@
     $(document).on("blur", ".zone input", function () {
         $(this).attr("value", $(this).val());
     });
-
+    function getNewZone() {
+        var zoneParent = $('<div class="additional zone"></div>');
+        var zone = $("<zone></zone>");
+        zone.append('<input class="form-control" type="text" name="ZoneName" placeholder="输入名称" value="内容 ' + ($("#container input[type=text]").size() + 1) + '" />');
+        zone.append('<input class="form-control" type="hidden" name="LayoutId" value="' + $("#LayoutId").val() + '" />');
+        zone.append('<input class="form-control" type="hidden" name="ID" value="" />');
+        zoneParent.append(zone);
+        return zoneParent;
+    }
     $(document).on("click", ".dropdown-menu.col-size a", function () {
         $("#add-col-handle").data("val", $(this).data("val")).find(".col-size-info").text($(this).text());
         $(this).parent().parent().find(".active").removeClass("active");
@@ -59,11 +67,11 @@
     });
     $(".RowDroppable").droppable({
         hoverClass: "dropWarning",
-        accept: ".AddRow",
+        accept: ".AddRow,.widget-design",
         greedy: true,
         tolerance: "pointer",
         drop: rowDropToContent
-    }).sortable();
+    });
 
     var opRowDrop = {
         hoverClass: "dropWarning",
@@ -86,16 +94,25 @@
             }
         }
     };
-    $("#container .additional.row").droppable(opRowDrop).sortable();
+    $("#container .additional.row").droppable(opRowDrop).sortable();;
     $("#container .colContent").droppable(opColDrop).sortable();
-
+    $("#container").sortable({ items: ".additional.row:not(.layout.templates)" });
     function rowDropToContent(event, ui, obj) {
         if (obj == null)
             obj = this;
         var row = $("<div class=\"additional row\"></div>");
+        $(obj).append(row);
+        if (ui.draggable.hasClass("widget-design")) {
+            var cols = $(ui.draggable.find(".row").html());
+            row.append(cols);
+            cols.each(function () {
+                $(this).addClass("additional");
+                $(this).html($("<div class=\"colContent row\"></div>").append(getNewZone()));
+                $(this).children(".colContent").droppable(opColDrop).sortable();
+            });
+        }
         row.droppable(opRowDrop);
         row.sortable();
-        $(obj).append(row);
         $(".dropWarning").removeClass("dropWarning");
     }
     function rowDroped(event, ui, obj) {
@@ -132,21 +149,18 @@
             ui.draggable.remove();
         }
         else {
-            var zoneParent = $('<div class="additional zone"></div>');
-            var zone = $("<zone></zone>");
-            zone.append('<input class="form-control" type="text" name="ZoneName" placeholder="输入名称" value="内容 ' + ($("#container input[type=text]").size() + 1) + '" />');
-            zone.append('<input class="form-control" type="hidden" name="LayoutId" value="' + $("#LayoutId").val() + '" />');
-            zone.append('<input class="form-control" type="hidden" name="ID" value="" />');
-            zoneParent.append(zone);
-            $(obj).append(zoneParent);
+            $(obj).append(getNewZone());
         }
         $(".dropWarning").removeClass("dropWarning");
     }
     $(document).on("click", "#save", function () {
-        $("#container .ui-droppable").removeClass("ui-droppable");
-        $("#container .ui-sortable").removeClass("ui-sortable");
-        $("#container .ui-sortable-handle").removeClass("ui-sortable-handle");
-        $("#container .row.active").removeClass("active");
+        $("#container div")
+            .removeClass("ui-droppable")
+            .removeClass("ui-sortable")
+            .removeClass("ui-sortable-handle")
+            .removeClass("active")
+            .removeAttr("style");
+
         var html = $.trim($("#container").html());
         var htmlArray = html.split("<zone>");
         var form = $("#LayoutInfo");
@@ -173,4 +187,11 @@
         }
         form.submit();
     });
+    if ($(window).width() > 1600) {
+        $(".templates").addClass("active");
+    }
+    $(document).on("click", ".templates .tool-open", function() {
+        $(this).parent().toggleClass("active");
+    });
+    $(".templates ul li").draggable({ helper: "clone" });
 });
