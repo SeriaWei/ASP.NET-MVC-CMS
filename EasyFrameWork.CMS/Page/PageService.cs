@@ -49,8 +49,8 @@ namespace Easy.Web.CMS.Page
                new DataFilter(new List<string> { "IsPublish", "PublishDate" })
                .Where("ID", OperatorType.Equal, item.ID));
 
-            this.Delete(m => m.ReferencePageID == item.ID && m.IsPublishedPage == true); 
-            
+            this.Delete(m => m.ReferencePageID == item.ID && m.IsPublishedPage == true);
+
             item.ReferencePageID = item.ID;
             item.IsPublishedPage = true;
             item.PublishDate = DateTime.Now;
@@ -144,7 +144,7 @@ namespace Easy.Web.CMS.Page
             }
 
             filter.Where("IsPublishedPage", OperatorType.Equal, !isPreView).OrderBy("DisplayOrder", OrderType.Ascending);
-            var pages = Get(filter);
+            var pages = Get(filter, new Pagination { PageSize = 1 });
 
             return pages.FirstOrDefault();
         }

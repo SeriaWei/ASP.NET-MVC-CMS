@@ -67,7 +67,7 @@ namespace Easy.Web.CMS.Filter
                     {
                         if (Zones.ContainsKey(part.Widget.ZoneID))
                         {
-                            Zones[part.Widget.ZoneID].Add(part);
+                            Zones[part.Widget.ZoneID].TryAdd(part);
                         }
                         else
                         {
@@ -77,7 +77,7 @@ namespace Easy.Web.CMS.Filter
                     }
                 };
                 var widgetService = ServiceLocator.Current.GetInstance<IWidgetService>();
-                IEnumerable<WidgetBase> widgets = widgetService.GetAllByPageId(page.ID);
+                IEnumerable<WidgetBase> widgets = widgetService.GetAllByPage(page);
                 widgets.AsParallel().ForAll(processWidget);
                 layout.ZoneWidgets = Zones;
                 var viewResult = (filterContext.Result as ViewResult);
