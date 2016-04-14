@@ -68,6 +68,7 @@ namespace Easy.CMS.Common.Controllers
         [HttpPost]
         public JsonResult UploadTheme()
         {
+            var result = new AjaxResult(AjaxStatus.Normal, "主题安装成功，正在刷新...");
             if (Request.Files.Count > 0)
             {
                 try
@@ -81,11 +82,18 @@ namespace Easy.CMS.Common.Controllers
                     newTheme.IsActived = false;
                     if (Service.Count(m => m.ID == newTheme.ID) == 0)
                     {
-                        var themePath = Server.MapPath(ThemePath);
-                        
+                        Service.Add(newTheme);
+                    }
+                    else
+                    {
+                        Service.Update(newTheme);
+                        result.Message = "主题已更新...";
+                    }
+                    var themePath = Server.MapPath(ThemePath);
+
                         foreach (ZipFileInfo item in files)
                         {
-                            string folder= Path.GetDirectoryName(themePath + item.RelativePath);
+                            string folder = Path.GetDirectoryName(themePath + item.RelativePath);
                             if (!Directory.Exists(folder))
                             {
                                 Directory.CreateDirectory(folder);
@@ -98,21 +106,18 @@ namespace Easy.CMS.Common.Controllers
                                 fs.Write(item.FileBytes, 0, item.FileBytes.Length);
                             }
                         }
-                        Service.Add(newTheme);
-                    }
-                    else
-                    {
-                        return Json(new AjaxResult { Status = AjaxStatus.Warn, Message = "主题已存在！" });
-                    }
+                    
                 }
                 catch (Exception ex)
                 {
                     Logger.Error(ex);
-                    return Json(new AjaxResult { Status = AjaxStatus.Error, Message = "上传的主题不正确！" });
+                    result.Message = "上传的主题不正确！";
+                    result.Status = AjaxStatus.Error;
+                    return Json(result);
                 }
             }
 
-            return Json(new AjaxResult { Status = AjaxStatus.Normal, Message = "主题安装成功！" });
+            return Json(result);
         }
     }
 }
