@@ -18,7 +18,7 @@ namespace Easy.Web.CMS.Filter
 {
     public class WidgetAttribute : FilterAttribute, IActionFilter
     {
-        public ZoneWidgetCollection Zones { get; set; }
+
 
         public virtual PageEntity GetPage(ActionExecutedContext filterContext)
         {
@@ -47,40 +47,32 @@ namespace Easy.Web.CMS.Filter
 
         public void OnActionExecuted(ActionExecutedContext filterContext)
         {
-            Zones = new ZoneWidgetCollection();
             //Page
             var page = GetPage(filterContext);
             if (page != null)
             {
-                var cache = new StaticCache();
-                var layoutService = ServiceLocator.Current.GetInstance<ILayoutService>();
-                LayoutEntity layout = layoutService.Get(page.LayoutId);
+                LayoutEntity layout = ServiceLocator.Current.GetInstance<ILayoutService>().Get(page.LayoutId);
                 layout.Page = page;
                 layout.CurrentTheme = ServiceLocator.Current.GetInstance<IThemeService>().GetCurrentTheme();
+                layout.ZoneWidgets = new ZoneWidgetCollection();
                 filterContext.HttpContext.TrySetLayout(layout);
-                Action<WidgetBase> processWidget = m =>
+                var widgetService = ServiceLocator.Current.GetInstance<IWidgetService>();
+                widgetService.GetAllByPage(page).AsParallel().ForAll(widget =>
                 {
-                    IWidgetPartDriver partDriver = cache.Get("IWidgetPartDriver_" + m.AssemblyName + m.ServiceTypeName, source =>
-                         Activator.CreateInstance(m.AssemblyName, m.ServiceTypeName).Unwrap() as IWidgetPartDriver
-                    );
-                    WidgetPart part = partDriver.Display(partDriver.GetWidget(m), filterContext.HttpContext);
-                    lock (Zones)
+                    IWidgetPartDriver partDriver = widget.CreateServiceInstance();
+                    WidgetPart part = partDriver.Display(partDriver.GetWidget(widget), filterContext.HttpContext);
+                    lock (layout.ZoneWidgets)
                     {
-                        if (Zones.ContainsKey(part.Widget.ZoneID))
+                        if (layout.ZoneWidgets.ContainsKey(part.Widget.ZoneID))
                         {
-                            Zones[part.Widget.ZoneID].TryAdd(part);
+                            layout.ZoneWidgets[part.Widget.ZoneID].TryAdd(part);
                         }
                         else
                         {
-                            var partCollection = new WidgetCollection { part };
-                            Zones.Add(part.Widget.ZoneID, partCollection);
+                            layout.ZoneWidgets.Add(part.Widget.ZoneID, new WidgetCollection { part });
                         }
                     }
-                };
-                var widgetService = ServiceLocator.Current.GetInstance<IWidgetService>();
-                IEnumerable<WidgetBase> widgets = widgetService.GetAllByPage(page);
-                widgets.AsParallel().ForAll(processWidget);
-                layout.ZoneWidgets = Zones;
+                });
                 var viewResult = (filterContext.Result as ViewResult);
                 if (viewResult != null)
                 {
@@ -96,7 +88,6 @@ namespace Easy.Web.CMS.Filter
 
         public void OnActionExecuting(ActionExecutingContext filterContext)
         {
-
         }
     }
 
