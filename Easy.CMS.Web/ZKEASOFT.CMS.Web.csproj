@@ -206,6 +206,7 @@
       <DependentUpon>Site.css</DependentUpon>
     </Content>
     <Content Include="Content\themes\Admin\admin.css" />
+    <Content Include="Content\themes\Admin\images\logo_zkea_min.png" />
     <Content Include="Images\Doc.png" />
     <Content Include="Content\themes\Admin\images\dotted.png" />
     <Content Include="Content\themes\Admin\images\Error-16.png" />

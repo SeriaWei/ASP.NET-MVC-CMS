@@ -68,7 +68,7 @@
                             }
                             @if (media.MediaType != (int)MediaType.Folder && media.Url.IsNotNullAndWhiteSpace())
                             {
-                                <a target="_blank" class="download" href="@Url.Content(media.Url)">
+                                <a target="_blank" class="download" download="@media.Title" href="@Url.Content(media.Url)">
                                     <i class="glyphicon glyphicon-download-alt"></i>
                                 </a>
                             }
@@ -222,20 +222,25 @@
                     xhr.target = newitem;
                     xhr.onload = function (e) {
                         var result = JSON.parse(e.target.response);
-                        this.target.find(".img").attr("src", result.Url)
-                            .parent().attr("href", "javascript:void(0)")
-                            .addClass("confirm").attr("data-result", "~" + result.Url);
-                        this.target.find(".caption").html(result.Title);
-                        this.target.removeClass("new-folder");
-                        if (result.MediaType == '@(MediaType.Image.ToString("D"))') {
-                            var preview = $('<a target="_blank" class="preview" data-lightbox="thumbnail"><i class="glyphicon glyphicon-eye-open"></i></a>');
-                            preview.attr("href", result.Url);
-                            preview.data("title", result.Title);
-                            this.target.find(".tool").append(preview);
+                        if (result.ID) {
+                            this.target.find(".img").attr("src", result.Url)
+                                .parent().attr("href", "javascript:void(0)")
+                                .addClass("confirm").attr("data-result", "~" + result.Url);
+                            this.target.find(".caption").html(result.Title);
+                            this.target.removeClass("new-folder");
+                            if (result.MediaType == '@(MediaType.Image.ToString("D"))') {
+                                var preview = $('<a target="_blank" class="preview" data-lightbox="thumbnail"><i class="glyphicon glyphicon-eye-open"></i></a>');
+                                preview.attr("href", result.Url);
+                                preview.data("title", result.Title);
+                                this.target.find(".tool").append(preview);
+                            }
+                            var downLoad = $('<a target="_blank" class="download" download="'+result.Title+'"><i class="glyphicon glyphicon-download-alt"></i></a>');
+                            downLoad.attr("href", result.Url);
+                            this.target.find(".tool").append(downLoad);
+                        } else {
+                            Easy.MessageTip.Show("文件上传失败。可能是因为上传的文件不被允许！");
+                            this.target.remove();
                         }
-                        var downLoad = $('<a target="_blank" class="download"><i class="glyphicon glyphicon-download-alt"></i></a>');
-                        downLoad.attr("href", result.Url);
-                        this.target.find(".tool").append(downLoad);
                         if (threads.length > 0) {
                             var task = threads.pop();
                             task.Req.send(task.Data);

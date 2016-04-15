@@ -107,12 +107,15 @@ namespace Easy.CMS.Common.Controllers
                 {
                     entity.Url = Request.SaveFile();
                 }
-                Service.Add(entity);
-                if (entity.MediaType != (int)MediaType.Image)
+                if (entity.Url.IsNotNullAndWhiteSpace())
                 {
-                    entity.Url = "~/Images/{0}.png".FormatWith(entity.MediaTypeImage);
+                    Service.Add(entity);
+                    if (entity.MediaType != (int)MediaType.Image)
+                    {
+                        entity.Url = "~/Images/{0}.png".FormatWith(entity.MediaTypeImage);
+                    }
+                    entity.Url = Url.Content(entity.Url);
                 }
-                entity.Url = Url.Content(entity.Url);
                 return Json(entity);
             }
             return Json(false);

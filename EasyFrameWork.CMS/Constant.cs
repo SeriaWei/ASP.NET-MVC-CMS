@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 
 namespace Easy.Web.CMS
@@ -63,7 +64,7 @@ namespace Easy.Web.CMS
         }
         public static List<string> Doc
         {
-            get { return new List<string> { ".doc",".docx" }; }
+            get { return new List<string> { ".doc", ".docx" }; }
         }
         public static List<string> Excel
         {
@@ -72,6 +73,13 @@ namespace Easy.Web.CMS
         public static List<string> Ppt
         {
             get { return new List<string> { ".ppt", ".pptx" }; }
+        }
+    }
+    public static class Version
+    {
+        public static string CurrentVersion
+        {
+            get { return "ZKEACMS v" + Assembly.GetAssembly(typeof(Version)).GetName().Version; }
         }
     }
 }

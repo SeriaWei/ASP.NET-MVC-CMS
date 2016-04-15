@@ -37,10 +37,13 @@
             <div class="container-fluid">
                 <div class="navbar-header">
                     <a href="http://www.zkea.net" target="_blank" class="navbar-brand" title="ZKEASOFT">
-                        <img src="~/Content/themes/Admin/images/logo_zkea.png" alt="" style="height: 20px;" />
+                        <img src="~/Content/themes/Admin/images/logo_zkea_min.png" alt="" style="height: 20px;" />
                     </a>
                 </div>
                 <div class="collapse navbar-collapse">
+                    <p class="navbar-text">
+                        @Easy.Web.CMS.Version.CurrentVersion
+                    </p>
                     <ul class="nav navbar-nav">
                         <li>
                             <a href="~/" target="_blank">查看站点</a>
@@ -54,7 +57,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="@Url.Action("Logout","Account")" target="_self" title="退出">
+                            <a href="@Url.Action("Logout", "Account")" target="_self" title="退出">
                                 <i class="glyphicon glyphicon-off"></i>
                                 退出
                             </a>
