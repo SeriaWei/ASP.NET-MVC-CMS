@@ -132,6 +132,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QueryContext.cs" />
     <Compile Include="Route\UrlRoute.cs" />
+    <Compile Include="HttpContextExtend.cs" />
     <Compile Include="UrlHelperExtend.cs" />
     <Compile Include="WidgetTemplate\IWidgetTemplateService.cs" />
     <Compile Include="WidgetTemplate\WidgetTemplateEntity.cs" />

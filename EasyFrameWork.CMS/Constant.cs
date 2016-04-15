@@ -75,6 +75,11 @@ namespace Easy.Web.CMS
             get { return new List<string> { ".ppt", ".pptx" }; }
         }
     }
+
+    public static class StringKeys
+    {
+        public const string LayoutItem = "LayoutItem";
+    }
     public static class Version
     {
         public static string CurrentVersion

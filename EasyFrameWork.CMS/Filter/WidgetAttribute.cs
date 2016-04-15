@@ -57,6 +57,7 @@ namespace Easy.Web.CMS.Filter
                 LayoutEntity layout = layoutService.Get(page.LayoutId);
                 layout.Page = page;
                 layout.CurrentTheme = ServiceLocator.Current.GetInstance<IThemeService>().GetCurrentTheme();
+                filterContext.HttpContext.TrySetLayout(layout);
                 Action<WidgetBase> processWidget = m =>
                 {
                     IWidgetPartDriver partDriver = cache.Get("IWidgetPartDriver_" + m.AssemblyName + m.ServiceTypeName, source =>
