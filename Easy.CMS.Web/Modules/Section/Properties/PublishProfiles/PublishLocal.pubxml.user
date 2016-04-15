@@ -37,16 +37,16 @@
       <publishTime>07/25/2015 09:38:39</publishTime>
     </File>
     <File Include="bin/Easy.CMS.Section.dll">
-      <publishTime>04/13/2016 23:38:41</publishTime>
+      <publishTime>04/15/2016 18:50:29</publishTime>
     </File>
     <File Include="bin/Easy.dll">
       <publishTime>03/14/2016 20:21:36</publishTime>
     </File>
     <File Include="bin/Easy.Web.CMS.dll">
-      <publishTime>04/13/2016 23:36:49</publishTime>
+      <publishTime>04/15/2016 18:48:31</publishTime>
     </File>
     <File Include="bin/Easy.Web.dll">
-      <publishTime>04/05/2016 15:05:26</publishTime>
+      <publishTime>04/14/2016 23:24:44</publishTime>
     </File>
     <File Include="bin/EasyZip.dll">
       <publishTime>10/23/2015 23:02:24</publishTime>
@@ -160,16 +160,16 @@
       <publishTime>07/09/2013 11:35:56</publishTime>
     </File>
     <File Include="Content/Section.css">
-      <publishTime>04/13/2016 22:25:27</publishTime>
+      <publishTime>04/14/2016 23:24:43</publishTime>
     </File>
     <File Include="CopyItems.xml">
       <publishTime>07/15/2015 22:32:02</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>04/05/2016 15:20:06</publishTime>
+      <publishTime>04/14/2016 23:24:43</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>04/13/2016 23:38:43</publishTime>
+      <publishTime>04/15/2016 18:50:30</publishTime>
     </File>
     <File Include="Views/SectionContentCallToAction/Form.cshtml">
       <publishTime>03/14/2016 20:21:34</publishTime>
@@ -184,7 +184,7 @@
       <publishTime>03/14/2016 20:21:34</publishTime>
     </File>
     <File Include="Views/SectionGroup/Form.cshtml">
-      <publishTime>04/13/2016 22:26:05</publishTime>
+      <publishTime>04/14/2016 23:24:43</publishTime>
     </File>
     <File Include="Views/SectionTemplate.Column.cshtml">
       <publishTime>10/28/2015 22:07:03</publishTime>
@@ -211,13 +211,13 @@
       <publishTime>10/11/2015 13:13:13</publishTime>
     </File>
     <File Include="Views/SectionWidgetForm.cshtml">
-      <publishTime>03/26/2016 21:06:52</publishTime>
+      <publishTime>04/14/2016 23:24:43</publishTime>
     </File>
     <File Include="Views/Shared/SectionContent.Switcher.cshtml">
       <publishTime>09/18/2015 19:29:14</publishTime>
     </File>
     <File Include="Views/Shared/SectionGroup.Edit.cshtml">
-      <publishTime>03/26/2016 21:06:52</publishTime>
+      <publishTime>04/14/2016 23:24:43</publishTime>
     </File>
     <File Include="Views/Shared/SectionPartial.CallToAction.cshtml">
       <publishTime>09/18/2015 19:20:58</publishTime>
@@ -274,7 +274,7 @@
       <publishTime>03/14/2016 20:21:34</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>04/13/2016 23:38:42</publishTime>
+      <publishTime>04/15/2016 18:50:30</publishTime>
     </File>
   </ItemGroup>
 </Project>
