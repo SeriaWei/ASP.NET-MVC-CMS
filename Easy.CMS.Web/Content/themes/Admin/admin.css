@@ -369,7 +369,6 @@ a.badge:hover {
 #media-list .thumbnail > a.img-link {
     display: block;
     height: 130px;
-    background: #F7F7F7;
     overflow: hidden;
 }
 
