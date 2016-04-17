@@ -7,7 +7,7 @@ CREATE TABLE [dbo].[CarouselItem](
 	[ID] [int] IDENTITY(1,1) NOT NULL,
 	[Title] [nvarchar](255) NULL,
 	[CarouselID] [int] NULL,
-	[CarouselWidgetID] [nvarchar](255) NULL,
+	[CarouselWidgetID] [nvarchar](100) NULL,
 	[TargetLink] [nvarchar](255) NULL,
 	[ImageUrl] [nvarchar](255) NULL,
 	[Description] [nvarchar](255) NULL,

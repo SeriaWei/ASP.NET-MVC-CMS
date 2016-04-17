@@ -5,7 +5,7 @@ SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[SectionContentParagraph](
 	[ID] [int] NOT NULL,
-	[SectionWidgetId] [nvarchar](255) NOT NULL,
+	[SectionWidgetId] [nvarchar](100) NOT NULL,
 	[HtmlContent] [nvarchar](max) NULL,
  CONSTRAINT [PK_SectionContentParagraph] PRIMARY KEY CLUSTERED 
 (

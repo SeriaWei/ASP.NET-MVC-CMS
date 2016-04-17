@@ -6,7 +6,7 @@ GO
 CREATE TABLE [dbo].[SectionGroup](
 	[ID] [int] IDENTITY(1,1) NOT NULL,
 	[GroupName] [nvarchar](255) NULL,
-	[SectionWidgetId] [nvarchar](255) NOT NULL,
+	[SectionWidgetId] [nvarchar](100) NOT NULL,
 	[PartialView] [nvarchar](255) NULL,
 	[Order] [int] NULL,
 	[CreateBy] [nvarchar](255) NULL,
