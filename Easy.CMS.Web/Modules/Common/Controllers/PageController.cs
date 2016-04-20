@@ -172,6 +172,11 @@ namespace Easy.CMS.Common.Controllers
             Service.Publish(Service.Get(id));
             return Json(true);
         }
-
+        [Authorize]
+        public RedirectResult PublishPage(string ID,string ReturnUrl)
+        {
+            Service.Publish(Service.Get(ID));
+            return Redirect(ReturnUrl);
+        }
     }
 }

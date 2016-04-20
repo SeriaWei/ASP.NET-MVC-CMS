@@ -88,6 +88,10 @@
                                 <i class="glyphicon glyphicon-edit"></i>
                                 属性
                             </a>
+                            <a class="btn btn-primary" href="@Url.Action("PublishPage", "Page", new { module = "admin", ID = Model.Page.ID,ReturnUrl= Model.Page.Url })">
+                                <i class="glyphicon glyphicon-open"></i>
+                                发布
+                            </a>
                             <a class="btn btn-primary" href="@Url.Action("SelectWidget", "WidgetTemplate", new { module = "admin", pageId = Model.Page.ID })">
                                 <i class="glyphicon glyphicon-plus"></i>
                                 添加组件
@@ -109,12 +113,10 @@
     @if (!Model.Style.IsNullOrEmpty())
     {
         <link href="@Url.Content(Model.Style)" rel="stylesheet" />
-
     }
     @if (!Model.Page.Style.IsNullOrEmpty())
     {
         <link href="@Url.Content(Model.Page.Style)" rel="stylesheet" />
-
     }
     @if (!Model.Script.IsNullOrEmpty())
     {

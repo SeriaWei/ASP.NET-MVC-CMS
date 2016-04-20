@@ -40,26 +40,40 @@
     }
 </head>
 <body class="front">
-    @if (Request.IsAuthenticated && !Model.Page.IsPublishedPage)
+    @if (Request.IsAuthenticated)
     {
         <div class="preview-toolbar">
             <div class="btn-group">
                 <a class="btn btn-primary sort-handle">
                     <i class="glyphicon glyphicon-move"></i>
                 </a>
-                <a class="btn btn-primary" href="@Url.Action("Design", "Page", new { module = "admin", ID = Model.Page.ID })">
-                    <i class="glyphicon glyphicon-wrench"></i>
-                    设计
-                </a>
-                <a class="btn btn-primary" href="@Url.Action("Index", "Page", new { module = "admin", PageID = Model.Page.ID })">
-                    <i class="glyphicon glyphicon-th"></i>
-                    概览
-                </a>
-                <a class="btn btn-primary" href="@Url.Action("Edit", "Page", new { module = "admin", ID = Model.Page.ID })">
-                    <i class="glyphicon glyphicon-edit"></i>
-                    属性
-                </a>
-                @Html.Partial("Partial.Menu", Model)
+                @if (!Model.Page.IsPublishedPage)
+                {
+                    <a class="btn btn-primary" href="@Url.Action("Design", "Page", new { module = "admin", ID = Model.Page.ID })">
+                        <i class="glyphicon glyphicon-wrench"></i>
+                        设计
+                    </a>
+                    <a class="btn btn-primary" href="@Url.Action("Index", "Page", new { module = "admin", PageID = Model.Page.ID })">
+                        <i class="glyphicon glyphicon-th"></i>
+                        概览
+                    </a>
+                    <a class="btn btn-primary" href="@Url.Action("Edit", "Page", new { module = "admin", ID = Model.Page.ID })">
+                        <i class="glyphicon glyphicon-edit"></i>
+                        属性
+                    </a>
+                    <a class="btn btn-primary" href="@Url.Action("PublishPage", "Page", new { module = "admin", ID = Model.Page.ID,ReturnUrl= Model.Page.Url })">
+                        <i class="glyphicon glyphicon-open"></i>
+                        发布
+                    </a>
+                    @Html.Partial("Partial.Menu", Model)
+                }
+                else
+                {
+                    <a class="btn btn-primary" href="@Url.Content(Model.Page.Url)?ViewType=Review">
+                        <i class="glyphicon glyphicon-pencil"></i>
+                        编辑
+                    </a>
+                }
             </div>
         </div>
         Style.Reqiured("Easy").AtFoot();

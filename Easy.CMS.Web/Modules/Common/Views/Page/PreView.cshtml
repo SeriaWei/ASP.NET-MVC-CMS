@@ -20,9 +20,7 @@
             foreach (var widgetPart in Model.ZoneWidgets[zoneId].OrderBy(m => m.Widget.Position).ThenBy(m => m.Widget.WidgetName))
             {
                 <div @widgetPart.Widget.StyleClassResult()>
-                    @{
-                Html.DisPlayWidget(widgetPart);
-                    }
+                    @Html.DisPlayWidget(widgetPart)                    
                 </div>
             }
         }
