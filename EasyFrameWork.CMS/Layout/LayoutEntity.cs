@@ -29,6 +29,7 @@ namespace Easy.Web.CMS.Layout
         public LayoutHtmlCollection Html { get; set; }
 
         public PageEntity Page { get; set; }
+        public PageEntity PreViewPage { get; set; }
 
         public string ImageUrl { get; set; }
         public string ImageThumbUrl { get; set; }

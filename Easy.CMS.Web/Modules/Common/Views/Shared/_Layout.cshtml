@@ -67,11 +67,15 @@
                     </a>
                     @Html.Partial("Partial.Menu", Model)
                 }
-                else
+                else if (Model.PreViewPage != null)
                 {
-                    <a class="btn btn-primary" href="@Url.Content(Model.Page.Url)?ViewType=Review">
+                    <a class="btn btn-primary" href="@Url.Action("Design", "Page", new { module = "admin", ID = Model.PreViewPage.ID })">
                         <i class="glyphicon glyphicon-pencil"></i>
                         编辑
+                    </a>
+                    <a class="btn btn-primary" href="@Url.Action("Logout", "Account", new { module = "admin", returnurl = Model.Page.Url })">
+                        <i class="glyphicon glyphicon-off"></i>
+                        退出
                     </a>
                 }
             </div>

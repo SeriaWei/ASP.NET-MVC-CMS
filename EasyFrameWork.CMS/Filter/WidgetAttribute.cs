@@ -18,8 +18,11 @@ namespace Easy.Web.CMS.Filter
 {
     public class WidgetAttribute : FilterAttribute, IActionFilter
     {
-
-
+        IPageService _pageService;
+        public IPageService PageService
+        {
+            get { return _pageService ?? (_pageService = ServiceLocator.Current.GetInstance<IPageService>()); }
+        }
         public virtual PageEntity GetPage(ActionExecutedContext filterContext)
         {
             string path = filterContext.RequestContext.HttpContext.Request.Path;
@@ -37,9 +40,8 @@ namespace Easy.Web.CMS.Filter
                     StringComparison.CurrentCultureIgnoreCase);
             }
 
-            return ServiceLocator.Current.GetInstance<IPageService>().GetByPath(path, isPreView);
+            return PageService.GetByPath(path, isPreView);
         }
-
         public virtual string GetLayout()
         {
             return "~/Modules/Common/Views/Shared/_Layout.cshtml";
@@ -53,6 +55,10 @@ namespace Easy.Web.CMS.Filter
             {
                 LayoutEntity layout = ServiceLocator.Current.GetInstance<ILayoutService>().Get(page.LayoutId);
                 layout.Page = page;
+                if (filterContext.RequestContext.HttpContext.Request.IsAuthenticated && page.IsPublishedPage)
+                {
+                    layout.PreViewPage= PageService.GetByPath(page.Url, true);
+                }
                 layout.CurrentTheme = ServiceLocator.Current.GetInstance<IThemeService>().GetCurrentTheme();
                 layout.ZoneWidgets = new ZoneWidgetCollection();
                 filterContext.HttpContext.TrySetLayout(layout);
