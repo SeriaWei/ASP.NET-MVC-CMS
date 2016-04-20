@@ -1,4 +1,4 @@
-/****** Object:  Table [dbo].[CMS_WidgetTemplate]    Script Date: 2016/4/1 星期五 17:21:36 ******/
+/****** Object:  Table [dbo].[CMS_WidgetTemplate]    Script Date: 2016/04/20 星期三 22:44:34 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -11,6 +11,7 @@ CREATE TABLE [dbo].[CMS_WidgetTemplate](
 	[AssemblyName] [nvarchar](255) NULL,
 	[ServiceTypeName] [nvarchar](255) NULL,
 	[ViewModelTypeName] [nvarchar](255) NULL,
+	[Thumbnail] [nvarchar](100) NULL,
 	[Order] [int] NULL,
 	[Description] [nvarchar](max) NULL,
 	[Status] [int] NULL,

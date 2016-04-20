@@ -17,7 +17,7 @@ namespace Easy.Web.CMS.WidgetTemplate
         public string PartialView { get; set; }
         public string AssemblyName { get; set; }
         public string ServiceTypeName { get; set; }
-
+        public string Thumbnail { get; set; }
         public string ViewModelTypeName { get; set; }
         public int? Order { get; set; }
 

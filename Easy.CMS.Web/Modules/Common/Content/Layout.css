@@ -199,7 +199,7 @@ input.helper:checked + span {
     color: white;
     line-height: 25px;
     top: -28px;
-    left:0;
+    left: 0;
 }
 
     .zoneToolbar:hover {
@@ -400,3 +400,23 @@ input.helper:checked + span {
     width: 200px;
     border: 1px solid #ddd;
 }
+
+.template-list input[type="radio"] {
+    display: none;
+}
+
+    .template-list input[type="radio"] + label {
+        font-weight: normal;
+        cursor: pointer;
+        text-align: center;
+    }
+
+        .template-list input[type="radio"] + label span {
+            margin: 4px 0 0;
+            display: block;
+        }
+
+    .template-list input[type="radio"]:checked + label {
+        background: #357ebd;
+        color: #fff;
+    }

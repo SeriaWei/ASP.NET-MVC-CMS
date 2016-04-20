@@ -202,6 +202,20 @@
     <Content Include="Content\Images\close_red.png" />
     <Content Include="Content\Images\logo_zkea.png" />
     <Content Include="Content\Images\theme.jpg" />
+    <Content Include="Content\Images\Widget.ProductCategory.png" />
+    <Content Include="Content\Images\Widget.ArticleDetail.png" />
+    <Content Include="Content\Images\Widget.ArticleList.png" />
+    <Content Include="Content\Images\Widget.ArticleTops.png" />
+    <Content Include="Content\Images\Widget.ArticleType.png" />
+    <Content Include="Content\Images\Widget.Carousel.png" />
+    <Content Include="Content\Images\Widget.HTML.png" />
+    <Content Include="Content\Images\Widget.Image.png" />
+    <Content Include="Content\Images\Widget.Navigation.png" />
+    <Content Include="Content\Images\Widget.ProductDetail.png" />
+    <Content Include="Content\Images\Widget.ProductList.png" />
+    <Content Include="Content\Images\Widget.Script.png" />
+    <Content Include="Content\Images\Widget.Section.png" />
+    <Content Include="Content\Images\Widget.ArticleSummary.png" />
     <Content Include="Content\Site.min.css">
       <DependentUpon>Site.css</DependentUpon>
     </Content>
