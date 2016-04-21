@@ -27,7 +27,7 @@ namespace Easy.CMS.Common.Models
             base.ViewConfigure();
             ViewConfig(m => m.Title).AsTextBox();
             ViewConfig(m => m.CustomerClass).AsHidden();
-            ViewConfig(m => m.Logo).AsTextBox().AddClass("select select-image").AddProperty("data-url", Urls.SelectImage);
+            ViewConfig(m => m.Logo).AsTextBox().AddClass(StringKeys.SelectImageClass).AddProperty("data-url", Urls.SelectMedia);
         }
     }
 

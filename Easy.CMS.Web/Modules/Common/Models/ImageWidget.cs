@@ -24,7 +24,7 @@ namespace Easy.CMS.Common.Models
         protected override void ViewConfigure()
         {
             base.ViewConfigure();
-            ViewConfig(m => m.ImageUrl).AsTextBox().Required().AddClass("select select-image").AddProperty("data-url", Urls.SelectImage); 
+            ViewConfig(m => m.ImageUrl).AsTextBox().Required().AddClass(StringKeys.SelectImageClass).AddProperty("data-url", Urls.SelectMedia); 
         }
     }
 }

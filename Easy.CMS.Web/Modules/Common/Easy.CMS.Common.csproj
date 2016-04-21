@@ -140,6 +140,7 @@
     <Compile Include="Models\ImageWidget.cs" />
     <Compile Include="Models\NavigationEntity.cs" />
     <Compile Include="Models\NavigationWidget.cs" />
+    <Compile Include="Models\VideoWidget.cs" />
     <Compile Include="Models\ScriptWidget.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\CarouselItemService.cs" />
@@ -151,6 +152,7 @@
     <Compile Include="Service\INavigationService.cs" />
     <Compile Include="Service\NavigationService.cs" />
     <Compile Include="Service\NavigationWidgetService.cs" />
+    <Compile Include="Service\VideoWidgetService.cs" />
     <Compile Include="Service\ScriptWidgetService.cs" />
     <Compile Include="ViewModels\LayoutZonesViewModel.cs" />
     <Compile Include="ViewModels\MediaViewModel.cs" />
@@ -208,6 +210,7 @@
     <Content Include="Views\Error\Index.cshtml" />
     <Content Include="Views\Media\Index.cshtml" />
     <Content Include="Views\Theme\Index.cshtml" />
+    <Content Include="Views\Widget.Video.cshtml" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>

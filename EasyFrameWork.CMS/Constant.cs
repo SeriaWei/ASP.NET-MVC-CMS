@@ -27,7 +27,7 @@ namespace Easy.Web.CMS
     public class Urls
     {
         public const string SelectPage = "/admin/page/select";
-        public const string SelectImage = "/admin/Media/Select";
+        public const string SelectMedia = "/admin/Media/Select";
     }
 
     public enum MediaType
@@ -79,6 +79,11 @@ namespace Easy.Web.CMS
     public static class StringKeys
     {
         public const string LayoutItem = "LayoutItem";
+        public const string SelectImageClass = "select select-image";
+        public const string SelectMediaClass = "select select-media";
+        public const string SelectVideoClass = "select select-video";
+        public const string SelectPageClass = "select select-page";
+        public const string HtmlEditorClass = "html";
     }
     public static class Version
     {

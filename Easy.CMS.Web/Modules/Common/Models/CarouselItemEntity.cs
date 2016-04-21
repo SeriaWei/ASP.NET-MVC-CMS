@@ -36,7 +36,7 @@ namespace Easy.CMS.Common.Models
             ViewConfig(m => m.CarouselWidgetID).AsHidden();
             ViewConfig(m => m.Description).AsHidden();
             ViewConfig(m => m.TargetLink).AsTextBox().AddClass("select").AddProperty("data-url", Urls.SelectPage);
-            ViewConfig(m => m.ImageUrl).AsTextBox().AddClass("select select-image").AddProperty("data-url", Urls.SelectImage);
+            ViewConfig(m => m.ImageUrl).AsTextBox().AddClass(StringKeys.SelectImageClass).AddProperty("data-url", Urls.SelectMedia);
         }
     }
 

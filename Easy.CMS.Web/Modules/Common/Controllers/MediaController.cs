@@ -110,10 +110,6 @@ namespace Easy.CMS.Common.Controllers
                 if (entity.Url.IsNotNullAndWhiteSpace())
                 {
                     Service.Add(entity);
-                    if (entity.MediaType != (int)MediaType.Image)
-                    {
-                        entity.Url = "~/Images/{0}.png".FormatWith(entity.MediaTypeImage);
-                    }
                     entity.Url = Url.Content(entity.Url);
                 }
                 return Json(entity);

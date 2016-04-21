@@ -54,8 +54,8 @@ namespace Easy.Web.CMS.Layout
             ViewConfig(m => m.LayoutName).AsTextBox().Required();
            
 
-            ViewConfig(m => m.ImageThumbUrl).AsTextBox().AddClass("select select-image").AddProperty("data-url", Urls.SelectImage);
-            ViewConfig(m => m.ImageUrl).AsTextBox().AddClass("select select-image").AddProperty("data-url", Urls.SelectImage);
+            ViewConfig(m => m.ImageThumbUrl).AsTextBox().AddClass(StringKeys.SelectImageClass).AddProperty("data-url", Urls.SelectMedia);
+            ViewConfig(m => m.ImageUrl).AsTextBox().AddClass(StringKeys.SelectImageClass).AddProperty("data-url", Urls.SelectMedia);
         }
     }
 

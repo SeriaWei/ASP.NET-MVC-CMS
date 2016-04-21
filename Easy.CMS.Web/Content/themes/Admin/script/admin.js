@@ -158,11 +158,28 @@
                 if (url.indexOf("~") === 0) {
                     url = url.replace("~", location.origin);
                 }
-                return "<div style='width:245px;'><img src='" + url + "'/></div>";
+                return "<div style='width:244px;'><img src='" + url + "'/></div>";
             }
             return null;
         },
         placement: "bottom"
+    });
+
+    $(".input-group .glyphicon.glyphicon-play").popover({
+        trigger: "click",
+        html: true,
+        title: "视频预览",
+        content: function () {
+            var url = $(this).parent().siblings("input").val();
+            if (url) {
+                if (url.indexOf("~") === 0) {
+                    url = url.replace("~", location.origin);
+                }
+                return "<div><video style='width:244px;height:183px' controls='controls' src='" + url + "'>您的浏览器不支持播放该视频</video></div>";
+            }
+            return null;
+        },
+        placement: "left"
     });
 
     tinymce.init({
