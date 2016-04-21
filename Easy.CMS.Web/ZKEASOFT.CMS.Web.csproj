@@ -200,6 +200,7 @@
     <Content Include="Content\bootstrap\js\bootstrap.min.js" />
     <Content Include="Content\Images\bg.gif" />
     <Content Include="Content\Images\close_red.png" />
+    <Content Include="Content\Images\logo_min.png" />
     <Content Include="Content\Images\logo_zkea.png" />
     <Content Include="Content\Images\theme.jpg" />
     <Content Include="Content\Images\Widget.ProductCategory.png" />
