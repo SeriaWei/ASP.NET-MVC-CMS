@@ -168,6 +168,7 @@
     tinymce.init({
         content_css: ["../../../Content/bootstrap/css/bootstrap.css", "../../../Content/bootstrap/css/bootstrap-theme.css"],
         selector: "textarea.html",
+        verify_html: false,
         plugins: [
             "advlist autolink lists link image charmap print preview anchor",
             "searchreplace visualblocks code fullscreen",
