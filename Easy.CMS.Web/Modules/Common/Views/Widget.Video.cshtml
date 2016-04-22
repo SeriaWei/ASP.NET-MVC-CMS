@@ -18,6 +18,12 @@ else if (Model.Code.IsNotNullAndWhiteSpace())
         Model.Code = Regex.Replace(Model.Code, @"width=(\d+)", "width=" + Model.Width);
         Model.Code = Regex.Replace(Model.Code, @"width:(\d+)", "width:" + Model.Width);
     }
+    else
+    {
+        Model.Code = Regex.Replace(Model.Code, @"width=""(\d+)""", "width=\"100%\"");
+        Model.Code = Regex.Replace(Model.Code, @"width=(\d+)", "width=100%");
+        Model.Code = Regex.Replace(Model.Code, @"width:(\d+)", "width:100%");
+    }
     if (Model.Height.HasValue)
     {
         Model.Code = Regex.Replace(Model.Code, @"height=""(\d+)""", "height=\"" + Model.Height + "\"");

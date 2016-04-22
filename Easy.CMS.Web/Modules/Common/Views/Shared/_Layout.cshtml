@@ -69,9 +69,13 @@
                 }
                 else if (Model.PreViewPage != null)
                 {
-                    <a class="btn btn-primary" href="@Url.Action("Design", "Page", new { module = "admin", ID = Model.PreViewPage.ID })">
+                    <a class="btn btn-primary" href="@Url.Action("Design", "Page", new {module = "admin", ID = Model.PreViewPage.ID})">
                         <i class="glyphicon glyphicon-pencil"></i>
                         编辑
+                    </a>
+                    <a class="btn btn-primary" href="@Url.Action("Index", "Page", new { module = "admin" })">
+                        <i class="glyphicon glyphicon-eye-open"></i>
+                        页面
                     </a>
                     <a class="btn btn-primary" href="@Url.Action("Logout", "Account", new { module = "admin", returnurl = Model.Page.Url })">
                         <i class="glyphicon glyphicon-off"></i>
@@ -80,14 +84,14 @@
                 }
             </div>
         </div>
-        Style.Reqiured("Easy").AtFoot();
-        using (Script.AtFoot())
-        {
-            <script type="text/javascript">
-                var toolBar = $(".preview-toolbar");
-                $(".sort-handle", toolBar).DragElement(toolBar);
-            </script>
-        }
+                Style.Reqiured("Easy").AtFoot();
+                using (Script.AtFoot())
+                {
+                    <script type="text/javascript">
+                        var toolBar = $(".preview-toolbar");
+                        $(".sort-handle", toolBar).DragElement(toolBar);
+                    </script>
+                }
     }
     @if (Model.CurrentTheme != null && Model.CurrentTheme.IsPreView)
     {
