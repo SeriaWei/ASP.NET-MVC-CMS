@@ -22,6 +22,9 @@ Microsoft VisualStudio 2013
 
 Microsoft Sql Server 2005 以上
 
+## 简单演示
+![简单演示](http://ww1.sinaimg.cn/mw690/005zTNGqgw1f3afozownpg30dw09nx6q.gif)
+
 ## 移动友好
 ![移动友好](http://i1291.photobucket.com/albums/b560/SeriaWei/BlogPic/responsive_zps475ly5og.gif)
 
@@ -65,9 +68,6 @@ ZKEACMS 的模板组件可以更方便的进行扩展。直接更换显示模板
 ZKEACMS 使用LESS，可以轻松的创建主题。
 
 ![主题](http://blog.zkea.net/wp-content/uploads/2016/04/theme.png)
-
-## 简单演示
-![简单演示](http://ww1.sinaimg.cn/mw690/005zTNGqgw1f3afozownpg30dw09nx6q.gif)
 
 ## 缩略图
 [http://www.zkea.net/zkeacms/thumbnail](http://www.zkea.net/zkeacms/thumbnail)
