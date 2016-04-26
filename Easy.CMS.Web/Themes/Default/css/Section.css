@@ -3,8 +3,8 @@
 }
 .section > h4 {
   padding: 0 5px 5px;
-  color: #31b0d5;
-  border-bottom: 2px solid #31b0d5;
+  color: #31B0D5;
+  border-bottom: 2px solid #31B0D5;
   text-align: left;
 }
 .section table tr {
@@ -39,8 +39,6 @@
   margin: 0;
 }
 .section .section-group-listView {
-  border-bottom: 1px dotted #dedede;
-  margin: 10px 0;
   padding: 10px 0;
 }
 .section .section-group-listView h4 {
@@ -50,4 +48,3 @@
   margin: 10px auto;
   display: block;
 }
-/*# sourceMappingURL=Section.css.map */

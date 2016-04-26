@@ -66,6 +66,9 @@ ZKEACMS 使用LESS，可以轻松的创建主题。
 
 ![主题](http://blog.zkea.net/wp-content/uploads/2016/04/theme.png)
 
+## 简单演示
+![简单演示](http://ww1.sinaimg.cn/mw690/005zTNGqgw1f3afozownpg30dw09nx6q.gif)
+
 ## 缩略图
 [http://www.zkea.net/zkeacms/thumbnail](http://www.zkea.net/zkeacms/thumbnail)
 ## 网站
