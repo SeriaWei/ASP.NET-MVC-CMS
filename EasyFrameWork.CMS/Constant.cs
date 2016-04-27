@@ -89,7 +89,7 @@ namespace Easy.Web.CMS
     {
         public static string CurrentVersion
         {
-            get { return "ZKEACMS v" + Assembly.GetAssembly(typeof(Version)).GetName().Version; }
+            get { return "ZKEACMS v" + Assembly.GetExecutingAssembly().GetName().Version; }
         }
     }
 }
