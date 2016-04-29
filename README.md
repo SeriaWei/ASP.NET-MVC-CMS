@@ -69,9 +69,13 @@ ZKEACMS 使用LESS，可以轻松的创建主题。
 
 ![主题](http://blog.zkea.net/wp-content/uploads/2016/04/theme.png)
 
-## 缩略图
+## 部分缩略图
 [http://www.zkea.net/zkeacms/thumbnail](http://www.zkea.net/zkeacms/thumbnail)
-## 网站
+
+## 视频演示
+[http://www.zkea.net/zkeacms/videos](http://www.zkea.net/zkeacms/videos)
+
+## 官方网站
 [http://www.zkea.net/zkeacms](http://www.zkea.net/zkeacms)
 ## 安装和部署
 [安装和部署](http://blog.zkea.net/2015/09/install-ZKEACMS/)

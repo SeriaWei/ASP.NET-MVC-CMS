@@ -151,6 +151,7 @@
   <ItemGroup>
     <Content Include="Content\Section.css" />
     <Content Include="CopyItems.xml" />
+    <Content Include="Views\Thumbnail\SectionTemplate.Tab.png" />
     <Content Include="Views\Thumbnail\SectionTemplate.Column.png" />
     <Content Include="Views\Thumbnail\SectionTemplate.LinkGroup.png" />
     <Content Include="Views\Thumbnail\SectionTemplate.ListGroup.png" />
@@ -246,6 +247,7 @@
     <Content Include="Views\SectionTemplate.ListView.cshtml" />
     <Content Include="Views\SectionTemplate.Thumbnail.cshtml" />
     <Content Include="Views\SectionTemplate.ImageRight.cshtml" />
+    <Content Include="Views\SectionTemplate.Tab.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
