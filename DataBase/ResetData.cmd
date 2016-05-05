@@ -4,7 +4,6 @@ set server=(local)
 set dataBase=ZKEACMS
 set dbUserId=sa
 set dbPassword=sa
-set dbPath=E:\GitHub\CMS\Easy.CMS.Web\App_Data
 @echo -----------------------------------------------------------------------------
 @echo *** ª∂”≠ π”√ ZKEACMS***
 @echo -----------------------------------------------------------------------------
