@@ -119,7 +119,13 @@ input.helper:checked + span {
         color: #000;
         background-color: #fff;
     }
-
+    .zone .sorting{
+        height:80px;
+        border: 1px solid #ddd;
+        margin:5px;
+        background:#46b8da;
+        list-style:none;
+    }
 
 #container.design,
 #container.pagePreview {
@@ -284,7 +290,6 @@ input.helper:checked + span {
 .AddCol.ui-draggable-dragging > select {
     display: none;
 }
-
 .row.active {
     background-image: -webkit-linear-gradient(top, #428bca 0%, #357ebd 100%);
     background-image: -o-linear-gradient(top, #428bca 0%, #357ebd 100%);
@@ -420,3 +425,8 @@ input.helper:checked + span {
         background: #357ebd;
         color: #fff;
     }
+    
+.ui-sortable-helper{
+    background:#fff;
+    list-style:none;
+}

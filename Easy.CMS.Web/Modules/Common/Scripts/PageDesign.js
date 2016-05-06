@@ -10,69 +10,66 @@
     }
 
     $(".zone").sortable({
+        placeholder: "sorting",
         handle: ".sort-handle",
+        connectWith: ".zone",
         stop: function (event, ui) {
-            var tempForm = "";
-            ui.item.parent().children(".widget-design").each(function (i, ui) {
-                tempForm += "&widgets[" + i + "].ID=" + $(ui).data("widgetid") + "&widgets[" + i + "].Position=" + (i + 1);
+            ui.item.removeAttr("style");
+            var target = ui.item.parent();
+            if (ui.item.data("add")) {
+                $.ajax({
+                    type: "POST",
+                    url: $("#append-widget-url").val(),
+                    dataType: 'html',
+                    async: false,
+                    data: {
+                        ID: ui.item.data("id"),
+                        ZoneID: $("input.zoneId", this).val(),
+                        PageID: $("#pageId").val(),
+                        AssemblyName: ui.item.data("assemblyname"),
+                        ServiceTypeName: ui.item.data("servicetypename"),
+                        Position: 1
+                    },
+                    success: function (data) {
+                        ui.item.replaceWith(data);
+                    }
+                });
+            }
+            var widgets = [];
+            target.children(".widget-design").each(function (i, ui) {
+                widgets.push({
+                    ID: $(ui).data("widgetid"),
+                    ZoneId: $(".zoneId", target).val(),
+                    Position: i + 1
+                });
             });
-            if (tempForm) {
-                $.post($("#save-widget-position-url").val(), tempForm, function (data) {
-                    checkEmptyZone();
-                }, "html");
-            }
-            return true;
-        }
-    }).droppable({
-        hoverClass: "dropWarning",
-        accept: ".widget-design",
-        greedy: true,
-        tolerance: "pointer",
-        drop: function (event, ui) {
-            if (ui.draggable.data("add")) {
-                var area = $(this);
-                $.post($("#append-widget-url").val(), {
-                    ID: ui.draggable.data("id"),
-                    ZoneID: $("input.zoneId", this).val(),
-                    PageID: $("#pageId").val(),
-                    AssemblyName: ui.draggable.data("assemblyname"),
-                    ServiceTypeName: ui.draggable.data("servicetypename"),
-                    Position: $(".widget-design", this).size() + 1
-                }, function (data) {
-                    area.append(data);
-                }, "html");
-            } else {
-                if ($("input.zoneId", ui.draggable.parent()).val() === $("input.zoneId", this).val()) {
-                    return true;
+            $.ajax({
+                type: "POST",
+                url: $("#save-widget-zone-url").val(),
+                dataType: 'json',
+                contentType: "application/json;charset=utf-8",
+                async: false,
+                data: JSON.stringify(widgets),
+                success: function () {
                 }
-                var target = ui.draggable.clone();
-                target.removeAttr("style");
-                $(this).append(target);
-                ui.draggable.remove();
-                $.post($("#save-widget-zone-url").val(), {
-                    ID: target.data("widgetid"),
-                    ZoneId: $("input.zoneId", this).val(),
-                    Position: $(this).children().size()
-                }, function (data) {
-                    checkEmptyZone();
-                }, "html");
-            }
+            });
             return true;
         }
     });
-    $(".templates ul li").draggable({ helper: "clone" });
+    
+    $(".templates ul li").draggable({ helper: "clone", connectToSortable: ".zone" });
     $(document).on("click", ".delete", function () {
         var th = $(this);
-        Easy.ShowMessageBox("提示", "确定要删除该组件吗？", function() {
+        Easy.ShowMessageBox("提示", "确定要删除该组件吗？", function () {
             $.post(th.data("url"), { ID: th.data("id") }, function (data) {
                 if (data) {
                     $("#widget_" + data).remove();
                     checkEmptyZone();
                 }
             }, "json");
-        }, true,10);
+        }, true, 10);
     });
-    $(document).on("click", ".templates .tool-open", function() {
+    $(document).on("click", ".templates .tool-open", function () {
         $(this).parent().toggleClass("active");
     }).on("click", ".templates .delete-template", function () {
         var th = $(this);
@@ -82,7 +79,7 @@
                     $("#template_" + data).remove();
                 }
             }, "json");
-        }, true,10);
+        }, true, 10);
     });
     $(".helper").click(function () {
         $("#container").toggleClass($(this).data("class"));

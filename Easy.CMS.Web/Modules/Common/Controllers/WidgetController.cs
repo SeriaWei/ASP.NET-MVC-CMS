@@ -112,19 +112,14 @@ namespace Easy.CMS.Common.Controllers
                 return RedirectToAction("LayoutWidget", "Layout", new { module = "admin" });
             }
         }
+  
         [HttpPost]
-        public JsonResult SaveWidgetPosition(List<WidgetBase> widgets)
+        public JsonResult SaveWidgetZone(List<WidgetBase> widgets)
         {
-            widgets.Each(m =>
+            foreach (var widget in widgets)
             {
-                _widgetService.Update(m, new Data.DataFilter(new List<string> { "Position" }).Where("ID", OperatorType.Equal, m.ID));
-            });
-            return Json(true);
-        }
-        [HttpPost]
-        public JsonResult SaveWidgetZone(WidgetBase widget)
-        {
-            _widgetService.Update(widget, new Data.DataFilter(new List<string> { "ZoneID", "Position" }).Where("ID", OperatorType.Equal, widget.ID));
+                _widgetService.Update(widget, new Data.DataFilter(new List<string> { "ZoneID", "Position" }).Where("ID", OperatorType.Equal, widget.ID));
+            }
             return Json(true);
         }
         [HttpPost]

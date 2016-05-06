@@ -120,31 +120,4 @@
 </div>
 
 
-<script type="text/javascript">
-    $("#noZoneWidgets>.widget").draggable({ revert: "invalid", connectToSortable: ".fullRowList.widgets" });
-    $(".fullRowList.widgets").sortable({
-        connectWith: ".connectedSortable",
-        placeholder: "sorting",
-        stop: function (event, ui) {
-            debugger
-            ui.item.removeAttr("style");
-            $.post("@Url.Action("SaveWidgetZone", "Widget", new { module = "admin" })",
-                {
-                    ID: ui.item.data("widgetid"),
-                    ZoneId: $(this).data("zoneid"),
-                    Position: $(this).children().size()
-                },
-                function(data) {
-                    var tempForm = "";
-                    ui.item.parent().children().each(function(i, ui) {
-                        tempForm += "&widgets[" + i + "].ID=" + $(ui).data("widgetid") + "&widgets[" + i + "].Position=" + (i + 1);
-                    });
-                    if (tempForm) {
-                        $.post("@Url.Action("SaveWidgetPosition", "Widget", new { module = "admin" })", tempForm, function(data) {
-                        }, "html");
-                    }
-                }, "html");
-        }
-    });
-    
-</script>
+@Html.Partial("SortWidget.Script")

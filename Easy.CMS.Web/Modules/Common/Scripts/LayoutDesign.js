@@ -94,7 +94,7 @@
             }
         }
     };
-    $("#container .additional.row").droppable(opRowDrop).sortable();;
+    $("#container .additional.row").droppable(opRowDrop).sortable();
     $("#container .colContent").droppable(opColDrop).sortable();
     $("#container").sortable({ items: ".additional.row:not(.layout.templates)" });
     function rowDropToContent(event, ui, obj) {
