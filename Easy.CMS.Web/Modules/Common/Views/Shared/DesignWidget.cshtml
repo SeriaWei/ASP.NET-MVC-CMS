@@ -5,9 +5,9 @@
     id="widget_@Model.Widget.ID"
     data-widgetid="@Model.Widget.ID">
     <div class="zoneToolbar @(Model.Widget.LayoutID.IsNullOrEmpty() ? "blue" : "green")">
-        <div class="tools clearfix">
+        <div class="tools clearfix sort-handle">
             <div class="pull-left">
-                <span class="sort-handle">
+                <span>
                     <i class="glyphicon glyphicon-move ">
                     </i>
                     @if (Model.Widget.LayoutID.IsNotNullAndWhiteSpace())

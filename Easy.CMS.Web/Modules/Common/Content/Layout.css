@@ -72,12 +72,18 @@ input.helper:checked + span {
     }
 
 .design .additional.row {
-    min-height: 100px;
+    min-height: 144px;
     border: 1px solid #337ab7;
     background-color: white;
     margin: 10px -5px;
     cursor: move;
+    list-style: none;
+    padding: 10px;
 }
+
+    .design .additional.row.muted {
+        border: 1px solid #ddd;
+    }
 
 .design-border .additional.row {
     margin-top: 1px;
@@ -119,13 +125,20 @@ input.helper:checked + span {
         color: #000;
         background-color: #fff;
     }
-    .zone .sorting{
-        height:80px;
-        border: 1px solid #ddd;
-        margin:5px;
-        background:#46b8da;
-        list-style:none;
-    }
+
+.sorting {
+    height: 120px;
+    border: 1px solid #ddd;
+    margin: 5px;
+    background: #faeae9;
+    list-style: none;
+}
+
+label.additional {
+    display: block;
+    margin-bottom: 0;
+    max-width:none;
+}
 
 #container.design,
 #container.pagePreview {
@@ -139,7 +152,7 @@ input.helper:checked + span {
 }
 
 .design .colContent {
-    min-height: 94px;
+    min-height: 105px;
     margin-top: 1px;
     margin-bottom: 1px;
     background-color: white;
@@ -290,6 +303,7 @@ input.helper:checked + span {
 .AddCol.ui-draggable-dragging > select {
     display: none;
 }
+
 .row.active {
     background-image: -webkit-linear-gradient(top, #428bca 0%, #357ebd 100%);
     background-image: -o-linear-gradient(top, #428bca 0%, #357ebd 100%);
@@ -389,17 +403,22 @@ input.helper:checked + span {
     }
 
 
-
-.layout.templates .widget-design .row {
-    background: #fff;
-    box-shadow: 0 0 5px rgba(0, 0, 0,0.2);
+li.ui-sortable-helper {
+    width: 200px;
 }
 
-    .layout.templates .widget-design .row .border-helper {
-        margin: 5px -10px;
-        min-height: 80px;
-        border: 1px solid #ddd;
+    li.ui-sortable-helper.widget-design .row,
+    .layout.templates .widget-design .row {
+        background: #fff;
+        box-shadow: 0 0 5px rgba(0, 0, 0,0.2);
     }
+
+        li.ui-sortable-helper.widget-design .row .border-helper,
+        .layout.templates .widget-design .row .border-helper {
+            margin: 5px -10px;
+            min-height: 80px;
+            border: 1px solid #ddd;
+        }
 
 .layout .ui-draggable-handle.ui-draggable-dragging {
     width: 200px;
@@ -425,8 +444,11 @@ input.helper:checked + span {
         background: #357ebd;
         color: #fff;
     }
-    
-.ui-sortable-helper{
-    background:#fff;
-    list-style:none;
+
+.ui-sortable-helper {
+    list-style: none;
+}
+
+.widget.ui-sortable-helper {
+    background: #fff;
 }

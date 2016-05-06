@@ -211,6 +211,7 @@
     <Content Include="Views\Media\Index.cshtml" />
     <Content Include="Views\Theme\Index.cshtml" />
     <Content Include="Views\Widget.Video.cshtml" />
+    <Content Include="Views\Shared\SortWidget.Script.cshtml" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>

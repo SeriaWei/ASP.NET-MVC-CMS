@@ -106,7 +106,7 @@ namespace Easy.CMS.Common.Controllers
             {
                 return RedirectToAction("Design", "Page", new { module = "admin", ID = layout.Page.ID });
             }
-            return RedirectToAction("Edit", new { ID = layout.ID, module = "admin" });
+            return RedirectToAction("Index");
         }
         [PopUp]
         public ActionResult SelectZone(string layoutId, string pageId, string zoneId)
