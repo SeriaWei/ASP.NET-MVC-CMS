@@ -12,6 +12,7 @@
     $(".zone").sortable({
         placeholder: "sorting",
         handle: ".sort-handle",
+        tolerance: "pointer",
         connectWith: ".zone",
         stop: function (event, ui) {
             ui.item.removeAttr("style");

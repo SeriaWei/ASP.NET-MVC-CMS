@@ -211,7 +211,7 @@ a.badge:hover {
         .fullRowList li.sorting {
             height: 30px;
             border: 1px solid #ededed;
-            border-left: 3px solid #E28271;
+            border-left: 5px solid #E28271;
         }
 
     .fullRowList.widgets li {

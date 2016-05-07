@@ -70,12 +70,13 @@
     });
     var colSortOption = {
         placeholder: "additional",
+        tolerance: "pointer",
         connectWith: ".additional.row",
         over: function (event, ui) {
             if (ui.item.hasClass("AddCol")) {
-                ui.placeholder.addClass(ui.item.data("col") + ui.item.data("val")).html('<div class="colContent row"></div>');
+                ui.placeholder.addClass(ui.item.data("col") + ui.item.data("val")).html('<div class="colContent row muted"></div>');
             } else {
-                ui.placeholder.addClass(ui.item.attr("class")).html('<div class="colContent row"></div>');
+                ui.placeholder.addClass(ui.item.attr("class")).html('<div class="colContent row muted"></div>');
             }
         },
         stop: function (event, ui) {
@@ -88,6 +89,7 @@
     };
     $("#container").sortable({
         placeholder: "additional row muted",
+        tolerance: "pointer",
         stop: function (event, ui) {
             var row = $('<div class="additional row"></div>');
             if (ui.item.hasClass("AddRow")) {
@@ -107,6 +109,7 @@
     $(".additional.row").sortable(colSortOption);
 
     $(document).on("click", "#save", function () {
+
         if ($(this).data("done")) {
             return;
         }

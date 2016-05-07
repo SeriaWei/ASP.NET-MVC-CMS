@@ -81,6 +81,7 @@ input.helper:checked + span {
     padding: 10px;
 }
 
+    .design .colContent.row.muted,
     .design .additional.row.muted {
         border: 1px solid #ddd;
     }
@@ -97,12 +98,8 @@ input.helper:checked + span {
 .design-border .zone {
     border: 1px dotted #ec971f;
     background-color: white;
-    margin: 10px;
-    min-height: 80px;
-}
-
-.design-border .zone {
-    margin: 0;
+    margin: 1px;
+    min-height: 135px;
 }
 
 .design .zone .form-control {
@@ -137,7 +134,7 @@ input.helper:checked + span {
 label.additional {
     display: block;
     margin-bottom: 0;
-    max-width:none;
+    max-width: none;
 }
 
 #container.design,

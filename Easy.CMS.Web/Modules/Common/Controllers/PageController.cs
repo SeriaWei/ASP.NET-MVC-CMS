@@ -130,6 +130,11 @@ namespace Easy.CMS.Common.Controllers
         [EditWidget, Authorize]
         public ActionResult Design(string ID)
         {
+            // Stop Caching in IE
+            //Response.Cache.SetCacheability(System.Web.HttpCacheability.NoCache);
+
+            // Stop Caching in Firefox
+            //Response.Cache.SetNoStore();
             return View();
         }
         [Authorize]

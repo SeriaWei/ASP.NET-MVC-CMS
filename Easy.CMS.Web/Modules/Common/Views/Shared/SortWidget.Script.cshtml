@@ -2,6 +2,7 @@
     $("#noZoneWidgets>.widget").draggable({ revert: "invalid", connectToSortable: ".widgets" });
     $(".widgets").sortable({
         connectWith: ".connectedSortable",
+        tolerance: "pointer",
         placeholder: "sorting",
         stop: function (event, ui) {
             ui.item.removeAttr("style");
