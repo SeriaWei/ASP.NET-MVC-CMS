@@ -94,7 +94,6 @@ input.helper:checked + span {
     min-height: 90px;
 }
 
-.design .zone,
 .design-border .zone {
     border: 1px dotted #ec971f;
     background-color: white;
@@ -110,10 +109,9 @@ input.helper:checked + span {
     border: 1px solid #FFF;
     text-align: center;
     border-radius: 0;
-    height: 30px;
+    height: 95px;
     font-size: 16px;
-    font-weight: bold;
-    color: #FFA500;
+    color: #337ab7;
     padding: 33px 5px;
 }
 
@@ -310,14 +308,10 @@ label.additional {
     background-color: #357ebd;
 }
 
-#container .row.container {
-    margin: 0 auto;
-    padding: 0;
-}
 
 #container.design .row.container {
-    margin: 3px auto;
-    padding: 0;
+    margin: 10px auto;
+    padding: 10px;
 }
 
 .templates {
