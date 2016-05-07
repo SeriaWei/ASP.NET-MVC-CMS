@@ -3,6 +3,7 @@
 @{
     string pageId = Request.QueryString["PageID"];
     Script.Reqiured("jQueryUi").AtFoot();
+    Script.Reqiured("jsTree").AtFoot();
 }
 <div class="container-fluid">
     <div class="row">
@@ -134,7 +135,7 @@
             }, "json");
         }
         function loadedPage(p) {
-            if (location.hash) {
+            if (location.hash && location.hash != "#") {
                 $(p.target).find("a" + location.hash).trigger("click");
             } else {
                 $(".jstree-node:first a.jstree-anchor:first", p.target).trigger("click");

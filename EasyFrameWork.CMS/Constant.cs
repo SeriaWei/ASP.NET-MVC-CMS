@@ -85,6 +85,7 @@ namespace Easy.Web.CMS
         public const string SelectPageClass = "select select-page";
         public const string HtmlEditorClass = "html";
     }
+
     public static class Version
     {
         public static string CurrentVersion
