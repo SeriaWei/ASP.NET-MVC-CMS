@@ -1,5 +1,8 @@
 ﻿@model Easy.CMS.Common.Models.ScriptWidget
-
+@if (Model.Script.IsNullOrEmpty())
+{
+    return;
+}
 @if (Model.Script.StartsWith("<script"))
 {
     @Html.Raw(Model.Script)
