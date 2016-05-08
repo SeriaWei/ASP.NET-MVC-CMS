@@ -109,7 +109,11 @@
     $(".additional.row").sortable(colSortOption);
 
     $(document).on("click", "#save", function () {
-
+        $('input[name="ZoneName"]').each(function () {
+            if (!$.trim($(this).val())) {
+                $(this).attr("value", "未命名");
+            }
+        });
         if ($(this).data("done")) {
             return;
         }
@@ -143,7 +147,7 @@
         }
         $(".layout-html", form).remove();
         for (var i = 0; i < allZoneResult.length; i++) {
-            form.append($('<input type="hidden" class="layout-html" name="html"/>').val($.trim(allZoneResult[i])));
+            form.append($('<textarea name="html" class="layout-html hide"></textarea>').val($.trim(allZoneResult[i])));
         }
         form.submit();
         return false;
