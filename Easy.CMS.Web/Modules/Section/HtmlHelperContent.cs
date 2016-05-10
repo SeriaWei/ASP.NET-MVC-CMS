@@ -8,7 +8,7 @@ namespace Easy.CMS.Section
     {
         public static void RenderContent(this HtmlHelper html, SectionContent content)
         {
-            if (content != null && content.SectionContentType.HasValue)
+            if (content != null && content.SectionContentType > 0)
             {
                 html.RenderPartial("SectionPartial." + ((SectionContent.Types)content.SectionContentType), content);
             }
@@ -16,7 +16,7 @@ namespace Easy.CMS.Section
 
         public static void RenderEditContent(this HtmlHelper html, SectionContent content)
         {
-            if (content != null && content.SectionContentType.HasValue)
+            if (content != null && content.SectionContentType > 0)
             {
                 html.RenderPartial("SectionPartial." + ((SectionContent.Types)content.SectionContentType + ".Edit"), content);
             }

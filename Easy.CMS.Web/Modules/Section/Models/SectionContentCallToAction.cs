@@ -13,6 +13,13 @@ namespace Easy.CMS.Section.Models
     {
         public string InnerText { get; set; }
         public string Href { get; set; }
+        public override int SectionContentType
+        {
+            get
+            {
+                return (int)Types.CallToAction;
+            }
+        }
     }
 
     class SectionContentCallToActionMetaData : DataViewMetaData<SectionContentCallToAction>

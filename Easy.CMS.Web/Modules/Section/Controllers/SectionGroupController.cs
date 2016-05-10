@@ -110,7 +110,7 @@ namespace Easy.CMS.Section.Controllers
                                 fs.Write(item.FileBytes, 0, item.FileBytes.Length);
                             }
                         }
-                        else if (item.RelativePath.EndsWith(".png"))
+                        else
                         {
                             using (
                                 var fs =
@@ -135,8 +135,21 @@ namespace Easy.CMS.Section.Controllers
         public FileResult TemplatePackage(string name)
         {
             ZipFile zipFile = new ZipFile();
-            zipFile.AddFile(new System.IO.FileInfo(Server.MapPath("~/Modules/Section/Views/") + name + ".cshtml"));
-            zipFile.AddFile(new System.IO.FileInfo(Server.MapPath("~/Modules/Section/Views/Thumbnail/") + name + ".png"));
+            string view = Server.MapPath("~/Modules/Section/Views/") + name + ".cshtml";
+            if (System.IO.File.Exists(view))
+            {
+                zipFile.AddFile(new System.IO.FileInfo(view));
+            }
+            string thumbnail = Server.MapPath("~/Modules/Section/Views/Thumbnail/") + name + ".png";
+            if (System.IO.File.Exists(thumbnail))
+            {
+                zipFile.AddFile(new System.IO.FileInfo(thumbnail));
+            }
+            string config= Server.MapPath("~/Modules/Section/Views/Thumbnail/") + name + ".xml";
+            if (System.IO.File.Exists(config))
+            {
+                zipFile.AddFile(new System.IO.FileInfo(config));
+            }            
             return File(zipFile.ToMemoryStream(), "application/zip", name + ".zip");
         }
 

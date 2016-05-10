@@ -7,11 +7,11 @@ using Easy.Models;
 
 namespace Easy.CMS.Section.Models
 {
-    [DataConfigure(typeof(SectionContentMetaData))]
-    public class SectionContent : EditorEntity
+    public abstract class SectionContentBase : EditorEntity
     {
         public enum Types
         {
+            None = 0,
             CallToAction = 1,
             Image = 2,
             Paragraph = 3,
@@ -20,14 +20,26 @@ namespace Easy.CMS.Section.Models
         public int? ID { get; set; }
         public string SectionWidgetId { get; set; }
         public int? SectionGroupId { get; set; }
-        public int? SectionContentType { get; set; }
         public int? Order { get; set; }
+        public abstract int SectionContentType
+        {
+            get;
+            set;
+        }
+    }
+    [DataConfigure(typeof(SectionContentMetaData))]
+    public class SectionContent : SectionContentBase
+    {
+        public override int SectionContentType
+        {
+            get;
+            set;
+        }
 
         public SectionContent InitContent(SectionContent content)
         {
             content.SectionWidgetId = SectionWidgetId;
             content.SectionGroupId = SectionGroupId;
-            content.SectionContentType = SectionContentType;
             content.Order = Order;
             return content;
         }

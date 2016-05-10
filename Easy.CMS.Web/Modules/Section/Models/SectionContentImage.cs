@@ -16,6 +16,13 @@ namespace Easy.CMS.Section.Models
         public string Href { get; set; }
         public int? Width { get; set; }
         public int? Height { get; set; }
+        public override int SectionContentType
+        {
+            get
+            {
+                return (int)Types.Image;
+            }
+        }
     }
 
     class SectionContentImageMetaData : DataViewMetaData<SectionContentImage>

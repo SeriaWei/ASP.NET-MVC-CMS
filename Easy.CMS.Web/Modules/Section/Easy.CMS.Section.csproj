@@ -151,6 +151,7 @@
   <ItemGroup>
     <Content Include="Content\Section.css" />
     <Content Include="CopyItems.xml" />
+    <Content Include="Views\Thumbnail\SectionTemplate.Default.xml" />
     <Content Include="Views\Thumbnail\SectionTemplate.Tab.png" />
     <Content Include="Views\Thumbnail\SectionTemplate.Column.png" />
     <Content Include="Views\Thumbnail\SectionTemplate.LinkGroup.png" />
