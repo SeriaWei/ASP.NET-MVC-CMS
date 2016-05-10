@@ -18,6 +18,7 @@ namespace Easy.CMS.Section.Models
         public string PartialView { get; set; }
         public int? Order { get; set; }
         public string PercentWidth { get; set; }
+        public bool IsLoadDefaultData { get; set; }
         public IEnumerable<SectionContent> SectionContents { get; set; }
 
         private T GetContent<T>(SectionContent.Types type) where T : SectionContent
@@ -75,6 +76,7 @@ namespace Easy.CMS.Section.Models
             DataConfig(m => m.Title).Ignore();
             DataConfig(m => m.Description).Ignore();
             DataConfig(m => m.Status).Ignore();
+            DataConfig(m => m.IsLoadDefaultData).Ignore();
         }
 
         protected override void ViewConfigure()
@@ -82,6 +84,7 @@ namespace Easy.CMS.Section.Models
             ViewConfig(m => m.GroupName).AsTextBox().Required();
             ViewConfig(m => m.ID).AsHidden();
             ViewConfig(m => m.SectionWidgetId).AsHidden();
+            ViewConfig(m => m.IsLoadDefaultData).AsHidden().Ignore();
             ViewConfig(m => m.PartialView).AsDropDownList().DataSource(() =>
             {
                 string folder = AppDomain.CurrentDomain.BaseDirectory + "Modules/Section/Views";

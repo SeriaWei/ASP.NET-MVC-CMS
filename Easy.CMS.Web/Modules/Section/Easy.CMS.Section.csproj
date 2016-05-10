@@ -151,6 +151,13 @@
   <ItemGroup>
     <Content Include="Content\Section.css" />
     <Content Include="CopyItems.xml" />
+    <Content Include="Views\Thumbnail\SectionTemplate.Thumbnail.xml" />
+    <Content Include="Views\Thumbnail\SectionTemplate.Column.xml" />
+    <Content Include="Views\Thumbnail\SectionTemplate.Tab.xml" />
+    <Content Include="Views\Thumbnail\SectionTemplate.ListGroup.xml" />
+    <Content Include="Views\Thumbnail\SectionTemplate.ListView.xml" />
+    <Content Include="Views\Thumbnail\SectionTemplate.LinkGroup.xml" />
+    <Content Include="Views\Thumbnail\SectionTemplate.ImageRight.xml" />
     <Content Include="Views\Thumbnail\SectionTemplate.Default.xml" />
     <Content Include="Views\Thumbnail\SectionTemplate.Tab.png" />
     <Content Include="Views\Thumbnail\SectionTemplate.Column.png" />

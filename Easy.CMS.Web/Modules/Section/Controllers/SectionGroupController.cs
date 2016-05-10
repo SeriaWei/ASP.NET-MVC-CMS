@@ -28,11 +28,13 @@ namespace Easy.CMS.Section.Controllers
 
         public ActionResult Create(string sectionWidgetId)
         {
+            var order = _sectionGroupService.Get("SectionWidgetId", OperatorType.Equal, sectionWidgetId).Count() + 1;
             return View("Form", new SectionGroup
             {
                 SectionWidgetId = sectionWidgetId,
                 ActionType = ActionType.Create,
-                Order = _sectionGroupService.Get("SectionWidgetId", OperatorType.Equal, sectionWidgetId).Count() + 1
+                Order = order,
+                GroupName = "组 " + order
             });
         }
         public ActionResult Edit(int Id)
@@ -145,11 +147,11 @@ namespace Easy.CMS.Section.Controllers
             {
                 zipFile.AddFile(new System.IO.FileInfo(thumbnail));
             }
-            string config= Server.MapPath("~/Modules/Section/Views/Thumbnail/") + name + ".xml";
+            string config = Server.MapPath("~/Modules/Section/Views/Thumbnail/") + name + ".xml";
             if (System.IO.File.Exists(config))
             {
                 zipFile.AddFile(new System.IO.FileInfo(config));
-            }            
+            }
             return File(zipFile.ToMemoryStream(), "application/zip", name + ".zip");
         }
 

@@ -65,16 +65,19 @@ namespace Easy.CMS.Section.Service
                     contentService.Add(m);
                 });
             }
-            var contents = GenerateContentFromConfig(item);
-            if (contents != null && contents.Any())
+            if (item.IsLoadDefaultData)
             {
-                ISectionContentProviderService contentService = ServiceLocator.Current.GetInstance<ISectionContentProviderService>();
-                contents.Each(c =>
+                var contents = GenerateContentFromConfig(item);
+                if (contents != null && contents.Any())
                 {
-                    c.SectionGroupId = item.ID;
-                    c.SectionWidgetId = item.SectionWidgetId;
-                    contentService.Add(c);
-                });
+                    ISectionContentProviderService contentService = ServiceLocator.Current.GetInstance<ISectionContentProviderService>();
+                    contents.Each(c =>
+                    {
+                        c.SectionGroupId = item.ID;
+                        c.SectionWidgetId = item.SectionWidgetId;
+                        contentService.Add(c);
+                    });
+                }
             }
         }
 
