@@ -981,6 +981,7 @@
     <Content Include="Themes\Default\images\logo_z.png" />
     <Content Include="Themes\Default\images\more.png" />
     <Content Include="Themes\Default\images\prd_sort_title.gif" />
+    <Content Include="Themes\Default\images\video-play.png" />
     <Content Include="Themes\Default\thumbnail.jpg" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>

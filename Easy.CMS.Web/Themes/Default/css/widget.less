@@ -74,3 +74,20 @@
 .image-circle img {
     border-radius: 50%;
 }
+
+.video-icon a{
+    position:relative;
+}
+.video-icon a::before{
+    content:url(../images/video-play.png);
+    opacity:.5;
+    position:absolute;
+    left:50%;
+    top:50%;
+    margin-left:-20px;
+    margin-top:-20px;
+    transition:opacity linear 0.3s;
+}
+.video-icon a:hover::before{
+    opacity:1;
+}
