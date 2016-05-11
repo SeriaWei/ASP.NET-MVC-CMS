@@ -141,7 +141,7 @@ a.badge:hover {
 
 #main-menu .menu-item,
 #main-menu .group-item {
-    padding: 5px 10px;
+    padding: 7px 10px;
     margin: 5px 0;
     border-left: 2px solid transparent;
 }
@@ -404,4 +404,10 @@ a.badge:hover {
 
 #media-list .new-folder .close {
     display: none;
+}
+.navbar-inverse .navbar-nav > li > a {
+    color: #fff;
+}
+.navbar-inverse .navbar-nav > li   a:hover {
+    background-color: #000;
 }
