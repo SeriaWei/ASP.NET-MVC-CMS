@@ -39,6 +39,7 @@ input.helper:checked + span {
     word-break: keep-all;
     word-wrap: normal;
     white-space: nowrap;
+    list-style: none;
 }
 
 .navbar-fixed-top {

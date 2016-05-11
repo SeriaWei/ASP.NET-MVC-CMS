@@ -131,10 +131,10 @@ namespace Easy.CMS.Common.Controllers
         public ActionResult Design(string ID)
         {
             // Stop Caching in IE
-            //Response.Cache.SetCacheability(System.Web.HttpCacheability.NoCache);
+            Response.Cache.SetCacheability(System.Web.HttpCacheability.NoCache);
 
             // Stop Caching in Firefox
-            //Response.Cache.SetNoStore();
+            Response.Cache.SetNoStore();
             return View();
         }
         [Authorize]

@@ -82,6 +82,11 @@ namespace Easy.CMS.Common.Controllers
         }
         public ActionResult Design(string ID, string PageID)
         {
+            // Stop Caching in IE
+            Response.Cache.SetCacheability(System.Web.HttpCacheability.NoCache);
+
+            // Stop Caching in Firefox
+            Response.Cache.SetNoStore();
             LayoutEntity layout = null;
             if (ID.IsNotNullAndWhiteSpace())
             {

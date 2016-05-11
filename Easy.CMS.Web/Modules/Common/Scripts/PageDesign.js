@@ -58,7 +58,7 @@
         }
     });
     
-    $(".templates ul li").draggable({ helper: "clone", connectToSortable: ".zone" });
+    $(".templates ul li").draggable({ helper: "clone", connectToSortable: ".zone",appendTo:"body" });
     $(document).on("click", ".delete", function () {
         var th = $(this);
         Easy.ShowMessageBox("提示", "确定要删除该组件吗？", function () {
