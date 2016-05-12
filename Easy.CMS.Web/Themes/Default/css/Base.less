@@ -12,6 +12,16 @@ body.front {
     color: @color-text;
     /*background: url("../Images/bg.gif");*/
     background: #EEF2F5;
+
+    .main.container {
+        background-color: white;
+        border-left: 1px solid @color-border;
+        border-right: 1px solid @color-border;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 5px rgba(0, 0, 0, 0.075);
+    }
+    .main.container-fluid{
+        background-color: white;
+    }
 }
 
 img {
@@ -34,16 +44,6 @@ p {
     margin: 0 0 @margin-base * 0.5;
 }
 
-#container {
-    background-color: white;
-    border: 1px solid @color-border;
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 5px rgba(0, 0, 0, 0.075);
-
-    .row.container {
-        margin: 0 auto;
-        padding: 0;
-    }
-}
 
 .preview-toolbar {
     position: fixed;
@@ -158,7 +158,7 @@ p {
     .background-image(@color-main-light,@color-main-actived);
     border-color: @color-main-actived;
     text-shadow: none;
-    color:#fff;
+    color: #fff;
 }
 
 .btn-default:hover,
@@ -166,7 +166,7 @@ p {
     background-color: @color-main-actived;
     background-position: 0 -15px;
     text-shadow: none;
-    color:#EEF2F5;
+    color: #EEF2F5;
 }
 
 .btn-default:active:hover,
@@ -183,5 +183,5 @@ p {
     background-color: @color-main-actived;
     border-color: @color-main-actived;
     text-shadow: none;
-    color:#EEF2F5;
+    color: #EEF2F5;
 }

@@ -1,50 +1,19 @@
 ﻿$(function () {
-    function reCheckToggleContainer() {
-        var container = $("#container");
-        var isfluid = false;
-        if (container.children(".row.active").size() > 0) {
-            isfluid = !container.children(".row.active").hasClass("container");
-        } else {
-            isfluid = !container.hasClass("container");
-        }
-        if (isfluid) {
-            $("input[type=radio][name=toggle-container][value=container-fluid]").prop("checked", true);
-        } else {
-            $("input[type=radio][name=toggle-container][value=container]").prop("checked", true);
-        }
+    var container = $("#containers");
+    if (container.children().size() > 0 && container.children(".container").size() == 0 && container.children(".container-fluid").size() == 0) {
+        var containerItem = $('<div class="container"></div>');
+        container.children().appendTo(containerItem);
+        container.append(containerItem);
     }
-
-    reCheckToggleContainer();
-    $(document).on("click", "input[type=radio][name=toggle-container]", function () {
-        var container = $("#container");
-        if (container.children(".row.active").size() > 0) {
-            if ($(this).val() === "container-fluid") {
-                container.children(".row.active").removeClass("container");
-            } else {
-                container.children(".row.active").addClass($(this).val());
-            }
-        } else {
-            container.children(".row").removeClass("container");
-            container.removeClass("container").removeClass("container-fluid").addClass($(this).val());
-            $("#ContainerClass").val($(this).val());
-        }
-    });
-
-    $(document).on("click", "#container>.row", function () {
-        var container = $("#container");
-        container.children(".row.active").not(this).removeClass("active");
-        if (container.hasClass("container-fluid")) {
-            $(this).toggleClass("active");
-        }
-        reCheckToggleContainer();
-    });
+    var containerTools = '<i class="tools glyphicon glyphicon-resize-horizontal"></i><i class="tools glyphicon glyphicon-resize-small"></i><i class="tools glyphicon glyphicon-sort"></i><i class="tools glyphicon glyphicon-remove-circle"></i>';
+    var tools = '<i class="tools glyphicon glyphicon-remove-circle"></i>';
     $(document).on("blur", ".zone input", function () {
         $(this).attr("value", $(this).val());
     });
     function getNewZone() {
         var zoneParent = $('<div class="additional zone"></div>');
         var zone = $("<zone></zone>");
-        zone.append('<input class="form-control" type="text" name="ZoneName" placeholder="输入名称" value="内容 ' + ($("#container input[type=text]").size() + 1) + '" />');
+        zone.append('<input class="form-control" type="text" name="ZoneName" placeholder="输入名称" value="内容 ' + ($("#containers input[type=text]").size() + 1) + '" />');
         zone.append('<input class="form-control" type="hidden" name="LayoutId" value="' + $("#LayoutId").val() + '" />');
         zone.append('<input class="form-control" type="hidden" name="ID" value="" />');
         zoneParent.append(zone);
@@ -55,19 +24,11 @@
         $(this).parent().parent().find(".active").removeClass("active");
         $(this).parent().addClass("active");
     });
-
-    $(".AddRow").draggable({ helper: "clone", revert: "invalid", connectToSortable: "#container" });
+    $(".AddContainer").draggable({ helper: "clone" });
+    $(".AddRow").draggable({ helper: "clone", revert: "invalid", connectToSortable: ".container,.container-fluid" });
     $(".AddCol").draggable({ helper: "clone", connectToSortable: ".additional.row" });
-    $(".templates ul li").draggable({ helper: "clone", connectToSortable: "#container" });
+    $(".templates ul li").draggable({ helper: "clone", connectToSortable: "#containers>div" });
 
-    $("#toolBar").droppable({
-        activeClass: "dropWarning",
-        hoverClass: "dropDanger",
-        accept: ".additional",
-        drop: function (event, ui) {
-            ui.draggable.remove();
-        }
-    });
     var colSortOption = {
         placeholder: "additional",
         tolerance: "pointer",
@@ -81,17 +42,19 @@
         },
         stop: function (event, ui) {
             if (ui.item.hasClass("AddCol")) {
-                var col = $('<div class="additional ' + ui.item.data("col") + ui.item.data("val") + ' ui-sortable-handle"><div class="colContent row"></div></div>');
+                var col = $('<div class="additional ' + ui.item.data("col") + ui.item.data("val") + ' ui-sortable-handle">' + tools + '<div class="colContent row"></div></div>');
                 col.find(".colContent").append(getNewZone());
                 ui.item.replaceWith(col);
             }
         }
     };
-    $("#container").sortable({
+    var rowSortOption = {
         placeholder: "additional row muted",
         tolerance: "pointer",
+        connectWith: ".container",
+        items: ".additional.row",
         stop: function (event, ui) {
-            var row = $('<div class="additional row"></div>');
+            var row = $('<div class="additional row">' + tools + '</div>');
             if (ui.item.hasClass("AddRow")) {
                 ui.item.replaceWith(row);
             } else if (ui.item.data("add")) {
@@ -100,13 +63,53 @@
                 ui.item.replaceWith(row);
                 cols.each(function () {
                     $(this).addClass("additional");
-                    $(this).html($("<div class=\"colContent row\"></div>").append(getNewZone()));
+                    $(this).append(tools);
+                    $(this).append($('<div class="colContent row"></div>').append(getNewZone()));
                 });
             }
             row.sortable(colSortOption);
         }
+    };
+
+    $("#containers").sortable({
+        placeholder: "design",
+        axis: 'y',
+        tolerance: "pointer",
+        start: function (event, ui) {
+            if (ui.helper.hasClass("container")) {
+                ui.placeholder.addClass("container");
+                ui.helper.css("left", ui.placeholder.offset().left);
+            }
+            else {
+                ui.placeholder.addClass("container-fluid");
+            }
+        },
+        handle: ".glyphicon-sort"
     });
-    $(".additional.row").sortable(colSortOption);
+
+    $("#containers>div").sortable(rowSortOption).append(containerTools).addClass("design main");
+    $(".additional.row").sortable(colSortOption).append(tools).children(".additional").append(tools);
+
+    $("body").droppable({
+        greedy: true,
+        accept: ".AddContainer",
+        hoverClass: "dropWarning",
+        drop: function (event, ui) {
+            var container = $('<div class="container design main">' + containerTools + '</div>');
+            container.sortable(rowSortOption);
+            $(".additional.row", container).sortable(colSortOption);
+            $("#containers").append(container);
+        }
+    });
+    $(document).on("click", ".container.design .glyphicon-resize-horizontal", function () {
+        $(this).closest(".container").removeClass("container").addClass("container-fluid");
+    });
+    $(document).on("click", ".container-fluid.design .glyphicon-resize-small", function () {
+        $(this).closest(".container-fluid").removeClass("container-fluid").addClass("container");
+    });
+    $(document).on("click", "#containers .glyphicon-remove-circle", function () {
+        $(this).parent().remove();
+    });
 
     $(document).on("click", "#save", function () {
         $('input[name="ZoneName"]').each(function () {
@@ -118,14 +121,17 @@
             return;
         }
         $(this).data("done", true);
-        $("#container div")
+        $("#containers div")
             .removeClass("ui-droppable")
             .removeClass("ui-sortable")
             .removeClass("ui-sortable-handle")
             .removeClass("active")
+            .removeClass("design")
             .removeAttr("style");
 
-        var html = $.trim($("#container").html());
+        $("#containers .tools").remove();
+
+        var html = $.trim($("#containers").html());
         var htmlArray = html.split("<zone>");
         var form = $("#LayoutInfo");
         var zoneArray = [];

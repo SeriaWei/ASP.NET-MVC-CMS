@@ -42,35 +42,20 @@
                         <a class="navbar-brand"><span class="badge">布局设计</span></a>
                     </div>
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                        <ul class="nav navbar-nav">
-                            <li>
-                                <a>
-                                    <label class="radio-inline">
-                                        <input type="radio" class="helper" name="toggle-container" value="container" />
-                                        <span>居中</span>
-                                    </label>
-                                </a>
-                            </li>
-                            <li>
-                                <a>
-                                    <label class="radio-inline">
-                                        <input type="radio" class="helper" name="toggle-container" value="container-fluid" />
-                                        <span>拉伸</span>
-                                    </label>
-                                </a>
-                            </li>
-                        </ul>
-
                         <div class="navbar-form navbar-left">
-
-                            <label class="AddRow btn btn-primary" data-container="container-fluid">
+                            <label class="AddContainer btn btn-default" data-container="container-fluid">
                                 <span class="badge">1</span>
+                                <i class="glyphicon glyphicon-unchecked"></i>
+                                容器
+                            </label>
+                            <label class="AddRow btn btn-primary" data-container="container-fluid">
+                                <span class="badge">2</span>
                                 <i class="glyphicon glyphicon-align-justify"></i>
                                 行
                             </label>
                             <div class="btn-group">
                                 <label id="add-col-handle" class="AddCol btn btn-success" data-col="col-md-" data-val="6">
-                                    <span class="badge">2</span>
+                                    <span class="badge">3</span>
                                     <i class="glyphicon glyphicon-tasks"></i>
                                     列 <span class="col-size-info">宽 6/12</span>
                                 </label>
@@ -106,10 +91,10 @@
                                 </a>
                                 @if (Model.Page != null)
                                 {
-                                <a class="btn btn-primary" href="@Url.Action("Design", "Page", new { module = "admin", ID = Model.Page.ID })">
-                                    <i class="glyphicon glyphicon-wrench"></i>
-                                    页面设计
-                                </a>
+                                    <a class="btn btn-primary" href="@Url.Action("Design", "Page", new { module = "admin", ID = Model.Page.ID })">
+                                        <i class="glyphicon glyphicon-wrench"></i>
+                                        页面设计
+                                    </a>
                                 }
                                 <a href="@Url.Action("Edit", "Layout", new { ID = Model.ID, module = "admin" })" class="btn btn-primary">
                                     <i class="glyphicon glyphicon-edit"></i>
@@ -125,20 +110,18 @@
                             <input type="hidden" id="LayoutId" name="ID" value="@Model.ID" />
                             @if (Model.Page != null)
                             {
-                            <input type="hidden" name="Page.ID" value="@Model.Page.ID" />
+                                <input type="hidden" name="Page.ID" value="@Model.Page.ID" />
                             }
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="deleteBar">
-                <i class="glyphicon glyphicon-trash"></i>
-            </div>
         </nav>
     }
-    <div id="container" class="@(Model.ContainerClass) RowDroppable design">
+    <div id="containers">
         @RenderBody()
     </div>
+
     @Html.Partial("Layout/Templates")
     @if (!Model.Style.IsNullOrEmpty())
     {
@@ -201,7 +184,7 @@
                     </h3>
                     <ol>
                         <li>
-                            <p><code>拖放操作步骤：</code>1.行 -> 容器，2.列 -> 行</p>
+                            <p><code>拖放操作步骤：</code>1.容器，2.行 -> 容器，3.列 -> 行</p>
                         </li>
                         <li>
                             <p>行，直接加入到主容器中。</p>

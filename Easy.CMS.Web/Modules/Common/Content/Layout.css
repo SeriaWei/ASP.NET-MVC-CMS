@@ -110,7 +110,7 @@ input.helper:checked + span {
     border: 1px solid #FFF;
     text-align: center;
     border-radius: 0;
-    height: 95px;
+    height: 90px;
     font-size: 16px;
     color: #337ab7;
     padding: 33px 5px;
@@ -136,19 +136,96 @@ label.additional {
     max-width: none;
 }
 
-#container.design,
-#container.pagePreview {
+#containers {
     margin-top: 80px;
-}
-
-#container.design,
-#container.design-border {
-    border: 1px dashed #CCC;
     min-height: 500px;
 }
 
+.container-fluid.design,
+.container.design {
+    border: 1px dotted #ddd;
+    min-height: 166px;
+    display: block;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+    .container-fluid.design .additional,
+    .container.design .additional {
+        position: relative;
+    }
+
+        .container-fluid.design .additional.zone,
+        .container.design .additional.zone {
+            position: static;
+        }
+
+    .container-fluid.design .tools.glyphicon,
+    .container.design .tools.glyphicon {
+        position: absolute;
+        top: -20px;
+        font-size: 16px;
+        color: #969696;
+    }
+
+        .container-fluid.design .tools.glyphicon:hover,
+        .container.design .tools.glyphicon:hover {
+            color: #d9534f;
+        }
+
+    .container-fluid.design .additional .tools.glyphicon,
+    .container.design .additional .tools.glyphicon {
+        top: auto;
+        bottom: 15px;
+    }
+
+    .container-fluid.design .additional.row > .tools.glyphicon,
+    .container.design .additional.row > .tools.glyphicon {
+        bottom: 3px;
+    }
+
+    .container-fluid.design .additional.row > .glyphicon-remove-circle,
+    .container.design .additional.row > .glyphicon-remove-circle {
+        left: 3px;
+    }
+
+    .container.design .glyphicon-resize-small {
+        display: none;
+    }
+
+    .container-fluid.design .glyphicon-resize-horizontal {
+        display: none;
+    }
+
+    .container-fluid.design .glyphicon-resize-small,
+    .container-fluid.design .glyphicon-resize-horizontal,
+    .container.design .glyphicon-resize-small,
+    .container.design .glyphicon-resize-horizontal {
+        left: 0;
+        cursor: pointer;
+    }
+
+    .container-fluid.design .glyphicon-sort,
+    .container.design .glyphicon-sort {
+        left: 25px;
+        cursor: s-resize;
+    }
+
+    .container-fluid.design .glyphicon-remove-circle,
+    .container.design .glyphicon-remove-circle {
+        left: 50px;
+        cursor: pointer;
+    }
+
+    .container-fluid.design .additional .glyphicon-remove-circle,
+    .container.design .additional .glyphicon-remove-circle {
+        left: 15px;
+    }
+
+
 .design .colContent {
-    min-height: 105px;
+    min-height: 100px;
     margin-top: 1px;
     margin-bottom: 1px;
     background-color: white;
@@ -267,34 +344,12 @@ label.additional {
     font-size: 12px;
 }
 
-.deleteBar {
-    top: 0;
-    left: 0;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    color: red;
-    font-size: 28px;
-    line-height: 55px;
-    text-align: center;
-    background-color: #46b8da;
-    border: 1px solid #fff;
-    z-index: 10;
-    display: none;
-}
+
 
 #toolBar {
     border-radius: 0;
 }
 
-    #toolBar.dropWarning > .deleteBar {
-        display: block;
-    }
-
-    #toolBar.dropWarning.dropDanger > .deleteBar {
-        background-color: #d9534f;
-        color: white;
-    }
 
 .AddCol.ui-draggable-dragging > select {
     display: none;
@@ -307,12 +362,6 @@ label.additional {
     background-repeat: repeat-x;
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff428bca', endColorstr='#ff357ebd', GradientType=0);
     background-color: #357ebd;
-}
-
-
-#container.design .row.container {
-    margin: 10px auto;
-    padding: 10px;
 }
 
 .templates {
