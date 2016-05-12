@@ -79,7 +79,7 @@ input.helper:checked + span {
     margin: 10px -5px;
     cursor: move;
     list-style: none;
-    padding: 10px;
+    padding: 15px;
 }
 
     .design .colContent.row.muted,
@@ -97,7 +97,6 @@ input.helper:checked + span {
 
 .design-border .zone {
     border: 1px dotted #ec971f;
-    background-color: white;
     margin: 1px;
     min-height: 135px;
 }
@@ -110,7 +109,7 @@ input.helper:checked + span {
     border: 1px solid #FFF;
     text-align: center;
     border-radius: 0;
-    height: 90px;
+    height: 80px;
     font-size: 16px;
     color: #337ab7;
     padding: 33px 5px;
@@ -182,12 +181,13 @@ label.additional {
 
     .container-fluid.design .additional.row > .tools.glyphicon,
     .container.design .additional.row > .tools.glyphicon {
-        bottom: 3px;
+        top: 3px;
+        bottom:auto;
     }
 
     .container-fluid.design .additional.row > .glyphicon-remove-circle,
     .container.design .additional.row > .glyphicon-remove-circle {
-        left: 3px;
+        right: 3px;
     }
 
     .container.design .glyphicon-resize-small {
@@ -198,6 +198,13 @@ label.additional {
         display: none;
     }
 
+    .container-fluid.design .glyphicon-resize-small {
+        -moz-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        -o-transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
     .container-fluid.design .glyphicon-resize-small,
     .container-fluid.design .glyphicon-resize-horizontal,
     .container.design .glyphicon-resize-small,
@@ -220,22 +227,20 @@ label.additional {
 
     .container-fluid.design .additional .glyphicon-remove-circle,
     .container.design .additional .glyphicon-remove-circle {
-        left: 15px;
+        right: 15px;
+        left: auto;
     }
 
 
-.design .colContent {
-    min-height: 100px;
-    margin-top: 1px;
-    margin-bottom: 1px;
-    background-color: white;
-}
+
 
 
 .design .colContent {
     cursor: move;
     border: 1px dashed #5cb85c;
     margin: 10px -5px;
+    min-height:90px;
+    background-color:#fff;
 }
 
 .pagePreview {

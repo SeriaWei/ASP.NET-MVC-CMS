@@ -51,7 +51,7 @@
     var rowSortOption = {
         placeholder: "additional row muted",
         tolerance: "pointer",
-        connectWith: ".container",
+        connectWith: ".container,.container-fluid",
         items: ".additional.row",
         stop: function (event, ui) {
             var row = $('<div class="additional row">' + tools + '</div>');
@@ -111,6 +111,14 @@
         $(this).parent().remove();
     });
 
+    if ($(window).width() > 1600) {
+        $(".templates").addClass("active");
+    }
+    $(document).on("click", ".templates .tool-open", function () {
+        $(this).parent().toggleClass("active");
+    });
+    container.removeClass("hide");
+
     $(document).on("click", "#save", function () {
         $('input[name="ZoneName"]').each(function () {
             if (!$.trim($(this).val())) {
@@ -121,17 +129,20 @@
             return;
         }
         $(this).data("done", true);
-        $("#containers div")
-            .removeClass("ui-droppable")
-            .removeClass("ui-sortable")
-            .removeClass("ui-sortable-handle")
-            .removeClass("active")
-            .removeClass("design")
-            .removeAttr("style");
 
-        $("#containers .tools").remove();
+        var copyContainer = $('<div id="containers"/>').append(container.html());
 
-        var html = $.trim($("#containers").html());
+        $("div", copyContainer)
+                    .removeClass("ui-droppable")
+                    .removeClass("ui-sortable")
+                    .removeClass("ui-sortable-handle")
+                    .removeClass("active")
+                    .removeClass("design")
+                    .removeAttr("style");
+
+        $(".tools", copyContainer).remove();
+
+        var html = copyContainer.html();
         var htmlArray = html.split("<zone>");
         var form = $("#LayoutInfo");
         var zoneArray = [];
@@ -157,11 +168,5 @@
         }
         form.submit();
         return false;
-    });
-    if ($(window).width() > 1600) {
-        $(".templates").addClass("active");
-    }
-    $(document).on("click", ".templates .tool-open", function () {
-        $(this).parent().toggleClass("active");
     });
 });
