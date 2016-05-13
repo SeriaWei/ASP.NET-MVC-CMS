@@ -6,19 +6,30 @@
         container.append(containerItem);
     }
     var containerTools = [
-        '<i class="tools glyphicon glyphicon-resize-horizontal"></i>',
-        '<i class="tools glyphicon glyphicon-resize-small"></i>',
-        '<i class="tools glyphicon glyphicon-sort"></i>',
-        '<i class="tools glyphicon glyphicon-remove-circle"></i>'
+        '<div class="tools">',
+        '<i class="glyphicon glyphicon-resize-horizontal" title="拉伸"></i>',
+        '<i class="glyphicon glyphicon-resize-small" title="居中"></i>',
+        '<i class="glyphicon glyphicon-sort" title="拖动排序"></i>',
+        '<i class="glyphicon glyphicon-remove-circle" title="删除"></i>',
+        '</div>'
     ].join('');
-    var tools = ['<i class="tools glyphicon glyphicon-remove-circle"></i>'].join('');
+    var rowTools = [
+        '<div class="tools">',
+        '<i class="glyphicon glyphicon-remove-circle" title="删除"></i>',
+        '</div>'].join('');
+    var colTools = [
+        '<div class="tools">',
+        '<i class="glyphicon glyphicon-menu-left" title="减小宽度 -1"></i>',
+        '<i class="glyphicon glyphicon glyphicon-menu-right" title="增加宽度 +1"></i>',
+        '<i class="glyphicon glyphicon-remove-circle" title="删除"></i>',
+        '</div>'].join('');
     $(document).on("blur", ".zone input", function () {
         $(this).attr("value", $(this).val());
     });
     function getNewZone() {
         var zoneParent = $('<div class="additional zone"></div>');
         var zone = $("<zone></zone>");
-        zone.append('<input class="form-control" type="text" name="ZoneName" placeholder="输入名称" value="内容 ' + ($("#containers input[type=text]").size() + 1) + '" />');
+        zone.append('<input class="form-control" type="text" name="ZoneName" placeholder="输入名称" value="区域 ' + ($("#containers input[type=text]").size() + 1) + '" />');
         zone.append('<input class="form-control" type="hidden" name="LayoutId" value="' + $("#LayoutId").val() + '" />');
         zone.append('<input class="form-control" type="hidden" name="ID" value="" />');
         zoneParent.append(zone);
@@ -47,7 +58,7 @@
         },
         stop: function (event, ui) {
             if (ui.item.hasClass("AddCol")) {
-                var col = $('<div class="additional ' + ui.item.data("col") + ui.item.data("val") + ' ui-sortable-handle">' + tools + '<div class="colContent row"></div></div>');
+                var col = $('<div class="additional ' + ui.item.data("col") + ui.item.data("val") + ' ui-sortable-handle">' + colTools + '<div class="colContent row"></div></div>');
                 col.find(".colContent").append(getNewZone());
                 ui.item.replaceWith(col);
             }
@@ -59,7 +70,7 @@
         connectWith: ".container,.container-fluid",
         items: ".additional.row",
         stop: function (event, ui) {
-            var row = $('<div class="additional row">' + tools + '</div>');
+            var row = $('<div class="additional row">' + rowTools + '</div>');
             if (ui.item.hasClass("AddRow")) {
                 ui.item.replaceWith(row);
             } else if (ui.item.data("add")) {
@@ -68,7 +79,7 @@
                 ui.item.replaceWith(row);
                 cols.each(function () {
                     $(this).addClass("additional");
-                    $(this).append(tools);
+                    $(this).append(colTools);
                     $(this).append($('<div class="colContent row"></div>').append(getNewZone()));
                 });
             }
@@ -93,8 +104,7 @@
     });
 
     $("#containers>div").sortable(rowSortOption).append(containerTools).addClass("design main");
-    $(".additional.row").sortable(colSortOption).append(tools).children(".additional").append(tools);
-
+    $(".additional.row").sortable(colSortOption).append(rowTools).children(".additional").append(colTools);
     $("body").droppable({
         greedy: true,
         accept: ".AddContainer",
@@ -113,10 +123,32 @@
         $(this).closest(".container-fluid").removeClass("container-fluid").addClass("container");
     });
     $(document).on("click", "#containers .glyphicon-remove-circle", function () {
-        var target = $(this).parent();
+        var target = $(this).parent().parent();
         Easy.ShowMessageBox("提示", "确定要删除吗？", function () {
             target.remove();
         }, true, 10);
+    });
+    $(document).on("click", "#containers .glyphicon-menu-left", function () {
+        var cls = $(this).parent().parent().attr("class");
+        cls = cls.replace(/col-md-(\d+)/g, function (a, v) {
+            v = parseInt(v);
+            if (v > 1) {
+                v--;
+            }
+            return 'col-md-' + v;
+        });
+        $(this).parent().parent().attr("class", cls);
+    });
+    $(document).on("click", "#containers .glyphicon-menu-right", function () {
+        var cls = $(this).parent().parent().attr("class");
+        cls = cls.replace(/col-md-(\d+)/g, function (a, v) {
+            v = parseInt(v);
+            if (v < 12) {
+                v++;
+            }
+            return 'col-md-' + v;
+        });
+        $(this).parent().parent().attr("class", cls);
     });
 
     if ($(window).width() > 1600) {

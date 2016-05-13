@@ -111,7 +111,7 @@ input.helper:checked + span {
     border-radius: 0;
     height: 80px;
     font-size: 16px;
-    color: #337ab7;
+    color: red;
     padding: 33px 5px;
 }
 
@@ -160,34 +160,43 @@ label.additional {
             position: static;
         }
 
-    .container-fluid.design .tools.glyphicon,
-    .container.design .tools.glyphicon {
+    .container-fluid.design .tools,
+    .container.design .tools {
         position: absolute;
-        top: -20px;
+        top: -25px;
         font-size: 16px;
         color: #969696;
+        left:0;
     }
 
-        .container-fluid.design .tools.glyphicon:hover,
-        .container.design .tools.glyphicon:hover {
+        .container-fluid.design .tools > .glyphicon,
+        .container.design .tools > .glyphicon {
+            padding: 4px;
+            cursor:pointer;
+        }
+         .container-fluid.design .tools > .glyphicon.glyphicon-sort,
+        .container.design .tools > .glyphicon.glyphicon-sort{
+             cursor:s-resize;
+         }
+        .container-fluid.design .tools>.glyphicon:hover,
+        .container.design .tools>.glyphicon:hover {
             color: #d9534f;
         }
 
-    .container-fluid.design .additional .tools.glyphicon,
-    .container.design .additional .tools.glyphicon {
+    .container-fluid.design .additional .tools,
+    .container.design .additional .tools {
+        color:#5cb85c;
+        left:auto;
+        right: 12px;
+        bottom: 12px;
         top: auto;
-        bottom: 15px;
     }
 
-    .container-fluid.design .additional.row > .tools.glyphicon,
-    .container.design .additional.row > .tools.glyphicon {
-        top: 3px;
-        bottom:auto;
-    }
-
-    .container-fluid.design .additional.row > .glyphicon-remove-circle,
-    .container.design .additional.row > .glyphicon-remove-circle {
-        right: 3px;
+    .container-fluid.design .additional.row > .tools,
+    .container.design .additional.row > .tools {
+        color:#337ab7;
+        right: 0;
+        top: 0;
     }
 
     .container.design .glyphicon-resize-small {
@@ -205,31 +214,14 @@ label.additional {
         -webkit-transform: rotate(45deg);
         transform: rotate(45deg);
     }
+
     .container-fluid.design .glyphicon-resize-small,
     .container-fluid.design .glyphicon-resize-horizontal,
     .container.design .glyphicon-resize-small,
     .container.design .glyphicon-resize-horizontal {
-        left: 0;
         cursor: pointer;
     }
 
-    .container-fluid.design .glyphicon-sort,
-    .container.design .glyphicon-sort {
-        left: 25px;
-        cursor: s-resize;
-    }
-
-    .container-fluid.design .glyphicon-remove-circle,
-    .container.design .glyphicon-remove-circle {
-        left: 50px;
-        cursor: pointer;
-    }
-
-    .container-fluid.design .additional .glyphicon-remove-circle,
-    .container.design .additional .glyphicon-remove-circle {
-        right: 15px;
-        left: auto;
-    }
 
 
 
@@ -239,8 +231,8 @@ label.additional {
     cursor: move;
     border: 1px dashed #5cb85c;
     margin: 10px -5px;
-    min-height:90px;
-    background-color:#fff;
+    min-height: 90px;
+    background-color: #fff;
 }
 
 .pagePreview {
