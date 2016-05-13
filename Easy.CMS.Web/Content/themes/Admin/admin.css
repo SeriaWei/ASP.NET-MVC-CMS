@@ -314,7 +314,9 @@ a.badge:hover {
         right: 0;
         top: 0;
     }
-
+        .simplePreview .simpleDesign > .container {
+            width: auto;
+        }
 
 .description {
     font-size: 13px;

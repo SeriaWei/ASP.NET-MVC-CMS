@@ -912,12 +912,6 @@
     <Content Include="Scripts\zTree\js\jquery.ztree.exedit-3.5.min.js" />
     <Content Include="Scripts\zTree\js\jquery.ztree.exhide-3.5.js" />
     <Content Include="Scripts\zTree\js\jquery.ztree.exhide-3.5.min.js" />
-    <Content Include="Themes\Default\css\Pagination.css">
-      <DependentUpon>Pagination.less</DependentUpon>
-    </Content>
-    <Content Include="Themes\Default\css\Pagination.min.css">
-      <DependentUpon>Pagination.css</DependentUpon>
-    </Content>
     <Content Include="Themes\Default\css\Article.css">
       <DependentUpon>Article.less</DependentUpon>
     </Content>
@@ -948,6 +942,12 @@
     <Content Include="Themes\Default\css\Navigation.min.css">
       <DependentUpon>Navigation.css</DependentUpon>
     </Content>
+    <Content Include="Themes\Default\css\Pagination.css">
+      <DependentUpon>Pagination.less</DependentUpon>
+    </Content>
+    <Content Include="Themes\Default\css\Pagination.min.css">
+      <DependentUpon>Pagination.css</DependentUpon>
+    </Content>
     <Content Include="Themes\Default\css\Product.css">
       <DependentUpon>Product.less</DependentUpon>
     </Content>
@@ -966,11 +966,11 @@
     <Content Include="Themes\Default\css\Theme.min.css">
       <DependentUpon>Theme.css</DependentUpon>
     </Content>
-    <Content Include="Themes\Default\css\widget.css">
+    <Content Include="Themes\Default\css\Widget.css">
       <DependentUpon>Widget.less</DependentUpon>
     </Content>
-    <Content Include="Themes\Default\css\widget.min.css">
-      <DependentUpon>widget.css</DependentUpon>
+    <Content Include="Themes\Default\css\Widget.min.css">
+      <DependentUpon>Widget.css</DependentUpon>
     </Content>
     <Content Include="Themes\Default\images\bg.gif" />
     <Content Include="Themes\Default\images\col_side_bg.png" />
@@ -1055,44 +1055,20 @@
     <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce.ttf" />
     <Content Include="Scripts\tinymce\skins\lightgray\fonts\tinymce.woff" />
     <Content Include="Themes\Default\css\Base.less" />
-    <Content Include="Themes\Default\css\Base.css.map">
-      <DependentUpon>Base.css</DependentUpon>
-    </Content>
     <Content Include="Themes\Default\css\Theme.less" />
     <Content Include="Themes\Default\css\Theme.css.map">
       <DependentUpon>Theme.css</DependentUpon>
     </Content>
     <Content Include="Themes\Default\css\Library.less" />
-    <Content Include="Themes\Default\css\Library.css.map">
-      <DependentUpon>Library.css</DependentUpon>
-    </Content>
     <Content Include="Themes\Default\css\Article.less" />
-    <Content Include="Themes\Default\css\Article.css.map">
-      <DependentUpon>Article.css</DependentUpon>
-    </Content>
     <Content Include="Themes\Default\css\Carousel.less" />
-    <Content Include="Themes\Default\css\Carousel.css.map">
-      <DependentUpon>Carousel.css</DependentUpon>
-    </Content>
     <Content Include="Views\Shared\Partial_Pagination.cshtml" />
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Views\Shared\_PopUpLayout.cshtml" />
     <Content Include="Themes\Default\css\Product.less" />
-    <Content Include="Themes\Default\css\Product.css.map">
-      <DependentUpon>Product.css</DependentUpon>
-    </Content>
     <Content Include="Themes\Default\css\Navigation.less" />
-    <Content Include="Themes\Default\css\Navigation.css.map">
-      <DependentUpon>Navigation.css</DependentUpon>
-    </Content>
     <Content Include="Themes\Default\css\Widget.less" />
-    <Content Include="Themes\Default\css\widget.css.map">
-      <DependentUpon>widget.css</DependentUpon>
-    </Content>
     <Content Include="Themes\Default\css\Section.less" />
-    <Content Include="Themes\Default\css\Section.css.map">
-      <DependentUpon>Section.css</DependentUpon>
-    </Content>
     <Content Include="Views\Shared\DisplayTemplates\SiteMapTitleHelperModel.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\SiteMapPathHelperModel.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\SiteMapNodeModelList.cshtml" />
@@ -1116,8 +1092,32 @@
     <Content Include="Views\Shared\EditorTemplates\Decimal.cshtml" />
     <Content Include="Views\Shared\Widget.Error.cshtml" />
     <Content Include="Themes\Default\css\Pagination.less" />
+    <Content Include="Themes\Default\css\Article.css.map">
+      <DependentUpon>Article.css</DependentUpon>
+    </Content>
+    <Content Include="Themes\Default\css\Base.css.map">
+      <DependentUpon>Base.css</DependentUpon>
+    </Content>
+    <Content Include="Themes\Default\css\Carousel.css.map">
+      <DependentUpon>Carousel.css</DependentUpon>
+    </Content>
+    <Content Include="Themes\Default\css\Library.css.map">
+      <DependentUpon>Library.css</DependentUpon>
+    </Content>
+    <Content Include="Themes\Default\css\Navigation.css.map">
+      <DependentUpon>Navigation.css</DependentUpon>
+    </Content>
     <Content Include="Themes\Default\css\Pagination.css.map">
       <DependentUpon>Pagination.css</DependentUpon>
+    </Content>
+    <Content Include="Themes\Default\css\Product.css.map">
+      <DependentUpon>Product.css</DependentUpon>
+    </Content>
+    <Content Include="Themes\Default\css\Section.css.map">
+      <DependentUpon>Section.css</DependentUpon>
+    </Content>
+    <Content Include="Themes\Default\css\Widget.css.map">
+      <DependentUpon>Widget.css</DependentUpon>
     </Content>
   </ItemGroup>
   <ItemGroup>

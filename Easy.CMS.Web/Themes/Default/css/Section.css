@@ -3,8 +3,8 @@
 }
 .section > h4 {
   padding: 0 5px 5px;
-  color: #31B0D5;
-  border-bottom: 2px solid #31B0D5;
+  color: #31b0d5;
+  border-bottom: 2px solid #31b0d5;
   text-align: left;
 }
 .section table tr {
@@ -48,3 +48,4 @@
   margin: 10px auto;
   display: block;
 }
+/*# sourceMappingURL=Section.css.map */
