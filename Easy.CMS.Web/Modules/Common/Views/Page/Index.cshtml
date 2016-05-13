@@ -143,7 +143,7 @@
         }
         $(document).on("click", ".fullRowList .delete", function () {
             var id = $(this).data("widgetid");
-            Easy.ShowMessageBox("提示", "确定要删除该模板吗？", function () {
+            Easy.ShowMessageBox("提示", "确定要删除该组件吗？", function () {
                 $.post("@Url.Action("DeleteWidget", "Widget", new { module = "admin" })", { ID: id }, function (data) {
                     if (data) {
                         $("#widget_" + id).remove();

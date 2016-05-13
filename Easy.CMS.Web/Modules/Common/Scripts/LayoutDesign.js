@@ -1,12 +1,17 @@
 ﻿$(function () {
     var container = $("#containers");
-    if (container.children().size() > 0 && container.children(".container").size() == 0 && container.children(".container-fluid").size() == 0) {
+    if (container.children().size() > 0 && container.children(".container").size() === 0 && container.children(".container-fluid").size() === 0) {
         var containerItem = $('<div class="container"></div>');
         container.children().appendTo(containerItem);
         container.append(containerItem);
     }
-    var containerTools = '<i class="tools glyphicon glyphicon-resize-horizontal"></i><i class="tools glyphicon glyphicon-resize-small"></i><i class="tools glyphicon glyphicon-sort"></i><i class="tools glyphicon glyphicon-remove-circle"></i>';
-    var tools = '<i class="tools glyphicon glyphicon-remove-circle"></i>';
+    var containerTools = [
+        '<i class="tools glyphicon glyphicon-resize-horizontal"></i>',
+        '<i class="tools glyphicon glyphicon-resize-small"></i>',
+        '<i class="tools glyphicon glyphicon-sort"></i>',
+        '<i class="tools glyphicon glyphicon-remove-circle"></i>'
+    ].join('');
+    var tools = ['<i class="tools glyphicon glyphicon-remove-circle"></i>'].join('');
     $(document).on("blur", ".zone input", function () {
         $(this).attr("value", $(this).val());
     });
@@ -95,10 +100,10 @@
         accept: ".AddContainer",
         hoverClass: "dropWarning",
         drop: function (event, ui) {
-            var container = $('<div class="container design main">' + containerTools + '</div>');
-            container.sortable(rowSortOption);
-            $(".additional.row", container).sortable(colSortOption);
-            $("#containers").append(container);
+            var newCon = $('<div class="container design main">' + containerTools + '</div>');
+            newCon.sortable(rowSortOption);
+            $(".additional.row", newCon).sortable(colSortOption);
+            $("#containers").append(newCon);
         }
     });
     $(document).on("click", ".container.design .glyphicon-resize-horizontal", function () {
@@ -108,7 +113,10 @@
         $(this).closest(".container-fluid").removeClass("container-fluid").addClass("container");
     });
     $(document).on("click", "#containers .glyphicon-remove-circle", function () {
-        $(this).parent().remove();
+        var target = $(this).parent();
+        Easy.ShowMessageBox("提示", "确定要删除吗？", function () {
+            target.remove();
+        }, true, 10);
     });
 
     if ($(window).width() > 1600) {
