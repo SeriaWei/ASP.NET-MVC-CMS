@@ -31,7 +31,7 @@ Microsoft Sql Server 2005 以上
 ZKEACMS采用了现代的响应式设计，可以自动适配不同大小的屏幕和设备。从PC，笔记本，电视，平板到手机页面都会自动响应适应。
 
 ## 布局设计
-![布局设计](http://blog.zkea.net/wp-content/uploads/2016/03/layoutdesign.png)
+![布局设计](http://ww3.sinaimg.cn/large/005zTNGqgw1f3v8u05qhej31990mfn36.jpg)
 
 布局，用于对页面做区域划分，用户使用拖拉“行”，“列”的方式进行布局的设计。布局的划分，采用行，列的方式进行划分，可嵌套。
 

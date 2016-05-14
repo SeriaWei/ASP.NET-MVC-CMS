@@ -166,27 +166,29 @@ label.additional {
         top: -25px;
         font-size: 16px;
         color: #969696;
-        left:0;
+        left: 0;
     }
 
         .container-fluid.design .tools > .glyphicon,
         .container.design .tools > .glyphicon {
             padding: 4px;
-            cursor:pointer;
+            cursor: pointer;
         }
-         .container-fluid.design .tools > .glyphicon.glyphicon-sort,
-        .container.design .tools > .glyphicon.glyphicon-sort{
-             cursor:s-resize;
-         }
-        .container-fluid.design .tools>.glyphicon:hover,
-        .container.design .tools>.glyphicon:hover {
-            color: #d9534f;
-        }
+
+            .container-fluid.design .tools > .glyphicon.glyphicon-sort,
+            .container.design .tools > .glyphicon.glyphicon-sort {
+                cursor: s-resize;
+            }
+
+            .container-fluid.design .tools > .glyphicon:hover,
+            .container.design .tools > .glyphicon:hover {
+                color: #d9534f;
+            }
 
     .container-fluid.design .additional .tools,
     .container.design .additional .tools {
-        color:#5cb85c;
-        left:auto;
+        color: #5cb85c;
+        left: auto;
         right: 12px;
         bottom: 12px;
         top: auto;
@@ -194,7 +196,7 @@ label.additional {
 
     .container-fluid.design .additional.row > .tools,
     .container.design .additional.row > .tools {
-        color:#337ab7;
+        color: #337ab7;
         right: 0;
         top: 0;
     }
@@ -222,7 +224,60 @@ label.additional {
         cursor: pointer;
     }
 
+.design .additional.row > .additional::before {
+    color: #e0e0e0;
+    position: absolute;
+    left: 15px;
+    top: 10px;
+    font-size: 20px;
+    font-weight:bold;
+}
+.design .additional.row .col-md-12::before{    
+    content: "12";
+}
+.design .additional.row .col-md-11::before{    
+    content: "11";
+}
 
+.design .additional.row .col-md-10::before{    
+    content: "10";
+}
+
+.design .additional.row .col-md-9::before{    
+    content: "9";
+}
+
+.design .additional.row .col-md-8::before{    
+    content: "8";
+}
+
+.design .additional.row .col-md-7::before{    
+    content: "7";
+}
+
+.design .additional.row .col-md-6::before{    
+    content: "6";
+}
+
+.design .additional.row .col-md-5::before{    
+    content: "5";
+}
+
+.design .additional.row .col-md-4::before{    
+    content: "4";
+}
+
+.design .additional.row .col-md-3::before{    
+    content: "3";
+}
+
+.design .additional.row .col-md-2::before{    
+    content: "2";
+}
+
+.design .additional.row .col-md-1::before{    
+    content: "1";
+}
 
 
 
