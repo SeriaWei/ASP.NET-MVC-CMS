@@ -62,7 +62,7 @@ ZKEACMS 的模板组件可以更方便的进行扩展。直接更换显示模板
 
 ![分组](http://blog.zkea.net/wp-content/uploads/2016/04/sectiongroup.jpg)
 
-![显示模板](http://blog.zkea.net/wp-content/uploads/2016/04/template.jpg)
+![显示模板](http://ww1.sinaimg.cn/large/005zTNGqgw1f3v9bmica1j30rj0ej0v9.jpg)
 
 ## Theme/主题
 ZKEACMS 使用LESS，可以轻松的创建主题。
