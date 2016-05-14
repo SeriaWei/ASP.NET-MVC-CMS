@@ -60,4 +60,3 @@ INSERT [dbo].[SectionContent] ([ID], [SectionWidgetId], [SectionGroupId], [Secti
 INSERT [dbo].[SectionContent] ([ID], [SectionWidgetId], [SectionGroupId], [SectionContentType], [Order], [CreateBy], [CreatebyName], [CreateDate], [LastUpdateBy], [LastUpdateByName], [LastUpdateDate]) VALUES (149, N'957fdcf999c14edfbddcf060cd2dc798', 58, 1, 1, N'admin', N'ZKEASOFT', CAST(N'2016-03-27 15:21:40.573' AS DateTime), N'admin', N'ZKEASOFT', CAST(N'2016-03-27 15:21:40.573' AS DateTime))
 INSERT [dbo].[SectionContent] ([ID], [SectionWidgetId], [SectionGroupId], [SectionContentType], [Order], [CreateBy], [CreatebyName], [CreateDate], [LastUpdateBy], [LastUpdateByName], [LastUpdateDate]) VALUES (150, N'957fdcf999c14edfbddcf060cd2dc798', 58, 4, 2, N'admin', N'ZKEASOFT', CAST(N'2016-03-27 15:21:40.577' AS DateTime), N'admin', N'ZKEASOFT', CAST(N'2016-03-27 15:21:40.577' AS DateTime))
 SET IDENTITY_INSERT [dbo].[SectionContent] OFF
-GO

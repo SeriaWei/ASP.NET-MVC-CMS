@@ -24,7 +24,6 @@ INSERT [dbo].[HtmlWidget] ([ID], [HTML]) VALUES (N'56991d0ff59d4c1db27aff3a50fcb
 </div>
 <p>在这里输入简单的描述内容.........</p>')
 INSERT [dbo].[HtmlWidget] ([ID], [HTML]) VALUES (N'62ca3b6b6ea644b4a64501021b02f13b', N'<hr />')
-INSERT [dbo].[HtmlWidget] ([ID], [HTML]) VALUES (N'652df9c71c3649b79bf7dc25b444deee', N'<hr />')
 INSERT [dbo].[HtmlWidget] ([ID], [HTML]) VALUES (N'6e823603a6854772bf2c242e35ab99fb', N'<div id="footer">ZKEACMS是开源软件，提供免费下载学习使用
 <p>Copyright @&nbsp;2015 ZKEASOFT. All Rights Reserved | <a href="http://www.zkea.net/" target="_blank">www.zkea.net</a></p>
 </div>')
@@ -45,8 +44,8 @@ INSERT [dbo].[HtmlWidget] ([ID], [HTML]) VALUES (N'c090c0ec3b28478bbfb1e7166a6c5
 </div>
 <div class="pull-right"><a href="http://www.zkea.net/zkeacms/donate" target="_blank"><img style="height: 40px; margin: 20px 0 0 0;" src="/Images/donate.png" alt="" /></a></div>
 </div>')
+INSERT [dbo].[HtmlWidget] ([ID], [HTML]) VALUES (N'c8a4f741307f4bb190b30e28a03f6507', N'<hr />')
 INSERT [dbo].[HtmlWidget] ([ID], [HTML]) VALUES (N'cc908601eb5544b2a3855b84e99645bc', N'<div id="footer">ZKEACMS是开源软件，提供免费下载学习使用
 <p>Copyright @&nbsp;2015 ZKEASOFT. All Rights Reserved | <a href="http://www.zkea.net/" target="_blank">www.zkea.net</a></p>
 </div>')
 INSERT [dbo].[HtmlWidget] ([ID], [HTML]) VALUES (N'f6de0d62d3974ee2bf2ded3fbbc82c2b', N'<div class="space">&nbsp;</div>')
-GO

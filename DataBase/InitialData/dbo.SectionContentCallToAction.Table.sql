@@ -8,4 +8,3 @@ INSERT [dbo].[SectionContentCallToAction] ([ID], [SectionWidgetId], [InnerText],
 INSERT [dbo].[SectionContentCallToAction] ([ID], [SectionWidgetId], [InnerText], [Href]) VALUES (147, N'08a67d4a8d7e4e46aa9c191da1057dc8', N'ZKEASOFT', N'http://www.zkea.net')
 INSERT [dbo].[SectionContentCallToAction] ([ID], [SectionWidgetId], [InnerText], [Href]) VALUES (148, N'08a67d4a8d7e4e46aa9c191da1057dc8', N'开源中国', N'http://git.oschina.net/seriawei/ASP.NET-MVC-CMS')
 INSERT [dbo].[SectionContentCallToAction] ([ID], [SectionWidgetId], [InnerText], [Href]) VALUES (149, N'957fdcf999c14edfbddcf060cd2dc798', N'登录后台', N'~/admin')
-GO

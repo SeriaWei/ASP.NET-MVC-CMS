@@ -6,4 +6,3 @@ INSERT [dbo].[ArticleSummaryWidget] ([ID], [SubTitle], [Style], [DetailLink], [S
 <p>ZKEACMS是一个内容管理软件（网站），不仅只是管理内容，更是重新定义了布局、页面和组件，让用户可以自由规划页面的布局，页面和内容。</p>
 <p>ZKEACMS使用可视化编辑设计，所见即所得，可直接在页面上设计你要的页面。</p>
 <p>架设环境：.Net FrameWork 4.0，MVC 4</p>')
-GO

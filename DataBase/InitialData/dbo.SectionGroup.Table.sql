@@ -24,4 +24,3 @@ INSERT [dbo].[SectionGroup] ([ID], [GroupName], [SectionWidgetId], [PartialView]
 INSERT [dbo].[SectionGroup] ([ID], [GroupName], [SectionWidgetId], [PartialView], [Order], [CreateBy], [CreatebyName], [CreateDate], [LastUpdateBy], [LastUpdateByName], [LastUpdateDate], [PercentWidth]) VALUES (57, N'ื้1', N'08a67d4a8d7e4e46aa9c191da1057dc8', N'SectionTemplate.Default', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
 INSERT [dbo].[SectionGroup] ([ID], [GroupName], [SectionWidgetId], [PartialView], [Order], [CreateBy], [CreatebyName], [CreateDate], [LastUpdateBy], [LastUpdateByName], [LastUpdateDate], [PercentWidth]) VALUES (58, N'ื้1', N'957fdcf999c14edfbddcf060cd2dc798', N'SectionTemplate.Default', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
 SET IDENTITY_INSERT [dbo].[SectionGroup] OFF
-GO

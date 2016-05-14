@@ -1,7 +1,7 @@
 @echo off
 REM: 请根据您的个人实际情况修改以下信息：
 set server=(local)
-set dataBase=ZKEACMS_DEMO
+set dataBase=ZKEACMS
 set dbUserId=sa
 set dbPassword=sa
 set dbPath=E:\GitHub\CMS\Easy.CMS.Web\App_Data

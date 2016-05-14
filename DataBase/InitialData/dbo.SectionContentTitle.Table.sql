@@ -14,4 +14,3 @@ INSERT [dbo].[SectionContentTitle] ([ID], [SectionWidgetId], [InnerText], [Href]
 INSERT [dbo].[SectionContentTitle] ([ID], [SectionWidgetId], [InnerText], [Href]) VALUES (111, N'0f66ab8ff0df44e2b5e57fd8d8c5d8ff', N'在这里输入标题', NULL)
 INSERT [dbo].[SectionContentTitle] ([ID], [SectionWidgetId], [InnerText], [Href]) VALUES (113, N'0f66ab8ff0df44e2b5e57fd8d8c5d8ff', N'在这里输入标题', NULL)
 INSERT [dbo].[SectionContentTitle] ([ID], [SectionWidgetId], [InnerText], [Href]) VALUES (150, N'957fdcf999c14edfbddcf060cd2dc798', N'用户名:admin 密码:admin', NULL)
-GO

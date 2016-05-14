@@ -12,4 +12,3 @@ INSERT [dbo].[SectionWidget] ([ID], [SectionTitle], [IsHorizontal]) VALUES (N'b5
 INSERT [dbo].[SectionWidget] ([ID], [SectionTitle], [IsHorizontal]) VALUES (N'ed837392097f4e60b812bc57111dd762', NULL, NULL)
 INSERT [dbo].[SectionWidget] ([ID], [SectionTitle], [IsHorizontal]) VALUES (N'f41174cfa4d247f4974c47f4d2b000fd', NULL, NULL)
 INSERT [dbo].[SectionWidget] ([ID], [SectionTitle], [IsHorizontal]) VALUES (N'f6f11ba2fec844de883acf0a1fe3eb89', NULL, NULL)
-GO

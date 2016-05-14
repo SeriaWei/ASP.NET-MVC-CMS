@@ -675,6 +675,7 @@ INSERT [dbo].[Language] ([LanKey], [LanID], [LanValue], [Module], [LanType]) VAL
 INSERT [dbo].[Language] ([LanKey], [LanID], [LanValue], [Module], [LanType]) VALUES (N'SectionGroup@Description', 2052, N'描述', N'SectionGroup', N'EntityProperty')
 INSERT [dbo].[Language] ([LanKey], [LanID], [LanValue], [Module], [LanType]) VALUES (N'SectionGroup@GroupName', 2052, N'组名', N'SectionGroup', N'EntityProperty')
 INSERT [dbo].[Language] ([LanKey], [LanID], [LanValue], [Module], [LanType]) VALUES (N'SectionGroup@ID', 2052, N'ID', N'SectionGroup', N'EntityProperty')
+INSERT [dbo].[Language] ([LanKey], [LanID], [LanValue], [Module], [LanType]) VALUES (N'SectionGroup@IsLoadDefaultData', 2052, N'IsLoadDefaultData', N'SectionGroup', N'EntityProperty')
 INSERT [dbo].[Language] ([LanKey], [LanID], [LanValue], [Module], [LanType]) VALUES (N'SectionGroup@LastUpdateBy', 2052, N'LastUpdateBy', N'SectionGroup', N'EntityProperty')
 INSERT [dbo].[Language] ([LanKey], [LanID], [LanValue], [Module], [LanType]) VALUES (N'SectionGroup@LastUpdateByName', 2052, N'更新人', N'SectionGroup', N'EntityProperty')
 INSERT [dbo].[Language] ([LanKey], [LanID], [LanValue], [Module], [LanType]) VALUES (N'SectionGroup@LastUpdateDate', 2052, N'更新日期', N'SectionGroup', N'EntityProperty')
@@ -703,8 +704,8 @@ INSERT [dbo].[Language] ([LanKey], [LanID], [LanValue], [Module], [LanType]) VAL
 INSERT [dbo].[Language] ([LanKey], [LanID], [LanValue], [Module], [LanType]) VALUES (N'SectionWidget@LastUpdateBy', 2052, N'LastUpdateBy', N'SectionWidget', N'EntityProperty')
 INSERT [dbo].[Language] ([LanKey], [LanID], [LanValue], [Module], [LanType]) VALUES (N'SectionWidget@LastUpdateByName', 2052, N'更新人', N'SectionWidget', N'EntityProperty')
 INSERT [dbo].[Language] ([LanKey], [LanID], [LanValue], [Module], [LanType]) VALUES (N'SectionWidget@LastUpdateDate', 2052, N'更新日期', N'SectionWidget', N'EntityProperty')
-INSERT [dbo].[Language] ([LanKey], [LanID], [LanValue], [Module], [LanType]) VALUES (N'SectionWidget@LayoutID', 2052, N'布局', N'SectionWidget', N'EntityProperty')
 GO
+INSERT [dbo].[Language] ([LanKey], [LanID], [LanValue], [Module], [LanType]) VALUES (N'SectionWidget@LayoutID', 2052, N'布局', N'SectionWidget', N'EntityProperty')
 INSERT [dbo].[Language] ([LanKey], [LanID], [LanValue], [Module], [LanType]) VALUES (N'SectionWidget@PageID', 2052, N'页面', N'SectionWidget', N'EntityProperty')
 INSERT [dbo].[Language] ([LanKey], [LanID], [LanValue], [Module], [LanType]) VALUES (N'SectionWidget@PartialView', 2052, N'模版', N'SectionWidget', N'EntityProperty')
 INSERT [dbo].[Language] ([LanKey], [LanID], [LanValue], [Module], [LanType]) VALUES (N'SectionWidget@Position', 2052, N'排序', N'SectionWidget', N'EntityProperty')
@@ -804,8 +805,8 @@ INSERT [dbo].[Language] ([LanKey], [LanID], [LanValue], [Module], [LanType]) VAL
 INSERT [dbo].[Language] ([LanKey], [LanID], [LanValue], [Module], [LanType]) VALUES (N'VideoWidget@LastUpdateDate', 2052, N'LastUpdateDate', N'VideoWidget', N'EntityProperty')
 INSERT [dbo].[Language] ([LanKey], [LanID], [LanValue], [Module], [LanType]) VALUES (N'VideoWidget@LayoutID', 2052, N'LayoutID', N'VideoWidget', N'EntityProperty')
 INSERT [dbo].[Language] ([LanKey], [LanID], [LanValue], [Module], [LanType]) VALUES (N'VideoWidget@PageID', 2052, N'PageID', N'VideoWidget', N'EntityProperty')
-INSERT [dbo].[Language] ([LanKey], [LanID], [LanValue], [Module], [LanType]) VALUES (N'VideoWidget@PartialView', 2052, N'PartialView', N'VideoWidget', N'EntityProperty')
 GO
+INSERT [dbo].[Language] ([LanKey], [LanID], [LanValue], [Module], [LanType]) VALUES (N'VideoWidget@PartialView', 2052, N'PartialView', N'VideoWidget', N'EntityProperty')
 INSERT [dbo].[Language] ([LanKey], [LanID], [LanValue], [Module], [LanType]) VALUES (N'VideoWidget@Position', 2052, N'排序', N'VideoWidget', N'EntityProperty')
 INSERT [dbo].[Language] ([LanKey], [LanID], [LanValue], [Module], [LanType]) VALUES (N'VideoWidget@ServiceTypeName', 2052, N'ServiceTypeName', N'VideoWidget', N'EntityProperty')
 INSERT [dbo].[Language] ([LanKey], [LanID], [LanValue], [Module], [LanType]) VALUES (N'VideoWidget@Status', 2052, N'Status', N'VideoWidget', N'EntityProperty')
