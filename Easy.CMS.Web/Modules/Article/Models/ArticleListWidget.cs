@@ -23,9 +23,8 @@ namespace Easy.CMS.Article.Models
         protected override void ViewConfigure()
         {
             base.ViewConfigure();
-            ViewConfig(m => m.Title).AsTextBox().Order(4);
-            ViewConfig(m => m.ArticleTypeID).AsDropDownList().Order(5).DataSource(new ArticleTypeService().Get().ToDictionary(m => m.ID.ToString(), m => m.Title)).Required();
-            ViewConfig(m => m.DetailPageUrl).AsTextBox().Order(6).AddClass("select").AddProperty("data-url", Urls.SelectPage);
+            ViewConfig(m => m.ArticleTypeID).AsDropDownList().Order(NextOrder()).DataSource(new ArticleTypeService().Get().ToDictionary(m => m.ID.ToString(), m => m.Title)).Required();
+            ViewConfig(m => m.DetailPageUrl).AsTextBox().Order(NextOrder()).AddClass("select").AddProperty("data-url", Urls.SelectPage);
         }
     }
 

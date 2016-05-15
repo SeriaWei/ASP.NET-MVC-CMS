@@ -17,7 +17,7 @@ namespace Easy.Web.CMS.Widget
         protected override void ViewConfigure()
         {
             base.ViewConfigure();
-            ViewConfig(m => m.HTML).AsTextArea().AddClass("html");
+            ViewConfig(m => m.HTML).AsTextArea().AddClass("html").Order(NextOrder());
         }
     }
 

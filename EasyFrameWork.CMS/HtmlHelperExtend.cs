@@ -53,7 +53,7 @@ namespace Easy.Web.CMS
         {
             if (HttpContext.Current != null && (link.StartsWith("http://") || link.StartsWith("https://")))
             {
-                return new Uri(link).Host.Equals(HttpContext.Current.Request.Url.Host);
+               return link.ToLower().Contains(HttpContext.Current.Request.Url.Host.ToLower());
             }
             return true;
         }

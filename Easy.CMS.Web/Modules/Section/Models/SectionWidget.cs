@@ -17,6 +17,10 @@ namespace Easy.CMS.Section.Models
 
     class SectionWidgetMetaData : WidgetMetaData<SectionWidget>
     {
-
+        protected override void ViewConfigure()
+        {
+            base.ViewConfigure();
+            ViewConfig(m => m.SectionTitle).AsHidden();
+        }
     }
 }

@@ -83,7 +83,7 @@
         }, true, 10);
     });
     $(".helper").click(function () {
-        $("#container").toggleClass($(this).data("class"));
+        $("#containers").toggleClass($(this).data("class"));
     });
     checkEmptyZone();
     if ($(window).width() > 1600) {

@@ -23,13 +23,13 @@ namespace Easy.CMS.Common.Models
         {
             base.ViewConfigure();
             ViewConfig(m => m.ID).AsHidden();
-            ViewConfig(m => m.CarouselID).AsDropDownList().DataSource(() =>
+            ViewConfig(m => m.CarouselID).AsDropDownList().Order(NextOrder()).DataSource(() =>
             {
                 var result = new Dictionary<string, string> {{"","---请选择---"}};
                 ServiceLocator.Current.GetInstance<ICarouselService>().Get().Each(m => result.Add(m.ID.ToString(), m.Title));
                 return result;
             });
-            ViewConfig(m => m.CarouselItems).AsListEditor();
+            ViewConfig(m => m.CarouselItems).AsListEditor().Order(NextOrder());
         }
     }
 

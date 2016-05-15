@@ -22,9 +22,8 @@ namespace Easy.CMS.Article.Models
         protected override void ViewConfigure()
         {
             base.ViewConfigure();
-            ViewConfig(m => m.Title).AsTextBox().Order(4);
-            ViewConfig(m => m.SubTitle).AsTextBox().Order(5);
-            ViewConfig(m => m.Style).AsDropDownList().Order(6)
+            ViewConfig(m => m.SubTitle).AsTextBox().Order(NextOrder());
+            ViewConfig(m => m.Style).AsDropDownList().Order(NextOrder())
                 .DataSource(() =>
                     new Dictionary<string, string> { 
                     { "bs-callout-default", "默认" },
@@ -33,8 +32,8 @@ namespace Easy.CMS.Article.Models
                     { "bs-callout-info", "信息" } ,
                     { "bs-callout-success", "成功" } 
             }); ;
-            ViewConfig(m => m.DetailLink).AsTextBox().Order(7).AddClass("select").AddProperty("data-url", Urls.SelectPage);
-            ViewConfig(m => m.Summary).AsTextArea().Order(8).AddClass("html");
+            ViewConfig(m => m.DetailLink).AsTextBox().Order(NextOrder()).AddClass("select").AddProperty("data-url", Urls.SelectPage);
+            ViewConfig(m => m.Summary).AsTextArea().Order(NextOrder()).AddClass("html");
         }
     }
 

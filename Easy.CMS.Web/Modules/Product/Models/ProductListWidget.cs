@@ -31,10 +31,10 @@ namespace Easy.CMS.Product.Models
                 var dicts = new Dictionary<string, string> ();
                 new ProductCategoryService().Get().Each(m => { dicts.Add(m.ID.ToString(), m.Title); });
                 return dicts;
-            }).Required();
-            ViewConfig(m => m.DetailPageUrl).AsTextBox().AddClass("select").AddProperty("data-url", Urls.SelectPage);
-            ViewConfig(m => m.PageSize).AsTextBox().Range(1, 50);
-            ViewConfig(m => m.Columns).AsDropDownList().DataSource(new Dictionary<string, string> { { "col-xs-6 col-sm-4 col-md-4", "3 列" }, { "col-xs-6 col-sm-4 col-md-4 col-lg-3", "4 列" } });
+            }).Required().Order(NextOrder());
+            ViewConfig(m => m.DetailPageUrl).AsTextBox().Order(NextOrder()).AddClass("select").AddProperty("data-url", Urls.SelectPage);
+            ViewConfig(m => m.PageSize).AsTextBox().Order(NextOrder()).Range(1, 50);
+            ViewConfig(m => m.Columns).AsDropDownList().Order(NextOrder()).DataSource(new Dictionary<string, string> { { "col-xs-6 col-sm-4 col-md-4", "3 列" }, { "col-xs-6 col-sm-4 col-md-4 col-lg-3", "4 列" } });
         }
     }
 

@@ -23,8 +23,8 @@ namespace Easy.CMS.Common.Models
         protected override void ViewConfigure()
         {
             base.ViewConfigure();
-            ViewConfig(m => m.Url).AsTextBox().AddClass(StringKeys.SelectVideoClass).AddProperty("data-url", Urls.SelectMedia);
-            ViewConfig(m => m.Code).AsTextArea().MaxLength(500);
+            ViewConfig(m => m.Url).AsTextBox().Order(NextOrder()).AddClass(StringKeys.SelectVideoClass).AddProperty("data-url", Urls.SelectMedia);
+            ViewConfig(m => m.Code).AsTextArea().Order(NextOrder()).MaxLength(500);
         }
     }
 }
