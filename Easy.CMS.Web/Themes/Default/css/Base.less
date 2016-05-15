@@ -19,7 +19,8 @@ body.front {
         border-right: 1px solid @color-border;
         box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 5px rgba(0, 0, 0, 0.075);
     }
-    .main.container-fluid{
+
+    .main.container-fluid {
         background-color: white;
     }
 }
@@ -110,6 +111,26 @@ p {
     color: @color-success;
 }
 
+.panel-body {
+
+    .list-group-item {
+        border-width: 1px 0;
+    }
+
+    .list-group-item:first-child {
+        border-top-right-radius: 0;
+        border-top-left-radius: 0;
+        border-width: 1px 0;
+    }
+}
+
+
+.list-group-item.active,
+.list-group-item.active:hover,
+.list-group-item.active:focus {
+    text-shadow: 0 -1px 0 @color-main-actived;
+    .background-image(@color-main-actived,@color-main-actived);
+}
 
 .list-group {
     margin-bottom: 0;
@@ -134,14 +155,6 @@ p {
 .space {
     padding: 5px 0;
     line-height: normal;
-}
-
-.list-group-item.active,
-.list-group-item.active:hover,
-.list-group-item.active:focus {
-    text-shadow: 0 -1px 0 @color-main-actived;
-    .background-image(@color-main-light,@color-main-actived);
-    border-color: @color-main-actived;
 }
 
 .preview-theme {
