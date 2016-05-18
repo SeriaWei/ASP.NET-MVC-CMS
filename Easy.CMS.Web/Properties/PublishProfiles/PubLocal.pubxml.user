@@ -16,10 +16,10 @@
       <publishTime>07/02/2014 21:58:06</publishTime>
     </File>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>05/18/2016 23:21:48</publishTime>
+      <publishTime>05/18/2016 23:53:21</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>05/18/2016 23:21:48</publishTime>
+      <publishTime>05/18/2016 23:53:20</publishTime>
     </File>
     <File Include="bin/App_Web_dljcttax.dll">
       <publishTime>09/08/2015 09:16:14</publishTime>
@@ -58,7 +58,7 @@
       <publishTime>07/02/2014 21:58:05</publishTime>
     </File>
     <File Include="bin/Easy.CMS.Web.dll">
-      <publishTime>05/18/2016 23:21:40</publishTime>
+      <publishTime>05/18/2016 23:53:15</publishTime>
     </File>
     <File Include="bin/Easy.CMS.Web.Views.dll">
       <publishTime>09/08/2015 09:17:52</publishTime>
@@ -67,10 +67,10 @@
       <publishTime>05/18/2016 21:07:14</publishTime>
     </File>
     <File Include="bin/Easy.Web.CMS.dll">
-      <publishTime>05/18/2016 23:21:39</publishTime>
+      <publishTime>05/18/2016 23:53:14</publishTime>
     </File>
     <File Include="bin/Easy.Web.dll">
-      <publishTime>05/18/2016 22:26:00</publishTime>
+      <publishTime>05/18/2016 23:31:38</publishTime>
     </File>
     <File Include="bin/EasyZip.dll">
       <publishTime>10/23/2015 23:02:24</publishTime>
@@ -913,7 +913,7 @@
       <publishTime>05/18/2016 23:47:09</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>05/18/2016 23:48:12</publishTime>
+      <publishTime>05/18/2016 23:53:18</publishTime>
     </File>
     <File Include="Scripts/angular/angular-animate.js">
       <publishTime>01/07/2016 22:35:58</publishTime>
@@ -3163,7 +3163,7 @@
       <publishTime>05/18/2016 21:19:41</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>05/18/2016 23:48:11</publishTime>
+      <publishTime>05/18/2016 23:53:16</publishTime>
     </File>
   </ItemGroup>
 </Project>

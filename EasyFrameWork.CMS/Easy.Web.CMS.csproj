@@ -102,6 +102,7 @@
   <ItemGroup>
     <Compile Include="AdminMenu.cs" />
     <Compile Include="CmsApplication.cs" />
+    <Compile Include="CMSApplicationContext.cs" />
     <Compile Include="Constant.cs" />
     <Compile Include="Filter\EditWidgetAttribute.cs" />
     <Compile Include="Filter\WidgetAttribute.cs" />

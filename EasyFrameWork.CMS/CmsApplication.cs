@@ -52,7 +52,7 @@ namespace Easy.Web.CMS
             ContainerAdapter.RegisterType<IUserService, UserService>();
             ContainerAdapter.RegisterType<IDataDictionaryService, DataDictionaryService>();
             ContainerAdapter.RegisterType<ILanguageService, LanguageService>();
-            ContainerAdapter.RegisterType<IApplicationContext, ApplicationContext>(DependencyLifeTime.PerRequest);
+            ContainerAdapter.RegisterType<IApplicationContext, CMSApplicationContext>(DependencyLifeTime.PerRequest);
 
             //DisplayViewSupport.SupportMobileView();
             //DisplayViewSupport.SupportIEView();

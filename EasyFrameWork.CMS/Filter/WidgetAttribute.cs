@@ -10,6 +10,7 @@ using Easy.Web.CMS.Layout;
 using Easy.Constant;
 using Easy.Extend;
 using System.Net;
+using System.Web;
 using Easy.Cache;
 using Easy.Web.CMS.Theme;
 using Microsoft.Practices.ServiceLocation;
@@ -57,13 +58,13 @@ namespace Easy.Web.CMS.Filter
                 layout.Page = page;
                 if (filterContext.RequestContext.HttpContext.Request.IsAuthenticated && page.IsPublishedPage)
                 {
-                    layout.PreViewPage= PageService.GetByPath(page.Url, true);
+                    layout.PreViewPage = PageService.GetByPath(page.Url, true);
                 }
                 layout.CurrentTheme = ServiceLocator.Current.GetInstance<IThemeService>().GetCurrentTheme();
                 layout.ZoneWidgets = new ZoneWidgetCollection();
                 filterContext.HttpContext.TrySetLayout(layout);
                 var widgetService = ServiceLocator.Current.GetInstance<IWidgetService>();
-                widgetService.GetAllByPage(page).AsParallel().ForAll(widget =>
+                widgetService.GetAllByPage(page).Each(widget =>
                 {
                     IWidgetPartDriver partDriver = widget.CreateServiceInstance();
                     WidgetPart part = partDriver.Display(partDriver.GetWidget(widget), filterContext.HttpContext);
@@ -94,6 +95,11 @@ namespace Easy.Web.CMS.Filter
 
         public void OnActionExecuting(ActionExecutingContext filterContext)
         {
+            var applicationContext = ServiceLocator.Current.GetInstance<IApplicationContext>() as CMSApplicationContext;
+            if (applicationContext != null && HttpContext.Current != null)
+            {
+                applicationContext.RequestUrl = HttpContext.Current.Request.Url;
+            }
         }
     }
 
