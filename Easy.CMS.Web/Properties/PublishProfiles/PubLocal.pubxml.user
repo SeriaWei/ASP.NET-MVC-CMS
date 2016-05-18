@@ -16,10 +16,10 @@
       <publishTime>07/02/2014 21:58:06</publishTime>
     </File>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>05/14/2016 14:40:46</publishTime>
+      <publishTime>05/18/2016 23:21:48</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>05/14/2016 14:40:46</publishTime>
+      <publishTime>05/18/2016 23:21:48</publishTime>
     </File>
     <File Include="bin/App_Web_dljcttax.dll">
       <publishTime>09/08/2015 09:16:14</publishTime>
@@ -58,19 +58,19 @@
       <publishTime>07/02/2014 21:58:05</publishTime>
     </File>
     <File Include="bin/Easy.CMS.Web.dll">
-      <publishTime>05/14/2016 14:40:41</publishTime>
+      <publishTime>05/18/2016 23:21:40</publishTime>
     </File>
     <File Include="bin/Easy.CMS.Web.Views.dll">
       <publishTime>09/08/2015 09:17:52</publishTime>
     </File>
     <File Include="bin/Easy.dll">
-      <publishTime>03/14/2016 20:21:36</publishTime>
+      <publishTime>05/18/2016 21:07:14</publishTime>
     </File>
     <File Include="bin/Easy.Web.CMS.dll">
-      <publishTime>05/14/2016 14:38:48</publishTime>
+      <publishTime>05/18/2016 23:21:39</publishTime>
     </File>
     <File Include="bin/Easy.Web.dll">
-      <publishTime>04/14/2016 23:24:44</publishTime>
+      <publishTime>05/18/2016 22:26:00</publishTime>
     </File>
     <File Include="bin/EasyZip.dll">
       <publishTime>10/23/2015 23:02:24</publishTime>
@@ -465,6 +465,9 @@
     <File Include="Content/themes/Admin/admin.css">
       <publishTime>05/13/2016 22:57:50</publishTime>
     </File>
+    <File Include="Content/themes/Admin/admin.min.css">
+      <publishTime>05/18/2016 22:56:03</publishTime>
+    </File>
     <File Include="Content/themes/Admin/images/dotted.png">
       <publishTime>01/11/2013 18:36:48</publishTime>
     </File>
@@ -479,6 +482,9 @@
     </File>
     <File Include="Content/themes/Admin/script/admin.js">
       <publishTime>05/11/2016 23:12:45</publishTime>
+    </File>
+    <File Include="Content/themes/Admin/script/admin.min.js">
+      <publishTime>05/18/2016 22:56:10</publishTime>
     </File>
     <File Include="Content/themes/base/accordion.css">
       <publishTime>05/07/2016 16:38:30</publishTime>
@@ -790,7 +796,7 @@
       <publishTime>07/17/2015 23:14:28</publishTime>
     </File>
     <File Include="Images/head.png">
-      <publishTime>03/14/2016 20:21:32</publishTime>
+      <publishTime>05/14/2016 17:01:33</publishTime>
     </File>
     <File Include="Images/heroAccent.png">
       <publishTime>07/02/2014 21:57:55</publishTime>
@@ -901,13 +907,13 @@
       <publishTime>04/14/2016 23:24:42</publishTime>
     </File>
     <File Include="Mvc.sitemap">
-      <publishTime>04/14/2016 23:24:43</publishTime>
+      <publishTime>05/18/2016 21:20:35</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>05/07/2016 16:39:40</publishTime>
+      <publishTime>05/18/2016 23:47:09</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>05/14/2016 14:40:44</publishTime>
+      <publishTime>05/18/2016 23:48:12</publishTime>
     </File>
     <File Include="Scripts/angular/angular-animate.js">
       <publishTime>01/07/2016 22:35:58</publishTime>
@@ -1031,6 +1037,9 @@
     </File>
     <File Include="Scripts/bootstrap-datetimepicker/moment-with-locales.js">
       <publishTime>02/22/2016 22:28:05</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap-datetimepicker/moment-with-locales.min.js">
+      <publishTime>05/18/2016 23:11:37</publishTime>
     </File>
     <File Include="Scripts/CryptoJS/components/aes-min.js">
       <publishTime>02/22/2016 22:28:05</publishTime>
@@ -1299,8 +1308,14 @@
     <File Include="Scripts/EasyPlug/Css/Animate.css">
       <publishTime>07/22/2014 19:48:16</publishTime>
     </File>
+    <File Include="Scripts/EasyPlug/Css/Animate.min.css">
+      <publishTime>05/18/2016 22:57:09</publishTime>
+    </File>
     <File Include="Scripts/EasyPlug/Css/Base.css">
       <publishTime>07/22/2014 19:48:16</publishTime>
+    </File>
+    <File Include="Scripts/EasyPlug/Css/Base.min.css">
+      <publishTime>05/18/2016 22:57:12</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Easy.css">
       <publishTime>11/07/2015 20:02:00</publishTime>
@@ -1308,14 +1323,29 @@
     <File Include="Scripts/EasyPlug/Css/Easy.Grid.css">
       <publishTime>02/22/2016 22:28:05</publishTime>
     </File>
+    <File Include="Scripts/EasyPlug/Css/Easy.Grid.min.css">
+      <publishTime>05/18/2016 22:57:19</publishTime>
+    </File>
+    <File Include="Scripts/EasyPlug/Css/Easy.min.css">
+      <publishTime>05/18/2016 22:57:16</publishTime>
+    </File>
     <File Include="Scripts/EasyPlug/Css/Easy.Tab.css">
       <publishTime>07/22/2014 19:48:16</publishTime>
+    </File>
+    <File Include="Scripts/EasyPlug/Css/Easy.Tab.min.css">
+      <publishTime>05/18/2016 22:57:22</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Easy.UI.css">
       <publishTime>03/14/2016 20:21:35</publishTime>
     </File>
+    <File Include="Scripts/EasyPlug/Css/Easy.UI.min.css">
+      <publishTime>05/18/2016 22:57:25</publishTime>
+    </File>
     <File Include="Scripts/EasyPlug/Css/Icon.css">
       <publishTime>07/22/2014 19:48:16</publishTime>
+    </File>
+    <File Include="Scripts/EasyPlug/Css/Icon.min.css">
+      <publishTime>05/18/2016 22:57:28</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/add.png">
       <publishTime>07/22/2014 19:48:16</publishTime>
@@ -1599,17 +1629,29 @@
     <File Include="Scripts/EasyPlug/Easy.FocusImage.js">
       <publishTime>07/22/2014 19:48:17</publishTime>
     </File>
+    <File Include="Scripts/EasyPlug/Easy.FocusImage.min.js">
+      <publishTime>05/18/2016 22:57:36</publishTime>
+    </File>
     <File Include="Scripts/EasyPlug/Easy.Grid.js">
       <publishTime>02/22/2016 22:28:05</publishTime>
     </File>
+    <File Include="Scripts/EasyPlug/Easy.Grid.min.js">
+      <publishTime>05/18/2016 22:56:59</publishTime>
+    </File>
     <File Include="Scripts/EasyPlug/Easy.js">
       <publishTime>03/14/2016 20:21:35</publishTime>
+    </File>
+    <File Include="Scripts/EasyPlug/Easy.min.js">
+      <publishTime>05/18/2016 22:56:56</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Easy.Tab.js">
       <publishTime>07/22/2014 19:48:17</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Easy.UI.js">
       <publishTime>02/22/2016 22:28:05</publishTime>
+    </File>
+    <File Include="Scripts/EasyPlug/Easy.UI.min.js">
+      <publishTime>05/18/2016 22:57:51</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/jquery.js">
       <publishTime>07/22/2014 19:48:17</publishTime>
@@ -2385,32 +2427,62 @@
     <File Include="Scripts/jstree/src/jstree.checkbox.js">
       <publishTime>07/24/2014 19:19:48</publishTime>
     </File>
+    <File Include="Scripts/jstree/src/jstree.checkbox.min.js">
+      <publishTime>05/18/2016 22:53:25</publishTime>
+    </File>
     <File Include="Scripts/jstree/src/jstree.contextmenu.js">
       <publishTime>07/24/2014 19:19:48</publishTime>
+    </File>
+    <File Include="Scripts/jstree/src/jstree.contextmenu.min.js">
+      <publishTime>05/18/2016 22:53:29</publishTime>
     </File>
     <File Include="Scripts/jstree/src/jstree.dnd.js">
       <publishTime>07/24/2014 19:19:48</publishTime>
     </File>
+    <File Include="Scripts/jstree/src/jstree.dnd.min.js">
+      <publishTime>05/18/2016 22:53:34</publishTime>
+    </File>
     <File Include="Scripts/jstree/src/jstree.js">
       <publishTime>07/24/2014 19:19:48</publishTime>
+    </File>
+    <File Include="Scripts/jstree/src/jstree.min.js">
+      <publishTime>05/18/2016 22:53:18</publishTime>
     </File>
     <File Include="Scripts/jstree/src/jstree.search.js">
       <publishTime>07/24/2014 19:19:48</publishTime>
     </File>
+    <File Include="Scripts/jstree/src/jstree.search.min.js">
+      <publishTime>05/18/2016 22:53:39</publishTime>
+    </File>
     <File Include="Scripts/jstree/src/jstree.sort.js">
       <publishTime>07/24/2014 19:19:48</publishTime>
+    </File>
+    <File Include="Scripts/jstree/src/jstree.sort.min.js">
+      <publishTime>05/18/2016 22:53:52</publishTime>
     </File>
     <File Include="Scripts/jstree/src/jstree.state.js">
       <publishTime>07/24/2014 19:19:48</publishTime>
     </File>
+    <File Include="Scripts/jstree/src/jstree.state.min.js">
+      <publishTime>05/18/2016 22:53:55</publishTime>
+    </File>
     <File Include="Scripts/jstree/src/jstree.types.js">
       <publishTime>07/24/2014 19:19:48</publishTime>
+    </File>
+    <File Include="Scripts/jstree/src/jstree.types.min.js">
+      <publishTime>05/18/2016 22:53:58</publishTime>
     </File>
     <File Include="Scripts/jstree/src/jstree.unique.js">
       <publishTime>07/24/2014 19:19:48</publishTime>
     </File>
+    <File Include="Scripts/jstree/src/jstree.unique.min.js">
+      <publishTime>05/18/2016 22:54:00</publishTime>
+    </File>
     <File Include="Scripts/jstree/src/jstree.wholerow.js">
       <publishTime>07/24/2014 19:19:48</publishTime>
+    </File>
+    <File Include="Scripts/jstree/src/jstree.wholerow.min.js">
+      <publishTime>05/18/2016 22:54:03</publishTime>
     </File>
     <File Include="Scripts/jstree/src/misc.js">
       <publishTime>07/24/2014 19:19:48</publishTime>
@@ -2435,6 +2507,9 @@
     </File>
     <File Include="Scripts/jstree/src/themes/default/style.less">
       <publishTime>07/24/2014 19:19:48</publishTime>
+    </File>
+    <File Include="Scripts/jstree/src/themes/default/style.min.css">
+      <publishTime>05/18/2016 23:00:17</publishTime>
     </File>
     <File Include="Scripts/jstree/src/themes/default/throbber.gif">
       <publishTime>07/24/2014 19:19:48</publishTime>
@@ -2463,6 +2538,9 @@
     <File Include="Scripts/lightbox/css/lightbox.css">
       <publishTime>03/14/2016 20:21:35</publishTime>
     </File>
+    <File Include="Scripts/lightbox/css/lightbox.min.css">
+      <publishTime>05/18/2016 23:00:58</publishTime>
+    </File>
     <File Include="Scripts/lightbox/images/close.png">
       <publishTime>03/14/2016 20:21:35</publishTime>
     </File>
@@ -2477,6 +2555,9 @@
     </File>
     <File Include="Scripts/lightbox/js/lightbox.js">
       <publishTime>03/14/2016 20:21:35</publishTime>
+    </File>
+    <File Include="Scripts/lightbox/js/lightbox.min.js">
+      <publishTime>05/18/2016 23:01:38</publishTime>
     </File>
     <File Include="Scripts/modernizr-2.6.2.js">
       <publishTime>07/02/2014 21:58:02</publishTime>
@@ -2827,7 +2908,7 @@
       <publishTime>04/04/2016 22:17:10</publishTime>
     </File>
     <File Include="Themes/Default/css/Article.less">
-      <publishTime>04/04/2016 22:17:10</publishTime>
+      <publishTime>05/15/2016 21:01:13</publishTime>
     </File>
     <File Include="Themes/Default/css/Article.min.css">
       <publishTime>04/04/2016 22:17:10</publishTime>
@@ -2839,7 +2920,7 @@
       <publishTime>05/13/2016 22:57:50</publishTime>
     </File>
     <File Include="Themes/Default/css/Base.less">
-      <publishTime>05/12/2016 23:20:36</publishTime>
+      <publishTime>05/15/2016 21:03:16</publishTime>
     </File>
     <File Include="Themes/Default/css/Base.min.css">
       <publishTime>05/13/2016 22:57:50</publishTime>
@@ -2899,7 +2980,7 @@
       <publishTime>04/04/2016 22:17:10</publishTime>
     </File>
     <File Include="Themes/Default/css/Product.less">
-      <publishTime>04/04/2016 22:17:10</publishTime>
+      <publishTime>05/15/2016 21:00:06</publishTime>
     </File>
     <File Include="Themes/Default/css/Product.min.css">
       <publishTime>04/04/2016 22:17:10</publishTime>
@@ -2917,7 +2998,7 @@
       <publishTime>05/13/2016 22:57:50</publishTime>
     </File>
     <File Include="Themes/Default/css/Theme.css">
-      <publishTime>05/13/2016 22:57:50</publishTime>
+      <publishTime>05/15/2016 21:03:14</publishTime>
     </File>
     <File Include="Themes/Default/css/Theme.css.map">
       <publishTime>05/13/2016 22:57:50</publishTime>
@@ -2926,7 +3007,7 @@
       <publishTime>04/14/2016 23:24:44</publishTime>
     </File>
     <File Include="Themes/Default/css/Theme.min.css">
-      <publishTime>05/13/2016 22:57:50</publishTime>
+      <publishTime>05/15/2016 21:03:14</publishTime>
     </File>
     <File Include="Themes/Default/css/widget.css">
       <publishTime>05/11/2016 20:39:59</publishTime>
@@ -2973,29 +3054,53 @@
     <File Include="Themes/Default/thumbnail.jpg">
       <publishTime>04/14/2016 23:24:44</publishTime>
     </File>
+    <File Include="Views/Shared/DisplayTemplates/CanonicalHelperModel.ascx">
+      <publishTime>05/18/2016 21:19:33</publishTime>
+    </File>
     <File Include="Views/Shared/DisplayTemplates/CanonicalHelperModel.cshtml">
-      <publishTime>02/22/2016 22:28:05</publishTime>
+      <publishTime>05/18/2016 21:19:33</publishTime>
+    </File>
+    <File Include="Views/Shared/DisplayTemplates/MenuHelperModel.ascx">
+      <publishTime>05/18/2016 21:19:33</publishTime>
     </File>
     <File Include="Views/Shared/DisplayTemplates/MenuHelperModel.cshtml">
-      <publishTime>02/22/2016 22:28:05</publishTime>
+      <publishTime>05/18/2016 21:19:33</publishTime>
+    </File>
+    <File Include="Views/Shared/DisplayTemplates/MetaRobotsHelperModel.ascx">
+      <publishTime>05/18/2016 21:19:33</publishTime>
     </File>
     <File Include="Views/Shared/DisplayTemplates/MetaRobotsHelperModel.cshtml">
-      <publishTime>02/22/2016 22:28:05</publishTime>
+      <publishTime>05/18/2016 21:19:33</publishTime>
+    </File>
+    <File Include="Views/Shared/DisplayTemplates/SiteMapHelperModel.ascx">
+      <publishTime>05/18/2016 21:19:33</publishTime>
     </File>
     <File Include="Views/Shared/DisplayTemplates/SiteMapHelperModel.cshtml">
-      <publishTime>02/22/2016 22:28:05</publishTime>
+      <publishTime>05/18/2016 21:19:33</publishTime>
+    </File>
+    <File Include="Views/Shared/DisplayTemplates/SiteMapNodeModel.ascx">
+      <publishTime>05/18/2016 21:19:33</publishTime>
     </File>
     <File Include="Views/Shared/DisplayTemplates/SiteMapNodeModel.cshtml">
-      <publishTime>02/22/2016 22:28:05</publishTime>
+      <publishTime>05/18/2016 21:19:33</publishTime>
+    </File>
+    <File Include="Views/Shared/DisplayTemplates/SiteMapNodeModelList.ascx">
+      <publishTime>05/18/2016 21:19:33</publishTime>
     </File>
     <File Include="Views/Shared/DisplayTemplates/SiteMapNodeModelList.cshtml">
-      <publishTime>02/22/2016 22:28:05</publishTime>
+      <publishTime>05/18/2016 21:19:33</publishTime>
+    </File>
+    <File Include="Views/Shared/DisplayTemplates/SiteMapPathHelperModel.ascx">
+      <publishTime>05/18/2016 21:19:33</publishTime>
     </File>
     <File Include="Views/Shared/DisplayTemplates/SiteMapPathHelperModel.cshtml">
-      <publishTime>02/22/2016 22:28:05</publishTime>
+      <publishTime>05/18/2016 21:19:33</publishTime>
+    </File>
+    <File Include="Views/Shared/DisplayTemplates/SiteMapTitleHelperModel.ascx">
+      <publishTime>05/18/2016 21:19:33</publishTime>
     </File>
     <File Include="Views/Shared/DisplayTemplates/SiteMapTitleHelperModel.cshtml">
-      <publishTime>02/22/2016 22:28:05</publishTime>
+      <publishTime>05/18/2016 21:19:33</publishTime>
     </File>
     <File Include="Views/Shared/EditorTemplates/CheckBox.cshtml">
       <publishTime>03/14/2016 20:21:35</publishTime>
@@ -3049,16 +3154,16 @@
       <publishTime>04/15/2016 18:45:21</publishTime>
     </File>
     <File Include="Views/Shared/_AdminLayout.cshtml">
-      <publishTime>05/07/2016 11:58:37</publishTime>
+      <publishTime>05/15/2016 00:11:21</publishTime>
     </File>
     <File Include="Views/Shared/_PopUpLayout.cshtml">
       <publishTime>02/22/2016 22:28:05</publishTime>
     </File>
     <File Include="Views/Web.config">
-      <publishTime>02/22/2016 22:28:05</publishTime>
+      <publishTime>05/18/2016 21:19:41</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>05/14/2016 14:34:42</publishTime>
+      <publishTime>05/18/2016 23:48:11</publishTime>
     </File>
   </ItemGroup>
 </Project>

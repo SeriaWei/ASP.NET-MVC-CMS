@@ -45,12 +45,12 @@
       <HintPath>..\packages\Autofac.3.5.2\lib\net40\Autofac.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Easy, Version=1.0.5.6, Culture=neutral, PublicKeyToken=2b89634455a72a39, processorArchitecture=MSIL">
-      <HintPath>..\packages\EasyFrameWork.1.0.5.6\lib\net40\Easy.dll</HintPath>
+    <Reference Include="Easy, Version=1.0.5.7, Culture=neutral, PublicKeyToken=2b89634455a72a39, processorArchitecture=MSIL">
+      <HintPath>..\packages\EasyFrameWork.1.0.5.7\lib\net40\Easy.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Easy.Web, Version=1.0.5.6, Culture=neutral, PublicKeyToken=48e55983b3ecaefe, processorArchitecture=MSIL">
-      <HintPath>..\packages\EasyFrameWork.Web.1.0.5.6\lib\net40\Easy.Web.dll</HintPath>
+    <Reference Include="Easy.Web, Version=1.0.5.9, Culture=neutral, PublicKeyToken=48e55983b3ecaefe, processorArchitecture=MSIL">
+      <HintPath>..\packages\EasyFrameWork.Web.1.0.5.9\lib\net40\Easy.Web.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="EasyZip">
@@ -222,7 +222,13 @@
       <DependentUpon>Site.css</DependentUpon>
     </Content>
     <Content Include="Content\themes\Admin\admin.css" />
+    <Content Include="Content\themes\Admin\admin.min.css">
+      <DependentUpon>admin.css</DependentUpon>
+    </Content>
     <Content Include="Content\themes\Admin\images\logo_zkea_min.png" />
+    <Content Include="Content\themes\Admin\script\admin.min.js">
+      <DependentUpon>admin.js</DependentUpon>
+    </Content>
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
     <Content Include="Content\themes\base\autocomplete.css" />
@@ -319,6 +325,7 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Content\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <None Include="bundleconfig.json" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
@@ -373,6 +380,9 @@
     <Content Include="Scripts\bootstrap-datetimepicker\bootstrap-datetimepicker.min.css" />
     <Content Include="Scripts\bootstrap-datetimepicker\bootstrap-datetimepicker.min.js" />
     <Content Include="Scripts\bootstrap-datetimepicker\moment-with-locales.js" />
+    <Content Include="Scripts\bootstrap-datetimepicker\moment-with-locales.min.js">
+      <DependentUpon>moment-with-locales.js</DependentUpon>
+    </Content>
     <Content Include="Scripts\CryptoJS\components\aes-min.js" />
     <Content Include="Scripts\CryptoJS\components\aes.js" />
     <Content Include="Scripts\CryptoJS\components\cipher-core-min.js" />
@@ -462,12 +472,33 @@
     <Content Include="Scripts\CryptoJS\rollups\sha512.js" />
     <Content Include="Scripts\CryptoJS\rollups\tripledes.js" />
     <Content Include="Scripts\EasyPlug\Css\Animate.css" />
+    <Content Include="Scripts\EasyPlug\Css\Animate.min.css">
+      <DependentUpon>Animate.css</DependentUpon>
+    </Content>
     <Content Include="Scripts\EasyPlug\Css\Base.css" />
+    <Content Include="Scripts\EasyPlug\Css\Base.min.css">
+      <DependentUpon>Base.css</DependentUpon>
+    </Content>
     <Content Include="Scripts\EasyPlug\Css\Easy.css" />
     <Content Include="Scripts\EasyPlug\Css\Easy.Grid.css" />
+    <Content Include="Scripts\EasyPlug\Css\Easy.Grid.min.css">
+      <DependentUpon>Easy.Grid.css</DependentUpon>
+    </Content>
+    <Content Include="Scripts\EasyPlug\Css\Easy.min.css">
+      <DependentUpon>Easy.css</DependentUpon>
+    </Content>
     <Content Include="Scripts\EasyPlug\Css\Easy.Tab.css" />
+    <Content Include="Scripts\EasyPlug\Css\Easy.Tab.min.css">
+      <DependentUpon>Easy.Tab.css</DependentUpon>
+    </Content>
     <Content Include="Scripts\EasyPlug\Css\Easy.UI.css" />
+    <Content Include="Scripts\EasyPlug\Css\Easy.UI.min.css">
+      <DependentUpon>Easy.UI.css</DependentUpon>
+    </Content>
     <Content Include="Scripts\EasyPlug\Css\Icon.css" />
+    <Content Include="Scripts\EasyPlug\Css\Icon.min.css">
+      <DependentUpon>Icon.css</DependentUpon>
+    </Content>
     <Content Include="Scripts\EasyPlug\Css\Images\add.png" />
     <Content Include="Scripts\EasyPlug\Css\Images\bgPoint.png" />
     <Content Include="Scripts\EasyPlug\Css\Images\buttons.png" />
@@ -562,106 +593,22 @@
     <Content Include="Scripts\EasyPlug\Css\Images\triangle2.png" />
     <Content Include="Scripts\EasyPlug\Css\Images\undo.png" />
     <Content Include="Scripts\EasyPlug\Easy.FocusImage.js" />
+    <Content Include="Scripts\EasyPlug\Easy.FocusImage.min.js">
+      <DependentUpon>Easy.FocusImage.js</DependentUpon>
+    </Content>
     <Content Include="Scripts\EasyPlug\Easy.Grid.js" />
+    <Content Include="Scripts\EasyPlug\Easy.Grid.min.js">
+      <DependentUpon>Easy.Grid.js</DependentUpon>
+    </Content>
     <Content Include="Scripts\EasyPlug\Easy.js" />
-    <Content Include="Scripts\EasyPlug\Easy.Tab.js" />
+    <Content Include="Scripts\EasyPlug\Easy.min.js">
+      <DependentUpon>Easy.js</DependentUpon>
+    </Content>
     <Content Include="Scripts\EasyPlug\Easy.UI.js" />
+    <Content Include="Scripts\EasyPlug\Easy.UI.min.js">
+      <DependentUpon>Easy.UI.js</DependentUpon>
+    </Content>
     <Content Include="Scripts\EasyPlug\jquery.js" />
-    <Content Include="Scripts\ImagePlug\album.html" />
-    <Content Include="Scripts\ImagePlug\albumPic.html" />
-    <Content Include="Scripts\ImagePlug\api.js" />
-    <Content Include="Scripts\ImagePlug\app.js" />
-    <Content Include="Scripts\ImagePlug\CryptoJS\components\aes-min.js" />
-    <Content Include="Scripts\ImagePlug\CryptoJS\components\aes.js" />
-    <Content Include="Scripts\ImagePlug\CryptoJS\components\cipher-core-min.js" />
-    <Content Include="Scripts\ImagePlug\CryptoJS\components\cipher-core.js" />
-    <Content Include="Scripts\ImagePlug\CryptoJS\components\core-min.js" />
-    <Content Include="Scripts\ImagePlug\CryptoJS\components\core.js" />
-    <Content Include="Scripts\ImagePlug\CryptoJS\components\enc-base64-min.js" />
-    <Content Include="Scripts\ImagePlug\CryptoJS\components\enc-base64.js" />
-    <Content Include="Scripts\ImagePlug\CryptoJS\components\enc-utf16-min.js" />
-    <Content Include="Scripts\ImagePlug\CryptoJS\components\enc-utf16.js" />
-    <Content Include="Scripts\ImagePlug\CryptoJS\components\evpkdf-min.js" />
-    <Content Include="Scripts\ImagePlug\CryptoJS\components\evpkdf.js" />
-    <Content Include="Scripts\ImagePlug\CryptoJS\components\format-hex-min.js" />
-    <Content Include="Scripts\ImagePlug\CryptoJS\components\format-hex.js" />
-    <Content Include="Scripts\ImagePlug\CryptoJS\components\hmac-min.js" />
-    <Content Include="Scripts\ImagePlug\CryptoJS\components\hmac.js" />
-    <Content Include="Scripts\ImagePlug\CryptoJS\components\lib-typedarrays-min.js" />
-    <Content Include="Scripts\ImagePlug\CryptoJS\components\lib-typedarrays.js" />
-    <Content Include="Scripts\ImagePlug\CryptoJS\components\md5-min.js" />
-    <Content Include="Scripts\ImagePlug\CryptoJS\components\md5.js" />
-    <Content Include="Scripts\ImagePlug\CryptoJS\components\mode-cfb-min.js" />
-    <Content Include="Scripts\ImagePlug\CryptoJS\components\mode-cfb.js" />
-    <Content Include="Scripts\ImagePlug\CryptoJS\components\mode-ctr-gladman-min.js" />
-    <Content Include="Scripts\ImagePlug\CryptoJS\components\mode-ctr-gladman.js" />
-    <Content Include="Scripts\ImagePlug\CryptoJS\components\mode-ctr-min.js" />
-    <Content Include="Scripts\ImagePlug\CryptoJS\components\mode-ctr.js" />
-    <Content Include="Scripts\ImagePlug\CryptoJS\components\mode-ecb-min.js" />
-    <Content Include="Scripts\ImagePlug\CryptoJS\components\mode-ecb.js" />
-    <Content Include="Scripts\ImagePlug\CryptoJS\components\mode-ofb-min.js" />
-    <Content Include="Scripts\ImagePlug\CryptoJS\components\mode-ofb.js" />
-    <Content Include="Scripts\ImagePlug\CryptoJS\components\pad-ansix923-min.js" />
-    <Content Include="Scripts\ImagePlug\CryptoJS\components\pad-ansix923.js" />
-    <Content Include="Scripts\ImagePlug\CryptoJS\components\pad-iso10126-min.js" />
-    <Content Include="Scripts\ImagePlug\CryptoJS\components\pad-iso10126.js" />
-    <Content Include="Scripts\ImagePlug\CryptoJS\components\pad-iso97971-min.js" />
-    <Content Include="Scripts\ImagePlug\CryptoJS\components\pad-iso97971.js" />
-    <Content Include="Scripts\ImagePlug\CryptoJS\components\pad-nopadding-min.js" />
-    <Content Include="Scripts\ImagePlug\CryptoJS\components\pad-nopadding.js" />
-    <Content Include="Scripts\ImagePlug\CryptoJS\components\pad-zeropadding-min.js" />
-    <Content Include="Scripts\ImagePlug\CryptoJS\components\pad-zeropadding.js" />
-    <Content Include="Scripts\ImagePlug\CryptoJS\components\pbkdf2-min.js" />
-    <Content Include="Scripts\ImagePlug\CryptoJS\components\pbkdf2.js" />
-    <Content Include="Scripts\ImagePlug\CryptoJS\components\rabbit-legacy-min.js" />
-    <Content Include="Scripts\ImagePlug\CryptoJS\components\rabbit-legacy.js" />
-    <Content Include="Scripts\ImagePlug\CryptoJS\components\rabbit-min.js" />
-    <Content Include="Scripts\ImagePlug\CryptoJS\components\rabbit.js" />
-    <Content Include="Scripts\ImagePlug\CryptoJS\components\rc4-min.js" />
-    <Content Include="Scripts\ImagePlug\CryptoJS\components\rc4.js" />
-    <Content Include="Scripts\ImagePlug\CryptoJS\components\ripemd160-min.js" />
-    <Content Include="Scripts\ImagePlug\CryptoJS\components\ripemd160.js" />
-    <Content Include="Scripts\ImagePlug\CryptoJS\components\sha1-min.js" />
-    <Content Include="Scripts\ImagePlug\CryptoJS\components\sha1.js" />
-    <Content Include="Scripts\ImagePlug\CryptoJS\components\sha224-min.js" />
-    <Content Include="Scripts\ImagePlug\CryptoJS\components\sha224.js" />
-    <Content Include="Scripts\ImagePlug\CryptoJS\components\sha256-min.js" />
-    <Content Include="Scripts\ImagePlug\CryptoJS\components\sha256.js" />
-    <Content Include="Scripts\ImagePlug\CryptoJS\components\sha3-min.js" />
-    <Content Include="Scripts\ImagePlug\CryptoJS\components\sha3.js" />
-    <Content Include="Scripts\ImagePlug\CryptoJS\components\sha384-min.js" />
-    <Content Include="Scripts\ImagePlug\CryptoJS\components\sha384.js" />
-    <Content Include="Scripts\ImagePlug\CryptoJS\components\sha512-min.js" />
-    <Content Include="Scripts\ImagePlug\CryptoJS\components\sha512.js" />
-    <Content Include="Scripts\ImagePlug\CryptoJS\components\tripledes-min.js" />
-    <Content Include="Scripts\ImagePlug\CryptoJS\components\tripledes.js" />
-    <Content Include="Scripts\ImagePlug\CryptoJS\components\x64-core-min.js" />
-    <Content Include="Scripts\ImagePlug\CryptoJS\components\x64-core.js" />
-    <Content Include="Scripts\ImagePlug\CryptoJS\rollups\aes.js" />
-    <Content Include="Scripts\ImagePlug\CryptoJS\rollups\hmac-md5.js" />
-    <Content Include="Scripts\ImagePlug\CryptoJS\rollups\hmac-ripemd160.js" />
-    <Content Include="Scripts\ImagePlug\CryptoJS\rollups\hmac-sha1.js" />
-    <Content Include="Scripts\ImagePlug\CryptoJS\rollups\hmac-sha224.js" />
-    <Content Include="Scripts\ImagePlug\CryptoJS\rollups\hmac-sha256.js" />
-    <Content Include="Scripts\ImagePlug\CryptoJS\rollups\hmac-sha3.js" />
-    <Content Include="Scripts\ImagePlug\CryptoJS\rollups\hmac-sha384.js" />
-    <Content Include="Scripts\ImagePlug\CryptoJS\rollups\hmac-sha512.js" />
-    <Content Include="Scripts\ImagePlug\CryptoJS\rollups\md5.js" />
-    <Content Include="Scripts\ImagePlug\CryptoJS\rollups\pbkdf2.js" />
-    <Content Include="Scripts\ImagePlug\CryptoJS\rollups\rabbit-legacy.js" />
-    <Content Include="Scripts\ImagePlug\CryptoJS\rollups\rabbit.js" />
-    <Content Include="Scripts\ImagePlug\CryptoJS\rollups\rc4.js" />
-    <Content Include="Scripts\ImagePlug\CryptoJS\rollups\ripemd160.js" />
-    <Content Include="Scripts\ImagePlug\CryptoJS\rollups\sha1.js" />
-    <Content Include="Scripts\ImagePlug\CryptoJS\rollups\sha224.js" />
-    <Content Include="Scripts\ImagePlug\CryptoJS\rollups\sha256.js" />
-    <Content Include="Scripts\ImagePlug\CryptoJS\rollups\sha3.js" />
-    <Content Include="Scripts\ImagePlug\CryptoJS\rollups\sha384.js" />
-    <Content Include="Scripts\ImagePlug\CryptoJS\rollups\sha512.js" />
-    <Content Include="Scripts\ImagePlug\CryptoJS\rollups\tripledes.js" />
-    <Content Include="Scripts\ImagePlug\Index.html" />
-    <Content Include="Scripts\ImagePlug\indexDb.js" />
-    <Content Include="Scripts\ImagePlug\style.css" />
     <Content Include="Scripts\jquery-1.11.2.min.js" />
     <None Include="Scripts\jquery-2.2.3.intellisense.js" />
     <Content Include="Scripts\jquery-2.2.3.js" />
@@ -783,32 +730,71 @@
     <Content Include="Scripts\jstree\libs\require.js" />
     <Content Include="Scripts\jstree\src\intro.js" />
     <Content Include="Scripts\jstree\src\jstree.checkbox.js" />
+    <Content Include="Scripts\jstree\src\jstree.checkbox.min.js">
+      <DependentUpon>jstree.checkbox.js</DependentUpon>
+    </Content>
     <Content Include="Scripts\jstree\src\jstree.contextmenu.js" />
+    <Content Include="Scripts\jstree\src\jstree.contextmenu.min.js">
+      <DependentUpon>jstree.contextmenu.js</DependentUpon>
+    </Content>
     <Content Include="Scripts\jstree\src\jstree.dnd.js" />
+    <Content Include="Scripts\jstree\src\jstree.dnd.min.js">
+      <DependentUpon>jstree.dnd.js</DependentUpon>
+    </Content>
     <Content Include="Scripts\jstree\src\jstree.js" />
+    <Content Include="Scripts\jstree\src\jstree.min.js">
+      <DependentUpon>jstree.js</DependentUpon>
+    </Content>
     <Content Include="Scripts\jstree\src\jstree.search.js" />
+    <Content Include="Scripts\jstree\src\jstree.search.min.js">
+      <DependentUpon>jstree.search.js</DependentUpon>
+    </Content>
     <Content Include="Scripts\jstree\src\jstree.sort.js" />
+    <Content Include="Scripts\jstree\src\jstree.sort.min.js">
+      <DependentUpon>jstree.sort.js</DependentUpon>
+    </Content>
     <Content Include="Scripts\jstree\src\jstree.state.js" />
+    <Content Include="Scripts\jstree\src\jstree.state.min.js">
+      <DependentUpon>jstree.state.js</DependentUpon>
+    </Content>
     <Content Include="Scripts\jstree\src\jstree.types.js" />
+    <Content Include="Scripts\jstree\src\jstree.types.min.js">
+      <DependentUpon>jstree.types.js</DependentUpon>
+    </Content>
     <Content Include="Scripts\jstree\src\jstree.unique.js" />
+    <Content Include="Scripts\jstree\src\jstree.unique.min.js">
+      <DependentUpon>jstree.unique.js</DependentUpon>
+    </Content>
     <Content Include="Scripts\jstree\src\jstree.wholerow.js" />
+    <Content Include="Scripts\jstree\src\jstree.wholerow.min.js">
+      <DependentUpon>jstree.wholerow.js</DependentUpon>
+    </Content>
     <Content Include="Scripts\jstree\src\misc.js" />
     <Content Include="Scripts\jstree\src\outro.js" />
     <Content Include="Scripts\jstree\src\sample.js" />
     <Content Include="Scripts\jstree\src\themes\default\32px.png" />
     <Content Include="Scripts\jstree\src\themes\default\40px.png" />
     <Content Include="Scripts\jstree\src\themes\default\style.css" />
+    <Content Include="Scripts\jstree\src\themes\default\style.min.css">
+      <DependentUpon>style.css</DependentUpon>
+    </Content>
     <Content Include="Scripts\jstree\src\themes\default\throbber.gif" />
     <Content Include="Scripts\jstree\test\index.html" />
     <Content Include="Scripts\jstree\test\libs\qunit.css" />
     <Content Include="Scripts\jstree\test\libs\qunit.js" />
     <Content Include="Scripts\jstree\test\test.js" />
     <Content Include="Scripts\lightbox\css\lightbox.css" />
+    <Content Include="Scripts\lightbox\css\lightbox.min.css">
+      <DependentUpon>lightbox.css</DependentUpon>
+    </Content>
     <Content Include="Scripts\lightbox\images\close.png" />
     <Content Include="Scripts\lightbox\images\loading.gif" />
     <Content Include="Scripts\lightbox\images\next.png" />
     <Content Include="Scripts\lightbox\images\prev.png" />
     <Content Include="Scripts\lightbox\js\lightbox.js" />
+    <Content Include="Scripts\lightbox\js\lightbox.min.js">
+      <DependentUpon>lightbox.js</DependentUpon>
+    </Content>
     <Content Include="Scripts\Statistics.js" />
     <Content Include="Scripts\tinymce\langs\zh_CN.js" />
     <Content Include="Scripts\tinymce\license.txt" />
@@ -887,31 +873,6 @@
     <Content Include="Scripts\tinymce\skins\lightgray\skin.min.css" />
     <Content Include="Scripts\tinymce\themes\modern\theme.min.js" />
     <Content Include="Scripts\tinymce\tinymce.min.js" />
-    <Content Include="Scripts\zTree\css\img\diy\1_close.png" />
-    <Content Include="Scripts\zTree\css\img\diy\1_open.png" />
-    <Content Include="Scripts\zTree\css\img\diy\2.png" />
-    <Content Include="Scripts\zTree\css\img\diy\3.png" />
-    <Content Include="Scripts\zTree\css\img\diy\4.png" />
-    <Content Include="Scripts\zTree\css\img\diy\5.png" />
-    <Content Include="Scripts\zTree\css\img\diy\6.png" />
-    <Content Include="Scripts\zTree\css\img\diy\7.png" />
-    <Content Include="Scripts\zTree\css\img\diy\8.png" />
-    <Content Include="Scripts\zTree\css\img\diy\9.png" />
-    <Content Include="Scripts\zTree\css\img\line_conn.gif" />
-    <Content Include="Scripts\zTree\css\img\loading.gif" />
-    <Content Include="Scripts\zTree\css\img\zTreeStandard.gif" />
-    <Content Include="Scripts\zTree\css\img\zTreeStandard.png" />
-    <Content Include="Scripts\zTree\css\zTreeStyle.css" />
-    <Content Include="Scripts\zTree\js\jquery.ztree.all-3.5.js" />
-    <Content Include="Scripts\zTree\js\jquery.ztree.all-3.5.min.js" />
-    <Content Include="Scripts\zTree\js\jquery.ztree.core-3.5.js" />
-    <Content Include="Scripts\zTree\js\jquery.ztree.core-3.5.min.js" />
-    <Content Include="Scripts\zTree\js\jquery.ztree.excheck-3.5.js" />
-    <Content Include="Scripts\zTree\js\jquery.ztree.excheck-3.5.min.js" />
-    <Content Include="Scripts\zTree\js\jquery.ztree.exedit-3.5.js" />
-    <Content Include="Scripts\zTree\js\jquery.ztree.exedit-3.5.min.js" />
-    <Content Include="Scripts\zTree\js\jquery.ztree.exhide-3.5.js" />
-    <Content Include="Scripts\zTree\js\jquery.ztree.exhide-3.5.min.js" />
     <Content Include="Themes\Default\css\Theme.css">
       <DependentUpon>Theme.less</DependentUpon>
     </Content>
@@ -929,6 +890,14 @@
     <Content Include="Themes\Default\images\prd_sort_title.gif" />
     <Content Include="Themes\Default\images\video-play.png" />
     <Content Include="Themes\Default\thumbnail.jpg" />
+    <Content Include="Views\Shared\DisplayTemplates\CanonicalHelperModel.ascx" />
+    <Content Include="Views\Shared\DisplayTemplates\MenuHelperModel.ascx" />
+    <Content Include="Views\Shared\DisplayTemplates\MetaRobotsHelperModel.ascx" />
+    <Content Include="Views\Shared\DisplayTemplates\SiteMapHelperModel.ascx" />
+    <Content Include="Views\Shared\DisplayTemplates\SiteMapNodeModel.ascx" />
+    <Content Include="Views\Shared\DisplayTemplates\SiteMapNodeModelList.ascx" />
+    <Content Include="Views\Shared\DisplayTemplates\SiteMapPathHelperModel.ascx" />
+    <Content Include="Views\Shared\DisplayTemplates\SiteMapTitleHelperModel.ascx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -1015,14 +984,6 @@
     <Content Include="Themes\Default\css\Navigation.less" />
     <Content Include="Themes\Default\css\Widget.less" />
     <Content Include="Themes\Default\css\Section.less" />
-    <Content Include="Views\Shared\DisplayTemplates\SiteMapTitleHelperModel.cshtml" />
-    <Content Include="Views\Shared\DisplayTemplates\SiteMapPathHelperModel.cshtml" />
-    <Content Include="Views\Shared\DisplayTemplates\SiteMapNodeModelList.cshtml" />
-    <Content Include="Views\Shared\DisplayTemplates\SiteMapNodeModel.cshtml" />
-    <Content Include="Views\Shared\DisplayTemplates\SiteMapHelperModel.cshtml" />
-    <Content Include="Views\Shared\DisplayTemplates\MetaRobotsHelperModel.cshtml" />
-    <Content Include="Views\Shared\DisplayTemplates\MenuHelperModel.cshtml" />
-    <Content Include="Views\Shared\DisplayTemplates\CanonicalHelperModel.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Object.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\String.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Int32.cshtml" />
@@ -1038,6 +999,14 @@
     <Content Include="Views\Shared\EditorTemplates\Decimal.cshtml" />
     <Content Include="Views\Shared\Widget.Error.cshtml" />
     <Content Include="Themes\Default\css\Pagination.less" />
+    <Content Include="Views\Shared\DisplayTemplates\SiteMapTitleHelperModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\SiteMapPathHelperModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\SiteMapNodeModelList.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\SiteMapNodeModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\SiteMapHelperModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\MetaRobotsHelperModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\MenuHelperModel.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\CanonicalHelperModel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EasyFrameWork.CMS\Easy.Web.CMS.csproj">

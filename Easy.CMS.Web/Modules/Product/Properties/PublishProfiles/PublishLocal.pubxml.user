@@ -28,16 +28,16 @@
       <publishTime>09/08/2015 09:27:02</publishTime>
     </File>
     <File Include="bin/Easy.CMS.Product.dll">
-      <publishTime>05/14/2016 14:41:28</publishTime>
+      <publishTime>05/18/2016 23:22:45</publishTime>
     </File>
     <File Include="bin/Easy.dll">
-      <publishTime>03/14/2016 20:21:36</publishTime>
+      <publishTime>05/18/2016 21:07:14</publishTime>
     </File>
     <File Include="bin/Easy.Web.CMS.dll">
-      <publishTime>05/14/2016 14:38:48</publishTime>
+      <publishTime>05/18/2016 23:21:39</publishTime>
     </File>
     <File Include="bin/Easy.Web.dll">
-      <publishTime>04/14/2016 23:24:44</publishTime>
+      <publishTime>05/18/2016 22:26:00</publishTime>
     </File>
     <File Include="bin/edit.cshtml.ab886a4d.compiled">
       <publishTime>09/08/2015 09:27:02</publishTime>
@@ -133,10 +133,10 @@
       <publishTime>08/13/2014 20:42:27</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>04/14/2016 23:24:43</publishTime>
+      <publishTime>05/18/2016 22:31:20</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>05/14/2016 14:41:29</publishTime>
+      <publishTime>05/18/2016 23:22:47</publishTime>
     </File>
     <File Include="Scripts/jquery-photowall/exit.gif">
       <publishTime>12/11/2014 19:09:54</publishTime>
@@ -181,7 +181,7 @@
       <publishTime>07/26/2015 21:53:35</publishTime>
     </File>
     <File Include="Views/Widget.ProductCategory.cshtml">
-      <publishTime>04/14/2016 23:24:43</publishTime>
+      <publishTime>05/15/2016 21:00:38</publishTime>
     </File>
     <File Include="Views/Widget.ProductDetail.cshtml">
       <publishTime>04/29/2016 21:47:07</publishTime>
@@ -196,7 +196,7 @@
       <publishTime>01/30/2015 22:48:00</publishTime>
     </File>
     <File Include="web.config">
-      <publishTime>05/14/2016 14:36:51</publishTime>
+      <publishTime>05/18/2016 23:22:46</publishTime>
     </File>
   </ItemGroup>
 </Project>
