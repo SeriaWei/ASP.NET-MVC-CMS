@@ -129,34 +129,57 @@ Easy.MousePosition = function (e) {
 
 Easy.OpacityBackGround = (function () {
     var opa = 0.5;
+    var ref = 0;
     function ShowOpactiyBg(zindex, callBack) {
-        /// <summary>显示半透明遮罩层</summary>
-        /// <param name="zindex" type="Int">z方向层次</param>
-        /// <param name="callBack" type="Function">完成后的回调函数</param>
 
         if (typeof zindex != "number")
             zindex = 1;
-        var Ele = $("<div class='OpacityBackGround OtherFixed'></div>");
-        $("body").append(Ele);
+        var Ele;
+        if (ref === 0) {
+            Ele = $("<div class='OpacityBackGround OtherFixed'></div>");
+            $("body").append(Ele);
+            Ele.fadeTo(0, 0);
+        }
+        else {
+            Ele = $("div.OpacityBackGround");
+        }
         Ele.css("z-index", zindex);
-        Ele.fadeTo(0, 0);
         Ele.fadeTo(300, opa, function () {
             if (callBack) callBack.call();
         });
+        ref++;
     }
     function CloseOpacityBg(callBack) {
-        /// <summary>关闭最近一次添加的半透明遮罩层</summary>
-        /// <param name="callBack" type="Function">完成后的回调函数</param>
-        var Bele = $(".OpacityBackGround:last");
-        Bele.fadeTo(300, 0, function () { $(this).remove(); if (callBack) callBack.call(); });
+        ref--;
+        if (ref === 0) {
+            var Bele = $(".OpacityBackGround");
+            Bele.fadeTo(300, 0, function () {
+                if (ref === 0) {
+                    $(this).remove();
+                }
+                if (callBack)
+                    callBack.call();
+            });
+        } else if (callBack) {
+            callBack.call();
+        }            
     }
     function SetOpacity(opacity) {
-        /// <summary>设置半透明度</summary>
-        /// <param name="opacity" type="Double">透明度</param>
         opa = opacity;
     }
     return { Show: ShowOpactiyBg, Close: CloseOpacityBg, SetOpacity: SetOpacity }
 })();
+
+Easy.Block = function () {
+    Easy.OpacityBackGround.Show();
+    $(".OpacityBackGround").addClass("busy");
+    $("body").append("<div class='easy-block' />");
+}
+Easy.UnBlock = function () {
+    $(".OpacityBackGround").removeClass("busy");
+    Easy.OpacityBackGround.Close();
+    $(".easy-block").remove();
+}
 
 Easy.ShowMessageBox = function (title, msg, fnOk, ShowCancel, zindex) {
     /// <summary>弹出消息提示窗口</summary>
@@ -190,6 +213,9 @@ Easy.ShowMessageBox = function (title, msg, fnOk, ShowCancel, zindex) {
         Easy.OpacityBackGround.Close();
         box.animate({ top: "45%", opacity: 0 }, 200, function () { $(this).remove(); });
     });
+    if (fnOk != null && !ShowCancel) {
+        ShowCancel = true;
+    }
     if (typeof ShowCancel == "boolean") {
         if (ShowCancel) {
             var CancelButton = $("<input id='MessageBoxCancelBtn' type='button' class='btn btn-default' value='取消' />");
