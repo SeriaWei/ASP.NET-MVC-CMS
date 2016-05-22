@@ -9,3 +9,7 @@ obj
 *.suo
 /Easy.CMS.Web/UpLoad
 /Easy.CMS.Web/App_Data
+/Easy.CMS.Web/Modules/Statistics
+/Easy.CMS.Web/Modules/SelfService_Provider
+/Easy.CMS.Web/Modules/SelfService_Register
+/Easy.CMS.Web/Modules/.svn

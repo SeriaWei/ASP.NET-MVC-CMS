@@ -30,6 +30,13 @@ namespace Easy.CMS.Common
             };
             yield return new RouteDescriptor
             {
+                RouteName = "Validation",
+                Url = "validation/{action}",
+                Defaults = new { controller = "Validation", module = "validation" },
+                Priority = 10
+            };
+            yield return new RouteDescriptor
+            {
                 RouteName = "error",
                 Url = "error/{action}",
                 Defaults = new { controller = "Error",  action="index",module = "admin" },

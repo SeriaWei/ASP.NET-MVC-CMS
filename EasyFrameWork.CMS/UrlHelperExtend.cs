@@ -13,5 +13,11 @@ namespace Easy.Web.CMS
         {
             return helper.Content(path.IsNullOrEmpty() ? "~/" : path);
         }
+
+        public static string ValidateCode(this UrlHelper helper)
+        {
+            return helper.Action("Code", "Validation", new { module = "Validation" });
+        }
+
     }
 }

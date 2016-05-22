@@ -68,6 +68,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.30506.0\lib\net40\System.Web.Helpers.dll</HintPath>
@@ -131,6 +132,9 @@
     <Compile Include="Route\UrlRoute.cs" />
     <Compile Include="HttpContextExtend.cs" />
     <Compile Include="UrlHelperExtend.cs" />
+    <Compile Include="Validate\DefaultValidateService.cs" />
+    <Compile Include="Validate\IValidateService.cs" />
+    <Compile Include="Validate\ValidateCode.cs" />
     <Compile Include="WidgetTemplate\IWidgetTemplateService.cs" />
     <Compile Include="WidgetTemplate\WidgetTemplateEntity.cs" />
     <Compile Include="WidgetTemplate\WidgetTemplateService.cs" />
