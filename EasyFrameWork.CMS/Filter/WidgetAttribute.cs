@@ -10,6 +10,7 @@ using Easy.Web.CMS.Layout;
 using Easy.Constant;
 using Easy.Extend;
 using System.Net;
+using System.Web;
 using Easy.Cache;
 using Easy.Web.CMS.Theme;
 using Microsoft.Practices.ServiceLocation;
@@ -18,8 +19,10 @@ namespace Easy.Web.CMS.Filter
 {
     public class WidgetAttribute : FilterAttribute, IActionFilter
     {
-        public ZoneWidgetCollection Zones { get; set; }
-
+        public IPageService PageService
+        {
+            get { return ServiceLocator.Current.GetInstance<IPageService>(); }
+        }
         public virtual PageEntity GetPage(ActionExecutedContext filterContext)
         {
             string path = filterContext.RequestContext.HttpContext.Request.Path;
@@ -37,9 +40,8 @@ namespace Easy.Web.CMS.Filter
                     StringComparison.CurrentCultureIgnoreCase);
             }
 
-            return ServiceLocator.Current.GetInstance<IPageService>().GetByPath(path, isPreView);
+            return PageService.GetByPath(path, isPreView);
         }
-
         public virtual string GetLayout()
         {
             return "~/Modules/Common/Views/Shared/_Layout.cshtml";
@@ -47,39 +49,36 @@ namespace Easy.Web.CMS.Filter
 
         public void OnActionExecuted(ActionExecutedContext filterContext)
         {
-            Zones = new ZoneWidgetCollection();
             //Page
             var page = GetPage(filterContext);
             if (page != null)
             {
-                var cache = new StaticCache();
-                var layoutService = ServiceLocator.Current.GetInstance<ILayoutService>();
-                LayoutEntity layout = layoutService.Get(page.LayoutId);
+                LayoutEntity layout = ServiceLocator.Current.GetInstance<ILayoutService>().Get(page.LayoutId);
                 layout.Page = page;
-                layout.CurrentTheme = ServiceLocator.Current.GetInstance<IThemeService>().GetCurrentTheme();
-                Action<WidgetBase> processWidget = m =>
+                if (filterContext.RequestContext.HttpContext.Request.IsAuthenticated && page.IsPublishedPage)
                 {
-                    IWidgetPartDriver partDriver = cache.Get("IWidgetPartDriver_" + m.AssemblyName + m.ServiceTypeName, source =>
-                         Activator.CreateInstance(m.AssemblyName, m.ServiceTypeName).Unwrap() as IWidgetPartDriver
-                    );
-                    WidgetPart part = partDriver.Display(partDriver.GetWidget(m), filterContext.HttpContext);
-                    lock (Zones)
+                    layout.PreViewPage = PageService.GetByPath(page.Url, true);
+                }
+                layout.CurrentTheme = ServiceLocator.Current.GetInstance<IThemeService>().GetCurrentTheme();
+                layout.ZoneWidgets = new ZoneWidgetCollection();
+                filterContext.HttpContext.TrySetLayout(layout);
+                var widgetService = ServiceLocator.Current.GetInstance<IWidgetService>();
+                widgetService.GetAllByPage(page).Each(widget =>
+                {
+                    IWidgetPartDriver partDriver = widget.CreateServiceInstance();
+                    WidgetPart part = partDriver.Display(partDriver.GetWidget(widget), filterContext.HttpContext);
+                    lock (layout.ZoneWidgets)
                     {
-                        if (Zones.ContainsKey(part.Widget.ZoneID))
+                        if (layout.ZoneWidgets.ContainsKey(part.Widget.ZoneID))
                         {
-                            Zones[part.Widget.ZoneID].Add(part);
+                            layout.ZoneWidgets[part.Widget.ZoneID].TryAdd(part);
                         }
                         else
                         {
-                            var partCollection = new WidgetCollection { part };
-                            Zones.Add(part.Widget.ZoneID, partCollection);
+                            layout.ZoneWidgets.Add(part.Widget.ZoneID, new WidgetCollection { part });
                         }
                     }
-                };
-                var widgetService = ServiceLocator.Current.GetInstance<IWidgetService>();
-                IEnumerable<WidgetBase> widgets = widgetService.GetAllByPageId(page.ID);
-                widgets.AsParallel().ForAll(processWidget);
-                layout.ZoneWidgets = Zones;
+                });
                 var viewResult = (filterContext.Result as ViewResult);
                 if (viewResult != null)
                 {
@@ -95,7 +94,11 @@ namespace Easy.Web.CMS.Filter
 
         public void OnActionExecuting(ActionExecutingContext filterContext)
         {
-
+            var applicationContext = ServiceLocator.Current.GetInstance<IApplicationContext>() as CMSApplicationContext;
+            if (applicationContext != null && HttpContext.Current != null)
+            {
+                applicationContext.RequestUrl = HttpContext.Current.Request.Url;
+            }
         }
     }
 

@@ -19,8 +19,16 @@ namespace Easy.CMS.Article.Controllers
             : base(new ArticleService())
         {
         }
-
-
+        [HttpPost]
+        public override ActionResult Create(ArticleEntity entity)
+        {
+            var result = base.Create(entity);
+            if (entity.ActionType == ActionType.Publish)
+            {
+                Service.Publish(entity.ID);
+            }
+            return result;
+        }
         [HttpPost]
         public override ActionResult Edit(ArticleEntity entity)
         {

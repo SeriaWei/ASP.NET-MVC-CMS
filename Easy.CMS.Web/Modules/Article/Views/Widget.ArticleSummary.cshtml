@@ -8,16 +8,13 @@
 }
 <div class="article-summary">
     <div class="bs-callout @Model.Style">
-        @if (!Model.Title.IsNullOrEmpty())
+        @if (!Model.SubTitle.IsNullOrEmpty())
         {
             <div class="clearfix">
                 <div class="pull-left">
-                    <h4>
-                        @Model.Title
-                    </h4>
                     @if (Model.SubTitle.IsNotNullAndWhiteSpace())
                     {
-                        <h5>@Model.SubTitle</h5>
+                        <h4>@Model.SubTitle</h4>
                     }
                 </div>
                 <div class="pull-right">

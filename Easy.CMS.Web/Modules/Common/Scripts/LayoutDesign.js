@@ -1,167 +1,188 @@
 ﻿$(function () {
-    function reCheckToggleContainer() {
-        var container = $("#container");
-        var isfluid = false;
-        if (container.children(".row.active").size() > 0) {
-            isfluid = !container.children(".row.active").hasClass("container");
-        } else {
-            isfluid = !container.hasClass("container");
-        }
-        if (isfluid) {
-            $("input[type=radio][name=toggle-container][value=container-fluid]").prop("checked", true);
-        } else {
-            $("input[type=radio][name=toggle-container][value=container]").prop("checked", true);
-        }
+    var container = $("#containers");
+    if (container.children().size() > 0 && container.children(".container").size() === 0 && container.children(".container-fluid").size() === 0) {
+        var containerItem = $('<div class="container"></div>');
+        container.children().appendTo(containerItem);
+        container.append(containerItem);
     }
-
-    reCheckToggleContainer();
-    $(document).on("click", "input[type=radio][name=toggle-container]", function () {
-        var container = $("#container");
-        if (container.children(".row.active").size() > 0) {
-            if ($(this).val() === "container-fluid") {
-                container.children(".row.active").removeClass("container");
-            } else {
-                container.children(".row.active").addClass($(this).val());
-            }
-        } else {
-            container.children(".row").removeClass("container");
-            container.removeClass("container").removeClass("container-fluid").addClass($(this).val());
-            $("#ContainerClass").val($(this).val());
-        }
-    });
-
-    $(document).on("click", "#container>.row", function () {
-        var container = $("#container");
-        container.children(".row.active").not(this).removeClass("active");
-        if (container.hasClass("container-fluid")) {
-            $(this).toggleClass("active");
-        }
-        reCheckToggleContainer();
-    });
+    var containerTools = [
+        '<div class="tools">',
+        '<i class="glyphicon glyphicon-resize-horizontal" title="拉伸"></i>',
+        '<i class="glyphicon glyphicon-resize-small" title="居中"></i>',
+        '<i class="glyphicon glyphicon-sort" title="拖动排序"></i>',
+        '<i class="glyphicon glyphicon-remove-circle" title="删除"></i>',
+        '</div>'
+    ].join('');
+    var rowTools = [
+        '<div class="tools">',
+        '<i class="glyphicon glyphicon-remove-circle" title="删除"></i>',
+        '</div>'].join('');
+    var colTools = [
+        '<div class="tools">',
+        '<i class="glyphicon glyphicon-menu-left" title="减小宽度 -1"></i>',
+        '<i class="glyphicon glyphicon glyphicon-menu-right" title="增加宽度 +1"></i>',
+        '<i class="glyphicon glyphicon-remove-circle" title="删除"></i>',
+        '</div>'].join('');
     $(document).on("blur", ".zone input", function () {
         $(this).attr("value", $(this).val());
     });
     function getNewZone() {
         var zoneParent = $('<div class="additional zone"></div>');
         var zone = $("<zone></zone>");
-        zone.append('<input class="form-control" type="text" name="ZoneName" placeholder="输入名称" value="内容 ' + ($("#container input[type=text]").size() + 1) + '" />');
+        zone.append('<input class="form-control" type="text" name="ZoneName" placeholder="输入名称" value="区域 ' + ($("#containers input[type=text]").size() + 1) + '" />');
         zone.append('<input class="form-control" type="hidden" name="LayoutId" value="' + $("#LayoutId").val() + '" />');
         zone.append('<input class="form-control" type="hidden" name="ID" value="" />');
         zoneParent.append(zone);
         return zoneParent;
     }
     $(document).on("click", ".dropdown-menu.col-size a", function () {
-        $("#add-col-handle").data("val", $(this).data("val")).find(".col-size-info").text($(this).text());
+        $("#add-col-handle").attr("data-val", $(this).data("val")).find(".col-size-info").text($(this).text());
         $(this).parent().parent().find(".active").removeClass("active");
         $(this).parent().addClass("active");
     });
+    $(".AddContainer").draggable({ helper: "clone" });
+    $(".AddRow").draggable({ helper: "clone", revert: "invalid", connectToSortable: ".container,.container-fluid" });
+    $(".AddCol").draggable({ helper: "clone", connectToSortable: ".additional.row" });
+    $(".templates ul li").draggable({ helper: "clone", connectToSortable: "#containers>div" });
 
-    $(".AddRow,.AddCol,.AddZone").draggable({ helper: "clone", revert: "invalid" });
-    $("#toolBar").droppable({
-        activeClass: "dropWarning",
-        hoverClass: "dropDanger",
-        accept: ".additional",
+    var colSortOption = {
+        placeholder: "additional",
+        tolerance: "pointer",
+        connectWith: ".additional.row",
+        over: function (event, ui) {
+            if (ui.item.hasClass("AddCol")) {
+                ui.placeholder.addClass(ui.item.data("col") + ui.item.data("val")).html('<div class="colContent row muted"></div>');
+            } else {
+                ui.placeholder.addClass(ui.item.attr("class")).html('<div class="colContent row muted"></div>');
+            }
+        },
+        stop: function (event, ui) {
+            if (ui.item.hasClass("AddCol")) {
+                var col = $('<div class="additional ' + ui.item.data("col") + ui.item.data("val") + ' ui-sortable-handle">' + colTools + '<div class="colContent row"></div></div>');
+                col.find(".colContent").append(getNewZone());
+                ui.item.replaceWith(col);
+            }
+        }
+    };
+    var rowSortOption = {
+        placeholder: "additional row muted",
+        tolerance: "pointer",
+        connectWith: ".container,.container-fluid",
+        items: ".additional.row",
+        stop: function (event, ui) {
+            var row = $('<div class="additional row">' + rowTools + '</div>');
+            if (ui.item.hasClass("AddRow")) {
+                ui.item.replaceWith(row);
+            } else if (ui.item.data("add")) {
+                var cols = $(ui.item.find(".row").html());
+                row.append(cols);
+                ui.item.replaceWith(row);
+                cols.each(function () {
+                    $(this).addClass("additional");
+                    $(this).append(colTools);
+                    $(this).append($('<div class="colContent row"></div>').append(getNewZone()));
+                });
+            }
+            row.sortable(colSortOption);
+        }
+    };
+
+    $("#containers").sortable({
+        placeholder: "design",
+        axis: 'y',
+        tolerance: "pointer",
+        start: function (event, ui) {
+            if (ui.helper.hasClass("container")) {
+                ui.placeholder.addClass("container");
+                ui.helper.css("left", ui.placeholder.offset().left);
+            }
+            else {
+                ui.placeholder.addClass("container-fluid");
+            }
+        },
+        handle: ".glyphicon-sort"
+    });
+
+    $("#containers>div").sortable(rowSortOption).append(containerTools).addClass("design main");
+    $(".additional.row").sortable(colSortOption).append(rowTools).children(".additional").append(colTools);
+    $("body").droppable({
+        greedy: true,
+        accept: ".AddContainer",
+        hoverClass: "dropWarning",
         drop: function (event, ui) {
-            ui.draggable.remove();
+            var newCon = $('<div class="container design main">' + containerTools + '</div>');
+            newCon.sortable(rowSortOption);
+            $(".additional.row", newCon).sortable(colSortOption);
+            $("#containers").append(newCon);
         }
     });
-    $(".RowDroppable").droppable({
-        hoverClass: "dropWarning",
-        accept: ".AddRow,.widget-design",
-        greedy: true,
-        tolerance: "pointer",
-        drop: rowDropToContent
+    $(document).on("click", ".container.design .glyphicon-resize-horizontal", function () {
+        $(this).closest(".container").removeClass("container").addClass("container-fluid");
+    });
+    $(document).on("click", ".container-fluid.design .glyphicon-resize-small", function () {
+        $(this).closest(".container-fluid").removeClass("container-fluid").addClass("container");
+    });
+    $(document).on("click", "#containers .glyphicon-remove-circle", function () {
+        var target = $(this).parent().parent();
+        Easy.ShowMessageBox("提示", "确定要删除吗？", function () {
+            target.remove();
+        }, true, 10);
+    });
+    $(document).on("click", "#containers .glyphicon-menu-left", function () {
+        var cls = $(this).parent().parent().attr("class");
+        cls = cls.replace(/col-md-(\d+)/g, function (a, v) {
+            v = parseInt(v);
+            if (v > 1) {
+                v--;
+            }
+            return 'col-md-' + v;
+        });
+        $(this).parent().parent().attr("class", cls);
+    });
+    $(document).on("click", "#containers .glyphicon-menu-right", function () {
+        var cls = $(this).parent().parent().attr("class");
+        cls = cls.replace(/col-md-(\d+)/g, function (a, v) {
+            v = parseInt(v);
+            if (v < 12) {
+                v++;
+            }
+            return 'col-md-' + v;
+        });
+        $(this).parent().parent().attr("class", cls);
     });
 
-    var opRowDrop = {
-        hoverClass: "dropWarning",
-        accept: ".AddCol",
-        greedy: true,
-        tolerance: "pointer",
-        drop: colDroped
-    };
-    var opColDrop = {
-        hoverClass: "dropWarning",
-        accept: ".AddRow,.AddZone,.additional.zone",
-        greedy: true,
-        tolerance: "pointer",
-        drop: function (evn, uirz) {
-            if (uirz.draggable.hasClass("AddRow")) {
-                rowDroped(evn, uirz, this);
-            }
-            else if (uirz.draggable.hasClass("AddZone") || uirz.draggable.hasClass("additional")) {
-                zoneDropable(evn, uirz, this);
-            }
-        }
-    };
-    $("#container .additional.row").droppable(opRowDrop).sortable();;
-    $("#container .colContent").droppable(opColDrop).sortable();
-    $("#container").sortable({ items: ".additional.row:not(.layout.templates)" });
-    function rowDropToContent(event, ui, obj) {
-        if (obj == null)
-            obj = this;
-        var row = $("<div class=\"additional row\"></div>");
-        $(obj).append(row);
-        if (ui.draggable.hasClass("widget-design")) {
-            var cols = $(ui.draggable.find(".row").html());
-            row.append(cols);
-            cols.each(function () {
-                $(this).addClass("additional");
-                $(this).html($("<div class=\"colContent row\"></div>").append(getNewZone()));
-                $(this).children(".colContent").droppable(opColDrop).sortable();
-            });
-        }
-        row.droppable(opRowDrop);
-        row.sortable();
-        $(".dropWarning").removeClass("dropWarning");
+    if ($(window).width() > 1600) {
+        $(".templates").addClass("active");
     }
-    function rowDroped(event, ui, obj) {
-        if (obj == null)
-            obj = this;
-        var row = $("<div class=\"additional " + ui.draggable.data("container") + "\"><div class=\"row additional\"></div></div>");
-        if (ui.draggable.find("input").val()) {
-            row.find(".row").css("width", ui.draggable.find("input").val()).css("margin", "0 auto");
-        }
-        row.children(".row").droppable(opRowDrop).sortable();
-        $(obj).append(row);
-        $(".dropWarning").removeClass("dropWarning");
-    }
-    function colDroped(event, ui, obj) {
-        if (obj == null)
-            obj = this;
-        if (ui.draggable.hasClass("AddZone") || ui.draggable.hasClass("additional")) {
-            zoneDropable(event, ui, obj);
-            return;
-        }
-        var col = $("<div class=\"additional " + ui.draggable.data("col") + ui.draggable.data("val") + "\"><div class=\"colContent row\"></div></div>");
-        col.children(".colContent").droppable(opColDrop).sortable();
-        $(obj).append(col);
-        $(".dropWarning").removeClass("dropWarning");
-    }
-    function zoneDropable(event, ui, obj) {
-        if (obj == null) {
-            obj = this;
-        }
-        if (ui.draggable.parent().is(obj))
-            return;
-        if (ui.draggable.hasClass("additional")) {
-            $(obj).append('<div class=\"additional zone\">' + ui.draggable.html() + '</div>');
-            ui.draggable.remove();
-        }
-        else {
-            $(obj).append(getNewZone());
-        }
-        $(".dropWarning").removeClass("dropWarning");
-    }
+    $(document).on("click", ".templates .tool-open", function () {
+        $(this).parent().toggleClass("active");
+    });
+    container.removeClass("hide");
+
     $(document).on("click", "#save", function () {
-        $("#container div")
-            .removeClass("ui-droppable")
-            .removeClass("ui-sortable")
-            .removeClass("ui-sortable-handle")
-            .removeClass("active")
-            .removeAttr("style");
+        $('input[name="ZoneName"]').each(function () {
+            if (!$.trim($(this).val())) {
+                $(this).attr("value", "未命名");
+            }
+        });
+        if ($(this).data("done")) {
+            return;
+        }
+        $(this).data("done", true);
 
-        var html = $.trim($("#container").html());
+        var copyContainer = $('<div id="containers"/>').append(container.html());
+
+        $("div", copyContainer)
+                    .removeClass("ui-droppable")
+                    .removeClass("ui-sortable")
+                    .removeClass("ui-sortable-handle")
+                    .removeClass("active")
+                    .removeClass("design")
+                    .removeAttr("style");
+
+        $(".tools", copyContainer).remove();
+
+        var html = copyContainer.html();
         var htmlArray = html.split("<zone>");
         var form = $("#LayoutInfo");
         var zoneArray = [];
@@ -183,15 +204,9 @@
         }
         $(".layout-html", form).remove();
         for (var i = 0; i < allZoneResult.length; i++) {
-            form.append($('<input type="hidden" class="layout-html" name="html"/>').val($.trim(allZoneResult[i])));
+            form.append($('<textarea name="html" class="layout-html hide"></textarea>').val($.trim(allZoneResult[i])));
         }
         form.submit();
+        return false;
     });
-    if ($(window).width() > 1600) {
-        $(".templates").addClass("active");
-    }
-    $(document).on("click", ".templates .tool-open", function() {
-        $(this).parent().toggleClass("active");
-    });
-    $(".templates ul li").draggable({ helper: "clone" });
 });

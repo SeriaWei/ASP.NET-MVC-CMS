@@ -101,20 +101,20 @@ namespace Easy.Web.CMS.Layout
         public override LayoutEntity Get(params object[] primaryKeys)
         {
             var cache = new StaticCache();
-            var layout = cache.Get("Layout_" + primaryKeys[0], m =>
-            {
-                m.When(LayoutChanged);
-                LayoutEntity entity = base.Get(primaryKeys);
-                if (entity == null)
-                    return null;
-                IEnumerable<ZoneEntity> zones = ZoneService.Get(new Data.DataFilter().Where("LayoutId", OperatorType.Equal, entity.ID));
-                entity.Zones = new ZoneCollection();
-                zones.Each(entity.Zones.Add);
-                IEnumerable<LayoutHtml> htmls = new LayoutHtmlService().Get(new Data.DataFilter().OrderBy("LayoutHtmlId", OrderType.Ascending).Where("LayoutId", OperatorType.Equal, entity.ID));
-                entity.Html = new LayoutHtmlCollection();
-                htmls.Each(entity.Html.Add);
-                return entity;
-            });
+            var layout = cache.Get((ApplicationContext as CMSApplicationContext).RequestUrl.Host + "_Layout_" + primaryKeys[0], m =>
+             {
+                 m.When(LayoutChanged);
+                 LayoutEntity entity = base.Get(primaryKeys);
+                 if (entity == null)
+                     return null;
+                 IEnumerable<ZoneEntity> zones = ZoneService.Get(new Data.DataFilter().Where("LayoutId", OperatorType.Equal, entity.ID));
+                 entity.Zones = new ZoneCollection();
+                 zones.Each(entity.Zones.Add);
+                 IEnumerable<LayoutHtml> htmls = new LayoutHtmlService().Get(new Data.DataFilter().OrderBy("LayoutHtmlId", OrderType.Ascending).Where("LayoutId", OperatorType.Equal, entity.ID));
+                 entity.Html = new LayoutHtmlCollection();
+                 htmls.Each(entity.Html.Add);
+                 return entity;
+             });
             layout.Page = null;
             return layout;
         }

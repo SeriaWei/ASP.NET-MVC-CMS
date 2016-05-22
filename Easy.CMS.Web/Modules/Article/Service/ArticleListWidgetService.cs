@@ -24,7 +24,7 @@ namespace Easy.CMS.Article.Service
             int.TryParse(httpContext.Request.QueryString["p"], out pageIndex);
             var filter = new Data.DataFilter();
             filter.Where("IsPublish", OperatorType.Equal, true);
-            filter.OrderBy("PublishDate", OrderType.Descending);
+            filter.OrderBy("CreateDate", OrderType.Descending);
             var articleService = new ArticleService();
             var page = new Data.Pagination { PageIndex = pageIndex, PageSize = currentWidget.PageSize ?? 20 };
             if (ac != 0)

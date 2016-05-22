@@ -5,7 +5,7 @@ SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[SectionContentImage](
 	[ID] [int] NOT NULL,
-	[SectionWidgetId] [nvarchar](255) NOT NULL,
+	[SectionWidgetId] [nvarchar](100) NOT NULL,
 	[ImageSrc] [nvarchar](255) NULL,
 	[ImageAlt] [nvarchar](255) NULL,
 	[ImageTitle] [nvarchar](255) NULL,

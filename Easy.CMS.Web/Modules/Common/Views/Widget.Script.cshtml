@@ -1,6 +1,13 @@
 ﻿@model Easy.CMS.Common.Models.ScriptWidget
-
-@using (Script.AtFoot())
+@if (Model.Script.IsNullOrEmpty())
+{
+    return;
+}
+@if (Model.Script.StartsWith("<script"))
+{
+    @Html.Raw(Model.Script)
+}
+else
 {
     <script type="text/javascript">
         @Html.Raw(Model.Script)

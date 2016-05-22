@@ -17,7 +17,11 @@
     <div class="hide">
         @foreach (EasyModelMetaData item in metaData.Properties.Where(m => !m.ShowForEdit || m.HideSurroundingHtml))
         {
-            @Html.Editor(item.PropertyName,"Hidden")
+            if (item.ViewPortDescriptor.IsIgnore)
+            {
+                continue;
+            }
+            @Html.Editor(item.PropertyName, "Hidden")
         }
     </div>
 </div>

@@ -3,7 +3,10 @@
 @model String
 @{
     var meteData = ViewData.ModelMetadata as EasyModelMetaData;
-   
-    
+    var attrs = meteData.GetAttributes();
+    if (!attrs.ContainsKey("rows"))
+    {
+        attrs.Add("rows", 5);
+    }
 }
-@Html.TextArea("", Model, meteData.GetAttributes())
+@Html.TextArea("", Model, attrs)

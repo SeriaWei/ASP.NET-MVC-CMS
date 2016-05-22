@@ -1,0 +1,2 @@
+DELETE FROM dbo.CMS_LayoutHtml
+GO

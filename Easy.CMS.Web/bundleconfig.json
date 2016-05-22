@@ -1,0 +1,164 @@
+[
+  {
+    "outputFileName": "Scripts/jstree/src/jstree.js",
+    "inputFiles": [
+      "Scripts/jstree/src/jstree.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/jstree/src/jstree.checkbox.js",
+    "inputFiles": [
+      "Scripts/jstree/src/jstree.checkbox.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/jstree/src/jstree.contextmenu.js",
+    "inputFiles": [
+      "Scripts/jstree/src/jstree.contextmenu.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/jstree/src/jstree.dnd.js",
+    "inputFiles": [
+      "Scripts/jstree/src/jstree.dnd.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/jstree/src/jstree.search.js",
+    "inputFiles": [
+      "Scripts/jstree/src/jstree.search.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/jstree/src/jstree.sort.js",
+    "inputFiles": [
+      "Scripts/jstree/src/jstree.sort.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/jstree/src/jstree.state.js",
+    "inputFiles": [
+      "Scripts/jstree/src/jstree.state.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/jstree/src/jstree.types.js",
+    "inputFiles": [
+      "Scripts/jstree/src/jstree.types.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/jstree/src/jstree.unique.js",
+    "inputFiles": [
+      "Scripts/jstree/src/jstree.unique.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/jstree/src/jstree.wholerow.js",
+    "inputFiles": [
+      "Scripts/jstree/src/jstree.wholerow.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/themes/Admin/admin.css",
+    "inputFiles": [
+      "Content/themes/Admin/admin.css"
+    ]
+  },
+  {
+    "outputFileName": "Content/themes/Admin/script/admin.js",
+    "inputFiles": [
+      "Content/themes/Admin/script/admin.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/EasyPlug/Easy.js",
+    "inputFiles": [
+      "Scripts/EasyPlug/Easy.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/EasyPlug/Easy.Grid.js",
+    "inputFiles": [
+      "Scripts/EasyPlug/Easy.Grid.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/EasyPlug/Css/Animate.css",
+    "inputFiles": [
+      "Scripts/EasyPlug/Css/Animate.css"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/EasyPlug/Css/Base.css",
+    "inputFiles": [
+      "Scripts/EasyPlug/Css/Base.css"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/EasyPlug/Css/Easy.css",
+    "inputFiles": [
+      "Scripts/EasyPlug/Css/Easy.css"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/EasyPlug/Css/Easy.Grid.css",
+    "inputFiles": [
+      "Scripts/EasyPlug/Css/Easy.Grid.css"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/EasyPlug/Css/Easy.Tab.css",
+    "inputFiles": [
+      "Scripts/EasyPlug/Css/Easy.Tab.css"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/EasyPlug/Css/Easy.UI.css",
+    "inputFiles": [
+      "Scripts/EasyPlug/Css/Easy.UI.css"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/EasyPlug/Css/Icon.css",
+    "inputFiles": [
+      "Scripts/EasyPlug/Css/Icon.css"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/EasyPlug/Easy.FocusImage.js",
+    "inputFiles": [
+      "Scripts/EasyPlug/Easy.FocusImage.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/EasyPlug/Easy.UI.js",
+    "inputFiles": [
+      "Scripts/EasyPlug/Easy.UI.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/jstree/src/themes/default/style.css",
+    "inputFiles": [
+      "Scripts/jstree/src/themes/default/style.css"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/lightbox/css/lightbox.css",
+    "inputFiles": [
+      "Scripts/lightbox/css/lightbox.css"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/lightbox/js/lightbox.js",
+    "inputFiles": [
+      "Scripts/lightbox/js/lightbox.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/bootstrap-datetimepicker/moment-with-locales.js",
+    "inputFiles": [
+      "Scripts/bootstrap-datetimepicker/moment-with-locales.js"
+    ]
+  }
+]

@@ -1,14 +1,25 @@
 ﻿@{
     ViewBag.Title = "Login";
+    Style.Reqiured("admin").AtHead();
+    Script.Reqiured("validate").AtFoot();
 }
-<style>
-    .input-group {
-        margin: 10px 30px;
-    }
-</style>
+@using (Style.AtHead())
+{
+    <style>
+        .panel-default {
+            margin: 120px auto auto auto;
+            width: 500px;
+        }
+        .input-group {
+            margin: 10px 30px;
+        }
+    </style>
+}
+
 @using (Html.BeginForm())
 {
-    <div class="panel panel-default" style="margin: 100px auto auto auto; width: 500px;">
+
+    <div class="panel panel-default">
         <div class="panel-heading">
             <i class="glyphicon glyphicon-user"></i>
             登录
@@ -16,12 +27,21 @@
         <div class="panel-body">
             <div class="input-group">
                 <span class="input-group-addon">用户名</span>
-                <input type="text" name="userName" class="form-control" />
+                <input type="text" id="userName" name="userName" class="form-control" data-val="true" data-val-required="请输入用户名" />
             </div>
             <div class="input-group">
-                <span class="input-group-addon">密码</span>
-                <input type="password" name="password" class="form-control" />
+                <span class="field-validation-valid " data-valmsg-for="userName" data-valmsg-replace="true"></span>
             </div>
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <span style="padding: 0 7px;">密码</span>
+                </span>
+                <input type="password" id="password" name="password" class="form-control" data-val="true" data-val-required="请输入密码" />
+            </div>
+            <div class="input-group">
+                <span class="field-validation-valid" data-valmsg-for="password" data-valmsg-replace="true"></span>
+            </div>
+
         </div>
         <div class="panel-footer clearfix">
             <div class="pull-right">

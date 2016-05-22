@@ -19,7 +19,7 @@ namespace Easy.Web.CMS.Filter
         public override PageEntity GetPage(ActionExecutedContext filterContext)
         {
             string pageId = filterContext.RequestContext.HttpContext.Request.QueryString["ID"];
-            return ServiceLocator.Current.GetInstance<IPageService>().Get(pageId);
+            return PageService.Get(pageId);
         }
 
         public override string GetLayout()

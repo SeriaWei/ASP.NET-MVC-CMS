@@ -22,7 +22,7 @@ namespace Easy.CMS.Product.Models
         protected override void ViewConfigure()
         {
             base.ViewConfigure();
-            ViewConfig(m => m.ProductCategoryID).AsDropDownList().DataSource(() =>
+            ViewConfig(m => m.ProductCategoryID).AsDropDownList().Order(NextOrder()).DataSource(() =>
             {
                 return new ProductCategoryService().Get().ToDictionary(m => m.ID.ToString(), m => m.Title);
             }).Required();

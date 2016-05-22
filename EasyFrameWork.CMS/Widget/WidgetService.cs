@@ -41,12 +41,16 @@ namespace Easy.Web.CMS.Widget
         public IEnumerable<WidgetBase> GetAllByPageId(string pageId)
         {
             var page = PageService.Get(pageId);
-            var result = GetByLayoutId(page.LayoutId);
-            List<WidgetBase> widgets = result.ToList();
-            widgets.AddRange(GetByPageId(pageId));
-            return widgets;
+            return GetAllByPage(page);
         }
 
+        public IEnumerable<WidgetBase> GetAllByPage(PageEntity page)
+        {
+            var result = GetByLayoutId(page.LayoutId);
+            List<WidgetBase> widgets = result.ToList();
+            widgets.AddRange(GetByPageId(page.ID));
+            return widgets;
+        }
         public override void Add(WidgetBase item)
         {
             base.Add(item);
@@ -91,7 +95,7 @@ namespace Easy.Web.CMS.Widget
         }
 
 
-        public WidgetPart ApplyTemplate(WidgetBase widget,HttpContextBase httpContext)
+        public WidgetPart ApplyTemplate(WidgetBase widget, HttpContextBase httpContext)
         {
             var widgetBase = Get(widget.ID);
             var service = widgetBase.CreateServiceInstance();
@@ -108,6 +112,7 @@ namespace Easy.Web.CMS.Widget
             service.AddWidget(widgetBase);
             return widgetPart;
         }
+
     }
     public abstract class WidgetService<T> : ServiceBase<T>, IWidgetPartDriver where T : WidgetBase
     {

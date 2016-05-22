@@ -1,0 +1,34 @@
+﻿@using System.Text.RegularExpressions
+@model Easy.CMS.Common.Models.VideoWidget
+
+@if (Model.Url.IsNotNullAndWhiteSpace())
+{
+    <video controls="controls"
+           name="media"
+           src="@Url.Content(Model.Url)"
+           style="width:@(Model.Width.HasValue?Model.Width+"px":"auto");height:@(Model.Height.HasValue?Model.Height+"px":"auto")">
+        您的浏览器不支持播放该视频
+    </video>
+}
+else if (Model.Code.IsNotNullAndWhiteSpace())
+{
+    if (Model.Width.HasValue)
+    {
+        Model.Code = Regex.Replace(Model.Code, @"width=""(\d+)""", "width=\"" + Model.Width + "\"");
+        Model.Code = Regex.Replace(Model.Code, @"width=(\d+)", "width=" + Model.Width);
+        Model.Code = Regex.Replace(Model.Code, @"width:(\d+)", "width:" + Model.Width);
+    }
+    else
+    {
+        Model.Code = Regex.Replace(Model.Code, @"width=""(\d+)""", "width=\"100%\"");
+        Model.Code = Regex.Replace(Model.Code, @"width=(\d+)", "width=100%");
+        Model.Code = Regex.Replace(Model.Code, @"width:(\d+)", "width:100%");
+    }
+    if (Model.Height.HasValue)
+    {
+        Model.Code = Regex.Replace(Model.Code, @"height=""(\d+)""", "height=\"" + Model.Height + "\"");
+        Model.Code = Regex.Replace(Model.Code, @"height=(\d+)", "height=" + Model.Height);
+        Model.Code = Regex.Replace(Model.Code, @"height:(\d+)", "height:" + Model.Height);
+    }
+    @Html.Raw(Model.Code)
+}

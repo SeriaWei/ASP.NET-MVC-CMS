@@ -1,7 +1,7 @@
 ﻿@using Easy.Web.CMS
 @model Easy.CMS.Product.Models.Product
 
-<div class="ProductDetail">
+<div class="product-detail">
     <div class="page-header">
         <h1 class="align-center">
             @Model.Title
@@ -17,7 +17,7 @@
             </span>
         </div>
     </div>
-    <div class="detail clearfix">
+    <div class="panel-body detail clearfix">
         @if (Model.ImageUrl.IsNotNullAndWhiteSpace())
         {
             <img class="thumbnail" src="@Url.Content(Model.ImageUrl)" alt="@Model.Title" />

@@ -19,7 +19,9 @@ namespace Easy.CMS.Common.Models
         protected override void ViewConfigure()
         {
             base.ViewConfigure();
-            ViewConfig(m => m.Script).AsTextArea();
+            ViewConfig(m => m.Title).AsHidden();
+            ViewConfig(m => m.StyleClass).AsHidden();
+            ViewConfig(m => m.Script).AsTextArea().Order(NextOrder()).Required();
         }
     }
 }

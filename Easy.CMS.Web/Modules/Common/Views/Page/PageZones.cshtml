@@ -17,7 +17,7 @@
             <ul id="noZoneWidgets" class="fullRowList">
                 @foreach (var widget in noZoneWidgets.OrderBy(m => m.Position))
                 {
-                    <li id="widget_@widget.ID" class="@(widget.LayoutID.IsNullOrEmpty() ? "widget-design" : "")" data-widgetid="@widget.ID">
+                    <li id="widget_@widget.ID" class="widget" data-widgetid="@widget.ID">
                         @if (widget.LayoutID.IsNotNullAndWhiteSpace())
                         {
                             <span class="badge">布局</span>
@@ -38,12 +38,12 @@
     </div>
 }
 
-<div class="panel panel-info">
+<div class="panel  panel-default">
     <div class="panel-heading">
         页面概览
     </div>
     <div class="simplePreview">
-        <div class="container-fluid simpleDesign">
+        <div class="simpleDesign">
             @foreach (var itemHtml in Model.LayoutHtml)
             {
                 if (itemHtml.Html == Easy.Web.CMS.Zone.ZoneEntity.ZoneTag)
@@ -68,10 +68,10 @@
                                         @item.ZoneName
                                     </a>
                                 </div>
-                                <ul data-zoneid="@item.ID" class="fullRowList widgets">
+                                <ul data-zoneid="@item.ID" class="fullRowList widgets connectedSortable">
                                     @foreach (var widget in Model.Widgets.Where(m => m.ZoneID == item.ID).OrderBy(m => m.Position).ThenBy(m => m.WidgetName))
-                                        {
-                                        <li id="widget_@widget.ID" class="@(widget.LayoutID.IsNullOrEmpty() ? "widget" : "")" data-widgetid="@widget.ID">
+                                    {
+                                        <li id="widget_@widget.ID" class="widget" data-widgetid="@widget.ID">
                                             @if (widget.LayoutID.IsNotNullAndWhiteSpace())
                                             {
                                                 <span class="label label-info">布局</span>
@@ -80,8 +80,9 @@
                                             <a href="javascript:void(0)" class="delete" data-widgetid="@widget.ID"><i class="glyphicon glyphicon-trash"></i></a>
                                             @widget.WidgetName
                                         </li>
-                                        }
+                                    }
                                 </ul>
+
                             </div>
                         }
 
@@ -119,43 +120,4 @@
 </div>
 
 
-<script type="text/javascript">
-    $("#noZoneWidgets>.widget").draggable({ revert: "invalid" });
-    $(".fullRowList.widgets").sortable({
-        placeholder: "sorting",
-        stop: function (event, ui) {
-            var tempForm = "";
-            ui.item.parent().children().each(function (i, ui) {
-                tempForm += "&widgets[" + i + "].ID=" + $(ui).data("widgetid") + "&widgets[" + i + "].Position=" + (i + 1);
-            });
-            if (tempForm) {
-                $.post("@Url.Action("SaveWidgetPosition", "Widget", new { module = "admin" })", tempForm, function (data) {
-
-                }, "html");
-            }
-        }
-    }).droppable({
-        hoverClass: "droping",
-        accept: ".widget",
-        greedy: true,
-        tolerance: "pointer",
-        drop: function (event, ui) {
-            if (ui.draggable.parent().data("zoneid") == $(this).data("zoneid")) {
-                return true;
-            }
-            var target = ui.draggable.clone();
-            target.removeAttr("style");
-            $(this).append(target);
-            ui.draggable.remove();
-            $.post("@Url.Action("SaveWidgetZone", "Widget", new { module = "admin" })",
-                {
-                    ID: target.data("widgetid"),
-                    ZoneId: $(this).data("zoneid"),
-                    Position: $(this).children().size()
-                },
-                function (data) {
-
-                }, "html");
-        }
-    });
-</script>
+@Html.Partial("SortWidget.Script")

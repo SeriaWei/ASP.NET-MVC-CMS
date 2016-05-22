@@ -27,7 +27,6 @@ namespace Easy.CMS.Section.Controllers
             {
                 SectionGroupId = sectionGroupId,
                 SectionWidgetId = sectionWidgetId,
-                SectionContentType = (int)SectionContent.Types.CallToAction,
                 ActionType = ActionType.Create
             });
         }

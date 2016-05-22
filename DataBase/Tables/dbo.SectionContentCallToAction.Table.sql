@@ -5,7 +5,7 @@ SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[SectionContentCallToAction](
 	[ID] [int] NOT NULL,
-	[SectionWidgetId] [nvarchar](255) NOT NULL,
+	[SectionWidgetId] [nvarchar](100) NOT NULL,
 	[InnerText] [nvarchar](255) NULL,
 	[Href] [nvarchar](255) NULL,
  CONSTRAINT [PK_SectionContentCallToAction] PRIMARY KEY CLUSTERED 

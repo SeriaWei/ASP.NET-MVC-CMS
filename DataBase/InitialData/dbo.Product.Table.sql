@@ -2819,4 +2819,3 @@ INSERT [dbo].[Product] ([ID], [Title], [ImageUrl], [ImageThumbUrl], [BrandCD], [
 <p>Microsoft VisualStudio 2013</p>
 <p>Microsoft Sql Server 2005 以上</p>', N'ZKEACMS一个内容管理软件（网站）。ZKEACMS不仅只是管理内容，更是重新定义了布局、页面和组件，让用户可以自由规划页面的布局，页面和内容。', N'admin', N'ZKEASOFT', CAST(N'2016-03-10 23:17:29.953' AS DateTime), N'admin', N'ZKEASOFT', CAST(N'2016-03-10 23:17:37.927' AS DateTime), 1, CAST(N'2016-03-10 23:17:38.000' AS DateTime), 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
 SET IDENTITY_INSERT [dbo].[Product] OFF
-GO

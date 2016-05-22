@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<required>
+  <item type="Easy.CMS.Section.Models.SectionContentImage">
+    <property name="ImageSrc"><![CDATA[/Content/Images/logo_min.png]]></property>
+    <property name="ImageAlt"><![CDATA[]]></property>
+    <property name="ImageTitle"><![CDATA[这是一个缩略图，照片墙模板，点击图片可放大显示。]]></property>
+    <property name="Href"><![CDATA[]]></property>
+    <property name="Width"><![CDATA[]]></property>
+    <property name="Height"><![CDATA[]]></property>
+  </item>
+  <item type="Easy.CMS.Section.Models.SectionContentImage">
+    <property name="ImageSrc"><![CDATA[/Content/Images/logo_min.png]]></property>
+    <property name="ImageAlt"><![CDATA[]]></property>
+    <property name="ImageTitle"><![CDATA[这是一个缩略图，照片墙模板，点击图片可放大显示。]]></property>
+    <property name="Href"><![CDATA[]]></property>
+    <property name="Width"><![CDATA[]]></property>
+    <property name="Height"><![CDATA[]]></property>
+  </item>
+  <item type="Easy.CMS.Section.Models.SectionContentImage">
+    <property name="ImageSrc"><![CDATA[/Content/Images/logo_min.png]]></property>
+    <property name="ImageAlt"><![CDATA[]]></property>
+    <property name="ImageTitle"><![CDATA[这是一个缩略图，照片墙模板，点击图片可放大显示。]]></property>
+    <property name="Href"><![CDATA[]]></property>
+    <property name="Width"><![CDATA[]]></property>
+    <property name="Height"><![CDATA[]]></property>
+  </item>
+  <item type="Easy.CMS.Section.Models.SectionContentImage">
+    <property name="ImageSrc"><![CDATA[/Content/Images/logo_min.png]]></property>
+    <property name="ImageAlt"><![CDATA[]]></property>
+    <property name="ImageTitle"><![CDATA[这是一个缩略图，照片墙模板，点击图片可放大显示。]]></property>
+    <property name="Href"><![CDATA[]]></property>
+    <property name="Width"><![CDATA[]]></property>
+    <property name="Height"><![CDATA[]]></property>
+  </item>
+</required>

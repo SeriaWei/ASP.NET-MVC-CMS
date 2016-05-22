@@ -4,7 +4,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[ScriptWidget](
-	[ID] [nvarchar](255) NOT NULL,
+	[ID] [nvarchar](100) NOT NULL,
 	[Script] [nvarchar](max) NULL,
  CONSTRAINT [PK_ScriptWidget] PRIMARY KEY CLUSTERED 
 (

@@ -107,15 +107,27 @@ namespace Easy.CMS.Common.Controllers
                 {
                     entity.Url = Request.SaveFile();
                 }
-                Service.Add(entity);
-                if (entity.MediaType != (int)MediaType.Image)
+                if (entity.Url.IsNotNullAndWhiteSpace())
                 {
-                    entity.Url = "~/Images/{0}.png".FormatWith(entity.MediaTypeImage);
+                    Service.Add(entity);
+                    entity.Url = Url.Content(entity.Url);
                 }
-                entity.Url = Url.Content(entity.Url);
                 return Json(entity);
             }
             return Json(false);
+        }
+        public override JsonResult Delete(string ids)
+        {
+            var media = Service.Get(ids);
+            if (media != null && media.MediaType != (int)MediaType.Folder)
+            {
+                if (media.Url.StartsWith("http://") || media.Url.StartsWith("https://"))
+                {
+                    media.Url = "~" + new Uri(media.Url).AbsolutePath;
+                }
+                Request.DeleteFile(media.Url);
+            }
+            return base.Delete(ids);
         }
     }
 }

@@ -4,7 +4,7 @@
     Style.Reqiured("Article").AtHead();
 }
 
-<div class="articleDetail">
+<div class="article-detail">
     <div class="page-header">
         <h1 class="align-center">
             @Model.Current.Title
@@ -20,7 +20,7 @@
             </span>
         </div>
     </div>
-    <div class="detail clearfix">
+    <div class="panel-body detail clearfix">
         @if (Model.Current.ImageUrl.IsNotNullAndWhiteSpace())
         {
             <img class="thumbnail" src="@Url.Content(Model.Current.ImageUrl)" alt="@Model.Current.Title" />

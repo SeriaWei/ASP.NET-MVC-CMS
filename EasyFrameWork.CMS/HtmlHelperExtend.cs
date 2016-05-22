@@ -13,21 +13,21 @@ namespace Easy.Web.CMS
 {
     public static class HtmlHelperExtend
     {
-        public static void DisPlayWidget(this HtmlHelper html, WidgetPart widget)
+        public static MvcHtmlString DisPlayWidget(this HtmlHelper html, WidgetPart widget)
         {
             if (widget.ViewModel != null)
             {
-                html.RenderPartial(widget.Widget.PartialView, widget.ViewModel);
+                return html.Partial(widget.Widget.PartialView, widget.ViewModel);
             }
             else
             {
-                html.WidgetError();
+                return html.WidgetError();
             }
         }
 
-        public static void DesignWidget(this HtmlHelper html, DesignWidgetViewModel viewModel)
+        public static MvcHtmlString DesignWidget(this HtmlHelper html, DesignWidgetViewModel viewModel)
         {
-            html.RenderPartial("DesignWidget", viewModel);
+            return html.Partial("DesignWidget", viewModel);
         }
         public static MvcHtmlString SmartLink(this HtmlHelper html, string link, string text, string cssClass = null)
         {
@@ -53,14 +53,14 @@ namespace Easy.Web.CMS
         {
             if (HttpContext.Current != null && (link.StartsWith("http://") || link.StartsWith("https://")))
             {
-                return new Uri(link).Host.Equals(HttpContext.Current.Request.Url.Host);
+               return link.ToLower().Contains(HttpContext.Current.Request.Url.Host.ToLower());
             }
             return true;
         }
 
-        public static void WidgetError(this HtmlHelper html)
+        public static MvcHtmlString WidgetError(this HtmlHelper html)
         {
-             html.RenderPartial("Widget.Error");
+            return html.Partial("Widget.Error");
         }
 
         public static void Pagin(this HtmlHelper html, Pagination pagin)

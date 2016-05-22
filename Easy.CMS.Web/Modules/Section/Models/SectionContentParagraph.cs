@@ -10,6 +10,13 @@ namespace Easy.CMS.Section.Models
     public class SectionContentParagraph : SectionContent
     {
         public string HtmlContent { get; set; }
+        public override int SectionContentType
+        {
+            get
+            {
+                return (int)Types.Paragraph;
+            }
+        }
     }
 
     class SectionContentParagraphMetaData : DataViewMetaData<SectionContentParagraph>

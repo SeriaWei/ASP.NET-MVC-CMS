@@ -31,9 +31,7 @@ img {
     }
 }
 
-.ui-sortable {
-    overflow: auto;
-}
+
 
 a.badge:hover {
     background-color: #1F1F1F;
@@ -143,7 +141,7 @@ a.badge:hover {
 
 #main-menu .menu-item,
 #main-menu .group-item {
-    padding: 5px 10px;
+    padding: 7px 10px;
     margin: 5px 0;
     border-left: 2px solid transparent;
 }
@@ -211,9 +209,9 @@ a.badge:hover {
     }
 
         .fullRowList li.sorting {
-            height: 30px;
+            height: 34px;
             border: 1px solid #ededed;
-            border-left: 3px solid #E28271;
+            border-left: 5px solid #E28271;
         }
 
     .fullRowList.widgets li {
@@ -316,7 +314,9 @@ a.badge:hover {
         right: 0;
         top: 0;
     }
-
+        .simplePreview .simpleDesign > .container {
+            width: auto;
+        }
 
 .description {
     font-size: 13px;
@@ -369,7 +369,6 @@ a.badge:hover {
 #media-list .thumbnail > a.img-link {
     display: block;
     height: 130px;
-    background: #F7F7F7;
     overflow: hidden;
 }
 
@@ -407,4 +406,10 @@ a.badge:hover {
 
 #media-list .new-folder .close {
     display: none;
+}
+.navbar-inverse .navbar-nav > li > a {
+    color: #fff;
+}
+.navbar-inverse .navbar-nav > li   a:hover {
+    background-color: #000;
 }

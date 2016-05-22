@@ -16,6 +16,13 @@
 <!--<![endif]-->
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="cache-control" content="no-store">
+    <meta http-equiv="expires" content="-1">   
+    <meta http-equiv="pragma" content="no-cache" />
+
     <meta charset="utf-8" />
     <title>[设计]@Model.Page.Title</title>
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
@@ -30,7 +37,7 @@
         }
         else
         {
-            <link type="text/css" rel="stylesheet" href="@Url.Content(Model.CurrentTheme.Url))" />
+            <link type="text/css" rel="stylesheet" href="@Url.Content(Model.CurrentTheme.Url)" />
         }
     }
 </head>
@@ -88,6 +95,10 @@
                                 <i class="glyphicon glyphicon-edit"></i>
                                 属性
                             </a>
+                            <a class="btn btn-primary" href="@Url.Action("PublishPage", "Page", new { module = "admin", ID = Model.Page.ID,ReturnUrl= Model.Page.Url })">
+                                <i class="glyphicon glyphicon-open"></i>
+                                发布
+                            </a>
                             <a class="btn btn-primary" href="@Url.Action("SelectWidget", "WidgetTemplate", new { module = "admin", pageId = Model.Page.ID })">
                                 <i class="glyphicon glyphicon-plus"></i>
                                 添加组件
@@ -100,7 +111,7 @@
             </div>
         </div>
     </nav>
-    <div id="container" class="@Model.ContainerClass pagePreview design-border">
+    <div id="containers" class="pagePreview design-border">
         @RenderBody()
     </div>
 
@@ -109,12 +120,10 @@
     @if (!Model.Style.IsNullOrEmpty())
     {
         <link href="@Url.Content(Model.Style)" rel="stylesheet" />
-
     }
     @if (!Model.Page.Style.IsNullOrEmpty())
     {
         <link href="@Url.Content(Model.Page.Style)" rel="stylesheet" />
-
     }
     @if (!Model.Script.IsNullOrEmpty())
     {

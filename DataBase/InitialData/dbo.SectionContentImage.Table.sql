@@ -12,4 +12,3 @@ INSERT [dbo].[SectionContentImage] ([ID], [SectionWidgetId], [ImageSrc], [ImageA
 INSERT [dbo].[SectionContentImage] ([ID], [SectionWidgetId], [ImageSrc], [ImageAlt], [ImageTitle], [Href], [Width], [Height]) VALUES (41, N'1fb967867e3b440e86336bc5a51e8719', N'~/Images/12.jpg', NULL, NULL, NULL, NULL, NULL)
 INSERT [dbo].[SectionContentImage] ([ID], [SectionWidgetId], [ImageSrc], [ImageAlt], [ImageTitle], [Href], [Width], [Height]) VALUES (43, N'1fb967867e3b440e86336bc5a51e8719', N'~/Images/13.jpg', NULL, NULL, NULL, NULL, NULL)
 INSERT [dbo].[SectionContentImage] ([ID], [SectionWidgetId], [ImageSrc], [ImageAlt], [ImageTitle], [Href], [Width], [Height]) VALUES (45, N'1fb967867e3b440e86336bc5a51e8719', N'~/Images/14.jpg', NULL, NULL, NULL, NULL, NULL)
-GO

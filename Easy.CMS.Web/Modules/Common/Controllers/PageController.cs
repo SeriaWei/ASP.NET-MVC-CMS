@@ -130,6 +130,11 @@ namespace Easy.CMS.Common.Controllers
         [EditWidget, Authorize]
         public ActionResult Design(string ID)
         {
+            // Stop Caching in IE
+            Response.Cache.SetCacheability(System.Web.HttpCacheability.NoCache);
+
+            // Stop Caching in Firefox
+            Response.Cache.SetNoStore();
             return View();
         }
         [Authorize]
@@ -172,6 +177,11 @@ namespace Easy.CMS.Common.Controllers
             Service.Publish(Service.Get(id));
             return Json(true);
         }
-
+        [Authorize]
+        public RedirectResult PublishPage(string ID,string ReturnUrl)
+        {
+            Service.Publish(Service.Get(ID));
+            return Redirect(ReturnUrl);
+        }
     }
 }

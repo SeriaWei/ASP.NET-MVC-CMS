@@ -4,11 +4,16 @@
 @{
     var metaData = ViewData.ModelMetadata as EasyModelMetaData;
     bool additional = false;
+    bool video = false;
     metaData.ViewPortDescriptor.Classes.ForEach(m =>
     {
         if (m.Contains("select"))
         {
             additional = true;
+        }
+        if (m.Contains("select-video"))
+        {
+            video = true;
         }
     });
 }
@@ -16,6 +21,12 @@
 {
     <div class="input-group">
         @Html.TextBox("", Model, metaData.GetAttributes())
+        @if (video)
+        {
+            <div class="input-group-addon">
+                <span class="glyphicon glyphicon-play"></span>
+            </div>
+        }
         <div class="input-group-addon">
             <span class="glyphicon glyphicon-search"></span>
         </div>

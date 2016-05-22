@@ -24,12 +24,11 @@ namespace Easy.CMS.Article.Models
         protected override void ViewConfigure()
         {
             base.ViewConfigure();
-            ViewConfig(m => m.Title).AsTextBox().Order(4);
-            ViewConfig(m => m.SubTitle).AsTextBox().Order(5);
-            ViewConfig(m => m.ArticleTypeID).AsDropDownList().Order(6).DataSource(new ArticleTypeService().Get().ToDictionary(m => m.ID.ToString(), m => m.Title)).Required();
-            ViewConfig(m => m.Tops).AsTextBox().Order(7).RegularExpression(Easy.Constant.RegularExpression.PositiveIntegers);
-            ViewConfig(m => m.MoreLink).AsTextBox().Order(8).AddClass("select").AddProperty("data-url", Urls.SelectPage);
-            ViewConfig(m => m.DetailPageUrl).AsTextBox().Order(9).AddClass("select").AddProperty("data-url", Urls.SelectPage);
+            ViewConfig(m => m.SubTitle).AsTextBox().Order(NextOrder());
+            ViewConfig(m => m.ArticleTypeID).AsDropDownList().Order(NextOrder()).DataSource(new ArticleTypeService().Get().ToDictionary(m => m.ID.ToString(), m => m.Title)).Required();
+            ViewConfig(m => m.Tops).AsTextBox().Order(NextOrder()).RegularExpression(Easy.Constant.RegularExpression.PositiveIntegers);
+            ViewConfig(m => m.MoreLink).AsTextBox().Order(NextOrder()).AddClass("select").AddProperty("data-url", Urls.SelectPage);
+            ViewConfig(m => m.DetailPageUrl).AsTextBox().Order(NextOrder()).AddClass("select").AddProperty("data-url", Urls.SelectPage);
      
         }
     }

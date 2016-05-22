@@ -14,7 +14,14 @@
 <html class="not-ie" lang="zh">
 <!--<![endif]-->
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="cache-control" content="no-store">
+    <meta http-equiv="expires" content="0">
+    <meta http-equiv="pragma" content="no-cache" />
+
     <title>[设计]@Model.LayoutName</title>
     @StyleAtHead()
     @ScriptAtHead()
@@ -35,35 +42,20 @@
                         <a class="navbar-brand"><span class="badge">布局设计</span></a>
                     </div>
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                        <ul class="nav navbar-nav">
-                            <li>
-                                <a>
-                                    <label class="radio-inline">
-                                        <input type="radio" class="helper" name="toggle-container" value="container" />
-                                        <span>居中</span>
-                                    </label>
-                                </a>
-                            </li>
-                            <li>
-                                <a>
-                                    <label class="radio-inline">
-                                        <input type="radio" class="helper" name="toggle-container" value="container-fluid" />
-                                        <span>拉伸</span>
-                                    </label>
-                                </a>
-                            </li>
-                        </ul>
-
                         <div class="navbar-form navbar-left">
-
-                            <label class="AddRow btn btn-primary" data-container="container-fluid">
+                            <label class="AddContainer btn btn-default" data-container="container-fluid">
                                 <span class="badge">1</span>
+                                <i class="glyphicon glyphicon-unchecked"></i>
+                                容器
+                            </label>
+                            <label class="AddRow btn btn-primary" data-container="container-fluid">
+                                <span class="badge">2</span>
                                 <i class="glyphicon glyphicon-align-justify"></i>
                                 行
                             </label>
                             <div class="btn-group">
                                 <label id="add-col-handle" class="AddCol btn btn-success" data-col="col-md-" data-val="6">
-                                    <span class="badge">2</span>
+                                    <span class="badge">3</span>
                                     <i class="glyphicon glyphicon-tasks"></i>
                                     列 <span class="col-size-info">宽 6/12</span>
                                 </label>
@@ -86,12 +78,6 @@
                                     <li><a href="javascript:void(0)" data-val="12">宽 12/12</a></li>
                                 </ul>
                             </div>
-
-                            <label class="AddZone btn btn-warning">
-                                <span class="badge">3</span>
-                                <i class="glyphicon glyphicon-gift"></i>
-                                组件区域
-                            </label>
                             <span class="badge" data-toggle="modal" data-target="#question" style="cursor:help">?</span>
 
 
@@ -105,10 +91,10 @@
                                 </a>
                                 @if (Model.Page != null)
                                 {
-                                <a class="btn btn-primary" href="@Url.Action("Design", "Page", new { module = "admin", ID = Model.Page.ID })">
-                                    <i class="glyphicon glyphicon-wrench"></i>
-                                    页面设计
-                                </a>
+                                    <a class="btn btn-primary" href="@Url.Action("Design", "Page", new { module = "admin", ID = Model.Page.ID })">
+                                        <i class="glyphicon glyphicon-wrench"></i>
+                                        页面设计
+                                    </a>
                                 }
                                 <a href="@Url.Action("Edit", "Layout", new { ID = Model.ID, module = "admin" })" class="btn btn-primary">
                                     <i class="glyphicon glyphicon-edit"></i>
@@ -124,20 +110,18 @@
                             <input type="hidden" id="LayoutId" name="ID" value="@Model.ID" />
                             @if (Model.Page != null)
                             {
-                            <input type="hidden" name="Page.ID" value="@Model.Page.ID" />
+                                <input type="hidden" name="Page.ID" value="@Model.Page.ID" />
                             }
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="deleteBar">
-                <i class="glyphicon glyphicon-trash"></i>
-            </div>
         </nav>
     }
-    <div id="container" class="@(Model.ContainerClass) RowDroppable design">
+    <div id="containers" class="hide">
         @RenderBody()
     </div>
+
     @Html.Partial("Layout/Templates")
     @if (!Model.Style.IsNullOrEmpty())
     {
@@ -200,19 +184,13 @@
                     </h3>
                     <ol>
                         <li>
-                            <p><code>拖放操作步骤：</code>1.行 -> 容器，2.列 -> 行，3.组件区域 -> 列</p>
+                            <p><code>拖放操作步骤：</code>1.容器，2.行 -> 容器，3.列 -> 行</p>
                         </li>
                         <li>
                             <p>行，直接加入到主容器中。</p>
                         </li>
                         <li>
                             <p>列，只能加入到“行”中。列宽分成12等分，选择任意宽度划分行。</p>
-                        </li>
-                        <li>
-                            <p>
-                                组件区域，用于放置组件。只有在列中加入了组件区域，<code>才可以</code>在该列中加入组件。
-                                一个组件区域中可加入多个组件，所以一个列中，只加入一个组件区域即可。
-                            </p>
                         </li>
                     </ol>
                 </div>

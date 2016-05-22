@@ -33,8 +33,8 @@ namespace Easy.Web.CMS.Theme
         {
             ViewConfig(m => m.ID).AsHidden();
             ViewConfig(m => m.Title).AsTextBox().Required();
-            ViewConfig(m => m.Url).AsTextBox().Required().AddClass("select select-image").AddProperty("data-url", Urls.SelectImage); ;
-            ViewConfig(m => m.Thumbnail).AsTextBox().Required().AddClass("select select-image").AddProperty("data-url", Urls.SelectImage); ;
+            ViewConfig(m => m.Url).AsTextBox().Required().AddClass(StringKeys.SelectImageClass).AddProperty("data-url", Urls.SelectMedia); ;
+            ViewConfig(m => m.Thumbnail).AsTextBox().Required().AddClass(StringKeys.SelectImageClass).AddProperty("data-url", Urls.SelectMedia); ;
             ViewConfig(m => m.Description).AsTextArea();
         }
     }

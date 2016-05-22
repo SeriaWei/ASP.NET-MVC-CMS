@@ -1,4 +1,4 @@
-IF NOT EXISTS ( SELECT  *
+﻿IF NOT EXISTS ( SELECT  *
                 FROM    syscolumns
                 WHERE   id = OBJECT_ID('CMS_Page')
                         AND name = 'IsPublishedPage' )
@@ -98,4 +98,31 @@ CREATE TABLE [dbo].[CMS_Media](
 GO
 INSERT [dbo].[CMS_Media] ([ID], [ParentID], [Title], [MediaType], [Url], [Status], [CreateBy], [CreatebyName], [CreateDate], [LastUpdateBy], [LastUpdateByName], [LastUpdateDate], [Description]) VALUES (N'6056810a7ede46bb94b55b2756323640', N'#', N'图片', 1, NULL, NULL, N'admin', N'ZKEASOFT', CAST(N'2016-04-01 21:42:14.960' AS DateTime), N'admin', N'ZKEASOFT', CAST(N'2016-04-01 21:42:14.960' AS DateTime), NULL)
 GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[CMS_Theme](
+	[ID] [nvarchar](100) NOT NULL,
+	[Title] [nvarchar](50) NULL,
+	[Url] [nvarchar](100) NULL,
+	[UrlDebugger] [nvarchar](100) NULL,
+	[Thumbnail] [nvarchar](100) NULL,
+	[IsActived] [bit] NULL,
+	[Status] [int] NULL,
+	[Description] [nvarchar](500) NULL,
+	[CreateBy] [nvarchar](255) NULL,
+	[CreatebyName] [nvarchar](255) NULL,
+	[CreateDate] [datetime] NULL,
+	[LastUpdateBy] [nvarchar](255) NULL,
+	[LastUpdateByName] [nvarchar](255) NULL,
+	[LastUpdateDate] [datetime] NULL,
+ CONSTRAINT [PK_CMS_Theme] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
 
+GO
+INSERT [dbo].[CMS_Theme] ([ID], [Title], [Url], [UrlDebugger], [Thumbnail], [IsActived], [Status], [Description], [CreateBy], [CreatebyName], [CreateDate], [LastUpdateBy], [LastUpdateByName], [LastUpdateDate]) VALUES (N'Default', N'默认', N'~/Themes/Default/css/Theme.min.css', N'~/Themes/Default/css/Theme.css', N'~/Themes/Default/thumbnail.jpg', 1, 1, NULL, N'admin', N'ZKEASOFT', CAST(N'2016-04-04 22:17:10.790' AS DateTime), N'admin', N'ZKEASOFT', CAST(N'2016-04-04 22:21:01.487' AS DateTime))
+GO

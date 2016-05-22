@@ -2,6 +2,7 @@
 @{
     Layout = "~/Modules/Common/Views/Shared/_DesignLayout.cshtml";
     Script.Reqiured("LayoutDesign").AtFoot();
+    Style.Reqiured("Easy").AtHead();
     if (Model == null || Model.Html == null)
     {
         return;

@@ -7,5 +7,12 @@ namespace Easy.Web.CMS.Widget
 {
     public class WidgetCollection : List<WidgetPart>
     {
+        public void TryAdd(WidgetPart part)
+        {
+            if (!this.Contains(part))
+            {
+                this.Add(part);
+            }
+        }
     }
 }

@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Easy.Web.CMS;
 
 namespace Easy.CMS.Article.Service
 {
@@ -22,6 +23,11 @@ namespace Easy.CMS.Article.Service
             };
             if (viewModel.Current != null)
             {
+                var layout= httpContext.GetLayout();
+                layout.Page.MetaKeyWorlds = viewModel.Current.MetaKeyWords;
+                layout.Page.MetaDescription = viewModel.Current.MetaDescription;
+                layout.Page.Title = viewModel.Current.Title;
+
                 return widget.ToWidgetPart(viewModel);
             }
             else

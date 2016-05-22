@@ -11,7 +11,7 @@
                 <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
                     <div class="thumbnail">
                         <a href="@Url.Action("PreView", "Theme", new {module = "admin", id = item.ID})">
-                            <img src="@Url.Content(item.Thumbnail ?? ThemeEntity.DefaultThumbnail)" alt="@item.Title" />
+                            <img src="@Url.Content(item.Thumbnail ?? ThemeEntity.DefaultThumbnail)" alt="@item.Title"/>
                         </a>
                         <div class="radio clearfix">
                             <label>
@@ -20,7 +20,7 @@
                             @if (HttpContext.Current.IsDebuggingEnabled)
                             {
                                 <div class="pull-right">
-                                    <a target="_blank" class="download" href="@Url.Action("ThemePackage", new { id = item.ID })" title="打包">
+                                    <a target="_blank" class="download" href="@Url.Action("ThemePackage", new {id = item.ID})" title="打包">
                                         <i class="glyphicon glyphicon-download-alt"></i>
                                     </a>
                                 </div>
@@ -31,12 +31,24 @@
                 </div>
             }
         </div>
+        <hr/>
+        <ul class="text-muted">
+            <li>
+                点击主题“缩略图”可进行进行预览，在预览页面右上角点击“退出主题预览”可回到该页面
+            </li>
+            <li>
+                点击单选框进行主题切换
+            </li>
+            <li>
+                若主题有更新，重复安装即可更新
+            </li>
+        </ul>
     </div>
-    <div class="panel-footer">
-        <input type="button" value="安装主题" class="btn btn-primary select-theme" />
+    <div class="panel-footer clearfix">
+        <input type="button" value="安装主题" class="btn btn-primary select-theme"/>
         <a target="_blank" class="btn btn-danger" href="http://www.zkea.net/zkeacms/theme">下载更多主题</a>
         <div class="hide">
-            <input id="file" type="file" name="file" />
+            <input id="file" type="file" name="file"/>
         </div>
     </div>
 </div>

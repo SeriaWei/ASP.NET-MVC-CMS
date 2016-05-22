@@ -22,7 +22,7 @@ namespace Easy.CMS.Article.Models
         protected override void ViewConfigure()
         {
             base.ViewConfigure();
-            ViewConfig(m => m.ArticleTypeID).AsDropDownList().DataSource(() =>
+            ViewConfig(m => m.ArticleTypeID).AsDropDownList().Order(NextOrder()).DataSource(() =>
             {
                 return new ArticleTypeService().Get().ToDictionary(m => m.ID.ToString(), m => m.Title);
             }).Required();

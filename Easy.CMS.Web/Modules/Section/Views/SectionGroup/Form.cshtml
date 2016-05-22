@@ -1,4 +1,7 @@
-﻿@model Easy.CMS.Section.Models.SectionGroup
+﻿@{
+    Script.Reqiured("validate").AtFoot();
+}
+@model Easy.CMS.Section.Models.SectionGroup
 @{
     Style.Reqiured("SectionAdmin").AtHead();
 }
@@ -12,7 +15,6 @@
         <div class="panel panel-default  tab-content">
             <div id="info" class="panel-body tab-pane">
                 @Html.EditorForModel()
-
                 <div class="table-responsive">
                     <table class="table table-bordered table-striped">
                         <thead>
@@ -79,9 +81,19 @@
                         </div>
                     </div>
                     <div class="panel-footer text-muted clearfix">
-                        <span id="PartialView-Badge" class="badge">@Model.PartialView</span>
+                        @if (!Model.ID.HasValue)
+                        {
+                            <label class="checkbox-inline text-primary">
+                                @Html.CheckBoxFor(m=>m.IsLoadDefaultData)
+                                加载示例数据
+                            </label>
+                        }
+                        <span id="PartialView-Badge" class="badge">
+                            @Model.PartialView
+                        </span>
+                        &nbsp;&nbsp;
                         <small class="text-muted">
-                            把模板包拖到列表区域进行上传
+                            注：把模板包拖到列表区域进行上传
                         </small>
                         <a href="http://www.zkea.net/zkeacms/templates" target="_blank" class="pull-right">下载更多模板>></a>
                     </div>
@@ -114,10 +126,9 @@
             var partView = $("#PartialView");
             $("option",partView).each(function() {
                 var value = $(this).val();
-                debugger
                 templates.append('<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">'+
                     '<a class="thumbnail" href="#'+value+'"><img src="@Url.Content("~/Modules/Section/Views/Thumbnail/")'+value+'.png"/><div class="caption ">'+
-                    '<span class="badge">'+value+'</span>'+
+                    '<span class="badge">'+value.split('.')[1]+'</span>'+
                     '</div></a><a target="_blank" class="pack" href="@Url.Action("TemplatePackage")?name='+value+'" title="打包"><i class="glyphicon glyphicon-download-alt">'+
                     '</i></a></div>');
             });
@@ -132,7 +143,7 @@
             return false;
         });
         $("#PartialView").on("change", function() {
-            $("#PartialView-Badge").html($(this).val());
+            $("#PartialView-Badge").html($(this).val().split('.')[1]);
         }).trigger("change");
         var panel= $("#template")[0];
         panel.ondragover=function(event) {

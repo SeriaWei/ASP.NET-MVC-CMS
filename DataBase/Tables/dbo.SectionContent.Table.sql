@@ -5,7 +5,7 @@ SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[SectionContent](
 	[ID] [int] IDENTITY(1,1) NOT NULL,
-	[SectionWidgetId] [nvarchar](255) NOT NULL,
+	[SectionWidgetId] [nvarchar](100) NOT NULL,
 	[SectionGroupId] [int] NOT NULL,
 	[SectionContentType] [int] NULL,
 	[Order] [int] NULL,

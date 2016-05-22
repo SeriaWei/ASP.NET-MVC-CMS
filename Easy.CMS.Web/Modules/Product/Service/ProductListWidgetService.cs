@@ -26,6 +26,7 @@ namespace Easy.CMS.Product.Service
             ProductListWidget pwidget = widget as ProductListWidget;
             var filter = new DataFilter();
             filter.Where("IsPublish", OperatorType.Equal, true);
+            filter.OrderBy("CreateDate", OrderType.Descending);
             int p;
             int.TryParse(httpContext.Request.QueryString["p"], out p);
             int c;

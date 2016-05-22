@@ -8,6 +8,7 @@ using Easy.CMS.Product.Service;
 using Easy.Web.Attribute;
 using Easy.Web.Controller;
 using Easy.Constant;
+using Easy.CMS.Product.Models;
 
 namespace Easy.CMS.Product.Controllers
 {
@@ -18,7 +19,17 @@ namespace Easy.CMS.Product.Controllers
             : base(new ProductService())
         {
         }
-       
+        [HttpPost]
+        public override ActionResult Create(Models.Product entity)
+        {
+            var result = base.Create(entity);
+            if (entity.ActionType == ActionType.Publish)
+            {
+                Service.Publish(entity.ID ?? 0);
+            }
+            return result;
+        }
+
         [HttpPost]
         public override ActionResult Edit(Models.Product entity)
         {

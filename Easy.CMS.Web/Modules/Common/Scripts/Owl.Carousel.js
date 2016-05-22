@@ -12,11 +12,11 @@
     var autoGo = items > 1;
 
     var img = new Image();
-    img.src = carousel.find(".item:first").data("image-url");
     img.onload = function () {
         var itemHieght = carousel.width() / (this.width / this.height);
         carousel.find(".item").height(itemHieght);
     }
+    img.src = carousel.find(".item:first").data("image-url");
     carousel.owlCarousel({
         slideSpeed: 500,
         paginationSpeed: 500,

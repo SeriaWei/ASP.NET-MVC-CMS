@@ -1,4 +1,7 @@
-﻿@using (Html.BeginForm("Save", "SectionContentCallToAction"))
+﻿@{
+    Script.Reqiured("validate").AtFoot();
+}
+@using (Html.BeginForm("Save", "SectionContentCallToAction"))
 {
     @Html.EditorForModel()
 }

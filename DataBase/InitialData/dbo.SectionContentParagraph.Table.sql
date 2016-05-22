@@ -29,4 +29,3 @@ INSERT [dbo].[SectionContentParagraph] ([ID], [SectionWidgetId], [HtmlContent]) 
 INSERT [dbo].[SectionContentParagraph] ([ID], [SectionWidgetId], [HtmlContent]) VALUES (110, N'0f66ab8ff0df44e2b5e57fd8d8c5d8ff', N'<p>在这里输入简单的描述内容</p>')
 INSERT [dbo].[SectionContentParagraph] ([ID], [SectionWidgetId], [HtmlContent]) VALUES (112, N'0f66ab8ff0df44e2b5e57fd8d8c5d8ff', N'<p>在这里输入简单的描述内容</p>')
 INSERT [dbo].[SectionContentParagraph] ([ID], [SectionWidgetId], [HtmlContent]) VALUES (114, N'0f66ab8ff0df44e2b5e57fd8d8c5d8ff', N'<p>在这里输入简单的描述内容</p>')
-GO

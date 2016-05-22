@@ -16,6 +16,13 @@ namespace Easy.CMS.Section.Models
         public string Href { get; set; }
         public int? Width { get; set; }
         public int? Height { get; set; }
+        public override int SectionContentType
+        {
+            get
+            {
+                return (int)Types.Image;
+            }
+        }
     }
 
     class SectionContentImageMetaData : DataViewMetaData<SectionContentImage>
@@ -37,8 +44,8 @@ namespace Easy.CMS.Section.Models
 
         protected override void ViewConfigure()
         {
-            ViewConfig(m => m.ImageSrc).AsTextBox().Required().AddClass("select select-image").AddProperty("data-url", Urls.SelectImage);
-            ViewConfig(m => m.Href).AsTextBox().AddClass("select").AddProperty("data-url", Urls.SelectPage);
+            ViewConfig(m => m.ImageSrc).AsTextBox().Required().AddClass(StringKeys.SelectImageClass).AddProperty("data-url", Urls.SelectMedia);
+            ViewConfig(m => m.Href).AsTextBox().AddClass(StringKeys.SelectPageClass).AddProperty("data-url", Urls.SelectPage);
         }
     }
 }

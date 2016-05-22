@@ -4,7 +4,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[SectionWidget](
-	[ID] [nvarchar](255) NOT NULL,
+	[ID] [nvarchar](100) NOT NULL,
 	[SectionTitle] [nvarchar](255) NULL,
 	[IsHorizontal] [bit] NULL,
  CONSTRAINT [PK_SectionWidget] PRIMARY KEY CLUSTERED 

@@ -37,13 +37,7 @@
             {
                 <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
                     <div class="thumbnail">
-                        @if (media.MediaType == (int)MediaType.Folder)
-                        {
-                            <a class="img-link" href="@Url.Action(action, new {ParentId = media.ID})">
-                                <img class="img" src="~/Images/folder.png" />
-                            </a>
-                        }
-                        else if (media.MediaType == (int)MediaType.Image)
+                        @if (media.MediaType == (int)MediaType.Image)
                         {
                             <a href="javascript:void(0)" class="img-link confirm" data-result="@media.Url">
                                 <img class="img" src="@Url.Content(media.Url)" />
@@ -51,7 +45,8 @@
                         }
                         else
                         {
-                            <a href="javascript:void(0)" class="img-link confirm" data-result="@media.Url">
+                            <a href="@(media.MediaType==(int)MediaType.Folder?Url.Action(action, new {ParentId = media.ID}):"javascript:void(0)")" 
+                               class="img-link @(media.MediaType==(int)MediaType.Folder?"":"confirm")" data-result="@media.Url">
                                 <img class="img" src="@Url.Content("~/Images/{0}.png".FormatWith(media.MediaTypeImage))" />
                             </a>
                         }
@@ -68,7 +63,7 @@
                             }
                             @if (media.MediaType != (int)MediaType.Folder && media.Url.IsNotNullAndWhiteSpace())
                             {
-                                <a target="_blank" class="download" href="@Url.Content(media.Url)">
+                                <a target="_blank" class="download" download="@media.Title" href="@Url.Content(media.Url)">
                                     <i class="glyphicon glyphicon-download-alt"></i>
                                 </a>
                             }
@@ -206,6 +201,10 @@
             $(document).on("change", "#fileUp", function () {
                 var threads = [];
                 for (var i = 0; i < this.files.length; i++) {
+                    if (this.files[i].size > 4194304) {
+                        Easy.MessageTip.Show(this.files[i].name+" 大小超过限制！")
+                        continue;
+                    }
                     var newitem = $($("#item-template").html());
                     newitem.find(".img").attr("src", "@Url.Content("~/Images/loader.gif")");
                     newitem.find(".caption").html('<label class="label label-danger">排队中...</label>');
@@ -222,20 +221,26 @@
                     xhr.target = newitem;
                     xhr.onload = function (e) {
                         var result = JSON.parse(e.target.response);
-                        this.target.find(".img").attr("src", result.Url)
-                            .parent().attr("href", "javascript:void(0)")
-                            .addClass("confirm").attr("data-result", "~" + result.Url);
-                        this.target.find(".caption").html(result.Title);
-                        this.target.removeClass("new-folder");
-                        if (result.MediaType == '@(MediaType.Image.ToString("D"))') {
-                            var preview = $('<a target="_blank" class="preview" data-lightbox="thumbnail"><i class="glyphicon glyphicon-eye-open"></i></a>');
-                            preview.attr("href", result.Url);
-                            preview.data("title", result.Title);
-                            this.target.find(".tool").append(preview);
+                        if (result.ID) {
+                            this.target.find(".img").attr("src", "@Url.Content("~/Images/")" + result.MediaTypeImage+".png")
+                                .parent().attr("href", "javascript:void(0)")
+                                .addClass("confirm").attr("data-result", "~" + result.Url);
+                            this.target.find(".caption").html(result.Title).data("id",result.ID);
+                            this.target.removeClass("new-folder");
+                            if (result.MediaType == '@(MediaType.Image.ToString("D"))') {
+                                this.target.find(".img").attr("src",result.Url);
+                                var preview = $('<a target="_blank" class="preview" data-lightbox="thumbnail"><i class="glyphicon glyphicon-eye-open"></i></a>');
+                                preview.attr("href", result.Url);
+                                preview.data("title", result.Title);
+                                this.target.find(".tool").append(preview);
+                            }
+                            var downLoad = $('<a target="_blank" class="download" download="'+result.Title+'"><i class="glyphicon glyphicon-download-alt"></i></a>');
+                            downLoad.attr("href", result.Url);
+                            this.target.find(".tool").append(downLoad);
+                        } else {
+                            Easy.MessageTip.Show("文件上传失败。可能是因为上传的文件不被允许！");
+                            this.target.remove();
                         }
-                        var downLoad = $('<a target="_blank" class="download"><i class="glyphicon glyphicon-download-alt"></i></a>');
-                        downLoad.attr("href", result.Url);
-                        this.target.find(".tool").append(downLoad);
                         if (threads.length > 0) {
                             var task = threads.pop();
                             task.Req.send(task.Data);

@@ -1,4 +1,7 @@
-﻿@using (Html.BeginForm("Save", "SectionContentTitle"))
+﻿@{
+    Script.Reqiured("validate").AtFoot();
+}
+@using (Html.BeginForm("Save", "SectionContentTitle"))
 {
    @Html.EditorForModel()
 }

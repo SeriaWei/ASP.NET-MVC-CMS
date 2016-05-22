@@ -32,7 +32,8 @@ namespace Easy.CMS.Common.Models
             ViewConfig(m => m.ID).AsHidden();
             ViewConfig(m => m.ParentId).AsHidden();
             ViewConfig(m => m.DisplayOrder).AsHidden();
-            ViewConfig(m => m.Url).AsTextBox().AddClass("select").AddProperty("data-url", Urls.SelectPage);
+            ViewConfig(m => m.Title).AsTextBox().Required().Order(1);
+            ViewConfig(m => m.Url).AsTextBox().Required().Order(2).AddClass("select").AddProperty("data-url", Urls.SelectPage);
             ViewConfig(m => m.IsCurrent).AsHidden();
         }
     }

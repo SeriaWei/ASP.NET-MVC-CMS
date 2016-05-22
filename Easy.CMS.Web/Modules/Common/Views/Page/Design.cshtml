@@ -15,7 +15,7 @@
     }
     //Stack<string> colors = new Stack<string>(new[] { "blue", "lightBlue", "red", "green", "orange" });
 }
-<input type="hidden" id="save-widget-position-url" value="@Url.Action("SaveWidgetPosition", "Widget", new {module = "admin"})" />
+
 <input type="hidden" id="save-widget-zone-url" value="@Url.Action("SaveWidgetZone", "Widget", new {module = "admin"})"/>
 <input type="hidden" id="append-widget-url" value="@Url.Action("AppendWidget", "Widget", new { module = "admin" })" />
 <input type="hidden" id="pageId" value="@Model.Page.ID"/>
@@ -40,7 +40,7 @@
         {
             foreach (WidgetPart widgetPart in Model.ZoneWidgets[zoneId].OrderBy(m => m.Widget.Position).ThenBy(m => m.Widget.WidgetName))
             {
-                Html.DesignWidget(new DesignWidgetViewModel(widgetPart, Model.Page.ID));
+                @Html.DesignWidget(new DesignWidgetViewModel(widgetPart, Model.Page.ID));
             }
         }
 

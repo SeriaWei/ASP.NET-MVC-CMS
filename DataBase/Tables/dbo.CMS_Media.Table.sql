@@ -8,7 +8,7 @@ CREATE TABLE [dbo].[CMS_Media](
 	[ParentID] [nvarchar](50) NULL,
 	[Title] [nvarchar](50) NULL,
 	[MediaType] [int] NULL,
-	[Url] [nvarchar](100) NULL,
+	[Url] [nvarchar](255) NULL,
 	[Status] [int] NULL,
 	[CreateBy] [nvarchar](50) NULL,
 	[CreatebyName] [nvarchar](50) NULL,
