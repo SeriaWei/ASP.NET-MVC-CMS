@@ -201,6 +201,10 @@
             $(document).on("change", "#fileUp", function () {
                 var threads = [];
                 for (var i = 0; i < this.files.length; i++) {
+                    if (this.files[i].size > 4194304) {
+                        Easy.MessageTip.Show(this.files[i].name+" 大小超过限制！")
+                        continue;
+                    }
                     var newitem = $($("#item-template").html());
                     newitem.find(".img").attr("src", "@Url.Content("~/Images/loader.gif")");
                     newitem.find(".caption").html('<label class="label label-danger">排队中...</label>');
@@ -221,7 +225,7 @@
                             this.target.find(".img").attr("src", "@Url.Content("~/Images/")" + result.MediaTypeImage+".png")
                                 .parent().attr("href", "javascript:void(0)")
                                 .addClass("confirm").attr("data-result", "~" + result.Url);
-                            this.target.find(".caption").html(result.Title);
+                            this.target.find(".caption").html(result.Title).data("id",result.ID);
                             this.target.removeClass("new-folder");
                             if (result.MediaType == '@(MediaType.Image.ToString("D"))') {
                                 this.target.find(".img").attr("src",result.Url);

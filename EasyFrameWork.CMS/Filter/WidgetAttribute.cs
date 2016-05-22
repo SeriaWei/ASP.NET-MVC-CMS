@@ -19,10 +19,9 @@ namespace Easy.Web.CMS.Filter
 {
     public class WidgetAttribute : FilterAttribute, IActionFilter
     {
-        IPageService _pageService;
         public IPageService PageService
         {
-            get { return _pageService ?? (_pageService = ServiceLocator.Current.GetInstance<IPageService>()); }
+            get { return ServiceLocator.Current.GetInstance<IPageService>(); }
         }
         public virtual PageEntity GetPage(ActionExecutedContext filterContext)
         {

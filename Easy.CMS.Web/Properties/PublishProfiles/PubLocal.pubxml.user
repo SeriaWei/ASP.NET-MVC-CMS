@@ -16,10 +16,10 @@
       <publishTime>07/02/2014 21:58:06</publishTime>
     </File>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>05/18/2016 23:53:21</publishTime>
+      <publishTime>05/22/2016 15:15:18</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>05/18/2016 23:53:20</publishTime>
+      <publishTime>05/22/2016 15:15:17</publishTime>
     </File>
     <File Include="bin/App_Web_dljcttax.dll">
       <publishTime>09/08/2015 09:16:14</publishTime>
@@ -58,19 +58,19 @@
       <publishTime>07/02/2014 21:58:05</publishTime>
     </File>
     <File Include="bin/Easy.CMS.Web.dll">
-      <publishTime>05/18/2016 23:53:15</publishTime>
+      <publishTime>05/22/2016 15:15:00</publishTime>
     </File>
     <File Include="bin/Easy.CMS.Web.Views.dll">
       <publishTime>09/08/2015 09:17:52</publishTime>
     </File>
     <File Include="bin/Easy.dll">
-      <publishTime>05/18/2016 21:07:14</publishTime>
+      <publishTime>05/22/2016 11:00:22</publishTime>
     </File>
     <File Include="bin/Easy.Web.CMS.dll">
-      <publishTime>05/18/2016 23:53:14</publishTime>
+      <publishTime>05/22/2016 15:15:00</publishTime>
     </File>
     <File Include="bin/Easy.Web.dll">
-      <publishTime>05/18/2016 23:31:38</publishTime>
+      <publishTime>05/22/2016 14:13:02</publishTime>
     </File>
     <File Include="bin/EasyZip.dll">
       <publishTime>10/23/2015 23:02:24</publishTime>
@@ -358,22 +358,22 @@
       <publishTime>09/08/2015 09:26:01</publishTime>
     </File>
     <File Include="Content/bootstrap/css/bootstrap-theme.css">
-      <publishTime>01/16/2016 10:27:06</publishTime>
+      <publishTime>11/24/2015 19:34:20</publishTime>
     </File>
     <File Include="Content/bootstrap/css/bootstrap-theme.css.map">
-      <publishTime>07/10/2014 21:48:43</publishTime>
+      <publishTime>11/24/2015 19:34:20</publishTime>
     </File>
     <File Include="Content/bootstrap/css/bootstrap-theme.min.css">
-      <publishTime>01/16/2016 10:27:06</publishTime>
+      <publishTime>11/24/2015 19:34:20</publishTime>
     </File>
     <File Include="Content/bootstrap/css/bootstrap.css">
-      <publishTime>01/16/2016 10:27:06</publishTime>
+      <publishTime>11/24/2015 19:34:20</publishTime>
     </File>
     <File Include="Content/bootstrap/css/bootstrap.css.map">
-      <publishTime>07/10/2014 21:48:43</publishTime>
+      <publishTime>11/24/2015 19:34:20</publishTime>
     </File>
     <File Include="Content/bootstrap/css/bootstrap.min.css">
-      <publishTime>01/16/2016 10:27:06</publishTime>
+      <publishTime>11/24/2015 19:34:20</publishTime>
     </File>
     <File Include="Content/bootstrap/fonts/glyphicons-halflings-regular.eot">
       <publishTime>01/16/2016 10:27:06</publishTime>
@@ -391,10 +391,10 @@
       <publishTime>01/16/2016 10:27:06</publishTime>
     </File>
     <File Include="Content/bootstrap/js/bootstrap.js">
-      <publishTime>01/16/2016 10:27:06</publishTime>
+      <publishTime>11/24/2015 19:34:20</publishTime>
     </File>
     <File Include="Content/bootstrap/js/bootstrap.min.js">
-      <publishTime>01/16/2016 10:27:06</publishTime>
+      <publishTime>11/24/2015 19:34:22</publishTime>
     </File>
     <File Include="Content/Images/bg.gif">
       <publishTime>08/10/2014 17:29:37</publishTime>
@@ -910,10 +910,10 @@
       <publishTime>05/18/2016 21:20:35</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>05/18/2016 23:47:09</publishTime>
+      <publishTime>05/22/2016 14:51:55</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>05/18/2016 23:53:18</publishTime>
+      <publishTime>05/22/2016 15:15:13</publishTime>
     </File>
     <File Include="Scripts/angular/angular-animate.js">
       <publishTime>01/07/2016 22:35:58</publishTime>
@@ -1306,355 +1306,355 @@
       <publishTime>02/22/2016 22:28:05</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Animate.css">
-      <publishTime>07/22/2014 19:48:16</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Animate.min.css">
       <publishTime>05/18/2016 22:57:09</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Base.css">
-      <publishTime>07/22/2014 19:48:16</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Base.min.css">
       <publishTime>05/18/2016 22:57:12</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Easy.css">
-      <publishTime>11/07/2015 20:02:00</publishTime>
+      <publishTime>05/20/2016 21:46:44</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Easy.Grid.css">
-      <publishTime>02/22/2016 22:28:05</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Easy.Grid.min.css">
       <publishTime>05/18/2016 22:57:19</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Easy.min.css">
-      <publishTime>05/18/2016 22:57:16</publishTime>
+      <publishTime>05/22/2016 00:44:21</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Easy.Tab.css">
-      <publishTime>07/22/2014 19:48:16</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Easy.Tab.min.css">
       <publishTime>05/18/2016 22:57:22</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Easy.UI.css">
-      <publishTime>03/14/2016 20:21:35</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Easy.UI.min.css">
       <publishTime>05/18/2016 22:57:25</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Icon.css">
-      <publishTime>07/22/2014 19:48:16</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Icon.min.css">
       <publishTime>05/18/2016 22:57:28</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/add.png">
-      <publishTime>07/22/2014 19:48:16</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/bgPoint.png">
-      <publishTime>07/22/2014 19:48:16</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/buttons.png">
-      <publishTime>07/22/2014 19:48:16</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/checkbox.png">
-      <publishTime>07/22/2014 19:48:16</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/checkboxNo.png">
-      <publishTime>07/22/2014 19:48:16</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/close.gif">
-      <publishTime>07/22/2014 19:48:16</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/close.png">
-      <publishTime>07/22/2014 19:48:16</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/errorLayer_Bottom.gif">
-      <publishTime>07/22/2014 19:48:16</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/errorLayer_Cen.gif">
-      <publishTime>07/22/2014 19:48:16</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/errorLayer_Top.gif">
-      <publishTime>07/22/2014 19:48:16</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/Grid/ajax-loader.gif">
-      <publishTime>07/22/2014 19:48:16</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/Grid/bg.png">
-      <publishTime>07/22/2014 19:48:16</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/Grid/down-arrow.png">
-      <publishTime>02/22/2016 22:28:05</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/Grid/remove.png">
-      <publishTime>07/22/2014 19:48:16</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/Grid/triangle.png">
-      <publishTime>07/22/2014 19:48:16</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/Grid/triangle2.png">
-      <publishTime>07/22/2014 19:48:16</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/Grid/up-arrow.png">
-      <publishTime>02/22/2016 22:28:05</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/Grid/up-down-arrow.png">
-      <publishTime>02/22/2016 22:28:05</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/Icons/add.png">
-      <publishTime>07/22/2014 19:48:16</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/Icons/attachment.png">
-      <publishTime>07/22/2014 19:48:16</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/Icons/audio.png">
-      <publishTime>07/22/2014 19:48:16</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/Icons/autocomplete.png">
-      <publishTime>07/22/2014 19:48:16</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/Icons/calendar.png">
-      <publishTime>07/22/2014 19:48:16</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/Icons/checkbox_no.png">
-      <publishTime>07/22/2014 19:48:16</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/Icons/checkbox_yes.png">
-      <publishTime>07/22/2014 19:48:16</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/Icons/conversation.png">
-      <publishTime>07/22/2014 19:48:16</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/Icons/copy.png">
-      <publishTime>07/22/2014 19:48:16</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/Icons/cut.png">
-      <publishTime>07/22/2014 19:48:16</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/Icons/date.png">
-      <publishTime>07/22/2014 19:48:16</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/Icons/delete.png">
-      <publishTime>07/22/2014 19:48:16</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/Icons/diagram.png">
-      <publishTime>07/22/2014 19:48:16</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/Icons/dragger.png">
-      <publishTime>07/22/2014 19:48:16</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/Icons/Email.png">
-      <publishTime>07/22/2014 19:48:16</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/Icons/filter.png">
-      <publishTime>07/22/2014 19:48:16</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/Icons/graph.png">
-      <publishTime>07/22/2014 19:48:16</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/Icons/information.png">
-      <publishTime>07/22/2014 19:48:16</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/Icons/list.png">
-      <publishTime>07/22/2014 19:48:16</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/Icons/log.png">
-      <publishTime>07/22/2014 19:48:16</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/Icons/mail.png">
-      <publishTime>07/22/2014 19:48:16</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/Icons/message.png">
-      <publishTime>07/22/2014 19:48:16</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/Icons/minus.png">
-      <publishTime>07/22/2014 19:48:16</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/Icons/net.png">
-      <publishTime>07/22/2014 19:48:16</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/Icons/new.png">
-      <publishTime>07/22/2014 19:48:16</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/Icons/no_sound.png">
-      <publishTime>07/22/2014 19:48:16</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/Icons/number.png">
-      <publishTime>07/22/2014 19:48:16</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/Icons/open.png">
-      <publishTime>07/22/2014 19:48:16</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/Icons/paste.png">
-      <publishTime>07/22/2014 19:48:16</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/Icons/photo.png">
-      <publishTime>07/22/2014 19:48:16</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/Icons/picture%281%29.png">
-      <publishTime>07/22/2014 19:48:16</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/Icons/picture.png">
-      <publishTime>07/22/2014 19:48:16</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/Icons/plus.png">
-      <publishTime>07/22/2014 19:48:16</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/Icons/pointer.png">
-      <publishTime>07/22/2014 19:48:16</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/Icons/print.png">
-      <publishTime>07/22/2014 19:48:16</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/Icons/profile.png">
-      <publishTime>07/22/2014 19:48:16</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/Icons/radiobutton_no.png">
-      <publishTime>07/22/2014 19:48:16</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/Icons/radiobutton_yes.png">
-      <publishTime>07/22/2014 19:48:16</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/Icons/redo.png">
-      <publishTime>07/22/2014 19:48:16</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/Icons/remove.png">
-      <publishTime>07/22/2014 19:48:16</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/Icons/save.png">
-      <publishTime>07/22/2014 19:48:16</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/Icons/save_as.png">
-      <publishTime>07/22/2014 19:48:16</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/Icons/search.png">
-      <publishTime>07/22/2014 19:48:16</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/Icons/settings.png">
-      <publishTime>07/22/2014 19:48:16</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/Icons/sound.png">
-      <publishTime>07/22/2014 19:48:16</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/Icons/star_empty.png">
-      <publishTime>07/22/2014 19:48:16</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/Icons/star_full.png">
-      <publishTime>07/22/2014 19:48:16</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/Icons/table.png">
-      <publishTime>07/22/2014 19:48:16</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/Icons/tiles.png">
-      <publishTime>07/22/2014 19:48:16</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/Icons/undo.png">
-      <publishTime>07/22/2014 19:48:16</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/Icons/user.png">
-      <publishTime>07/22/2014 19:48:16</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/Icons/video.png">
-      <publishTime>07/22/2014 19:48:16</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/Icons/wireless.png">
-      <publishTime>07/22/2014 19:48:16</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/Icons/women.png">
-      <publishTime>07/22/2014 19:48:16</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/Icons/zoom_in.png">
-      <publishTime>07/22/2014 19:48:16</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/Icons/zoom_out.png">
-      <publishTime>07/22/2014 19:48:16</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/Info.png">
-      <publishTime>07/22/2014 19:48:16</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/left1.png">
-      <publishTime>07/22/2014 19:48:16</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/lightbox-btn-close.gif">
-      <publishTime>07/22/2014 19:48:16</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/lightbox-loader.gif">
-      <publishTime>07/22/2014 19:48:16</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/loader.gif">
-      <publishTime>07/22/2014 19:48:16</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/main_left_bottom2.gif">
-      <publishTime>07/22/2014 19:48:16</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/main_left_bottom2.png">
-      <publishTime>07/22/2014 19:48:17</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/main_right_bottom2.gif">
-      <publishTime>07/22/2014 19:48:17</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/main_right_bottom2.png">
-      <publishTime>07/22/2014 19:48:17</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/radiobutton_no.png">
-      <publishTime>07/22/2014 19:48:17</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/tool_bg.gif">
-      <publishTime>07/22/2014 19:48:17</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/top1.png">
-      <publishTime>07/22/2014 19:48:17</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/top_left2.gif">
-      <publishTime>07/22/2014 19:48:17</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/top_left2.png">
-      <publishTime>07/22/2014 19:48:17</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/top_right2.gif">
-      <publishTime>07/22/2014 19:48:17</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/top_right2.png">
-      <publishTime>07/22/2014 19:48:17</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/triangle.png">
-      <publishTime>07/22/2014 19:48:17</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/triangle2.png">
-      <publishTime>07/22/2014 19:48:17</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Css/Images/undo.png">
-      <publishTime>07/22/2014 19:48:17</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Easy.FocusImage.js">
-      <publishTime>07/22/2014 19:48:17</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Easy.FocusImage.min.js">
       <publishTime>05/18/2016 22:57:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Easy.Grid.js">
-      <publishTime>02/22/2016 22:28:05</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Easy.Grid.min.js">
       <publishTime>05/18/2016 22:56:59</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Easy.js">
-      <publishTime>03/14/2016 20:21:35</publishTime>
+      <publishTime>05/21/2016 17:01:10</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Easy.min.js">
-      <publishTime>05/18/2016 22:56:56</publishTime>
+      <publishTime>05/22/2016 00:44:21</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Easy.Tab.js">
       <publishTime>07/22/2014 19:48:17</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Easy.UI.js">
-      <publishTime>02/22/2016 22:28:05</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Easy.UI.min.js">
       <publishTime>05/18/2016 22:57:51</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/jquery.js">
-      <publishTime>07/22/2014 19:48:17</publishTime>
+      <publishTime>05/16/2016 18:32:36</publishTime>
     </File>
     <File Include="Scripts/ImagePlug/album.html">
       <publishTime>04/14/2016 23:24:43</publishTime>
@@ -3163,7 +3163,7 @@
       <publishTime>05/18/2016 21:19:41</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>05/18/2016 23:53:16</publishTime>
+      <publishTime>05/22/2016 15:15:11</publishTime>
     </File>
   </ItemGroup>
 </Project>

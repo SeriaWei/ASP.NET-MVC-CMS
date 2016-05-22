@@ -84,22 +84,6 @@ namespace Easy.Web.CMS.Widget
                 return type;
             });
         }
-        public Type GetServiceType()
-        {
-            StaticCache cache = new StaticCache();
-            return cache.Get("TypeCache_" + this.ServiceTypeName, m =>
-            {
-                Type type = null;
-                AppDomain.CurrentDomain.GetAssemblies().Each(n => n.GetTypes().Each(t =>
-                {
-                    if (type == null && t.FullName == this.ServiceTypeName)
-                    {
-                        type = t;
-                    }
-                }));
-                return type;
-            });
-        }
     }
     class WidgetBaseMetaData : DataViewMetaData<WidgetBase>
     {
