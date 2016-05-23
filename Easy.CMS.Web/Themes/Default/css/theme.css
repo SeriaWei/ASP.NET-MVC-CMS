@@ -212,6 +212,13 @@ p {
   text-shadow: none;
   color: #EEF2F5;
 }
+.panel-default > .panel-heading {
+  background-image: -webkit-linear-gradient(top, #fafcff 0%, #fafcff 100%);
+  background-image: -o-linear-gradient(top, #fafcff 0%, #fafcff 100%);
+  background-image: linear-gradient(to bottom, #fafcff 0%, #fafcff 100%);
+  background-repeat: repeat-x;
+  background-color: #fafcff;
+}
 .pagination {
   display: inline-block;
   padding-left: 0;
