@@ -27,7 +27,7 @@
         var selected = "";
         var selectedArray = [];
         $(".popUpToolBar .btn-default").click(function () {
-            $(window.parent.document).find(".WeiWindow.BoxShadow .CloseWindow").click();
+            $(window.parent.document).find(".WeiWindow.BoxShadow:last").find(".CloseWindow").click();
         });
 
         function Set(obj) {

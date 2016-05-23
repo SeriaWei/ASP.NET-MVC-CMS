@@ -139,11 +139,11 @@ Easy.OpacityBackGround = (function () {
             Ele = $("<div class='OpacityBackGround OtherFixed'></div>");
             $("body").append(Ele);
             Ele.fadeTo(0, 0);
+            Ele.css("z-index", zindex);
         }
         else {
             Ele = $("div.OpacityBackGround");
         }
-        Ele.css("z-index", zindex);
         Ele.fadeTo(300, opa, function () {
             if (callBack) callBack.call();
         });
