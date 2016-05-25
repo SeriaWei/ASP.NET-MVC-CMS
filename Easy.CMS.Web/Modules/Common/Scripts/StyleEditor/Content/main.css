@@ -2,6 +2,11 @@
     padding-top:10px;
     padding-bottom:10px;
 }
+#output{
+    height:250px;
+    overflow:auto;
+    display:none;
+}
 #cssDisplay {
 			background-color: #FFFFFF;
 			color: #000000;
@@ -17,6 +22,9 @@
             display: block;
             text-decoration: none;
         }
-        .usefull{
-            margin-bottom: 5px;
+        .style-preview{
+            width:47%;
+            position:fixed;
+            left:50%;
+            height:100%;
         }

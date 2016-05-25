@@ -1,4 +1,5 @@
 ﻿$(function () {
+    debugger
     var target = window.top.$(".custom-style-target");
     var attrs = target.attr("style");
     if (target.hasClass("form-control")) {
@@ -74,7 +75,7 @@
 	for (var i = 0; i < styleArray.length; i++) {
 		for (var j = 0; j < attrRexs.length; j++) {
 			styleArray[i].replace(attrRexs[j].reg, function (a, v) {
-				attrRexs[i].setValue(v);
+				attrRexs[j].setValue(v);
 			});
 		}
 	}
