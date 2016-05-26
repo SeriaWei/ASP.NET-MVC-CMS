@@ -7015,7 +7015,7 @@ img {
 .bs-callout {
   padding: 10px;
   margin: 0;
-  border: 1px solid #3a3f44;
+  border: 1px solid #e53c37;
   border-top-width: 5px;
   border-radius: 5px;
 }
@@ -7090,15 +7090,16 @@ img {
   margin-right: auto;
 }
 .widget.border {
-  border: 1px solid #3a3f44;
+  border: 1px solid #e53c37;
   border-radius: 3px;
   padding: 5px;
 }
 .widget.footer {
   text-align: center;
-  border-top: 1px solid #3a3f44;
-  background: #3a3f44;
+  border-top: 1px solid #e53c37;
+  background: #eb6864;
   margin: 0;
+  color: #fff;
 }
 .widget.footer p {
   margin: 0;
@@ -7106,6 +7107,9 @@ img {
 .widget.footer .html-widget {
   margin-bottom: 0;
   padding: 10px;
+}
+.widget.footer a {
+  color: #fff;
 }
 .align-center {
   text-align: center;
@@ -7115,14 +7119,14 @@ img {
 }
 .image-border img {
   padding: 4px;
-  border: 1px solid #3a3f44;
+  border: 1px solid #e53c37;
   border-radius: 4px;
 }
 .background-color {
   background: #eeeeee;
   padding: 5px;
-  border-top: 1px solid #3a3f44;
-  border-bottom: 1px solid #3a3f44;
+  border-top: 1px solid #e53c37;
+  border-bottom: 1px solid #e53c37;
 }
 .box-shadow .widget {
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.075);

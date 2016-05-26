@@ -873,12 +873,85 @@
     <Content Include="Scripts\tinymce\skins\lightgray\skin.min.css" />
     <Content Include="Scripts\tinymce\themes\modern\theme.min.js" />
     <Content Include="Scripts\tinymce\tinymce.min.js" />
+    <Content Include="Themes\Cerulean\css\Theme.css">
+      <DependentUpon>Theme.less</DependentUpon>
+    </Content>
+    <Content Include="Themes\Cerulean\css\Theme.min.css">
+      <DependentUpon>Theme.css</DependentUpon>
+    </Content>
+    <Content Include="Themes\Cerulean\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Themes\Cerulean\images\bg.gif" />
+    <Content Include="Themes\Cerulean\images\col_side_bg.png" />
+    <Content Include="Themes\Cerulean\images\header_bg.png" />
+    <Content Include="Themes\Cerulean\images\icon_point.png" />
+    <Content Include="Themes\Cerulean\images\icon_square.png" />
+    <Content Include="Themes\Cerulean\images\loader.gif" />
+    <Content Include="Themes\Cerulean\images\logo_z.png" />
+    <Content Include="Themes\Cerulean\images\more.png" />
+    <Content Include="Themes\Cerulean\images\prd_sort_title.gif" />
+    <Content Include="Themes\Cerulean\images\video-play.png" />
+    <Content Include="Themes\Cerulean\thumbnail.jpg" />
+    <Content Include="Themes\Cosmo\css\Theme.css">
+      <DependentUpon>Theme.less</DependentUpon>
+    </Content>
+    <Content Include="Themes\Cosmo\css\Theme.min.css">
+      <DependentUpon>Theme.css</DependentUpon>
+    </Content>
+    <Content Include="Themes\Cosmo\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Themes\Cosmo\images\bg.gif" />
+    <Content Include="Themes\Cosmo\images\col_side_bg.png" />
+    <Content Include="Themes\Cosmo\images\header_bg.png" />
+    <Content Include="Themes\Cosmo\images\icon_point.png" />
+    <Content Include="Themes\Cosmo\images\icon_square.png" />
+    <Content Include="Themes\Cosmo\images\loader.gif" />
+    <Content Include="Themes\Cosmo\images\logo_z.png" />
+    <Content Include="Themes\Cosmo\images\more.png" />
+    <Content Include="Themes\Cosmo\images\prd_sort_title.gif" />
+    <Content Include="Themes\Cosmo\images\video-play.png" />
+    <Content Include="Themes\Cosmo\thumbnail.jpg" />
+    <Content Include="Themes\Cyborg\css\Theme.css">
+      <DependentUpon>Theme.less</DependentUpon>
+    </Content>
+    <Content Include="Themes\Cyborg\css\Theme.min.css">
+      <DependentUpon>Theme.css</DependentUpon>
+    </Content>
+    <Content Include="Themes\Cyborg\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Themes\Cyborg\images\bg.gif" />
+    <Content Include="Themes\Cyborg\images\col_side_bg.png" />
+    <Content Include="Themes\Cyborg\images\header_bg.png" />
+    <Content Include="Themes\Cyborg\images\icon_point.png" />
+    <Content Include="Themes\Cyborg\images\icon_square.png" />
+    <Content Include="Themes\Cyborg\images\loader.gif" />
+    <Content Include="Themes\Cyborg\images\logo_z.png" />
+    <Content Include="Themes\Cyborg\images\more.png" />
+    <Content Include="Themes\Cyborg\images\prd_sort_title.gif" />
+    <Content Include="Themes\Cyborg\images\video-play.png" />
+    <Content Include="Themes\Cyborg\thumbnail.jpg" />
+    <Content Include="Themes\Darkly\css\Theme.css">
+      <DependentUpon>Theme.less</DependentUpon>
+    </Content>
+    <Content Include="Themes\Darkly\css\Theme.min.css">
+      <DependentUpon>Theme.css</DependentUpon>
+    </Content>
+    <Content Include="Themes\Darkly\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Themes\Darkly\images\bg.gif" />
+    <Content Include="Themes\Darkly\images\col_side_bg.png" />
+    <Content Include="Themes\Darkly\images\header_bg.png" />
+    <Content Include="Themes\Darkly\images\icon_point.png" />
+    <Content Include="Themes\Darkly\images\icon_square.png" />
+    <Content Include="Themes\Darkly\images\loader.gif" />
+    <Content Include="Themes\Darkly\images\logo_z.png" />
+    <Content Include="Themes\Darkly\images\more.png" />
+    <Content Include="Themes\Darkly\images\prd_sort_title.gif" />
+    <Content Include="Themes\Darkly\images\video-play.png" />
+    <Content Include="Themes\Darkly\thumbnail.jpg" />
     <Content Include="Themes\Default\css\Theme.css">
       <DependentUpon>Theme.less</DependentUpon>
     </Content>
     <Content Include="Themes\Default\css\Theme.min.css">
       <DependentUpon>Theme.css</DependentUpon>
     </Content>
+    <Content Include="Themes\Default\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Themes\Default\images\bg.gif" />
     <Content Include="Themes\Default\images\col_side_bg.png" />
     <Content Include="Themes\Default\images\header_bg.png" />
@@ -890,42 +963,222 @@
     <Content Include="Themes\Default\images\prd_sort_title.gif" />
     <Content Include="Themes\Default\images\video-play.png" />
     <Content Include="Themes\Default\thumbnail.jpg" />
-    <Content Include="Themes\Modern\css\Base.css">
-      <DependentUpon>Base.less</DependentUpon>
-    </Content>
-    <Content Include="Themes\Modern\css\Base.min.css">
-      <DependentUpon>Base.css</DependentUpon>
-    </Content>
-    <Content Include="Themes\Modern\css\Navigation.css">
-      <DependentUpon>Navigation.less</DependentUpon>
-    </Content>
-    <Content Include="Themes\Modern\css\Navigation.min.css">
-      <DependentUpon>Navigation.css</DependentUpon>
-    </Content>
-    <Content Include="Themes\Modern\css\Theme.css">
+    <Content Include="Themes\Flatly\css\Theme.css">
       <DependentUpon>Theme.less</DependentUpon>
     </Content>
-    <Content Include="Themes\Modern\css\Theme.min.css">
+    <Content Include="Themes\Flatly\css\Theme.min.css">
       <DependentUpon>Theme.css</DependentUpon>
     </Content>
-    <Content Include="Themes\Modern\css\Widget.css">
-      <DependentUpon>Widget.less</DependentUpon>
+    <Content Include="Themes\Flatly\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Themes\Flatly\images\bg.gif" />
+    <Content Include="Themes\Flatly\images\col_side_bg.png" />
+    <Content Include="Themes\Flatly\images\header_bg.png" />
+    <Content Include="Themes\Flatly\images\icon_point.png" />
+    <Content Include="Themes\Flatly\images\icon_square.png" />
+    <Content Include="Themes\Flatly\images\loader.gif" />
+    <Content Include="Themes\Flatly\images\logo_z.png" />
+    <Content Include="Themes\Flatly\images\more.png" />
+    <Content Include="Themes\Flatly\images\prd_sort_title.gif" />
+    <Content Include="Themes\Flatly\images\video-play.png" />
+    <Content Include="Themes\Flatly\thumbnail.jpg" />
+    <Content Include="Themes\Journal\css\Theme.css">
+      <DependentUpon>Theme.less</DependentUpon>
     </Content>
-    <Content Include="Themes\Modern\css\Widget.min.css">
-      <DependentUpon>Widget.css</DependentUpon>
+    <Content Include="Themes\Journal\css\Theme.min.css">
+      <DependentUpon>Theme.css</DependentUpon>
     </Content>
-    <Content Include="Themes\Modern\images\bg.gif" />
-    <Content Include="Themes\Modern\images\col_side_bg.png" />
-    <Content Include="Themes\Modern\images\header_bg.png" />
-    <Content Include="Themes\Modern\images\icon_point.png" />
-    <Content Include="Themes\Modern\images\icon_square.png" />
-    <Content Include="Themes\Modern\images\loader.gif" />
-    <Content Include="Themes\Modern\images\logo_z.png" />
-    <Content Include="Themes\Modern\images\more.png" />
-    <Content Include="Themes\Modern\images\prd_sort_title.gif" />
-    <Content Include="Themes\Modern\images\video-play.png" />
-    <Content Include="Themes\Modern\Modern.sql" />
-    <Content Include="Themes\Modern\thumbnail.jpg" />
+    <Content Include="Themes\Journal\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Themes\Journal\images\bg.gif" />
+    <Content Include="Themes\Journal\images\col_side_bg.png" />
+    <Content Include="Themes\Journal\images\header_bg.png" />
+    <Content Include="Themes\Journal\images\icon_point.png" />
+    <Content Include="Themes\Journal\images\icon_square.png" />
+    <Content Include="Themes\Journal\images\loader.gif" />
+    <Content Include="Themes\Journal\images\logo_z.png" />
+    <Content Include="Themes\Journal\images\more.png" />
+    <Content Include="Themes\Journal\images\prd_sort_title.gif" />
+    <Content Include="Themes\Journal\images\video-play.png" />
+    <Content Include="Themes\Journal\thumbnail.jpg" />
+    <Content Include="Themes\Lumen\css\Theme.css">
+      <DependentUpon>Theme.less</DependentUpon>
+    </Content>
+    <Content Include="Themes\Lumen\css\Theme.min.css">
+      <DependentUpon>Theme.css</DependentUpon>
+    </Content>
+    <Content Include="Themes\Lumen\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Themes\Lumen\images\bg.gif" />
+    <Content Include="Themes\Lumen\images\col_side_bg.png" />
+    <Content Include="Themes\Lumen\images\header_bg.png" />
+    <Content Include="Themes\Lumen\images\icon_point.png" />
+    <Content Include="Themes\Lumen\images\icon_square.png" />
+    <Content Include="Themes\Lumen\images\loader.gif" />
+    <Content Include="Themes\Lumen\images\logo_z.png" />
+    <Content Include="Themes\Lumen\images\more.png" />
+    <Content Include="Themes\Lumen\images\prd_sort_title.gif" />
+    <Content Include="Themes\Lumen\images\video-play.png" />
+    <Content Include="Themes\Lumen\thumbnail.jpg" />
+    <Content Include="Themes\Paper\css\Theme.css">
+      <DependentUpon>Theme.less</DependentUpon>
+    </Content>
+    <Content Include="Themes\Paper\css\Theme.min.css">
+      <DependentUpon>Theme.css</DependentUpon>
+    </Content>
+    <Content Include="Themes\Paper\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Themes\Paper\images\bg.gif" />
+    <Content Include="Themes\Paper\images\col_side_bg.png" />
+    <Content Include="Themes\Paper\images\header_bg.png" />
+    <Content Include="Themes\Paper\images\icon_point.png" />
+    <Content Include="Themes\Paper\images\icon_square.png" />
+    <Content Include="Themes\Paper\images\loader.gif" />
+    <Content Include="Themes\Paper\images\logo_z.png" />
+    <Content Include="Themes\Paper\images\more.png" />
+    <Content Include="Themes\Paper\images\prd_sort_title.gif" />
+    <Content Include="Themes\Paper\images\video-play.png" />
+    <Content Include="Themes\Paper\thumbnail.jpg" />
+    <Content Include="Themes\Readable\css\Theme.css">
+      <DependentUpon>Theme.less</DependentUpon>
+    </Content>
+    <Content Include="Themes\Readable\css\Theme.min.css">
+      <DependentUpon>Theme.css</DependentUpon>
+    </Content>
+    <Content Include="Themes\Readable\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Themes\Readable\images\bg.gif" />
+    <Content Include="Themes\Readable\images\col_side_bg.png" />
+    <Content Include="Themes\Readable\images\header_bg.png" />
+    <Content Include="Themes\Readable\images\icon_point.png" />
+    <Content Include="Themes\Readable\images\icon_square.png" />
+    <Content Include="Themes\Readable\images\loader.gif" />
+    <Content Include="Themes\Readable\images\logo_z.png" />
+    <Content Include="Themes\Readable\images\more.png" />
+    <Content Include="Themes\Readable\images\prd_sort_title.gif" />
+    <Content Include="Themes\Readable\images\video-play.png" />
+    <Content Include="Themes\Readable\thumbnail.jpg" />
+    <Content Include="Themes\Sandstone\css\Theme.css">
+      <DependentUpon>Theme.less</DependentUpon>
+    </Content>
+    <Content Include="Themes\Sandstone\css\Theme.min.css">
+      <DependentUpon>Theme.css</DependentUpon>
+    </Content>
+    <Content Include="Themes\Sandstone\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Themes\Sandstone\images\bg.gif" />
+    <Content Include="Themes\Sandstone\images\col_side_bg.png" />
+    <Content Include="Themes\Sandstone\images\header_bg.png" />
+    <Content Include="Themes\Sandstone\images\icon_point.png" />
+    <Content Include="Themes\Sandstone\images\icon_square.png" />
+    <Content Include="Themes\Sandstone\images\loader.gif" />
+    <Content Include="Themes\Sandstone\images\logo_z.png" />
+    <Content Include="Themes\Sandstone\images\more.png" />
+    <Content Include="Themes\Sandstone\images\prd_sort_title.gif" />
+    <Content Include="Themes\Sandstone\images\video-play.png" />
+    <Content Include="Themes\Sandstone\thumbnail.jpg" />
+    <Content Include="Themes\Simplex\css\Theme.css">
+      <DependentUpon>Theme.less</DependentUpon>
+    </Content>
+    <Content Include="Themes\Simplex\css\Theme.min.css">
+      <DependentUpon>Theme.css</DependentUpon>
+    </Content>
+    <Content Include="Themes\Simplex\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Themes\Simplex\images\bg.gif" />
+    <Content Include="Themes\Simplex\images\col_side_bg.png" />
+    <Content Include="Themes\Simplex\images\header_bg.png" />
+    <Content Include="Themes\Simplex\images\icon_point.png" />
+    <Content Include="Themes\Simplex\images\icon_square.png" />
+    <Content Include="Themes\Simplex\images\loader.gif" />
+    <Content Include="Themes\Simplex\images\logo_z.png" />
+    <Content Include="Themes\Simplex\images\more.png" />
+    <Content Include="Themes\Simplex\images\prd_sort_title.gif" />
+    <Content Include="Themes\Simplex\images\video-play.png" />
+    <Content Include="Themes\Simplex\thumbnail.jpg" />
+    <Content Include="Themes\Slate\css\Theme.css">
+      <DependentUpon>Theme.less</DependentUpon>
+    </Content>
+    <Content Include="Themes\Slate\css\Theme.min.css">
+      <DependentUpon>Theme.css</DependentUpon>
+    </Content>
+    <Content Include="Themes\Slate\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Themes\Slate\images\bg.gif" />
+    <Content Include="Themes\Slate\images\col_side_bg.png" />
+    <Content Include="Themes\Slate\images\header_bg.png" />
+    <Content Include="Themes\Slate\images\icon_point.png" />
+    <Content Include="Themes\Slate\images\icon_square.png" />
+    <Content Include="Themes\Slate\images\loader.gif" />
+    <Content Include="Themes\Slate\images\logo_z.png" />
+    <Content Include="Themes\Slate\images\more.png" />
+    <Content Include="Themes\Slate\images\prd_sort_title.gif" />
+    <Content Include="Themes\Slate\images\video-play.png" />
+    <Content Include="Themes\Slate\thumbnail.jpg" />
+    <Content Include="Themes\Spacelab\css\Theme.css">
+      <DependentUpon>Theme.less</DependentUpon>
+    </Content>
+    <Content Include="Themes\Spacelab\css\Theme.min.css">
+      <DependentUpon>Theme.css</DependentUpon>
+    </Content>
+    <Content Include="Themes\Spacelab\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Themes\Spacelab\images\bg.gif" />
+    <Content Include="Themes\Spacelab\images\col_side_bg.png" />
+    <Content Include="Themes\Spacelab\images\header_bg.png" />
+    <Content Include="Themes\Spacelab\images\icon_point.png" />
+    <Content Include="Themes\Spacelab\images\icon_square.png" />
+    <Content Include="Themes\Spacelab\images\loader.gif" />
+    <Content Include="Themes\Spacelab\images\logo_z.png" />
+    <Content Include="Themes\Spacelab\images\more.png" />
+    <Content Include="Themes\Spacelab\images\prd_sort_title.gif" />
+    <Content Include="Themes\Spacelab\images\video-play.png" />
+    <Content Include="Themes\Spacelab\thumbnail.jpg" />
+    <Content Include="Themes\Superhero\css\Theme.css">
+      <DependentUpon>Theme.less</DependentUpon>
+    </Content>
+    <Content Include="Themes\Superhero\css\Theme.min.css">
+      <DependentUpon>Theme.css</DependentUpon>
+    </Content>
+    <Content Include="Themes\Superhero\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Themes\Superhero\images\bg.gif" />
+    <Content Include="Themes\Superhero\images\col_side_bg.png" />
+    <Content Include="Themes\Superhero\images\header_bg.png" />
+    <Content Include="Themes\Superhero\images\icon_point.png" />
+    <Content Include="Themes\Superhero\images\icon_square.png" />
+    <Content Include="Themes\Superhero\images\loader.gif" />
+    <Content Include="Themes\Superhero\images\logo_z.png" />
+    <Content Include="Themes\Superhero\images\more.png" />
+    <Content Include="Themes\Superhero\images\prd_sort_title.gif" />
+    <Content Include="Themes\Superhero\images\video-play.png" />
+    <Content Include="Themes\Superhero\thumbnail.jpg" />
+    <Content Include="Themes\United\css\Theme.css">
+      <DependentUpon>Theme.less</DependentUpon>
+    </Content>
+    <Content Include="Themes\United\css\Theme.min.css">
+      <DependentUpon>Theme.css</DependentUpon>
+    </Content>
+    <Content Include="Themes\United\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Themes\United\images\bg.gif" />
+    <Content Include="Themes\United\images\col_side_bg.png" />
+    <Content Include="Themes\United\images\header_bg.png" />
+    <Content Include="Themes\United\images\icon_point.png" />
+    <Content Include="Themes\United\images\icon_square.png" />
+    <Content Include="Themes\United\images\loader.gif" />
+    <Content Include="Themes\United\images\logo_z.png" />
+    <Content Include="Themes\United\images\more.png" />
+    <Content Include="Themes\United\images\prd_sort_title.gif" />
+    <Content Include="Themes\United\images\video-play.png" />
+    <Content Include="Themes\United\thumbnail.jpg" />
+    <Content Include="Themes\Yeti\css\Theme.css">
+      <DependentUpon>Theme.less</DependentUpon>
+    </Content>
+    <Content Include="Themes\Yeti\css\Theme.min.css">
+      <DependentUpon>Theme.css</DependentUpon>
+    </Content>
+    <Content Include="Themes\Yeti\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Themes\Yeti\images\bg.gif" />
+    <Content Include="Themes\Yeti\images\col_side_bg.png" />
+    <Content Include="Themes\Yeti\images\header_bg.png" />
+    <Content Include="Themes\Yeti\images\icon_point.png" />
+    <Content Include="Themes\Yeti\images\icon_square.png" />
+    <Content Include="Themes\Yeti\images\loader.gif" />
+    <Content Include="Themes\Yeti\images\logo_z.png" />
+    <Content Include="Themes\Yeti\images\more.png" />
+    <Content Include="Themes\Yeti\images\prd_sort_title.gif" />
+    <Content Include="Themes\Yeti\images\video-play.png" />
+    <Content Include="Themes\Yeti\thumbnail.jpg" />
     <Content Include="Views\Shared\DisplayTemplates\CanonicalHelperModel.ascx" />
     <Content Include="Views\Shared\DisplayTemplates\MenuHelperModel.ascx" />
     <Content Include="Views\Shared\DisplayTemplates\MetaRobotsHelperModel.ascx" />
@@ -1043,29 +1296,255 @@
     <Content Include="Views\Shared\DisplayTemplates\MetaRobotsHelperModel.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\MenuHelperModel.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\CanonicalHelperModel.cshtml" />
-    <Content Include="Themes\Modern\css\Article.less" />
-    <Content Include="Themes\Modern\css\Base.less" />
-    <Content Include="Themes\Modern\css\Carousel.less" />
-    <Content Include="Themes\Modern\css\Library.less" />
-    <Content Include="Themes\Modern\css\Navigation.less" />
-    <Content Include="Themes\Modern\css\Pagination.less" />
-    <Content Include="Themes\Modern\css\Product.less" />
-    <Content Include="Themes\Modern\css\Section.less" />
-    <Content Include="Themes\Modern\css\Theme.less" />
-    <Content Include="Themes\Modern\css\Widget.less" />
-    <Content Include="Themes\Modern\css\Base.css.map">
-      <DependentUpon>Base.css</DependentUpon>
-    </Content>
-    <Content Include="Themes\Modern\css\Theme.css.map">
+    <Content Include="Themes\Simplex\css\Article.less" />
+    <Content Include="Themes\Simplex\css\Base.less" />
+    <Content Include="Themes\Simplex\css\Carousel.less" />
+    <Content Include="Themes\Simplex\css\Library.less" />
+    <Content Include="Themes\Simplex\css\Navigation.less" />
+    <Content Include="Themes\Simplex\css\Pagination.less" />
+    <Content Include="Themes\Simplex\css\Product.less" />
+    <Content Include="Themes\Simplex\css\Section.less" />
+    <Content Include="Themes\Simplex\css\Theme.less" />
+    <Content Include="Themes\Simplex\css\Widget.less" />
+    <Content Include="Themes\Simplex\css\Theme.css.map">
       <DependentUpon>Theme.css</DependentUpon>
     </Content>
-    <Content Include="Themes\Modern\css\Widget.css.map">
-      <DependentUpon>Widget.css</DependentUpon>
-    </Content>
-    <Content Include="Themes\Modern\css\Navigation.css.map">
-      <DependentUpon>Navigation.css</DependentUpon>
-    </Content>
-    <Content Include="Themes\Modern\css\Bootstrap.Theme.less" />
+    <Content Include="Themes\Simplex\css\Bootstrap.less" />
+    <Content Include="Themes\Simplex\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Themes\Simplex\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Themes\Simplex\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Themes\Simplex\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Themes\Default\css\Bootstrap.less" />
+    <Content Include="Themes\Default\css\Bootstrap.Theme.less" />
+    <Content Include="Themes\Default\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Themes\Default\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Themes\Default\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Themes\Default\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Themes\Cerulean\css\Article.less" />
+    <Content Include="Themes\Cerulean\css\Base.less" />
+    <Content Include="Themes\Cerulean\css\Bootstrap.less" />
+    <Content Include="Themes\Cerulean\css\Carousel.less" />
+    <Content Include="Themes\Cerulean\css\Library.less" />
+    <Content Include="Themes\Cerulean\css\Navigation.less" />
+    <Content Include="Themes\Cerulean\css\Pagination.less" />
+    <Content Include="Themes\Cerulean\css\Product.less" />
+    <Content Include="Themes\Cerulean\css\Section.less" />
+    <Content Include="Themes\Cerulean\css\Theme.less" />
+    <Content Include="Themes\Cerulean\css\Widget.less" />
+    <Content Include="Themes\Cerulean\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Themes\Cerulean\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Themes\Cerulean\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Themes\Cerulean\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Themes\Cosmo\css\Article.less" />
+    <Content Include="Themes\Cosmo\css\Base.less" />
+    <Content Include="Themes\Cosmo\css\Bootstrap.less" />
+    <Content Include="Themes\Cosmo\css\Carousel.less" />
+    <Content Include="Themes\Cosmo\css\Library.less" />
+    <Content Include="Themes\Cosmo\css\Navigation.less" />
+    <Content Include="Themes\Cosmo\css\Pagination.less" />
+    <Content Include="Themes\Cosmo\css\Product.less" />
+    <Content Include="Themes\Cosmo\css\Section.less" />
+    <Content Include="Themes\Cosmo\css\Theme.less" />
+    <Content Include="Themes\Cosmo\css\Widget.less" />
+    <Content Include="Themes\Cosmo\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Themes\Cosmo\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Themes\Cosmo\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Themes\Cosmo\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Themes\Cyborg\css\Article.less" />
+    <Content Include="Themes\Cyborg\css\Base.less" />
+    <Content Include="Themes\Cyborg\css\Bootstrap.less" />
+    <Content Include="Themes\Cyborg\css\Carousel.less" />
+    <Content Include="Themes\Cyborg\css\Library.less" />
+    <Content Include="Themes\Cyborg\css\Navigation.less" />
+    <Content Include="Themes\Cyborg\css\Pagination.less" />
+    <Content Include="Themes\Cyborg\css\Product.less" />
+    <Content Include="Themes\Cyborg\css\Section.less" />
+    <Content Include="Themes\Cyborg\css\Theme.less" />
+    <Content Include="Themes\Cyborg\css\Widget.less" />
+    <Content Include="Themes\Cyborg\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Themes\Cyborg\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Themes\Cyborg\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Themes\Cyborg\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Themes\Darkly\css\Article.less" />
+    <Content Include="Themes\Darkly\css\Base.less" />
+    <Content Include="Themes\Darkly\css\Bootstrap.less" />
+    <Content Include="Themes\Darkly\css\Carousel.less" />
+    <Content Include="Themes\Darkly\css\Library.less" />
+    <Content Include="Themes\Darkly\css\Navigation.less" />
+    <Content Include="Themes\Darkly\css\Pagination.less" />
+    <Content Include="Themes\Darkly\css\Product.less" />
+    <Content Include="Themes\Darkly\css\Section.less" />
+    <Content Include="Themes\Darkly\css\Theme.less" />
+    <Content Include="Themes\Darkly\css\Widget.less" />
+    <Content Include="Themes\Darkly\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Themes\Darkly\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Themes\Darkly\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Themes\Darkly\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Themes\Flatly\css\Article.less" />
+    <Content Include="Themes\Flatly\css\Base.less" />
+    <Content Include="Themes\Flatly\css\Bootstrap.less" />
+    <Content Include="Themes\Flatly\css\Carousel.less" />
+    <Content Include="Themes\Flatly\css\Library.less" />
+    <Content Include="Themes\Flatly\css\Navigation.less" />
+    <Content Include="Themes\Flatly\css\Pagination.less" />
+    <Content Include="Themes\Flatly\css\Product.less" />
+    <Content Include="Themes\Flatly\css\Section.less" />
+    <Content Include="Themes\Flatly\css\Theme.less" />
+    <Content Include="Themes\Flatly\css\Widget.less" />
+    <Content Include="Themes\Flatly\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Themes\Flatly\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Themes\Flatly\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Themes\Flatly\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Themes\Journal\css\Article.less" />
+    <Content Include="Themes\Journal\css\Base.less" />
+    <Content Include="Themes\Journal\css\Bootstrap.less" />
+    <Content Include="Themes\Journal\css\Carousel.less" />
+    <Content Include="Themes\Journal\css\Library.less" />
+    <Content Include="Themes\Journal\css\Navigation.less" />
+    <Content Include="Themes\Journal\css\Pagination.less" />
+    <Content Include="Themes\Journal\css\Product.less" />
+    <Content Include="Themes\Journal\css\Section.less" />
+    <Content Include="Themes\Journal\css\Theme.less" />
+    <Content Include="Themes\Journal\css\Widget.less" />
+    <Content Include="Themes\Journal\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Themes\Journal\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Themes\Journal\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Themes\Journal\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Themes\Lumen\css\Article.less" />
+    <Content Include="Themes\Lumen\css\Base.less" />
+    <Content Include="Themes\Lumen\css\Bootstrap.less" />
+    <Content Include="Themes\Lumen\css\Carousel.less" />
+    <Content Include="Themes\Lumen\css\Library.less" />
+    <Content Include="Themes\Lumen\css\Navigation.less" />
+    <Content Include="Themes\Lumen\css\Pagination.less" />
+    <Content Include="Themes\Lumen\css\Product.less" />
+    <Content Include="Themes\Lumen\css\Section.less" />
+    <Content Include="Themes\Lumen\css\Theme.less" />
+    <Content Include="Themes\Lumen\css\Widget.less" />
+    <Content Include="Themes\Lumen\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Themes\Lumen\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Themes\Lumen\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Themes\Lumen\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Themes\Paper\css\Article.less" />
+    <Content Include="Themes\Paper\css\Base.less" />
+    <Content Include="Themes\Paper\css\Bootstrap.less" />
+    <Content Include="Themes\Paper\css\Carousel.less" />
+    <Content Include="Themes\Paper\css\Library.less" />
+    <Content Include="Themes\Paper\css\Navigation.less" />
+    <Content Include="Themes\Paper\css\Pagination.less" />
+    <Content Include="Themes\Paper\css\Product.less" />
+    <Content Include="Themes\Paper\css\Section.less" />
+    <Content Include="Themes\Paper\css\Theme.less" />
+    <Content Include="Themes\Paper\css\Widget.less" />
+    <Content Include="Themes\Paper\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Themes\Paper\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Themes\Paper\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Themes\Paper\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Themes\Readable\css\Article.less" />
+    <Content Include="Themes\Readable\css\Base.less" />
+    <Content Include="Themes\Readable\css\Bootstrap.less" />
+    <Content Include="Themes\Readable\css\Carousel.less" />
+    <Content Include="Themes\Readable\css\Library.less" />
+    <Content Include="Themes\Readable\css\Navigation.less" />
+    <Content Include="Themes\Readable\css\Pagination.less" />
+    <Content Include="Themes\Readable\css\Product.less" />
+    <Content Include="Themes\Readable\css\Section.less" />
+    <Content Include="Themes\Readable\css\Theme.less" />
+    <Content Include="Themes\Readable\css\Widget.less" />
+    <Content Include="Themes\Readable\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Themes\Readable\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Themes\Readable\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Themes\Readable\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Themes\Sandstone\css\Article.less" />
+    <Content Include="Themes\Sandstone\css\Base.less" />
+    <Content Include="Themes\Sandstone\css\Bootstrap.less" />
+    <Content Include="Themes\Sandstone\css\Carousel.less" />
+    <Content Include="Themes\Sandstone\css\Library.less" />
+    <Content Include="Themes\Sandstone\css\Navigation.less" />
+    <Content Include="Themes\Sandstone\css\Pagination.less" />
+    <Content Include="Themes\Sandstone\css\Product.less" />
+    <Content Include="Themes\Sandstone\css\Section.less" />
+    <Content Include="Themes\Sandstone\css\Theme.less" />
+    <Content Include="Themes\Sandstone\css\Widget.less" />
+    <Content Include="Themes\Sandstone\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Themes\Sandstone\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Themes\Sandstone\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Themes\Sandstone\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Themes\Slate\css\Article.less" />
+    <Content Include="Themes\Slate\css\Base.less" />
+    <Content Include="Themes\Slate\css\Bootstrap.less" />
+    <Content Include="Themes\Slate\css\Carousel.less" />
+    <Content Include="Themes\Slate\css\Library.less" />
+    <Content Include="Themes\Slate\css\Navigation.less" />
+    <Content Include="Themes\Slate\css\Pagination.less" />
+    <Content Include="Themes\Slate\css\Product.less" />
+    <Content Include="Themes\Slate\css\Section.less" />
+    <Content Include="Themes\Slate\css\Theme.less" />
+    <Content Include="Themes\Slate\css\Widget.less" />
+    <Content Include="Themes\Slate\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Themes\Slate\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Themes\Slate\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Themes\Slate\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Themes\Spacelab\css\Article.less" />
+    <Content Include="Themes\Spacelab\css\Base.less" />
+    <Content Include="Themes\Spacelab\css\Bootstrap.less" />
+    <Content Include="Themes\Spacelab\css\Carousel.less" />
+    <Content Include="Themes\Spacelab\css\Library.less" />
+    <Content Include="Themes\Spacelab\css\Navigation.less" />
+    <Content Include="Themes\Spacelab\css\Pagination.less" />
+    <Content Include="Themes\Spacelab\css\Product.less" />
+    <Content Include="Themes\Spacelab\css\Section.less" />
+    <Content Include="Themes\Spacelab\css\Theme.less" />
+    <Content Include="Themes\Spacelab\css\Widget.less" />
+    <Content Include="Themes\Spacelab\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Themes\Spacelab\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Themes\Spacelab\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Themes\Spacelab\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Themes\Superhero\css\Article.less" />
+    <Content Include="Themes\Superhero\css\Base.less" />
+    <Content Include="Themes\Superhero\css\Bootstrap.less" />
+    <Content Include="Themes\Superhero\css\Carousel.less" />
+    <Content Include="Themes\Superhero\css\Library.less" />
+    <Content Include="Themes\Superhero\css\Navigation.less" />
+    <Content Include="Themes\Superhero\css\Pagination.less" />
+    <Content Include="Themes\Superhero\css\Product.less" />
+    <Content Include="Themes\Superhero\css\Section.less" />
+    <Content Include="Themes\Superhero\css\Theme.less" />
+    <Content Include="Themes\Superhero\css\Widget.less" />
+    <Content Include="Themes\Superhero\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Themes\Superhero\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Themes\Superhero\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Themes\Superhero\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Themes\United\css\Article.less" />
+    <Content Include="Themes\United\css\Base.less" />
+    <Content Include="Themes\United\css\Bootstrap.less" />
+    <Content Include="Themes\United\css\Carousel.less" />
+    <Content Include="Themes\United\css\Library.less" />
+    <Content Include="Themes\United\css\Navigation.less" />
+    <Content Include="Themes\United\css\Pagination.less" />
+    <Content Include="Themes\United\css\Product.less" />
+    <Content Include="Themes\United\css\Section.less" />
+    <Content Include="Themes\United\css\Theme.less" />
+    <Content Include="Themes\United\css\Widget.less" />
+    <Content Include="Themes\United\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Themes\United\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Themes\United\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Themes\United\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Themes\Yeti\css\Article.less" />
+    <Content Include="Themes\Yeti\css\Base.less" />
+    <Content Include="Themes\Yeti\css\Bootstrap.less" />
+    <Content Include="Themes\Yeti\css\Carousel.less" />
+    <Content Include="Themes\Yeti\css\Library.less" />
+    <Content Include="Themes\Yeti\css\Navigation.less" />
+    <Content Include="Themes\Yeti\css\Pagination.less" />
+    <Content Include="Themes\Yeti\css\Product.less" />
+    <Content Include="Themes\Yeti\css\Section.less" />
+    <Content Include="Themes\Yeti\css\Theme.less" />
+    <Content Include="Themes\Yeti\css\Widget.less" />
+    <Content Include="Themes\Yeti\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Themes\Yeti\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Themes\Yeti\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Themes\Yeti\fonts\glyphicons-halflings-regular.woff2" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EasyFrameWork.CMS\Easy.Web.CMS.csproj">

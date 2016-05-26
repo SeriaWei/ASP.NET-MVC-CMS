@@ -7157,6 +7157,9 @@ img {
   margin-bottom: 0;
   padding: 10px;
 }
+.widget.footer a {
+  color: black;
+}
 .align-center {
   text-align: center;
 }

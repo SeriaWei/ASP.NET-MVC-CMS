@@ -7077,7 +7077,7 @@ img {
 .bs-callout {
   padding: 10px;
   margin: 0;
-  border: 1px solid #3a3f44;
+  border: 1px solid #dfd7ca;
   border-top-width: 5px;
   border-radius: 5px;
 }
@@ -7152,14 +7152,14 @@ img {
   margin-right: auto;
 }
 .widget.border {
-  border: 1px solid #3a3f44;
+  border: 1px solid #dfd7ca;
   border-radius: 3px;
   padding: 5px;
 }
 .widget.footer {
   text-align: center;
-  border-top: 1px solid #3a3f44;
-  background: #3a3f44;
+  border-top: 1px solid #dfd7ca;
+  background: #f8f5f0;
   margin: 0;
 }
 .widget.footer p {
@@ -7177,14 +7177,14 @@ img {
 }
 .image-border img {
   padding: 4px;
-  border: 1px solid #3a3f44;
+  border: 1px solid #dfd7ca;
   border-radius: 4px;
 }
 .background-color {
   background: #eeeeee;
   padding: 5px;
-  border-top: 1px solid #3a3f44;
-  border-bottom: 1px solid #3a3f44;
+  border-top: 1px solid #dfd7ca;
+  border-bottom: 1px solid #dfd7ca;
 }
 .box-shadow .widget {
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.075);
