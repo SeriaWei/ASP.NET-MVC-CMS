@@ -16,7 +16,7 @@ CREATE TABLE [dbo].[CMS_WidgetBase](
 	[ServiceTypeName] [nvarchar](255) NULL,
 	[ViewModelTypeName] [nvarchar](255) NULL,
 	[FormView] [nvarchar](255) NULL,
-	[StyleClass] [nvarchar](255) NULL,
+	[StyleClass] [nvarchar](1000) NULL,
 	[CreateBy] [nvarchar](255) NULL,
 	[CreatebyName] [nvarchar](255) NULL,
 	[CreateDate] [datetime] NULL,
