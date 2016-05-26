@@ -1065,6 +1065,7 @@
     <Content Include="Themes\Modern\css\Navigation.css.map">
       <DependentUpon>Navigation.css</DependentUpon>
     </Content>
+    <Content Include="Themes\Modern\css\Bootstrap.Theme.less" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EasyFrameWork.CMS\Easy.Web.CMS.csproj">

@@ -53,8 +53,10 @@ namespace Easy
 
         protected override void InitStyle(Func<string, Web.Resource.ResourceHelper> style)
         {
-            style("bootStrap").Include("~/Content/bootstrap/css/bootstrap.css", "~/Content/bootstrap/css/bootstrap.min.css", "//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.css").RequiredAtHead();
-            style("bootStrapTheme").Include("~/Content/bootstrap/css/bootstrap-theme.css", "~/Content/bootstrap/css/bootstrap-theme.min.css", "//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap-theme.min.css").RequiredAtHead();
+            style("bootStrap")
+                .Include("~/Content/bootstrap/css/bootstrap.css", "~/Content/bootstrap/css/bootstrap.min.css", "//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.css")
+                .Include("~/Content/bootstrap/css/bootstrap-theme.css", "~/Content/bootstrap/css/bootstrap-theme.min.css", "//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap-theme.min.css");
+
             style("Site").Include("~/Content/Site.css", "~/Content/Site.min.css", CdnHost + "/Content/Site.min.css").RequiredAtFoot();
             style("jQueryUi")
                 .Include("~/Scripts/jquery-ui/jquery-ui.css", "~/Scripts/jquery-ui/jquery-ui.min.css", "//cdn.bootcss.com/jqueryui/1.11.4/jquery-ui.min.css")

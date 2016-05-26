@@ -2,5 +2,73 @@
   {
     "outputFile": "Themes/Default/css/Theme.css",
     "inputFile": "Themes/Default/css/Theme.less"
+  },
+  {
+    "outputFile": "Themes/Modern/css/Theme.css",
+    "inputFile": "Themes/Modern/css/Theme.less"
+  },
+  {
+    "outputFile": "Themes/Cerulean/css/Theme.css",
+    "inputFile": "Themes/Cerulean/css/Theme.less"
+  },
+  {
+    "outputFile": "Themes/Cosmo/css/Theme.css",
+    "inputFile": "Themes/Cosmo/css/Theme.less"
+  },
+  {
+    "outputFile": "Themes/Cyborg/css/Theme.css",
+    "inputFile": "Themes/Cyborg/css/Theme.less"
+  },
+  {
+    "outputFile": "Themes/Darkly/css/Theme.css",
+    "inputFile": "Themes/Darkly/css/Theme.less"
+  },
+  {
+    "outputFile": "Themes/Flatly/css/Theme.css",
+    "inputFile": "Themes/Flatly/css/Theme.less"
+  },
+  {
+    "outputFile": "Themes/Journal/css/Theme.css",
+    "inputFile": "Themes/Journal/css/Theme.less"
+  },
+  {
+    "outputFile": "Themes/Lumen/css/Theme.css",
+    "inputFile": "Themes/Lumen/css/Theme.less"
+  },
+  {
+    "outputFile": "Themes/Paper/css/Theme.css",
+    "inputFile": "Themes/Paper/css/Theme.less"
+  },
+  {
+    "outputFile": "Themes/Readable/css/Theme.css",
+    "inputFile": "Themes/Readable/css/Theme.less"
+  },
+  {
+    "outputFile": "Themes/Sandstone/css/Theme.css",
+    "inputFile": "Themes/Sandstone/css/Theme.less"
+  },
+  {
+    "outputFile": "Themes/Simplex/css/Theme.css",
+    "inputFile": "Themes/Simplex/css/Theme.less"
+  },
+  {
+    "outputFile": "Themes/Slate/css/Theme.css",
+    "inputFile": "Themes/Slate/css/Theme.less"
+  },
+  {
+    "outputFile": "Themes/Spacelab/css/Theme.css",
+    "inputFile": "Themes/Spacelab/css/Theme.less"
+  },
+  {
+    "outputFile": "Themes/Superhero/css/Theme.css",
+    "inputFile": "Themes/Superhero/css/Theme.less"
+  },
+  {
+    "outputFile": "Themes/United/css/Theme.css",
+    "inputFile": "Themes/United/css/Theme.less"
+  },
+  {
+    "outputFile": "Themes/Yeti/css/Theme.css",
+    "inputFile": "Themes/Yeti/css/Theme.less"
   }
 ]

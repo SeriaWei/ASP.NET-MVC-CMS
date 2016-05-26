@@ -74,8 +74,12 @@
 
 
     this.css = '';
-    this.css += 'background-color: ' + backgroundColor + ';\n';
-    this.css += ' color: ' + textColor + ';\n';
+    if (backgroundColor) {
+        this.css += 'background-color: ' + backgroundColor + ';\n';
+    }
+    if (textColor) {
+        this.css += ' color: ' + textColor + ';\n';
+    }    
     if (width) {
         this.css += ' width: ' + width + 'px;\n';
     }

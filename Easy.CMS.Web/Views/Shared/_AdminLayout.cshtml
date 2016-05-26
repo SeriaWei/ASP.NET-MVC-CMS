@@ -2,6 +2,7 @@
 @using Easy.Web.CMS
 @using Microsoft.Practices.ServiceLocation
 @{
+    Style.Reqiured("bootStrap").AtHead();
     Style.Reqiured("admin").AtHead();
     Script.Reqiured("admin").AtFoot();
     var plugs = ServiceLocator.Current.GetAllInstances<PluginBase>();

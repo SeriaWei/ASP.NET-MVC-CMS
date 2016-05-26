@@ -12,7 +12,7 @@ namespace Easy.Web.CMS.Zone
     {
         public static ZoneCollection GetZones(string[] html, out LayoutHtmlCollection result)
         {
-            Regex zoneRegex = new Regex("name=\"(ZoneName|LayoutId|ID)\"(\\s+placeholder=\".+\"\\s+|\\s+)value=\"(.+)\">");
+            Regex zoneRegex = new Regex("name=\"(ZoneName|LayoutId|ID)\".+value=\"(.+)\">");
             result = new LayoutHtmlCollection();
             ZoneCollection zones = new ZoneCollection();
             for (int i = 0; i < html.Count(); i++)
@@ -29,15 +29,15 @@ namespace Easy.Web.CMS.Zone
                         {
                             if (evaluator.Groups[1].Value.Equals("ZoneName"))
                             {
-                                zone.ZoneName = evaluator.Groups[3].Value;
+                                zone.ZoneName = evaluator.Groups[2].Value;
                             }
                             else if (evaluator.Groups[1].Value.Equals("LayoutId"))
                             {
-                                zone.LayoutId = evaluator.Groups[3].Value;
+                                zone.LayoutId = evaluator.Groups[2].Value;
                             }
                             else if (evaluator.Groups[1].Value.Equals("ID"))
                             {
-                                zone.ID = evaluator.Groups[3].Value;
+                                zone.ID = evaluator.Groups[2].Value;
                             }
                             return "";
                         });
