@@ -92,11 +92,12 @@ namespace Easy.Web.CMS.Widget
             DataTable("CMS_WidgetBase");
             DataConfig(m => m.ID).AsPrimaryKey();
             DataConfig(m => m.IsSystem).Update(false).Insert(false);
+
         }
 
         protected override void ViewConfigure()
         {
-
+            ViewConfig(m => m.StyleClass).AsTextBox().MaxLength(1000);
         }
     }
 

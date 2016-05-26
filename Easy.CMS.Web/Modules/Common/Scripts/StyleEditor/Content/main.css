@@ -1,30 +1,44 @@
-.editor-main{
-    padding-top:10px;
-    padding-bottom:10px;
+.editor-main {
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
-#output{
-    height:250px;
-    overflow:auto;
-    display:none;
+
+#output {
+    max-height: 250px;
+    overflow: auto;
 }
+
 #cssDisplay {
-			background-color: #FFFFFF;
-			color: #000000;
-		}		
-        #cssDisplay p{
-            margin: 0;
-        }
-        .panel-body > div > h3:first-child{
-            margin-top: 0;
-        }
-        .panel-heading a{
-            color: black;
-            display: block;
-            text-decoration: none;
-        }
-        .style-preview{
-            width:47%;
-            position:fixed;
-            left:50%;
-            height:100%;
-        }
+    background-color: #FFFFFF;
+    color: #000000;
+    max-height: 250px;
+    max-width: 450px;
+}
+
+    #cssDisplay p {
+        margin: 0;
+    }
+
+.panel-body > div > h3:first-child {
+    margin-top: 0;
+}
+
+.panel-heading a {
+    color: black;
+    display: block;
+    text-decoration: none;
+}
+
+.style-preview {
+    width: 47%;
+    position: fixed;
+    left: 50%;
+    height: 100%;
+}
+
+.input-group {
+    margin-bottom: 10px;
+}
+.glyphicon-search {
+    cursor: pointer;
+}

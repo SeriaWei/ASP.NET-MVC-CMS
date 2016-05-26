@@ -104,7 +104,7 @@
         handle: ".glyphicon-sort"
     });
 
-    $("#containers>div").sortable(rowSortOption).append(containerTools).addClass("design main");
+    $("#containers>div").sortable(rowSortOption).append(containerTools).addClass("design main custom-style");
     $(".additional.row").sortable(colSortOption).append(rowTools).children(".additional").append(colTools);
     $("body").droppable({
         greedy: true,
@@ -182,7 +182,8 @@
                     .removeClass("ui-sortable-handle")
                     .removeClass("active")
                     .removeClass("design")
-                    .removeAttr("style");
+                    .removeClass("custom-style-target")
+                    .not(".custom-style").removeAttr("style");
 
         $(".tools", copyContainer).remove();
 

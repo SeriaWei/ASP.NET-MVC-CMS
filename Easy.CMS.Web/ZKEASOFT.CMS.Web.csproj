@@ -890,6 +890,42 @@
     <Content Include="Themes\Default\images\prd_sort_title.gif" />
     <Content Include="Themes\Default\images\video-play.png" />
     <Content Include="Themes\Default\thumbnail.jpg" />
+    <Content Include="Themes\Modern\css\Base.css">
+      <DependentUpon>Base.less</DependentUpon>
+    </Content>
+    <Content Include="Themes\Modern\css\Base.min.css">
+      <DependentUpon>Base.css</DependentUpon>
+    </Content>
+    <Content Include="Themes\Modern\css\Navigation.css">
+      <DependentUpon>Navigation.less</DependentUpon>
+    </Content>
+    <Content Include="Themes\Modern\css\Navigation.min.css">
+      <DependentUpon>Navigation.css</DependentUpon>
+    </Content>
+    <Content Include="Themes\Modern\css\Theme.css">
+      <DependentUpon>Theme.less</DependentUpon>
+    </Content>
+    <Content Include="Themes\Modern\css\Theme.min.css">
+      <DependentUpon>Theme.css</DependentUpon>
+    </Content>
+    <Content Include="Themes\Modern\css\Widget.css">
+      <DependentUpon>Widget.less</DependentUpon>
+    </Content>
+    <Content Include="Themes\Modern\css\Widget.min.css">
+      <DependentUpon>Widget.css</DependentUpon>
+    </Content>
+    <Content Include="Themes\Modern\images\bg.gif" />
+    <Content Include="Themes\Modern\images\col_side_bg.png" />
+    <Content Include="Themes\Modern\images\header_bg.png" />
+    <Content Include="Themes\Modern\images\icon_point.png" />
+    <Content Include="Themes\Modern\images\icon_square.png" />
+    <Content Include="Themes\Modern\images\loader.gif" />
+    <Content Include="Themes\Modern\images\logo_z.png" />
+    <Content Include="Themes\Modern\images\more.png" />
+    <Content Include="Themes\Modern\images\prd_sort_title.gif" />
+    <Content Include="Themes\Modern\images\video-play.png" />
+    <Content Include="Themes\Modern\Modern.sql" />
+    <Content Include="Themes\Modern\thumbnail.jpg" />
     <Content Include="Views\Shared\DisplayTemplates\CanonicalHelperModel.ascx" />
     <Content Include="Views\Shared\DisplayTemplates\MenuHelperModel.ascx" />
     <Content Include="Views\Shared\DisplayTemplates\MetaRobotsHelperModel.ascx" />
@@ -1007,6 +1043,28 @@
     <Content Include="Views\Shared\DisplayTemplates\MetaRobotsHelperModel.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\MenuHelperModel.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\CanonicalHelperModel.cshtml" />
+    <Content Include="Themes\Modern\css\Article.less" />
+    <Content Include="Themes\Modern\css\Base.less" />
+    <Content Include="Themes\Modern\css\Carousel.less" />
+    <Content Include="Themes\Modern\css\Library.less" />
+    <Content Include="Themes\Modern\css\Navigation.less" />
+    <Content Include="Themes\Modern\css\Pagination.less" />
+    <Content Include="Themes\Modern\css\Product.less" />
+    <Content Include="Themes\Modern\css\Section.less" />
+    <Content Include="Themes\Modern\css\Theme.less" />
+    <Content Include="Themes\Modern\css\Widget.less" />
+    <Content Include="Themes\Modern\css\Base.css.map">
+      <DependentUpon>Base.css</DependentUpon>
+    </Content>
+    <Content Include="Themes\Modern\css\Theme.css.map">
+      <DependentUpon>Theme.css</DependentUpon>
+    </Content>
+    <Content Include="Themes\Modern\css\Widget.css.map">
+      <DependentUpon>Widget.css</DependentUpon>
+    </Content>
+    <Content Include="Themes\Modern\css\Navigation.css.map">
+      <DependentUpon>Navigation.css</DependentUpon>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EasyFrameWork.CMS\Easy.Web.CMS.csproj">

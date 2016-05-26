@@ -149,7 +149,9 @@ label.additional {
     margin-bottom: 25px;
     position: relative;
 }
-
+.custom-style.ui-sortable {
+    min-height: 166px;
+}
     .container-fluid.design .additional,
     .container.design .additional {
         position: relative;

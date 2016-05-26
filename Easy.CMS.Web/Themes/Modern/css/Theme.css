@@ -8,16 +8,7 @@ body.front {
   font: 15px/1.5 Tahoma, Geneva, '\5fae\8f6f\96c5\9ed1', '\5B8B\4F53';
   color: #444444;
   /*background: url("../Images/bg.gif");*/
-  background: #EEF2F5;
-}
-body.front .main.container {
-  background-color: white;
-  border-left: 1px solid #dedede;
-  border-right: 1px solid #dedede;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 5px rgba(0, 0, 0, 0.075);
-}
-body.front .main.container-fluid {
-  background-color: white;
+  background: #fff;
 }
 img {
   max-width: 100%;
@@ -318,6 +309,10 @@ p {
 .widget {
   margin: 5px;
 }
+.widget.container {
+  margin-left: auto;
+  margin-right: auto;
+}
 .widget.border {
   border: 1px solid #dedede;
   border-radius: 3px;
@@ -396,6 +391,8 @@ p {
   border-radius: 0;
   border-left: none;
   border-right: none;
+  border-top: 0;
+  border-bottom: 0;
 }
 .navigation .caret.right {
   border-left: 4px solid;
@@ -407,11 +404,11 @@ p {
   margin-top: -4px;
 }
 .navigation .navbar-default {
-  background-image: -webkit-linear-gradient(top, #ffffff 0%, #ffffff 100%);
-  background-image: -o-linear-gradient(top, #ffffff 0%, #ffffff 100%);
-  background-image: linear-gradient(to bottom, #ffffff 0%, #ffffff 100%);
+  background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: -o-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 100%);
   background-repeat: repeat-x;
-  background-color: #ffffff;
+  background-color: rgba(255, 255, 255, 0);
   box-shadow: none;
 }
 .navigation .navbar-default .hoveropen > .dropdown-menu {
@@ -468,11 +465,11 @@ p {
     padding: 0;
   }
   .navigation .navbar.navbar-default {
-    background-image: -webkit-linear-gradient(top, #ffffff 0%, #ffffff 100%);
-    background-image: -o-linear-gradient(top, #ffffff 0%, #ffffff 100%);
-    background-image: linear-gradient(to bottom, #ffffff 0%, #ffffff 100%);
+    background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 100%);
+    background-image: -o-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 100%);
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 100%);
     background-repeat: repeat-x;
-    background-color: #ffffff;
+    background-color: rgba(255, 255, 255, 0);
     box-shadow: none;
   }
   .navigation .navbar.navbar-default .hoveropen > .dropdown-menu {

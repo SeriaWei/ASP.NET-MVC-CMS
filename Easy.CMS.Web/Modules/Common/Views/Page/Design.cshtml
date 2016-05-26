@@ -16,9 +16,9 @@
     //Stack<string> colors = new Stack<string>(new[] { "blue", "lightBlue", "red", "green", "orange" });
 }
 
-<input type="hidden" id="save-widget-zone-url" value="@Url.Action("SaveWidgetZone", "Widget", new {module = "admin"})"/>
+<input type="hidden" id="save-widget-zone-url" value="@Url.Action("SaveWidgetZone", "Widget", new {module = "admin"})" />
 <input type="hidden" id="append-widget-url" value="@Url.Action("AppendWidget", "Widget", new { module = "admin" })" />
-<input type="hidden" id="pageId" value="@Model.Page.ID"/>
+<input type="hidden" id="pageId" value="@Model.Page.ID" />
 @for (int i = 0; i < Model.Html.Count; i++)
 {
     var item = Model.Html[i];
@@ -26,24 +26,28 @@
     {
         i++;
         var zoneId = Model.Html[i].Html;
-        <input type="hidden" class="zoneId" value="@zoneId" />
-        <div class="zoneName">
-            <a title="添加组件到该区域"
-               class="add-widget label label-danger"
-               href="@Url.Action("SelectWidget", "WidgetTemplate", new { module = "admin", pageId = Model.Page.ID, ZoneId = zoneId })">
-                <i class="glyphicon glyphicon-plus"></i>
-                @Model.Zones.First(m => m.ID == zoneId).ZoneName
-            </a>
-        </div>
-
-        if (Model.ZoneWidgets.ContainsKey(zoneId))
+        if (zoneId.IsNotNullAndWhiteSpace())
         {
-            foreach (WidgetPart widgetPart in Model.ZoneWidgets[zoneId].OrderBy(m => m.Widget.Position).ThenBy(m => m.Widget.WidgetName))
+            if (Model.Zones.Any(m => m.ID == zoneId))
             {
-                @Html.DesignWidget(new DesignWidgetViewModel(widgetPart, Model.Page.ID));
+                <input type="hidden" class="zoneId" value="@zoneId" />
+                <div class="zoneName">
+                    <a title="添加组件到该区域"
+                       class="add-widget label label-danger"
+                       href="@Url.Action("SelectWidget", "WidgetTemplate", new { module = "admin", pageId = Model.Page.ID, ZoneId = zoneId })">
+                        <i class="glyphicon glyphicon-plus"></i>
+                        @Model.Zones.First(m => m.ID == zoneId).ZoneName
+                    </a>
+                </div>
+            }
+            if (Model.ZoneWidgets.ContainsKey(zoneId))
+            {
+                foreach (WidgetPart widgetPart in Model.ZoneWidgets[zoneId].OrderBy(m => m.Widget.Position).ThenBy(m => m.Widget.WidgetName))
+                {
+                    @Html.DesignWidget(new DesignWidgetViewModel(widgetPart, Model.Page.ID));
+                }
             }
         }
-
         i++;
     }
     else
