@@ -7000,7 +7000,7 @@ html {
 body.front {
   margin: 0;
   padding: 0;
-  font: 15px/1.5 Tahoma, Geneva, '\5fae\8f6f\96c5\9ed1', '\5B8B\4F53';
+  font: 15px/1.5 "Helvetica Neue", "Helvetica", "Lucida Grande", "Arial", "Hiragino Sans GB", "Microsoft Yahei", "WenQuanYi Micro Hei", "sans-serif";
 }
 img {
   max-width: 100%;
@@ -7088,16 +7088,16 @@ img {
   color: #f0ad4e;
 }
 .bs-callout-info {
-  border-top-color: #31B0D5;
+  border-top-color: #31b0d5;
 }
 .bs-callout-info .pull-left h4 {
-  color: #31B0D5;
+  color: #31b0d5;
 }
 .bs-callout-success {
-  border-top-color: #337AB7;
+  border-top-color: #337ab7;
 }
 .bs-callout-success .pull-left h4 {
-  color: #337AB7;
+  color: #337ab7;
 }
 .panel-body .list-group-item {
   border-width: 1px 0;
@@ -7149,6 +7149,7 @@ img {
   border-top: 1px solid #2fa4e7;
   background: #54b4eb;
   margin: 0;
+  color: #FFF;
 }
 .widget.footer p {
   margin: 0;
@@ -7158,7 +7159,8 @@ img {
   padding: 10px;
 }
 .widget.footer a {
-  color: black;
+  color: #FFF;
+  text-decoration: underline;
 }
 .align-center {
   text-align: center;
@@ -7300,3 +7302,4 @@ img {
 .panel-body > .product-category {
   margin: -15px;
 }
+/*# sourceMappingURL=Theme.css.map */
