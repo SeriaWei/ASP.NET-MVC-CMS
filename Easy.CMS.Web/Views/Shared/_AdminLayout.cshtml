@@ -16,6 +16,12 @@
             menus.AddRange(adminMenus);
         }
     });
+    if (ApplicationContext.CurrentUser == null)
+    {
+        FormsAuthentication.SignOut();
+        Response.Redirect("~/");
+        return;
+    }
 }
 <!DOCTYPE html>
 <html lang="zh">

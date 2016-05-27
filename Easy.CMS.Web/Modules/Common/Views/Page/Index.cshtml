@@ -115,8 +115,10 @@
         function Publish(node) {
             var id = node.reference.attr("id");
             Easy.ShowMessageBox("提示", "确定要发布吗？", function () {
+                Easy.Block();
                 $.post('@Url.Action("Publish")', { id: id }, function () {
                     $(".jstree").jstree().refresh();
+                    Easy.UnBlock();
                 });
             }, true);
         }

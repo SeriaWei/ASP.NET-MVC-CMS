@@ -95,7 +95,7 @@
                                 <i class="glyphicon glyphicon-edit"></i>
                                 属性
                             </a>
-                            <a class="btn btn-primary" href="@Url.Action("PublishPage", "Page", new { module = "admin", ID = Model.Page.ID,ReturnUrl= Model.Page.Url })">
+                            <a class="btn btn-primary" href="@Url.Action("PublishPage", "Page", new {module = "admin", ID = Model.Page.ID, ReturnUrl = Model.Page.Url})">
                                 <i class="glyphicon glyphicon-open"></i>
                                 发布
                             </a>
@@ -103,6 +103,15 @@
                                 <i class="glyphicon glyphicon-plus"></i>
                                 添加组件
                             </a>
+                            @if (Model.CurrentTheme != null && Model.CurrentTheme.IsPreView)
+                            {
+                                <a class="btn btn-primary" href="@Url.Action("CancelPreView", "Theme", new { module = "admin" })">
+                                    <i class="glyphicon glyphicon-transfer"></i>
+                                    退出
+                                    @Model.CurrentTheme.Title
+                                    主题
+                                </a>
+                            }
                             @Html.Partial("Partial.Menu", Model)
                         </div>
 

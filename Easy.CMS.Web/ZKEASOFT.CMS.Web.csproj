@@ -1545,6 +1545,27 @@
     <Content Include="Themes\Yeti\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Themes\Yeti\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Themes\Yeti\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Themes\Cerulean\css\Theme.css.map">
+      <DependentUpon>Theme.css</DependentUpon>
+    </Content>
+    <Content Include="Themes\Flatly\css\Theme.css.map">
+      <DependentUpon>Theme.css</DependentUpon>
+    </Content>
+    <Content Include="Themes\Journal\css\Theme.css.map">
+      <DependentUpon>Theme.css</DependentUpon>
+    </Content>
+    <Content Include="Themes\Lumen\css\Theme.css.map">
+      <DependentUpon>Theme.css</DependentUpon>
+    </Content>
+    <Content Include="Themes\Paper\css\Theme.css.map">
+      <DependentUpon>Theme.css</DependentUpon>
+    </Content>
+    <Content Include="Themes\Readable\css\Theme.css.map">
+      <DependentUpon>Theme.css</DependentUpon>
+    </Content>
+    <Content Include="Themes\United\css\Theme.css.map">
+      <DependentUpon>Theme.css</DependentUpon>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EasyFrameWork.CMS\Easy.Web.CMS.csproj">

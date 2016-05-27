@@ -62,10 +62,19 @@
                         <i class="glyphicon glyphicon-edit"></i>
                         属性
                     </a>
-                    <a class="btn btn-primary" href="@Url.Action("PublishPage", "Page", new { module = "admin", ID = Model.Page.ID,ReturnUrl= Model.Page.Url })">
+                    <a class="btn btn-primary" href="@Url.Action("PublishPage", "Page", new {module = "admin", ID = Model.Page.ID, ReturnUrl = Model.Page.Url})">
                         <i class="glyphicon glyphicon-open"></i>
                         发布
                     </a>
+                    if (Model.CurrentTheme != null && Model.CurrentTheme.IsPreView)
+                    {
+                        <a class="btn btn-primary" href="@Url.Action("CancelPreView", "Theme", new { module = "admin" })">
+                            <i class="glyphicon glyphicon-transfer"></i>
+                            退出
+                            @Model.CurrentTheme.Title
+                            主题
+                        </a>
+                    }
                     @Html.Partial("Partial.Menu", Model)
                 }
                 else if (Model.PreViewPage != null)
@@ -74,10 +83,19 @@
                         <i class="glyphicon glyphicon-pencil"></i>
                         编辑
                     </a>
-                    <a class="btn btn-primary" href="@Url.Action("Index", "Page", new { module = "admin" })">
+                    <a class="btn btn-primary" href="@Url.Action("Index", "Page", new {module = "admin"})">
                         <i class="glyphicon glyphicon-eye-open"></i>
                         页面
                     </a>
+                    if (Model.CurrentTheme != null && Model.CurrentTheme.IsPreView)
+                    {
+                        <a class="btn btn-primary" href="@Url.Action("CancelPreView", "Theme", new { module = "admin" })">
+                            <i class="glyphicon glyphicon-transfer"></i>
+                            退出
+                            @Model.CurrentTheme.Title
+                            主题
+                        </a>
+                    }
                     <a class="btn btn-primary" href="@Url.Action("Logout", "Account", new { module = "admin", returnurl = Model.Page.Url })">
                         <i class="glyphicon glyphicon-off"></i>
                         退出
@@ -94,14 +112,7 @@
                     </script>
                 }
     }
-    @if (Model.CurrentTheme != null && Model.CurrentTheme.IsPreView)
-    {
-        <div class="preview-theme">
-            <label class="label label-info">
-                @Html.ActionLink("退出主题预览", "CancelPreView", new { controller = "Theme", module = "admin" })
-            </label>
-        </div>
-    }
+
     <div>
         @RenderBody()
     </div>
