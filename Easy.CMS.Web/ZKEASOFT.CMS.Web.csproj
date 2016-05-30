@@ -1566,6 +1566,30 @@
     <Content Include="Themes\United\css\Theme.css.map">
       <DependentUpon>Theme.css</DependentUpon>
     </Content>
+    <Content Include="Themes\Cosmo\css\Theme.css.map">
+      <DependentUpon>Theme.css</DependentUpon>
+    </Content>
+    <Content Include="Themes\Cyborg\css\Theme.css.map">
+      <DependentUpon>Theme.css</DependentUpon>
+    </Content>
+    <Content Include="Themes\Darkly\css\Theme.css.map">
+      <DependentUpon>Theme.css</DependentUpon>
+    </Content>
+    <Content Include="Themes\Sandstone\css\Theme.css.map">
+      <DependentUpon>Theme.css</DependentUpon>
+    </Content>
+    <Content Include="Themes\Slate\css\Theme.css.map">
+      <DependentUpon>Theme.css</DependentUpon>
+    </Content>
+    <Content Include="Themes\Spacelab\css\Theme.css.map">
+      <DependentUpon>Theme.css</DependentUpon>
+    </Content>
+    <Content Include="Themes\Superhero\css\Theme.css.map">
+      <DependentUpon>Theme.css</DependentUpon>
+    </Content>
+    <Content Include="Themes\Yeti\css\Theme.css.map">
+      <DependentUpon>Theme.css</DependentUpon>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EasyFrameWork.CMS\Easy.Web.CMS.csproj">

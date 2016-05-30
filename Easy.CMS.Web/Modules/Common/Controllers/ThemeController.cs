@@ -86,27 +86,32 @@ namespace Easy.CMS.Common.Controllers
                     }
                     else
                     {
+                        var oldTheme = Service.Get(newTheme.ID);
+                        if (oldTheme.IsActived)
+                        {
+                            newTheme.IsActived = true;
+                        }
                         Service.Update(newTheme);
                         result.Message = "主题已更新...";
                     }
                     var themePath = Server.MapPath(ThemePath);
 
-                        foreach (ZipFileInfo item in files)
+                    foreach (ZipFileInfo item in files)
+                    {
+                        string folder = Path.GetDirectoryName(themePath + item.RelativePath);
+                        if (!Directory.Exists(folder))
                         {
-                            string folder = Path.GetDirectoryName(themePath + item.RelativePath);
-                            if (!Directory.Exists(folder))
-                            {
-                                Directory.CreateDirectory(folder);
-                            }
-                            using (
-                                var fs =
-                                    System.IO.File.Create(themePath + item.RelativePath)
-                                )
-                            {
-                                fs.Write(item.FileBytes, 0, item.FileBytes.Length);
-                            }
+                            Directory.CreateDirectory(folder);
                         }
-                    
+                        using (
+                            var fs =
+                                System.IO.File.Create(themePath + item.RelativePath)
+                            )
+                        {
+                            fs.Write(item.FileBytes, 0, item.FileBytes.Length);
+                        }
+                    }
+
                 }
                 catch (Exception ex)
                 {
