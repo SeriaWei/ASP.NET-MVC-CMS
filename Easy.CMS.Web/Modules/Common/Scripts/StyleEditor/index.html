@@ -3,24 +3,22 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>自定义样式编辑</title>
+    <title>编辑自定义样式</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="Content/jquery-ui.css" media="screen">
-    <link rel="stylesheet" href="Content/main.css" media="screen">
+    <link rel="stylesheet" href="./Content/jquery-ui.min.css" media="screen">
+    <link rel="stylesheet" href="./Content/main.min.css" media="screen">
 </head>
 
-<body onload="updateDisplay()">
+<body>
     <div class="editor-main">
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
                     <div class="examples">
                         <div class="panel-group" id="accordion2">
-
                             <div class="panel panel-default">
                                 <div class="panel-heading">
                                     <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseSize">宽 / 高</a>
@@ -50,7 +48,7 @@
                                         <div>
                                             <div class="input-group">
                                                 <span class="input-group-addon">背景色</span>
-                                                <input class="form-control color {hash:true,required:false}" id="b-color" type="text" onchange="updateDisplay()" />
+                                                <input class="form-control jscolor {hash:true,required:false}" id="b-color" type="text" onchange="updateDisplay()" />
                                             </div>
                                             <div class="input-group">
                                                 <span class="input-group-addon">背景图</span>
@@ -77,6 +75,8 @@
                                                     <option value="right">右对齐</option>
                                                     <option value="top">顶部对齐</option>
                                                     <option value="left top">左上对齐</option>
+                                                    <option value="right top">右上对齐</option>
+                                                    <option value="left bottom">左下对齐</option>
                                                     <option value="right bottom">右下对齐</option>
                                                     <option value="50% 50%">居中</option>
                                                 </select>
@@ -139,7 +139,7 @@
                                             </div>
                                             <div class="input-group">
                                                 <span class="input-group-addon">边框颜色</span>
-                                                <input class="form-control color {hash:true}" id="bc-color" value="#6d6d6d" type="text" onchange="updateDisplay()" />
+                                                <input class="form-control jscolor {hash:true}" id="bc-color" value="#6D6D6D" type="text" onchange="updateDisplay()" />
                                             </div>
                                             <div class="input-group">
                                                 <span class="input-group-addon">边框样式</span>
@@ -167,7 +167,7 @@
                                         <div>
                                             <div class="input-group">
                                                 <span class="input-group-addon">文本颜色</span>
-                                                <input class="form-control color {hash:true,required:false}" id="t-color" type="text" onchange="updateDisplay()" />
+                                                <input class="form-control jscolor {hash:true,required:false}" id="t-color" type="text" onchange="updateDisplay()" />
                                             </div>
 
                                             <div class="input-group">
@@ -373,7 +373,7 @@
 
                                             <div class="input-group">
                                                 <span class="input-group-addon">颜色</span>
-                                                <input class="form-control color {pickerPosition:'top',hash:true}" id="text-s-color" value="#800000" type="text" onchange="updateDisplay()" />
+                                                <input class="form-control jscolor {pickerPosition:'top',hash:true}" id="text-s-color" value="#000000" type="text" onchange="updateDisplay()" />
                                             </div>
                                             <h3>阴影</h3>
                                             <p>
@@ -396,7 +396,7 @@
                                             </div>
                                             <div class="input-group">
                                                 <span class="input-group-addon">颜色</span>
-                                                <input class="form-control color {pickerPosition:'top',hash:true}" id="box-s-color" value="#800000" type="text" onchange="updateDisplay()" />
+                                                <input class="form-control jscolor {pickerPosition:'top',hash:true}" id="box-s-color" value="#000000" type="text" onchange="updateDisplay()" />
                                             </div>
                                         </div>
                                     </div>
@@ -468,12 +468,18 @@
                 <div class="style-preview">
                     <div class="examples">
                         <div class="panel panel-default">
-                            <div class="panel-heading">预览</div>
-                            <div style="background: url('Content/grid.gif'); padding: 10px;">
-                                <div id="cssDisplay">
-                                    <p>
-                                        传统的建站，网站所有区域的内容都是固定的，不可改变的，不能够随心所欲的改变页面的结构，布局。而使用ZKEACMS，您可以对网页进行任意的区域划分，每个区域都可随意添加内容。<br /> 您还可以向布局中添加共用的内容，这样所有应用这个布局的页面都会有相同的内容，而不用重复制添加。
-                                    </p>
+                            <div class="panel-heading clearfix">
+                                <div class="pull-left"><input href="javascript:void(0)" class="btn btn-danger btn-xs reset" value="重置" type="button" /></div>
+                                <div class="pull-right">
+                                    预览
+                                </div>
+                            </div>
+                            <div style="background: url('./Content/grid.gif'); padding: 10px;">
+                                <div id="CSS-Display">
+                                    <div>
+                                        传统的建站，网站所有区域的内容都是固定的，不可改变的，不能够随心所欲的改变页面的结构，布局。而使用ZKEACMS，您可以对网页进行任意的区域划分，每个区域都可随意添加内容。
+                                        <br /> 您还可以向布局中添加共用的内容，这样所有应用这个布局的页面都会有相同的内容，而不用重复制添加。
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -481,10 +487,7 @@
 
                     <div class="examples">
                         <pre id="output" class="prettyprint lang-css prettyprinted">
-									#cssDisplay {
-												background-color: #FFFFFF;
-												color: #000000;
-											}
+									
 								</pre>
                     </div>
                 </div>
@@ -493,10 +496,10 @@
     </div>
     <script type="text/javascript" src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
     <script type="text/javascript" src="//cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="Content/jquery-ui.custom.js"></script>
-    <script type="text/javascript" src="Content/jscolor.js"></script>
-    <script type="text/javascript" src="Content/editor.js"></script>
-    <script type="text/javascript" src="Content/values.js"></script>
+    <script type="text/javascript" src="./Content/jquery-ui.custom.min.js"></script>
+    <script type="text/javascript" src="//cdn.bootcss.com/jscolor/2.0.4/jscolor.min.js"></script>
+    <script type="text/javascript" src="./Content/editor.min.js"></script>
+    <script type="text/javascript" src="./Content/values.min.js"></script>
 </body>
 
 </html>

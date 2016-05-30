@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Web;
 using Easy.Data;
 using Easy.Extend;
 using Easy.RepositoryPattern;
@@ -33,7 +34,7 @@ namespace Easy.Web.CMS.Theme
         {
             var id = _cookie.GetValue<string>(PreViewCookieName);
             ThemeEntity theme = null;
-            if (id.IsNotNullAndWhiteSpace())
+            if (id.IsNotNullAndWhiteSpace() && HttpContext.Current.Request.IsAuthenticated)
             {
                 theme = Get(id);
                 if (theme != null)

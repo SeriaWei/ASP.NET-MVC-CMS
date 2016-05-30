@@ -70,132 +70,130 @@
     var boxShadowB = document.getElementById("box-b-length").innerHTML + "px";
     var boxShadowColor = document.getElementById("box-s-color").value;
 
-
-
-
-    this.css = '';
+    this.css = [];
     if (backgroundColor) {
-        this.css += 'background-color: ' + backgroundColor + ';\n';
+        this.css.push('background-color:' + backgroundColor);
     }
     if (textColor) {
-        this.css += ' color: ' + textColor + ';\n';
-    }    
+        this.css.push(' color:' + textColor);
+    }
     if (width) {
-        this.css += ' width: ' + width + 'px;\n';
+        this.css.push(' width:' + width + 'px');
     }
     if (height) {
-        this.css += ' height: ' + height + 'px;\n';
+        this.css.push(' height:' + height + 'px');
     }
-    if (document.getElementById("border-width").innerHTML > "0") {
-        this.css += ' border: ' + borderWidth + ' ' + borderStyle + ' ' + borderColor + ';\n';
+    if (borderWidth !== "0px") {
+        this.css.push(' border:' + borderWidth + ' ' + borderStyle + ' ' + borderColor);
     }
-    if (document.getElementById("padding").innerHTML > "0") {
-        this.css += ' padding: ' + padding + ';\n';
+    if (padding !== "0px") {
+        this.css.push(' padding:' + padding);
     }
-    if (document.getElementById("margin").innerHTML > "0") {
-        this.css += ' margin: ' + margin + ';\n';
+    if (margin !== "0px") {
+        this.css.push(' margin:' + margin);
     }
-    if (document.getElementById("font-name").value != "") {
-        this.css += ' font-family: ' + fontName + ';\n';
+    if (fontName) {
+        this.css.push(' font-family:' + fontName);
     }
-    if (document.getElementById("font-style").value != "") {
-        this.css += ' font-style: ' + fontStyle + ';\n';
+    if (fontStyle) {
+        this.css.push(' font-style:' + fontStyle);
     }
-    if (document.getElementById("font-weight").value != "") {
-        this.css += ' font-weight: ' + fontWeight + ';\n';
+    if (fontWeight) {
+        this.css.push(' font-weight:' + fontWeight);
     }
-    if (document.getElementById("font-size").innerHTML > "0") {
-        this.css += ' font-size: ' + fontSize + ';\n';
+    if (fontSize !== "0px") {
+        this.css.push(' font-size:' + fontSize);
     }
-    if (document.getElementById("font-variant").value != "") {
-        this.css += ' font-variant: ' + fontVariant + ';\n';
+    if (fontVariant) {
+        this.css.push(' font-variant:' + fontVariant);
     }
-    if (document.getElementById("line-height").innerHTML > "0") {
-        this.css += ' line-height: ' + lineHeight + ';\n';
+    if (lineHeight !== "0px") {
+        this.css.push(' line-height:' + lineHeight);
     }
-    if (document.getElementById("text-align").value != "") {
-        this.css += ' text-align: ' + textAlign + ';\n';
+    if (textAlign) {
+        this.css.push(' text-align:' + textAlign);
     }
-    if (document.getElementById("text-decoration").value != "") {
-        this.css += ' text-decoration: ' + textDecoration + ';\n';
+    if (textDecoration) {
+        this.css.push(' text-decoration:' + textDecoration);
     }
-    if (document.getElementById("text-indent").innerHTML > "0") {
-        this.css += ' text-indent: ' + textIndent + ';\n';
+    if (textIndent !== "0px") {
+        this.css.push(' text-indent:' + textIndent);
     }
-    if (document.getElementById("letter-spacing").innerHTML > "0") {
-        this.css += ' letter-spacing: ' + letterSpacing + ';\n';
+    if (letterSpacing !== "0px") {
+        this.css.push(' letter-spacing:' + letterSpacing);
     }
-    if (document.getElementById("word-spacing").innerHTML > "0") {
-        this.css += ' word-spacing: ' + wordSpacing + ';\n';
+    if (wordSpacing !== "0px") {
+        this.css.push(' word-spacing:' + wordSpacing);
     }
-    if (document.getElementById("text-transform").value != "") {
-        this.css += ' text-transform: ' + textTransform + ';\n';
+    if (textTransform) {
+        this.css.push(' text-transform:' + textTransform);
     }
-    if (document.getElementById("background-image").value != "") {
-        this.css += ' background-image: ' + backgroundImage + ';\n';
+    if (backgroundImage) {
+        this.css.push(' background-image:' + backgroundImage);
     }
-    if (document.getElementById("background-repeat").value != "") {
-        this.css += ' background-repeat: ' + backgroundRepeat + ';\n';
+    if (backgroundRepeat) {
+        this.css.push(' background-repeat:' + backgroundRepeat);
     }
-    if (document.getElementById("background-position").value != "") {
-        this.css += ' background-position: ' + backgroundPosition + ';\n';
+    if (backgroundPosition) {
+        this.css.push(' background-position:' + backgroundPosition);
     }
-    if (document.getElementById("background-attachment").value != "") {
-        this.css += ' background-attachment: ' + backgroundAttachment + ';\n';
+    if (backgroundAttachment) {
+        this.css.push(' background-attachment:' + backgroundAttachment);
     }
-    if (document.getElementById("position").value != "") {
-        this.css += ' position: ' + cssPosition + ';\n';
+    if (cssPosition) {
+        this.css.push(' position:' + cssPosition);
     }
-    if (document.getElementById("top").innerHTML > "0") {
-        this.css += ' top: ' + cssTop + ';\n';
+    if (cssTop !== "0px") {
+        this.css.push(' top:' + cssTop);
     }
-    if (document.getElementById("left").innerHTML > "0") {
-        this.css += ' left: ' + cssLeft + ';\n';
+    if (cssLeft !== "0px") {
+        this.css.push(' left:' + cssLeft);
     }
-    if (document.getElementById("right").innerHTML > "0") {
-        this.css += ' right: ' + cssRight + ';\n';
+    if (cssRight !== "0px") {
+        this.css.push(' right:' + cssRight);
     }
-    if (document.getElementById("bottom").innerHTML > "0") {
-        this.css += ' bottom: ' + cssBottom + ';\n';
+    if (cssBottom !== "0px") {
+        this.css.push(' bottom:' + cssBottom);
     }
-    if (document.getElementById("cursor").value != "") {
-        this.css += ' cursor: ' + cssCursor + ';\n';
+    if (cssCursor) {
+        this.css.push(' cursor:' + cssCursor);
     }
-    if (document.getElementById("visibility").value != "") {
-        this.css += ' visibility: ' + cssVisibility + ';\n';
+    if (cssVisibility) {
+        this.css.push(' visibility:' + cssVisibility);
     }
-    if (document.getElementById("overflow").value != "") {
-        this.css += ' overflow: ' + cssOverflow + ';\n';
+    if (cssOverflow) {
+        this.css.push(' overflow:' + cssOverflow);
     }
-    if (document.getElementById("float").value != "") {
-        this.css += ' float: ' + cssFloat + ';\n';
+    if (cssFloat) {
+        this.css.push(' float:' + cssFloat);
     }
-    if (document.getElementById("border-radius").innerHTML > "0") {
-        this.css += ' border-radius: ' + borderRadius + ';\n';
+    if (borderRadius !== "0px") {
+        this.css.push(' border-radius:' + borderRadius);
     }
-    if (document.getElementById("text-h-length").innerHTML > "0" || document.getElementById("text-v-length").innerHTML > "0" || document.getElementById("text-b-length").innerHTML > "0") {
-        this.css += ' text-shadow: ' + textShadowH + ' ' + textShadowV + ' ' + textShadowB + ' ' + textShadowColor + ';\n';
+    if (textShadowH !== "0px" || textShadowV !== "0px" || textShadowB !== "0px") {
+        this.css.push(' text-shadow:' + textShadowH + ' ' + textShadowV + ' ' + textShadowB + ' ' + textShadowColor);
     }
-    if (document.getElementById("box-h-length").innerHTML > "0" || document.getElementById("box-v-length").innerHTML > "0" || document.getElementById("box-b-length").innerHTML > "0") {
-        this.css += ' box-shadow: ' + boxShadowH + ' ' + boxShadowV + ' ' + boxShadowB + ' ' + boxShadowColor + ';\n';
+    if (boxShadowH !== "0px" || boxShadowV !== "0px" || boxShadowB !== "0px") {
+        this.css.push(' box-shadow:' + boxShadowH + ' ' + boxShadowV + ' ' + boxShadowB + ' ' + boxShadowColor);
     }
+    this.css.push("");
     var target = window.top.$(".custom-style-target");
     if (target.hasClass('form-control')) {
-        target.val("style=\"" + $.trim(this.css) + "\"");
+        target.val("style=\"" + $.trim(this.css.join(";")) + "\"");
     } else {
-        target.attr("style", this.css);
+        target.attr("style", this.css.join(";"));
     }
+    var cssResult = this.css.join(";\n");
+    cssResult = "#CSS-Display {\n " + cssResult + '}\n';
 
-    this.css = "#cssDisplay {\n" + this.css + '}\n';
-
-    codeDiv = document.getElementById("output");
+    var codeDiv = document.getElementById("output");
     if (codeDiv.innerText) {
-        codeDiv.innerText = this.css
+        codeDiv.innerText = cssResult;
     } else {
-        codeDiv.textContent = this.css
+        codeDiv.textContent = cssResult;
     }
 
     $('style').remove();
-    $('head').append('<style type="text/css">' + this.css + '</style>');
-    return this.css;
+    $('head').append('<style type="text/css">' + cssResult + '</style>');
+    return cssResult;
 }
