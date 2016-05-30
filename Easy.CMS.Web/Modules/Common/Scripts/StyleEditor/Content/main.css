@@ -29,3 +29,6 @@
 .glyphicon-search {
     cursor: pointer;
 }
+.panel-heading {
+    padding: 7px 15px;
+}

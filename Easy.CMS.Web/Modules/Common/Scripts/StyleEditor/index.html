@@ -21,26 +21,6 @@
                         <div class="panel-group" id="accordion2">
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseSize">宽 / 高</a>
-                                </div>
-                                <div id="collapseSize" class="accordion-body collapse">
-                                    <div class="panel-body">
-                                        <div>
-                                            <div class="input-group">
-                                                <span class="input-group-addon">宽(px)</span>
-                                                <input class="form-control" id="width" type="text" onchange="updateDisplay() " />
-                                            </div>
-                                            <div class="input-group">
-                                                <span class="input-group-addon">高(px)</span>
-                                                <input type="text" class="form-control" onchange="updateDisplay() " id="height" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
                                     <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseFive">背景</a>
                                 </div>
                                 <div id="collapseFive" class="accordion-body collapse in">
@@ -89,6 +69,10 @@
                                                     <option value="scroll">滚动</option>
                                                 </select>
                                             </div>
+                                            <div class="input-group">
+                                                <span class="input-group-addon">自定义</span>
+                                                <input type="text" class="form-control" onchange="updateDisplay()" id="background" />
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -108,7 +92,7 @@
                                             </div>
                                             <div class="input-group">
                                                 <span class="input-group-addon">自定义</span>
-                                                <input type="text" class="form-control" id="padding-custom" onchange="updateDisplay()" />
+                                                <input type="text" class="form-control" id="padding-custom" onchange=" updateDisplay() " />
                                             </div>
                                             <p>
                                                 <label for="margin">外边距:</label>
@@ -118,7 +102,26 @@
                                             </div>
                                             <div class="input-group">
                                                 <span class="input-group-addon">自定义</span>
-                                                <input type="text" class="form-control" id="margin-custom" onchange="updateDisplay()" />
+                                                <input type="text" class="form-control" id="margin-custom" onchange=" updateDisplay() " />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseSize">宽 / 高</a>
+                                </div>
+                                <div id="collapseSize" class="accordion-body collapse">
+                                    <div class="panel-body">
+                                        <div>
+                                            <div class="input-group">
+                                                <span class="input-group-addon">宽(px)</span>
+                                                <input class="form-control" id="width" type="text" onchange="updateDisplay() " />
+                                            </div>
+                                            <div class="input-group">
+                                                <span class="input-group-addon">高(px)</span>
+                                                <input type="text" class="form-control" onchange="updateDisplay() " id="height" />
                                             </div>
                                         </div>
                                     </div>
@@ -469,16 +472,18 @@
                     <div class="examples">
                         <div class="panel panel-default">
                             <div class="panel-heading clearfix">
-                                <div class="pull-left"><input href="javascript:void(0)" class="btn btn-danger btn-xs reset" value="重置" type="button" /></div>
+                                <div class="pull-left">
+                                    <span class="badge">预览</span>
+                                </div>
                                 <div class="pull-right">
-                                    预览
+                                    <input href="javascript:void(0)" class="btn btn-danger btn-xs reset" value="重置" type="button" />
                                 </div>
                             </div>
                             <div style="background: url('./Content/grid.gif'); padding: 10px;">
                                 <div id="CSS-Display">
                                     <div>
                                         传统的建站，网站所有区域的内容都是固定的，不可改变的，不能够随心所欲的改变页面的结构，布局。而使用ZKEACMS，您可以对网页进行任意的区域划分，每个区域都可随意添加内容。
-                                        <br/> 您还可以向布局中添加共用的内容，这样所有应用这个布局的页面都会有相同的内容，而不用重复制添加。
+                                        <br /> 您还可以向布局中添加共用的内容，这样所有应用这个布局的页面都会有相同的内容，而不用重复制添加。
                                     </div>
                                 </div>
                             </div>
@@ -498,8 +503,8 @@
     </div>
     <script type="text/javascript" src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
     <script type="text/javascript" src="//cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="./Content/jquery-ui.custom.min.js"></script>
     <script type="text/javascript" src="//cdn.bootcss.com/jscolor/2.0.4/jscolor.min.js"></script>
+    <script type="text/javascript" src="./Content/jquery-ui.custom.min.js"></script>
     <script type="text/javascript" src="./Content/editor.min.js"></script>
     <script type="text/javascript" src="./Content/values.min.js"></script>
 </body>

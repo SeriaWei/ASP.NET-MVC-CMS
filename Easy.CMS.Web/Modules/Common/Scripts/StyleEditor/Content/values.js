@@ -94,6 +94,7 @@
 		{ reg: /^background-repeat:(.+)/g, setValue: function (v) { $("#background-repeat").val(v); } },
 		{ reg: /^background-position:(.+)/g, setValue: function (v) { $("#background-position").val(v); } },
 		{ reg: /^background-attachment:(.+)/g, setValue: function (v) { $("#background-attachment").val(v); } },
+		{ reg: /^background:(.+)/g, setValue: function (v) { $("#background").val(v); } },
 		{ reg: /^position:(.+)/g, setValue: function (v) { $("#position").val(v); } },
 		{ reg: /^top:(\d+)px/g, setValue: function (v) { $("#top").text(v); } },
 		{ reg: /^left:(\d+)px/g, setValue: function (v) { $("#left").text(v); } },
