@@ -76,6 +76,7 @@
                 ui.item.replaceWith(row);
             } else if (ui.item.data("add")) {
                 var cols = $(ui.item.find(".row").html());
+                cols.find(".border-helper").remove();
                 row.append(cols);
                 ui.item.replaceWith(row);
                 cols.each(function () {

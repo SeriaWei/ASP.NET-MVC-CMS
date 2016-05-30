@@ -165,6 +165,9 @@
     <Content Include="Content\Images\demoLayout.jpg" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\LayoutDesign.js" />
+    <Content Include="Scripts\LayoutDesign.min.js">
+      <DependentUpon>LayoutDesign.js</DependentUpon>
+    </Content>
     <Content Include="Scripts\Owl.Carousel.js" />
     <None Include="Properties\PublishProfiles\PublishLocal.pubxml" />
     <Content Include="Scripts\Owl.Carousel.min.js.map">
@@ -185,6 +188,9 @@
       <DependentUpon>owl.transitions.css</DependentUpon>
     </Content>
     <Content Include="Scripts\PageDesign.js" />
+    <Content Include="Scripts\PageDesign.min.js">
+      <DependentUpon>PageDesign.js</DependentUpon>
+    </Content>
     <Content Include="Scripts\StyleEditor\Content\arrow.gif" />
     <Content Include="Scripts\StyleEditor\Content\bootstrap.css" />
     <Content Include="Scripts\StyleEditor\Content\bootstrap.min.js" />

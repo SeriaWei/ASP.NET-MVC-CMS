@@ -124,8 +124,8 @@ namespace Easy.CMS.Common
             script("OWL.Carousel").Include("~/Modules/Common/Scripts/OwlCarousel/owl.carousel.min.js")
                 .Include("~/Modules/Common/Scripts/Owl.Carousel.js", "~/Modules/Common/Scripts/Owl.Carousel.min.js");
 
-            script("LayoutDesign").Include("~/Modules/Common/Scripts/LayoutDesign.js");
-            script("PageDesign").Include("~/Modules/Common/Scripts/PageDesign.js");
+            script("LayoutDesign").Include("~/Modules/Common/Scripts/LayoutDesign.js", "~/Modules/Common/Scripts/LayoutDesign.min.js");
+            script("PageDesign").Include("~/Modules/Common/Scripts/PageDesign.js", "~/Modules/Common/Scripts/PageDesign.min.js");
         }
 
         protected override void InitStyle(Func<string, Web.Resource.ResourceHelper> style)
