@@ -2,23 +2,10 @@
     padding-top: 10px;
     padding-bottom: 10px;
 }
-
 #output {
-    max-height: 250px;
-    overflow: auto;
+    margin-bottom: 0;
+    border: none;
 }
-
-#cssDisplay {
-    background-color: #FFFFFF;
-    color: #000000;
-    max-height: 250px;
-    max-width: 450px;
-}
-
-    #cssDisplay p {
-        margin: 0;
-    }
-
 .panel-body > div > h3:first-child {
     margin-top: 0;
 }
