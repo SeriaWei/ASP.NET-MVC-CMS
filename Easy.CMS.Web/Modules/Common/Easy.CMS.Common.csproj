@@ -190,6 +190,9 @@
     <Content Include="Scripts\StyleEditor\Content\bootstrap.min.js" />
     <Content Include="Scripts\StyleEditor\Content\cross.gif" />
     <Content Include="Scripts\StyleEditor\Content\editor.js" />
+    <Content Include="Scripts\StyleEditor\Content\editor.min.js">
+      <DependentUpon>editor.js</DependentUpon>
+    </Content>
     <Content Include="Scripts\StyleEditor\Content\grid.gif" />
     <Content Include="Scripts\StyleEditor\Content\hs.png" />
     <Content Include="Scripts\StyleEditor\Content\images\ui-bg_glass_75_d0e5f5_1x400.png" />
@@ -199,10 +202,25 @@
     <Content Include="Scripts\StyleEditor\Content\images\ui-bg_inset-hard_100_fcfdfd_1x100.png" />
     <Content Include="Scripts\StyleEditor\Content\jquery-ui.css" />
     <Content Include="Scripts\StyleEditor\Content\jquery-ui.custom.js" />
+    <Content Include="Scripts\StyleEditor\Content\jquery-ui.custom.min.js">
+      <DependentUpon>jquery-ui.custom.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\StyleEditor\Content\jquery-ui.min.css">
+      <DependentUpon>jquery-ui.css</DependentUpon>
+    </Content>
     <Content Include="Scripts\StyleEditor\Content\jquery.min.js" />
     <Content Include="Scripts\StyleEditor\Content\jscolor.js" />
+    <Content Include="Scripts\StyleEditor\Content\jscolor.min.js">
+      <DependentUpon>jscolor.js</DependentUpon>
+    </Content>
     <Content Include="Scripts\StyleEditor\Content\main.css" />
+    <Content Include="Scripts\StyleEditor\Content\main.min.css">
+      <DependentUpon>main.css</DependentUpon>
+    </Content>
     <Content Include="Scripts\StyleEditor\Content\values.js" />
+    <Content Include="Scripts\StyleEditor\Content\values.min.js">
+      <DependentUpon>values.js</DependentUpon>
+    </Content>
     <Content Include="Scripts\StyleEditor\index.html" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Layout\LayoutZones.cshtml" />
@@ -313,6 +331,9 @@
       <Project>{2e8362ae-80d6-43e0-b3bf-cab6d888d154}</Project>
       <Name>Easy.Web.CMS</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Scripts\StyleEditor\Content\jscolor\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
