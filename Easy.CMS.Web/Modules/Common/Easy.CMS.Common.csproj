@@ -169,6 +169,7 @@
       <DependentUpon>LayoutDesign.js</DependentUpon>
     </Content>
     <Content Include="Scripts\Owl.Carousel.js" />
+    <None Include="bundleconfig.json" />
     <None Include="Properties\PublishProfiles\PublishLocal.pubxml" />
     <Content Include="Scripts\Owl.Carousel.min.js.map">
       <DependentUpon>Owl.Carousel.min.js</DependentUpon>
