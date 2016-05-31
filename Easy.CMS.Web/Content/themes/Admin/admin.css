@@ -365,7 +365,10 @@ a.badge:hover {
     margin: 0;
     padding: 0;
 }
-
+.thumbnail.active{
+    background:#337ab7;
+    color:#fff;
+}
 #media-list .thumbnail > a.img-link {
     display: block;
     height: 130px;

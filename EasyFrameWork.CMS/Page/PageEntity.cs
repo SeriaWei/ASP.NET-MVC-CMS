@@ -60,6 +60,8 @@ namespace Easy.Web.CMS.Page
             ViewConfig(m => m.PageUrl).AsTextBox().Order(2).Required();
             ViewConfig(m => m.Url).AsTextBox().ReadOnly();
             ViewConfig(m => m.LayoutId).AsDropDownList().DataSource(ViewDataKeys.Layouts, SourceType.ViewData);
+            ViewConfig(m => m.Script).AsTextBox().AddClass(StringKeys.SelectMediaClass).AddProperty("data-url", Urls.SelectMedia);
+            ViewConfig(m => m.Style).AsTextBox().AddClass(StringKeys.SelectMediaClass).AddProperty("data-url", Urls.SelectMedia);
             ViewConfig(m => m.ParentId).AsHidden();
             ViewConfig(m => m.ID).AsHidden();
             ViewConfig(m => m.ReferencePageID).AsHidden();
