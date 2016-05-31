@@ -67,13 +67,13 @@
       <publishTime>09/08/2015 09:26:45</publishTime>
     </File>
     <File Include="bin/Easy.CMS.Common.dll">
-      <publishTime>05/27/2016 13:07:19</publishTime>
+      <publishTime>05/31/2016 17:00:22</publishTime>
     </File>
     <File Include="bin/Easy.dll">
       <publishTime>05/23/2016 08:23:59</publishTime>
     </File>
     <File Include="bin/Easy.Web.CMS.dll">
-      <publishTime>05/27/2016 13:06:32</publishTime>
+      <publishTime>05/31/2016 16:59:38</publishTime>
     </File>
     <File Include="bin/Easy.Web.dll">
       <publishTime>05/23/2016 08:23:59</publishTime>
@@ -241,13 +241,16 @@
       <publishTime>05/23/2016 08:23:59</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>05/27/2016 13:07:20</publishTime>
+      <publishTime>05/31/2016 17:03:44</publishTime>
     </File>
     <File Include="Scripts/jquery-1.8.2.js">
       <publishTime>01/30/2015 22:48:00</publishTime>
     </File>
     <File Include="Scripts/LayoutDesign.js">
-      <publishTime>05/26/2016 14:09:39</publishTime>
+      <publishTime>05/30/2016 15:51:33</publishTime>
+    </File>
+    <File Include="Scripts/LayoutDesign.min.js">
+      <publishTime>05/30/2016 15:51:39</publishTime>
     </File>
     <File Include="Scripts/Owl.Carousel.js">
       <publishTime>04/15/2016 09:08:24</publishTime>
@@ -279,6 +282,9 @@
     <File Include="Scripts/PageDesign.js">
       <publishTime>05/16/2016 08:37:57</publishTime>
     </File>
+    <File Include="Scripts/PageDesign.min.js">
+      <publishTime>05/30/2016 15:51:43</publishTime>
+    </File>
     <File Include="Scripts/StyleEditor/Content/arrow.gif">
       <publishTime>05/26/2016 08:27:22</publishTime>
     </File>
@@ -292,7 +298,10 @@
       <publishTime>05/26/2016 08:27:22</publishTime>
     </File>
     <File Include="Scripts/StyleEditor/Content/editor.js">
-      <publishTime>05/27/2016 08:28:38</publishTime>
+      <publishTime>05/30/2016 15:40:18</publishTime>
+    </File>
+    <File Include="Scripts/StyleEditor/Content/editor.min.js">
+      <publishTime>05/30/2016 15:40:17</publishTime>
     </File>
     <File Include="Scripts/StyleEditor/Content/grid.gif">
       <publishTime>05/26/2016 08:27:22</publishTime>
@@ -321,20 +330,35 @@
     <File Include="Scripts/StyleEditor/Content/jquery-ui.custom.js">
       <publishTime>05/26/2016 08:27:22</publishTime>
     </File>
+    <File Include="Scripts/StyleEditor/Content/jquery-ui.custom.min.js">
+      <publishTime>05/30/2016 09:37:51</publishTime>
+    </File>
+    <File Include="Scripts/StyleEditor/Content/jquery-ui.min.css">
+      <publishTime>05/30/2016 09:36:50</publishTime>
+    </File>
     <File Include="Scripts/StyleEditor/Content/jquery.min.js">
       <publishTime>05/26/2016 08:27:22</publishTime>
     </File>
     <File Include="Scripts/StyleEditor/Content/jscolor.js">
-      <publishTime>05/26/2016 08:27:22</publishTime>
+      <publishTime>05/30/2016 09:42:05</publishTime>
+    </File>
+    <File Include="Scripts/StyleEditor/Content/jscolor.min.js">
+      <publishTime>05/30/2016 09:38:06</publishTime>
     </File>
     <File Include="Scripts/StyleEditor/Content/main.css">
-      <publishTime>05/26/2016 16:44:11</publishTime>
+      <publishTime>05/30/2016 15:12:01</publishTime>
+    </File>
+    <File Include="Scripts/StyleEditor/Content/main.min.css">
+      <publishTime>05/30/2016 15:12:01</publishTime>
     </File>
     <File Include="Scripts/StyleEditor/Content/values.js">
-      <publishTime>05/26/2016 17:16:33</publishTime>
+      <publishTime>05/30/2016 15:40:58</publishTime>
+    </File>
+    <File Include="Scripts/StyleEditor/Content/values.min.js">
+      <publishTime>05/30/2016 15:40:58</publishTime>
     </File>
     <File Include="Scripts/StyleEditor/index.html">
-      <publishTime>05/27/2016 08:28:38</publishTime>
+      <publishTime>05/30/2016 15:39:05</publishTime>
     </File>
     <File Include="Views/Account/Login.cshtml">
       <publishTime>05/11/2016 15:49:16</publishTime>
@@ -376,7 +400,7 @@
       <publishTime>05/11/2016 16:13:02</publishTime>
     </File>
     <File Include="Views/Layout/LayoutZones.cshtml">
-      <publishTime>05/13/2016 14:15:27</publishTime>
+      <publishTime>05/27/2016 13:38:57</publishTime>
     </File>
     <File Include="Views/Layout/SelectZone.cshtml">
       <publishTime>03/21/2016 08:52:50</publishTime>
