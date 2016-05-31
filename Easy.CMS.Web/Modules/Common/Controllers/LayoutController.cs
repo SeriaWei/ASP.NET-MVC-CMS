@@ -100,12 +100,10 @@ namespace Easy.CMS.Common.Controllers
         }
 
         [ValidateInput(false)]
-        public ActionResult SaveLayout(string[] html, LayoutEntity layout)
+        public ActionResult SaveLayout(string[] html, LayoutEntity layout, ZoneCollection zones)
         {
-            LayoutHtmlCollection htmls;
-            var zones = Helper.GetZones(html, out htmls);
+            layout.Html = Helper.GenerateHtml(html, zones);
             layout.Zones = zones;
-            layout.Html = htmls;
             Service.UpdateDesign(layout);
             if (layout.Page != null)
             {

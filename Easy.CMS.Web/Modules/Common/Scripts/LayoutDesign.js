@@ -24,9 +24,6 @@
         '<i class="glyphicon glyphicon glyphicon-menu-right" title="增加宽度 +1"></i>',
         '<i class="glyphicon glyphicon-remove-circle" title="删除"></i>',
         '</div>'].join('');
-    $(document).on("blur", ".zone input", function () {
-        $(this).attr("value", $(this).val());
-    });
     function getNewZone() {
         var zoneParent = $('<div class="additional zone"></div>');
         var zone = $("<zone></zone>");
@@ -165,15 +162,24 @@
     container.removeClass("hide");
 
     $(document).on("click", "#save", function () {
+        Easy.Block();
         $('input[name="ZoneName"]').each(function () {
             if (!$.trim($(this).val())) {
-                $(this).attr("value", "未命名");
+                $(this).val("未命名");
             }
         });
         if ($(this).data("done")) {
             return;
         }
         $(this).data("done", true);
+
+        var form = $("#LayoutInfo");
+
+        $("zone").each(function (i) {
+            $("input", this).each(function () {
+                $(this).attr("name", "zones[" + i + "]." + $(this).attr("name")).addClass("hide");
+            }).appendTo(form);
+        });
 
         var copyContainer = $('<div id="containers"/>').append(container.html());
 
@@ -190,7 +196,6 @@
 
         var html = copyContainer.html();
         var htmlArray = html.split("<zone>");
-        var form = $("#LayoutInfo");
         var zoneArray = [];
         for (var i = 0; i < htmlArray.length; i++) {
             zoneArray.push(htmlArray[i]);
@@ -210,7 +215,11 @@
         }
         $(".layout-html", form).remove();
         for (var i = 0; i < allZoneResult.length; i++) {
-            form.append($('<textarea name="html" class="layout-html hide"></textarea>').val($.trim(allZoneResult[i])));
+            var part = $.trim(allZoneResult[i]);
+            if (!part) {
+                continue;
+            }
+            form.append($('<textarea name="html" class="layout-html hide"></textarea>').val(part));
         }
         form.submit();
         return false;

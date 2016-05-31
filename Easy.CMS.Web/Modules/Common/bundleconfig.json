@@ -1,0 +1,20 @@
+[
+  {
+    "outputFileName": "Scripts/LayoutDesign.js",
+    "inputFiles": [
+      "Scripts/LayoutDesign.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/Owl.Carousel.js",
+    "inputFiles": [
+      "Scripts/Owl.Carousel.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/PageDesign.js",
+    "inputFiles": [
+      "Scripts/PageDesign.js"
+    ]
+  }
+]

@@ -10,51 +10,33 @@ namespace Easy.Web.CMS.Zone
 {
     public static class Helper
     {
-        public static ZoneCollection GetZones(string[] html, out LayoutHtmlCollection result)
+        public static LayoutHtmlCollection GenerateHtml(string[] html, ZoneCollection zones)
         {
-            Regex zoneRegex = new Regex("name=\"(ZoneName|LayoutId|ID)\".+value=\"(.+)\">");
-            result = new LayoutHtmlCollection();
-            ZoneCollection zones = new ZoneCollection();
+            int zoneIndex = 0;
+            var result = new LayoutHtmlCollection();
             for (int i = 0; i < html.Count(); i++)
             {
                 var item = html[i];
                 if (item == ZoneEntity.ZoneTag)
                 {
-                    i++;
                     item = html[i];
-                    ZoneEntity zone = new ZoneEntity();
-                    item.Split(new[] { "<input" }, StringSplitOptions.RemoveEmptyEntries).Each(part =>
+                    var zone = zones[zoneIndex];
+                    if (zone.ID.IsNullOrWhiteSpace())
                     {
-                        zoneRegex.Replace(part, evaluator =>
-                        {
-                            if (evaluator.Groups[1].Value.Equals("ZoneName"))
-                            {
-                                zone.ZoneName = evaluator.Groups[2].Value;
-                            }
-                            else if (evaluator.Groups[1].Value.Equals("LayoutId"))
-                            {
-                                zone.LayoutId = evaluator.Groups[2].Value;
-                            }
-                            else if (evaluator.Groups[1].Value.Equals("ID"))
-                            {
-                                zone.ID = evaluator.Groups[2].Value;
-                            }
-                            return "";
-                        });
-                    });
-                    zone.ID = zone.ID ?? Guid.NewGuid().ToString("N");
-                    zones.Add(zone);
+                        zone.ID = Guid.NewGuid().ToString("N");
+                    }
                     result.Add(new LayoutHtml { Html = ZoneEntity.ZoneTag });
                     result.Add(new LayoutHtml { Html = zone.ID });
                     result.Add(new LayoutHtml { Html = ZoneEntity.ZoneEndTag });
-                    i++;
+                    i += 1;
+                    zoneIndex++;
                 }
                 else
                 {
                     result.Add(new LayoutHtml { Html = item });
                 }
             }
-            return zones;
+            return result;
         }
     }
 }
