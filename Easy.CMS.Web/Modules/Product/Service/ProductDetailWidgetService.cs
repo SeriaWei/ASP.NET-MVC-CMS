@@ -4,6 +4,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Easy.Web.CMS.Product.Service;
+using Microsoft.Practices.ServiceLocation;
 
 namespace Easy.CMS.Product.Service
 {
@@ -13,7 +15,7 @@ namespace Easy.CMS.Product.Service
         {
             long productId = 0;
             long.TryParse(httpContext.Request.QueryString["id"], out productId);
-            var service = new ProductService();
+            var service = ServiceLocator.Current.GetInstance<IProductService>();
             return widget.ToWidgetPart(service.Get(productId));
         }
     }

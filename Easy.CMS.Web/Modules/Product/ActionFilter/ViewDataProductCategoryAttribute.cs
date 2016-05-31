@@ -6,6 +6,8 @@ using Easy.Web.Attribute;
 using System.Web.Mvc;
 using Easy.CMS.Product.Service;
 using Easy.Web.CMS;
+using Easy.Web.CMS.Product.Service;
+using Microsoft.Practices.ServiceLocation;
 
 namespace Easy.CMS.Product.ActionFilter
 {
@@ -18,7 +20,7 @@ namespace Easy.CMS.Product.ActionFilter
 
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            filterContext.Controller.ViewData[ViewDataKeys.ProductCategory] = new SelectList(new ProductCategoryService().Get(), "ID", "Title");
+            filterContext.Controller.ViewData[ViewDataKeys.ProductCategory] = new SelectList(ServiceLocator.Current.GetInstance<IProductCategoryService>().Get(), "ID", "Title");
         }
     }
 }

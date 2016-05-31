@@ -8,6 +8,9 @@ using Easy.CMS.Product.Models;
 using Easy.Web.CMS.Widget;
 using Easy.Data;
 using Easy.CMS.Product.ViewModel;
+using Easy.Web.CMS.Product.Models;
+using Easy.Web.CMS.Product.Service;
+using Microsoft.Practices.ServiceLocation;
 
 namespace Easy.CMS.Product.Service
 {
@@ -40,8 +43,8 @@ namespace Easy.CMS.Product.Service
             }
 
 
-            var service = new ProductService();
-            IEnumerable<Models.Product> products = null;
+            var service = ServiceLocator.Current.GetInstance<IProductService>();
+            IEnumerable<ProductEntity> products = null;
             var page = new Pagination { PageIndex = p, PageSize = pwidget.PageSize ?? 20 };
             if (pwidget.IsPageable)
             {

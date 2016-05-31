@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Easy.Web.CMS;
+using Easy.Web.CMS.Article.Service;
+using Microsoft.Practices.ServiceLocation;
 
 namespace Easy.CMS.Article.Service
 {
@@ -15,15 +17,15 @@ namespace Easy.CMS.Article.Service
         {
             long articleId = 0;
             long.TryParse(httpContext.Request.QueryString["id"], out articleId);
-            var articleService = new ArticleService();
+
 
             var viewModel = new ArticleDetailViewModel
             {
-                Current = articleService.Get(articleId)
+                Current = ServiceLocator.Current.GetInstance<IArticleService>().Get(articleId)
             };
             if (viewModel.Current != null)
             {
-                var layout= httpContext.GetLayout();
+                var layout = httpContext.GetLayout();
                 layout.Page.MetaKeyWorlds = viewModel.Current.MetaKeyWords;
                 layout.Page.MetaDescription = viewModel.Current.MetaDescription;
                 layout.Page.Title = viewModel.Current.Title;

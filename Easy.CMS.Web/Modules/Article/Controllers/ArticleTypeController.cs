@@ -7,13 +7,15 @@ using Easy.Web.Controller;
 using Easy.CMS.Article.Service;
 using Easy.CMS.Article.Models;
 using Easy.Web.Attribute;
+using Easy.Web.CMS.Article.Models;
+using Easy.Web.CMS.Article.Service;
 
 namespace Easy.CMS.Article.Controllers
 {
     [AdminTheme, Authorize]
-    public class ArticleTypeController : BasicController<ArticleType, long, ArticleTypeService>
+    public class ArticleTypeController : BasicController<ArticleType, long, IArticleTypeService>
     {
-        public ArticleTypeController(ArticleTypeService service)
+        public ArticleTypeController(IArticleTypeService service)
             : base(service)
         {
         }

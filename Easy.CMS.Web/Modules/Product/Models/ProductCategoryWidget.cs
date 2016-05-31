@@ -7,6 +7,8 @@ using Easy.MetaData;
 using Easy.Web.CMS.MetaData;
 using Easy.CMS.Product.Service;
 using Easy.Web.CMS;
+using Easy.Web.CMS.Product.Service;
+using Microsoft.Practices.ServiceLocation;
 
 namespace Easy.CMS.Product.Models
 {
@@ -24,7 +26,7 @@ namespace Easy.CMS.Product.Models
             base.ViewConfigure();
             ViewConfig(m => m.ProductCategoryID).AsDropDownList().Order(NextOrder()).DataSource(() =>
             {
-                return new ProductCategoryService().Get().ToDictionary(m => m.ID.ToString(), m => m.Title);
+                return ServiceLocator.Current.GetInstance<IProductCategoryService>().Get().ToDictionary(m => m.ID.ToString(), m => m.Title);
             }).Required();
             ViewConfig(m => m.TargetPage).AsHidden();
         }

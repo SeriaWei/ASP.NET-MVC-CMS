@@ -122,8 +122,6 @@
     <Compile Include="Controllers\ProductCategoryController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="FilterConfig.cs" />
-    <Compile Include="Models\ProductCategory.cs" />
-    <Compile Include="Models\Product.cs" />
     <Compile Include="Models\ProductCategoryWidget.cs" />
     <Compile Include="Models\ProductDetailWidget.cs" />
     <Compile Include="Models\ProductListWidget.cs" />

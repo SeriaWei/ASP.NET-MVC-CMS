@@ -9,18 +9,20 @@ using Easy.Web.Attribute;
 using Easy.Web.Controller;
 using Easy.Constant;
 using Easy.CMS.Product.Models;
+using Easy.Web.CMS.Product.Models;
+using Easy.Web.CMS.Product.Service;
 
 namespace Easy.CMS.Product.Controllers
 {
     [AdminTheme, Authorize]
-    public class ProductController : BasicController<Models.Product, long, ProductService>
+    public class ProductController : BasicController<ProductEntity, long, IProductService>
     {
-        public ProductController()
-            : base(new ProductService())
+        public ProductController(IProductService service)
+            : base(service)
         {
         }
         [HttpPost]
-        public override ActionResult Create(Models.Product entity)
+        public override ActionResult Create(ProductEntity entity)
         {
             var result = base.Create(entity);
             if (entity.ActionType == ActionType.Publish)
@@ -31,7 +33,7 @@ namespace Easy.CMS.Product.Controllers
         }
 
         [HttpPost]
-        public override ActionResult Edit(Models.Product entity)
+        public override ActionResult Edit(ProductEntity entity)
         {
             var result = base.Edit(entity);
             if (entity.ActionType == ActionType.Publish)

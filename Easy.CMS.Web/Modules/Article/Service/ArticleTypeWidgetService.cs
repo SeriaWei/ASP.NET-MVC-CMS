@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Easy.Extend;
+using Easy.Web.CMS.Article.Service;
+using Microsoft.Practices.ServiceLocation;
 
 namespace Easy.CMS.Article.Service
 {
@@ -14,7 +16,7 @@ namespace Easy.CMS.Article.Service
         public override WidgetPart Display(WidgetBase widget, HttpContextBase httpContext)
         {
             ArticleTypeWidget currentWidget = widget as ArticleTypeWidget;
-            var service = new ArticleTypeService();
+            var service = ServiceLocator.Current.GetInstance<IArticleTypeService>();
             var filter = new Data.DataFilter().Where("ParentID", Data.OperatorType.Equal, currentWidget.ArticleTypeID);
             int ac = 0;
             int.TryParse(httpContext.Request.QueryString["ac"], out ac);

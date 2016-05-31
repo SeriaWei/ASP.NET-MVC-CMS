@@ -7,6 +7,8 @@ using Easy.Web.CMS.MetaData;
 using Easy.Web.CMS.Widget;
 using Easy.MetaData;
 using Easy.Web.CMS;
+using Easy.Web.CMS.Article.Service;
+using Microsoft.Practices.ServiceLocation;
 
 namespace Easy.CMS.Article.Models
 {
@@ -25,7 +27,8 @@ namespace Easy.CMS.Article.Models
         {
             base.ViewConfigure();
             ViewConfig(m => m.SubTitle).AsTextBox().Order(NextOrder());
-            ViewConfig(m => m.ArticleTypeID).AsDropDownList().Order(NextOrder()).DataSource(new ArticleTypeService().Get().ToDictionary(m => m.ID.ToString(), m => m.Title)).Required();
+            var articleTypeService = ServiceLocator.Current.GetInstance<IArticleTypeService>();
+            ViewConfig(m => m.ArticleTypeID).AsDropDownList().Order(NextOrder()).DataSource(articleTypeService.Get().ToDictionary(m => m.ID.ToString(), m => m.Title)).Required();
             ViewConfig(m => m.Tops).AsTextBox().Order(NextOrder()).RegularExpression(Easy.Constant.RegularExpression.PositiveIntegers);
             ViewConfig(m => m.MoreLink).AsTextBox().Order(NextOrder()).AddClass("select").AddProperty("data-url", Urls.SelectPage);
             ViewConfig(m => m.DetailPageUrl).AsTextBox().Order(NextOrder()).AddClass("select").AddProperty("data-url", Urls.SelectPage);

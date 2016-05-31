@@ -13,26 +13,30 @@
                         <img alt="@item.Title" title="@item.Title" src="@Url.Content(item.ImageThumbUrl)" />
                     }
                     <div class="caption">
-                        <h4>
-                                 @item.Title
-                        </h4>
-                        <p class="text-muted small">
-                            @item.Description
-                        </p>
+                        <h3>
+                            @item.Title
+                        </h3>
+                        @if (item.Description.IsNotNullAndWhiteSpace())
+                        {
+                            <p>
+                                @item.Description
+                            </p>
+                        }
                         @if (item.Url.IsNotNullAndWhiteSpace() || Model.DetailPageUrl.IsNotNullAndWhiteSpace())
                         {
                             string url = item.Url;
-                            if (url.IsNullOrWhiteSpace())
+                            if (url.IsNullOrWhiteSpace() && Model.DetailPageUrl.IsNotNullAndWhiteSpace())
                             {
-                                url = Url.Content(Model.DetailPageUrl) + "?id=" + item.ID;
+                                url = Model.DetailPageUrl + "?id=" + item.ID;
                             }
-                            else
+                            if (url.IsNotNullAndWhiteSpace())
                             {
-                                url = Url.Content(url);
+                                <p class="clearfix">
+                                    <a href="@Url.Content(url)" class="btn btn-default">
+                                        @(url.EndsWith(".zip") ? "下载" : "查看")
+                                    </a>
+                                </p>
                             }
-                        <p class="clearfix">
-                            <a href="@url" class="btn btn-default pull-right">查看</a>
-                        </p>
                         }
                     </div>
                 </div>
@@ -40,7 +44,7 @@
         }
         <div class="clearfix"></div>
     </div>
-    
+
     @if (Model.IsPageable)
     {
         Html.Pagin(Model.Page);

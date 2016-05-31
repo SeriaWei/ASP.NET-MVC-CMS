@@ -8,6 +8,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Easy.Extend;
+using Easy.Web.CMS.Article.Service;
+using Microsoft.Practices.ServiceLocation;
 
 namespace Easy.CMS.Article.Service
 {
@@ -29,7 +31,7 @@ namespace Easy.CMS.Article.Service
             filter.Where("IsPublish", OperatorType.Equal, true);
             filter.OrderBy("PublishDate", OrderType.Descending);
             filter.Where("ArticleTypeID", OperatorType.Equal, currentWidget.ArticleTypeID);
-            viewModel.Articles = new ArticleService().Get(filter, page);
+            viewModel.Articles = ServiceLocator.Current.GetInstance<IArticleService>().Get(filter, page);
             return widget.ToWidgetPart(viewModel);
         }
     }

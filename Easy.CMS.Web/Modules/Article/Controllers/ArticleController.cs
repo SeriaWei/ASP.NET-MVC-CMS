@@ -9,14 +9,16 @@ using Easy.Web.Controller;
 using Easy.CMS.Article.Models;
 using Easy.CMS.Article.Service;
 using Easy.Web.Attribute;
+using Easy.Web.CMS.Article.Models;
+using Easy.Web.CMS.Article.Service;
 
 namespace Easy.CMS.Article.Controllers
 {
     [AdminTheme, Authorize]
-    public class ArticleController : BasicController<ArticleEntity, long, ArticleService>
+    public class ArticleController : BasicController<ArticleEntity, long, IArticleService>
     {
-        public ArticleController()
-            : base(new ArticleService())
+        public ArticleController(IArticleService service)
+            : base(service)
         {
         }
         [HttpPost]
