@@ -5,9 +5,8 @@ using System.Web;
 using Easy.Constant;
 using Easy.Models;
 using Easy.MetaData;
-using Easy.Web.CMS;
 
-namespace Easy.CMS.Article.Models
+namespace Easy.Web.CMS.Article.Models
 {
     [DataConfigure(typeof(ArticleEntityMeta))]
     public class ArticleEntity : EditorEntity, IImage

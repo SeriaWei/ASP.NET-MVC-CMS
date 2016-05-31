@@ -6,12 +6,15 @@ using Easy.Data;
 using Easy.RepositoryPattern;
 using Easy.CMS.Product.Models;
 using Easy.Extend;
+using Easy.Web.CMS.Product.Models;
+using Easy.Web.CMS.Product.Service;
+using Microsoft.Practices.ServiceLocation;
 
 namespace Easy.CMS.Product.Service
 {
-    public class ProductCategoryService : ServiceBase<ProductCategory>
+    public class ProductCategoryService : ServiceBase<ProductCategory>, IProductCategoryService
     {
-        private ProductService _productService;
+        private IProductService _productService;
    
         public IEnumerable<ProductCategory> GetChildren(long id)
         {
@@ -20,7 +23,7 @@ namespace Easy.CMS.Product.Service
 
         public override int Delete(params object[] primaryKeys)
         {
-            _productService = _productService ?? new ProductService();
+            _productService = _productService ?? ServiceLocator.Current.GetInstance<IProductService>();
             var item = Get(primaryKeys);
             if (item != null)
             {

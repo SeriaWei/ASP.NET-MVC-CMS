@@ -8,14 +8,16 @@ using Easy.CMS.Product.Service;
 using Easy.Web.Controller;
 using Easy.Web.Attribute;
 using Easy.ViewPort.jsTree;
+using Easy.Web.CMS.Product.Models;
+using Easy.Web.CMS.Product.Service;
 
 namespace Easy.CMS.Product.Controllers
 {
     [AdminTheme, Authorize]
-    public class ProductCategoryController : BasicController<ProductCategory, long, ProductCategoryService>
+    public class ProductCategoryController : BasicController<ProductCategory, long, IProductCategoryService>
     {
-        public ProductCategoryController()
-            : base(new ProductCategoryService())
+        public ProductCategoryController(IProductCategoryService service)
+            : base(service)
         {
         }
 

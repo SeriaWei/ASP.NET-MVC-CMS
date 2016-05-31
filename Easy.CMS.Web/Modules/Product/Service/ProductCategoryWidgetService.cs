@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Easy.Extend;
+using Easy.Web.CMS.Product.Service;
+using Microsoft.Practices.ServiceLocation;
 
 namespace Easy.CMS.Product.Service
 {
@@ -15,7 +17,7 @@ namespace Easy.CMS.Product.Service
         {
             ProductCategoryWidget currentWidget = widget as ProductCategoryWidget;
             int c;
-            var categoryService = new ProductCategoryService();
+            var categoryService = ServiceLocator.Current.GetInstance<IProductCategoryService>();
             int.TryParse(httpContext.Request.QueryString["pc"], out c);
             var filter = new Data.DataFilter().Where("ParentID", Data.OperatorType.Equal, currentWidget.ProductCategoryID);
             return widget.ToWidgetPart(new ProductCategoryWidgetViewModel

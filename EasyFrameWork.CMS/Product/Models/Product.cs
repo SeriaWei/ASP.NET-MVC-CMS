@@ -4,12 +4,11 @@ using System.Linq;
 using System.Text;
 using Easy.MetaData;
 using Easy.Models;
-using Easy.Web.CMS;
 
-namespace Easy.CMS.Product.Models
+namespace Easy.Web.CMS.Product.Models
 {
     [DataConfigure(typeof(ProductMetaData))]
-    public class Product : EditorEntity, IImage
+    public class ProductEntity : EditorEntity, IImage
     {
         public long? ID { get; set; }
         /// <summary>
@@ -68,7 +67,7 @@ namespace Easy.CMS.Product.Models
         public string TargetFrom { get; set; }
         public string TargetUrl { get; set; }
     }
-    class ProductMetaData : DataViewMetaData<Product>
+    class ProductMetaData : DataViewMetaData<ProductEntity>
     {
         protected override void DataConfigure()
         {

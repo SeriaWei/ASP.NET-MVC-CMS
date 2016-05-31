@@ -6,12 +6,15 @@ using Easy.Data;
 using Easy.RepositoryPattern;
 using Easy.CMS.Article.Models;
 using Easy.Extend;
+using Easy.Web.CMS.Article.Models;
+using Easy.Web.CMS.Article.Service;
+using Microsoft.Practices.ServiceLocation;
 
 namespace Easy.CMS.Article.Service
 {
-    public class ArticleTypeService : ServiceBase<ArticleType>
+    public class ArticleTypeService : ServiceBase<ArticleType>, IArticleTypeService
     {
-        private ArticleService _articleService;
+        private IArticleService _articleService;
 
         public override void Add(ArticleType item)
         {
@@ -26,7 +29,7 @@ namespace Easy.CMS.Article.Service
 
         public override int Delete(params object[] primaryKeys)
         {
-            _articleService = _articleService ?? new ArticleService();
+            _articleService = _articleService ?? ServiceLocator.Current.GetInstance<IArticleService>();
             var item = Get(primaryKeys);
             if (item != null)
             {

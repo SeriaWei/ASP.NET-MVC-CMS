@@ -102,6 +102,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdminMenu.cs" />
+    <Compile Include="Article\Models\ArticleEntity.cs" />
+    <Compile Include="Article\Models\ArticleType.cs" />
+    <Compile Include="Article\Service\IArticleService.cs" />
+    <Compile Include="Article\Service\IArticleTypeService.cs" />
     <Compile Include="CmsApplication.cs" />
     <Compile Include="CMSApplicationContext.cs" />
     <Compile Include="Constant.cs" />
@@ -114,6 +118,10 @@
     <Compile Include="Layout\LayoutHtmlService.cs" />
     <Compile Include="Layout\ViewDataLayoutsAttribute.cs" />
     <Compile Include="Layout\LayoutService.cs" />
+    <Compile Include="Product\Models\Product.cs" />
+    <Compile Include="Product\Models\ProductCategory.cs" />
+    <Compile Include="Product\Service\IProductCategoryService.cs" />
+    <Compile Include="Product\Service\IProductService.cs" />
     <Compile Include="Theme\IThemeService.cs" />
     <Compile Include="Theme\ThemeEntity.cs" />
     <Compile Include="Theme\ThemeService.cs" />
@@ -162,6 +170,7 @@
     </None>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

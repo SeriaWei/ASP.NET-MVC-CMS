@@ -8,6 +8,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Easy.Extend;
+using Easy.Web.CMS.Article.Service;
+using Microsoft.Practices.ServiceLocation;
 
 namespace Easy.CMS.Article.Service
 {
@@ -16,7 +18,7 @@ namespace Easy.CMS.Article.Service
         public override WidgetPart Display(WidgetBase widget, HttpContextBase httpContext)
         {
             var currentWidget = widget as ArticleListWidget;
-            var articleTypeService = new ArticleTypeService();
+            var articleTypeService = ServiceLocator.Current.GetInstance<IArticleTypeService>();
             var categoryEntity = articleTypeService.Get(currentWidget.ArticleTypeID);
             int pageIndex = 0;
             int ac = 0;
@@ -25,7 +27,7 @@ namespace Easy.CMS.Article.Service
             var filter = new Data.DataFilter();
             filter.Where("IsPublish", OperatorType.Equal, true);
             filter.OrderBy("CreateDate", OrderType.Descending);
-            var articleService = new ArticleService();
+            var articleService = ServiceLocator.Current.GetInstance<IArticleService>();
             var page = new Data.Pagination { PageIndex = pageIndex, PageSize = currentWidget.PageSize ?? 20 };
             if (ac != 0)
             {
