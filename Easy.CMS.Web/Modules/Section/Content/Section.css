@@ -53,6 +53,7 @@
 }
 .group-form.developer #template .pack{
     display:block;
+    color: #808080;
 }
 .group-form #templates {
     max-height: 395px;

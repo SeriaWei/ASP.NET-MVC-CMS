@@ -83,7 +83,7 @@ namespace Easy.CMS.Common.Controllers
         public ActionResult Design(string ID, string PageID)
         {
             // Stop Caching in IE
-            Response.Cache.SetCacheability(System.Web.HttpCacheability.NoCache);
+            Response.Cache.SetCacheability(HttpCacheability.NoCache);
 
             // Stop Caching in Firefox
             Response.Cache.SetNoStore();

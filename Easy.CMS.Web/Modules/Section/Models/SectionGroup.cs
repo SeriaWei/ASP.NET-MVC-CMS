@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Web;
+using Easy.CMS.Section.Service;
 using Easy.Extend;
 using Easy.MetaData;
 using Easy.Models;
+using Microsoft.Practices.ServiceLocation;
 
 namespace Easy.CMS.Section.Models
 {
@@ -87,20 +89,9 @@ namespace Easy.CMS.Section.Models
             ViewConfig(m => m.IsLoadDefaultData).AsHidden().Ignore();
             ViewConfig(m => m.PartialView).AsDropDownList().DataSource(() =>
             {
-                string folder = AppDomain.CurrentDomain.BaseDirectory + "Modules/Section/Views";
-                Dictionary<string, string> result = new Dictionary<string, string>
-                {
-                    {"SectionTemplate.Default", "Default"}
-                };
-                Directory.GetFiles(folder, "SectionTemplate.*.cshtml").Each(f =>
-                {
-                    string fileName = Path.GetFileNameWithoutExtension(f);
-                    if (fileName.IsNotNullAndWhiteSpace() && !result.ContainsKey(fileName))
-                    {
-                        result.Add(fileName, fileName.Replace("SectionTemplate.", ""));
-                    }
-                });
-                return result;
+                return ServiceLocator.Current.GetInstance<ISectionTemplateService>()
+                    .Get()
+                    .ToDictionary(m => m.TemplateName, m => m.Title);
             });
         }
     }

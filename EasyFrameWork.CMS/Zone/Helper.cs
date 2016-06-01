@@ -14,12 +14,11 @@ namespace Easy.Web.CMS.Zone
         {
             int zoneIndex = 0;
             var result = new LayoutHtmlCollection();
-            for (int i = 0; i < html.Count(); i++)
+            for (int i = 0; i < html.Length; i++)
             {
                 var item = html[i];
                 if (item == ZoneEntity.ZoneTag)
                 {
-                    item = html[i];
                     var zone = zones[zoneIndex];
                     if (zone.ID.IsNullOrWhiteSpace())
                     {

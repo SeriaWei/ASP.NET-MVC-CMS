@@ -12,6 +12,7 @@ using Easy.Web;
 using Easy.Web.Attribute;
 using EasyZip;
 using Microsoft.Practices.ObjectBuilder2;
+using Microsoft.Practices.ServiceLocation;
 
 namespace Easy.CMS.Section.Controllers
 {
@@ -121,6 +122,22 @@ namespace Easy.CMS.Section.Controllers
                             {
                                 fs.Write(item.FileBytes, 0, item.FileBytes.Length);
                             }
+                            if (item.RelativePath.EndsWith(".json"))
+                            {
+                                var info = System.IO.File.ReadAllText(Server.MapPath("~/Modules/Section/Views/Thumbnail") +
+                                                          item.RelativePath);
+                                var template = Newtonsoft.Json.JsonConvert.DeserializeObject<SectionTemplate>(info);
+                                var sectionTemplateService =
+                                    ServiceLocator.Current.GetInstance<ISectionTemplateService>();
+                                if (sectionTemplateService.Count(m => m.TemplateName == template.TemplateName) > 0)
+                                {
+                                    sectionTemplateService.Update(template);
+                                }
+                                else
+                                {
+                                    sectionTemplateService.Add(template);
+                                }
+                            }
                         }
                     }
                 }
@@ -136,7 +153,15 @@ namespace Easy.CMS.Section.Controllers
 
         public FileResult TemplatePackage(string name)
         {
+            var template = ServiceLocator.Current.GetInstance<ISectionTemplateService>().Get(name);
+            string infoFile = Server.MapPath("~/Modules/Section/Views/Thumbnail/") + name + ".json";
+            var writer = System.IO.File.CreateText(infoFile);
+            writer.Write(Newtonsoft.Json.JsonConvert.SerializeObject(template));
+            writer.Close();
+
             ZipFile zipFile = new ZipFile();
+            zipFile.AddFile(new System.IO.FileInfo(infoFile));
+
             string view = Server.MapPath("~/Modules/Section/Views/") + name + ".cshtml";
             if (System.IO.File.Exists(view))
             {
@@ -152,7 +177,7 @@ namespace Easy.CMS.Section.Controllers
             {
                 zipFile.AddFile(new System.IO.FileInfo(config));
             }
-            return File(zipFile.ToMemoryStream(), "application/zip", name + ".zip");
+            return File(zipFile.ToMemoryStream(), "application/zip", template.Title + ".zip");
         }
 
         [HttpPost]
