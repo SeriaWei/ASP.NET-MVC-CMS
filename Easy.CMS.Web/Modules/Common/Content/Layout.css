@@ -149,135 +149,145 @@ label.additional {
     margin-bottom: 25px;
     position: relative;
 }
+
 .custom-style.ui-sortable {
     min-height: 166px;
 }
-    .container-fluid.design .additional,
-    .container.design .additional {
-        position: relative;
+
+.container-fluid.design .additional,
+.container.design .additional {
+    position: relative;
+}
+
+    .container-fluid.design .additional.zone,
+    .container.design .additional.zone {
+        position: static;
     }
 
-        .container-fluid.design .additional.zone,
-        .container.design .additional.zone {
-            position: static;
-        }
+.container-fluid.design .tools,
+.container.design .tools {
+    position: absolute;
+    top: -25px;
+    font-size: 16px;
+    color: #969696;
+    left: 0;
+}
 
-    .container-fluid.design .tools,
-    .container.design .tools {
-        position: absolute;
-        top: -25px;
-        font-size: 16px;
-        color: #969696;
-        left: 0;
-    }
-
-        .container-fluid.design .tools > .glyphicon,
-        .container.design .tools > .glyphicon {
-            padding: 4px;
-            cursor: pointer;
-        }
-
-            .container-fluid.design .tools > .glyphicon.glyphicon-sort,
-            .container.design .tools > .glyphicon.glyphicon-sort {
-                cursor: s-resize;
-            }
-
-            .container-fluid.design .tools > .glyphicon:hover,
-            .container.design .tools > .glyphicon:hover {
-                color: #d9534f;
-            }
-
-    .container-fluid.design .additional .tools,
-    .container.design .additional .tools {
-        color: #5cb85c;
-        left: auto;
-        right: 12px;
-        bottom: 12px;
-        top: auto;
-    }
-
-    .container-fluid.design .additional.row > .tools,
-    .container.design .additional.row > .tools {
-        color: #337ab7;
-        right: 0;
-        top: 0;
-    }
-
-    .container.design .glyphicon-resize-small {
-        display: none;
-    }
-
-    .container-fluid.design .glyphicon-resize-horizontal {
-        display: none;
-    }
-
-    .container-fluid.design .glyphicon-resize-small {
-        -moz-transform: rotate(45deg);
-        -ms-transform: rotate(45deg);
-        -o-transform: rotate(45deg);
-        -webkit-transform: rotate(45deg);
-        transform: rotate(45deg);
-    }
-
-    .container-fluid.design .glyphicon-resize-small,
-    .container-fluid.design .glyphicon-resize-horizontal,
-    .container.design .glyphicon-resize-small,
-    .container.design .glyphicon-resize-horizontal {
+    .container-fluid.design .tools > .glyphicon,
+    .container.design .tools > .glyphicon {
+        padding: 4px;
         cursor: pointer;
     }
 
+        .container-fluid.design .tools > .glyphicon.glyphicon-sort,
+        .container.design .tools > .glyphicon.glyphicon-sort {
+            cursor: s-resize;
+        }
+
+        .container-fluid.design .tools > .glyphicon:hover,
+        .container.design .tools > .glyphicon:hover {
+            color: #d9534f;
+        }
+
+.container-fluid.design .additional .tools,
+.container.design .additional .tools {
+    color: #5cb85c;
+    left: auto;
+    right: 12px;
+    bottom: 12px;
+    top: auto;
+}
+
+.container-fluid.design .additional.row > .tools,
+.container.design .additional.row > .tools {
+    color: #337ab7;
+    right: 0;
+    top: 0;
+}
+
+.container.design .glyphicon-resize-small {
+    display: none;
+}
+
+.container-fluid.design .glyphicon-resize-horizontal {
+    display: none;
+}
+
+.container-fluid.design .glyphicon-resize-small {
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.container-fluid.design .glyphicon-resize-small,
+.container-fluid.design .glyphicon-resize-horizontal,
+.container.design .glyphicon-resize-small,
+.container.design .glyphicon-resize-horizontal {
+    cursor: pointer;
+}
+
+.layout.templates .widget-design .row > div::before,
 .design .additional.row > .additional::before {
     color: #e0e0e0;
     position: absolute;
     left: 15px;
     top: 10px;
     font-size: 20px;
-    font-weight:bold;
+    font-weight: bold;
 }
-.design .additional.row .col-md-12::before{    
+.layout.templates .widget-design .row > div::before{    
+    left: 50%;
+    top: 50%;
+    margin:-14px auto auto -7px;
+}
+.layout.templates .widget-design .col-md-12::before,
+.design .additional.row .col-md-12::before {
     content: "12";
 }
-.design .additional.row .col-md-11::before{    
+.layout.templates .widget-design .col-md-11::before,
+.design .additional.row .col-md-11::before {
     content: "11";
 }
-
-.design .additional.row .col-md-10::before{    
+.layout.templates .widget-design .col-md-10::before,
+.design .additional.row .col-md-10::before {
     content: "10";
 }
-
-.design .additional.row .col-md-9::before{    
+.layout.templates .widget-design .col-md-9::before,
+.design .additional.row .col-md-9::before {
     content: "9";
 }
-
-.design .additional.row .col-md-8::before{    
+.layout.templates .widget-design .col-md-8::before,
+.design .additional.row .col-md-8::before {
     content: "8";
 }
-
-.design .additional.row .col-md-7::before{    
+.layout.templates .widget-design .col-md-7::before,
+.design .additional.row .col-md-7::before {
     content: "7";
 }
-
-.design .additional.row .col-md-6::before{    
+.layout.templates .widget-design .col-md-6::before,
+.design .additional.row .col-md-6::before {
     content: "6";
 }
-
-.design .additional.row .col-md-5::before{    
+.layout.templates .widget-design .col-md-5::before,
+.design .additional.row .col-md-5::before {
     content: "5";
 }
-
-.design .additional.row .col-md-4::before{    
+.layout.templates .widget-design .col-md-4::before,
+.design .additional.row .col-md-4::before {
     content: "4";
 }
-
-.design .additional.row .col-md-3::before{    
+.layout.templates .widget-design .col-md-3::before,
+.design .additional.row .col-md-3::before {
     content: "3";
 }
-
-.design .additional.row .col-md-2::before{    
+.layout.templates .widget-design .col-md-2::before,
+.design .additional.row .col-md-2::before {
     content: "2";
 }
-
-.design .additional.row .col-md-1::before{    
+.layout.templates .widget-design .col-md-1::before,
+.design .additional.row .col-md-1::before {
     content: "1";
 }
 

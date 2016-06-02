@@ -38,11 +38,11 @@
 @using (Script.AtFoot())
 {
     <script type="text/javascript">
-        $(function() {
+        $(function () {
             if (!location.hash) {
                 location.hash = '@ViewBag.LayoutID';
             }
-            if (location.hash) {
+            if (location.hash && location.hash != "#") {
                 $("li" + location.hash).trigger("click");
             }
         });
@@ -56,7 +56,7 @@
                     }
                 }, "json");
             }
-        }).on("click", "#layouts>li",function () {
+        }).on("click", "#layouts>li", function () {
             $(this).siblings().removeClass("actived");
             $(this).addClass("actived");
             location.hash = $(this).data("id");
