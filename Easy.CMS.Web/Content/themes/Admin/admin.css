@@ -32,7 +32,9 @@ img {
 }
 
 
-
+.input-group .form-control{
+    position:static;
+}
 a.badge:hover {
     background-color: #1F1F1F;
 }
