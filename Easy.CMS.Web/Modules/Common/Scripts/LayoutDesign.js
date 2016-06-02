@@ -162,7 +162,6 @@
     container.removeClass("hide");
 
     $(document).on("click", "#save", function () {
-        Easy.Block();
         $('input[name="ZoneName"]').each(function () {
             if (!$.trim($(this).val())) {
                 $(this).val("未命名");

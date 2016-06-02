@@ -87,6 +87,8 @@
                 });
             }
         });
+    }).on("submit","form",function() {
+        Easy.Block();
     });
     $(".form-group select#ZoneID").on("mousedown", false);
 

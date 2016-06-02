@@ -34,7 +34,7 @@
     var target = window.top.$(".custom-style-target");
     var attrs = target.attr("style");
     if (target.hasClass("form-control")) {
-        target.val().replace(/style="(.+)"/g, function (a, v) {
+        target.val().replace(/style="([^"]*)"/g, function (a, v) {
             attrs = v;
         });
     }

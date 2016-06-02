@@ -67,13 +67,13 @@
       <publishTime>09/08/2015 09:26:45</publishTime>
     </File>
     <File Include="bin/Easy.CMS.Common.dll">
-      <publishTime>05/31/2016 17:00:22</publishTime>
+      <publishTime>06/02/2016 16:15:21</publishTime>
     </File>
     <File Include="bin/Easy.dll">
       <publishTime>05/23/2016 08:23:59</publishTime>
     </File>
     <File Include="bin/Easy.Web.CMS.dll">
-      <publishTime>05/31/2016 16:59:38</publishTime>
+      <publishTime>06/02/2016 16:15:19</publishTime>
     </File>
     <File Include="bin/Easy.Web.dll">
       <publishTime>05/23/2016 08:23:59</publishTime>
@@ -241,16 +241,16 @@
       <publishTime>05/23/2016 08:23:59</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>05/31/2016 17:03:44</publishTime>
+      <publishTime>06/02/2016 16:55:57</publishTime>
     </File>
     <File Include="Scripts/jquery-1.8.2.js">
       <publishTime>01/30/2015 22:48:00</publishTime>
     </File>
     <File Include="Scripts/LayoutDesign.js">
-      <publishTime>05/30/2016 15:51:33</publishTime>
+      <publishTime>06/02/2016 16:20:19</publishTime>
     </File>
     <File Include="Scripts/LayoutDesign.min.js">
-      <publishTime>05/30/2016 15:51:39</publishTime>
+      <publishTime>06/02/2016 16:20:17</publishTime>
     </File>
     <File Include="Scripts/Owl.Carousel.js">
       <publishTime>04/15/2016 09:08:24</publishTime>
@@ -298,10 +298,10 @@
       <publishTime>05/26/2016 08:27:22</publishTime>
     </File>
     <File Include="Scripts/StyleEditor/Content/editor.js">
-      <publishTime>05/30/2016 15:40:18</publishTime>
+      <publishTime>06/02/2016 16:51:23</publishTime>
     </File>
     <File Include="Scripts/StyleEditor/Content/editor.min.js">
-      <publishTime>05/30/2016 15:40:17</publishTime>
+      <publishTime>06/02/2016 16:50:10</publishTime>
     </File>
     <File Include="Scripts/StyleEditor/Content/grid.gif">
       <publishTime>05/26/2016 08:27:22</publishTime>
@@ -352,13 +352,13 @@
       <publishTime>05/30/2016 15:12:01</publishTime>
     </File>
     <File Include="Scripts/StyleEditor/Content/values.js">
-      <publishTime>05/30/2016 15:40:58</publishTime>
+      <publishTime>06/02/2016 16:45:14</publishTime>
     </File>
     <File Include="Scripts/StyleEditor/Content/values.min.js">
-      <publishTime>05/30/2016 15:40:58</publishTime>
+      <publishTime>06/02/2016 16:45:14</publishTime>
     </File>
     <File Include="Scripts/StyleEditor/index.html">
-      <publishTime>05/30/2016 15:39:05</publishTime>
+      <publishTime>06/02/2016 16:53:48</publishTime>
     </File>
     <File Include="Views/Account/Login.cshtml">
       <publishTime>05/11/2016 15:49:16</publishTime>
@@ -406,7 +406,7 @@
       <publishTime>03/21/2016 08:52:50</publishTime>
     </File>
     <File Include="Views/Layout/Templates.cshtml">
-      <publishTime>04/14/2016 16:49:46</publishTime>
+      <publishTime>06/02/2016 10:36:28</publishTime>
     </File>
     <File Include="Views/Media/Index.cshtml">
       <publishTime>05/23/2016 08:23:59</publishTime>
@@ -436,13 +436,13 @@
       <publishTime>05/27/2016 12:00:05</publishTime>
     </File>
     <File Include="Views/Page/PreView.cshtml">
-      <publishTime>05/26/2016 15:14:11</publishTime>
+      <publishTime>06/02/2016 16:01:56</publishTime>
     </File>
     <File Include="Views/Page/Select.cshtml">
       <publishTime>05/11/2016 08:25:13</publishTime>
     </File>
     <File Include="Views/Shared/DesignWidget.cshtml">
-      <publishTime>05/16/2016 08:37:57</publishTime>
+      <publishTime>06/02/2016 16:04:22</publishTime>
     </File>
     <File Include="Views/Shared/Partial.Menu.cshtml">
       <publishTime>04/21/2016 09:45:27</publishTime>
@@ -463,7 +463,7 @@
       <publishTime>05/27/2016 08:28:38</publishTime>
     </File>
     <File Include="Views/Theme/Index.cshtml">
-      <publishTime>04/15/2016 16:29:33</publishTime>
+      <publishTime>06/01/2016 08:25:15</publishTime>
     </File>
     <File Include="Views/User/Create.cshtml">
       <publishTime>05/11/2016 08:25:13</publishTime>

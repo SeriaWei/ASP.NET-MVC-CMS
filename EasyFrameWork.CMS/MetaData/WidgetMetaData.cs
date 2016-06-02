@@ -27,12 +27,16 @@ namespace Easy.Web.CMS.MetaData
             ViewConfig(m => m.IsTemplate).AsCheckBox().Order(NextOrder());
             ViewConfig(m => m.Thumbnail).AsTextBox().Order(NextOrder()).AddClass(StringKeys.SelectImageClass).AddProperty("data-url", Urls.SelectMedia);
             ViewConfig(m => m.StyleClass).AsTextBox().Order(NextOrder()).AddClass(StringKeys.StyleEditor).AddProperty("data-url", Urls.StyleEditor).AddProperty("data-width", "1024").MaxLength(1000);
+            ViewConfig(m => m.CustomClass).AsHidden().Ignore();
+            ViewConfig(m => m.CustomStyle).AsHidden().Ignore();
         }
 
         protected override void DataConfigure()
         {
             DataTable(TargetType.Name);
             DataConfig(m => m.ID).AsPrimaryKey();
+            DataConfig(m => m.CustomClass).Ignore();
+            DataConfig(m => m.CustomStyle).Ignore();
         }
 
         protected override void ViewConfigure()

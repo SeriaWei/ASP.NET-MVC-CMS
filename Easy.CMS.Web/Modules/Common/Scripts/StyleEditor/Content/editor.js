@@ -85,7 +85,7 @@
         this.css.push('height:' + height + 'px');
     }
     if (borderWidth !== "0px") {
-        this.css.push('border:' + borderWidth + '' + borderStyle + '' + borderColor);
+        this.css.push('border:' + borderWidth + ' ' + borderStyle + ' ' + borderColor);
     }
     if (padding !== "0px") {
         this.css.push('padding:' + padding);
@@ -175,18 +175,27 @@
         this.css.push('border-radius:' + borderRadius);
     }
     if (textShadowH !== "0px" || textShadowV !== "0px" || textShadowB !== "0px") {
-        this.css.push('text-shadow:' + textShadowH + '' + textShadowV + '' + textShadowB + '' + textShadowColor);
+        this.css.push('text-shadow:' + textShadowH + ' ' + textShadowV + ' ' + textShadowB + ' ' + textShadowColor);
     }
     if (boxShadowH !== "0px" || boxShadowV !== "0px" || boxShadowB !== "0px") {
-        this.css.push('box-shadow:' + boxShadowH + '' + boxShadowV + '' + boxShadowB + '' + boxShadowColor);
+        this.css.push('box-shadow:' + boxShadowH + ' ' + boxShadowV + ' ' + boxShadowB + ' ' + boxShadowColor);
     }
     this.css.push("");
     var target = window.top.$(".custom-style-target");
     if (target.hasClass('form-control')) {
+        debugger
+        var oldValue = target.val();
+        var styleReg = /style="([^"]*)"/g;
         if (this.css.length > 1) {
-            target.val("style=\"" + $.trim(this.css.join(";")) + "\"");
+            if (styleReg.test(oldValue)) {
+                target.val(oldValue.replace(styleReg, "style=\"" + $.trim(this.css.join(";")) + "\""));
+            } else {
+                target.val($.trim(oldValue) + (oldValue ? " " : "") + "style=\"" + $.trim(this.css.join(";")) + "\"");
+            }
         } else {
-            target.val("");
+            if (styleReg.test(oldValue)) {
+                target.val($.trim(oldValue.replace(styleReg, "")));
+            }
         }
     } else {
         target.attr("style", this.css.join(";"));

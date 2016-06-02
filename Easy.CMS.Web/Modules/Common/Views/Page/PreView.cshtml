@@ -21,7 +21,7 @@
             {
                 foreach (var widgetPart in Model.ZoneWidgets[zoneId].OrderBy(m => m.Widget.Position).ThenBy(m => m.Widget.WidgetName))
                 {
-                    <div @widgetPart.Widget.StyleClassResult()>
+                    <div class="widget @widgetPart.Widget.CustomClass" style="@widgetPart.Widget.CustomStyle">
                         @if (widgetPart.Widget.Title.IsNotNullAndWhiteSpace())
                         {
                             <div class="panel panel-default">

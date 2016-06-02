@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using Easy.CMS.Section.Models;
 using Easy.CMS.Section.Service;
@@ -11,8 +10,8 @@ using Easy.Extend;
 using Easy.Web;
 using Easy.Web.Attribute;
 using EasyZip;
-using Microsoft.Practices.ObjectBuilder2;
 using Microsoft.Practices.ServiceLocation;
+
 
 namespace Easy.CMS.Section.Controllers
 {
@@ -106,8 +105,7 @@ namespace Easy.CMS.Section.Controllers
                         if (item.RelativePath.EndsWith(".cshtml"))
                         {
                             using (
-                                var fs =
-                                    System.IO.File.Create(Server.MapPath("~/Modules/Section/Views") + item.RelativePath)
+                                var fs = System.IO.File.Create(Server.MapPath("~/Modules/Section/Views") + item.RelativePath)
                                 )
                             {
                                 fs.Write(item.FileBytes, 0, item.FileBytes.Length);
@@ -154,29 +152,31 @@ namespace Easy.CMS.Section.Controllers
         public FileResult TemplatePackage(string name)
         {
             var template = ServiceLocator.Current.GetInstance<ISectionTemplateService>().Get(name);
-            string infoFile = Server.MapPath("~/Modules/Section/Views/Thumbnail/") + name + ".json";
-            var writer = System.IO.File.CreateText(infoFile);
-            writer.Write(Newtonsoft.Json.JsonConvert.SerializeObject(template));
-            writer.Close();
+
+            string infoFile = Server.MapPath("~/Modules/Section/Views/Thumbnail/{0}.json".FormatWith(name));
+            using (var writer = System.IO.File.CreateText(infoFile))
+            {
+                writer.Write(Newtonsoft.Json.JsonConvert.SerializeObject(template));
+            }
 
             ZipFile zipFile = new ZipFile();
             zipFile.AddFile(new System.IO.FileInfo(infoFile));
+            var files = new[]
+            {
+                "~/Modules/Section/Views/{0}.cshtml",
+                "~/Modules/Section/Views/Thumbnail/{0}.png",
+                "~/Modules/Section/Views/Thumbnail/{0}.xml",
+                "~/Modules/Section/Views/Thumbnail/{0}.json",
+            };
+            files.Each(f =>
+            {
+                string file = Server.MapPath(f.FormatWith(name));
+                if (System.IO.File.Exists(file))
+                {
+                    zipFile.AddFile(new System.IO.FileInfo(file));
+                }
+            });
 
-            string view = Server.MapPath("~/Modules/Section/Views/") + name + ".cshtml";
-            if (System.IO.File.Exists(view))
-            {
-                zipFile.AddFile(new System.IO.FileInfo(view));
-            }
-            string thumbnail = Server.MapPath("~/Modules/Section/Views/Thumbnail/") + name + ".png";
-            if (System.IO.File.Exists(thumbnail))
-            {
-                zipFile.AddFile(new System.IO.FileInfo(thumbnail));
-            }
-            string config = Server.MapPath("~/Modules/Section/Views/Thumbnail/") + name + ".xml";
-            if (System.IO.File.Exists(config))
-            {
-                zipFile.AddFile(new System.IO.FileInfo(config));
-            }
             return File(zipFile.ToMemoryStream(), "application/zip", template.Title + ".zip");
         }
 

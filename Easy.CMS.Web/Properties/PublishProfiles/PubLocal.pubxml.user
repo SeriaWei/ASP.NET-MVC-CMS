@@ -16,10 +16,10 @@
       <publishTime>07/02/2014 21:58:06</publishTime>
     </File>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>05/31/2016 17:03:08</publishTime>
+      <publishTime>06/02/2016 16:55:05</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>05/31/2016 17:03:08</publishTime>
+      <publishTime>06/02/2016 16:55:05</publishTime>
     </File>
     <File Include="bin/App_Web_dljcttax.dll">
       <publishTime>09/08/2015 09:16:14</publishTime>
@@ -58,7 +58,7 @@
       <publishTime>07/02/2014 21:58:05</publishTime>
     </File>
     <File Include="bin/Easy.CMS.Web.dll">
-      <publishTime>05/31/2016 16:59:38</publishTime>
+      <publishTime>06/02/2016 16:15:20</publishTime>
     </File>
     <File Include="bin/Easy.CMS.Web.Views.dll">
       <publishTime>09/08/2015 09:17:52</publishTime>
@@ -67,7 +67,7 @@
       <publishTime>05/23/2016 08:23:59</publishTime>
     </File>
     <File Include="bin/Easy.Web.CMS.dll">
-      <publishTime>05/31/2016 16:59:38</publishTime>
+      <publishTime>06/02/2016 16:15:19</publishTime>
     </File>
     <File Include="bin/Easy.Web.dll">
       <publishTime>05/23/2016 08:23:59</publishTime>
@@ -463,10 +463,10 @@
       <publishTime>09/02/2015 15:01:03</publishTime>
     </File>
     <File Include="Content/themes/Admin/admin.css">
-      <publishTime>05/13/2016 14:14:50</publishTime>
+      <publishTime>06/01/2016 08:25:15</publishTime>
     </File>
     <File Include="Content/themes/Admin/admin.min.css">
-      <publishTime>05/19/2016 08:18:51</publishTime>
+      <publishTime>06/01/2016 08:25:15</publishTime>
     </File>
     <File Include="Content/themes/Admin/images/dotted.png">
       <publishTime>12/13/2014 17:18:00</publishTime>
@@ -481,10 +481,10 @@
       <publishTime>04/15/2016 09:38:58</publishTime>
     </File>
     <File Include="Content/themes/Admin/script/admin.js">
-      <publishTime>05/26/2016 08:27:22</publishTime>
+      <publishTime>06/02/2016 16:19:06</publishTime>
     </File>
     <File Include="Content/themes/Admin/script/admin.min.js">
-      <publishTime>05/26/2016 08:27:22</publishTime>
+      <publishTime>06/02/2016 16:19:06</publishTime>
     </File>
     <File Include="Content/themes/base/accordion.css">
       <publishTime>05/11/2016 08:25:13</publishTime>
@@ -913,7 +913,7 @@
       <publishTime>05/23/2016 08:23:59</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>05/31/2016 17:03:07</publishTime>
+      <publishTime>06/02/2016 16:55:02</publishTime>
     </File>
     <File Include="Scripts/angular/angular-animate.js">
       <publishTime>01/07/2016 15:49:06</publishTime>

@@ -15,8 +15,6 @@ namespace Easy.Web.CMS.Widget
     [DataConfigure(typeof(WidgetBaseMetaData))]
     public class WidgetBase : EditorEntity
     {
-
-        private static readonly Regex StyleRegex = new Regex("^style=\"(.+?)\"$", RegexOptions.Compiled | RegexOptions.IgnoreCase);
         public string ID { get; set; }
         public string WidgetName { get; set; }
         public int? Position { get; set; }
@@ -31,18 +29,49 @@ namespace Easy.Web.CMS.Widget
         public string ServiceTypeName { get; set; }
         public string ViewModelTypeName { get; set; }
         public string FormView { get; set; }
-        public string StyleClass { get; set; }
 
-        public IHtmlString StyleClassResult(bool design = false)
+        public string StyleClass { get; set; }
+        private string _customClass;
+
+        public string CustomClass
         {
-            if (!design)
+            get
             {
-                return new HtmlString(StyleRegex.IsMatch(StyleClass??"") ? StyleClass +" class=\"widget\"": "class=\"widget " + StyleClass + "\"");
+                if (_customClass != null)
+                {
+                    return _customClass;
+                }
+                InitStyleClass();
+                return _customClass;
             }
-            return
-                new HtmlString(StyleRegex.IsMatch(StyleClass ?? "")
-                    ? StyleClass + " class=\"widget widget-design\""
-                    : "class=\"widget widget-design " + StyleClass + "\"");
+        }
+        private string _customStyle;
+        public string CustomStyle
+        {
+            get
+            {
+                if (_customStyle != null)
+                {
+                    return _customStyle;
+                }
+                InitStyleClass();
+                return _customStyle;
+            }
+        }
+        private void InitStyleClass()
+        {
+            if (StyleClass.IsNullOrWhiteSpace())
+            {
+                _customClass = _customStyle = string.Empty;
+            }
+            else
+            {
+                _customClass = CustomRegex.StyleRegex.Replace(StyleClass, evaluator =>
+                {
+                    _customStyle = evaluator.Groups[1].Value;
+                    return string.Empty;
+                });
+            }
         }
         public WidgetPart ToWidgetPart()
         {
@@ -92,12 +121,15 @@ namespace Easy.Web.CMS.Widget
             DataTable("CMS_WidgetBase");
             DataConfig(m => m.ID).AsPrimaryKey();
             DataConfig(m => m.IsSystem).Update(false).Insert(false);
-
+            DataConfig(m => m.CustomClass).Ignore();
+            DataConfig(m => m.CustomStyle).Ignore();
         }
 
         protected override void ViewConfigure()
         {
             ViewConfig(m => m.StyleClass).AsTextBox().MaxLength(1000);
+            ViewConfig(m => m.CustomClass).AsHidden().Ignore();
+            ViewConfig(m => m.CustomStyle).AsHidden().Ignore();
         }
     }
 

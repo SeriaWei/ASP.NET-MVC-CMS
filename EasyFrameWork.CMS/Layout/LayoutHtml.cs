@@ -12,12 +12,6 @@ namespace Easy.Web.CMS.Layout
     [DataConfigure(typeof(LayoutHtmlMetaData))]
     public class LayoutHtml : EditorEntity
     {
-        private readonly Regex _styleRegex;
-
-        public LayoutHtml()
-        {
-            _styleRegex = new Regex(@"style=""[^""]*""");
-        }
 
         public int LayoutHtmlId { get; set; }
         public string LayoutId { get; set; }
@@ -25,7 +19,7 @@ namespace Easy.Web.CMS.Layout
 
         public string NoStyleHtml
         {
-            get { return _styleRegex.Replace(Html, ""); }
+            get { return CustomRegex.StyleRegex.Replace(Html, ""); }
         }
     }
     public class LayoutHtmlCollection : Collection<LayoutHtml>
