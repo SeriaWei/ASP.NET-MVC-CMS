@@ -15,7 +15,7 @@
         tolerance: "pointer",
         connectWith: ".zone",
         stop: function (event, ui) {
-            ui.item.removeAttr("style");
+            
             var target = ui.item.parent();
             if (ui.item.data("add")) {
                 $.ajax({
@@ -37,7 +37,7 @@
                 });
             }
             var widgets = [];
-            target.children(".widget-design").each(function (i, ui) {
+            target.find(".widget-design").each(function (i, ui) {
                 widgets.push({
                     ID: $(ui).data("widgetid"),
                     ZoneId: $(".zoneId", target).val(),
@@ -57,8 +57,8 @@
             return true;
         }
     });
-    
-    $(".templates ul li").draggable({ helper: "clone", connectToSortable: ".zone",appendTo:"body" });
+
+    $(".templates ul li").draggable({ helper: "clone", connectToSortable: ".zone", appendTo: "body" });
     $(document).on("click", ".delete", function () {
         var th = $(this);
         Easy.ShowMessageBox("提示", "确定要删除该组件吗？", function () {
