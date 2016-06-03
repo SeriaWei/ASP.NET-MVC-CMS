@@ -9,12 +9,19 @@ using Easy.Extend;
 using Easy.MetaData;
 using Easy.Models;
 using Easy.RepositoryPattern;
+using Microsoft.Practices.ServiceLocation;
+using Easy.IOC;
 
 namespace Easy.Web.CMS.Widget
 {
     [DataConfigure(typeof(WidgetBaseMetaData))]
     public class WidgetBase : EditorEntity
     {
+        public static Dictionary<string, Type> KnownWidgetModel;
+        static WidgetBase()
+        {
+            KnownWidgetModel = new Dictionary<string, Type>();
+        }
         public string ID { get; set; }
         public string WidgetName { get; set; }
         public int? Position { get; set; }
@@ -99,19 +106,11 @@ namespace Easy.Web.CMS.Widget
         }
         public Type GetViewModelType()
         {
-            StaticCache cache = new StaticCache();
-            return cache.Get("TypeCache_" + this.ViewModelTypeName, m =>
+            if (KnownWidgetModel.ContainsKey(this.ViewModelTypeName))
             {
-                Type type = null;
-                AppDomain.CurrentDomain.GetAssemblies().Each(n => n.GetTypes().Each(t =>
-                {
-                    if (type == null && t.FullName == this.ViewModelTypeName)
-                    {
-                        type = t;
-                    }
-                }));
-                return type;
-            });
+                return KnownWidgetModel[this.ViewModelTypeName];
+            }
+            return null;
         }
     }
     class WidgetBaseMetaData : DataViewMetaData<WidgetBase>

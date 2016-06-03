@@ -30,7 +30,7 @@ namespace Easy.Web.CMS
 
             var routes = new List<RouteDescriptor>();
             Type plugBaseType = typeof(PluginBase);
-            
+            Type widgetModelType = typeof(WidgetBase);
             BuildManager.GetReferencedAssemblies().Cast<Assembly>().Each(m => m.GetTypes().Each(p =>
             {
                 if (plugBaseType.IsAssignableFrom(p) && !p.IsAbstract && !p.IsInterface)
@@ -44,6 +44,13 @@ namespace Easy.Web.CMS
                             routes.AddRange(moduleRoutes);
                         }
                         plug.Excute();
+                    }
+                }
+                else if (widgetModelType.IsAssignableFrom(p) && !p.IsAbstract && !p.IsInterface && !WidgetBase.KnownWidgetModel.ContainsKey(p.FullName))
+                {
+                    lock (WidgetBase.KnownWidgetModel)
+                    {
+                        WidgetBase.KnownWidgetModel.Add(p.FullName, p);
                     }
                 }
             }));
