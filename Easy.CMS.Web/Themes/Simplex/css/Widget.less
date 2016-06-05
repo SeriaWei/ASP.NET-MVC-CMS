@@ -1,7 +1,7 @@
 ﻿@import "Library.less";
 
 .widget {
-    margin: @margin-base * 0.5;
+    margin: @margin-base;
     &.container{
         margin-left:auto;
         margin-right:auto;
@@ -15,18 +15,19 @@
     &.footer {
         text-align: center;
         border-top: 1px solid @color-border;
-        background: @color-danger;
+        background: @color-main;
         margin:0;
+        color:#FFF;
         p {
             margin: 0;
-        }
-        color:#fff;
-        a{
-            color:#fff;
         }
         .html-widget {
             margin-bottom: 0;
             padding: @padding-base;
+        }
+        a{
+            color:#FFF;
+            text-decoration:underline;
         }
     }
 }

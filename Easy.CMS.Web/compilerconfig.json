@@ -4,10 +4,6 @@
     "inputFile": "Themes/Default/css/Theme.less"
   },
   {
-    "outputFile": "Themes/Modern/css/Theme.css",
-    "inputFile": "Themes/Modern/css/Theme.less"
-  },
-  {
     "outputFile": "Themes/Cerulean/css/Theme.css",
     "inputFile": "Themes/Cerulean/css/Theme.less"
   },
