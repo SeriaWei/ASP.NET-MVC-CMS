@@ -15,7 +15,7 @@ namespace Easy.CMS.Section.Service
 {
     public class SectionGroupService : ServiceBase<SectionGroup>, ISectionGroupService
     {
-        private IEnumerable<SectionContent> GenerateContentFromConfig(SectionGroup group)
+        public SectionGroup GenerateContentFromConfig(SectionGroup group)
         {
             string configFile = AppDomain.CurrentDomain.BaseDirectory + @"Modules\Section\Views\Thumbnail\{0}.xml".FormatWith(group.PartialView);
             List<SectionContent> contents = new List<SectionContent>();
@@ -31,7 +31,7 @@ namespace Easy.CMS.Section.Service
                     {
                         try
                         {
-                            var content = Activator.CreateInstance("Easy.CMS.Section", attr.Value).Unwrap();
+                            var content = Activator.CreateInstance("Easy.CMS.Section", attr.Value).Unwrap() as SectionContent;
                             var properties = item.SelectNodes("property");
                             foreach (XmlNode property in properties)
                             {
@@ -41,7 +41,9 @@ namespace Easy.CMS.Section.Service
                                     ClassAction.SetObjPropertyValue(content, name.Value, property.InnerText);
                                 }
                             }
-                            contents.Add(content as SectionContent);
+                            content.SectionGroupId = group.ID;
+                            content.SectionWidgetId = group.SectionWidgetId;
+                            contents.Add(content);
                         }
                         catch (Exception ex)
                         {
@@ -50,7 +52,8 @@ namespace Easy.CMS.Section.Service
                     }
                 }
             }
-            return contents;
+            group.SectionContents = contents;
+            return group;
         }
         public override void Add(SectionGroup item)
         {
@@ -67,20 +70,17 @@ namespace Easy.CMS.Section.Service
             }
             if (item.IsLoadDefaultData)
             {
-                var contents = GenerateContentFromConfig(item);
-                if (contents != null && contents.Any())
+                GenerateContentFromConfig(item);
+                if (item.SectionContents != null && item.SectionContents.Any())
                 {
                     ISectionContentProviderService contentService = ServiceLocator.Current.GetInstance<ISectionContentProviderService>();
-                    contents.Each(c =>
+                    item.SectionContents.Each(c =>
                     {
-                        c.SectionGroupId = item.ID;
-                        c.SectionWidgetId = item.SectionWidgetId;
                         contentService.Add(c);
                     });
                 }
             }
         }
-
         public override int Delete(params object[] primaryKeys)
         {
             var group = Get(primaryKeys);

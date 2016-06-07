@@ -164,7 +164,14 @@ namespace Easy.CMS.Common.Controllers
             if (!widget.IsSystem)
             {
                 widget.IsTemplate = false;
-                _widgetService.Update(widget);
+                if (widget.PageID.IsNotNullAndWhiteSpace() || widget.LayoutID.IsNotNullAndWhiteSpace())
+                {
+                    _widgetService.Update(widget);
+                }
+                else
+                {
+                    widget.CreateServiceInstance().DeleteWidget(Id);
+                }
             }
             return Json(Id);
         }

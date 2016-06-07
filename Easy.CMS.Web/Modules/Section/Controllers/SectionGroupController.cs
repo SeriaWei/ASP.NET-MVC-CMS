@@ -100,6 +100,8 @@ namespace Easy.CMS.Section.Controllers
                     var file = Request.Files[0];
                     ZipFile zipFile = new ZipFile();
                     var files = zipFile.ToFileCollection(file.InputStream);
+                    SectionTemplate template = null;
+                    bool asTemplate = false;
                     foreach (ZipFileInfo item in files)
                     {
                         if (item.RelativePath.EndsWith(".cshtml"))
@@ -124,7 +126,7 @@ namespace Easy.CMS.Section.Controllers
                             {
                                 var info = System.IO.File.ReadAllText(Server.MapPath("~/Modules/Section/Views/Thumbnail") +
                                                           item.RelativePath);
-                                var template = Newtonsoft.Json.JsonConvert.DeserializeObject<SectionTemplate>(info);
+                                template = Newtonsoft.Json.JsonConvert.DeserializeObject<SectionTemplate>(info);
                                 var sectionTemplateService =
                                     ServiceLocator.Current.GetInstance<ISectionTemplateService>();
                                 if (sectionTemplateService.Count(m => m.TemplateName == template.TemplateName) > 0)
@@ -136,7 +138,32 @@ namespace Easy.CMS.Section.Controllers
                                     sectionTemplateService.Add(template);
                                 }
                             }
+                            else if (item.RelativePath.EndsWith(".xml"))
+                            {
+                                asTemplate = true;
+                            }
                         }
+                    }
+                    if (asTemplate && template != null)
+                    {
+                        SectionWidget widget = new SectionWidget
+                        {
+                            IsTemplate = true,
+                            WidgetName = template.Title,
+                            PartialView = "Widget.Section",
+                            AssemblyName = "Easy.CMS.Section",
+                            ServiceTypeName = "Easy.CMS.Section.Service.SectionWidgetService",
+                            ViewModelTypeName = "Easy.CMS.Section.Models.SectionWidget",
+                            FormView = "SectionWidgetForm",
+                            IsSystem = false,
+                            Thumbnail = "~/Modules/Section/Views/" + template.Thumbnail
+                        };
+                        widget.Thumbnail = widget.Thumbnail.Replace("\\", "/");
+                        SectionGroup group = new SectionGroup();
+                        group.PartialView = template.TemplateName;
+                        _sectionGroupService.GenerateContentFromConfig(group);
+                        widget.Groups = new List<SectionGroup> { group };
+                        ServiceLocator.Current.GetInstance<ISectionWidgetService>().Add(widget);
                     }
                 }
                 catch (Exception ex)

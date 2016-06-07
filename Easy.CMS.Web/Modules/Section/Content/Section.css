@@ -84,3 +84,10 @@
     -webkit-transition: width .3s ease;
     transition: width .3s ease;
 }
+
+#templates .thumbnail{
+    height:173px;
+}
+#templates .thumbnail img{
+    max-height:126px;
+}
