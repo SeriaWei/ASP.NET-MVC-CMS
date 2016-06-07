@@ -146,6 +146,7 @@
   <ItemGroup>
     <None Include="Properties\PublishProfiles\PublishLocal.pubxml" />
     <Content Include="Content\Article.css" />
+    <Content Include="Content\Image\Example.png" />
     <Content Include="CopyItems.xml" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Views\Web.config" />

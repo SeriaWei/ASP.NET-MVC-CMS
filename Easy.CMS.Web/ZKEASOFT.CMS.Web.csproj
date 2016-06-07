@@ -1545,9 +1545,6 @@
     <Content Include="Themes\Yeti\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Themes\Yeti\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Themes\Yeti\fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="Themes\Cerulean\css\Theme.css.map">
-      <DependentUpon>Theme.css</DependentUpon>
-    </Content>
     <Content Include="Themes\Flatly\css\Theme.css.map">
       <DependentUpon>Theme.css</DependentUpon>
     </Content>
@@ -1588,6 +1585,9 @@
       <DependentUpon>Theme.css</DependentUpon>
     </Content>
     <Content Include="Themes\Yeti\css\Theme.css.map">
+      <DependentUpon>Theme.css</DependentUpon>
+    </Content>
+    <Content Include="Themes\Cerulean\css\Theme.css.map">
       <DependentUpon>Theme.css</DependentUpon>
     </Content>
   </ItemGroup>

@@ -1,14 +1,4 @@
 ﻿$(function () {
-    function checkEmptyZone() {
-        $(".zone").each(function () {
-            if ($(this).children(":not(.zoneName)").size() === 0) {
-                $(this).addClass("empty-zone");
-            } else {
-                $(this).removeClass("empty-zone");
-            }
-        });
-    }
-
     $(".zone").sortable({
         placeholder: "sorting",
         handle: ".sort-handle",
@@ -58,14 +48,13 @@
         }
     });
 
-    $(".templates ul li").draggable({ helper: "clone", connectToSortable: ".zone", appendTo: "body" });
+    $(".templates ul li").draggable({ helper: "clone", connectToSortable: ".zone" });
     $(document).on("click", ".delete", function () {
         var th = $(this);
         Easy.ShowMessageBox("提示", "确定要删除该组件吗？", function () {
             $.post(th.data("url"), { ID: th.data("id") }, function (data) {
                 if (data) {
-                    $("#widget_" + data).remove();
-                    checkEmptyZone();
+                    $("#widget_" + data).parent().remove();
                 }
             }, "json");
         }, true, 10);
@@ -85,7 +74,6 @@
     $(".helper").click(function () {
         $("#containers").toggleClass($(this).data("class"));
     });
-    checkEmptyZone();
     if ($(window).width() > 1600) {
         $(".templates").addClass("active");
     }

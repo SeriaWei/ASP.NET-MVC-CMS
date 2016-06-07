@@ -136,6 +136,7 @@
     <Compile Include="ViewModel\ProductListWidgetViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Image\Example.png" />
     <Content Include="CopyItems.xml" />
     <Content Include="Scripts\jquery-photowall\exit.gif" />
     <Content Include="Scripts\jquery-photowall\index.html" />

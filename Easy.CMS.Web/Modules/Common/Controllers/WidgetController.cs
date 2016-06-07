@@ -21,16 +21,18 @@ namespace Easy.CMS.Common.Controllers
     public class WidgetController : Controller
     {
         private readonly IWidgetService _widgetService;
+        private readonly IWidgetTemplateService _widgetTemplateService;
 
-        public WidgetController(IWidgetService widgetService)
+        public WidgetController(IWidgetService widgetService, IWidgetTemplateService widgetTemplateService)
         {
             _widgetService = widgetService;
+            _widgetTemplateService = widgetTemplateService;
         }
 
         [ViewDataZones]
         public ActionResult Create(QueryContext context)
         {
-            var template = ServiceLocator.Current.GetInstance<IWidgetTemplateService>().Get(context.WidgetTemplateID);
+            var template = _widgetTemplateService.Get(context.WidgetTemplateID);
             var widget = template.CreateWidgetInstance();
             widget.PageID = context.PageID;
             widget.LayoutID = context.LayoutID;
@@ -44,6 +46,7 @@ namespace Easy.CMS.Common.Controllers
             {
                 widget.Position = _widgetService.GetByLayoutId(context.LayoutID).Count(m => m.ZoneID == context.ZoneID) + 1;
             }
+            ViewBag.WidgetTemplateName = template.Title;
             ViewBag.ReturnUrl = context.ReturnUrl;
             if (template.FormView.IsNotNullAndWhiteSpace())
             {
@@ -83,6 +86,15 @@ namespace Easy.CMS.Common.Controllers
             var widgetBase = _widgetService.Get(ID);
             var widget = widgetBase.CreateServiceInstance().GetWidget(widgetBase);
             ViewBag.ReturnUrl = ReturnUrl;
+
+            var template = _widgetTemplateService.Get(
+                m =>
+                    m.PartialView == widget.PartialView && m.AssemblyName == widget.AssemblyName &&
+                    m.ServiceTypeName == widget.ServiceTypeName && m.ViewModelTypeName == widget.ViewModelTypeName).FirstOrDefault();
+            if (template != null)
+            {
+                ViewBag.WidgetTemplateName = template.Title;
+            }
             if (widget.FormView.IsNotNullAndWhiteSpace())
             {
                 return View(widget.FormView, widget);
@@ -112,7 +124,7 @@ namespace Easy.CMS.Common.Controllers
                 return RedirectToAction("LayoutWidget", "Layout", new { module = "admin" });
             }
         }
-  
+
         [HttpPost]
         public JsonResult SaveWidgetZone(List<WidgetBase> widgets)
         {

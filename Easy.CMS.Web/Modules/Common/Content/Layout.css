@@ -33,16 +33,9 @@ input.helper:checked + span {
 .input-group {
     margin: 2px 0;
 }
-
-.ui-draggable-dragging {
-    z-index: 10000;
-    word-break: keep-all;
-    word-wrap: normal;
-    white-space: nowrap;
-    list-style: none;
-}
-
-.navbar-fixed-top {
+.navbar-fixed-top, 
+.navbar-fixed-bottom,
+.navbar.navbar-inverse.navbar-fixed-top {
     z-index: 10;
 }
 
@@ -89,10 +82,6 @@ input.helper:checked + span {
 
 .design-border .additional.row {
     margin-top: 1px;
-}
-
-.design-border .empty-zone {
-    min-height: 90px;
 }
 
 .design-border .zone {
@@ -237,55 +226,68 @@ label.additional {
     font-size: 20px;
     font-weight: bold;
 }
-.layout.templates .widget-design .row > div::before{    
+
+.layout.templates .widget-design .row > div::before {
     left: 50%;
     top: 50%;
-    margin:-14px auto auto -7px;
+    margin: -14px auto auto -7px;
 }
+
 .layout.templates .widget-design .col-md-12::before,
 .design .additional.row .col-md-12::before {
     content: "12";
 }
+
 .layout.templates .widget-design .col-md-11::before,
 .design .additional.row .col-md-11::before {
     content: "11";
 }
+
 .layout.templates .widget-design .col-md-10::before,
 .design .additional.row .col-md-10::before {
     content: "10";
 }
+
 .layout.templates .widget-design .col-md-9::before,
 .design .additional.row .col-md-9::before {
     content: "9";
 }
+
 .layout.templates .widget-design .col-md-8::before,
 .design .additional.row .col-md-8::before {
     content: "8";
 }
+
 .layout.templates .widget-design .col-md-7::before,
 .design .additional.row .col-md-7::before {
     content: "7";
 }
+
 .layout.templates .widget-design .col-md-6::before,
 .design .additional.row .col-md-6::before {
     content: "6";
 }
+
 .layout.templates .widget-design .col-md-5::before,
 .design .additional.row .col-md-5::before {
     content: "5";
 }
+
 .layout.templates .widget-design .col-md-4::before,
 .design .additional.row .col-md-4::before {
     content: "4";
 }
+
 .layout.templates .widget-design .col-md-3::before,
 .design .additional.row .col-md-3::before {
     content: "3";
 }
+
 .layout.templates .widget-design .col-md-2::before,
 .design .additional.row .col-md-2::before {
     content: "2";
 }
+
 .layout.templates .widget-design .col-md-1::before,
 .design .additional.row .col-md-1::before {
     content: "1";
@@ -306,15 +308,12 @@ label.additional {
     min-height: 500px;
 }
 
-    .pagePreview .zone {
-        position: relative;
-    }
+    
 
 .zoneName {
     display: none;
     position: absolute;
-    right: 0;
-    top: 2px;
+    margin: 30px auto auto 5px;
     z-index: 2;
     font-size: 16px;
 }
@@ -340,9 +339,7 @@ label.additional {
     background-color: #d9534f !important;
 }
 
-.widget-design {
-    position: relative;
-}
+
 
 .sort-handle {
     cursor: move;
@@ -350,12 +347,10 @@ label.additional {
 
 .zoneToolbar {
     position: absolute;
-    width: 100%;
+    margin: -5px auto auto 0;
     z-index: 1;
     color: white;
     line-height: 25px;
-    top: -28px;
-    left: 0;
 }
 
     .zoneToolbar:hover {
@@ -435,7 +430,7 @@ label.additional {
     right: 0;
     top: 0;
     height: 100%;
-    z-index: 100000;
+    z-index: 10;
     transition: all 0.5s ease-in-out;
     box-shadow: 0 0 5px rgba(0, 0, 0,0.2);
 }
@@ -501,12 +496,18 @@ label.additional {
             transition: all 0.2s ease-in-out;
         }
 
+        
+     .templates .widget-design {
+         position: relative;
+     }
     .templates .delete-template {
         position: absolute;
         top: -8px;
         left: -8px;
     }
-
+    .ui-draggable-dragging .delete-template {
+        display: none;
+    }
 
 li.ui-sortable-helper {
     width: 200px;
@@ -524,6 +525,10 @@ li.ui-sortable-helper {
             min-height: 80px;
             border: 1px solid #ddd;
         }
+
+.widget.ui-sortable-helper {
+    background: #fff;
+}
 
 .layout .ui-draggable-handle.ui-draggable-dragging {
     width: 200px;
@@ -550,10 +555,11 @@ li.ui-sortable-helper {
         color: #fff;
     }
 
-.ui-sortable-helper {
-    list-style: none;
-}
 
-.widget.ui-sortable-helper {
-    background: #fff;
+.ui-draggable-dragging {
+    z-index: 11;
+    word-break: keep-all;
+    word-wrap: normal;
+    white-space: nowrap;
+    list-style: none;
 }

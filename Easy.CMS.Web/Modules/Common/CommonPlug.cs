@@ -130,7 +130,7 @@ namespace Easy.CMS.Common
 
         protected override void InitStyle(Func<string, Web.Resource.ResourceHelper> style)
         {
-            style("Layout").Include("~/Modules/Common/Content/Layout.css");
+            style("Layout").Include("~/Modules/Common/Content/Layout.css", "~/Modules/Common/Content/Layout.min.css");
             style("OWL.Carousel")
                 .Include("~/Modules/Common/Scripts/OwlCarousel/owl.carousel.css", "~/Modules/Common/Scripts/OwlCarousel/owl.carousel.min.css")
                 .Include("~/Modules/Common/Scripts/OwlCarousel/owl.transitions.css", "~/Modules/Common/Scripts/OwlCarousel/owl.transitions.min.css");
