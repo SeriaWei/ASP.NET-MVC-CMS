@@ -161,6 +161,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Layout.css" />
+    <Content Include="Content\Layout.min.css">
+      <DependentUpon>Layout.css</DependentUpon>
+    </Content>
     <Content Include="CopyItems.xml" />
     <Content Include="Content\Images\demoLayout.jpg" />
     <Content Include="Scripts\jquery-1.8.2.js" />

@@ -313,7 +313,7 @@ label.additional {
 .zoneName {
     display: none;
     position: absolute;
-    margin: 30px auto auto 5px;
+    margin: 50px auto auto 5px;
     z-index: 2;
     font-size: 16px;
 }
