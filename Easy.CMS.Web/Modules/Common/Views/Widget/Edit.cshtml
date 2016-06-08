@@ -1,4 +1,5 @@
-﻿@{
+﻿@model Easy.Web.CMS.Widget.WidgetBase
+@{
     Script.Reqiured("validate").AtFoot();
 }
 <div class="panel panel-default">
@@ -14,6 +15,10 @@
             <input type="hidden" name="ReturnUrl" value="@ViewBag.ReturnUrl" />
             <div class="toolBar">
                 <input id="design" type="submit" class="btn btn-primary" value="保存" data-value="@ActionType.Update" />
+                @if (HttpContext.Current.IsDebuggingEnabled && Model.IsTemplate)
+                {
+                    <a href="@Url.Action("Pack",new{ID=Model.ID})" class="btn btn-danger">打包</a>
+                }
                 <input type="button" class="btn btn-default cancel" value="取消" />
             </div>
         }

@@ -1,0 +1,26 @@
+﻿@using System.Linq
+@using Easy.CMS.Section
+@using Easy.CMS.Section.Models
+@model SectionGroup
+
+<div class="section-group-right-three-icon">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="row image-circle">
+                @foreach (SectionContentImage image in Model.SectionImages)
+                {
+                    <div class="col-md-4">
+                        @{
+                    Html.RenderContent(image);
+                        }
+                    </div>
+                }
+            </div>
+        </div>
+        <div class="col-md-6">
+            @{
+                Html.RenderContent(Model.Paragraph);
+            }
+        </div>
+    </div>
+</div>

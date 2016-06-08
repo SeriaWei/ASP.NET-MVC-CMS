@@ -1,57 +1,43 @@
 ﻿@model Easy.Web.CMS.Layout.LayoutEntity
 @{
     Layout = null;
-    var zoneStart = false;
     if (Model == null)
     {
         return;
     }
 }
 <style>
-    .panel{
-        cursor:pointer;
+    .panel {
+        cursor: pointer;
     }
-    .panel.active{
-        background:#337ab7;
-        color:#fff;
-    }
+
+        .panel.active {
+            background: #337ab7;
+            color: #fff;
+        }
 </style>
-<div class="container-fluid">
-    @foreach (var itemHtml in Model.Html)
+<div>
+    @for (int i = 0; i < Model.Html.Count; i++)
     {
+        var itemHtml = Model.Html[i];
         if (itemHtml.Html == Easy.Web.CMS.Zone.ZoneEntity.ZoneTag)
         {
-            @Html.Raw(itemHtml.Html)
-            zoneStart = true;
-            continue;
-        }
-        if (zoneStart)
-        {
-            var zone = Model.Zones.Where(m => m.ID == itemHtml.Html);
-            if (zone.Any())
+            i++;
+            itemHtml = Model.Html[i];
+            foreach (var item in Model.Zones.Where(m => m.ID == itemHtml.Html))
             {
-                zoneStart = false;
-
-                foreach (var item in zone)
-                {
-                    <div class="panel panel-default @(item.ID == ViewBag.ZoneId ? "active" : "")" style="margin:5px;text-align:center;" data-zoneid="@item.ID">
-                        <div class="panel-body">
-                            @item.ZoneName
-                        </div>
-                    </div>                   
-                }
-
-                continue;
+                <div class="panel panel-default @(item.ID == ViewBag.ZoneId ? "active" : "")" style="margin: 5px; text-align: center;" data-zoneid="@item.ID">
+                    <div class="panel-body">
+                        @item.ZoneName
+                    </div>
+                </div>
             }
-        }
-        if (itemHtml.Html == Easy.Web.CMS.Zone.ZoneEntity.ZoneEndTag)
-        {
-            @Html.Raw(itemHtml.Html)
-            zoneStart = false;
+            i++;
             continue;
         }
-        @Html.Raw(itemHtml.Html)
+        @Html.Raw(itemHtml.NoStyleHtml)
     }
+
 </div>
 @using (Script.AtFoot())
 {

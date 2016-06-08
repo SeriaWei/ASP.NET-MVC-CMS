@@ -47,13 +47,16 @@
 }
 .group-form #template .pack{
     position:absolute;
-    right:20px;
-    bottom:30px;
+    right:25px;
+    bottom:25px;
     display:none;
 }
 .group-form.developer #template .pack{
     display:block;
-    color: #808080;
+    color: #a0a0a0;
+}
+.group-form.developer #template .pack:hover {
+    color: red;
 }
 .group-form #templates {
     max-height: 395px;
@@ -87,6 +90,10 @@
 
 #templates .thumbnail{
     height:173px;
+}
+#templates .thumbnail .image {
+    height: 123px;
+    background: #fff;
 }
 #templates .thumbnail img{
     max-height:126px;

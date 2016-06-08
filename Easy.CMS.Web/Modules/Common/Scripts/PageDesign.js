@@ -70,6 +70,10 @@
                 }
             }, "json");
         }, true, 10);
+    }).on("click", ".upload-template", function() {
+        $("#template-file").trigger("click");
+    }).on("change", "#template-file", function() {
+        $("#template-form").submit();
     });
     $(".helper").click(function () {
         $("#containers").toggleClass($(this).data("class"));

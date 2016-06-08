@@ -20,7 +20,7 @@
                             @if (HttpContext.Current.IsDebuggingEnabled)
                             {
                                 <div class="pull-right">
-                                    <a target="_blank" class="download" href="@Url.Action("ThemePackage", new {id = item.ID})" title="打包">
+                                    <a class="download" href="@Url.Action("ThemePackage", new {id = item.ID})" title="打包">
                                         <i class="glyphicon glyphicon-download-alt"></i>
                                     </a>
                                 </div>

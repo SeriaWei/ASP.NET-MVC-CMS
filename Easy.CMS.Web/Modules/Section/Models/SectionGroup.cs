@@ -32,6 +32,14 @@ namespace Easy.CMS.Section.Models
             return null;
         }
 
+        private IEnumerable<T> GetContents<T>(SectionContent.Types type) where T : SectionContent
+        {
+            if (SectionContents != null)
+            {
+                return SectionContents.Where(m => m != null && m.SectionContentType == (int)type).Cast<T>();
+            }
+            return null;
+        }
         public SectionContentTitle SectionTitle
         {
             get
@@ -39,7 +47,13 @@ namespace Easy.CMS.Section.Models
                 return GetContent<SectionContentTitle>(SectionContent.Types.Title);
             }
         }
-
+        public IEnumerable<SectionContentTitle> SectionTitles
+        {
+            get
+            {
+                return GetContents<SectionContentTitle>(SectionContent.Types.Title);
+            }
+        }
         public SectionContentCallToAction CallToAction
         {
             get
@@ -48,6 +62,13 @@ namespace Easy.CMS.Section.Models
             }
         }
 
+        public IEnumerable<SectionContentCallToAction> CallToActions
+        {
+            get
+            {
+                return GetContents<SectionContentCallToAction>(SectionContent.Types.CallToAction);
+            }
+        }
         public SectionContentImage SectionImage
         {
             get
@@ -55,11 +76,25 @@ namespace Easy.CMS.Section.Models
                 return GetContent<SectionContentImage>(SectionContent.Types.Image);
             }
         }
+        public IEnumerable<SectionContentImage> SectionImages
+        {
+            get
+            {
+                return GetContents<SectionContentImage>(SectionContent.Types.Image);
+            }
+        }
         public SectionContentParagraph Paragraph
         {
             get
             {
                 return GetContent<SectionContentParagraph>(SectionContent.Types.Paragraph);
+            }
+        }
+        public IEnumerable<SectionContentParagraph> Paragraphs
+        {
+            get
+            {
+                return GetContents<SectionContentParagraph>(SectionContent.Types.Paragraph);
             }
         }
     }

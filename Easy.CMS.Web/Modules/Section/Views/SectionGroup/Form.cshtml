@@ -113,23 +113,24 @@
 @using (Script.AtFoot())
 {
     <script type="text/javascript">
-        $(document).on("click", "#confirm", function () {
-            $("form").submit();
-        });
-        $(function () {
-            if (@(ViewBag.Close!=null?1:0)) {
-                $(".popUpToolBar .btn-default").click();
-        }
-        });
-        $(function() {
-            var templates = $("#templates");
-            var partView = $("#PartialView");
-            $("option",partView).each(function() {
-                var value = $(this).val();
-                templates.append('<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">'+
-                    '<a class="thumbnail" href="#'+value+'"><img src="@Url.Content("~/Modules/Section/Views/Thumbnail/")'+value+'.png"/><div class="caption ">'+
+    $(document).on("click", "#confirm", function () {
+        $("form").submit();
+    });
+    $(function () {
+        if (@(ViewBag.Close!=null?1:0)) {
+            $(".popUpToolBar .btn-default").click();
+    }
+    });
+    $(function() {
+        var debug = '@(HttpContext.Current.IsDebuggingEnabled)';
+        var templates = $("#templates");
+        var partView = $("#PartialView");
+        $("option",partView).each(function() {
+            var value = $(this).val();
+            templates.append('<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">'+
+                '<a class="thumbnail" href="#'+value+'"><div class="image"><img src="@Url.Content("~/Modules/Section/Views/Thumbnail/")'+value+'.png"/></div><div class="caption ">'+
                     '<span class="badge">'+$(this).text()+'</span>'+
-                    '</div></a>'+'<a target="_blank" class="pack" href="@Url.Action("TemplatePackage")?name='+value+'" title="打包"><i class="glyphicon glyphicon-download-alt">'+
+                    '</div></a>'+ (debug==="True"?'<a class="pack" href="@Url.Action("TemplatePackage")?name='+value+'" title="打包"><i class="glyphicon glyphicon-download-alt">':'') +
                     '</i></a></div>');
             });
             $(".thumbnail[href='#" + partView.val() + "']").addClass("active");
@@ -165,26 +166,26 @@
             var message = $("#message-info");
             var xhr = new XMLHttpRequest();
             xhr.open('POST', '@Url.Action("UploadTemplate")');
-            xhr.onload = function(e) {
-                var result = JSON.parse(e.target.response);
-                if (result.Status === 1) {
-                    setTimeout(function() {
-                        window.location.reload();
-                    }, 500);
-                    message.html(result.Message);
-                } else {
-                    message.html(result.Message);
-                    progressBar.width("0%");
-                    progressBar.html("0%");
-                }
-            };
-            xhr.upload.onprogress = function(e) {
-                var persecnt = e.loaded / e.total * 100;
-                progressBar.width(persecnt + "%");
-                progressBar.html(Math.round(persecnt) + "%");
+        xhr.onload = function(e) {
+            var result = JSON.parse(e.target.response);
+            if (result.Status === 1) {
+                setTimeout(function() {
+                    window.location.reload();
+                }, 500);
+                message.html(result.Message);
+            } else {
+                message.html(result.Message);
+                progressBar.width("0%");
+                progressBar.html("0%");
             }
-            xhr.send(formData);
-            return false;
         };
+        xhr.upload.onprogress = function(e) {
+            var persecnt = e.loaded / e.total * 100;
+            progressBar.width(persecnt + "%");
+            progressBar.html(Math.round(persecnt) + "%");
+        }
+        xhr.send(formData);
+        return false;
+    };
     </script>
 }
