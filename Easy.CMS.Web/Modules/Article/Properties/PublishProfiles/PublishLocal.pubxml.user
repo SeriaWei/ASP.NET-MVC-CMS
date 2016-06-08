@@ -28,13 +28,13 @@
       <publishTime>09/08/2015 09:26:23</publishTime>
     </File>
     <File Include="bin/Easy.CMS.Article.dll">
-      <publishTime>06/02/2016 19:44:01</publishTime>
+      <publishTime>06/08/2016 23:37:28</publishTime>
     </File>
     <File Include="bin/Easy.dll">
       <publishTime>05/22/2016 15:34:08</publishTime>
     </File>
     <File Include="bin/Easy.Web.CMS.dll">
-      <publishTime>06/02/2016 19:42:03</publishTime>
+      <publishTime>06/08/2016 23:34:32</publishTime>
     </File>
     <File Include="bin/Easy.Web.dll">
       <publishTime>05/22/2016 15:34:08</publishTime>
@@ -156,6 +156,9 @@
     <File Include="Content/Article.css">
       <publishTime>08/28/2014 18:57:55</publishTime>
     </File>
+    <File Include="Content/Image/Example.png">
+      <publishTime>06/07/2016 21:38:30</publishTime>
+    </File>
     <File Include="CopyItems.xml">
       <publishTime>08/17/2014 11:51:25</publishTime>
     </File>
@@ -163,7 +166,7 @@
       <publishTime>05/22/2016 15:34:05</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>06/02/2016 19:44:02</publishTime>
+      <publishTime>06/08/2016 23:37:30</publishTime>
     </File>
     <File Include="Scripts/jquery-1.8.2.js">
       <publishTime>07/02/2014 22:06:45</publishTime>

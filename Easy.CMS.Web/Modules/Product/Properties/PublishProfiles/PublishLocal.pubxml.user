@@ -28,13 +28,13 @@
       <publishTime>09/08/2015 09:27:02</publishTime>
     </File>
     <File Include="bin/Easy.CMS.Product.dll">
-      <publishTime>06/02/2016 19:44:29</publishTime>
+      <publishTime>06/08/2016 23:37:59</publishTime>
     </File>
     <File Include="bin/Easy.dll">
       <publishTime>05/22/2016 15:34:08</publishTime>
     </File>
     <File Include="bin/Easy.Web.CMS.dll">
-      <publishTime>06/02/2016 19:42:03</publishTime>
+      <publishTime>06/08/2016 23:34:32</publishTime>
     </File>
     <File Include="bin/Easy.Web.dll">
       <publishTime>05/22/2016 15:34:08</publishTime>
@@ -129,6 +129,9 @@
     <File Include="bin/zh-Hans/System.Web.WebPages.resources.dll">
       <publishTime>07/02/2014 21:58:06</publishTime>
     </File>
+    <File Include="Content/Image/Example.png">
+      <publishTime>06/07/2016 21:38:30</publishTime>
+    </File>
     <File Include="CopyItems.xml">
       <publishTime>08/13/2014 20:42:27</publishTime>
     </File>
@@ -136,7 +139,7 @@
       <publishTime>05/22/2016 15:34:06</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>06/02/2016 19:44:30</publishTime>
+      <publishTime>06/08/2016 23:38:00</publishTime>
     </File>
     <File Include="Scripts/jquery-photowall/exit.gif">
       <publishTime>12/11/2014 19:09:54</publishTime>
