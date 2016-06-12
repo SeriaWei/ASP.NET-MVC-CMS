@@ -7,7 +7,7 @@ namespace Easy
 {
     public class ResourceManager : Easy.Web.Resource.ResourceManager
     {
-        const string CdnHost = "http://cdn.zkea.net";
+        const string CdnHost = "http://zkeasoft.byethost24.com";
         protected override void InitScript(Func<string, Web.Resource.ResourceHelper> script)
         {
 
@@ -42,7 +42,7 @@ namespace Easy
             script("admin")
                 .Include("~/Content/themes/Admin/script/admin.js", "~/Content/themes/Admin/script/admin.min.js", CdnHost + "/Content/themes/Admin/script/admin.min.js")
                 .Include("~/Scripts/EasyPlug/Easy.Grid.js", "~/Scripts/EasyPlug/Easy.Grid.min.js", CdnHost + "/Scripts/EasyPlug/Easy.Grid.min.js")
-                .Include("~/Scripts/tinymce/tinymce.min.js", "~/Scripts/tinymce/tinymce.min.js", CdnHost + "/Scripts/tinymce/tinymce.min.js")
+                .Include("~/Scripts/tinymce/tinymce.min.js", "~/Scripts/tinymce/tinymce.min.js", "//cdn.tinymce.com/4/tinymce.min.js")
                 .Include("~/Scripts/CryptoJS/components/core.js", "~/Scripts/CryptoJS/components/core-min.js", CdnHost + "/Scripts/CryptoJS/components/core-min.js")
                 .Include("~/Scripts/CryptoJS/components/enc-base64.js", "~/Scripts/CryptoJS/components/enc-base64-min.js", CdnHost + "/Scripts/CryptoJS/components/enc-base64-min.js")
                 .Include("~/Scripts/Statistics.js")
