@@ -27,7 +27,7 @@ namespace Easy.CMS.Section.Models
         {
             if (SectionContents != null)
             {
-                return (T)SectionContents.FirstOrDefault(m => m != null && m.SectionContentType == (int)type);
+                return SectionContents.FirstOrDefault(m => m != null && m.SectionContentType == (int)type) as T;
             }
             return null;
         }

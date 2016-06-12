@@ -128,6 +128,8 @@
     <Compile Include="Controllers\SectionGroupController.cs" />
     <Compile Include="Controllers\SectionWidgetController.cs" />
     <Compile Include="HtmlHelperContent.cs" />
+    <Compile Include="ContentJsonConvert\SectionContentJsonConverter.cs" />
+    <Compile Include="ContentJsonConvert\JsonCreationConverter.cs" />
     <Compile Include="Models\SectionContent.cs" />
     <Compile Include="Models\SectionContentCallToAction.cs" />
     <Compile Include="Models\SectionContentParagraph.cs" />

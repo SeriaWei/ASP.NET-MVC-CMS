@@ -25,5 +25,13 @@ namespace Easy.Web.CMS
             }
             set { _requestUrl = new Uri(value.AbsoluteUri); }
         }
+        public string MapPath(string path)
+        {
+            if (HttpContext.Current != null)
+            {
+               return HttpContext.Current.Server.MapPath(path);
+            }
+            return path;
+        }
     }
 }

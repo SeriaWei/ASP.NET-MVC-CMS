@@ -25,8 +25,7 @@ namespace Easy.CMS.Common.Controllers
     {
         private readonly IWidgetService _widgetService;
         private readonly IWidgetTemplateService _widgetTemplateService;
-        private const string TempFolder = "~/Temp";
-        private const string TempJsonFile = "~/Temp/{0}.json";
+
 
         public WidgetController(IWidgetService widgetService, IWidgetTemplateService widgetTemplateService)
         {
@@ -183,22 +182,8 @@ namespace Easy.CMS.Common.Controllers
 
         public FileResult Pack(string ID)
         {
-            var widgetBase = _widgetService.Get(ID);
-            var widget = widgetBase.CreateServiceInstance().GetWidget(widgetBase);
-            widget.PageID = null;
-            widget.LayoutID = null;
-            widget.ZoneID = null;
-            widget.IsSystem = false;
-            widget.IsTemplate = true;
-            var jsonResult = JsonConvert.SerializeObject(widget);
-            string tempFile = Server.MapPath(TempJsonFile.FormatWith(Guid.NewGuid().ToString("N")));
-            if (!Directory.Exists(Server.MapPath(TempFolder)))
-            {
-                Directory.CreateDirectory(Server.MapPath(TempFolder));
-            }
-            System.IO.File.WriteAllText(tempFile, jsonResult);
-            ZipFile file = new ZipFile();
-            file.AddFile(new FileInfo(tempFile));
+            var widget = _widgetService.Get(ID);
+            var file = _widgetService.PackWidget(ID);
             return File(file.ToMemoryStream(), "Application/zip", widget.WidgetName + ".zip");
         }
         [HttpPost]
@@ -208,21 +193,7 @@ namespace Easy.CMS.Common.Controllers
             {
                 try
                 {
-                    ZipFile zipFile = new ZipFile();
-                    var files = zipFile.ToFileCollection(Request.Files[0].InputStream);
-
-                    foreach (ZipFileInfo item in files)
-                    {
-                        var jsonStr = System.Text.Encoding.UTF8.GetString(item.FileBytes);
-                        var widgetBase = JsonConvert.DeserializeObject<WidgetBase>(jsonStr);
-                        var widget = JsonConvert.DeserializeObject(jsonStr, widgetBase.GetViewModelType()) as WidgetBase;
-                        widget.PageID = null;
-                        widget.LayoutID = null;
-                        widget.ZoneID = null;
-                        widget.IsSystem = false;
-                        widget.IsTemplate = true;
-                        widget.CreateServiceInstance().AddWidget(widget);
-                    }
+                    _widgetService.InstallPackWidget(Request.Files[0].InputStream);
                 }
                 catch (Exception ex)
                 {

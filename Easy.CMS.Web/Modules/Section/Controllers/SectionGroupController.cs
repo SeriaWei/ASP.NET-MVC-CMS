@@ -97,74 +97,7 @@ namespace Easy.CMS.Section.Controllers
             {
                 try
                 {
-                    var file = Request.Files[0];
-                    ZipFile zipFile = new ZipFile();
-                    var files = zipFile.ToFileCollection(file.InputStream);
-                    SectionTemplate template = null;
-                    bool asTemplate = false;
-                    foreach (ZipFileInfo item in files)
-                    {
-                        if (item.RelativePath.EndsWith(".cshtml"))
-                        {
-                            using (
-                                var fs = System.IO.File.Create(Server.MapPath("~/Modules/Section/Views") + item.RelativePath)
-                                )
-                            {
-                                fs.Write(item.FileBytes, 0, item.FileBytes.Length);
-                            }
-                        }
-                        else
-                        {
-                            using (
-                                var fs =
-                                    System.IO.File.Create(Server.MapPath("~/Modules/Section/Views/Thumbnail") +
-                                                          item.RelativePath))
-                            {
-                                fs.Write(item.FileBytes, 0, item.FileBytes.Length);
-                            }
-                            if (item.RelativePath.EndsWith(".json"))
-                            {
-                                var info = System.IO.File.ReadAllText(Server.MapPath("~/Modules/Section/Views/Thumbnail") +
-                                                          item.RelativePath);
-                                template = Newtonsoft.Json.JsonConvert.DeserializeObject<SectionTemplate>(info);
-                                var sectionTemplateService =
-                                    ServiceLocator.Current.GetInstance<ISectionTemplateService>();
-                                if (sectionTemplateService.Count(m => m.TemplateName == template.TemplateName) > 0)
-                                {
-                                    sectionTemplateService.Update(template);
-                                }
-                                else
-                                {
-                                    sectionTemplateService.Add(template);
-                                }
-                            }
-                            else if (item.RelativePath.EndsWith(".xml"))
-                            {
-                                asTemplate = true;
-                            }
-                        }
-                    }
-                    if (asTemplate && template != null)
-                    {
-                        SectionWidget widget = new SectionWidget
-                        {
-                            IsTemplate = true,
-                            WidgetName = template.Title,
-                            PartialView = "Widget.Section",
-                            AssemblyName = "Easy.CMS.Section",
-                            ServiceTypeName = "Easy.CMS.Section.Service.SectionWidgetService",
-                            ViewModelTypeName = "Easy.CMS.Section.Models.SectionWidget",
-                            FormView = "SectionWidgetForm",
-                            IsSystem = false,
-                            Thumbnail = "~/Modules/Section/Views/" + template.Thumbnail
-                        };
-                        widget.Thumbnail = widget.Thumbnail.Replace("\\", "/");
-                        SectionGroup group = new SectionGroup();
-                        group.PartialView = template.TemplateName;
-                        _sectionGroupService.GenerateContentFromConfig(group);
-                        widget.Groups = new List<SectionGroup> { group };
-                        ServiceLocator.Current.GetInstance<ISectionWidgetService>().Add(widget);
-                    }
+                    ServiceLocator.Current.GetInstance<Easy.Web.CMS.Widget.IWidgetService>().InstallPackWidget(Request.Files[0].InputStream);
                 }
                 catch (Exception ex)
                 {
@@ -174,37 +107,6 @@ namespace Easy.CMS.Section.Controllers
             }
 
             return Json(new AjaxResult { Status = AjaxStatus.Normal, Message = "上传成功" });
-        }
-
-        public FileResult TemplatePackage(string name)
-        {
-            var template = ServiceLocator.Current.GetInstance<ISectionTemplateService>().Get(name);
-
-            string infoFile = Server.MapPath("~/Modules/Section/Views/Thumbnail/{0}.json".FormatWith(name));
-            using (var writer = System.IO.File.CreateText(infoFile))
-            {
-                writer.Write(Newtonsoft.Json.JsonConvert.SerializeObject(template));
-            }
-
-            ZipFile zipFile = new ZipFile();
-            zipFile.AddFile(new System.IO.FileInfo(infoFile));
-            var files = new[]
-            {
-                "~/Modules/Section/Views/{0}.cshtml",
-                "~/Modules/Section/Views/Thumbnail/{0}.png",
-                "~/Modules/Section/Views/Thumbnail/{0}.xml",
-                "~/Modules/Section/Views/Thumbnail/{0}.json",
-            };
-            files.Each(f =>
-            {
-                string file = Server.MapPath(f.FormatWith(name));
-                if (System.IO.File.Exists(file))
-                {
-                    zipFile.AddFile(new System.IO.FileInfo(file));
-                }
-            });
-
-            return File(zipFile.ToMemoryStream(), "application/zip", template.Title + ".zip");
         }
 
         [HttpPost]

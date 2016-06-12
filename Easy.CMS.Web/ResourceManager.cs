@@ -7,7 +7,7 @@ namespace Easy
 {
     public class ResourceManager : Easy.Web.Resource.ResourceManager
     {
-        const string CdnHost = "http://zkeasoft.byethost24.com";
+        const string CdnHost = "http://cdn.zkeasoft.com";
         protected override void InitScript(Func<string, Web.Resource.ResourceHelper> script)
         {
 

@@ -210,6 +210,6 @@
         toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
         height: 300,
         relative_urls: false,
-        language_url: "http://zkeasoft.byethost24.com/Scripts/tinymce/langs/zh_CN.js"
+        language_url: "http://cdn.zkeasoft.com/Scripts/tinymce/langs/zh_CN.js"
     });
 });

@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Web;
 using Easy.RepositoryPattern;
+using System.IO;
+using EasyZip;
 
 namespace Easy.Web.CMS.Widget
 {
@@ -11,5 +13,7 @@ namespace Easy.Web.CMS.Widget
         IEnumerable<WidgetBase> GetAllByPageId(string pageId);
         IEnumerable<WidgetBase> GetAllByPage(Page.PageEntity page);
         WidgetPart ApplyTemplate(WidgetBase widget, HttpContextBase httpContext);
+        ZipFile PackWidget(string widgetId);
+        WidgetBase InstallPackWidget(Stream stream);
     }
 }

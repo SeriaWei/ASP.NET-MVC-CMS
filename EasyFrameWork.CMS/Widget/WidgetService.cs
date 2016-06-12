@@ -10,6 +10,9 @@ using Easy.Cache;
 using Easy.Extend;
 using Easy.Web.CMS.Page;
 using Microsoft.Practices.ServiceLocation;
+using EasyZip;
+using Newtonsoft.Json;
+using System.IO;
 
 namespace Easy.Web.CMS.Widget
 {
@@ -113,9 +116,46 @@ namespace Easy.Web.CMS.Widget
             return widgetPart;
         }
 
+        public WidgetBase InstallPackWidget(Stream stream)
+        {
+            ZipFile zipFile = new ZipFile();
+            var files = zipFile.ToFileCollection(stream);
+            foreach (ZipFileInfo item in files)
+            {
+                if (item.RelativePath.EndsWith("-widget.json"))
+                {
+                    try
+                    {
+                        var jsonStr = Encoding.UTF8.GetString(item.FileBytes);
+                        var widgetBase = JsonConvert.DeserializeObject<WidgetBase>(jsonStr);
+                        var widget = widgetBase.CreateServiceInstance().UnPackWidget(files);
+                        widget.PageID = null;
+                        widget.LayoutID = null;
+                        widget.ZoneID = null;
+                        widget.IsSystem = false;
+                        widget.IsTemplate = true;
+                        widget.CreateServiceInstance().AddWidget(widget);
+                    }
+                    catch (Exception ex)
+                    {
+                        Logger.Error(ex);
+                        return null;
+                    }
+                }
+            }
+            return null;
+        }
+
+        public ZipFile PackWidget(string widgetId)
+        {
+            var widgetBase = Get(widgetId);
+            return widgetBase.CreateServiceInstance().PackWidget(widgetBase);
+        }
     }
     public abstract class WidgetService<T> : ServiceBase<T>, IWidgetPartDriver where T : WidgetBase
     {
+        protected const string TempFolder = "~/Temp";
+        protected const string TempJsonFile = "~/Temp/{0}-widget.json";
         protected WidgetService()
         {
             WidgetBaseService = ServiceLocator.Current.GetInstance<IWidgetService>();
@@ -283,6 +323,49 @@ namespace Easy.Web.CMS.Widget
         public virtual void Publish(WidgetBase widget)
         {
             AddWidget(widget);
+        }
+
+        public virtual ZipFile PackWidget(WidgetBase widget)
+        {
+            widget = GetWidget(widget);
+            widget.PageID = null;
+            widget.LayoutID = null;
+            widget.ZoneID = null;
+            widget.IsSystem = false;
+            widget.IsTemplate = true;
+            var jsonResult = JsonConvert.SerializeObject(widget);
+            string tempFile = (ApplicationContext as CMSApplicationContext).MapPath(TempJsonFile.FormatWith(Guid.NewGuid().ToString("N")));
+            if (!Directory.Exists((ApplicationContext as CMSApplicationContext).MapPath(TempFolder)))
+            {
+                Directory.CreateDirectory((ApplicationContext as CMSApplicationContext).MapPath(TempFolder));
+            }
+            System.IO.File.WriteAllText(tempFile, jsonResult);
+            ZipFile file = new ZipFile();
+            file.AddFile(new FileInfo(tempFile));
+            return file;
+        }
+
+        public virtual WidgetBase UnPackWidget(ZipFileInfoCollection pack)
+        {
+            WidgetBase result = null;
+            try
+            {
+                foreach (ZipFileInfo item in pack)
+                {
+                    if (item.RelativePath.EndsWith("-widget.json"))
+                    {
+                        var jsonStr = Encoding.UTF8.GetString(item.FileBytes);
+                        var widgetBase = JsonConvert.DeserializeObject<WidgetBase>(jsonStr);
+                        var widget = JsonConvert.DeserializeObject(jsonStr, widgetBase.GetViewModelType()) as WidgetBase;
+                        result = widget;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Logger.Error(ex);
+            }
+            return result;
         }
     }
 }

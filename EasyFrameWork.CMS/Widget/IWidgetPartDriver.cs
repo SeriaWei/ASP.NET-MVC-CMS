@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Easy.RepositoryPattern;
 using System.ComponentModel;
+using EasyZip;
 
 namespace Easy.Web.CMS.Widget
 {
@@ -15,6 +16,8 @@ namespace Easy.Web.CMS.Widget
         void Publish(WidgetBase widget);
         WidgetBase GetWidget(WidgetBase widget);
         WidgetPart Display(WidgetBase widget, System.Web.HttpContextBase httpContext);
+        ZipFile PackWidget(WidgetBase widget);
+        WidgetBase UnPackWidget(ZipFileInfoCollection pack);
     }
 
 }
