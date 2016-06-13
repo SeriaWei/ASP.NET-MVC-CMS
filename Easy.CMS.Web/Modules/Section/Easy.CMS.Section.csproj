@@ -157,6 +157,8 @@
   <ItemGroup>
     <Content Include="Content\Section.css" />
     <Content Include="CopyItems.xml" />
+    <Content Include="Views\Thumbnail\SectionTemplate.Portfolio.xml" />
+    <Content Include="Views\Thumbnail\SectionTemplate.Portfolio.png" />
     <Content Include="Views\Thumbnail\SectionTemplate.LeftThreeIcon.png" />
     <Content Include="Views\Thumbnail\SectionTemplate.LeftThreeIcon.xml" />
     <Content Include="Views\Thumbnail\SectionTemplate.RightThreeIcon.png" />
@@ -268,6 +270,7 @@
     <Content Include="Views\SectionTemplate.Tab.cshtml" />
     <Content Include="Views\SectionTemplate.LeftThreeIcon.cshtml" />
     <Content Include="Views\SectionTemplate.RightThreeIcon.cshtml" />
+    <Content Include="Views\SectionTemplate.Portfolio.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
