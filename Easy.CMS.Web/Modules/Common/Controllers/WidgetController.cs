@@ -159,6 +159,10 @@ namespace Easy.CMS.Common.Controllers
         public PartialViewResult AppendWidget(WidgetBase widget)
         {
             var widgetPart = _widgetService.ApplyTemplate(widget, HttpContext);
+            if (widgetPart == null)
+            {
+                widgetPart = new HtmlWidget { PartialView = "Widget.HTML", HTML = "<label class='text-danger'>模板已被删除，添加失败！</label>" }.ToWidgetPart();
+            }
             return PartialView("DesignWidget", new DesignWidgetViewModel(widgetPart, widget.PageID));
         }
         [HttpPost]

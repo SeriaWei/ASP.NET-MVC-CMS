@@ -15,16 +15,19 @@
         .group-template .row.border.actived {
             background: #337ab7;
         }
+
         .group-template .row.border .col {
             padding-left: 2px;
             padding-right: 2px;
         }
-          .group-template .row.border .col:first-child {
-            padding-left: 4px;
-        }
-          .group-template .row.border .col:last-child {
-            padding-right: 4px;
-        }
+
+            .group-template .row.border .col:first-child {
+                padding-left: 4px;
+            }
+
+            .group-template .row.border .col:last-child {
+                padding-right: 4px;
+            }
 
     .group-template .border .content-helper {
         min-height: 35px;
@@ -45,19 +48,23 @@
 .group-form #template {
     position: relative;
 }
-.group-form #template .pack{
-    position:absolute;
-    right:25px;
-    bottom:25px;
-    display:none;
-}
-.group-form.developer #template .pack{
-    display:block;
+
+    .group-form #template .pack {
+        position: absolute;
+        right: 25px;
+        bottom: 25px;
+        display: none;
+    }
+
+.group-form.developer #template .pack {
+    display: block;
     color: #a0a0a0;
 }
-.group-form.developer #template .pack:hover {
-    color: red;
-}
+
+    .group-form.developer #template .pack:hover {
+        color: red;
+    }
+
 .group-form #templates {
     max-height: 395px;
     overflow: auto;
@@ -88,13 +95,17 @@
     transition: width .3s ease;
 }
 
-#templates .thumbnail{
-    height:173px;
+#templates .thumbnail {
+    height: 173px;
 }
-#templates .thumbnail .image {
-    height: 123px;
-    background: #fff;
-}
-#templates .thumbnail img{
-    max-height:126px;
-}
+
+    #templates .thumbnail .image {
+        height: 126px;
+        background: #fff;
+    }
+
+    #templates .thumbnail img {
+        max-height: 126px;
+        margin: 0 auto;
+        display: block;
+    }

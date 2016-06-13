@@ -116,6 +116,12 @@ namespace Easy.Web.CMS.Widget
             return widgetPart;
         }
 
+        public ZipFile PackWidget(string widgetId)
+        {
+            var widgetBase = Get(widgetId);
+            return widgetBase.CreateServiceInstance().PackWidget(widgetBase);
+        }
+
         public WidgetBase InstallPackWidget(Stream stream)
         {
             ZipFile zipFile = new ZipFile();
@@ -128,13 +134,14 @@ namespace Easy.Web.CMS.Widget
                     {
                         var jsonStr = Encoding.UTF8.GetString(item.FileBytes);
                         var widgetBase = JsonConvert.DeserializeObject<WidgetBase>(jsonStr);
-                        var widget = widgetBase.CreateServiceInstance().UnPackWidget(files);
+                        var service = widgetBase.CreateServiceInstance();
+                        var widget = service.UnPackWidget(files);
                         widget.PageID = null;
                         widget.LayoutID = null;
                         widget.ZoneID = null;
                         widget.IsSystem = false;
                         widget.IsTemplate = true;
-                        widget.CreateServiceInstance().AddWidget(widget);
+                        service.AddWidget(widget);
                     }
                     catch (Exception ex)
                     {
@@ -144,12 +151,6 @@ namespace Easy.Web.CMS.Widget
                 }
             }
             return null;
-        }
-
-        public ZipFile PackWidget(string widgetId)
-        {
-            var widgetBase = Get(widgetId);
-            return widgetBase.CreateServiceInstance().PackWidget(widgetBase);
         }
     }
     public abstract class WidgetService<T> : ServiceBase<T>, IWidgetPartDriver where T : WidgetBase
@@ -319,12 +320,12 @@ namespace Easy.Web.CMS.Widget
         }
         #endregion
 
-
         public virtual void Publish(WidgetBase widget)
         {
             AddWidget(widget);
         }
 
+        #region PackWidget
         public virtual ZipFile PackWidget(WidgetBase widget)
         {
             widget = GetWidget(widget);
@@ -334,12 +335,12 @@ namespace Easy.Web.CMS.Widget
             widget.IsSystem = false;
             widget.IsTemplate = true;
             var jsonResult = JsonConvert.SerializeObject(widget);
-            string tempFile = (ApplicationContext as CMSApplicationContext).MapPath(TempJsonFile.FormatWith(Guid.NewGuid().ToString("N")));
-            if (!Directory.Exists((ApplicationContext as CMSApplicationContext).MapPath(TempFolder)))
+            string tempFile = ((CMSApplicationContext) ApplicationContext).MapPath(TempJsonFile.FormatWith(Guid.NewGuid().ToString("N")));
+            if (!Directory.Exists(((CMSApplicationContext) ApplicationContext).MapPath(TempFolder)))
             {
-                Directory.CreateDirectory((ApplicationContext as CMSApplicationContext).MapPath(TempFolder));
+                Directory.CreateDirectory(((CMSApplicationContext) ApplicationContext).MapPath(TempFolder));
             }
-            System.IO.File.WriteAllText(tempFile, jsonResult);
+            File.WriteAllText(tempFile, jsonResult);
             ZipFile file = new ZipFile();
             file.AddFile(new FileInfo(tempFile));
             return file;
@@ -367,5 +368,6 @@ namespace Easy.Web.CMS.Widget
             }
             return result;
         }
+        #endregion
     }
 }
