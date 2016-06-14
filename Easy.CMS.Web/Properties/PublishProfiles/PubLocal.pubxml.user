@@ -16,10 +16,10 @@
       <publishTime>07/02/2014 21:58:06</publishTime>
     </File>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>06/13/2016 15:08:09</publishTime>
+      <publishTime>06/14/2016 15:55:03</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>06/13/2016 15:08:09</publishTime>
+      <publishTime>06/14/2016 15:55:03</publishTime>
     </File>
     <File Include="bin/App_Web_dljcttax.dll">
       <publishTime>09/08/2015 09:16:14</publishTime>
@@ -58,7 +58,7 @@
       <publishTime>07/02/2014 21:58:05</publishTime>
     </File>
     <File Include="bin/Easy.CMS.Web.dll">
-      <publishTime>06/13/2016 15:07:05</publishTime>
+      <publishTime>06/14/2016 15:53:46</publishTime>
     </File>
     <File Include="bin/Easy.CMS.Web.Views.dll">
       <publishTime>09/08/2015 09:17:52</publishTime>
@@ -67,13 +67,13 @@
       <publishTime>05/23/2016 08:23:59</publishTime>
     </File>
     <File Include="bin/Easy.Web.CMS.dll">
-      <publishTime>06/13/2016 15:07:04</publishTime>
+      <publishTime>06/14/2016 15:53:45</publishTime>
     </File>
     <File Include="bin/Easy.Web.dll">
       <publishTime>05/23/2016 08:23:59</publishTime>
     </File>
     <File Include="bin/EasyZip.dll">
-      <publishTime>06/08/2016 14:46:20</publishTime>
+      <publishTime>06/13/2016 15:52:48</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>07/02/2014 21:57:58</publishTime>
@@ -481,10 +481,10 @@
       <publishTime>04/15/2016 09:38:58</publishTime>
     </File>
     <File Include="Content/themes/Admin/script/admin.js">
-      <publishTime>06/13/2016 08:32:01</publishTime>
+      <publishTime>06/14/2016 15:41:27</publishTime>
     </File>
     <File Include="Content/themes/Admin/script/admin.min.js">
-      <publishTime>06/13/2016 08:32:01</publishTime>
+      <publishTime>06/14/2016 15:37:08</publishTime>
     </File>
     <File Include="Content/themes/base/accordion.css">
       <publishTime>05/11/2016 08:25:13</publishTime>
@@ -913,7 +913,7 @@
       <publishTime>05/23/2016 08:23:59</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>06/13/2016 15:08:07</publishTime>
+      <publishTime>06/14/2016 15:55:01</publishTime>
     </File>
     <File Include="Scripts/angular/angular-animate.js">
       <publishTime>01/07/2016 15:49:06</publishTime>
@@ -2667,6 +2667,9 @@
     <File Include="Scripts/tinymce/plugins/example_dependency/plugin.min.js">
       <publishTime>08/17/2015 10:09:02</publishTime>
     </File>
+    <File Include="Scripts/tinymce/plugins/filebrowser/plugin.min.js">
+      <publishTime>06/14/2016 15:12:56</publishTime>
+    </File>
     <File Include="Scripts/tinymce/plugins/fullpage/plugin.min.js">
       <publishTime>08/17/2015 10:09:02</publishTime>
     </File>
@@ -4153,7 +4156,7 @@
       <publishTime>05/27/2016 08:28:38</publishTime>
     </File>
     <File Include="Themes/Slate/thumbnail.jpg">
-      <publishTime>05/27/2016 10:26:19</publishTime>
+      <publishTime>06/13/2016 15:37:45</publishTime>
     </File>
     <File Include="Themes/Spacelab/css/Article.less">
       <publishTime>05/27/2016 08:28:38</publishTime>
@@ -4624,7 +4627,7 @@
       <publishTime>03/21/2016 08:52:52</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>06/13/2016 15:07:56</publishTime>
+      <publishTime>06/14/2016 15:55:00</publishTime>
     </File>
   </ItemGroup>
 </Project>
