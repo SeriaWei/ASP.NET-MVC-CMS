@@ -39,14 +39,14 @@
                     <div class="thumbnail">
                         @if (media.MediaType == (int)MediaType.Image)
                         {
-                            <a href="javascript:void(0)" class="img-link confirm" data-result="@media.Url">
+                            <a href="javascript:void(0)" class="img-link confirm" data-result="@Url.PathContent(media.Url)" data-name="@media.Title">
                                 <img class="img" src="@Url.Content(media.Url)" />
                             </a>
                         }
                         else
                         {
                             <a href="@(media.MediaType==(int)MediaType.Folder?Url.Action(action, new {ParentId = media.ID}):"javascript:void(0)")" 
-                               class="img-link @(media.MediaType==(int)MediaType.Folder?"":"confirm")" data-result="@media.Url">
+                               class="img-link @(media.MediaType==(int)MediaType.Folder?"":"confirm")" data-result="@Url.PathContent(media.Url)" data-name="@media.Title">
                                 <img class="img" src="@Url.Content("~/Images/{0}.png".FormatWith(media.MediaTypeImage))" />
                             </a>
                         }

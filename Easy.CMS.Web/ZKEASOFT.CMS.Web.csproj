@@ -829,6 +829,7 @@
     <Content Include="Scripts\tinymce\plugins\example\dialog.html" />
     <Content Include="Scripts\tinymce\plugins\example\plugin.min.js" />
     <Content Include="Scripts\tinymce\plugins\example_dependency\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\filebrowser\plugin.min.js" />
     <Content Include="Scripts\tinymce\plugins\fullpage\plugin.min.js" />
     <Content Include="Scripts\tinymce\plugins\fullscreen\plugin.min.js" />
     <Content Include="Scripts\tinymce\plugins\hr\plugin.min.js" />
