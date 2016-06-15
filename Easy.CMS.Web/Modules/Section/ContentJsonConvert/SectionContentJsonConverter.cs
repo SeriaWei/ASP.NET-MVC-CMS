@@ -29,6 +29,10 @@ namespace Easy.CMS.Section.ContentJsonConvert
             {
                 return new SectionContentTitle();
             }
+            else if (((int)SectionContent.Types.Video).Equals(contentType))
+            {
+                return new SectionContentVideo();
+            }
             return new SectionContent();
         }
     }

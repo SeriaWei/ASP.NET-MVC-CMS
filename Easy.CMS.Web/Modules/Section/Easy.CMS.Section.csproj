@@ -124,6 +124,7 @@
     <Compile Include="Controllers\SectionContentParagraphController.cs" />
     <Compile Include="Controllers\SectionContentCallToActionController.cs" />
     <Compile Include="Controllers\SectionContentImageController.cs" />
+    <Compile Include="Controllers\SectionContentVideoController.cs" />
     <Compile Include="Controllers\SectionContentTitleController.cs" />
     <Compile Include="Controllers\SectionGroupController.cs" />
     <Compile Include="Controllers\SectionWidgetController.cs" />
@@ -133,6 +134,7 @@
     <Compile Include="Models\SectionContent.cs" />
     <Compile Include="Models\SectionContentCallToAction.cs" />
     <Compile Include="Models\SectionContentParagraph.cs" />
+    <Compile Include="Models\SectionContentVideo.cs" />
     <Compile Include="Models\SectionContentTitle.cs" />
     <Compile Include="Models\SectionContentImage.cs" />
     <Compile Include="Models\SectionGroup.cs" />
@@ -148,6 +150,7 @@
     <Compile Include="Service\SectionContentCallToActionService.cs" />
     <Compile Include="Service\SectionContentImageService.cs" />
     <Compile Include="Service\SectionContentParagraphService.cs" />
+    <Compile Include="Service\SectionContentVideoService.cs" />
     <Compile Include="Service\SectionContentTitleService.cs" />
     <Compile Include="Service\SectionGroupService.cs" />
     <Compile Include="Service\SectionTemplateService.cs" />
@@ -271,6 +274,9 @@
     <Content Include="Views\SectionTemplate.LeftThreeIcon.cshtml" />
     <Content Include="Views\SectionTemplate.RightThreeIcon.cshtml" />
     <Content Include="Views\SectionTemplate.Portfolio.cshtml" />
+    <Content Include="Views\SectionContentVideo\Form.cshtml" />
+    <Content Include="Views\Shared\SectionPartial.Video.cshtml" />
+    <Content Include="Views\Shared\SectionPartial.Video.Edit.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

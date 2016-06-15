@@ -1,0 +1,55 @@
+﻿@using System.Text.RegularExpressions
+@using Easy.CMS.Section.Models
+@using Easy.Web.CMS
+@model SectionContentVideo
+
+
+
+<li class="list-group-item" data-id="@Model.ID">
+    <div class="icon-left clearfix">
+        <div class="pull-left icon">
+            <i class="text-primary sort-handle glyphicon glyphicon-resize-vertical">
+            </i>
+            <a href="@Url.Action("Edit", "SectionContentVideo", new {Id = Model.ID})"
+               class="dialog glyphicon glyphicon-edit text-primary"
+               data-width="800" data-height="350" title="编辑视频">
+            </a>
+            <a href="@Url.Action("Delete", "SectionContentVideo", new { Id = Model.ID })" class="ajax glyphicon glyphicon-remove text-danger delete">
+            </a>
+        </div>
+        <div class="pull-left">
+            <label class="label label-primary">视频</label>
+            @if (Model.Url.IsNotNullAndWhiteSpace())
+            {
+                <video controls="controls"
+                       name="media"
+                       src="@Url.Content(Model.Url)"
+                       style="width:@(Model.Width.HasValue?Model.Width+"px":"auto");height:@(Model.Height.HasValue?Model.Height+"px":"auto")">
+                    您的浏览器不支持播放该视频
+                </video>
+            }
+            else if (Model.Code.IsNotNullAndWhiteSpace())
+            {
+                if (Model.Width.HasValue)
+                {
+                    Model.Code = Regex.Replace(Model.Code, @"width=""(\d+)""", "width=\"" + Model.Width + "\"");
+                    Model.Code = Regex.Replace(Model.Code, @"width=(\d+)", "width=" + Model.Width);
+                    Model.Code = Regex.Replace(Model.Code, @"width:(\d+)", "width:" + Model.Width);
+                }
+                else
+                {
+                    Model.Code = Regex.Replace(Model.Code, @"width=""(\d+)""", "width=\"100%\"");
+                    Model.Code = Regex.Replace(Model.Code, @"width=(\d+)", "width=100%");
+                    Model.Code = Regex.Replace(Model.Code, @"width:(\d+)", "width:100%");
+                }
+                if (Model.Height.HasValue)
+                {
+                    Model.Code = Regex.Replace(Model.Code, @"height=""(\d+)""", "height=\"" + Model.Height + "\"");
+                    Model.Code = Regex.Replace(Model.Code, @"height=(\d+)", "height=" + Model.Height);
+                    Model.Code = Regex.Replace(Model.Code, @"height:(\d+)", "height:" + Model.Height);
+                }
+                @Html.Raw(Model.Code)
+            }
+        </div>
+    </div>
+</li>

@@ -15,7 +15,8 @@ namespace Easy.CMS.Section.Models
             CallToAction = 1,
             Image = 2,
             Paragraph = 3,
-            Title = 4
+            Title = 4,
+            Video = 5
         }
         public int? ID { get; set; }
         public string SectionWidgetId { get; set; }
