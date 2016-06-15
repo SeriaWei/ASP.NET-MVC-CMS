@@ -37,7 +37,7 @@ namespace Easy.CMS.Section.Controllers
             content.ActionType = ActionType.Update;
             return View("Form", content);
         }
-        [HttpPost]
+        [HttpPost, ValidateInput(false)]
         public ActionResult Save(SectionContentVideo content)
         {
             if (!ModelState.IsValid)

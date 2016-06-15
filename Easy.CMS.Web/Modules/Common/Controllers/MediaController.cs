@@ -118,8 +118,14 @@ namespace Easy.CMS.Common.Controllers
         }
         public override JsonResult Delete(string ids)
         {
-            var media = Service.Get(ids);
-            if (media != null && media.MediaType != (int)MediaType.Folder)
+            DeleteMedia(ids);
+            return base.Delete(ids);
+        }
+
+        private void DeleteMedia(string mediaId)
+        {
+            var media = Service.Get(mediaId);
+            if (media != null && media.MediaType != (int) MediaType.Folder)
             {
                 if (media.Url.StartsWith("http://") || media.Url.StartsWith("https://"))
                 {
@@ -127,7 +133,12 @@ namespace Easy.CMS.Common.Controllers
                 }
                 Request.DeleteFile(media.Url);
             }
-            return base.Delete(ids);
+            else
+            {
+                Service.Get(new DataFilter().Where("ParentID", OperatorType.Equal, mediaId))
+                    .Each(m => DeleteMedia(m.ID));
+            }
+            Service.Delete(mediaId);
         }
     }
 }

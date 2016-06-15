@@ -261,8 +261,10 @@
             $(document).on("click", ".close", function () {
                 var caption = $(this).siblings(".caption");
                 Easy.ShowMessageBox("提示", "确定要删除吗？", function () {
+                    Easy.Block();
                     $.post("@Url.Action("Delete")", { ids: caption.data("id") }, function () {
                         caption.closest(".thumbnail").parent().remove();
+                        Easy.UnBlock();
                     });
                 }, true);
             });
