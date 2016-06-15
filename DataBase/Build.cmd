@@ -97,6 +97,8 @@ sqlcmd -S %server% -d %dataBase% -U %dbUserId% -P %dbPassword% -b -i "Tables\dbo
 if %ERRORLEVEL% NEQ 0 goto errors
 sqlcmd -S %server% -d %dataBase% -U %dbUserId% -P %dbPassword% -b -i "Tables\dbo.SectionContentTitle.Table.sql"
 if %ERRORLEVEL% NEQ 0 goto errors
+sqlcmd -S %server% -d %dataBase% -U %dbUserId% -P %dbPassword% -b -i "Tables\dbo.SectionContentVideo.Table.sql"
+if %ERRORLEVEL% NEQ 0 goto errors
 sqlcmd -S %server% -d %dataBase% -U %dbUserId% -P %dbPassword% -b -i "Tables\dbo.SectionTemplate.Table.sql"
 if %ERRORLEVEL% NEQ 0 goto errors
 sqlcmd -S %server% -d %dataBase% -U %dbUserId% -P %dbPassword% -b -i "Tables\dbo.ScriptWidget.Table.sql"
@@ -173,6 +175,8 @@ if %ERRORLEVEL% NEQ 0 goto errors
 sqlcmd -S %server% -d %dataBase% -U %dbUserId% -P %dbPassword% -b -i "InitialData\dbo.SectionContentCallToAction.Table.sql"
 if %ERRORLEVEL% NEQ 0 goto errors
 sqlcmd -S %server% -d %dataBase% -U %dbUserId% -P %dbPassword% -b -i "InitialData\dbo.SectionContentTitle.Table.sql"
+if %ERRORLEVEL% NEQ 0 goto errors
+sqlcmd -S %server% -d %dataBase% -U %dbUserId% -P %dbPassword% -b -i "InitialData\dbo.SectionContentVideo.Table.sql"
 if %ERRORLEVEL% NEQ 0 goto errors
 sqlcmd -S %server% -d %dataBase% -U %dbUserId% -P %dbPassword% -b -i "InitialData\dbo.SectionContentImage.Table.sql"
 if %ERRORLEVEL% NEQ 0 goto errors

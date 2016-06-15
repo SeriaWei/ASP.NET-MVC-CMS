@@ -35,6 +35,8 @@ sqlcmd -S %server% -d %dataBase% -U %dbUserId% -P %dbPassword% -b -i "ClearData\
 if %ERRORLEVEL% NEQ 0 goto errors
 sqlcmd -S %server% -d %dataBase% -U %dbUserId% -P %dbPassword% -b -i "ClearData\dbo.SectionContentTitle.Table.sql"
 if %ERRORLEVEL% NEQ 0 goto errors
+sqlcmd -S %server% -d %dataBase% -U %dbUserId% -P %dbPassword% -b -i "ClearData\dbo.SectionContentVideo.Table.sql"
+if %ERRORLEVEL% NEQ 0 goto errors
 sqlcmd -S %server% -d %dataBase% -U %dbUserId% -P %dbPassword% -b -i "ClearData\dbo.SectionContentCallToAction.Table.sql"
 if %ERRORLEVEL% NEQ 0 goto errors
 sqlcmd -S %server% -d %dataBase% -U %dbUserId% -P %dbPassword% -b -i "ClearData\dbo.SectionContent.Table.sql"
@@ -162,6 +164,8 @@ if %ERRORLEVEL% NEQ 0 goto errors
 sqlcmd -S %server% -d %dataBase% -U %dbUserId% -P %dbPassword% -b -i "InitialData\dbo.SectionContentCallToAction.Table.sql"
 if %ERRORLEVEL% NEQ 0 goto errors
 sqlcmd -S %server% -d %dataBase% -U %dbUserId% -P %dbPassword% -b -i "InitialData\dbo.SectionContentTitle.Table.sql"
+if %ERRORLEVEL% NEQ 0 goto errors
+sqlcmd -S %server% -d %dataBase% -U %dbUserId% -P %dbPassword% -b -i "InitialData\dbo.SectionContentVideo.Table.sql"
 if %ERRORLEVEL% NEQ 0 goto errors
 sqlcmd -S %server% -d %dataBase% -U %dbUserId% -P %dbPassword% -b -i "InitialData\dbo.SectionContentImage.Table.sql"
 if %ERRORLEVEL% NEQ 0 goto errors
