@@ -1,0 +1,22 @@
+﻿@using System.Linq
+@using Easy.CMS.Section
+@using Easy.CMS.Section.Models
+@model SectionGroup
+
+<div class="section-group-grey-box text-center" style="background-color: #f4f4f4; padding: 35px;">
+    @foreach (SectionContent content in Model.SectionContents.OrderBy(m => m.Order))
+    {
+        if (content.SectionContentType != (int)SectionContent.Types.Paragraph && content.SectionContentType != (int)SectionContent.Types.Title)
+        {
+            <p>
+                @{
+            Html.RenderContent(content);
+                }
+            </p>
+        }
+        else
+        {
+            Html.RenderContent(content);
+        }
+    }
+</div>
