@@ -4,16 +4,13 @@
 
 <div class="panel panel-default section-group" data-id="@Model.ID" data-col="@Model.PercentWidth">
     <div class="panel-heading">
-        <span class="badge sort-handle">
-            <i class="glyphicon glyphicon-resize-vertical"></i>
-        </span>
-        |
-        <span class="badge">
-            @Model.GroupName
-            [@Model.PartialView]
-        </span>
+        <i class="sort-handle glyphicon glyphicon-resize-vertical"></i>
+        <a href="@Url.Action("Edit", "SectionGroup", new {Id= Model.ID })" class="dialog text-primary" data-width="1000" data-height="600" title="编辑"><i class="glyphicon glyphicon-edit"></i></a>
+        <a href="@Url.Action("Delete", "SectionGroup", new {Id= Model.ID })" class="ajax delete text-danger" title="删除"><i class="glyphicon glyphicon-remove"></i></a>
+        <i class="glyphicon glyphicon-option-vertical"></i>
+        <span class="label label-info">@Model.GroupName</span>
+        <span class="label label-danger">@Model.GetTemplateName()</span>
         <span class="label label-primary">@Model.PercentWidth</span>
-        
     </div>
     <ul class="list-group">
         @foreach (SectionContent content in Model.SectionContents.OrderBy(m => m.Order))
@@ -56,15 +53,6 @@
            data-height="350">
             <i class="glyphicon glyphicon-hd-video"></i>
             添加视频
-        </a>
-        <i class="glyphicon glyphicon-option-vertical"></i>
-        <a href="@Url.Action("Edit", "SectionGroup", new {Id= Model.ID })" class="btn btn-link btn-xs dialog" data-width="1000" data-height="600">
-            <i class="glyphicon glyphicon-edit"></i>
-            修改
-        </a>
-        <a href="@Url.Action("Delete", "SectionGroup", new {Id= Model.ID })" class="btn btn-link btn-xs ajax delete">
-            <i class="glyphicon glyphicon-remove"></i>
-            删除
         </a>
     </div>
 </div>

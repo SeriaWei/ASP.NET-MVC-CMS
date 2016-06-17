@@ -161,7 +161,9 @@
     <Content Include="Content\Section.css" />
     <Content Include="CopyItems.xml" />
     <Content Include="Views\Thumbnail\SectionTemplate.GreyBox.png" />
-    <Content Include="Views\Thumbnail\SectionTemplate.GreyBox.xml" />
+    <Content Include="Views\Thumbnail\SectionTemplate.GreyBox.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Views\Thumbnail\SectionTemplate.Portfolio.xml" />
     <Content Include="Views\Thumbnail\SectionTemplate.Portfolio.png" />
     <Content Include="Views\Thumbnail\SectionTemplate.LeftThreeIcon.png" />

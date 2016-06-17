@@ -97,6 +97,24 @@ namespace Easy.CMS.Section.Models
                 return GetContents<SectionContentParagraph>(SectionContent.Types.Paragraph);
             }
         }
+
+        private string _templateName;
+        public string GetTemplateName()
+        {
+            if (_templateName.IsNullOrWhiteSpace())
+            {
+                var template= ServiceLocator.Current.GetInstance<ISectionTemplateService>().Get(PartialView);
+                if (template != null)
+                {
+                    _templateName = template.Title;
+                }
+                else
+                {
+                    _templateName = "Error";
+                }
+            }
+            return _templateName;
+        }
     }
 
     class SectionGroupMetaData : DataViewMetaData<SectionGroup>
