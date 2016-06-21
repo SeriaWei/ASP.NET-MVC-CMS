@@ -160,6 +160,10 @@
   <ItemGroup>
     <Content Include="Content\Section.css" />
     <Content Include="CopyItems.xml" />
+    <Content Include="Views\Thumbnail\SectionTemplate.Brand.png" />
+    <Content Include="Views\Thumbnail\SectionTemplate.Brand.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Views\Thumbnail\SectionTemplate.GreyBox.png" />
     <Content Include="Views\Thumbnail\SectionTemplate.GreyBox.xml">
       <SubType>Designer</SubType>
@@ -282,6 +286,7 @@
     <Content Include="Views\Shared\SectionPartial.Video.cshtml" />
     <Content Include="Views\Shared\SectionPartial.Video.Edit.cshtml" />
     <Content Include="Views\SectionTemplate.GreyBox.cshtml" />
+    <Content Include="Views\SectionTemplate.Brand.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
