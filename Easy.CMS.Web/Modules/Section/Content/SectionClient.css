@@ -1,0 +1,29 @@
+﻿.video {
+    position: relative;
+}
+
+    .video .video-play {
+        position: absolute;
+        background: url("./Images/play-video.png") center center no-repeat;
+        display: block;
+        width: 42px;
+        height: 42px;
+        margin-left: -21px;
+        margin-top: -21px;
+        left: 50%;
+        top: 50%;
+    }
+
+.pop-video {
+    height: 100%;
+}
+
+    .pop-video video,
+    .pop-video embed {
+        display: block;
+        margin: 0 auto;
+        height: 100% !important;
+        width: 100% !important;
+        max-width: 100%;
+        max-height: 100%;
+    }

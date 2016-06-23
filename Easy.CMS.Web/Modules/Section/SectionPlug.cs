@@ -11,7 +11,14 @@ namespace Easy.CMS.Section
     {
         public override IEnumerable<RouteDescriptor> RegistRoute()
         {
-            return null;
+            yield return new RouteDescriptor
+            {
+                RouteName = "video-play",
+                Url = "VideoPlayer/Play",
+                Defaults = new { controller = "SectionContentVideo", action = "Play", module = "Section" },
+                Namespaces = new string[] { "Easy.CMS.Section.Controllers" },
+                Priority = 10
+            };
         }
 
         public override IEnumerable<AdminMenu> AdminMenu()
@@ -26,7 +33,8 @@ namespace Easy.CMS.Section
 
         protected override void InitStyle(Func<string, Web.Resource.ResourceHelper> style)
         {
-            style("SectionAdmin").Include("~/Modules/Section/Content/Section.css");
+            style("SectionAdmin").Include("~/Modules/Section/Content/Section.css", "~/Modules/Section/Content/Section.min.css");
+            style("Section").Include("~/Modules/Section/Content/SectionClient.css", "~/Modules/Section/Content/SectionClient.min.css");
         }
     }
 }

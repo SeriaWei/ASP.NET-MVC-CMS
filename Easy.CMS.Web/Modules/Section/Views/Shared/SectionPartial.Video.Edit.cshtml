@@ -12,44 +12,24 @@
             </i>
             <a href="@Url.Action("Edit", "SectionContentVideo", new {Id = Model.ID})"
                class="dialog glyphicon glyphicon-edit text-primary"
-               data-width="800" data-height="380" title="编辑视频">
+               data-width="800" data-height="430" title="编辑视频">
             </a>
             <a href="@Url.Action("Delete", "SectionContentVideo", new { Id = Model.ID })" class="ajax glyphicon glyphicon-remove text-danger delete">
             </a>
         </div>
         <div class="pull-left">
             <label class="label label-primary">视频</label>
-            @if (Model.Url.IsNotNullAndWhiteSpace())
-            {
-                <video controls="controls"
-                       name="media"
-                       src="@Url.Content(Model.Url)"
-                       style="width:@(Model.Width.HasValue?Model.Width+"px":"auto");height:@(Model.Height.HasValue?Model.Height+"px":"auto")">
-                    您的浏览器不支持播放该视频
-                </video>
-            }
-            else if (Model.Code.IsNotNullAndWhiteSpace())
-            {
-                if (Model.Width.HasValue)
-                {
-                    Model.Code = Regex.Replace(Model.Code, @"width=""(\d+)""", "width=\"" + Model.Width + "\"");
-                    Model.Code = Regex.Replace(Model.Code, @"width=(\d+)", "width=" + Model.Width);
-                    Model.Code = Regex.Replace(Model.Code, @"width:(\d+)", "width:" + Model.Width);
-                }
-                else
-                {
-                    Model.Code = Regex.Replace(Model.Code, @"width=""(\d+)""", "width=\"100%\"");
-                    Model.Code = Regex.Replace(Model.Code, @"width=(\d+)", "width=100%");
-                    Model.Code = Regex.Replace(Model.Code, @"width:(\d+)", "width:100%");
-                }
-                if (Model.Height.HasValue)
-                {
-                    Model.Code = Regex.Replace(Model.Code, @"height=""(\d+)""", "height=\"" + Model.Height + "\"");
-                    Model.Code = Regex.Replace(Model.Code, @"height=(\d+)", "height=" + Model.Height);
-                    Model.Code = Regex.Replace(Model.Code, @"height:(\d+)", "height:" + Model.Height);
-                }
-                @Html.Raw(Model.Code)
-            }
+            <div class="clearfix">
+                <div class="video pull-left">
+                    <img src="@Url.PathContent(Model.Thumbnail)" />
+                    <a class="video-play pop-dialog"
+                       data-width="@Model.Width"
+                       data-height="@Model.Height"
+                       data-title="@Model.VideoTitle"
+                       title="@Model.VideoTitle"
+                       href="@Url.Action("Play", "SectionContentVideo", new {module = "Section", Id = Model.ID})"></a>
+                </div>
+            </div>
         </div>
     </div>
 </li>

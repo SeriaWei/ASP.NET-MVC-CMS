@@ -10,6 +10,7 @@ namespace Easy.CMS.Section.Models
     [DataConfigure(typeof(SectionContentVideoMetaData))]
     public class SectionContentVideo : SectionContent
     {
+        public string VideoTitle { get; set; }
         public string Thumbnail { get; set; }
         public int? Width { get; set; }
         public int? Height { get; set; }
@@ -44,6 +45,7 @@ namespace Easy.CMS.Section.Models
 
         protected override void ViewConfigure()
         {
+            ViewConfig(m => m.VideoTitle).AsTextBox().Required();
             ViewConfig(m => m.Thumbnail).AsTextBox().Required();
             ViewConfig(m => m.Url).AsTextBox().AddClass(StringKeys.SelectVideoClass).AddProperty("data-url", Urls.SelectMedia);
             ViewConfig(m => m.Code).AsTextArea().MaxLength(500);

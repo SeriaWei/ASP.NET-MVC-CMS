@@ -1,0 +1,46 @@
+﻿@using Easy.CMS.Section.Models
+@using System.Text.RegularExpressions
+@model SectionContent
+@{
+    Layout = "~/Views/Shared/_PopUpClientLayout.cshtml";
+    SectionContentVideo video = Model as SectionContentVideo;
+    if (video == null)
+    {
+        return;
+    }
+    Style.Reqiured("Section").AtFoot();
+}
+
+<div class="pop-video">
+    @if (video.Url.IsNotNullAndWhiteSpace())
+    {
+        <video controls="controls"
+               name="media"
+               src="@Url.Content(video.Url)"
+               style="width:@(video.Width.HasValue?video.Width+"px":"auto");height:@(video.Height.HasValue?video.Height+"px":"auto")">
+            您的浏览器不支持播放该视频
+        </video>
+    }
+    else if (video.Code.IsNotNullAndWhiteSpace())
+    {
+        if (video.Width.HasValue)
+        {
+            video.Code = Regex.Replace(video.Code, @"width=""(\d+)""", "width=\"" + video.Width + "\"");
+            video.Code = Regex.Replace(video.Code, @"width=(\d+)", "width=" + video.Width);
+            video.Code = Regex.Replace(video.Code, @"width:(\d+)", "width:" + video.Width);
+        }
+        else
+        {
+            video.Code = Regex.Replace(video.Code, @"width=""(\d+)""", "width=\"100%\"");
+            video.Code = Regex.Replace(video.Code, @"width=(\d+)", "width=100%");
+            video.Code = Regex.Replace(video.Code, @"width:(\d+)", "width:100%");
+        }
+        if (video.Height.HasValue)
+        {
+            video.Code = Regex.Replace(video.Code, @"height=""(\d+)""", "height=\"" + video.Height + "\"");
+            video.Code = Regex.Replace(video.Code, @"height=(\d+)", "height=" + video.Height);
+            video.Code = Regex.Replace(video.Code, @"height:(\d+)", "height:" + video.Height);
+        }
+        @Html.Raw(video.Code)
+    }
+</div>

@@ -18,4 +18,5 @@ INSERT [dbo].[Language] ([LanKey], [LanID], [LanValue], [Module], [LanType]) VAL
 INSERT [dbo].[Language] ([LanKey], [LanID], [LanValue], [Module], [LanType]) VALUES (N'SectionContentVideo@Url', 2052, N'视频地址(MP4)', N'SectionContentVideo', N'EntityProperty')
 INSERT [dbo].[Language] ([LanKey], [LanID], [LanValue], [Module], [LanType]) VALUES (N'SectionContentVideo@Width', 2052, N'宽度(px)', N'SectionContentVideo', N'EntityProperty')
 INSERT [dbo].[Language] ([LanKey], [LanID], [LanValue], [Module], [LanType]) VALUES (N'SectionContentVideo@Thumbnail', 2052, N'缩略图', N'SectionContentVideo', N'EntityProperty')
+INSERT [dbo].[Language] ([LanKey], [LanID], [LanValue], [Module], [LanType]) VALUES (N'SectionContentVideo@VideoTitle', 2052, N'标题', N'SectionContentVideo', N'EntityProperty')
 GO

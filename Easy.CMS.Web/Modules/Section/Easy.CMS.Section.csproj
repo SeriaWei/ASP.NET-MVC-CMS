@@ -158,7 +158,15 @@
     <Compile Include="Service\SectionContentProviderService.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Images\play-video.png" />
     <Content Include="Content\Section.css" />
+    <Content Include="Content\Section.min.css">
+      <DependentUpon>Section.css</DependentUpon>
+    </Content>
+    <Content Include="Content\SectionClient.css" />
+    <Content Include="Content\SectionClient.min.css">
+      <DependentUpon>SectionClient.css</DependentUpon>
+    </Content>
     <Content Include="CopyItems.xml" />
     <Content Include="Views\Thumbnail\SectionTemplate.Brand.png" />
     <Content Include="Views\Thumbnail\SectionTemplate.Brand.xml">
@@ -287,6 +295,7 @@
     <Content Include="Views\Shared\SectionPartial.Video.Edit.cshtml" />
     <Content Include="Views\SectionTemplate.GreyBox.cshtml" />
     <Content Include="Views\SectionTemplate.Brand.cshtml" />
+    <Content Include="Views\SectionContentVideo\Play.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

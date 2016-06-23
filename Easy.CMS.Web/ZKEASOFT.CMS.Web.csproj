@@ -202,6 +202,7 @@
     <Content Include="Content\Images\close_red.png" />
     <Content Include="Content\Images\logo_min.png" />
     <Content Include="Content\Images\logo_zkea.png" />
+    <Content Include="Content\Images\play-video.png" />
     <Content Include="Content\Images\theme.jpg" />
     <Content Include="Content\Images\Widget.ProductCategory.png" />
     <Content Include="Content\Images\Widget.ArticleDetail.png" />
@@ -1591,6 +1592,7 @@
     <Content Include="Themes\Cerulean\css\Theme.css.map">
       <DependentUpon>Theme.css</DependentUpon>
     </Content>
+    <Content Include="Views\Shared\_PopUpClientLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EasyFrameWork.CMS\Easy.Web.CMS.csproj">
