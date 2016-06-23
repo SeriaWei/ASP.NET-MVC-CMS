@@ -46,7 +46,7 @@ namespace Easy.CMS.Section.Models
         protected override void ViewConfigure()
         {
             ViewConfig(m => m.VideoTitle).AsTextBox().Required();
-            ViewConfig(m => m.Thumbnail).AsTextBox().Required();
+            ViewConfig(m => m.Thumbnail).AsTextBox().Required().AddClass(StringKeys.SelectImageClass).AddProperty("data-url", Urls.SelectMedia);
             ViewConfig(m => m.Url).AsTextBox().AddClass(StringKeys.SelectVideoClass).AddProperty("data-url", Urls.SelectMedia);
             ViewConfig(m => m.Code).AsTextArea().MaxLength(500);
         }

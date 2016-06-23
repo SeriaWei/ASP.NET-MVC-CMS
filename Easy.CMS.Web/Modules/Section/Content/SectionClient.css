@@ -12,6 +12,11 @@
         margin-top: -21px;
         left: 50%;
         top: 50%;
+        opacity:0.7;
+        transition:opacity linear 0.3s;
+    }
+    .video .video-play:hover{
+        opacity:1;
     }
 
 .pop-video {

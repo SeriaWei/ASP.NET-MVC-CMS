@@ -279,6 +279,7 @@
     <Content Include="Views\SectionTemplate.Column.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="bundleconfig.json" />
     <None Include="Properties\PublishProfiles\PublishLocal.pubxml" />
     <Content Include="Views\SectionTemplate.LinkGroup.cshtml" />
     <Content Include="Views\SectionTemplate.ListGroup.cshtml" />

@@ -714,7 +714,7 @@ $(function () {
             url: $(this).data("url") || $(this).attr("href"),
             title: $(this).data("title") || $(this).attr("title"),
             width: $(this).data("width") || 800,
-            height: $(this).data("height") || 600,
+            height: $(this).data("height") || 500,
             isDialog: true
         });
         return false;
