@@ -183,7 +183,6 @@
     this.css.push("");
     var target = window.top.$(".custom-style-target");
     if (target.hasClass('form-control')) {
-        debugger
         var oldValue = target.val();
         var styleReg = /style="([^"]*)"/g;
         if (this.css.length > 1) {
