@@ -36,7 +36,7 @@
 }
 <div class="navigation">
     <div class="navbar navbar-default" role="navigation">
-        <div class="container">
+        <div class="@(Model.Widget.CustomerClass??"container")">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
                     <span class="icon-bar"></span>
@@ -58,7 +58,7 @@
                 }
             </div>
             <div class="navbar-collapse collapse navbar-responsive-collapse">
-                <ul class="nav navbar-nav">
+                <ul class="nav navbar-nav @Model.Widget.AlignClass">
                     @foreach (NavigationEntity item in Model.Navigations.Where(m => m.ParentId == "#"))
                     {
                         if (Model.Navigations.Any(m => m.ParentId == item.ID))

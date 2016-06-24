@@ -14,6 +14,7 @@ namespace Easy.CMS.Common.Models
     {
         public string Logo { get; set; }
         public string CustomerClass { get; set; }
+        public string AlignClass { get; set; }
     }
     class NavigationWidgetMetaData : WidgetMetaData<NavigationWidget>
     {
@@ -25,7 +26,22 @@ namespace Easy.CMS.Common.Models
         protected override void ViewConfigure()
         {
             base.ViewConfigure();
-            ViewConfig(m => m.CustomerClass).AsHidden();
+            ViewConfig(m => m.CustomerClass).AsDropDownList().DataSource(() =>
+            {
+                return new Dictionary<string, string>
+                {
+                     {"container","居中"},
+                     {"container-fluid","自适应"}
+                };
+            }).Order(NextOrder());
+            ViewConfig(m => m.AlignClass).AsDropDownList().DataSource(() =>
+            {
+                return new Dictionary<string, string>
+                {
+                     {"navbar-left","左对齐"},
+                     {"navbar-right","右对齐"}
+                };
+            }).Order(NextOrder());
             ViewConfig(m => m.Logo).AsTextBox().Order(NextOrder()).AddClass(StringKeys.SelectImageClass).AddProperty("data-url", Urls.SelectMedia);
         }
     }
