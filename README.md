@@ -32,7 +32,7 @@ Microsoft Sql Server 2005 以上
 ZKEACMS采用了现代的响应式设计，可以自动适配不同大小的屏幕和设备。从PC，笔记本，电视，平板到手机页面都会自动响应适应。
 
 ## 布局设计
-![布局设计](http://ww3.sinaimg.cn/large/005zTNGqgw1f3v8u05qhej31990mfn36.jpg)
+![布局设计](http://ww1.sinaimg.cn/large/005zTNGqjw1f57a9zuz5aj31hk0qgah0.jpg)
 
 布局，用于对页面做区域划分，用户使用拖拉“行”，“列”的方式进行布局的设计。布局的划分，采用行，列的方式进行划分，可嵌套。
 
@@ -46,7 +46,7 @@ ZKEACMS采用了现代的响应式设计，可以自动适配不同大小的屏�
 在概览页面中，用户可以添加组件到任意区域。可以对任意区域内的组件进行排序或者拖放到别的区域显示。
 
 ## 预览设计
-![预览设计](http://blog.zkea.net/wp-content/uploads/2016/03/pagedesign.png)
+![预览设计](http://ww3.sinaimg.cn/large/005zTNGqjw1f57aa0kaiej31hk0qdjz4.jpg)
 
 预览页面，是页面的真实显示。在这个页面里面，用户可以直接看到页面的真实情况，和页面中组件的真实情况。
 
@@ -68,7 +68,7 @@ ZKEACMS 的模板组件可以更方便的进行扩展。直接更换显示模板
 ## Theme/主题
 ZKEACMS 使用LESS，可以轻松的创建主题。
 
-![主题](http://blog.zkea.net/wp-content/uploads/2016/04/theme.png)
+![主题](http://ww2.sinaimg.cn/large/005zTNGqjw1f57aa1b7d1j31hk0qfgwn.jpg)
 
 ## 部分缩略图
 [http://www.zkea.net/zkeacms/thumbnail](http://www.zkea.net/zkeacms/thumbnail)

@@ -15,6 +15,7 @@ namespace Easy.CMS.Common.Models
         public string Logo { get; set; }
         public string CustomerClass { get; set; }
         public string AlignClass { get; set; }
+        public bool IsTopFix { get; set; }
     }
     class NavigationWidgetMetaData : WidgetMetaData<NavigationWidget>
     {
@@ -42,6 +43,7 @@ namespace Easy.CMS.Common.Models
                      {"navbar-right","右对齐"}
                 };
             }).Order(NextOrder());
+            ViewConfig(m => m.IsTopFix).AsHidden();
             ViewConfig(m => m.Logo).AsTextBox().Order(NextOrder()).AddClass(StringKeys.SelectImageClass).AddProperty("data-url", Urls.SelectMedia);
         }
     }
