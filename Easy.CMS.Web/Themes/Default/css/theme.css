@@ -7749,6 +7749,10 @@ p {
 .widget {
   margin: 10px;
 }
+.widget.container {
+  margin-left: auto;
+  margin-right: auto;
+}
 .widget.border {
   border: 1px solid #dedede;
   border-radius: 3px;
