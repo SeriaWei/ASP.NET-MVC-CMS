@@ -7,7 +7,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{EDB9AC03-A066-4C3B-A69B-0C4472BC1DE4}</ProjectGuid>
+    <ProjectGuid>{059B5837-2FB3-43B0-AB7F-470B44588009}</ProjectGuid>
     <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -20,6 +20,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -44,12 +45,12 @@
       <HintPath>..\..\..\packages\Autofac.3.5.2\lib\net40\Autofac.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Easy, Version=1.0.5.3, Culture=neutral, PublicKeyToken=1964c83ce4e03f58, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\EasyFrameWork.1.0.5.3\lib\net40\Easy.dll</HintPath>
+    <Reference Include="Easy, Version=1.0.5.10, Culture=neutral, PublicKeyToken=2b89634455a72a39, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\EasyFrameWork.1.0.5.10\lib\net40\Easy.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Easy.Web, Version=1.0.5.4, Culture=neutral, PublicKeyToken=3aaa4da33a984374, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\EasyFrameWork.Web.1.0.5.4\lib\net40\Easy.Web.dll</HintPath>
+    <Reference Include="Easy.Web, Version=1.0.5.13, Culture=neutral, PublicKeyToken=48e55983b3ecaefe, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\EasyFrameWork.Web.1.0.5.13\lib\net40\Easy.Web.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
