@@ -67,16 +67,16 @@
       <publishTime>09/08/2015 09:26:45</publishTime>
     </File>
     <File Include="bin/Easy.CMS.Common.dll">
-      <publishTime>06/25/2016 11:08:25</publishTime>
+      <publishTime>06/28/2016 19:15:53</publishTime>
     </File>
     <File Include="bin/Easy.dll">
       <publishTime>06/24/2016 23:20:50</publishTime>
     </File>
     <File Include="bin/Easy.Web.CMS.dll">
-      <publishTime>06/25/2016 11:06:50</publishTime>
+      <publishTime>06/28/2016 19:15:52</publishTime>
     </File>
     <File Include="bin/Easy.Web.dll">
-      <publishTime>06/24/2016 22:49:40</publishTime>
+      <publishTime>06/27/2016 11:06:32</publishTime>
     </File>
     <File Include="bin/EasyZip.dll">
       <publishTime>06/13/2016 19:32:02</publishTime>
@@ -241,10 +241,10 @@
       <publishTime>08/12/2014 18:46:49</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>06/24/2016 23:35:56</publishTime>
+      <publishTime>06/28/2016 19:15:26</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>06/25/2016 11:08:27</publishTime>
+      <publishTime>06/28/2016 22:08:50</publishTime>
     </File>
     <File Include="Scripts/jquery-1.8.2.js">
       <publishTime>08/15/2014 23:11:02</publishTime>
@@ -514,7 +514,7 @@
       <publishTime>07/27/2015 18:46:35</publishTime>
     </File>
     <File Include="web.config">
-      <publishTime>06/25/2016 11:08:26</publishTime>
+      <publishTime>06/28/2016 22:08:50</publishTime>
     </File>
   </ItemGroup>
 </Project>
