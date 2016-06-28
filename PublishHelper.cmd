@@ -10,4 +10,3 @@ for /f %%a in ('dir Release\Application\Modules /b') do (
 	del Release\Application\Modules\%%a\*.xml
 )
 xcopy DataBase Release\DataBase\ /S /F /Y
-del Release\DataBase\Append_GO.cmd
