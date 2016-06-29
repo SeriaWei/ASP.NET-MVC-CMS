@@ -19,7 +19,7 @@
       <publishTime>09/08/2015 09:27:02</publishTime>
     </File>
     <File Include="bin/Autofac.dll">
-      <publishTime>07/25/2015 09:38:39</publishTime>
+      <publishTime>07/27/2015 08:41:42</publishTime>
     </File>
     <File Include="bin/create.cshtml.ab886a4d.compiled">
       <publishTime>09/08/2015 09:27:02</publishTime>
@@ -28,19 +28,19 @@
       <publishTime>09/08/2015 09:27:02</publishTime>
     </File>
     <File Include="bin/Easy.CMS.Product.dll">
-      <publishTime>06/28/2016 19:15:53</publishTime>
+      <publishTime>06/29/2016 14:45:35</publishTime>
     </File>
     <File Include="bin/Easy.dll">
-      <publishTime>06/24/2016 23:20:50</publishTime>
+      <publishTime>06/27/2016 15:05:12</publishTime>
     </File>
     <File Include="bin/Easy.Web.CMS.dll">
-      <publishTime>06/28/2016 19:15:52</publishTime>
+      <publishTime>06/29/2016 14:43:42</publishTime>
     </File>
     <File Include="bin/Easy.Web.dll">
-      <publishTime>06/27/2016 11:06:32</publishTime>
+      <publishTime>06/29/2016 11:42:24</publishTime>
     </File>
     <File Include="bin/EasyZip.dll">
-      <publishTime>06/13/2016 19:32:02</publishTime>
+      <publishTime>06/13/2016 15:52:48</publishTime>
     </File>
     <File Include="bin/edit.cshtml.ab886a4d.compiled">
       <publishTime>09/08/2015 09:27:02</publishTime>
@@ -55,16 +55,16 @@
       <publishTime>09/08/2015 09:27:02</publishTime>
     </File>
     <File Include="bin/Microsoft.Practices.ServiceLocation.dll">
-      <publishTime>07/25/2015 13:37:14</publishTime>
+      <publishTime>07/27/2015 08:41:42</publishTime>
     </File>
     <File Include="bin/Microsoft.Practices.Unity.Configuration.dll">
-      <publishTime>07/25/2015 09:37:43</publishTime>
+      <publishTime>07/27/2015 08:41:42</publishTime>
     </File>
     <File Include="bin/Microsoft.Practices.Unity.dll">
-      <publishTime>07/25/2015 09:37:43</publishTime>
+      <publishTime>07/27/2015 08:41:42</publishTime>
     </File>
     <File Include="bin/Microsoft.Web.Infrastructure.dll">
-      <publishTime>07/21/2014 22:39:58</publishTime>
+      <publishTime>07/22/2014 08:57:04</publishTime>
     </File>
     <File Include="bin/Microsoft.Web.Mvc.FixedDisplayModes.dll">
       <publishTime>07/02/2014 21:58:03</publishTime>
@@ -73,7 +73,7 @@
       <publishTime>08/31/2015 08:40:04</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
-      <publishTime>07/26/2015 10:08:37</publishTime>
+      <publishTime>01/20/2016 12:05:05</publishTime>
     </File>
     <File Include="bin/System.Net.Http.dll">
       <publishTime>07/10/2012 12:07:38</publishTime>
@@ -82,22 +82,22 @@
       <publishTime>07/10/2012 12:07:38</publishTime>
     </File>
     <File Include="bin/System.Web.Helpers.dll">
-      <publishTime>07/02/2014 21:58:02</publishTime>
+      <publishTime>07/22/2014 08:57:04</publishTime>
     </File>
     <File Include="bin/System.Web.Mvc.dll">
-      <publishTime>07/26/2015 21:15:40</publishTime>
+      <publishTime>07/27/2015 08:41:42</publishTime>
     </File>
     <File Include="bin/System.Web.Razor.dll">
-      <publishTime>07/02/2014 21:58:02</publishTime>
+      <publishTime>07/22/2014 08:57:04</publishTime>
     </File>
     <File Include="bin/System.Web.WebPages.Deployment.dll">
-      <publishTime>07/02/2014 21:58:02</publishTime>
+      <publishTime>07/22/2014 08:57:04</publishTime>
     </File>
     <File Include="bin/System.Web.WebPages.dll">
-      <publishTime>07/02/2014 21:58:02</publishTime>
+      <publishTime>07/22/2014 08:57:04</publishTime>
     </File>
     <File Include="bin/System.Web.WebPages.Razor.dll">
-      <publishTime>07/02/2014 21:58:02</publishTime>
+      <publishTime>07/22/2014 08:57:04</publishTime>
     </File>
     <File Include="bin/widget.productcategory.cshtml.65a2d1ee.compiled">
       <publishTime>09/08/2015 09:27:02</publishTime>
@@ -133,67 +133,67 @@
       <publishTime>07/02/2014 21:58:06</publishTime>
     </File>
     <File Include="Content/Image/Example.png">
-      <publishTime>06/07/2016 21:38:30</publishTime>
+      <publishTime>06/07/2016 09:56:13</publishTime>
     </File>
     <File Include="CopyItems.xml">
-      <publishTime>08/13/2014 20:42:27</publishTime>
+      <publishTime>08/18/2014 09:12:11</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>06/28/2016 19:15:24</publishTime>
+      <publishTime>06/29/2016 11:42:24</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>06/28/2016 22:09:03</publishTime>
+      <publishTime>06/29/2016 14:45:36</publishTime>
     </File>
     <File Include="Scripts/jquery-photowall/exit.gif">
-      <publishTime>12/11/2014 19:09:54</publishTime>
+      <publishTime>01/30/2015 22:48:00</publishTime>
     </File>
     <File Include="Scripts/jquery-photowall/index.html">
-      <publishTime>12/11/2014 19:09:54</publishTime>
+      <publishTime>01/30/2015 22:48:00</publishTime>
     </File>
     <File Include="Scripts/jquery-photowall/jquery-photowall.css">
-      <publishTime>12/11/2014 19:09:54</publishTime>
+      <publishTime>08/28/2015 15:35:13</publishTime>
     </File>
     <File Include="Scripts/jquery-photowall/jquery-photowall.js">
-      <publishTime>01/13/2015 22:22:47</publishTime>
+      <publishTime>01/30/2015 22:48:00</publishTime>
     </File>
     <File Include="Scripts/jquery-photowall/loader.gif">
-      <publishTime>12/11/2014 19:09:54</publishTime>
+      <publishTime>01/30/2015 22:48:00</publishTime>
     </File>
     <File Include="Scripts/jquery-photowall/lock.gif">
-      <publishTime>12/11/2014 19:09:54</publishTime>
+      <publishTime>01/30/2015 22:48:00</publishTime>
     </File>
     <File Include="Scripts/jquery-photowall/MIT-LICENSE.txt">
-      <publishTime>12/11/2014 19:09:54</publishTime>
+      <publishTime>08/28/2015 15:35:13</publishTime>
     </File>
     <File Include="Views/Product/Create.cshtml">
-      <publishTime>05/31/2016 20:03:49</publishTime>
+      <publishTime>05/31/2016 16:44:48</publishTime>
     </File>
     <File Include="Views/Product/Edit.cshtml">
-      <publishTime>05/31/2016 20:03:49</publishTime>
+      <publishTime>05/31/2016 16:44:40</publishTime>
     </File>
     <File Include="Views/Product/Index.cshtml">
-      <publishTime>05/31/2016 20:03:49</publishTime>
+      <publishTime>05/31/2016 16:44:57</publishTime>
     </File>
     <File Include="Views/ProductCategory/Create.cshtml">
-      <publishTime>05/31/2016 20:03:49</publishTime>
+      <publishTime>05/31/2016 16:45:08</publishTime>
     </File>
     <File Include="Views/ProductCategory/Edit.cshtml">
-      <publishTime>05/31/2016 20:03:49</publishTime>
+      <publishTime>05/31/2016 16:45:14</publishTime>
     </File>
     <File Include="Views/ProductCategory/Index.cshtml">
-      <publishTime>05/31/2016 20:03:49</publishTime>
+      <publishTime>05/31/2016 16:45:22</publishTime>
     </File>
     <File Include="Views/Web.config">
-      <publishTime>07/26/2015 21:53:35</publishTime>
+      <publishTime>07/27/2015 08:41:42</publishTime>
     </File>
     <File Include="Views/Widget.ProductCategory.cshtml">
-      <publishTime>05/22/2016 15:34:06</publishTime>
+      <publishTime>05/16/2016 08:37:57</publishTime>
     </File>
     <File Include="Views/Widget.ProductDetail.cshtml">
-      <publishTime>05/31/2016 20:03:49</publishTime>
+      <publishTime>05/31/2016 16:45:37</publishTime>
     </File>
     <File Include="Views/Widget.ProductList.cshtml">
-      <publishTime>05/31/2016 20:03:49</publishTime>
+      <publishTime>05/31/2016 14:47:51</publishTime>
     </File>
     <File Include="Views/Widget.ProductListWidget.cshtml">
       <publishTime>01/30/2015 22:48:00</publishTime>
@@ -202,7 +202,7 @@
       <publishTime>01/30/2015 22:48:00</publishTime>
     </File>
     <File Include="web.config">
-      <publishTime>06/28/2016 22:09:02</publishTime>
+      <publishTime>06/29/2016 14:45:36</publishTime>
     </File>
   </ItemGroup>
 </Project>
