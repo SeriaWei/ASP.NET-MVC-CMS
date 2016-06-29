@@ -1,33 +1,97 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <required>
   <item type="Easy.CMS.Section.Models.SectionContentImage">
-    <property name="ImageSrc"><![CDATA[/Content/Images/logo_min.png]]></property>
+    <property name="ImageSrc"><![CDATA[http://cdn.zkeasoft.com/BuilderDemo/Photos/k02-1.jpg]]></property>
     <property name="ImageAlt"><![CDATA[]]></property>
-    <property name="ImageTitle"><![CDATA[这是一个缩略图，照片墙模板，点击图片可放大显示。]]></property>
+    <property name="ImageTitle"><![CDATA[]]></property>
     <property name="Href"><![CDATA[]]></property>
     <property name="Width"><![CDATA[]]></property>
     <property name="Height"><![CDATA[]]></property>
   </item>
   <item type="Easy.CMS.Section.Models.SectionContentImage">
-    <property name="ImageSrc"><![CDATA[/Content/Images/logo_min.png]]></property>
+    <property name="ImageSrc"><![CDATA[http://cdn.zkeasoft.com/BuilderDemo/Photos/k02-2.jpg]]></property>
     <property name="ImageAlt"><![CDATA[]]></property>
-    <property name="ImageTitle"><![CDATA[这是一个缩略图，照片墙模板，点击图片可放大显示。]]></property>
+    <property name="ImageTitle"><![CDATA[]]></property>
     <property name="Href"><![CDATA[]]></property>
     <property name="Width"><![CDATA[]]></property>
     <property name="Height"><![CDATA[]]></property>
   </item>
   <item type="Easy.CMS.Section.Models.SectionContentImage">
-    <property name="ImageSrc"><![CDATA[/Content/Images/logo_min.png]]></property>
+    <property name="ImageSrc"><![CDATA[http://cdn.zkeasoft.com/BuilderDemo/Photos/k02-3.jpg]]></property>
     <property name="ImageAlt"><![CDATA[]]></property>
-    <property name="ImageTitle"><![CDATA[这是一个缩略图，照片墙模板，点击图片可放大显示。]]></property>
+    <property name="ImageTitle"><![CDATA[]]></property>
     <property name="Href"><![CDATA[]]></property>
     <property name="Width"><![CDATA[]]></property>
     <property name="Height"><![CDATA[]]></property>
   </item>
   <item type="Easy.CMS.Section.Models.SectionContentImage">
-    <property name="ImageSrc"><![CDATA[/Content/Images/logo_min.png]]></property>
+    <property name="ImageSrc"><![CDATA[http://cdn.zkeasoft.com/BuilderDemo/Photos/k02-4.jpg]]></property>
     <property name="ImageAlt"><![CDATA[]]></property>
-    <property name="ImageTitle"><![CDATA[这是一个缩略图，照片墙模板，点击图片可放大显示。]]></property>
+    <property name="ImageTitle"><![CDATA[]]></property>
+    <property name="Href"><![CDATA[]]></property>
+    <property name="Width"><![CDATA[]]></property>
+    <property name="Height"><![CDATA[]]></property>
+  </item>
+  <item type="Easy.CMS.Section.Models.SectionContentImage">
+    <property name="ImageSrc"><![CDATA[http://cdn.zkeasoft.com/BuilderDemo/Photos/k02-5.jpg]]></property>
+    <property name="ImageAlt"><![CDATA[]]></property>
+    <property name="ImageTitle"><![CDATA[]]></property>
+    <property name="Href"><![CDATA[]]></property>
+    <property name="Width"><![CDATA[]]></property>
+    <property name="Height"><![CDATA[]]></property>
+  </item>
+  <item type="Easy.CMS.Section.Models.SectionContentImage">
+    <property name="ImageSrc"><![CDATA[http://cdn.zkeasoft.com/BuilderDemo/Photos/k02-6.jpg]]></property>
+    <property name="ImageAlt"><![CDATA[]]></property>
+    <property name="ImageTitle"><![CDATA[]]></property>
+    <property name="Href"><![CDATA[]]></property>
+    <property name="Width"><![CDATA[]]></property>
+    <property name="Height"><![CDATA[]]></property>
+  </item>
+  <item type="Easy.CMS.Section.Models.SectionContentImage">
+    <property name="ImageSrc"><![CDATA[http://cdn.zkeasoft.com/BuilderDemo/Photos/k02-7.jpg]]></property>
+    <property name="ImageAlt"><![CDATA[]]></property>
+    <property name="ImageTitle"><![CDATA[]]></property>
+    <property name="Href"><![CDATA[]]></property>
+    <property name="Width"><![CDATA[]]></property>
+    <property name="Height"><![CDATA[]]></property>
+  </item>
+  <item type="Easy.CMS.Section.Models.SectionContentImage">
+    <property name="ImageSrc"><![CDATA[http://cdn.zkeasoft.com/BuilderDemo/Photos/k02-8.jpg]]></property>
+    <property name="ImageAlt"><![CDATA[]]></property>
+    <property name="ImageTitle"><![CDATA[]]></property>
+    <property name="Href"><![CDATA[]]></property>
+    <property name="Width"><![CDATA[]]></property>
+    <property name="Height"><![CDATA[]]></property>
+  </item>
+  <item type="Easy.CMS.Section.Models.SectionContentImage">
+    <property name="ImageSrc"><![CDATA[http://cdn.zkeasoft.com/BuilderDemo/Photos/k02-1.jpg]]></property>
+    <property name="ImageAlt"><![CDATA[]]></property>
+    <property name="ImageTitle"><![CDATA[]]></property>
+    <property name="Href"><![CDATA[]]></property>
+    <property name="Width"><![CDATA[]]></property>
+    <property name="Height"><![CDATA[]]></property>
+  </item>
+  <item type="Easy.CMS.Section.Models.SectionContentImage">
+    <property name="ImageSrc"><![CDATA[http://cdn.zkeasoft.com/BuilderDemo/Photos/k02-2.jpg]]></property>
+    <property name="ImageAlt"><![CDATA[]]></property>
+    <property name="ImageTitle"><![CDATA[]]></property>
+    <property name="Href"><![CDATA[]]></property>
+    <property name="Width"><![CDATA[]]></property>
+    <property name="Height"><![CDATA[]]></property>
+  </item>
+  <item type="Easy.CMS.Section.Models.SectionContentImage">
+    <property name="ImageSrc"><![CDATA[http://cdn.zkeasoft.com/BuilderDemo/Photos/k02-3.jpg]]></property>
+    <property name="ImageAlt"><![CDATA[]]></property>
+    <property name="ImageTitle"><![CDATA[]]></property>
+    <property name="Href"><![CDATA[]]></property>
+    <property name="Width"><![CDATA[]]></property>
+    <property name="Height"><![CDATA[]]></property>
+  </item>
+  <item type="Easy.CMS.Section.Models.SectionContentImage">
+    <property name="ImageSrc"><![CDATA[http://cdn.zkeasoft.com/BuilderDemo/Photos/k02-4.jpg]]></property>
+    <property name="ImageAlt"><![CDATA[]]></property>
+    <property name="ImageTitle"><![CDATA[]]></property>
     <property name="Href"><![CDATA[]]></property>
     <property name="Width"><![CDATA[]]></property>
     <property name="Height"><![CDATA[]]></property>
