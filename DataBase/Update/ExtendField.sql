@@ -1,0 +1,33 @@
+USE [ZKEACMS]
+GO
+
+/****** Object:  Table [dbo].[ExtendField]    Script Date: 2016/7/1 ÐÇÆÚÎå 16:57:53 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[ExtendField](
+	[ID] [INT] IDENTITY(1,1) NOT NULL,
+	[Title] [NVARCHAR](255) NULL,
+	[Value] [NVARCHAR](MAX) NULL,
+	[OwnerModule] [NVARCHAR](50) NULL,
+	[OwnerID] [NVARCHAR](100) NULL,
+	[Status] [INT] NULL,
+	[CreateBy] [NVARCHAR](255) NULL,
+	[CreatebyName] [NVARCHAR](255) NULL,
+	[CreateDate] [DATETIME] NULL,
+	[LastUpdateBy] [NVARCHAR](255) NULL,
+	[LastUpdateByName] [NVARCHAR](255) NULL,
+	[LastUpdateDate] [DATETIME] NULL,
+	[Description] [NVARCHAR](255) NULL,
+ CONSTRAINT [PK_ExtendField] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+
+
