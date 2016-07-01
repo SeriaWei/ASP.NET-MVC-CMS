@@ -6,11 +6,12 @@ using System.Linq;
 using System.Text;
 using Easy.MetaData;
 using Easy.Extend;
+using Easy.Web.CMS.ExtendField;
 
 namespace Easy.Web.CMS.Page
 {
     [DataConfigure(typeof(PageBaseMetaData))]
-    public class PageEntity : EditorEntity
+    public class PageEntity : EditorEntity, IExtendField
     {
         public string ID { get; set; }
         public string ReferencePageID { get; set; }
@@ -44,6 +45,8 @@ namespace Easy.Web.CMS.Page
         public DateTime? PublishDate { get; set; }
         public bool IsPublish { get; set; }
 
+
+        public IEnumerable<ExtendFieldEntity> ExtendFields { get; set; }
     }
     class PageBaseMetaData : DataViewMetaData<PageEntity>
     {
@@ -52,6 +55,8 @@ namespace Easy.Web.CMS.Page
             DataTable("CMS_Page");
             DataConfig(m => m.ID).AsPrimaryKey();
             DataConfig(m => m.PageUrl).Ignore();
+            DataConfig(m => m.ExtendFields)
+                .SetReference<ExtendFieldEntity, IExtendFieldService>((page, extend) => extend.OwnerModule == "Page" && extend.OwnerID == page.ID);
         }
 
         protected override void ViewConfigure()
@@ -62,6 +67,7 @@ namespace Easy.Web.CMS.Page
             ViewConfig(m => m.LayoutId).AsDropDownList().DataSource(ViewDataKeys.Layouts, SourceType.ViewData);
             ViewConfig(m => m.Script).AsTextBox().AddClass(StringKeys.SelectMediaClass).AddProperty("data-url", Urls.SelectMedia);
             ViewConfig(m => m.Style).AsTextBox().AddClass(StringKeys.SelectMediaClass).AddProperty("data-url", Urls.SelectMedia);
+            ViewConfig(m => m.ExtendFields).AsListEditor();
             ViewConfig(m => m.ParentId).AsHidden();
             ViewConfig(m => m.ID).AsHidden();
             ViewConfig(m => m.ReferencePageID).AsHidden();

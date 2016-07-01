@@ -112,6 +112,10 @@
     <Compile Include="CmsApplication.cs" />
     <Compile Include="CMSApplicationContext.cs" />
     <Compile Include="Constant.cs" />
+    <Compile Include="ExtendField\ExtendFieldEntity.cs" />
+    <Compile Include="ExtendField\ExtendFieldService.cs" />
+    <Compile Include="ExtendField\IExtendField.cs" />
+    <Compile Include="ExtendField\IExtendFieldService.cs" />
     <Compile Include="Filter\EditWidgetAttribute.cs" />
     <Compile Include="Filter\WidgetAttribute.cs" />
     <Compile Include="HtmlHelperExtend.cs" />
