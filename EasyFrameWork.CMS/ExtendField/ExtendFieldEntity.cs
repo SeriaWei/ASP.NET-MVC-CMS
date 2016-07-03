@@ -24,6 +24,9 @@ namespace Easy.Web.CMS.ExtendField
         protected override void ViewConfigure()
         {
             ViewConfig(m => m.ID).AsHidden();
+            ViewConfig(m => m.OwnerModule).AsHidden();
+            ViewConfig(m => m.OwnerID).AsHidden();
+            ViewConfig(m => m.Description).AsTextBox();
         }
     }
 }
