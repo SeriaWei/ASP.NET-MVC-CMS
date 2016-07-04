@@ -1,6 +1,3 @@
-USE [ZKEACMS]
-GO
-
 /****** Object:  Table [dbo].[ExtendField]    Script Date: 2016/7/1 星期五 16:57:53 ******/
 SET ANSI_NULLS ON
 GO
@@ -29,5 +26,24 @@ CREATE TABLE [dbo].[ExtendField](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 
 GO
+
+DELETE FROM dbo.Language WHERE  Module=N'ExtendFieldEntity'
+INSERT INTO dbo.Language( LanKey ,LanID ,LanValue ,Module ,LanType)
+SELECT N'ExtendFieldEntity@ActionType',2052,N'ActionType',N'ExtendFieldEntity',N'EntityProperty' UNION ALL
+SELECT N'ExtendFieldEntity@CreateBy',2052,N'CreateBy',N'ExtendFieldEntity',N'EntityProperty' UNION ALL
+SELECT N'ExtendFieldEntity@CreatebyName',2052,N'创建人',N'ExtendFieldEntity',N'EntityProperty' UNION ALL
+SELECT N'ExtendFieldEntity@CreateDate',2052,N'创建日期',N'ExtendFieldEntity',N'EntityProperty' UNION ALL
+SELECT N'ExtendFieldEntity@Description',2052,N'描述',N'ExtendFieldEntity',N'EntityProperty' UNION ALL
+SELECT N'ExtendFieldEntity@ID',2052,N'ID',N'ExtendFieldEntity',N'EntityProperty' UNION ALL
+SELECT N'ExtendFieldEntity@LastUpdateBy',2052,N'LastUpdateBy',N'ExtendFieldEntity',N'EntityProperty' UNION ALL
+SELECT N'ExtendFieldEntity@LastUpdateByName',2052,N'更新人',N'ExtendFieldEntity',N'EntityProperty' UNION ALL
+SELECT N'ExtendFieldEntity@LastUpdateDate',2052,N'更新日期',N'ExtendFieldEntity',N'EntityProperty' UNION ALL
+SELECT N'ExtendFieldEntity@OwnerID',2052,N'OwnerID',N'ExtendFieldEntity',N'EntityProperty' UNION ALL
+SELECT N'ExtendFieldEntity@OwnerModule',2052,N'OwnerModule',N'ExtendFieldEntity',N'EntityProperty' UNION ALL
+SELECT N'ExtendFieldEntity@Status',2052,N'状态',N'ExtendFieldEntity',N'EntityProperty'UNION ALL
+SELECT N'ExtendFieldEntity@Title',2052,N'名称',N'ExtendFieldEntity',N'EntityProperty' UNION ALL
+SELECT N'ExtendFieldEntity@Value',2052,N'值',N'ExtendFieldEntity',N'EntityProperty'
+GO
+INSERT INTO dbo.Language( LanKey ,LanID ,LanValue ,Module ,LanType) VALUES (N'PageEntity@ExtendFields',2052,N'扩展属性',N'PageEntity',N'EntityProperty')
 
 

@@ -11,11 +11,12 @@ using Easy.Models;
 using Easy.RepositoryPattern;
 using Microsoft.Practices.ServiceLocation;
 using Easy.IOC;
+using Easy.Web.CMS.ExtendField;
 
 namespace Easy.Web.CMS.Widget
 {
     [DataConfigure(typeof(WidgetBaseMetaData))]
-    public class WidgetBase : EditorEntity
+    public class WidgetBase : EditorEntity, IExtendField
     {
         public static Dictionary<string, Type> KnownWidgetModel;
         static WidgetBase()
@@ -112,6 +113,8 @@ namespace Easy.Web.CMS.Widget
             }
             return null;
         }
+
+        public IEnumerable<ExtendFieldEntity> ExtendFields { get; set; }
     }
     class WidgetBaseMetaData : DataViewMetaData<WidgetBase>
     {
@@ -122,6 +125,7 @@ namespace Easy.Web.CMS.Widget
             DataConfig(m => m.IsSystem).Update(false).Insert(false);
             DataConfig(m => m.CustomClass).Ignore();
             DataConfig(m => m.CustomStyle).Ignore();
+            DataConfig(m => m.ExtendFields).SetReference<ExtendFieldEntity, IExtendFieldService>((widget, field) => field.OwnerModule == "Widget" && field.OwnerID == widget.ID);
         }
 
         protected override void ViewConfigure()
@@ -129,6 +133,7 @@ namespace Easy.Web.CMS.Widget
             ViewConfig(m => m.StyleClass).AsTextBox().MaxLength(1000);
             ViewConfig(m => m.CustomClass).AsHidden().Ignore();
             ViewConfig(m => m.CustomStyle).AsHidden().Ignore();
+            ViewConfig(m => m.ExtendFields).AsListEditor();
         }
     }
 

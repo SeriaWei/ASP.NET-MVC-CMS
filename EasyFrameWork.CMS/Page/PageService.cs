@@ -6,6 +6,7 @@ using Easy.Data;
 using Easy.RepositoryPattern;
 using Easy.Extend;
 using Easy.Constant;
+using Easy.Web.CMS.ExtendField;
 using Easy.Web.CMS.Widget;
 using Microsoft.Practices.ServiceLocation;
 

@@ -191,6 +191,7 @@ namespace Easy.Web.CMS.Widget
                 to.IsTemplate = from.IsTemplate;
                 to.Thumbnail = from.Thumbnail;
                 to.IsSystem = from.IsSystem;
+                to.ExtendFields = from.ExtendFields;
             }
         }
 

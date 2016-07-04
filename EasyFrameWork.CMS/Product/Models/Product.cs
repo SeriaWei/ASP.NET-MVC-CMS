@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using Easy.MetaData;
 using Easy.Models;
+using Easy.Web.CMS.ExtendField;
 
 namespace Easy.Web.CMS.Product.Models
 {
     [DataConfigure(typeof(ProductMetaData))]
-    public class ProductEntity : EditorEntity, IImage
+    public class ProductEntity : EditorEntity, IImage, IExtendField
     {
         public long? ID { get; set; }
         /// <summary>
@@ -66,6 +67,8 @@ namespace Easy.Web.CMS.Product.Models
         public DateTime? PublishDate { get; set; }
         public string TargetFrom { get; set; }
         public string TargetUrl { get; set; }
+
+        public IEnumerable<ExtendFieldEntity> ExtendFields { get; set; }
     }
     class ProductMetaData : DataViewMetaData<ProductEntity>
     {
@@ -73,6 +76,9 @@ namespace Easy.Web.CMS.Product.Models
         {
             DataTable("Product");
             DataConfig(m => m.ID).AsIncreasePrimaryKey();
+            DataConfig(m => m.ExtendFields)
+                .SetReference<ExtendFieldEntity, IExtendFieldService>(
+                    (product, extend) => extend.OwnerModule == "Product" && extend.OwnerID == product.ID.ToString());
         }
 
         protected override void ViewConfigure()
@@ -83,6 +89,7 @@ namespace Easy.Web.CMS.Product.Models
             ViewConfig(m => m.ImageThumbUrl).AsTextBox().AddClass(StringKeys.SelectImageClass).AddProperty("data-url", Urls.SelectMedia);
             ViewConfig(m => m.BrandCD).AsHidden();
             ViewConfig(m => m.ProductCategoryID).AsDropDownList().Required().DataSource(ViewDataKeys.ProductCategory, Constant.SourceType.ViewData);
+            ViewConfig(m => m.ExtendFields).AsListEditor();
             ViewConfig(m => m.ShelfLife).AsHidden();
             ViewConfig(m => m.Norm).AsHidden();
             ViewConfig(m => m.Color).AsHidden();

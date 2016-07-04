@@ -6,7 +6,7 @@ namespace Easy.Web.CMS.ExtendField
     [DataConfigure(typeof(ExtendFieldEntityMetaData))]
     public class ExtendFieldEntity : EditorEntity
     {
-        public int ID { get; set; }
+        public int? ID { get; set; }
         public string OwnerModule { get; set; }
         public string OwnerID { get; set; }
         public string Value { get; set; }

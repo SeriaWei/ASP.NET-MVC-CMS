@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Easy.Web.CMS.ExtendField;
 
 namespace Easy.Web.CMS.MetaData
 {
@@ -29,6 +30,8 @@ namespace Easy.Web.CMS.MetaData
             ViewConfig(m => m.StyleClass).AsTextBox().Order(NextOrder()).AddClass(StringKeys.StyleEditor).AddProperty("data-url", Urls.StyleEditor).AddProperty("data-width", "1024").MaxLength(1000);
             ViewConfig(m => m.CustomClass).AsHidden().Ignore();
             ViewConfig(m => m.CustomStyle).AsHidden().Ignore();
+            ViewConfig(m => m.ExtendFields).AsListEditor();
+            
         }
 
         protected override void DataConfigure()
@@ -37,6 +40,7 @@ namespace Easy.Web.CMS.MetaData
             DataConfig(m => m.ID).AsPrimaryKey();
             DataConfig(m => m.CustomClass).Ignore();
             DataConfig(m => m.CustomStyle).Ignore();
+            DataConfig(m => m.ExtendFields).SetReference<ExtendFieldEntity, IExtendFieldService>((widget, field) => field.OwnerModule == "Widget" && field.OwnerID == widget.ID);
         }
 
         protected override void ViewConfigure()
