@@ -44,6 +44,5 @@ SELECT N'ExtendFieldEntity@Status',2052,N'状态',N'ExtendFieldEntity',N'EntityPro
 SELECT N'ExtendFieldEntity@Title',2052,N'名称',N'ExtendFieldEntity',N'EntityProperty' UNION ALL
 SELECT N'ExtendFieldEntity@Value',2052,N'值',N'ExtendFieldEntity',N'EntityProperty'
 GO
+DELETE FROM dbo.Language WHERE LanKey LIKE N'%@ExtendFields'
 INSERT INTO dbo.Language( LanKey ,LanID ,LanValue ,Module ,LanType) VALUES (N'PageEntity@ExtendFields',2052,N'扩展属性',N'PageEntity',N'EntityProperty')
-
-

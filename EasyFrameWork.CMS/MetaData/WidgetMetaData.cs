@@ -40,7 +40,7 @@ namespace Easy.Web.CMS.MetaData
             DataConfig(m => m.ID).AsPrimaryKey();
             DataConfig(m => m.CustomClass).Ignore();
             DataConfig(m => m.CustomStyle).Ignore();
-            DataConfig(m => m.ExtendFields).SetReference<ExtendFieldEntity, IExtendFieldService>((widget, field) => field.OwnerModule == "Widget" && field.OwnerID == widget.ID);
+            DataConfig(m => m.ExtendFields).Ignore();
         }
 
         protected override void ViewConfigure()

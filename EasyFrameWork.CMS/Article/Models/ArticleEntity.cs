@@ -5,11 +5,12 @@ using System.Web;
 using Easy.Constant;
 using Easy.Models;
 using Easy.MetaData;
+using Easy.Web.CMS.ExtendField;
 
 namespace Easy.Web.CMS.Article.Models
 {
     [DataConfigure(typeof(ArticleEntityMeta))]
-    public class ArticleEntity : EditorEntity, IImage
+    public class ArticleEntity : EditorEntity, IImage, IExtendField
     {
         public long ID { get; set; }
 
@@ -26,6 +27,11 @@ namespace Easy.Web.CMS.Article.Models
         public int? ArticleTypeID { get; set; }
         public DateTime? PublishDate { get; set; }
         public bool IsPublish { get; set; }
+
+        public IEnumerable<ExtendFieldEntity> ExtendFields
+        {
+            get;set;
+        }
     }
     class ArticleEntityMeta : DataViewMetaData<ArticleEntity>
     {
@@ -34,6 +40,7 @@ namespace Easy.Web.CMS.Article.Models
             DataTable("Article");
             DataConfig(m => m.ID).AsIncreasePrimaryKey();
             DataConfig(m => m.ID).Update(false);
+            DataConfig(m => m.ExtendFields).SetReference<ExtendFieldEntity, IExtendFieldService>((article, field) => field.OwnerModule == "Article" && field.OwnerID == article.ID.ToString());
         }
 
         protected override void ViewConfigure()

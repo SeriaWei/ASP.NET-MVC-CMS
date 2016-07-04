@@ -133,7 +133,7 @@ namespace Easy.Web.CMS.Widget
             ViewConfig(m => m.StyleClass).AsTextBox().MaxLength(1000);
             ViewConfig(m => m.CustomClass).AsHidden().Ignore();
             ViewConfig(m => m.CustomStyle).AsHidden().Ignore();
-            ViewConfig(m => m.ExtendFields).AsListEditor();
+            ViewConfig(m => m.ExtendFields).AsHidden().Ignore();
         }
     }
 
