@@ -78,7 +78,7 @@ namespace Easy.Web.CMS.Product.Models
             DataConfig(m => m.ID).AsIncreasePrimaryKey();
             DataConfig(m => m.ExtendFields)
                 .SetReference<ExtendFieldEntity, IExtendFieldService>(
-                    (product, extend) => extend.OwnerModule == "Product" && extend.OwnerID == product.ID.ToString());
+                    (product, extend) => extend.OwnerModule == TargetType.Name && extend.OwnerID == product.ID.ToString());
         }
 
         protected override void ViewConfigure()

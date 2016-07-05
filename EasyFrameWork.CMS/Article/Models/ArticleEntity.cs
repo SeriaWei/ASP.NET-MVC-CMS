@@ -40,7 +40,7 @@ namespace Easy.Web.CMS.Article.Models
             DataTable("Article");
             DataConfig(m => m.ID).AsIncreasePrimaryKey();
             DataConfig(m => m.ID).Update(false);
-            DataConfig(m => m.ExtendFields).SetReference<ExtendFieldEntity, IExtendFieldService>((article, field) => field.OwnerModule == "Article" && field.OwnerID == article.ID.ToString());
+            DataConfig(m => m.ExtendFields).SetReference<ExtendFieldEntity, IExtendFieldService>((article, field) => field.OwnerModule == TargetType.Name && field.OwnerID == article.ID.ToString());
         }
 
         protected override void ViewConfigure()

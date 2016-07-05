@@ -125,7 +125,7 @@ namespace Easy.Web.CMS.Widget
             DataConfig(m => m.IsSystem).Update(false).Insert(false);
             DataConfig(m => m.CustomClass).Ignore();
             DataConfig(m => m.CustomStyle).Ignore();
-            DataConfig(m => m.ExtendFields).SetReference<ExtendFieldEntity, IExtendFieldService>((widget, field) => field.OwnerModule == "Widget" && field.OwnerID == widget.ID);
+            DataConfig(m => m.ExtendFields).SetReference<ExtendFieldEntity, IExtendFieldService>((widget, field) => field.OwnerModule == TargetType.Name && field.OwnerID == widget.ID);
         }
 
         protected override void ViewConfigure()

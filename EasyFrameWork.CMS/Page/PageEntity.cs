@@ -56,7 +56,7 @@ namespace Easy.Web.CMS.Page
             DataConfig(m => m.ID).AsPrimaryKey();
             DataConfig(m => m.PageUrl).Ignore();
             DataConfig(m => m.ExtendFields)
-                .SetReference<ExtendFieldEntity, IExtendFieldService>((page, extend) => extend.OwnerModule == "Page" && extend.OwnerID == page.ID);
+                .SetReference<ExtendFieldEntity, IExtendFieldService>((page, extend) => extend.OwnerModule == TargetType.Name && extend.OwnerID == page.ID);
         }
 
         protected override void ViewConfigure()
