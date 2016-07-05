@@ -112,6 +112,7 @@
     <Compile Include="CmsApplication.cs" />
     <Compile Include="CMSApplicationContext.cs" />
     <Compile Include="Constant.cs" />
+    <Compile Include="ExtendFieldExtend.cs" />
     <Compile Include="ExtendField\ExtendFieldEntity.cs" />
     <Compile Include="ExtendField\ExtendFieldService.cs" />
     <Compile Include="ExtendField\IExtendField.cs" />

@@ -40,6 +40,8 @@
     }).on("click", ".input-group-collection .delete", function () {
         $(this).parent().hide();
         $(this).siblings(".hide").find(".ActionType").val($(this).data("value"));
+    }).on("change",".input-group-collection .form-control", function() {
+        $(".ActionType", $(this).closest(".item")).val("Update");
     }).on("click", ".input-group .glyphicon.glyphicon-search", function () {
         var obj = $(this);
         window.top.Easy.ShowUrlWindow({

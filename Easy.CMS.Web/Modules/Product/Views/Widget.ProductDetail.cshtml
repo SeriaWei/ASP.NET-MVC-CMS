@@ -1,6 +1,8 @@
 ﻿@using Easy.Web.CMS
 @model Easy.Web.CMS.Product.Models.ProductEntity
-
+@{
+    var images = Model.GetFields("image");
+}
 <div class="product-detail">
     <div class="page-header">
         <h1 class="align-center">
@@ -18,9 +20,36 @@
         </div>
     </div>
     <div class="panel-body detail clearfix">
-        @if (Model.ImageUrl.IsNotNullAndWhiteSpace())
+        @if (Model.Description.IsNotNullAndWhiteSpace())
         {
-            <img class="thumbnail" src="@Url.Content(Model.ImageUrl)" alt="@Model.Title" />
+            <blockquote>
+                <footer>
+                    @Model.Description
+                </footer> 
+            </blockquote>
+        }
+        @if (images.Any())
+        {
+            Style.Reqiured("OWL.Carousel").AtHead();
+            Script.Reqiured("OWL.Carousel").AtFoot();
+
+            <div class="owl-carousel">
+                @foreach (var item in images)
+                {
+                    <div class="item" style="background-image: url('@Url.PathContent(item.Value)');" data-image-url="@Url.PathContent(item.Value)">
+                        <div class="slider-inner">
+                            <div class="carousel-content">
+                                @item.Description
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+            <br/>
+        }
+        else if (Model.ImageUrl.IsNotNullAndWhiteSpace())
+        {
+            <img class="thumbnail" src="@Url.Content(Model.ImageUrl)" alt="@Model.Title"/>
         }
         @Html.Raw(Model.ProductContent)
     </div>
