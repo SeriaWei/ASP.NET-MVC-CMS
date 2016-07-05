@@ -55,12 +55,20 @@ namespace Easy.Web.CMS.Page
             item.ReferencePageID = item.ID;
             item.IsPublishedPage = true;
             item.PublishDate = DateTime.Now;
+            if (item.ExtendFields != null)
+            {
+                item.ExtendFields.Each(m => m.ActionType = ActionType.Create);
+            }
             var widgets = WidgetService.GetByPageId(item.ID);
             Add(item);
             widgets.Each(m =>
             {
                 var widgetService = m.CreateServiceInstance();
                 m = widgetService.GetWidget(m);
+                if (m.ExtendFields != null)
+                {
+                    m.ExtendFields.Each(f => f.ActionType = ActionType.Create);
+                }
                 m.PageID = item.ID;
                 widgetService.Publish(m);
             });
