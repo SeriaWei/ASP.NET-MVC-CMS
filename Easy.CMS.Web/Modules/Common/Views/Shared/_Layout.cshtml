@@ -28,6 +28,15 @@
     <meta name="author" content="www.zkea.net" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,maximum-scale=1.0" />
+
+    @if (Model.Page.ExtendFields != null)
+    {
+        foreach (var meta in Model.Page.ExtendFields.Where(m => m.Title.IsNotNullAndWhiteSpace() && m.Title.StartsWith("meta_")))
+        {
+            <meta name="@meta.Title.Replace("meta_","")" content="@meta.Value" />
+        }
+    }
+
     @StyleAtHead()
     @ScriptAtHead()
     @if (Model.CurrentTheme != null)
@@ -105,13 +114,13 @@
                 }
             </div>
         </div>
-                using (Script.AtFoot())
-                {
-                    <script type="text/javascript">
-                        var toolBar = $(".preview-toolbar");
-                        $(".sort-handle", toolBar).DragElement(toolBar);
-                    </script>
-                }
+        using (Script.AtFoot())
+        {
+            <script type="text/javascript">
+                var toolBar = $(".preview-toolbar");
+                $(".sort-handle", toolBar).DragElement(toolBar);
+            </script>
+        }
     }
 
     <div>
