@@ -7,7 +7,7 @@
         <div style="background: url('http://cdn.zkeasoft.com/images/quote-right.png') right bottom no-repeat;padding-right:40px">
             @foreach (SectionContent content in Model.SectionContents.OrderBy(m => m.Order))
             {
-                if (content.SectionContentType != (int)SectionContent.Types.Paragraph && content.SectionContentType != (int)SectionContent.Types.Title)
+                if (content.SectionContentType == (int)SectionContent.Types.CallToAction || content.SectionContentType == (int)SectionContent.Types.Image)
                 {
                     <p>
                         @{
