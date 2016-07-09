@@ -6,7 +6,7 @@
 <div class="section-group-default">
     @foreach (SectionContent content in Model.SectionContents.OrderBy(m => m.Order))
     {
-        if (content.SectionContentType != (int)SectionContent.Types.Paragraph && content.SectionContentType != (int)SectionContent.Types.Title)
+        if (content.SectionContentType == (int)SectionContent.Types.CallToAction || content.SectionContentType == (int)SectionContent.Types.Image)
         {
             <p>
                 @{
