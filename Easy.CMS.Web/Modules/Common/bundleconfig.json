@@ -16,5 +16,11 @@
     "inputFiles": [
       "Scripts/PageDesign.js"
     ]
+  },
+  {
+    "outputFileName": "Content/Layout.min.css",
+    "inputFiles": [
+      "Content/Layout.css"
+    ]
   }
 ]

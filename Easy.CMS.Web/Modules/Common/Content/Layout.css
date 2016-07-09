@@ -17,11 +17,6 @@
     list-style: none;
     margin: 5px;
 }
-
-input.helper:checked + span {
-    color: #fff;
-}
-
 .designTool {
     margin-top: 10px !important;
 }

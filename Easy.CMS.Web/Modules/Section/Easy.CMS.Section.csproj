@@ -44,8 +44,8 @@
       <HintPath>..\..\..\packages\Autofac.3.5.2\lib\net40\Autofac.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Easy, Version=1.0.6.0, Culture=neutral, PublicKeyToken=2b89634455a72a39, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\EasyFrameWork.1.0.6.0\lib\net40\Easy.dll</HintPath>
+    <Reference Include="Easy, Version=1.0.6.1, Culture=neutral, PublicKeyToken=2b89634455a72a39, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\EasyFrameWork.1.0.6.1\lib\net40\Easy.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Easy.Web, Version=1.0.5.13, Culture=neutral, PublicKeyToken=48e55983b3ecaefe, processorArchitecture=MSIL">
@@ -172,6 +172,10 @@
     <Content Include="Views\Thumbnail\SectionTemplate.Brand.xml">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Views\Thumbnail\SectionTemplate.ImageBox.xml" />
+    <Content Include="Views\Thumbnail\SectionTemplate.ImageBox.png" />
+    <Content Include="Views\Thumbnail\SectionTemplate.LifeStyle.xml" />
+    <Content Include="Views\Thumbnail\SectionTemplate.LifeStyle.png" />
     <Content Include="Views\Thumbnail\SectionTemplate.Quote.xml" />
     <Content Include="Views\Thumbnail\SectionTemplate.GreyBox.png" />
     <Content Include="Views\Thumbnail\SectionTemplate.GreyBox.xml">
@@ -300,6 +304,8 @@
     <Content Include="Views\SectionTemplate.Brand.cshtml" />
     <Content Include="Views\SectionContentVideo\Play.cshtml" />
     <Content Include="Views\SectionTemplate.Quote.cshtml" />
+    <Content Include="Views\SectionTemplate.LifeStyle.cshtml" />
+    <Content Include="Views\SectionTemplate.ImageBox.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

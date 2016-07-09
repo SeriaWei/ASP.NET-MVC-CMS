@@ -709,14 +709,16 @@ jQuery.fn.extend({
 });
 
 $(function () {
-    $(document).on("click", ".pop-dialog", function () {
-        Easy.ShowUrlWindow({
-            url: $(this).data("url") || $(this).attr("href"),
-            title: $(this).data("title") || $(this).attr("title"),
-            width: $(this).data("width") || 800,
-            height: $(this).data("height") || 500,
-            isDialog: true
+    if (!(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))) {
+        $(document).on("click", ".pop-dialog", function () {
+            Easy.ShowUrlWindow({
+                url: $(this).data("url") || $(this).attr("href"),
+                title: $(this).data("title") || $(this).attr("title"),
+                width: $(this).data("width") || 800,
+                height: $(this).data("height") || 500,
+                isDialog: true
+            });
+            return false;
         });
-        return false;
-    });
+    }
 });

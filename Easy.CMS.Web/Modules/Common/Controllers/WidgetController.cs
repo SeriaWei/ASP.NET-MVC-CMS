@@ -163,7 +163,7 @@ namespace Easy.CMS.Common.Controllers
             {
                 widgetPart = new HtmlWidget { PartialView = "Widget.HTML", HTML = "<label class='text-danger'>模板已被删除，添加失败！</label>" }.ToWidgetPart();
             }
-            return PartialView("DesignWidget", new DesignWidgetViewModel(widgetPart, widget.PageID));
+            return PartialView(new DesignWidgetViewModel(widgetPart, widget.PageID));
         }
         [HttpPost]
         public JsonResult CancelTemplate(string Id)
