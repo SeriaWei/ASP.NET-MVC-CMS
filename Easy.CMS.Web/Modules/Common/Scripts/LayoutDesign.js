@@ -10,7 +10,7 @@
         '<i class="glyphicon glyphicon-resize-horizontal" title="拉伸"></i>',
         '<i class="glyphicon glyphicon-resize-small" title="居中"></i>',
         '<i class="glyphicon glyphicon-sort" title="拖动排序"></i>',
-        '<i class="glyphicon glyphicon-pencil custom-style-editor" title="编辑样式"></i>',
+        '<i class="glyphicon glyphicon-erase custom-style-editor" title="编辑样式"></i>',
         '<i class="glyphicon glyphicon-remove-circle" title="删除"></i>',
         '</div>'
     ].join('');

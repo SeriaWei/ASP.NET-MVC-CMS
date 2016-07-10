@@ -66,9 +66,5 @@
   {
     "outputFile": "Themes/Yeti/css/Theme.css",
     "inputFile": "Themes/Yeti/css/Theme.less"
-  },
-  {
-    "outputFile": "Scripts/EasyPlug/Easy.es5.js",
-    "inputFile": "Scripts/EasyPlug/Easy.js"
   }
 ]

@@ -22,5 +22,11 @@
     "inputFiles": [
       "Content/Layout.css"
     ]
+  },
+  {
+    "outputFileName": "Scripts/StyleEditor/Content/values.min.js",
+    "inputFiles": [
+      "Scripts/StyleEditor/Content/values.js"
+    ]
   }
 ]
