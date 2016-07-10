@@ -39,6 +39,7 @@ namespace Easy
                 .Include("~/Scripts/jstree/src/jstree.unique.js", "~/Scripts/jstree/src/jstree.unique.min.js", CdnHost + "/Scripts/jstree/src/jstree.unique.min.js")
                 .Include("~/Scripts/jstree/src/jstree.wholerow.js", "~/Scripts/jstree/src/jstree.wholerow.min.js", CdnHost + "/Scripts/jstree/src/jstree.wholerow.min.js");
 
+            
             script("admin")
                 .Include("~/Content/themes/Admin/script/admin.js", "~/Content/themes/Admin/script/admin.min.js", CdnHost + "/Content/themes/Admin/script/admin.min.js")
                 .Include("~/Scripts/EasyPlug/Easy.Grid.js", "~/Scripts/EasyPlug/Easy.Grid.min.js", CdnHost + "/Scripts/EasyPlug/Easy.Grid.min.js")

@@ -5,7 +5,7 @@
         tolerance: "pointer",
         connectWith: ".zone",
         stop: function (event, ui) {
-            
+
             var target = ui.item.parent();
             if (ui.item.data("add")) {
                 $.ajax({
@@ -70,10 +70,38 @@
                 }
             }, "json");
         }, true, 10);
-    }).on("click", ".upload-template", function() {
+    }).on("click", ".upload-template", function () {
         $("#template-file").trigger("click");
-    }).on("change", "#template-file", function() {
+    }).on("change", "#template-file", function () {
         $("#template-form").submit();
+    }).on("click", ".zoneToolbar .transfer-container", function () {
+        $(this).closest(".widget").toggleClass("container");
+        $.post($(this).data("action"), function () {
+        });
+    }).on("click", ".zoneToolbar .custom-style-editor", function () {
+        $(".custom-style-target").removeClass("custom-style-target");
+        var url = $(this).data("action");
+        var styleTarget = $(this).closest(".widget").parent();
+        styleTarget.toggleClass("custom-style-target");
+        window.top.Easy.ShowUrlWindow({
+            url: '/Modules/Common/Scripts/StyleEditor/index.html',
+            width: 1024,
+            title: "编辑样式",
+            onLoad: function (box) {
+                var win = this;
+                $(this.document).find("#confirm").click(function () {
+                    obj.val(win.GetSelected());
+                    box.close();
+                });
+            },
+            callBack: function () {
+                $.post(url, { style: styleTarget.attr("style") }, function () {
+                });
+            },
+            isDialog: false,
+            zindex:100
+        });
+
     });
     $(".helper").click(function () {
         $("#containers").toggleClass($(this).data("class"));

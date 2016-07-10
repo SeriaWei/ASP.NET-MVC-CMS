@@ -183,7 +183,44 @@ namespace Easy.CMS.Common.Controllers
             }
             return Json(Id);
         }
-
+        [HttpPost]
+        public JsonResult ToggleContainer(string ID)
+        {
+            var widget = _widgetService.Get(ID);
+            if (widget != null)
+            {
+                if (widget.StyleClass.IsNotNullAndWhiteSpace() && widget.StyleClass.IndexOf("container") >= 0)
+                {
+                    widget.StyleClass = widget.StyleClass.Replace("container", "").Trim();
+                }
+                else
+                {
+                    widget.StyleClass = "container " + (widget.StyleClass ?? "");
+                    widget.StyleClass = widget.StyleClass.Trim();
+                }
+                _widgetService.Update(widget);
+            }
+            return Json(ID);
+        }
+        [HttpPost]
+        public JsonResult SaveCustomStyle(string ID, string style)
+        {
+            var widget = _widgetService.Get(ID);
+            if (widget != null)
+            {
+                if (style.IsNotNullAndWhiteSpace())
+                {
+                    widget.StyleClass = widget.CustomClass.Trim() + " style=\"{0}\"".FormatWith(style);
+                    widget.StyleClass = widget.StyleClass.Trim();
+                }
+                else
+                {
+                    widget.StyleClass = widget.CustomClass;
+                }
+                _widgetService.Update(widget);
+            }
+            return Json(ID);
+        }
         public FileResult Pack(string ID)
         {
             var widget = _widgetService.Get(ID);

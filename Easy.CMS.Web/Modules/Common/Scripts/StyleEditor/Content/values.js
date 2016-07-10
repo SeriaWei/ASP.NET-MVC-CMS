@@ -17,7 +17,7 @@
                     target.val($(this).data("result")).trigger("change");
                     box.close();
                 });
-            }
+            },zindex:101
         });
     }).on("click", ".reset", function () {
         $("input.form-control").val("").trigger("focus").trigger("blur");

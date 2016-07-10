@@ -355,7 +355,15 @@ label.additional {
     .zoneToolbar .tools {
         padding: 0 10px;
     }
-
+    .zoneToolbar .tools .transfer-container{
+        display:none;
+    }
+    .zoneToolbar .tools .badge{
+        margin-top:-3px;
+    }
+    .container-fluid.main .zoneToolbar .tools .transfer-container{
+        display:inline;
+    }
     .zoneToolbar.red {
         background-color: #c7302b;
         border: 1px solid #9a221f;
@@ -388,14 +396,18 @@ label.additional {
 
 .zoneToolbar a {
     color: white;
+    text-decoration:none;
 }
 
     .zoneToolbar a:hover {
         color: red;
+    text-decoration:none;
     }
 
 .zoneToolbar .glyphicon {
     font-size: 12px;
+    font-size: 14px;
+    margin: 0 2px;
 }
 
 
@@ -557,4 +569,7 @@ li.ui-sortable-helper {
     word-wrap: normal;
     white-space: nowrap;
     list-style: none;
+}
+.widget{
+    transition:all .3s linear;
 }

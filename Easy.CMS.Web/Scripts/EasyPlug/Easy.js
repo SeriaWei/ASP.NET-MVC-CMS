@@ -263,7 +263,7 @@ Easy.MessageTip = (function () {
 })();
 
 Easy.ShowUrlWindow = function (op) {
-    /// <summary>打开窗口 Op = { url: "", title: "", width: 800, height: 600, callBack: function () { },isDialog:false }</summary>
+    /// <summary>打开窗口 Op = { url: "", title: "", width: 800, height: 600, callBack: function () { },isDialog:false ,zindex:0}</summary>
     var boxWindow = $("<div class='WeiWindow BoxShadow'><div class='TitleBar'><div class='Left TitleBarLeft'></div><div class='Mid TitleBarMid'></div>" +
             "<div class='Right TitleBarRight'><div class='CloseWindow'></div></div></div><div class='Content'><div class='Left ContentLeft'></div><div class='Mid ContentMid'>" +
             "<iframe src='' width='100%' height='100%' frameborder='0'></iframe></div><div class='Right ContentRight'></div></div><div class='Botoom'>" +
@@ -275,7 +275,11 @@ Easy.ShowUrlWindow = function (op) {
     }
     boxWindow.appendTo("body");
     boxWindow.find(".Mid.TitleBarMid").DragElement(boxWindow, boxWindow.find(".CloseWindow"), boxWindow.find(".Right.ContentRight"), boxWindow.find(".Right.BottomRight"), boxWindow.find(".Mid.BottomMid"));
-    boxWindow.css("z-index", ++Easy.MaxZindex);
+    if (!op.zindex) {
+        boxWindow.css("z-index", ++Easy.MaxZindex);
+    } else {
+        boxWindow.css("z-index", op.zindex);
+    }
 
     boxWindow.find(".CloseWindow").click(function () {
         if (deOp.isDialog) {
@@ -385,11 +389,6 @@ jQuery.fn.extend({
         }
 
         function EleMouseDown(e) {
-            if (targetEle instanceof jQuery) {
-                targetEle.css("z-index", ++Easy.MaxZindex);
-            } else {
-                Qthis.css("z-index", ++Easy.MaxZindex);
-            }
             MouseX = Easy.MousePosition(e).X;
             MouseY = Easy.MousePosition(e).Y;
             var ele = CreateHelpeDiv(e.data.ac);
