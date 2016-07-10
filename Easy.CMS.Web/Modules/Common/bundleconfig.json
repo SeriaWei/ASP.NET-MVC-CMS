@@ -12,12 +12,6 @@
     ]
   },
   {
-    "outputFileName": "Scripts/PageDesign.js",
-    "inputFiles": [
-      "Scripts/PageDesign.js"
-    ]
-  },
-  {
     "outputFileName": "Content/Layout.min.css",
     "inputFiles": [
       "Content/Layout.css"
@@ -27,6 +21,12 @@
     "outputFileName": "Scripts/StyleEditor/Content/values.min.js",
     "inputFiles": [
       "Scripts/StyleEditor/Content/values.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/PageDesign.min.js",
+    "inputFiles": [
+      "Scripts/PageDesign.js"
     ]
   }
 ]

@@ -98,8 +98,7 @@
                 $.post(url, { style: styleTarget.attr("style") }, function () {
                 });
             },
-            isDialog: false,
-            zindex:100
+            isDialog: false
         });
 
     });
