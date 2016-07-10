@@ -5,14 +5,14 @@
     Style.Reqiured("Section").AtFoot();
 }
 <div class="section">
-    <div class="container-fluid">
-        <div class="row">
-            @foreach (SectionGroup group in Model.Groups.OrderBy(m => m.Order))
+    <div class="row">
+        @foreach (SectionGroup group in Model.Groups.OrderBy(m => m.Order))
             {
-                <div class="@group.PercentWidth">
-                    @Html.Partial(group.PartialView, group)
-                </div>
-            }
-        </div>
+            <div class="@(group.PercentWidth.IsNullOrWhiteSpace()?"col-xs-12":group.PercentWidth)">
+
+                @Html.Partial(group.PartialView, group)
+
+            </div>
+        }
     </div>
 </div>

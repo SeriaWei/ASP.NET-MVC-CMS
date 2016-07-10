@@ -7241,7 +7241,7 @@ img {
   border-radius: 5px;
 }
 .bs-callout .pull-left h4 {
-  margin-top: 5px;
+  margin-top: 7.5px;
 }
 .bs-callout-danger {
   border-top-color: #d9534f;
@@ -7304,7 +7304,7 @@ img {
   color: #fff;
 }
 .widget {
-  margin: 10px;
+  margin: 15px;
 }
 .widget.container {
   margin-left: auto;
@@ -7368,7 +7368,7 @@ img {
   opacity: 1;
 }
 .navigation {
-  margin: -10px;
+  margin: -15px;
 }
 .navigation .navbar {
   margin-bottom: 0;
@@ -7431,7 +7431,7 @@ img {
   padding: 10px 0;
 }
 .section .section-group-listView img {
-  margin: 10px auto;
+  margin: 15px auto;
   display: block;
 }
 .article-list .media .media-left {
@@ -7445,7 +7445,7 @@ img {
   margin: -15px;
 }
 .productlist .pagination {
-  margin: 10px 0;
+  margin: 15px 0;
 }
 .panel-body > .product-category {
   margin: -15px;

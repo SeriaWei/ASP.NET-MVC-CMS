@@ -7464,7 +7464,7 @@ a.btn,
   text-decoration: none;
 }
 p {
-  margin: 0 0 5px;
+  margin: 0 0 7.5px;
 }
 .preview-toolbar {
   position: fixed;
@@ -7534,7 +7534,7 @@ p {
   border-radius: 5px;
 }
 .bs-callout .pull-left h4 {
-  margin-top: 5px;
+  margin-top: 7.5px;
   color: #444;
 }
 .bs-callout .pull-right h5 {
@@ -7747,7 +7747,7 @@ p {
   border-top-right-radius: 3px;
 }
 .widget {
-  margin: 10px;
+  margin: 15px;
 }
 .widget.container {
   margin-left: auto;
@@ -7824,7 +7824,7 @@ p {
   opacity: 1;
 }
 .navigation {
-  margin: -10px;
+  margin: -15px;
 }
 .navigation .navbar {
   margin-bottom: 0;
@@ -7912,7 +7912,7 @@ p {
   }
   .navigation .navbar.navbar-default .hoveropen > .dropdown-menu {
     display: block;
-    margin-left: 10px;
+    margin-left: 15px;
   }
   .navigation .navbar.navbar-default .dropdown-menu > li > a:hover,
   .navigation .navbar.navbar-default .dropdown-menu > li > a:focus {
@@ -7999,7 +7999,7 @@ p {
   color: #000;
 }
 .section .section-group-listView img {
-  margin: 10px auto;
+  margin: 15px auto;
   display: block;
 }
 .article-list .media .media-left {
@@ -8013,7 +8013,7 @@ p {
   margin: -15px;
 }
 .productlist .pagination {
-  margin: 10px 0;
+  margin: 15px 0;
 }
 .panel-body > .product-category {
   margin: -15px;
