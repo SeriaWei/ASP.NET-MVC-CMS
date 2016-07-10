@@ -1,9 +1,6 @@
 ﻿@model Easy.Web.CMS.Widget.DesignWidgetViewModel
-
+@Html.Partial("DesignWidget", Model)
 @StyleAtHead()
 @ScriptAtHead()
-
-@Html.Partial("DesignWidget", Model)
-
 @StyleAtFoot()
 @ScriptAtFoot()
