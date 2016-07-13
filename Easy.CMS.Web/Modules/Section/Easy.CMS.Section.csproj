@@ -172,8 +172,12 @@
     <Content Include="Views\Thumbnail\SectionTemplate.Brand.xml">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Views\Thumbnail\SectionTemplate.ImageGreyBox.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Views\Thumbnail\SectionTemplate.ImageBox.xml" />
     <Content Include="Views\Thumbnail\SectionTemplate.ImageBox.png" />
+    <Content Include="Views\Thumbnail\SectionTemplate.ImageGreyBox.png" />
     <Content Include="Views\Thumbnail\SectionTemplate.LifeStyle.xml" />
     <Content Include="Views\Thumbnail\SectionTemplate.LifeStyle.png" />
     <Content Include="Views\Thumbnail\SectionTemplate.Quote.xml" />
@@ -306,6 +310,7 @@
     <Content Include="Views\SectionTemplate.Quote.cshtml" />
     <Content Include="Views\SectionTemplate.LifeStyle.cshtml" />
     <Content Include="Views\SectionTemplate.ImageBox.cshtml" />
+    <Content Include="Views\SectionTemplate.ImageGreyBox.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
