@@ -40,11 +40,15 @@ namespace Easy.CMS.Section.Service
         public override SectionContent Get(params object[] primaryKeys)
         {
             var item = base.Get(primaryKeys);
-            var result= _sectionContentServices.First(m => (int)m.ContentType == item.SectionContentType).GetContent(item.ID ?? 0);
-            result.Order = item.Order;
-            result.SectionGroupId = item.SectionGroupId;
-            result.SectionWidgetId = item.SectionWidgetId;
-            return result;
+            if (item != null)
+            {
+                var result = _sectionContentServices.First(m => (int)m.ContentType == item.SectionContentType).GetContent(item.ID ?? 0);
+                result.Order = item.Order;
+                result.SectionGroupId = item.SectionGroupId;
+                result.SectionWidgetId = item.SectionWidgetId;
+                return result;
+            }
+            return null;
         }
 
         public override int Delete(params object[] primaryKeys)
