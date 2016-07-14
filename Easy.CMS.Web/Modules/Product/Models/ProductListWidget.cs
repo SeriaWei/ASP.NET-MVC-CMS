@@ -2,6 +2,7 @@
 using Easy.Web.CMS.Widget;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using Easy.MetaData;
@@ -30,7 +31,7 @@ namespace Easy.CMS.Product.Models
             base.ViewConfigure();
             ViewConfig(m => m.ProductCategoryID).AsDropDownList().DataSource(() =>
             {
-                var dicts = new Dictionary<string, string> ();
+                var dicts = new Dictionary<string, string>();
                 ServiceLocator.Current.GetInstance<IProductCategoryService>().Get().Each(m => { dicts.Add(m.ID.ToString(), m.Title); });
                 return dicts;
             }).Required().Order(NextOrder());
@@ -40,6 +41,18 @@ namespace Easy.CMS.Product.Models
             {
                 { "col-xs-12 col-sm-6 col-md-4", "3 列" }, 
                 { "col-xs-12 col-sm-6 col-md-4 col-lg-3", "4 列" }
+            });
+            ViewConfig(m => m.PartialView).AsDropDownList().Order(NextOrder()).DataSource(() =>
+            {
+                var path = (ServiceLocator.Current.GetInstance<IApplicationContext>() as CMSApplicationContext).MapPath("~/Modules/Product/Views");
+                Dictionary<string, string> templates = new Dictionary<string, string>();
+                Directory.GetFiles(path, "Widget.ProductList*.cshtml").Each(f =>
+                {
+                    string fileName = Path.GetFileNameWithoutExtension(f);
+                    templates.Add(fileName, fileName.Replace("Widget.", ""));
+
+                });
+                return templates;
             });
         }
     }

@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using Easy.CMS.Article.Service;
+using Easy.Extend;
 using Easy.Web.CMS.MetaData;
 using Easy.Web.CMS.Widget;
 using Easy.MetaData;
@@ -32,7 +34,19 @@ namespace Easy.CMS.Article.Models
             ViewConfig(m => m.Tops).AsTextBox().Order(NextOrder()).RegularExpression(Easy.Constant.RegularExpression.PositiveIntegers);
             ViewConfig(m => m.MoreLink).AsTextBox().Order(NextOrder()).AddClass("select").AddProperty("data-url", Urls.SelectPage);
             ViewConfig(m => m.DetailPageUrl).AsTextBox().Order(NextOrder()).AddClass("select").AddProperty("data-url", Urls.SelectPage);
-     
+
+            ViewConfig(m => m.PartialView).AsDropDownList().Order(NextOrder()).DataSource(() =>
+            {
+                var path = (ServiceLocator.Current.GetInstance<IApplicationContext>() as CMSApplicationContext).MapPath("~/Modules/Article/Views");
+                Dictionary<string, string> templates = new Dictionary<string, string>();
+                Directory.GetFiles(path, "Widget.ArticleTops*.cshtml").Each(f =>
+                {
+                    string fileName = Path.GetFileNameWithoutExtension(f);
+                    templates.Add(fileName, fileName.Replace("Widget.", ""));
+
+                });
+                return templates;
+            });
         }
     }
 
