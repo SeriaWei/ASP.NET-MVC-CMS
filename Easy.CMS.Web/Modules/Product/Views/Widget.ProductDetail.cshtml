@@ -25,31 +25,40 @@
             <blockquote>
                 <footer>
                     @Model.Description
-                </footer> 
+                </footer>
             </blockquote>
         }
         @if (images.Any())
         {
-            Style.Reqiured("OWL.Carousel").AtHead();
-            Script.Reqiured("OWL.Carousel").AtFoot();
-
-            <div class="owl-carousel">
-                @foreach (var item in images)
+            using (Script.AtFoot())
+            {
+                <script type="text/javascript" src="http://cdn.zkeasoft.com/Scripts/jcarousel/jquery.jcarousel.min.js"></script>
+                <script type="text/javascript" src="http://cdn.zkeasoft.com/Scripts/jcarousel/jcarousel.basic.js"></script>
+            }
+            using (Style.AtFoot())
+            {
+                <link href="http://cdn.zkeasoft.com/Scripts/jcarousel/jcarousel.basic.css" rel="stylesheet" />
+            }
+            <div class="jcarousel-wrapper" style="width:402px;float:left;margin-right:30px;">
+                <div class="jcarousel">
+                    <ul>
+                        @foreach (var item in images)
                 {
-                    <div class="item" style="background-image: url('@Url.PathContent(item.Value)');" data-image-url="@Url.PathContent(item.Value)">
-                        <div class="slider-inner">
-                            <div class="carousel-content">
-                                @item.Description
-                            </div>
-                        </div>
-                    </div>
-                }
+                            <li>
+                                <img src="@Url.PathContent(item.Value)"style="width:400px" />
+                            </li>
+                        }
+                    </ul>
+                </div>
+                <a href="#" class="jcarousel-control-prev">&lsaquo;</a>
+                <a href="#" class="jcarousel-control-next">&rsaquo;</a>
+                <p class="jcarousel-pagination">
+                </p>
             </div>
-            <br/>
         }
         else if (Model.ImageUrl.IsNotNullAndWhiteSpace())
         {
-            <img class="thumbnail" src="@Url.Content(Model.ImageUrl)" alt="@Model.Title"/>
+            <img class="thumbnail" src="@Url.Content(Model.ImageUrl)" alt="@Model.Title" />
         }
         @Html.Raw(Model.ProductContent)
     </div>

@@ -66,18 +66,6 @@
     ]
   },
   {
-    "outputFileName": "Content/themes/Admin/script/admin.js",
-    "inputFiles": [
-      "Content/themes/Admin/script/admin.js"
-    ]
-  },
-  {
-    "outputFileName": "Scripts/EasyPlug/Easy.js",
-    "inputFiles": [
-      "Scripts/EasyPlug/Easy.js"
-    ]
-  },
-  {
     "outputFileName": "Scripts/EasyPlug/Easy.Grid.js",
     "inputFiles": [
       "Scripts/EasyPlug/Easy.Grid.js"
@@ -159,6 +147,18 @@
     "outputFileName": "Scripts/bootstrap-datetimepicker/moment-with-locales.js",
     "inputFiles": [
       "Scripts/bootstrap-datetimepicker/moment-with-locales.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/EasyPlug/Easy.min.js",
+    "inputFiles": [
+      "Scripts/EasyPlug/Easy.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/themes/Admin/script/admin.min.js",
+    "inputFiles": [
+      "Content/themes/Admin/script/admin.js"
     ]
   }
 ]
