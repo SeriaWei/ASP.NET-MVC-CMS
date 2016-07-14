@@ -21,7 +21,7 @@
                         <img alt="@item.Title" title="@item.Title" src="@Url.Content(item.ImageThumbUrl)" />
                     }
                     <div class="caption">
-                        <h3>
+                        <h4>
                             @if (url.IsNotNullAndWhiteSpace())
                             {
                                 <a href="@Url.Content(url)">
@@ -32,7 +32,7 @@
                             {
                                 @item.Title
                             }                            
-                        </h3>
+                        </h4>
                         @if (item.Description.IsNotNullAndWhiteSpace())
                         {
                             <p>
