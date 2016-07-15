@@ -225,7 +225,7 @@ namespace Easy.CMS.Common.Controllers
         {
             var widget = _widgetService.Get(ID);
             var file = _widgetService.PackWidget(ID);
-            return File(file.ToMemoryStream(), "Application/zip", widget.WidgetName + ".zip");
+            return File(file, "Application/zip", widget.WidgetName + ".zip");
         }
         [HttpPost]
         public ActionResult InstallWidgetTemplate(string returnUrl)

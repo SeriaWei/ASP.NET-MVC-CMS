@@ -13,7 +13,7 @@ namespace Easy.Web.CMS.Widget
         IEnumerable<WidgetBase> GetAllByPageId(string pageId);
         IEnumerable<WidgetBase> GetAllByPage(Page.PageEntity page);
         WidgetPart ApplyTemplate(WidgetBase widget, HttpContextBase httpContext);
-        ZipFile PackWidget(string widgetId);
+        MemoryStream PackWidget(string widgetId);
         WidgetBase InstallPackWidget(Stream stream);
     }
 }

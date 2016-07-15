@@ -20,8 +20,6 @@ namespace Easy.Web.CMS.Widget
 {
     public class WidgetService : ServiceBase<WidgetBase>, IWidgetService
     {
-        protected const string TempFolder = "~/Temp";
-        protected const string TempJsonFile = "~/Temp/{0}-widget.json";
         protected const string WidgetSalt = "WidgetSalt";
 
         private void TriggerPage(WidgetBase widget)
@@ -121,32 +119,12 @@ namespace Easy.Web.CMS.Widget
             return widgetPart;
         }
 
-        public ZipFile PackWidget(string widgetId)
+        public MemoryStream PackWidget(string widgetId)
         {
             var widgetBase = Get(widgetId);
             var zipfile = widgetBase.CreateServiceInstance().PackWidget(widgetBase);
             var bytes = Encrypt(zipfile.ToMemoryStream().ToArray());
-            string tempFile = ((CMSApplicationContext)ApplicationContext).MapPath(TempJsonFile.FormatWith(Guid.NewGuid().ToString("N")));
-            string folder = ((CMSApplicationContext)ApplicationContext).MapPath(TempFolder);
-            if (!Directory.Exists(folder))
-            {
-                Directory.CreateDirectory(folder);
-            }
-            Directory.GetFiles(folder).Each(f =>
-            {
-                try
-                {
-                    File.Delete(f);
-                }
-                catch (Exception ex)
-                {
-                    Logger.Error(ex);
-                }
-            });
-            File.WriteAllBytes(tempFile, bytes);
-            ZipFile zipFile = new ZipFile();
-            zipFile.AddFile(new FileInfo(tempFile));
-            return zipFile;
+            return new MemoryStream(bytes);
         }
 
         public WidgetBase InstallPackWidget(Stream stream)
@@ -154,9 +132,10 @@ namespace Easy.Web.CMS.Widget
             byte[] bytes = new byte[stream.Length];
             stream.Read(bytes, 0, bytes.Length);
             stream.Seek(0, SeekOrigin.Begin);
-            var bytesReal = Decrypt(bytes);
+
             ZipFile zipFile = new ZipFile();
-            var files = zipFile.ToFileCollection(new MemoryStream(bytesReal));
+
+            var files = zipFile.ToFileCollection(new MemoryStream(Decrypt(bytes)));
             foreach (ZipFileInfo item in files)
             {
                 if (item.RelativePath.EndsWith("-widget.json"))
@@ -189,16 +168,40 @@ namespace Easy.Web.CMS.Widget
             var salt = ConfigurationManager.AppSettings[WidgetSalt];
             if (salt != null)
             {
-                var param = new CspParameters { KeyContainerName = salt };
-                using (RSACryptoServiceProvider rsa = new RSACryptoServiceProvider(param))
+                Func<string, byte[], byte[]> Encrypt = (sa, sou) =>
                 {
-                    byte[] plaindata = Encoding.Default.GetBytes(salt);
-                    byte[] encryptdata = rsa.Encrypt(plaindata, false);
-                    byte[] combined = new byte[encryptdata.Length + source.Length];
-                    Buffer.BlockCopy(encryptdata, 0, combined, 0, encryptdata.Length);
-                    Buffer.BlockCopy(source, 0, combined, encryptdata.Length, source.Length);
-                    return MarkData(combined);
-                }
+                    var param = new CspParameters { KeyContainerName = sa };
+                    using (RSACryptoServiceProvider rsa = new RSACryptoServiceProvider(param))
+                    {
+                        int MaxBlockSize = rsa.KeySize / 8 - 11;
+
+                        if (sou.Length <= MaxBlockSize)
+                            return rsa.Encrypt(sou, false);
+
+                        using (MemoryStream PlaiStream = new MemoryStream(sou))
+                        {
+                            using (MemoryStream CrypStream = new MemoryStream())
+                            {
+                                Byte[] Buffer = new Byte[MaxBlockSize];
+                                int BlockSize = PlaiStream.Read(Buffer, 0, MaxBlockSize);
+
+                                while (BlockSize > 0)
+                                {
+                                    Byte[] ToEncrypt = new Byte[BlockSize];
+                                    Array.Copy(Buffer, 0, ToEncrypt, 0, BlockSize);
+
+                                    Byte[] Cryptograph = rsa.Encrypt(ToEncrypt, false);
+                                    CrypStream.Write(Cryptograph, 0, Cryptograph.Length);
+
+                                    BlockSize = PlaiStream.Read(Buffer, 0, MaxBlockSize);
+                                }
+
+                                return CrypStream.ToArray();
+                            }
+                        }
+                    }
+                };
+                return MarkData(Encrypt(salt, source));
             }
             return source;
         }
@@ -208,8 +211,44 @@ namespace Easy.Web.CMS.Widget
             if (IsEncrypt(source))
             {
                 var salt = ConfigurationManager.AppSettings[WidgetSalt];
-                var bytesWithsSalt = ClearDataMark(source);
 
+                Func<string, byte[], byte[]> Decrypt = (sa, sou) =>
+                {
+                    var param = new CspParameters { KeyContainerName = sa };
+                    using (RSACryptoServiceProvider rsa = new RSACryptoServiceProvider(param))
+                    {
+                        int MaxBlockSize = rsa.KeySize / 8;
+
+                        if (sou.Length <= MaxBlockSize)
+                            return rsa.Decrypt(sou, false);
+
+                        using (MemoryStream CrypStream = new MemoryStream(sou))
+                        {
+                            using (MemoryStream PlaiStream = new MemoryStream())
+                            {
+                                Byte[] Buffer = new Byte[MaxBlockSize];
+                                int BlockSize = CrypStream.Read(Buffer, 0, MaxBlockSize);
+
+                                while (BlockSize > 0)
+                                {
+                                    Byte[] ToDecrypt = new Byte[BlockSize];
+                                    Array.Copy(Buffer, 0, ToDecrypt, 0, BlockSize);
+
+                                    Byte[] Plaintext = rsa.Decrypt(ToDecrypt, false);
+                                    PlaiStream.Write(Plaintext, 0, Plaintext.Length);
+
+                                    BlockSize = CrypStream.Read(Buffer, 0, MaxBlockSize);
+                                }
+
+                                return PlaiStream.ToArray();
+                            }
+                        }
+                    }
+                };
+                if (salt.IsNotNullAndWhiteSpace())
+                {
+                    return Decrypt(salt, ClearDataMark(source));
+                }                
             }
             return source;
         }
