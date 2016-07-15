@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Easy.RepositoryPattern;
 using System.ComponentModel;
+using System.IO;
 using EasyZip;
 
 namespace Easy.Web.CMS.Widget

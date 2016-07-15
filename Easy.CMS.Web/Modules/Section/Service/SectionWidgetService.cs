@@ -50,14 +50,16 @@ namespace Easy.CMS.Section.Service
         private SectionWidget InitSectionWidget(SectionWidget widget)
         {
             widget.Groups = _sectionGroupService.Get("SectionWidgetId", OperatorType.Equal, widget.ID);
-            var contents = _sectionContentProviderService.Get("SectionWidgetId", OperatorType.Equal, widget.ID).ToList();
-            for (int i = 0; i < contents.Count; i++)
+            var contents = _sectionContentProviderService.Get("SectionWidgetId", OperatorType.Equal, widget.ID);
+            List<SectionContent> filled = new List<SectionContent>();
+            contents.AsParallel().Each(content =>
             {
-                contents[i] = _sectionContentProviderService.FillContent(contents[i]);
-            }
+                filled.Add(_sectionContentProviderService.FillContent(content));
+            });
+
             widget.Groups.Each(m =>
             {
-                m.SectionContents = contents.Where(n => n.SectionGroupId == m.ID).ToList();
+                m.SectionContents = filled.Where(n => n.SectionGroupId == m.ID).ToList();
             });
             return widget;
         }

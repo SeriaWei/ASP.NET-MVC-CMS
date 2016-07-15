@@ -13,11 +13,16 @@ using Microsoft.Practices.ServiceLocation;
 using EasyZip;
 using Newtonsoft.Json;
 using System.IO;
+using System.Configuration;
+using System.Security.Cryptography;
 
 namespace Easy.Web.CMS.Widget
 {
     public class WidgetService : ServiceBase<WidgetBase>, IWidgetService
     {
+        protected const string TempFolder = "~/Temp";
+        protected const string TempJsonFile = "~/Temp/{0}-widget.json";
+        protected const string WidgetSalt = "WidgetSalt";
 
         private void TriggerPage(WidgetBase widget)
         {
@@ -119,13 +124,39 @@ namespace Easy.Web.CMS.Widget
         public ZipFile PackWidget(string widgetId)
         {
             var widgetBase = Get(widgetId);
-            return widgetBase.CreateServiceInstance().PackWidget(widgetBase);
+            var zipfile = widgetBase.CreateServiceInstance().PackWidget(widgetBase);
+            var bytes = Encrypt(zipfile.ToMemoryStream().ToArray());
+            string tempFile = ((CMSApplicationContext)ApplicationContext).MapPath(TempJsonFile.FormatWith(Guid.NewGuid().ToString("N")));
+            string folder = ((CMSApplicationContext)ApplicationContext).MapPath(TempFolder);
+            if (!Directory.Exists(folder))
+            {
+                Directory.CreateDirectory(folder);
+            }
+            Directory.GetFiles(folder).Each(f =>
+            {
+                try
+                {
+                    File.Delete(f);
+                }
+                catch (Exception ex)
+                {
+                    Logger.Error(ex);
+                }
+            });
+            File.WriteAllBytes(tempFile, bytes);
+            ZipFile zipFile = new ZipFile();
+            zipFile.AddFile(new FileInfo(tempFile));
+            return zipFile;
         }
 
         public WidgetBase InstallPackWidget(Stream stream)
         {
+            byte[] bytes = new byte[stream.Length];
+            stream.Read(bytes, 0, bytes.Length);
+            stream.Seek(0, SeekOrigin.Begin);
+            var bytesReal = Decrypt(bytes);
             ZipFile zipFile = new ZipFile();
-            var files = zipFile.ToFileCollection(stream);
+            var files = zipFile.ToFileCollection(new MemoryStream(bytesReal));
             foreach (ZipFileInfo item in files)
             {
                 if (item.RelativePath.EndsWith("-widget.json"))
@@ -151,6 +182,74 @@ namespace Easy.Web.CMS.Widget
                 }
             }
             return null;
+        }
+
+        private byte[] Encrypt(byte[] source)
+        {
+            var salt = ConfigurationManager.AppSettings[WidgetSalt];
+            if (salt != null)
+            {
+                var param = new CspParameters { KeyContainerName = salt };
+                using (RSACryptoServiceProvider rsa = new RSACryptoServiceProvider(param))
+                {
+                    byte[] plaindata = Encoding.Default.GetBytes(salt);
+                    byte[] encryptdata = rsa.Encrypt(plaindata, false);
+                    byte[] combined = new byte[encryptdata.Length + source.Length];
+                    Buffer.BlockCopy(encryptdata, 0, combined, 0, encryptdata.Length);
+                    Buffer.BlockCopy(source, 0, combined, encryptdata.Length, source.Length);
+                    return MarkData(combined);
+                }
+            }
+            return source;
+        }
+
+        private byte[] Decrypt(byte[] source)
+        {
+            if (IsEncrypt(source))
+            {
+                var salt = ConfigurationManager.AppSettings[WidgetSalt];
+                var bytesWithsSalt = ClearDataMark(source);
+
+            }
+            return source;
+        }
+
+        private byte[] MarkData(byte[] source)
+        {
+            byte[] newBytes = new byte[source.Length + 200];
+            for (int i = 0; i < newBytes.Length; i++)
+            {
+                if (i < 100 || i > newBytes.Length - 100 - 1)
+                {
+                    newBytes[i] = 0;
+                }
+                else
+                {
+                    newBytes[i] = source[i - 100];
+                }
+            }
+            return newBytes;
+        }
+
+        private byte[] ClearDataMark(byte[] source)
+        {
+            byte[] newBytes = new byte[source.Length - 200];
+            for (int i = 100; i < source.Length - 100; i++)
+            {
+                newBytes[i - 100] = source[i];
+            }
+            return newBytes;
+        }
+        private bool IsEncrypt(byte[] source)
+        {
+            for (int i = 0; i < 100; i++)
+            {
+                if (source[i] != 0 || source[source.Length - i - 1] != 0)
+                {
+                    return false;
+                }
+            }
+            return true;
         }
     }
     public abstract class WidgetService<T> : ServiceBase<T>, IWidgetPartDriver where T : WidgetBase
@@ -336,10 +435,10 @@ namespace Easy.Web.CMS.Widget
             widget.IsSystem = false;
             widget.IsTemplate = true;
             var jsonResult = JsonConvert.SerializeObject(widget);
-            string tempFile = ((CMSApplicationContext) ApplicationContext).MapPath(TempJsonFile.FormatWith(Guid.NewGuid().ToString("N")));
-            if (!Directory.Exists(((CMSApplicationContext) ApplicationContext).MapPath(TempFolder)))
+            string tempFile = ((CMSApplicationContext)ApplicationContext).MapPath(TempJsonFile.FormatWith(Guid.NewGuid().ToString("N")));
+            if (!Directory.Exists(((CMSApplicationContext)ApplicationContext).MapPath(TempFolder)))
             {
-                Directory.CreateDirectory(((CMSApplicationContext) ApplicationContext).MapPath(TempFolder));
+                Directory.CreateDirectory(((CMSApplicationContext)ApplicationContext).MapPath(TempFolder));
             }
             File.WriteAllText(tempFile, jsonResult);
             ZipFile file = new ZipFile();
