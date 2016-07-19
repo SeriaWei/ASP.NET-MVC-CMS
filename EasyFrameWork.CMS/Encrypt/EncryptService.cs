@@ -24,25 +24,11 @@ namespace Easy.Web.CMS.Encrypt
                     }
                     if (!File.Exists(folder + PrivateKeyFile))
                     {
-                        var privateKey = rsa.ToXmlString(true);
-                        var publicKey = rsa.ToXmlString(false);
-
-                        var privateFile = File.CreateText(folder + PrivateKeyFile);
-                        privateFile.Write(privateKey);
-                        privateFile.Flush();
-                        privateFile.Close();
-                        privateFile.Dispose();
-
-                        var publicFile = File.CreateText(folder + PublicKeyFile);
-                        publicFile.Write(publicKey);
-                        publicFile.Flush();
-                        publicFile.Close();
-                        publicFile.Dispose();
+                        File.WriteAllText(folder + PrivateKeyFile, rsa.ToXmlString(true));
+                        File.WriteAllText(folder + PublicKeyFile, rsa.ToXmlString(false));
                     }
                     rsa.FromXmlString(File.ReadAllText(folder + PublicKeyFile));
-
                     int maxBlockSize = rsa.KeySize / 8 - 11;
-
                     if (sou.Length <= maxBlockSize)
                         return rsa.Encrypt(sou, false);
 
