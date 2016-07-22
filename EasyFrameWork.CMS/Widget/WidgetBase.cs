@@ -97,13 +97,32 @@ namespace Easy.Web.CMS.Widget
                 ViewModel = viewModel
             };
         }
+
+        public IWidgetPartDriver PartDriver { get; set; }
         public IWidgetPartDriver CreateServiceInstance()
         {
-            return Activator.CreateInstance(this.AssemblyName, this.ServiceTypeName).Unwrap() as IWidgetPartDriver;
+            if (PartDriver != null) return PartDriver;
+            StaticCache cache = new StaticCache();
+            var type = cache.Get("WidgetPart_" + this.AssemblyName + this.ServiceTypeName, source =>
+              {
+                  PartDriver = PartDriver ??
+                            (PartDriver = Activator.CreateInstance(this.AssemblyName, this.ServiceTypeName).Unwrap() as IWidgetPartDriver);
+                  return PartDriver.GetType();
+              });
+            return PartDriver ?? (PartDriver = ServiceLocator.Current.GetInstance(type) as IWidgetPartDriver);
         }
+
+        private WidgetBase _widgetBase;
         public WidgetBase CreateViewModelInstance()
         {
-            return Activator.CreateInstance(this.AssemblyName, this.ViewModelTypeName).Unwrap() as WidgetBase;
+            StaticCache cache = new StaticCache();
+            var type = cache.Get("WidgetBase_" + this.AssemblyName + this.ViewModelTypeName, source =>
+            {
+                _widgetBase = _widgetBase ??
+                   (_widgetBase = Activator.CreateInstance(this.AssemblyName, this.ViewModelTypeName).Unwrap() as WidgetBase);
+                return _widgetBase.GetType();
+            });
+            return _widgetBase ?? (_widgetBase = ServiceLocator.Current.GetInstance(type) as WidgetBase);
         }
         public Type GetViewModelType()
         {

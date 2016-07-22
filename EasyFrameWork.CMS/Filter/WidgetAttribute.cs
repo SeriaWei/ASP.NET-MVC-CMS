@@ -63,10 +63,18 @@ namespace Easy.Web.CMS.Filter
                 layout.ZoneWidgets = new ZoneWidgetCollection();
                 filterContext.HttpContext.TrySetLayout(layout);
                 var widgetService = ServiceLocator.Current.GetInstance<IWidgetService>();
-                widgetService.GetAllByPage(page).Each(widget =>
+                var allWidget = new List<WidgetBase>();
+                widgetService.GetAllByPage(page).AsParallel().Each(widget =>
+                {
+                    var partDriver = widget.CreateServiceInstance();
+                    var w = partDriver.GetWidget(widget);
+                    w.PartDriver = partDriver;
+                    allWidget.Add(w);
+                });
+                allWidget.Each(widget =>
                 {
                     IWidgetPartDriver partDriver = widget.CreateServiceInstance();
-                    WidgetPart part = partDriver.Display(partDriver.GetWidget(widget), filterContext.HttpContext);
+                    WidgetPart part = partDriver.Display(widget, filterContext.HttpContext);
                     lock (layout.ZoneWidgets)
                     {
                         if (layout.ZoneWidgets.ContainsKey(part.Widget.ZoneID))
