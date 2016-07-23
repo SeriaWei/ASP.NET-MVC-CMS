@@ -15,12 +15,15 @@ using Newtonsoft.Json;
 using System.IO;
 using System.Configuration;
 using System.Security.Cryptography;
+using Easy.Constant;
+using Easy.Web.CMS.Encrypt;
 
 namespace Easy.Web.CMS.Widget
 {
     public class WidgetService : ServiceBase<WidgetBase>, IWidgetService
     {
-        protected const string WidgetSalt = "WidgetSalt";
+        protected const string EncryptWidgetTemplate = "EncryptWidgetTemplate";
+
 
         private void TriggerPage(WidgetBase widget)
         {
@@ -35,6 +38,13 @@ namespace Easy.Web.CMS.Widget
         public IPageService PageService
         {
             get { return _pageService ?? (_pageService = ServiceLocator.Current.GetInstance<IPageService>()); }
+        }
+
+        private IEncryptService _encryptService;
+
+        public IEncryptService EncryptService
+        {
+            get { return _encryptService ?? (_encryptService = ServiceLocator.Current.GetInstance<IEncryptService>()); }
         }
         public IEnumerable<WidgetBase> GetByLayoutId(string layoutId)
         {
@@ -104,6 +114,10 @@ namespace Easy.Web.CMS.Widget
         public WidgetPart ApplyTemplate(WidgetBase widget, HttpContextBase httpContext)
         {
             var widgetBase = Get(widget.ID);
+            if (widgetBase.ExtendFields != null)
+            {
+                widgetBase.ExtendFields.Each(f => { f.ActionType = ActionType.Create; });
+            }
             var service = widgetBase.CreateServiceInstance();
             widgetBase = service.GetWidget(widgetBase);
 
@@ -165,130 +179,16 @@ namespace Easy.Web.CMS.Widget
 
         private byte[] Encrypt(byte[] source)
         {
-            var salt = ConfigurationManager.AppSettings[WidgetSalt];
-            if (salt != null)
+            if (ConfigurationManager.AppSettings[EncryptWidgetTemplate] == "true")
             {
-                Func<string, byte[], byte[]> Encrypt = (sa, sou) =>
-                {
-                    var param = new CspParameters { KeyContainerName = sa };
-                    using (RSACryptoServiceProvider rsa = new RSACryptoServiceProvider(param))
-                    {
-                        int MaxBlockSize = rsa.KeySize / 8 - 11;
-
-                        if (sou.Length <= MaxBlockSize)
-                            return rsa.Encrypt(sou, false);
-
-                        using (MemoryStream PlaiStream = new MemoryStream(sou))
-                        {
-                            using (MemoryStream CrypStream = new MemoryStream())
-                            {
-                                Byte[] Buffer = new Byte[MaxBlockSize];
-                                int BlockSize = PlaiStream.Read(Buffer, 0, MaxBlockSize);
-
-                                while (BlockSize > 0)
-                                {
-                                    Byte[] ToEncrypt = new Byte[BlockSize];
-                                    Array.Copy(Buffer, 0, ToEncrypt, 0, BlockSize);
-
-                                    Byte[] Cryptograph = rsa.Encrypt(ToEncrypt, false);
-                                    CrypStream.Write(Cryptograph, 0, Cryptograph.Length);
-
-                                    BlockSize = PlaiStream.Read(Buffer, 0, MaxBlockSize);
-                                }
-
-                                return CrypStream.ToArray();
-                            }
-                        }
-                    }
-                };
-                return MarkData(Encrypt(salt, source));
+                return EncryptService.Encrypt(source);
             }
             return source;
         }
 
         private byte[] Decrypt(byte[] source)
         {
-            if (IsEncrypt(source))
-            {
-                var salt = ConfigurationManager.AppSettings[WidgetSalt];
-
-                Func<string, byte[], byte[]> Decrypt = (sa, sou) =>
-                {
-                    var param = new CspParameters { KeyContainerName = sa };
-                    using (RSACryptoServiceProvider rsa = new RSACryptoServiceProvider(param))
-                    {
-                        int MaxBlockSize = rsa.KeySize / 8;
-
-                        if (sou.Length <= MaxBlockSize)
-                            return rsa.Decrypt(sou, false);
-
-                        using (MemoryStream CrypStream = new MemoryStream(sou))
-                        {
-                            using (MemoryStream PlaiStream = new MemoryStream())
-                            {
-                                Byte[] Buffer = new Byte[MaxBlockSize];
-                                int BlockSize = CrypStream.Read(Buffer, 0, MaxBlockSize);
-
-                                while (BlockSize > 0)
-                                {
-                                    Byte[] ToDecrypt = new Byte[BlockSize];
-                                    Array.Copy(Buffer, 0, ToDecrypt, 0, BlockSize);
-
-                                    Byte[] Plaintext = rsa.Decrypt(ToDecrypt, false);
-                                    PlaiStream.Write(Plaintext, 0, Plaintext.Length);
-
-                                    BlockSize = CrypStream.Read(Buffer, 0, MaxBlockSize);
-                                }
-
-                                return PlaiStream.ToArray();
-                            }
-                        }
-                    }
-                };
-                if (salt.IsNotNullAndWhiteSpace())
-                {
-                    return Decrypt(salt, ClearDataMark(source));
-                }                
-            }
-            return source;
-        }
-
-        private byte[] MarkData(byte[] source)
-        {
-            byte[] newBytes = new byte[source.Length + 200];
-            for (int i = 0; i < newBytes.Length; i++)
-            {
-                if (i < 100 || i > newBytes.Length - 100 - 1)
-                {
-                    newBytes[i] = 0;
-                }
-                else
-                {
-                    newBytes[i] = source[i - 100];
-                }
-            }
-            return newBytes;
-        }
-
-        private byte[] ClearDataMark(byte[] source)
-        {
-            byte[] newBytes = new byte[source.Length - 200];
-            for (int i = 100; i < source.Length - 100; i++)
-            {
-                newBytes[i - 100] = source[i];
-            }
-            return newBytes;
-        }
-        private bool IsEncrypt(byte[] source)
-        {
-            for (int i = 0; i < 100; i++)
-            {
-                if (source[i] != 0 || source[source.Length - i - 1] != 0)
-                {
-                    return false;
-                }
-            }
-            return true;
+            return EncryptService.Decrypt(source);
         }
     }
     public abstract class WidgetService<T> : ServiceBase<T>, IWidgetPartDriver where T : WidgetBase

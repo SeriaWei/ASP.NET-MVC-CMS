@@ -113,6 +113,8 @@
     <Compile Include="CmsApplication.cs" />
     <Compile Include="CMSApplicationContext.cs" />
     <Compile Include="Constant.cs" />
+    <Compile Include="Encrypt\EncryptService.cs" />
+    <Compile Include="Encrypt\IEncryptService.cs" />
     <Compile Include="ExtendFieldExtend.cs" />
     <Compile Include="ExtendField\ExtendFieldEntity.cs" />
     <Compile Include="ExtendField\ExtendFieldService.cs" />

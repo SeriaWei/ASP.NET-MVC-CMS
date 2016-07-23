@@ -218,6 +218,7 @@
     <Content Include="Content\Images\Widget.Script.png" />
     <Content Include="Content\Images\Widget.Section.png" />
     <Content Include="Content\Images\Widget.ArticleSummary.png" />
+    <Content Include="Content\Images\Widget.StyleSheet.png" />
     <Content Include="Content\Images\Widget.Video.png" />
     <Content Include="Content\Site.min.css">
       <DependentUpon>Site.css</DependentUpon>
