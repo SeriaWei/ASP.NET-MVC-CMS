@@ -184,18 +184,18 @@ namespace Easy.CMS.Common.Controllers
             return Json(Id);
         }
         [HttpPost]
-        public JsonResult ToggleContainer(string ID)
+        public JsonResult ToggleClass(string ID, string clas)
         {
             var widget = _widgetService.Get(ID);
             if (widget != null)
             {
-                if (widget.StyleClass.IsNotNullAndWhiteSpace() && widget.StyleClass.IndexOf("container") >= 0)
+                if (widget.StyleClass.IsNotNullAndWhiteSpace() && widget.StyleClass.IndexOf(clas) >= 0)
                 {
-                    widget.StyleClass = widget.StyleClass.Replace("container", "").Trim();
+                    widget.StyleClass = widget.StyleClass.Replace(clas, "").Trim();
                 }
                 else
                 {
-                    widget.StyleClass = "container " + (widget.StyleClass ?? "");
+                    widget.StyleClass = clas + " " + (widget.StyleClass ?? "");
                     widget.StyleClass = widget.StyleClass.Trim();
                 }
                 _widgetService.Update(widget);

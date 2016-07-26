@@ -364,6 +364,18 @@ label.additional {
     .container-fluid.main .zoneToolbar .tools .transfer-container{
         display:inline;
     }
+    .zoneToolbar .tools .toggle-widget-class.glyphicon-th-large {
+        display: none;
+    }
+    .widget.full .zoneToolbar .tools .toggle-widget-class.glyphicon-th-large {
+        display: inline;
+    }
+    .zoneToolbar .tools .toggle-widget-class.glyphicon-fullscreen {
+        display: inline;
+    }
+    .widget.full .zoneToolbar .tools .toggle-widget-class.glyphicon-fullscreen {
+        display: none;
+    }
     .zoneToolbar.red {
         background-color: #c7302b;
         border: 1px solid #9a221f;

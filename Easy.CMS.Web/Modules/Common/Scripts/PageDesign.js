@@ -74,9 +74,10 @@
         $("#template-file").trigger("click");
     }).on("change", "#template-file", function () {
         $("#template-form").submit();
-    }).on("click", ".zoneToolbar .transfer-container", function () {
-        $(this).closest(".widget").toggleClass("container");
-        $.post($(this).data("action"), function () {
+    }).on("click", ".zoneToolbar .toggle-widget-class", function () {
+        var clas = $(this).data("class");
+        $(this).closest(".widget").toggleClass(clas);
+        $.post($(this).data("action"), { clas: clas }, function () {
         });
     }).on("click", ".zoneToolbar .custom-style-editor", function () {
         $(".custom-style-target").removeClass("custom-style-target");
