@@ -1,6 +1,9 @@
 ﻿@using Easy.Web.CMS
 @using Easy.Web.CMS.Widget
 @model DesignWidgetViewModel
+@{
+    var toggleClasssAction = Url.Action("ToggleClass", "Widget", new { module = "admin", ID = Model.Widget.ID });
+}
 <div style="@Model.Widget.CustomStyle">
     <div class="widget widget-design @Model.Widget.CustomClass"
          id="widget_@Model.Widget.ID"
@@ -17,47 +20,47 @@
                    class="glyphicon glyphicon-edit"
                    title="编辑"></a>
                 <a href="javascript:void(0)"
-                   data-action="@Url.Action("ToggleClass", "Widget", new {module = "admin", ID = Model.Widget.ID})"
+                   data-action="@toggleClasssAction"
                    data-class="container"
                    title="切换容器"
                    class="glyphicon glyphicon-transfer transfer-container toggle-widget-class"></a>
                 <a href="javascript:void(0)"
-                   data-action="@Url.Action("ToggleClass", "Widget", new {module = "admin", ID = Model.Widget.ID})"
+                   data-action="@toggleClasssAction"
                    data-class="full"
                    title="减小外边距"
                    class="glyphicon glyphicon-fullscreen toggle-widget-class"></a>
                 <a href="javascript:void(0)"
-                   data-action="@Url.Action("ToggleClass", "Widget", new {module = "admin", ID = Model.Widget.ID})"
+                   data-action="@toggleClasssAction"
                    data-class="full"
                    title="增加边距"
                    class="glyphicon glyphicon-th-large toggle-widget-class"></a>
                 <a href="javascript:void(0)"
-                   data-action="@Url.Action("ToggleClass", "Widget", new {module = "admin", ID = Model.Widget.ID})"
+                   data-action="@toggleClasssAction"
                    data-class="align-center"
                    title="文字居中"
                    class="glyphicon glyphicon-align-center toggle-widget-class"></a>
                 <a href="javascript:void(0)"
-                   data-action="@Url.Action("ToggleClass", "Widget", new {module = "admin", ID = Model.Widget.ID})"
+                   data-action="@toggleClasssAction"
                    data-class="align-right"
                    title="文字右对齐"
                    class="glyphicon glyphicon-align-right toggle-widget-class"></a>
                 <a href="javascript:void(0)"
-                   data-action="@Url.Action("ToggleClass", "Widget", new {module = "admin", ID = Model.Widget.ID})"
+                   data-action="@toggleClasssAction"
                    data-class="border"
                    title="外边框"
                    class="glyphicon glyphicon-unchecked toggle-widget-class"></a>
                 <a href="javascript:void(0)"
-                   data-action="@Url.Action("ToggleClass", "Widget", new {module = "admin", ID = Model.Widget.ID})"
+                   data-action="@toggleClasssAction"
                    data-class="image-border"
                    title="图片加边框"
                    class="glyphicon glyphicon-picture toggle-widget-class"></a>
                 <a href="javascript:void(0)"
-                   data-action="@Url.Action("ToggleClass", "Widget", new {module = "admin", ID = Model.Widget.ID})"
+                   data-action="@toggleClasssAction"
                    data-class="image-circle"
                    title="图片圆角"
                    class="glyphicon glyphicon-adjust toggle-widget-class"></a>
                 <a href="javascript:void(0)"
-                   data-action="@Url.Action("ToggleClass", "Widget", new {module = "admin", ID = Model.Widget.ID})"
+                   data-action="@toggleClasssAction"
                    data-class="box-shadow"
                    title="阴影"
                    class="glyphicon glyphicon-tags toggle-widget-class"></a>
