@@ -92,7 +92,7 @@
                 });
             }
         });
-    }).on("submit","form",function() {
+    }).on("submit", "form", function () {
         Easy.Block();
     });
     $(".form-group select#ZoneID").on("mousedown", false);
@@ -155,7 +155,9 @@
                 { name: "文字右对齐", value: "align-right" },
                 { name: "图片边框", value: "image-border" },
                 { name: "阴影", value: "box-shadow" },
-                 { name: "图片圆形", value: "image-circle" }
+                { name: "图片圆形", value: "image-circle" },
+                { name: "取消外边距", value: "full" },
+                { name: "居中容器", value: "container" }
             ];
             var html = "<p clss='text-nowrap'>直接写样式例：<code>style=\"color:#fff\"</code></p><p>预定义样式：<ol>";
             for (var i = 0; i < activeClass.length; i++) {
