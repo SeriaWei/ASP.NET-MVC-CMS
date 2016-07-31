@@ -11,6 +11,7 @@ namespace Easy.Web.CMS
         public string Url { get; set; }
         public string Icon { get; set; }
         public int Order { get; set; }
+        public string PermissionKey { get; set; }
         public IEnumerable<AdminMenu> Children { get; set; } 
     }
 }

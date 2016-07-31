@@ -17,10 +17,11 @@ using Easy.Web.CMS.Widget;
 using EasyZip;
 using Microsoft.Practices.ServiceLocation;
 using Newtonsoft.Json;
+using Easy.Web.Authorize;
 
 namespace Easy.CMS.Common.Controllers
 {
-    [AdminTheme, Authorize]
+    [AdminTheme, DefaultAuthorize]
     public class WidgetController : Controller
     {
         private readonly IWidgetService _widgetService;

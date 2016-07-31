@@ -10,10 +10,11 @@ using Easy.Web.Attribute;
 using Easy.ViewPort.jsTree;
 using Easy.Web.CMS.Product.Models;
 using Easy.Web.CMS.Product.Service;
+using Easy.Web.Authorize;
 
 namespace Easy.CMS.Product.Controllers
 {
-    [AdminTheme, Authorize]
+    [AdminTheme, DefaultAuthorize]
     public class ProductCategoryController : BasicController<ProductCategory, long, IProductCategoryService>
     {
         public ProductCategoryController(IProductCategoryService service)

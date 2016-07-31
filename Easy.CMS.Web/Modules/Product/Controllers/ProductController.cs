@@ -11,10 +11,11 @@ using Easy.Constant;
 using Easy.CMS.Product.Models;
 using Easy.Web.CMS.Product.Models;
 using Easy.Web.CMS.Product.Service;
+using Easy.Web.Authorize;
 
 namespace Easy.CMS.Product.Controllers
 {
-    [AdminTheme, Authorize]
+    [AdminTheme, DefaultAuthorize]
     public class ProductController : BasicController<ProductEntity, long, IProductService>
     {
         public ProductController(IProductService service)

@@ -39,7 +39,7 @@ namespace Easy.CMS.Common
             {
                 RouteName = "error",
                 Url = "error/{action}",
-                Defaults = new { controller = "Error",  action="index",module = "admin" },
+                Defaults = new { controller = "Error", action = "index", module = "admin" },
                 Priority = 10
             };
             yield return new RouteDescriptor
@@ -99,23 +99,39 @@ namespace Easy.CMS.Common
             yield return new AdminMenu
             {
                 Title = "媒体库",
-                Icon = "glyphicon glyphicon-picture",
+                Icon = "glyphicon-picture",
                 Url = "~/admin/Media",
                 Order = 5
             };
             yield return new AdminMenu
             {
                 Title = "焦点图",
-                Icon = "glyphicon glyphicon-eye-open",
+                Icon = "glyphicon-eye-open",
                 Url = "~/admin/Carousel",
                 Order = 6
             };
             yield return new AdminMenu
             {
-                Title = "用户",
-                Icon = "glyphicon-user",
-                Url = "~/admin/User",
-                Order = 100,
+                Title = "系统",
+                Icon = "glyphicon-cog",
+                Order = 1000,
+                Children = new List<AdminMenu>
+                {
+                    new AdminMenu
+                    {
+                        Title = "用户",
+                        Icon = "glyphicon-user",
+                        Url = "~/admin/User",
+                        Order = 1
+                    },
+                    new AdminMenu
+                    {
+                        Title = "角色",
+                        Icon = "glyphicon-eye-open",
+                        Url = "~/admin/Roles",
+                        Order = 1
+                    }
+                }
             };
         }
 
@@ -134,6 +150,22 @@ namespace Easy.CMS.Common
             style("OWL.Carousel")
                 .Include("~/Modules/Common/Scripts/OwlCarousel/owl.carousel.css", "~/Modules/Common/Scripts/OwlCarousel/owl.carousel.min.css")
                 .Include("~/Modules/Common/Scripts/OwlCarousel/owl.transitions.css", "~/Modules/Common/Scripts/OwlCarousel/owl.transitions.min.css");
+        }
+
+        public override IEnumerable<PermissionDescriptor> RegistPermission()
+        {
+            yield return new PermissionDescriptor(PermissionKeys.ViewPage, "页面", "查看页面", "");
+            yield return new PermissionDescriptor(PermissionKeys.ManagePage, "页面", "管理页面", "");
+            yield return new PermissionDescriptor(PermissionKeys.ViewLayout, "布局", "查看布局", "");
+            yield return new PermissionDescriptor(PermissionKeys.ManageLayout, "布局", "管理布局", "");
+            yield return new PermissionDescriptor(PermissionKeys.ViewNavigation, "导航", "查看导航", "");
+            yield return new PermissionDescriptor(PermissionKeys.ManageNavigation, "导航", "管理导航", "");
+            yield return new PermissionDescriptor(PermissionKeys.ViewTheme, "主题", "查看主题", "");
+            yield return new PermissionDescriptor(PermissionKeys.ManageTheme, "主题", "管理主题", "");
+            yield return new PermissionDescriptor(PermissionKeys.ViewMedia, "媒体库", "查看媒体库", "");
+            yield return new PermissionDescriptor(PermissionKeys.ManageMedia, "媒体库", "管理媒体库", "");
+            yield return new PermissionDescriptor(PermissionKeys.ViewCarousel, "焦点图", "查看焦点图", "");
+            yield return new PermissionDescriptor(PermissionKeys.ManageCarousel, "焦点图", "管理焦点图", "");
         }
     }
 }

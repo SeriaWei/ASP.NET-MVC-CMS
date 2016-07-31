@@ -11,10 +11,11 @@ using Easy.Web.Attribute;
 using Easy.Web.CMS.Theme;
 using Easy.Web.Controller;
 using EasyZip;
+using Easy.Web.Authorize;
 
 namespace Easy.CMS.Common.Controllers
 {
-    [AdminTheme, Authorize]
+    [AdminTheme, DefaultAuthorize]
     public class ThemeController : BasicController<ThemeEntity, String, IThemeService>
     {
         private const string ThemePath = "~/Themes";

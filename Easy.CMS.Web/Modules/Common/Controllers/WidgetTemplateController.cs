@@ -8,10 +8,11 @@ using Easy.Web.CMS;
 using Easy.Web.CMS.WidgetTemplate;
 using Easy.Web.Controller;
 using Easy.Web.Attribute;
+using Easy.Web.Authorize;
 
 namespace Easy.CMS.Common.Controllers
 {
-    [AdminTheme, Authorize]
+    [AdminTheme, DefaultAuthorize]
     public class WidgetTemplateController : BasicController<WidgetTemplateEntity, long, IWidgetTemplateService>
     {
         public WidgetTemplateController(IWidgetTemplateService widgetTemplateService)

@@ -8,10 +8,11 @@ using Easy.CMS.Section.Service;
 using Easy.Constant;
 using Easy.Data;
 using Easy.Web.Attribute;
+using Easy.Web.Authorize;
 
 namespace Easy.CMS.Section.Controllers
 {
-    [PopUp, Authorize]
+    [PopUp, DefaultAuthorize]
     public class SectionContentParagraphController : Controller
     {
         private readonly ISectionContentProviderService _sectionContentProviderService;

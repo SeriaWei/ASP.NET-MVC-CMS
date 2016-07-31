@@ -12,6 +12,7 @@ namespace Easy.Web.CMS
     {
         public abstract IEnumerable<RouteDescriptor> RegistRoute();
         public abstract IEnumerable<AdminMenu> AdminMenu();
+        public abstract IEnumerable<PermissionDescriptor> RegistPermission();
 
         public virtual void Load(IContainerAdapter adapter)
         {

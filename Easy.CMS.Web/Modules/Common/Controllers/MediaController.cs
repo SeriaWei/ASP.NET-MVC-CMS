@@ -12,10 +12,11 @@ using Easy.Web.CMS;
 using Easy.Web.CMS.Media;
 using Easy.Web.Controller;
 using Easy.Web.Extend;
+using Easy.Web.Authorize;
 
 namespace Easy.CMS.Common.Controllers
 {
-    [Authorize]
+    [DefaultAuthorize]
     public class MediaController : BasicController<MediaEntity, string, IMediaService>
     {
         public MediaController(IMediaService service)

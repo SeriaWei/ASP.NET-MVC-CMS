@@ -42,12 +42,12 @@
       <HintPath>..\packages\Autofac.3.5.2\lib\net40\Autofac.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Easy, Version=1.0.6.2, Culture=neutral, PublicKeyToken=2b89634455a72a39, processorArchitecture=MSIL">
-      <HintPath>..\packages\EasyFrameWork.1.0.6.2\lib\net40\Easy.dll</HintPath>
+    <Reference Include="Easy, Version=1.0.7.0, Culture=neutral, PublicKeyToken=2b89634455a72a39, processorArchitecture=MSIL">
+      <HintPath>..\packages\EasyFrameWork.1.0.7.0\lib\net40\Easy.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Easy.Web, Version=1.0.5.13, Culture=neutral, PublicKeyToken=48e55983b3ecaefe, processorArchitecture=MSIL">
-      <HintPath>..\packages\EasyFrameWork.Web.1.0.5.13\lib\net40\Easy.Web.dll</HintPath>
+    <Reference Include="Easy.Web, Version=1.0.6.0, Culture=neutral, PublicKeyToken=48e55983b3ecaefe, processorArchitecture=MSIL">
+      <HintPath>..\packages\EasyFrameWork.Web.1.0.6.0\lib\net40\Easy.Web.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="EasyZip">
@@ -115,20 +115,21 @@
     <Compile Include="Constant.cs" />
     <Compile Include="Encrypt\EncryptService.cs" />
     <Compile Include="Encrypt\IEncryptService.cs" />
-    <Compile Include="ExtendFieldExtend.cs" />
+    <Compile Include="Extend\ExtendFieldExtend.cs" />
     <Compile Include="ExtendField\ExtendFieldEntity.cs" />
     <Compile Include="ExtendField\ExtendFieldService.cs" />
     <Compile Include="ExtendField\IExtendField.cs" />
     <Compile Include="ExtendField\IExtendFieldService.cs" />
     <Compile Include="Filter\EditWidgetAttribute.cs" />
     <Compile Include="Filter\WidgetAttribute.cs" />
-    <Compile Include="HtmlHelperExtend.cs" />
+    <Compile Include="Extend\HtmlHelperExtend.cs" />
     <Compile Include="Layout\ILayoutService.cs" />
     <Compile Include="Layout\LayoutEntity.cs" />
     <Compile Include="Layout\LayoutHtml.cs" />
     <Compile Include="Layout\LayoutHtmlService.cs" />
     <Compile Include="Layout\ViewDataLayoutsAttribute.cs" />
     <Compile Include="Layout\LayoutService.cs" />
+    <Compile Include="PermissionDescriptor.cs" />
     <Compile Include="Product\Models\Product.cs" />
     <Compile Include="Product\Models\ProductCategory.cs" />
     <Compile Include="Product\Service\IProductCategoryService.cs" />
@@ -149,8 +150,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QueryContext.cs" />
     <Compile Include="Route\UrlRoute.cs" />
-    <Compile Include="HttpContextExtend.cs" />
-    <Compile Include="UrlHelperExtend.cs" />
+    <Compile Include="Extend\HttpContextExtend.cs" />
+    <Compile Include="Extend\UrlHelperExtend.cs" />
     <Compile Include="Validate\DefaultValidateService.cs" />
     <Compile Include="Validate\IValidateService.cs" />
     <Compile Include="Validate\ValidateCode.cs" />

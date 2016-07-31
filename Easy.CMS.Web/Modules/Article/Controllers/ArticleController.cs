@@ -11,10 +11,11 @@ using Easy.CMS.Article.Service;
 using Easy.Web.Attribute;
 using Easy.Web.CMS.Article.Models;
 using Easy.Web.CMS.Article.Service;
+using Easy.Web.Authorize;
 
 namespace Easy.CMS.Article.Controllers
 {
-    [AdminTheme, Authorize]
+    [AdminTheme, DefaultAuthorize]
     public class ArticleController : BasicController<ArticleEntity, long, IArticleService>
     {
         public ArticleController(IArticleService service)

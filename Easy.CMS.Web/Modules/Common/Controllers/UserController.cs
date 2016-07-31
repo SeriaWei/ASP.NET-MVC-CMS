@@ -5,10 +5,11 @@ using Easy.Web.Attribute;
 using Easy.Web.Controller;
 using Easy.Extend;
 using Easy.Web.Extend;
+using Easy.Web.Authorize;
 
 namespace Easy.CMS.Common.Controllers
 {
-    [AdminTheme, Authorize]
+    [AdminTheme, DefaultAuthorize]
     public class UserController : BasicController<UserEntity, string, IUserService>
     {
         public UserController(IUserService userService)

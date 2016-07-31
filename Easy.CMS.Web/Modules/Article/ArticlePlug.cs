@@ -39,17 +39,22 @@ namespace Easy.CMS.Article
             };
         }
 
-
-
-
         protected override void InitScript(Func<string, Web.Resource.ResourceHelper> script)
         {
-            
+
         }
 
         protected override void InitStyle(Func<string, Web.Resource.ResourceHelper> style)
         {
             style("Article").Include("~/Modules/Article/Content/Article.css");
+        }
+
+        public override IEnumerable<PermissionDescriptor> RegistPermission()
+        {
+            yield return new PermissionDescriptor(PermissionKeys.ViewArticle, "文章", "查看文章", "");
+            yield return new PermissionDescriptor(PermissionKeys.ManageArticle, "文章", "管理文章", "");
+            yield return new PermissionDescriptor(PermissionKeys.ViewArticleType, "文章", "查看文章类别", "");
+            yield return new PermissionDescriptor(PermissionKeys.ManageArticleType, "文章", "管理文章类别", "");
         }
     }
 }

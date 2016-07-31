@@ -8,6 +8,7 @@ using Easy.CMS.Section.Service;
 using Easy.Constant;
 using Easy.Data;
 using Easy.Web.Attribute;
+using Easy.Web.Authorize;
 
 namespace Easy.CMS.Section.Controllers
 {
@@ -19,7 +20,7 @@ namespace Easy.CMS.Section.Controllers
         {
             _sectionContentProviderService = sectionContentProviderService;
         }
-        [PopUp,Authorize]
+        [PopUp, DefaultAuthorize]
         public ActionResult Create(int sectionGroupId, string sectionWidgetId)
         {
             return View("Form", new SectionContentVideo
@@ -29,14 +30,14 @@ namespace Easy.CMS.Section.Controllers
                 ActionType = ActionType.Create
             });
         }
-        [PopUp, Authorize]
+        [PopUp, DefaultAuthorize]
         public ActionResult Edit(int Id)
         {
             var content = _sectionContentProviderService.Get(Id);
             content.ActionType = ActionType.Update;
             return View("Form", content);
         }
-        [PopUp, HttpPost, ValidateInput(false), Authorize]
+        [PopUp, HttpPost, ValidateInput(false), DefaultAuthorize]
         public ActionResult Save(SectionContentVideo content)
         {
             if (!ModelState.IsValid)
@@ -54,7 +55,7 @@ namespace Easy.CMS.Section.Controllers
             ViewBag.Close = true;
             return View("Form", content);
         }
-        [Authorize]
+        [DefaultAuthorize]
         public JsonResult Delete(int Id)
         {
             _sectionContentProviderService.Delete(Id);

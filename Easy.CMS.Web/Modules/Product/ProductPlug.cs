@@ -50,5 +50,13 @@ namespace Easy.CMS.Product
             style("PhotoWall")
                 .Include("~/Modules/Product/Scripts/jquery-photowall/jquery-photowall.css");
         }
+
+        public override IEnumerable<PermissionDescriptor> RegistPermission()
+        {
+            yield return new PermissionDescriptor(PermissionKeys.ViewProduct, "产品", "查看产品", "");
+            yield return new PermissionDescriptor(PermissionKeys.ManageProduct, "产品", "管理产品", "");
+            yield return new PermissionDescriptor(PermissionKeys.ViewProductCategory, "产品", "查看产品类别", "");
+            yield return new PermissionDescriptor(PermissionKeys.ManageProductCategory, "产品", "管理产品类别", "");
+        }
     }
 }

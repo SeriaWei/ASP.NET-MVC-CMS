@@ -1,0 +1,12 @@
+﻿@using Easy.Data
+@model Easy.Modules.Role.RoleEntity
+
+<div id="toolBar">
+    <a href="@Url.Action("Create")" class="btn btn-primary btn-xs">新建</a>
+</div>
+@(
+ Html.Grid().SetColumnTemplate(col =>
+ {
+     col.Add(m => m.Title, "<a href='" + Url.Action("Edit") + "?ID={ID}'>{Title}</a>");
+ }).SetAsToolBar("#toolBar").ShowCheckbox(m => m.ID).OrderBy(m => m.ID, OrderType.Descending)
+)

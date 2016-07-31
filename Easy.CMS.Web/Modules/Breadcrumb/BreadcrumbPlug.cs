@@ -28,5 +28,10 @@ namespace Easy.CMS.Standard
         {
             
         }
+
+        public override IEnumerable<PermissionDescriptor> RegistPermission()
+        {
+            return null;
+        }
     }
 }

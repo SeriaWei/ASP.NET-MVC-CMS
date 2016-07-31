@@ -11,11 +11,11 @@ using Easy.Web;
 using Easy.Web.Attribute;
 using EasyZip;
 using Microsoft.Practices.ServiceLocation;
-
+using Easy.Web.Authorize;
 
 namespace Easy.CMS.Section.Controllers
 {
-    [PopUp, Authorize]
+    [PopUp, DefaultAuthorize]
     public class SectionGroupController : Controller
     {
         private readonly ISectionGroupService _sectionGroupService;

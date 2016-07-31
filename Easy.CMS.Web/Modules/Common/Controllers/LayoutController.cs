@@ -14,10 +14,11 @@ using Easy.CMS.Common.ViewModels;
 using Easy.Web.CMS.Page;
 using Easy.Web.CMS.Widget;
 using Microsoft.Practices.ServiceLocation;
+using Easy.Web.Authorize;
 
 namespace Easy.CMS.Common.Controllers
 {
-    [Authorize]
+    [DefaultAuthorize]
     public class LayoutController : BasicController<LayoutEntity, string, ILayoutService>
     {
         private readonly IPageService _pageService;

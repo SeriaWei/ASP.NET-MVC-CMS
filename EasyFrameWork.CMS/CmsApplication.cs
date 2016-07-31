@@ -16,6 +16,7 @@ using Easy.Modules.DataDictionary;
 using Easy.Modules.MutiLanguage;
 using Easy.Modules.User.Service;
 using Easy.Web.ValueProvider;
+using Easy.Security;
 
 namespace Easy.Web.CMS
 {
@@ -59,6 +60,7 @@ namespace Easy.Web.CMS
             ContainerAdapter.RegisterType<IUserService, UserService>();
             ContainerAdapter.RegisterType<IDataDictionaryService, DataDictionaryService>();
             ContainerAdapter.RegisterType<ILanguageService, LanguageService>();
+            ContainerAdapter.RegisterType<IAuthorizer, DefaultAuthorizer>();
             ContainerAdapter.RegisterType<IApplicationContext, CMSApplicationContext>(DependencyLifeTime.PerRequest);
 
             //DisplayViewSupport.SupportMobileView();

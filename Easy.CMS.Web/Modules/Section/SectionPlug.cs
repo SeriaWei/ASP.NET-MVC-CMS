@@ -36,5 +36,10 @@ namespace Easy.CMS.Section
             style("SectionAdmin").Include("~/Modules/Section/Content/Section.css", "~/Modules/Section/Content/Section.min.css");
             style("Section").Include("~/Modules/Section/Content/SectionClient.css", "~/Modules/Section/Content/SectionClient.min.css");
         }
+
+        public override IEnumerable<PermissionDescriptor> RegistPermission()
+        {
+            return null;
+        }
     }
 }

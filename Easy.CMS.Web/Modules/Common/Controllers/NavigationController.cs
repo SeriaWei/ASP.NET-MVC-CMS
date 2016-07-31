@@ -9,10 +9,11 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Easy.Extend;
+using Easy.Web.Authorize;
 
 namespace Easy.CMS.Common.Controllers
 {
-    [AdminTheme, Authorize]
+    [AdminTheme, DefaultAuthorize]
     public class NavigationController : BasicController<NavigationEntity, string, INavigationService>
     {
         public NavigationController(INavigationService service)
