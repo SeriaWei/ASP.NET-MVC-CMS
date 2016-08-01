@@ -5,7 +5,7 @@ using System.Web;
 using Easy.Web.CMS;
 using Easy.Web.Route;
 
-namespace Easy.CMS.Standard
+namespace Easy.CMS.Breadcrumb
 {
     public class BreadcrumbPlug : PluginBase
     {
