@@ -24,5 +24,11 @@ namespace Easy.CMS.Common
 
         public const string ViewCarousel = "Carousel_View";
         public const string ManageCarousel = "Carousel_Manage";
+
+        public const string ViewUser = "User_View";
+        public const string ManageUser = "User_Manage";
+
+        public const string ViewRole = "Role_View";
+        public const string ManageRole = "Role_Manage";
     }
 }

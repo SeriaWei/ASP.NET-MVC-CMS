@@ -65,13 +65,15 @@ namespace Easy.CMS.Common
                     {
                         Title = "布局列表",
                         Url = "~/admin/Layout",
-                        Icon = "glyphicon-align-justify"
+                        Icon = "glyphicon-align-justify",
+                        PermissionKey = PermissionKeys.ViewLayout
                     },
                     new AdminMenu
                     {
                         Title = "布局组件",
                         Url = "~/admin/Layout/LayoutWidget",
-                        Icon = "glyphicon-th-list"
+                        Icon = "glyphicon-th-list",
+                        PermissionKey = PermissionKeys.ViewLayout
                     }
                 }
             };
@@ -80,35 +82,40 @@ namespace Easy.CMS.Common
                 Title = "页面",
                 Icon = "glyphicon-eye-open",
                 Url = "~/admin",
-                Order = 2
+                Order = 2,
+                PermissionKey = PermissionKeys.ViewPage
             };
             yield return new AdminMenu
             {
                 Title = "导航",
                 Icon = "glyphicon-retweet",
                 Url = "~/admin/Navigation",
-                Order = 3
+                Order = 3,
+                PermissionKey = PermissionKeys.ViewNavigation
             };
             yield return new AdminMenu
             {
                 Title = "主题",
                 Icon = "glyphicon-blackboard",
                 Url = "~/admin/Theme",
-                Order = 4
+                Order = 4,
+                PermissionKey = PermissionKeys.ViewTheme
             };
             yield return new AdminMenu
             {
                 Title = "媒体库",
                 Icon = "glyphicon-picture",
                 Url = "~/admin/Media",
-                Order = 5
+                Order = 5,
+                PermissionKey = PermissionKeys.ViewMedia
             };
             yield return new AdminMenu
             {
                 Title = "焦点图",
                 Icon = "glyphicon-eye-open",
                 Url = "~/admin/Carousel",
-                Order = 6
+                Order = 6,
+                PermissionKey = PermissionKeys.ViewCarousel
             };
             yield return new AdminMenu
             {
@@ -156,16 +163,27 @@ namespace Easy.CMS.Common
         {
             yield return new PermissionDescriptor(PermissionKeys.ViewPage, "页面", "查看页面", "");
             yield return new PermissionDescriptor(PermissionKeys.ManagePage, "页面", "管理页面", "");
+
             yield return new PermissionDescriptor(PermissionKeys.ViewLayout, "布局", "查看布局", "");
             yield return new PermissionDescriptor(PermissionKeys.ManageLayout, "布局", "管理布局", "");
+
             yield return new PermissionDescriptor(PermissionKeys.ViewNavigation, "导航", "查看导航", "");
             yield return new PermissionDescriptor(PermissionKeys.ManageNavigation, "导航", "管理导航", "");
+
             yield return new PermissionDescriptor(PermissionKeys.ViewTheme, "主题", "查看主题", "");
             yield return new PermissionDescriptor(PermissionKeys.ManageTheme, "主题", "管理主题", "");
+
             yield return new PermissionDescriptor(PermissionKeys.ViewMedia, "媒体库", "查看媒体库", "");
             yield return new PermissionDescriptor(PermissionKeys.ManageMedia, "媒体库", "管理媒体库", "");
+
             yield return new PermissionDescriptor(PermissionKeys.ViewCarousel, "焦点图", "查看焦点图", "");
             yield return new PermissionDescriptor(PermissionKeys.ManageCarousel, "焦点图", "管理焦点图", "");
+
+            yield return new PermissionDescriptor(PermissionKeys.ViewUser, "用户/安全", "查看用户", "");
+            yield return new PermissionDescriptor(PermissionKeys.ManageUser, "用户/安全", "管理用户", "");
+
+            yield return new PermissionDescriptor(PermissionKeys.ViewRole, "用户/安全", "查看角色", "");
+            yield return new PermissionDescriptor(PermissionKeys.ManageRole, "用户/安全", "管理角色", "");
         }
     }
 }
