@@ -1,28 +1,33 @@
-﻿@using Easy.Web.CMS.Article.Models
+﻿@using Easy.CMS.Article
+@using Easy.Web.CMS.Article.Models
 @using Easy.ViewPort.jsTree
 @{
     Script.Reqiured("jsTree").AtFoot();
+    var articleTree = Html.Tree<ArticleType>().Source("GetArticleTypeTree", "ArticleType", new {module = "admin"});
+    if (Authorizer.Authorize(PermissionKeys.ManageArticleType))
+    {
+        articleTree
+        .AddPlugin(Plugins.ContextMenu)
+            .AddContextMenuItem(new ContextmenuItem {Label = "新建", Action = "Create", Icon = "glyphicon glyphicon-plus"})
+            .AddContextMenuItem(new ContextmenuItem {Label = "编辑", Action = "Edit", Icon = "glyphicon glyphicon-edit"});
+    }
 }
 <div class="panel  panel-default">
     <div class="panel-heading">
         文章类别
     </div>
     <div class="panel-body">
-
-        @(
- Html.Tree<ArticleType>().Source("GetArticleTypeTree", "ArticleType", new { module = "admin" })
-        .AddPlugin(Plugins.ContextMenu)
-        .AddContextMenuItem(new ContextmenuItem { Label = "新建", Action = "Create", Icon = "glyphicon glyphicon-plus" })
-        .AddContextMenuItem(new ContextmenuItem { Label = "编辑", Action = "Edit", Icon = "glyphicon glyphicon-edit" })
-        )
-
+        @articleTree
     </div>
-    <div class="panel-footer">
-        <a href="@Url.Action("Create")" class="btn btn-link btn-xs">
-            <i class="glyphicon glyphicon-plus"></i>
-            添加类别
-        </a>
-    </div>
+    @if (Authorizer.Authorize(PermissionKeys.ManageArticleType))
+    {
+        <div class="panel-footer">
+            <a href="@Url.Action("Create")" class="btn btn-link btn-xs">
+                <i class="glyphicon glyphicon-plus"></i>
+                添加类别
+            </a>
+        </div>
+    }
 </div>
 
 

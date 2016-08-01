@@ -1,4 +1,5 @@
-﻿@using Easy.Web.CMS.Layout
+﻿@using Easy.CMS.Common
+@using Easy.Web.CMS.Layout
 @model IEnumerable<LayoutEntity>
 @{
     Script.Reqiured("jQueryUi").AtFoot();
@@ -18,11 +19,14 @@
                                 <div class="pull-left">
                                     <i class="glyphicon glyphicon-equalizer"></i> @item.LayoutName
                                 </div>
-                                <div class="pull-right">
-                                    <a href="@Url.Action("Design", new {ID = item.ID})" title="设计">
-                                        <i class="glyphicon glyphicon-edit"></i>
-                                    </a>
-                                </div>
+                                @if (Authorizer.Authorize(PermissionKeys.ManageLayout))
+                                {
+                                    <div class="pull-right">
+                                        <a href="@Url.Action("Design", new {ID = item.ID})" title="设计">
+                                            <i class="glyphicon glyphicon-edit"></i>
+                                        </a>
+                                    </div>
+                                }
                             </li>
                         }
                     </ul>

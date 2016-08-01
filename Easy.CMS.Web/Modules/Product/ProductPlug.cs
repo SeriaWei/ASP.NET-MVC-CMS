@@ -27,13 +27,15 @@ namespace Easy.CMS.Product
                     {
                         Title = "产品列表",
                         Url = "~/admin/Product",
-                        Icon = "glyphicon-align-justify"
+                        Icon = "glyphicon-align-justify",
+                        PermissionKey = PermissionKeys.ViewProduct
                     },
                     new AdminMenu
                     {
                         Title = "产品类别",
                         Url = "~/admin/ProductCategory",
-                        Icon = "glyphicon-th-list"
+                        Icon = "glyphicon-th-list",
+                        PermissionKey = PermissionKeys.ViewProductCategory
                     }
                 }
             };

@@ -1,4 +1,5 @@
-﻿@model Easy.CMS.Common.ViewModels.LayoutZonesViewModel
+﻿@using Easy.CMS.Common
+@model Easy.CMS.Common.ViewModels.LayoutZonesViewModel
 @{
     Layout = null;
     string returnUrl = Url.Action("LayoutWidget", "Layout", new { module = "admin", LayoutID = Model.LayoutID });
@@ -16,8 +17,11 @@
                 @foreach (var widget in noZoneWidgets.OrderBy(m => m.Position))
                 {
                     <li id="widget_@widget.ID" class="widget" data-widgetid="@widget.ID">
-                        <a href="@Url.Action("Edit", "Widget", new { module = "admin", ID = widget.ID, ReturnUrl = returnUrl })"><i class="glyphicon glyphicon-edit"></i></a>
-                        <a href="javascript:void(0)" class="delete" data-widgetid="@widget.ID"><i class="glyphicon glyphicon-trash"></i></a>
+                        @if (Authorizer.Authorize(PermissionKeys.ManagePage))
+                        {
+                            <a href="@Url.Action("Edit", "Widget", new {module = "admin", ID = widget.ID, ReturnUrl = returnUrl})"><i class="glyphicon glyphicon-edit"></i></a>
+                            <a href="javascript:void(0)" class="delete" data-widgetid="@widget.ID"><i class="glyphicon glyphicon-trash"></i></a>
+                        }
                         @widget.WidgetName
                     </li>
                 }
@@ -47,7 +51,7 @@
                 {
                     <div class="panel panel-success  panel-relative">
                         <div class="panel-toolbar">
-                            <a class="label label-danger" title="添加组件到该区域" href="@Url.Action("SelectWidget", "WidgetTemplate", new { module = "admin", PageID = Model.PageID, ZoneID = item.ID, LayoutID = item.LayoutId,ReturnUrl = returnUrl })">
+                            <a class="label label-danger" title="添加组件到该区域" href="@Url.Action("SelectWidget", "WidgetTemplate", new {module = "admin", PageID = Model.PageID, ZoneID = item.ID, LayoutID = item.LayoutId, ReturnUrl = returnUrl})">
                                 <i class="glyphicon glyphicon-plus"></i>
                                 @item.ZoneName
                             </a>
@@ -56,8 +60,11 @@
                             @foreach (var widget in Model.Widgets.Where(m => m.ZoneID == item.ID).OrderBy(m => m.Position).ThenBy(m => m.WidgetName))
                             {
                                 <li id="widget_@widget.ID" class="widget" data-widgetid="@widget.ID">
-                                    <a href="@Url.Action("Edit", "Widget", new { module = "admin", ID = widget.ID, ReturnUrl = returnUrl })"><i class="glyphicon glyphicon-edit"></i></a>
-                                    <a href="javascript:void(0)" class="delete" data-widgetid="@widget.ID"><i class="glyphicon glyphicon-trash"></i></a>
+                                    @if (Authorizer.Authorize(PermissionKeys.ManagePage))
+                                    {
+                                        <a href="@Url.Action("Edit", "Widget", new {module = "admin", ID = widget.ID, ReturnUrl = returnUrl})"><i class="glyphicon glyphicon-edit"></i></a>
+                                        <a href="javascript:void(0)" class="delete" data-widgetid="@widget.ID"><i class="glyphicon glyphicon-trash"></i></a>
+                                    }
                                     @widget.WidgetName
                                 </li>
                             }
@@ -75,4 +82,8 @@
     </div>
 
 </div>
-@Html.Partial("SortWidget.Script")
+@if (Authorizer.Authorize(PermissionKeys.ManagePage))
+{
+    @Html.Partial("SortWidget.Script")
+}
+

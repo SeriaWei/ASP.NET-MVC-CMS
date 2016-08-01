@@ -1,28 +1,33 @@
-﻿@using Easy.Web.CMS.Product.Models
+﻿@using Easy.CMS.Product
+@using Easy.Web.CMS.Product.Models
 @using Easy.ViewPort.jsTree
 @{
     Script.Reqiured("jsTree").AtFoot();
+    var categoryTree = Html.Tree<ProductCategory>().Source("GetProductCategoryTree", "ProductCategory");
+    if (Authorizer.Authorize(PermissionKeys.ManageProductCategory))
+    {
+        categoryTree
+            .AddPlugin(Plugins.ContextMenu)
+            .AddContextMenuItem(new ContextmenuItem {Label = "新建", Action = "Create", Icon = "glyphicon glyphicon-plus"})
+            .AddContextMenuItem(new ContextmenuItem {Label = "编辑", Action = "Edit", Icon = "glyphicon glyphicon-edit"});
+    }
 }
 <div class="panel panel-default">
     <div class="panel-heading">
         产品类别
     </div>
     <div class="panel-body">
-
-        @(
- Html.Tree<ProductCategory>().Source("GetProductCategoryTree", "ProductCategory")
-        .AddPlugin(Plugins.ContextMenu)
-        .AddContextMenuItem(new ContextmenuItem { Label = "新建", Action = "Create", Icon = "glyphicon glyphicon-plus" })
-        .AddContextMenuItem(new ContextmenuItem { Label = "编辑", Action = "Edit", Icon = "glyphicon glyphicon-edit" })
-        )
-
+        @categoryTree
     </div>
-    <div class="panel-footer">
-        <a href="@Url.Action("Create")" class="btn btn-link btn-xs">
-            <i class="glyphicon glyphicon-plus"></i>
-            添加类别
-        </a>
-    </div>
+    @if (Authorizer.Authorize(PermissionKeys.ManageProductCategory))
+    {
+        <div class="panel-footer">
+            <a href="@Url.Action("Create")" class="btn btn-link btn-xs">
+                <i class="glyphicon glyphicon-plus"></i>
+                添加类别
+            </a>
+        </div>
+    }
 </div>
 
 

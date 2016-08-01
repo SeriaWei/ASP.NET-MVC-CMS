@@ -111,6 +111,13 @@ sqlcmd -S %server% -d %dataBase% -U %dbUserId% -P %dbPassword% -b -i "Tables\dbo
 if %ERRORLEVEL% NEQ 0 goto errors
 sqlcmd -S %server% -d %dataBase% -U %dbUserId% -P %dbPassword% -b -i "Tables\dbo.Users.Table.sql"
 if %ERRORLEVEL% NEQ 0 goto errors
+sqlcmd -S %server% -d %dataBase% -U %dbUserId% -P %dbPassword% -b -i "Tables\dbo.Roles.Table.sql"
+if %ERRORLEVEL% NEQ 0 goto errors
+sqlcmd -S %server% -d %dataBase% -U %dbUserId% -P %dbPassword% -b -i "Tables\dbo.UserRoleRelation.Table.sql"
+if %ERRORLEVEL% NEQ 0 goto errors
+sqlcmd -S %server% -d %dataBase% -U %dbUserId% -P %dbPassword% -b -i "Tables\dbo.Permission.Table.sql"
+if %ERRORLEVEL% NEQ 0 goto errors
+
 sqlcmd -S %server% -d %dataBase% -U %dbUserId% -P %dbPassword% -b -i "Tables\dbo.ExtendField.Table.sql"
 if %ERRORLEVEL% NEQ 0 goto errors
 
@@ -201,6 +208,12 @@ if %ERRORLEVEL% NEQ 0 goto errors
 sqlcmd -S %server% -d %dataBase% -U %dbUserId% -P %dbPassword% -b -i "InitialData\dbo.Language.Table.sql"
 if %ERRORLEVEL% NEQ 0 goto errors
 sqlcmd -S %server% -d %dataBase% -U %dbUserId% -P %dbPassword% -b -i "InitialData\dbo.Users.Table.sql"
+if %ERRORLEVEL% NEQ 0 goto errors
+sqlcmd -S %server% -d %dataBase% -U %dbUserId% -P %dbPassword% -b -i "InitialData\dbo.Roles.Table.sql"
+if %ERRORLEVEL% NEQ 0 goto errors
+sqlcmd -S %server% -d %dataBase% -U %dbUserId% -P %dbPassword% -b -i "InitialData\dbo.UserRoleRelation.Table.sql"
+if %ERRORLEVEL% NEQ 0 goto errors
+sqlcmd -S %server% -d %dataBase% -U %dbUserId% -P %dbPassword% -b -i "InitialData\dbo.Permission.Table.sql"
 if %ERRORLEVEL% NEQ 0 goto errors
 
 @echo -----------------------------------------------------------------------------

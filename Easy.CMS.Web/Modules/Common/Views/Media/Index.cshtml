@@ -1,4 +1,5 @@
-﻿@using Easy.Web.CMS
+﻿@using Easy.CMS.Common
+@using Easy.Web.CMS
 @using Easy.Web.CMS.Media
 @model Easy.CMS.Common.ViewModels.MediaViewModel
 @{
@@ -12,7 +13,7 @@
 <div class="container-fluid">
     <div class="clearfix thumbnail">
         <div class="pull-left">
-            <span style="line-height:30px">
+            <span style="line-height: 30px">
                 &nbsp;<a href="@Url.Action(action)">媒体库</a>
                 @if (Model.Parents != null)
                 {
@@ -24,11 +25,13 @@
                 }
             </span>
         </div>
-        <div class="pull-right">
-            <input type="button" class="btn btn-primary btn-sm upload" value="上传文件" />
-            <input type="button" class="btn btn-primary btn-sm create-folder" value="创建文件夹" />
-        </div>
-
+        @if (Authorizer.Authorize(PermissionKeys.ManageMedia))
+        {
+            <div class="pull-right">
+                <input type="button" class="btn btn-primary btn-sm upload" value="上传文件" />
+                <input type="button" class="btn btn-primary btn-sm create-folder" value="创建文件夹" />
+            </div>
+        }
     </div>
     <div id="media-list" class="row" data-parent="@Model.ParentID">
         @if (Model.Medias != null)
@@ -54,23 +57,26 @@
                             @media.Title
                         </div>
                         <div class="tool">
-                            @if (media.MediaType == (int)MediaType.Image && media.Url.IsNotNullAndWhiteSpace())
+                            @if (media.MediaType == (int) MediaType.Image && media.Url.IsNotNullAndWhiteSpace())
                             {
                                 <a target="_blank" class="preview" href="@Url.Content(media.Url)"
                                    data-lightbox="thumbnail" data-title="@media.Title">
                                     <i class="glyphicon glyphicon-eye-open"></i>
                                 </a>
                             }
-                            @if (media.MediaType != (int)MediaType.Folder && media.Url.IsNotNullAndWhiteSpace())
+                            @if (media.MediaType != (int) MediaType.Folder && media.Url.IsNotNullAndWhiteSpace())
                             {
                                 <a target="_blank" class="download" download="@media.Title" href="@Url.Content(media.Url)">
                                     <i class="glyphicon glyphicon-download-alt"></i>
                                 </a>
                             }
                         </div>
-                        <div class="close">
-                            <img src="~/Content/Images/close_red.png" />
-                        </div>
+                        @if (Authorizer.Authorize(PermissionKeys.ManageMedia))
+                        {
+                            <div class="close">
+                                <img src="~/Content/Images/close_red.png" />
+                            </div>
+                        }
                     </div>
                 </div>
             }

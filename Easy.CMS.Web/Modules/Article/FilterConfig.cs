@@ -1,5 +1,6 @@
 ﻿using Easy.CMS.Article.ActionFilter;
 using Easy.CMS.Article.Controllers;
+using Easy.Web.Authorize;
 using Easy.Web.Filter;
 namespace Easy.CMS.Article
 {
@@ -17,6 +18,23 @@ namespace Easy.CMS.Article
             Registry.Register<ArticleController, ViewDataArticleTypeAttribute>(m => m.Edit(0));
             Registry.Register<ArticleController, ViewDataArticleTypeAttribute>(m => m.Edit(null));
             Registry.Register<ArticleController, ViewDataArticleTypeAttribute>(m => m.GetList());
+
+
+            Registry.Register<ArticleController, DefaultAuthorizeAttribute>(m => m.Index(), auth => auth.SetPermissionKey(PermissionKeys.ViewArticle));
+            Registry.Register<ArticleController, DefaultAuthorizeAttribute>(m => m.Create(), auth => auth.SetPermissionKey(PermissionKeys.ManageArticle));
+            Registry.Register<ArticleController, DefaultAuthorizeAttribute>(m => m.Create(null), auth => auth.SetPermissionKey(PermissionKeys.ManageArticle));
+            Registry.Register<ArticleController, DefaultAuthorizeAttribute>(m => m.Edit(0), auth => auth.SetPermissionKey(PermissionKeys.ManageArticle));
+            Registry.Register<ArticleController, DefaultAuthorizeAttribute>(m => m.Edit(null), auth => auth.SetPermissionKey(PermissionKeys.ManageArticle));
+            Registry.Register<ArticleController, DefaultAuthorizeAttribute>(m => m.Delete(null), auth => auth.SetPermissionKey(PermissionKeys.ManageArticle));
+            Registry.Register<ArticleController, DefaultAuthorizeAttribute>(m => m.GetList(), auth => auth.SetPermissionKey(PermissionKeys.ViewArticle));
+
+            Registry.Register<ArticleTypeController, DefaultAuthorizeAttribute>(m => m.Index(), auth => auth.SetPermissionKey(PermissionKeys.ViewArticleType));
+            Registry.Register<ArticleTypeController, DefaultAuthorizeAttribute>(m => m.Create(), auth => auth.SetPermissionKey(PermissionKeys.ManageArticleType));
+            Registry.Register<ArticleTypeController, DefaultAuthorizeAttribute>(m => m.Create(null), auth => auth.SetPermissionKey(PermissionKeys.ManageArticleType));
+            Registry.Register<ArticleTypeController, DefaultAuthorizeAttribute>(m => m.Edit(0), auth => auth.SetPermissionKey(PermissionKeys.ManageArticleType));
+            Registry.Register<ArticleTypeController, DefaultAuthorizeAttribute>(m => m.Edit(null), auth => auth.SetPermissionKey(PermissionKeys.ManageArticleType));
+            Registry.Register<ArticleTypeController, DefaultAuthorizeAttribute>(m => m.Delete(null), auth => auth.SetPermissionKey(PermissionKeys.ManageArticleType));
+            Registry.Register<ArticleTypeController, DefaultAuthorizeAttribute>(m => m.GetList(), auth => auth.SetPermissionKey(PermissionKeys.ViewArticleType));
         }
 
     }

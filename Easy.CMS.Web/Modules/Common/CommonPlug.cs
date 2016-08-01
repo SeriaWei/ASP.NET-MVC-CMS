@@ -129,14 +129,16 @@ namespace Easy.CMS.Common
                         Title = "用户",
                         Icon = "glyphicon-user",
                         Url = "~/admin/User",
-                        Order = 1
+                        Order = 1,
+                        PermissionKey = PermissionKeys.ViewUser
                     },
                     new AdminMenu
                     {
                         Title = "角色",
                         Icon = "glyphicon-eye-open",
                         Url = "~/admin/Roles",
-                        Order = 1
+                        Order = 1,
+                        PermissionKey = PermissionKeys.ViewRole
                     }
                 }
             };

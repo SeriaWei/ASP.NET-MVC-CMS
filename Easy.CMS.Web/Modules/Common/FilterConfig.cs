@@ -1,5 +1,6 @@
 ﻿using Easy.CMS.Common.Controllers;
 using Easy.CMS.Common.Models;
+using Easy.Modules.User.Models;
 using Easy.Web.Authorize;
 using Easy.Web.CMS.Layout;
 using Easy.Web.CMS.Media;
@@ -81,7 +82,20 @@ namespace Easy.CMS.Common
             Registry.Register<ThemeController, DefaultAuthorizeAttribute>(m => m.ThemePackage(string.Empty), auth => auth.SetPermissionKey(PermissionKeys.ManageTheme));
             Registry.Register<ThemeController, DefaultAuthorizeAttribute>(m => m.UploadTheme(), auth => auth.SetPermissionKey(PermissionKeys.ManageTheme));
             Registry.Register<ThemeController, DefaultAuthorizeAttribute>(m => m.Delete(string.Empty), auth => auth.SetPermissionKey(PermissionKeys.ManageTheme));
-            
+
+            Registry.Register<UserController, DefaultAuthorizeAttribute>(m => m.Index(), auth => auth.SetPermissionKey(PermissionKeys.ViewUser));
+            Registry.Register<UserController, DefaultAuthorizeAttribute>(m => m.Edit(string.Empty), auth => auth.SetPermissionKey(PermissionKeys.ManageUser));
+            Registry.Register<UserController, DefaultAuthorizeAttribute>(m => m.Edit(new UserEntity()), auth => auth.SetPermissionKey(PermissionKeys.ManageUser));
+            Registry.Register<UserController, DefaultAuthorizeAttribute>(m => m.Create(), auth => auth.SetPermissionKey(PermissionKeys.ManageUser));
+            Registry.Register<UserController, DefaultAuthorizeAttribute>(m => m.Create(null), auth => auth.SetPermissionKey(PermissionKeys.ManageUser));
+            Registry.Register<UserController, DefaultAuthorizeAttribute>(m => m.Delete(string.Empty), auth => auth.SetPermissionKey(PermissionKeys.ManageUser));
+
+            Registry.Register<RolesController, DefaultAuthorizeAttribute>(m => m.Index(), auth => auth.SetPermissionKey(PermissionKeys.ViewRole));
+            //Registry.Register<RolesController, DefaultAuthorizeAttribute>(m => m.Edit(string.Empty), auth => auth.SetPermissionKey(PermissionKeys.ManageRole));
+            //Registry.Register<RolesController, DefaultAuthorizeAttribute>(m => m.Edit(null, null), auth => auth.SetPermissionKey(PermissionKeys.ManageRole));
+            Registry.Register<RolesController, DefaultAuthorizeAttribute>(m => m.Create(), auth => auth.SetPermissionKey(PermissionKeys.ManageRole));
+            Registry.Register<RolesController, DefaultAuthorizeAttribute>(m => m.Create(null, null), auth => auth.SetPermissionKey(PermissionKeys.ManageRole));
+            Registry.Register<RolesController, DefaultAuthorizeAttribute>(m => m.Delete(string.Empty), auth => auth.SetPermissionKey(PermissionKeys.ManageRole));
         }
 
     }

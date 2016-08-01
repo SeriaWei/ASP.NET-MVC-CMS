@@ -26,6 +26,10 @@ namespace Easy.CMS.Common.Controllers
         [HttpPost]
         public override ActionResult Edit(UserEntity entity)
         {
+            if (ModelState.IsValid)
+            {
+                
+            }
             var url = Request.SaveImage();
             if (url.IsNotNullAndWhiteSpace())
             {

@@ -1,31 +1,36 @@
-﻿@using Easy.CMS.Common.Models
+﻿@using Easy.CMS.Common
+@using Easy.CMS.Common.Models
 @using Easy.ViewPort.jsTree
 @{
     Script.Reqiured("jsTree").AtFoot();
+    var navTree = Html.Tree<NavigationEntity>().Source("GetNavTree", "Navigation")
+        .CheckCallBack("checkCallBack")
+        .On(Events.MoveNode, "moveNode");
+        
+    if (Authorizer.Authorize(PermissionKeys.ManageNavigation))
+    {
+        navTree.AddPlugin(Plugins.ContextMenu)
+            .AddPlugin(Plugins.DragAndDrop)
+            .AddContextMenuItem(new ContextmenuItem {Label = "新建", Action = "Create", Icon = "glyphicon glyphicon-plus"})
+            .AddContextMenuItem(new ContextmenuItem {Label = "编辑", Action = "Edit", Icon = "glyphicon glyphicon-edit"});
+    }
 }
 <div class="panel  panel-default">
     <div class="panel-heading">
         导航
     </div>
     <div class="panel-body">
-
-        @(
- Html.Tree<NavigationEntity>().Source("GetNavTree", "Navigation")
-        .AddPlugin(Plugins.ContextMenu)
-        .AddPlugin(Plugins.DragAndDrop)
-        .CheckCallBack("checkCallBack")
-        .AddContextMenuItem(new ContextmenuItem { Label = "新建", Action = "Create", Icon = "glyphicon glyphicon-plus" })
-        .AddContextMenuItem(new ContextmenuItem { Label = "编辑", Action = "Edit", Icon = "glyphicon glyphicon-edit" })
-        .On(Events.MoveNode, "moveNode")
-        )
-
+        @navTree
     </div>
-    <div class="panel-footer">
-        <a href="@Url.Action("Create", new { ParentID ="#"})" class="btn btn-link btn-xs">
-            <i class="glyphicon glyphicon-plus"></i>
-            添加导航
-        </a>
-    </div>
+    @if (Authorizer.Authorize(PermissionKeys.ManageNavigation))
+    {
+        <div class="panel-footer">
+            <a href="@Url.Action("Create", new {ParentID = "#"})" class="btn btn-link btn-xs">
+                <i class="glyphicon glyphicon-plus"></i>
+                添加导航
+            </a>
+        </div>
+    }
 </div>
 
 <script type="text/javascript">

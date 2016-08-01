@@ -1,4 +1,5 @@
-﻿@using Easy.Web.CMS.Layout
+﻿@using Easy.CMS.Common
+@using Easy.Web.CMS.Layout
 @model IEnumerable<LayoutEntity>
 @{
     Style.Reqiured("Layout").AtFoot();
@@ -12,7 +13,7 @@
             @foreach (LayoutEntity item in Model)
             {
                 <li class="thumbnail">
-                    <a href="@Url.Action("Edit", "Layout", new { module = "admin", ID = item.ID })">
+                    <a href="@(Authorizer.Authorize(PermissionKeys.ManageLayout) ? Url.Action("Edit", "Layout", new {module = "admin", ID = item.ID}) : "#")">
                         @if (item.ImageUrl.IsNullOrEmpty())
                         {
                             <img src="@Url.Content(LayoutEntity.DefaultThumbnial)" alt="@item.LayoutName"/>
@@ -24,17 +25,24 @@
                     </a>
                     <div class="caption">
                         <span>@item.LayoutName</span>
-                        <a href="@Url.Action("Design", new {ID = item.ID})" class="pull-right badge">设计</a>
+                        @if (Authorizer.Authorize(PermissionKeys.ManageLayout))
+                        {
+                            <a href="@Url.Action("Design", new {ID = item.ID})" class="pull-right badge">设计</a>
+                        }
                     </div>
                 </li>
             }
         </ul>
 
     </div>
-    <div class="panel-footer">
-        <a href="@Url.Action("Create", new { module = "admin" })" class="btn btn-link btn-xs">
-            <i class="glyphicon glyphicon-plus"></i>
-            添加布局
-        </a>
-    </div>
+    @if (Authorizer.Authorize(PermissionKeys.ManageLayout))
+    {
+        <div class="panel-footer">
+            <a href="@Url.Action("Create", new {module = "admin"})" class="btn btn-link btn-xs">
+                <i class="glyphicon glyphicon-plus"></i>
+                添加布局
+            </a>
+        </div>
+    }
+    
 </div>

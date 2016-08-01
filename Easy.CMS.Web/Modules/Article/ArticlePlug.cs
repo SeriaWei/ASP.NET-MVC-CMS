@@ -27,13 +27,15 @@ namespace Easy.CMS.Article
                     {
                         Title = "文章列表",
                         Url = "~/admin/Article",
-                        Icon = "glyphicon-align-justify"
+                        Icon = "glyphicon-align-justify",
+                        PermissionKey = PermissionKeys.ViewArticle
                     },
                     new AdminMenu
                     {
                         Title = "文章类别",
                         Url = "~/admin/ArticleType",
-                        Icon = "glyphicon-th-list"
+                        Icon = "glyphicon-th-list",
+                        PermissionKey = PermissionKeys.ViewArticleType
                     }
                 }
             };

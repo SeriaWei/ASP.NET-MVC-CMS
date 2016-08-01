@@ -1,4 +1,5 @@
-﻿@using Easy.Web.CMS.Theme
+﻿@using Easy.CMS.Common
+@using Easy.Web.CMS.Theme
 @model IEnumerable<ThemeEntity>
 <div class="panel panel-default">
     <div class="panel-heading">
@@ -9,24 +10,26 @@
             @foreach (ThemeEntity item in Model)
             {
                 <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
-                    <div class="thumbnail @(item.IsActived?"active":"")">
+                    <div class="thumbnail @(item.IsActived ? "active" : "")">
                         <a href="@Url.Action("PreView", "Theme", new {module = "admin", id = item.ID})">
                             <img src="@Url.Content(item.Thumbnail ?? ThemeEntity.DefaultThumbnail)" alt="@item.Title"/>
                         </a>
-                        <div class="radio clearfix">
-                            <label>
-                                <input type="radio" name="theme" @(item.IsActived ? "checked" : "") value="@item.ID"> @item.Title
-                            </label>
-                            @if (HttpContext.Current.IsDebuggingEnabled)
-                            {
-                                <div class="pull-right">
-                                    <a class="download" href="@Url.Action("ThemePackage", new {id = item.ID})" title="打包">
-                                        <i class="glyphicon glyphicon-download-alt"></i>
-                                    </a>
-                                </div>
-                            }
-                        </div>
-
+                        @if (Authorizer.Authorize(PermissionKeys.ManageTheme))
+                        {
+                            <div class="radio clearfix">
+                                <label>
+                                    <input type="radio" name="theme" @(item.IsActived ? "checked" : "") value="@item.ID"> @item.Title
+                                </label>
+                                @if (HttpContext.Current.IsDebuggingEnabled)
+                                {
+                                    <div class="pull-right">
+                                        <a class="download" href="@Url.Action("ThemePackage", new {id = item.ID})" title="打包">
+                                            <i class="glyphicon glyphicon-download-alt"></i>
+                                        </a>
+                                    </div>
+                                }
+                            </div>
+                        }
                     </div>
                 </div>
             }
@@ -44,13 +47,16 @@
             </li>
         </ul>
     </div>
-    <div class="panel-footer clearfix">
-        <input type="button" value="安装主题" class="btn btn-primary select-theme"/>
-        <a target="_blank" class="btn btn-danger" href="http://www.zkea.net/zkeacms/theme">下载更多主题</a>
-        <div class="hide">
-            <input id="file" type="file" name="file"/>
+    @if (Authorizer.Authorize(PermissionKeys.ManageTheme))
+    {
+        <div class="panel-footer clearfix">
+            <input type="button" value="安装主题" class="btn btn-primary select-theme"/>
+            <a target="_blank" class="btn btn-danger" href="http://www.zkea.net/zkeacms/theme">下载更多主题</a>
+            <div class="hide">
+                <input id="file" type="file" name="file"/>
+            </div>
         </div>
-    </div>
+    }
 </div>
 @using (Script.AtFoot())
 {
