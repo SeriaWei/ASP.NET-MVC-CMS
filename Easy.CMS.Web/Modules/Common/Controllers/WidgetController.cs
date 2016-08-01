@@ -21,7 +21,7 @@ using Easy.Web.Authorize;
 
 namespace Easy.CMS.Common.Controllers
 {
-    [AdminTheme, DefaultAuthorize]
+    [AdminTheme, DefaultAuthorize(PermissionKeys.ManagePage)]
     public class WidgetController : Controller
     {
         private readonly IWidgetService _widgetService;

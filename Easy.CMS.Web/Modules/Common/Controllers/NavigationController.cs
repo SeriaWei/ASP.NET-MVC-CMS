@@ -36,7 +36,7 @@ namespace Easy.CMS.Common.Controllers
             };
             return View(navication);
         }
-        public JsonResult GetPageTree()
+        public JsonResult GetNavTree()
         {
             var navs = Service.Get(new Data.DataFilter().OrderBy("DisplayOrder", OrderType.Ascending));
             var node = new Easy.ViewPort.jsTree.Tree<NavigationEntity>().Source(navs).ToNode(m => m.ID, m => m.Title, m => m.ParentId, "#");
@@ -44,7 +44,7 @@ namespace Easy.CMS.Common.Controllers
         }
 
         [HttpPost]
-        public JsonResult MovePage(string id, string parentId, int position, int oldPosition)
+        public JsonResult MoveNav(string id, string parentId, int position, int oldPosition)
         {
             Service.Move(id, parentId, position, oldPosition);
             return Json(true);

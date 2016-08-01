@@ -24,5 +24,11 @@ namespace Easy.CMS.Common.Controllers
             return View();
         }
 
+        public ActionResult Forbidden()
+        {
+            Response.StatusCode = 403;
+            Response.TrySkipIisCustomErrors = true;
+            return View();
+        }
     }
 }

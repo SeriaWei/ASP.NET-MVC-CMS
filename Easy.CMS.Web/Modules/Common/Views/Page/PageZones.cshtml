@@ -1,4 +1,5 @@
-﻿@model Easy.CMS.Common.ViewModels.LayoutZonesViewModel
+﻿@using Easy.CMS.Common
+@model Easy.CMS.Common.ViewModels.LayoutZonesViewModel
 @{
     Layout = null;
     string returnUrl = Url.Action("Index", "Page", new { module = "admin", PageID = Model.PageID });
@@ -20,8 +21,11 @@
                         {
                             <span class="badge">布局</span>
                         }
-                        <a href="@Url.Action("Edit", "Widget", new {module = "admin", ID = widget.ID, ReturnUrl = returnUrl})"><i class="glyphicon glyphicon-edit"></i></a>
-                        <a href="javascript:void(0)" class="delete" data-widgetid="@widget.ID"><i class="glyphicon glyphicon-trash"></i></a>
+                        @if (Authorizer.Authorize(PermissionKeys.ManagePage))
+                        {
+                            <a href="@Url.Action("Edit", "Widget", new {module = "admin", ID = widget.ID, ReturnUrl = returnUrl})"><i class="glyphicon glyphicon-edit"></i></a>
+                            <a href="javascript:void(0)" class="delete" data-widgetid="@widget.ID"><i class="glyphicon glyphicon-trash"></i></a>
+                        }
                         @widget.WidgetName
                     </li>
                 }
@@ -55,10 +59,20 @@
                     {
                         <div class="panel panel-success panel-relative">
                             <div class="panel-toolbar">
-                                <a class="label label-danger" title="添加组件到该区域" href="@Url.Action("SelectWidget", "WidgetTemplate", new { module = "admin", PageID = Model.PageID, ZoneID = item.ID, ReturnUrl = returnUrl })">
-                                    <i class="glyphicon glyphicon-plus"></i>
-                                    @item.ZoneName
-                                </a>
+                                @if (Authorizer.Authorize(PermissionKeys.ManagePage))
+                                {
+                                    <a class="label label-danger" title="添加组件到该区域" href="@Url.Action("SelectWidget", "WidgetTemplate", new {module = "admin", PageID = Model.PageID, ZoneID = item.ID, ReturnUrl = returnUrl})">
+                                        <i class="glyphicon glyphicon-plus"></i>
+                                        @item.ZoneName
+                                    </a>
+                                }
+                                else
+                                {
+                                    <a class="label label-danger" title="区域名称" href="#">
+                                        <i class="glyphicon glyphicon-plus"></i>
+                                        @item.ZoneName
+                                    </a>
+                                }
                             </div>
                             <ul data-zoneid="@item.ID" class="fullRowList widgets connectedSortable">
                                 @foreach (var widget in Model.Widgets.Where(m => m.ZoneID == item.ID).OrderBy(m => m.Position).ThenBy(m => m.WidgetName))
@@ -68,8 +82,11 @@
                                         {
                                             <span class="label label-info">布局</span>
                                         }
-                                        <a href="@Url.Action("Edit", "Widget", new { module = "admin", ID = widget.ID, ReturnUrl = returnUrl })"><i class="glyphicon glyphicon-edit"></i></a>
-                                        <a href="javascript:void(0)" class="delete" data-widgetid="@widget.ID"><i class="glyphicon glyphicon-trash"></i></a>
+                                        @if (Authorizer.Authorize(PermissionKeys.ManagePage))
+                                        {
+                                            <a href="@Url.Action("Edit", "Widget", new { module = "admin", ID = widget.ID, ReturnUrl = returnUrl })"><i class="glyphicon glyphicon-edit"></i></a>
+                                            <a href="javascript:void(0)" class="delete" data-widgetid="@widget.ID"><i class="glyphicon glyphicon-trash"></i></a>
+                                        }
                                         @widget.WidgetName
                                     </li>
                                 }
@@ -93,20 +110,28 @@
             <i class="glyphicon glyphicon-new-window"></i>
             查看
         </a>
-        <a class="btn btn-primary" href="@Url.Action("RedirectView", "Page", new { module = "admin", ID = Model.PageID })">
+        <a class="btn btn-primary" href="@Url.Action("RedirectView", "Page", new {module = "admin", ID = Model.PageID})">
             <i class="glyphicon glyphicon-search"></i>
             预览
         </a>
-        <a class="btn btn-primary" href="@Url.Action("Design", new {ID = Model.PageID})">
-            <i class="glyphicon glyphicon-wrench"></i>
-            设计
-        </a>
-        <a class="btn btn-primary" href="@Url.Action("Design", "Layout", new { module = "admin", ID = Model.LayoutID, PageID = Model.PageID })">
-            <i class="glyphicon glyphicon-th-list"></i>
-            布局
-        </a>
+        @if (Authorizer.Authorize(PermissionKeys.ManagePage))
+        {
+            <a class="btn btn-primary" href="@Url.Action("Design", new {ID = Model.PageID})">
+                <i class="glyphicon glyphicon-wrench"></i>
+                设计
+            </a>
+        }
+        @if (Authorizer.Authorize(PermissionKeys.ManageLayout))
+        {
+            <a class="btn btn-primary" href="@Url.Action("Design", "Layout", new {module = "admin", ID = Model.LayoutID, PageID = Model.PageID})">
+                <i class="glyphicon glyphicon-th-list"></i>
+                布局
+            </a>
+        }
     </div>
 </div>
 
-
-@Html.Partial("SortWidget.Script")
+@if (Authorizer.Authorize(PermissionKeys.ManagePage))
+{
+    @Html.Partial("SortWidget.Script")
+}

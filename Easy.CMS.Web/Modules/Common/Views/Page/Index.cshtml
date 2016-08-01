@@ -1,9 +1,31 @@
-﻿@using Easy.Web.CMS.Page
+﻿@using Easy.CMS.Common
+@using Easy.Web.CMS.Page
 @using Easy.ViewPort.jsTree
 @{
     string pageId = Request.QueryString["PageID"];
     Script.Reqiured("jQueryUi").AtFoot();
     Script.Reqiured("jsTree").AtFoot();
+    var pageTree = Html.Tree<PageEntity>().Source("GetPageTree", "Page", new {module = "admin"})
+        .AddPlugin(Plugins.ContextMenu)
+        .On(Events.Loaded, "loadedPage")
+        .CheckCallBack("checkCallBack")
+        .On(Events.MoveNode, "moveNode")
+        .On(Events.ActiveNode, "ActiveNode");
+
+    if (Authorizer.Authorize(PermissionKeys.ManagePage))
+    {
+        pageTree.AddPlugin(Plugins.DragAndDrop).AddContextMenuItem(new ContextmenuItem { Label = "新建", Action = "Create", Icon = "glyphicon glyphicon-plus" })
+            .AddContextMenuItem(new ContextmenuItem {Label = "编辑", Action = "Edit", Icon = "glyphicon glyphicon-edit", SeparatorAfter = true})
+            .AddContextMenuItem(new ContextmenuItem {Label = "预览", Action = "PreView", Icon = "glyphicon glyphicon-search"})
+            .AddContextMenuItem(new ContextmenuItem {Label = "查看", Action = "View", Icon = "glyphicon glyphicon-new-window"})
+            .AddContextMenuItem(new ContextmenuItem {Label = "发布", Action = "Publish", Icon = "glyphicon glyphicon-open"})
+            .AddContextMenuItem(new ContextmenuItem {Label = "设计", Action = "Design", Icon = "glyphicon glyphicon-wrench"});
+    }
+    else
+    {
+        pageTree.AddContextMenuItem(new ContextmenuItem {Label = "预览", Action = "PreView", Icon = "glyphicon glyphicon-search"})
+            .AddContextMenuItem(new ContextmenuItem {Label = "查看", Action = "View", Icon = "glyphicon glyphicon-new-window"});
+    }
 }
 <div class="container-fluid">
     <div class="row">
@@ -13,31 +35,18 @@
                     页面
                 </div>
                 <div class="panel-body">
-
-                    @(
- Html.Tree<PageEntity>().Source("GetPageTree", "Page", new { module = "admin" })
-        .AddPlugin(Plugins.ContextMenu)
-        .AddPlugin(Plugins.DragAndDrop)
-.AddContextMenuItem(new ContextmenuItem { Label = "新建", Action = "Create", Icon = "glyphicon glyphicon-plus" })
-.AddContextMenuItem(new ContextmenuItem { Label = "编辑", Action = "Edit", Icon = "glyphicon glyphicon-edit", SeparatorAfter = true })
-.AddContextMenuItem(new ContextmenuItem { Label = "预览", Action = "PreView", Icon = "glyphicon glyphicon-search" })
-.AddContextMenuItem(new ContextmenuItem { Label = "查看", Action = "View", Icon = "glyphicon glyphicon-new-window" })
-.AddContextMenuItem(new ContextmenuItem { Label = "发布", Action = "Publish", Icon = "glyphicon glyphicon-open" })
-.AddContextMenuItem(new ContextmenuItem { Label = "设计", Action = "Design", Icon = "glyphicon glyphicon-wrench" })
-        .On(Events.Loaded, "loadedPage")
-        .CheckCallBack("checkCallBack")
-        .On(Events.MoveNode, "moveNode")
-        .On(Events.ActiveNode, "ActiveNode")
-                    )
-
+                    @pageTree
                 </div>
-                <div class="panel-footer">
-                    <a href="@Url.Action("Create", new {ParentID = "#"})" class="btn btn-link btn-xs">
-                        <i class="glyphicon glyphicon-plus"></i>
-                        添加页面
-                    </a>
-                    <i class="glyphicon glyphicon-question-sign" style="cursor:help" data-toggle="modal" data-target="#help"></i>
-                </div>
+                @if (Authorizer.Authorize(PermissionKeys.ManagePage))
+                {
+                    <div class="panel-footer">
+                        <a href="@Url.Action("Create", new {ParentID = "#"})" class="btn btn-link btn-xs">
+                            <i class="glyphicon glyphicon-plus"></i>
+                            添加页面
+                        </a>
+                        <i class="glyphicon glyphicon-question-sign" style="cursor:help" data-toggle="modal" data-target="#help"></i>
+                    </div>
+                }
             </div>
         </div>
         <div class="col-md-8" id="pageZones"></div>

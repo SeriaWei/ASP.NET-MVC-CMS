@@ -125,7 +125,6 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CarouselController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
-    <Compile Include="Controllers\ImageController.cs" />
     <Compile Include="Controllers\LayoutController.cs" />
     <Compile Include="Controllers\MediaController.cs" />
     <Compile Include="Controllers\NavigationController.cs" />
@@ -257,7 +256,6 @@
     <Content Include="Views\Layout\SelectZone.cshtml" />
     <Content Include="Views\Shared\DesignWidget.cshtml" />
     <Content Include="Views\Widget\Templates.cshtml" />
-    <Content Include="Views\Image\Index.cshtml" />
     <Content Include="Views\Error\NotFond.cshtml" />
     <Content Include="Views\Layout\Templates.cshtml" />
     <Content Include="Views\Error\Index.cshtml" />
@@ -271,6 +269,7 @@
     <Content Include="Views\Roles\Edit.cshtml" />
     <Content Include="Views\Roles\Index.cshtml" />
     <Content Include="Views\Roles\Partal.Permissions.cshtml" />
+    <Content Include="Views\Error\Forbidden.cshtml" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>

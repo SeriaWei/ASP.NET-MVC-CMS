@@ -12,7 +12,7 @@ using Easy.Web.Authorize;
 
 namespace Easy.CMS.Common.Controllers
 {
-    [AdminTheme, DefaultAuthorize]
+    [AdminTheme, DefaultAuthorize(PermissionKeys.ManagePage)]
     public class WidgetTemplateController : BasicController<WidgetTemplateEntity, long, IWidgetTemplateService>
     {
         public WidgetTemplateController(IWidgetTemplateService widgetTemplateService)
