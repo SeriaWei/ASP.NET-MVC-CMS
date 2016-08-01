@@ -91,8 +91,8 @@ namespace Easy.CMS.Common
             Registry.Register<UserController, DefaultAuthorizeAttribute>(m => m.Delete(string.Empty), auth => auth.SetPermissionKey(PermissionKeys.ManageUser));
 
             Registry.Register<RolesController, DefaultAuthorizeAttribute>(m => m.Index(), auth => auth.SetPermissionKey(PermissionKeys.ViewRole));
-            //Registry.Register<RolesController, DefaultAuthorizeAttribute>(m => m.Edit(string.Empty), auth => auth.SetPermissionKey(PermissionKeys.ManageRole));
-            //Registry.Register<RolesController, DefaultAuthorizeAttribute>(m => m.Edit(null, null), auth => auth.SetPermissionKey(PermissionKeys.ManageRole));
+            Registry.Register<RolesController, DefaultAuthorizeAttribute>(m => m.Edit(string.Empty), auth => auth.SetPermissionKey(PermissionKeys.ManageRole));
+            Registry.Register<RolesController, DefaultAuthorizeAttribute>(m => m.Edit(null, null), auth => auth.SetPermissionKey(PermissionKeys.ManageRole));
             Registry.Register<RolesController, DefaultAuthorizeAttribute>(m => m.Create(), auth => auth.SetPermissionKey(PermissionKeys.ManageRole));
             Registry.Register<RolesController, DefaultAuthorizeAttribute>(m => m.Create(null, null), auth => auth.SetPermissionKey(PermissionKeys.ManageRole));
             Registry.Register<RolesController, DefaultAuthorizeAttribute>(m => m.Delete(string.Empty), auth => auth.SetPermissionKey(PermissionKeys.ManageRole));
