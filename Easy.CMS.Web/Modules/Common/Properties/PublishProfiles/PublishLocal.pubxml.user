@@ -67,16 +67,16 @@
       <publishTime>09/08/2015 09:26:45</publishTime>
     </File>
     <File Include="bin/Easy.CMS.Common.dll">
-      <publishTime>07/15/2016 22:43:27</publishTime>
+      <publishTime>08/02/2016 14:02:01</publishTime>
     </File>
     <File Include="bin/Easy.dll">
-      <publishTime>07/14/2016 23:34:08</publishTime>
+      <publishTime>08/02/2016 13:31:15</publishTime>
     </File>
     <File Include="bin/Easy.Web.CMS.dll">
-      <publishTime>07/15/2016 22:43:25</publishTime>
+      <publishTime>08/02/2016 14:02:00</publishTime>
     </File>
     <File Include="bin/Easy.Web.dll">
-      <publishTime>06/27/2016 11:06:32</publishTime>
+      <publishTime>07/31/2016 22:46:22</publishTime>
     </File>
     <File Include="bin/EasyZip.dll">
       <publishTime>06/13/2016 19:32:02</publishTime>
@@ -232,19 +232,19 @@
       <publishTime>09/10/2014 19:01:58</publishTime>
     </File>
     <File Include="Content/Layout.css">
-      <publishTime>07/13/2016 22:08:43</publishTime>
+      <publishTime>07/31/2016 10:55:54</publishTime>
     </File>
     <File Include="Content/Layout.min.css">
-      <publishTime>07/13/2016 22:08:41</publishTime>
+      <publishTime>07/31/2016 10:55:54</publishTime>
     </File>
     <File Include="CopyItems.xml">
       <publishTime>08/12/2014 18:46:49</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>07/14/2016 23:52:32</publishTime>
+      <publishTime>08/02/2016 13:31:15</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>07/15/2016 22:48:07</publishTime>
+      <publishTime>08/02/2016 14:03:11</publishTime>
     </File>
     <File Include="Scripts/jquery-1.8.2.js">
       <publishTime>08/15/2014 23:11:02</publishTime>
@@ -283,10 +283,10 @@
       <publishTime>09/09/2015 23:17:16</publishTime>
     </File>
     <File Include="Scripts/PageDesign.js">
-      <publishTime>07/10/2016 23:56:41</publishTime>
+      <publishTime>07/31/2016 10:55:54</publishTime>
     </File>
     <File Include="Scripts/PageDesign.min.js">
-      <publishTime>07/10/2016 23:57:31</publishTime>
+      <publishTime>07/31/2016 10:55:54</publishTime>
     </File>
     <File Include="Scripts/StyleEditor/Content/arrow.gif">
       <publishTime>05/25/2016 22:19:01</publishTime>
@@ -375,6 +375,9 @@
     <File Include="Views/Carousel/Index.cshtml">
       <publishTime>09/09/2015 23:17:16</publishTime>
     </File>
+    <File Include="Views/Error/Forbidden.cshtml">
+      <publishTime>08/02/2016 13:31:15</publishTime>
+    </File>
     <File Include="Views/Error/Index.cshtml">
       <publishTime>05/22/2016 15:34:05</publishTime>
     </File>
@@ -397,13 +400,13 @@
       <publishTime>05/22/2016 15:34:06</publishTime>
     </File>
     <File Include="Views/Layout/Index.cshtml">
-      <publishTime>02/22/2016 22:28:05</publishTime>
+      <publishTime>08/02/2016 13:31:15</publishTime>
     </File>
     <File Include="Views/Layout/LayoutWidget.cshtml">
-      <publishTime>06/02/2016 19:27:29</publishTime>
+      <publishTime>08/02/2016 13:31:15</publishTime>
     </File>
     <File Include="Views/Layout/LayoutZones.cshtml">
-      <publishTime>06/02/2016 19:24:23</publishTime>
+      <publishTime>08/02/2016 13:31:15</publishTime>
     </File>
     <File Include="Views/Layout/SelectZone.cshtml">
       <publishTime>06/08/2016 21:57:16</publishTime>
@@ -412,7 +415,7 @@
       <publishTime>06/02/2016 18:41:27</publishTime>
     </File>
     <File Include="Views/Media/Index.cshtml">
-      <publishTime>06/15/2016 20:59:33</publishTime>
+      <publishTime>08/02/2016 13:31:15</publishTime>
     </File>
     <File Include="Views/Navigation/Create.cshtml">
       <publishTime>05/22/2016 15:34:06</publishTime>
@@ -421,7 +424,7 @@
       <publishTime>05/22/2016 15:34:06</publishTime>
     </File>
     <File Include="Views/Navigation/Index.cshtml">
-      <publishTime>05/22/2016 15:34:06</publishTime>
+      <publishTime>08/02/2016 13:31:15</publishTime>
     </File>
     <File Include="Views/Page/Create.cshtml">
       <publishTime>05/22/2016 15:34:06</publishTime>
@@ -433,10 +436,10 @@
       <publishTime>05/22/2016 15:34:06</publishTime>
     </File>
     <File Include="Views/Page/Index.cshtml">
-      <publishTime>05/29/2016 23:48:36</publishTime>
+      <publishTime>08/02/2016 13:31:15</publishTime>
     </File>
     <File Include="Views/Page/PageZones.cshtml">
-      <publishTime>06/02/2016 19:24:26</publishTime>
+      <publishTime>08/02/2016 13:31:15</publishTime>
     </File>
     <File Include="Views/Page/PreView.cshtml">
       <publishTime>07/10/2016 19:57:33</publishTime>
@@ -444,8 +447,20 @@
     <File Include="Views/Page/Select.cshtml">
       <publishTime>05/22/2016 15:34:06</publishTime>
     </File>
+    <File Include="Views/Roles/Create.cshtml">
+      <publishTime>07/31/2016 21:48:51</publishTime>
+    </File>
+    <File Include="Views/Roles/Edit.cshtml">
+      <publishTime>07/31/2016 22:33:43</publishTime>
+    </File>
+    <File Include="Views/Roles/Index.cshtml">
+      <publishTime>07/31/2016 21:21:50</publishTime>
+    </File>
+    <File Include="Views/Roles/Partal.Permissions.cshtml">
+      <publishTime>08/02/2016 13:31:15</publishTime>
+    </File>
     <File Include="Views/Shared/DesignWidget.cshtml">
-      <publishTime>07/10/2016 12:24:48</publishTime>
+      <publishTime>07/31/2016 10:55:54</publishTime>
     </File>
     <File Include="Views/Shared/Partial.Menu.cshtml">
       <publishTime>06/13/2016 21:01:50</publishTime>
@@ -466,7 +481,7 @@
       <publishTime>05/26/2016 21:16:34</publishTime>
     </File>
     <File Include="Views/Theme/Index.cshtml">
-      <publishTime>06/08/2016 21:57:16</publishTime>
+      <publishTime>08/02/2016 13:31:15</publishTime>
     </File>
     <File Include="Views/User/Create.cshtml">
       <publishTime>05/22/2016 15:34:06</publishTime>
@@ -495,6 +510,9 @@
     <File Include="Views/Widget.Script.cshtml">
       <publishTime>05/22/2016 15:34:06</publishTime>
     </File>
+    <File Include="Views/Widget.StyleSheet.cshtml">
+      <publishTime>07/23/2016 10:29:43</publishTime>
+    </File>
     <File Include="Views/Widget.Video.cshtml">
       <publishTime>05/22/2016 15:34:06</publishTime>
     </File>
@@ -517,7 +535,7 @@
       <publishTime>07/27/2015 18:46:35</publishTime>
     </File>
     <File Include="web.config">
-      <publishTime>07/15/2016 22:48:06</publishTime>
+      <publishTime>08/02/2016 14:00:12</publishTime>
     </File>
   </ItemGroup>
 </Project>

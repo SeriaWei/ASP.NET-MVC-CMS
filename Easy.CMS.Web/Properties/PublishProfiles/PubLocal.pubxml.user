@@ -16,10 +16,10 @@
       <publishTime>07/02/2014 21:58:06</publishTime>
     </File>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>07/15/2016 22:46:27</publishTime>
+      <publishTime>08/02/2016 14:02:21</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>07/15/2016 22:46:27</publishTime>
+      <publishTime>08/02/2016 14:02:21</publishTime>
     </File>
     <File Include="bin/App_Web_dljcttax.dll">
       <publishTime>09/08/2015 09:16:14</publishTime>
@@ -58,19 +58,19 @@
       <publishTime>07/02/2014 21:58:05</publishTime>
     </File>
     <File Include="bin/Easy.CMS.Web.dll">
-      <publishTime>07/15/2016 22:45:57</publishTime>
+      <publishTime>08/02/2016 14:02:00</publishTime>
     </File>
     <File Include="bin/Easy.CMS.Web.Views.dll">
       <publishTime>09/08/2015 09:17:52</publishTime>
     </File>
     <File Include="bin/Easy.dll">
-      <publishTime>07/14/2016 23:34:08</publishTime>
+      <publishTime>08/02/2016 13:31:15</publishTime>
     </File>
     <File Include="bin/Easy.Web.CMS.dll">
-      <publishTime>07/15/2016 22:43:25</publishTime>
+      <publishTime>08/02/2016 14:02:00</publishTime>
     </File>
     <File Include="bin/Easy.Web.dll">
-      <publishTime>06/27/2016 11:06:32</publishTime>
+      <publishTime>07/31/2016 22:46:22</publishTime>
     </File>
     <File Include="bin/EasyZip.dll">
       <publishTime>06/13/2016 19:32:02</publishTime>
@@ -424,7 +424,7 @@
       <publishTime>05/22/2016 15:34:05</publishTime>
     </File>
     <File Include="Content/Images/Widget.ArticleTops.png">
-      <publishTime>05/22/2016 15:34:05</publishTime>
+      <publishTime>07/31/2016 10:55:54</publishTime>
     </File>
     <File Include="Content/Images/Widget.ArticleType.png">
       <publishTime>05/22/2016 15:34:05</publishTime>
@@ -448,13 +448,16 @@
       <publishTime>05/22/2016 15:34:05</publishTime>
     </File>
     <File Include="Content/Images/Widget.ProductList.png">
-      <publishTime>05/22/2016 15:34:05</publishTime>
+      <publishTime>07/31/2016 10:55:54</publishTime>
     </File>
     <File Include="Content/Images/Widget.Script.png">
       <publishTime>05/22/2016 15:34:05</publishTime>
     </File>
     <File Include="Content/Images/Widget.Section.png">
       <publishTime>05/22/2016 15:34:05</publishTime>
+    </File>
+    <File Include="Content/Images/Widget.StyleSheet.png">
+      <publishTime>07/23/2016 10:29:43</publishTime>
     </File>
     <File Include="Content/Images/Widget.Video.png">
       <publishTime>05/22/2016 15:34:05</publishTime>
@@ -484,10 +487,10 @@
       <publishTime>05/22/2016 15:34:05</publishTime>
     </File>
     <File Include="Content/themes/Admin/script/admin.js">
-      <publishTime>07/14/2016 21:46:03</publishTime>
+      <publishTime>07/31/2016 10:55:54</publishTime>
     </File>
     <File Include="Content/themes/Admin/script/admin.min.js">
-      <publishTime>07/14/2016 21:45:59</publishTime>
+      <publishTime>07/31/2016 10:55:54</publishTime>
     </File>
     <File Include="Content/themes/base/accordion.css">
       <publishTime>05/22/2016 15:34:05</publishTime>
@@ -790,10 +793,10 @@
       <publishTime>04/14/2016 23:24:42</publishTime>
     </File>
     <File Include="Images/Excel.png">
-      <publishTime>04/14/2016 23:24:42</publishTime>
+      <publishTime>07/31/2016 10:55:54</publishTime>
     </File>
     <File Include="Images/folder.png">
-      <publishTime>04/14/2016 23:24:42</publishTime>
+      <publishTime>07/31/2016 10:55:54</publishTime>
     </File>
     <File Include="Images/gruntjs.png">
       <publishTime>07/17/2015 23:14:28</publishTime>
@@ -838,7 +841,7 @@
       <publishTime>07/02/2014 21:57:55</publishTime>
     </File>
     <File Include="Images/Other.png">
-      <publishTime>04/14/2016 23:24:42</publishTime>
+      <publishTime>07/31/2016 10:55:54</publishTime>
     </File>
     <File Include="Images/Pdf.png">
       <publishTime>04/14/2016 23:24:42</publishTime>
@@ -904,7 +907,7 @@
       <publishTime>04/14/2016 23:24:42</publishTime>
     </File>
     <File Include="Images/Video.png">
-      <publishTime>04/14/2016 23:24:42</publishTime>
+      <publishTime>07/31/2016 10:55:54</publishTime>
     </File>
     <File Include="Images/Zip.png">
       <publishTime>04/14/2016 23:24:42</publishTime>
@@ -913,10 +916,10 @@
       <publishTime>05/18/2016 21:20:35</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>07/14/2016 23:52:27</publishTime>
+      <publishTime>08/02/2016 13:31:15</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>07/15/2016 22:46:23</publishTime>
+      <publishTime>08/02/2016 14:02:19</publishTime>
     </File>
     <File Include="Scripts/angular/angular-animate.js">
       <publishTime>01/07/2016 22:35:58</publishTime>
@@ -2932,19 +2935,19 @@
       <publishTime>06/25/2016 00:08:17</publishTime>
     </File>
     <File Include="Themes/Cerulean/css/Theme.css">
-      <publishTime>07/13/2016 21:56:33</publishTime>
+      <publishTime>07/31/2016 10:55:54</publishTime>
     </File>
     <File Include="Themes/Cerulean/css/Theme.css.map">
-      <publishTime>07/13/2016 21:53:19</publishTime>
+      <publishTime>07/31/2016 10:55:54</publishTime>
     </File>
     <File Include="Themes/Cerulean/css/Theme.less">
       <publishTime>06/25/2016 00:08:17</publishTime>
     </File>
     <File Include="Themes/Cerulean/css/Theme.min.css">
-      <publishTime>07/13/2016 21:56:33</publishTime>
+      <publishTime>07/31/2016 10:55:54</publishTime>
     </File>
     <File Include="Themes/Cerulean/css/Widget.less">
-      <publishTime>07/13/2016 21:53:19</publishTime>
+      <publishTime>07/31/2016 10:55:54</publishTime>
     </File>
     <File Include="Themes/Cerulean/fonts/glyphicons-halflings-regular.eot">
       <publishTime>06/25/2016 00:08:17</publishTime>
@@ -3022,19 +3025,19 @@
       <publishTime>06/25/2016 00:08:20</publishTime>
     </File>
     <File Include="Themes/Cosmo/css/Theme.css">
-      <publishTime>07/13/2016 21:56:34</publishTime>
+      <publishTime>07/31/2016 10:55:54</publishTime>
     </File>
     <File Include="Themes/Cosmo/css/Theme.css.map">
-      <publishTime>07/13/2016 21:53:19</publishTime>
+      <publishTime>07/31/2016 10:55:54</publishTime>
     </File>
     <File Include="Themes/Cosmo/css/Theme.less">
       <publishTime>06/25/2016 00:08:20</publishTime>
     </File>
     <File Include="Themes/Cosmo/css/Theme.min.css">
-      <publishTime>07/13/2016 21:56:34</publishTime>
+      <publishTime>07/31/2016 10:55:54</publishTime>
     </File>
     <File Include="Themes/Cosmo/css/Widget.less">
-      <publishTime>07/13/2016 21:53:19</publishTime>
+      <publishTime>07/31/2016 10:55:54</publishTime>
     </File>
     <File Include="Themes/Cosmo/fonts/glyphicons-halflings-regular.eot">
       <publishTime>06/25/2016 00:08:20</publishTime>
@@ -3112,19 +3115,19 @@
       <publishTime>06/25/2016 00:08:22</publishTime>
     </File>
     <File Include="Themes/Cyborg/css/Theme.css">
-      <publishTime>07/13/2016 21:56:35</publishTime>
+      <publishTime>07/31/2016 10:55:54</publishTime>
     </File>
     <File Include="Themes/Cyborg/css/Theme.css.map">
-      <publishTime>07/13/2016 21:53:19</publishTime>
+      <publishTime>07/31/2016 10:55:54</publishTime>
     </File>
     <File Include="Themes/Cyborg/css/Theme.less">
       <publishTime>06/25/2016 00:08:22</publishTime>
     </File>
     <File Include="Themes/Cyborg/css/Theme.min.css">
-      <publishTime>07/13/2016 21:56:35</publishTime>
+      <publishTime>07/31/2016 10:55:54</publishTime>
     </File>
     <File Include="Themes/Cyborg/css/Widget.less">
-      <publishTime>07/13/2016 21:53:20</publishTime>
+      <publishTime>07/31/2016 10:55:54</publishTime>
     </File>
     <File Include="Themes/Cyborg/fonts/glyphicons-halflings-regular.eot">
       <publishTime>06/25/2016 00:08:23</publishTime>
@@ -3202,19 +3205,19 @@
       <publishTime>06/25/2016 00:08:25</publishTime>
     </File>
     <File Include="Themes/Darkly/css/Theme.css">
-      <publishTime>07/13/2016 21:56:37</publishTime>
+      <publishTime>07/31/2016 10:55:54</publishTime>
     </File>
     <File Include="Themes/Darkly/css/Theme.css.map">
-      <publishTime>07/13/2016 21:53:20</publishTime>
+      <publishTime>07/31/2016 10:55:54</publishTime>
     </File>
     <File Include="Themes/Darkly/css/Theme.less">
       <publishTime>06/25/2016 00:08:25</publishTime>
     </File>
     <File Include="Themes/Darkly/css/Theme.min.css">
-      <publishTime>07/13/2016 21:56:37</publishTime>
+      <publishTime>07/31/2016 10:55:54</publishTime>
     </File>
     <File Include="Themes/Darkly/css/Widget.less">
-      <publishTime>07/13/2016 21:53:20</publishTime>
+      <publishTime>07/31/2016 10:55:54</publishTime>
     </File>
     <File Include="Themes/Darkly/fonts/glyphicons-halflings-regular.eot">
       <publishTime>06/25/2016 00:08:26</publishTime>
@@ -3370,16 +3373,16 @@
       <publishTime>05/13/2016 22:57:50</publishTime>
     </File>
     <File Include="Themes/Default/css/Theme.css">
-      <publishTime>07/13/2016 21:56:32</publishTime>
+      <publishTime>07/31/2016 10:55:54</publishTime>
     </File>
     <File Include="Themes/Default/css/Theme.css.map">
-      <publishTime>07/13/2016 21:53:20</publishTime>
+      <publishTime>07/31/2016 10:55:54</publishTime>
     </File>
     <File Include="Themes/Default/css/Theme.less">
       <publishTime>06/25/2016 00:08:28</publishTime>
     </File>
     <File Include="Themes/Default/css/Theme.min.css">
-      <publishTime>07/13/2016 21:56:32</publishTime>
+      <publishTime>07/31/2016 10:55:54</publishTime>
     </File>
     <File Include="Themes/Default/css/widget.css">
       <publishTime>05/11/2016 20:39:59</publishTime>
@@ -3388,7 +3391,7 @@
       <publishTime>05/11/2016 20:39:59</publishTime>
     </File>
     <File Include="Themes/Default/css/Widget.less">
-      <publishTime>07/13/2016 21:53:20</publishTime>
+      <publishTime>07/31/2016 10:55:54</publishTime>
     </File>
     <File Include="Themes/Default/css/widget.min.css">
       <publishTime>05/11/2016 20:39:59</publishTime>
@@ -3469,19 +3472,19 @@
       <publishTime>06/25/2016 00:08:30</publishTime>
     </File>
     <File Include="Themes/Flatly/css/Theme.css">
-      <publishTime>07/13/2016 21:56:38</publishTime>
+      <publishTime>07/31/2016 10:55:54</publishTime>
     </File>
     <File Include="Themes/Flatly/css/Theme.css.map">
-      <publishTime>07/13/2016 21:53:20</publishTime>
+      <publishTime>07/31/2016 10:55:54</publishTime>
     </File>
     <File Include="Themes/Flatly/css/Theme.less">
       <publishTime>06/25/2016 00:08:31</publishTime>
     </File>
     <File Include="Themes/Flatly/css/Theme.min.css">
-      <publishTime>07/13/2016 21:56:38</publishTime>
+      <publishTime>07/31/2016 10:55:54</publishTime>
     </File>
     <File Include="Themes/Flatly/css/Widget.less">
-      <publishTime>07/13/2016 21:53:20</publishTime>
+      <publishTime>07/31/2016 10:55:54</publishTime>
     </File>
     <File Include="Themes/Flatly/fonts/glyphicons-halflings-regular.eot">
       <publishTime>06/25/2016 00:08:31</publishTime>
@@ -3559,19 +3562,19 @@
       <publishTime>06/25/2016 00:08:33</publishTime>
     </File>
     <File Include="Themes/Journal/css/Theme.css">
-      <publishTime>07/13/2016 21:56:39</publishTime>
+      <publishTime>07/31/2016 10:55:54</publishTime>
     </File>
     <File Include="Themes/Journal/css/Theme.css.map">
-      <publishTime>07/13/2016 21:53:20</publishTime>
+      <publishTime>07/31/2016 10:55:54</publishTime>
     </File>
     <File Include="Themes/Journal/css/Theme.less">
       <publishTime>06/25/2016 00:08:34</publishTime>
     </File>
     <File Include="Themes/Journal/css/Theme.min.css">
-      <publishTime>07/13/2016 21:56:39</publishTime>
+      <publishTime>07/31/2016 10:55:54</publishTime>
     </File>
     <File Include="Themes/Journal/css/Widget.less">
-      <publishTime>07/13/2016 21:53:20</publishTime>
+      <publishTime>07/31/2016 10:55:54</publishTime>
     </File>
     <File Include="Themes/Journal/fonts/glyphicons-halflings-regular.eot">
       <publishTime>06/25/2016 00:08:34</publishTime>
@@ -3649,19 +3652,19 @@
       <publishTime>06/25/2016 00:08:36</publishTime>
     </File>
     <File Include="Themes/Lumen/css/Theme.css">
-      <publishTime>07/13/2016 21:56:40</publishTime>
+      <publishTime>07/31/2016 10:55:54</publishTime>
     </File>
     <File Include="Themes/Lumen/css/Theme.css.map">
-      <publishTime>07/13/2016 21:53:20</publishTime>
+      <publishTime>07/31/2016 10:55:54</publishTime>
     </File>
     <File Include="Themes/Lumen/css/Theme.less">
       <publishTime>06/25/2016 00:08:36</publishTime>
     </File>
     <File Include="Themes/Lumen/css/Theme.min.css">
-      <publishTime>07/13/2016 21:56:40</publishTime>
+      <publishTime>07/31/2016 10:55:54</publishTime>
     </File>
     <File Include="Themes/Lumen/css/Widget.less">
-      <publishTime>07/13/2016 21:53:20</publishTime>
+      <publishTime>07/31/2016 10:55:54</publishTime>
     </File>
     <File Include="Themes/Lumen/fonts/glyphicons-halflings-regular.eot">
       <publishTime>06/25/2016 00:08:37</publishTime>
@@ -3739,19 +3742,19 @@
       <publishTime>06/25/2016 00:08:39</publishTime>
     </File>
     <File Include="Themes/Paper/css/Theme.css">
-      <publishTime>07/13/2016 21:56:41</publishTime>
+      <publishTime>07/31/2016 10:55:54</publishTime>
     </File>
     <File Include="Themes/Paper/css/Theme.css.map">
-      <publishTime>07/13/2016 21:53:20</publishTime>
+      <publishTime>07/31/2016 10:55:54</publishTime>
     </File>
     <File Include="Themes/Paper/css/Theme.less">
       <publishTime>06/25/2016 00:08:39</publishTime>
     </File>
     <File Include="Themes/Paper/css/Theme.min.css">
-      <publishTime>07/13/2016 21:56:41</publishTime>
+      <publishTime>07/31/2016 10:55:54</publishTime>
     </File>
     <File Include="Themes/Paper/css/Widget.less">
-      <publishTime>07/13/2016 21:53:20</publishTime>
+      <publishTime>07/31/2016 10:55:54</publishTime>
     </File>
     <File Include="Themes/Paper/fonts/glyphicons-halflings-regular.eot">
       <publishTime>06/25/2016 00:08:39</publishTime>
@@ -3829,19 +3832,19 @@
       <publishTime>06/25/2016 00:08:41</publishTime>
     </File>
     <File Include="Themes/Readable/css/Theme.css">
-      <publishTime>07/13/2016 21:56:42</publishTime>
+      <publishTime>07/31/2016 10:55:54</publishTime>
     </File>
     <File Include="Themes/Readable/css/Theme.css.map">
-      <publishTime>07/13/2016 21:53:20</publishTime>
+      <publishTime>07/31/2016 10:55:54</publishTime>
     </File>
     <File Include="Themes/Readable/css/Theme.less">
       <publishTime>06/25/2016 00:08:42</publishTime>
     </File>
     <File Include="Themes/Readable/css/Theme.min.css">
-      <publishTime>07/13/2016 21:56:43</publishTime>
+      <publishTime>07/31/2016 10:55:54</publishTime>
     </File>
     <File Include="Themes/Readable/css/Widget.less">
-      <publishTime>07/13/2016 21:53:20</publishTime>
+      <publishTime>07/31/2016 10:55:54</publishTime>
     </File>
     <File Include="Themes/Readable/fonts/glyphicons-halflings-regular.eot">
       <publishTime>06/25/2016 00:08:42</publishTime>
@@ -3919,19 +3922,19 @@
       <publishTime>06/25/2016 00:08:44</publishTime>
     </File>
     <File Include="Themes/Sandstone/css/Theme.css">
-      <publishTime>07/13/2016 21:56:44</publishTime>
+      <publishTime>07/31/2016 10:55:54</publishTime>
     </File>
     <File Include="Themes/Sandstone/css/Theme.css.map">
-      <publishTime>07/13/2016 21:53:20</publishTime>
+      <publishTime>07/31/2016 10:55:54</publishTime>
     </File>
     <File Include="Themes/Sandstone/css/Theme.less">
       <publishTime>06/25/2016 00:08:44</publishTime>
     </File>
     <File Include="Themes/Sandstone/css/Theme.min.css">
-      <publishTime>07/13/2016 21:56:44</publishTime>
+      <publishTime>07/31/2016 10:55:54</publishTime>
     </File>
     <File Include="Themes/Sandstone/css/Widget.less">
-      <publishTime>07/13/2016 21:53:20</publishTime>
+      <publishTime>07/31/2016 10:55:54</publishTime>
     </File>
     <File Include="Themes/Sandstone/fonts/glyphicons-halflings-regular.eot">
       <publishTime>06/25/2016 00:08:45</publishTime>
@@ -4009,19 +4012,19 @@
       <publishTime>06/25/2016 00:08:47</publishTime>
     </File>
     <File Include="Themes/Simplex/css/Theme.css">
-      <publishTime>07/13/2016 21:56:45</publishTime>
+      <publishTime>07/31/2016 10:55:54</publishTime>
     </File>
     <File Include="Themes/Simplex/css/Theme.css.map">
-      <publishTime>07/13/2016 21:53:20</publishTime>
+      <publishTime>07/31/2016 10:55:54</publishTime>
     </File>
     <File Include="Themes/Simplex/css/Theme.less">
       <publishTime>06/25/2016 00:08:47</publishTime>
     </File>
     <File Include="Themes/Simplex/css/Theme.min.css">
-      <publishTime>07/13/2016 21:56:45</publishTime>
+      <publishTime>07/31/2016 10:55:54</publishTime>
     </File>
     <File Include="Themes/Simplex/css/Widget.less">
-      <publishTime>07/13/2016 21:53:20</publishTime>
+      <publishTime>07/31/2016 10:55:54</publishTime>
     </File>
     <File Include="Themes/Simplex/fonts/glyphicons-halflings-regular.eot">
       <publishTime>06/25/2016 00:08:47</publishTime>
@@ -4099,19 +4102,19 @@
       <publishTime>06/25/2016 00:08:50</publishTime>
     </File>
     <File Include="Themes/Slate/css/Theme.css">
-      <publishTime>07/13/2016 21:56:46</publishTime>
+      <publishTime>07/31/2016 10:55:54</publishTime>
     </File>
     <File Include="Themes/Slate/css/Theme.css.map">
-      <publishTime>07/13/2016 21:53:20</publishTime>
+      <publishTime>07/31/2016 10:55:54</publishTime>
     </File>
     <File Include="Themes/Slate/css/Theme.less">
       <publishTime>06/25/2016 00:08:50</publishTime>
     </File>
     <File Include="Themes/Slate/css/Theme.min.css">
-      <publishTime>07/13/2016 21:56:46</publishTime>
+      <publishTime>07/31/2016 10:55:54</publishTime>
     </File>
     <File Include="Themes/Slate/css/Widget.less">
-      <publishTime>07/13/2016 21:53:20</publishTime>
+      <publishTime>07/31/2016 10:55:54</publishTime>
     </File>
     <File Include="Themes/Slate/fonts/glyphicons-halflings-regular.eot">
       <publishTime>06/25/2016 00:08:50</publishTime>
@@ -4189,19 +4192,19 @@
       <publishTime>06/25/2016 00:08:52</publishTime>
     </File>
     <File Include="Themes/Spacelab/css/Theme.css">
-      <publishTime>07/13/2016 21:56:47</publishTime>
+      <publishTime>07/31/2016 10:55:54</publishTime>
     </File>
     <File Include="Themes/Spacelab/css/Theme.css.map">
-      <publishTime>07/13/2016 21:53:20</publishTime>
+      <publishTime>07/31/2016 10:55:54</publishTime>
     </File>
     <File Include="Themes/Spacelab/css/Theme.less">
       <publishTime>06/25/2016 00:08:52</publishTime>
     </File>
     <File Include="Themes/Spacelab/css/Theme.min.css">
-      <publishTime>07/13/2016 21:56:47</publishTime>
+      <publishTime>07/31/2016 10:55:54</publishTime>
     </File>
     <File Include="Themes/Spacelab/css/Widget.less">
-      <publishTime>07/13/2016 21:53:20</publishTime>
+      <publishTime>07/31/2016 10:55:54</publishTime>
     </File>
     <File Include="Themes/Spacelab/fonts/glyphicons-halflings-regular.eot">
       <publishTime>06/25/2016 00:08:53</publishTime>
@@ -4279,19 +4282,19 @@
       <publishTime>06/25/2016 00:08:55</publishTime>
     </File>
     <File Include="Themes/Superhero/css/Theme.css">
-      <publishTime>07/13/2016 21:56:48</publishTime>
+      <publishTime>07/31/2016 10:55:54</publishTime>
     </File>
     <File Include="Themes/Superhero/css/Theme.css.map">
-      <publishTime>07/13/2016 21:53:20</publishTime>
+      <publishTime>07/31/2016 10:55:54</publishTime>
     </File>
     <File Include="Themes/Superhero/css/Theme.less">
       <publishTime>06/25/2016 00:08:55</publishTime>
     </File>
     <File Include="Themes/Superhero/css/Theme.min.css">
-      <publishTime>07/13/2016 21:56:48</publishTime>
+      <publishTime>07/31/2016 10:55:54</publishTime>
     </File>
     <File Include="Themes/Superhero/css/Widget.less">
-      <publishTime>07/13/2016 21:53:20</publishTime>
+      <publishTime>07/31/2016 10:55:54</publishTime>
     </File>
     <File Include="Themes/Superhero/fonts/glyphicons-halflings-regular.eot">
       <publishTime>06/25/2016 00:08:55</publishTime>
@@ -4369,19 +4372,19 @@
       <publishTime>06/25/2016 00:08:57</publishTime>
     </File>
     <File Include="Themes/United/css/Theme.css">
-      <publishTime>07/13/2016 21:56:49</publishTime>
+      <publishTime>07/31/2016 10:55:54</publishTime>
     </File>
     <File Include="Themes/United/css/Theme.css.map">
-      <publishTime>07/13/2016 21:53:20</publishTime>
+      <publishTime>07/31/2016 10:55:54</publishTime>
     </File>
     <File Include="Themes/United/css/Theme.less">
       <publishTime>06/25/2016 00:08:58</publishTime>
     </File>
     <File Include="Themes/United/css/Theme.min.css">
-      <publishTime>07/13/2016 21:56:49</publishTime>
+      <publishTime>07/31/2016 10:55:54</publishTime>
     </File>
     <File Include="Themes/United/css/Widget.less">
-      <publishTime>07/13/2016 21:53:20</publishTime>
+      <publishTime>07/31/2016 10:55:54</publishTime>
     </File>
     <File Include="Themes/United/fonts/glyphicons-halflings-regular.eot">
       <publishTime>06/25/2016 00:08:58</publishTime>
@@ -4459,19 +4462,19 @@
       <publishTime>06/25/2016 00:09:00</publishTime>
     </File>
     <File Include="Themes/Yeti/css/Theme.css">
-      <publishTime>07/13/2016 21:56:50</publishTime>
+      <publishTime>07/31/2016 10:55:54</publishTime>
     </File>
     <File Include="Themes/Yeti/css/Theme.css.map">
-      <publishTime>07/13/2016 21:53:20</publishTime>
+      <publishTime>07/31/2016 10:55:54</publishTime>
     </File>
     <File Include="Themes/Yeti/css/Theme.less">
       <publishTime>06/25/2016 00:09:00</publishTime>
     </File>
     <File Include="Themes/Yeti/css/Theme.min.css">
-      <publishTime>07/13/2016 21:56:50</publishTime>
+      <publishTime>07/31/2016 10:55:54</publishTime>
     </File>
     <File Include="Themes/Yeti/css/Widget.less">
-      <publishTime>07/13/2016 21:53:20</publishTime>
+      <publishTime>07/31/2016 10:55:54</publishTime>
     </File>
     <File Include="Themes/Yeti/fonts/glyphicons-halflings-regular.eot">
       <publishTime>06/25/2016 00:09:00</publishTime>
@@ -4612,7 +4615,7 @@
       <publishTime>03/07/2016 08:39:56</publishTime>
     </File>
     <File Include="Views/Shared/ListEditorItemTemplate.cshtml">
-      <publishTime>04/14/2016 23:24:44</publishTime>
+      <publishTime>08/02/2016 13:31:15</publishTime>
     </File>
     <File Include="Views/Shared/Partial_Pagination.cshtml">
       <publishTime>04/14/2016 23:24:44</publishTime>
@@ -4621,7 +4624,7 @@
       <publishTime>05/22/2016 15:34:07</publishTime>
     </File>
     <File Include="Views/Shared/_AdminLayout.cshtml">
-      <publishTime>07/15/2016 21:23:23</publishTime>
+      <publishTime>08/02/2016 13:31:15</publishTime>
     </File>
     <File Include="Views/Shared/_PopUpClientLayout.cshtml">
       <publishTime>06/23/2016 18:48:43</publishTime>
@@ -4633,7 +4636,7 @@
       <publishTime>05/18/2016 21:19:41</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>07/15/2016 22:46:18</publishTime>
+      <publishTime>08/02/2016 13:58:09</publishTime>
     </File>
   </ItemGroup>
 </Project>

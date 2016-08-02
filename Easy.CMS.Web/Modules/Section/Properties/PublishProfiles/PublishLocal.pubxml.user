@@ -37,16 +37,16 @@
       <publishTime>07/25/2015 09:38:39</publishTime>
     </File>
     <File Include="bin/Easy.CMS.Section.dll">
-      <publishTime>07/15/2016 22:48:30</publishTime>
+      <publishTime>08/02/2016 14:02:01</publishTime>
     </File>
     <File Include="bin/Easy.dll">
-      <publishTime>07/14/2016 23:34:08</publishTime>
+      <publishTime>08/02/2016 13:31:15</publishTime>
     </File>
     <File Include="bin/Easy.Web.CMS.dll">
-      <publishTime>07/15/2016 22:43:25</publishTime>
+      <publishTime>08/02/2016 14:02:00</publishTime>
     </File>
     <File Include="bin/Easy.Web.dll">
-      <publishTime>06/27/2016 11:06:32</publishTime>
+      <publishTime>07/31/2016 22:46:22</publishTime>
     </File>
     <File Include="bin/EasyZip.dll">
       <publishTime>06/13/2016 19:32:02</publishTime>
@@ -178,10 +178,10 @@
       <publishTime>07/15/2015 22:32:02</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>07/14/2016 23:52:36</publishTime>
+      <publishTime>08/02/2016 13:31:15</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>07/15/2016 22:48:32</publishTime>
+      <publishTime>08/02/2016 14:03:31</publishTime>
     </File>
     <File Include="Views/SectionContentCallToAction/Form.cshtml">
       <publishTime>05/22/2016 15:34:06</publishTime>
@@ -418,7 +418,7 @@
       <publishTime>07/10/2016 20:11:36</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>07/15/2016 22:48:31</publishTime>
+      <publishTime>08/02/2016 14:00:38</publishTime>
     </File>
   </ItemGroup>
 </Project>

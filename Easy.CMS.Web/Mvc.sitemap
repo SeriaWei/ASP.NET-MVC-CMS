@@ -56,6 +56,11 @@
       <mvcSiteMapNode title="新建" controller="user" action="create" module="admin"/>
       <mvcSiteMapNode title="编辑" controller="user" action="edit" module="admin"/>
     </mvcSiteMapNode>
+    
+    <mvcSiteMapNode title="角色" controller="Roles" action="index" module="admin">
+      <mvcSiteMapNode title="新建" controller="Roles" action="create" module="admin"/>
+      <mvcSiteMapNode title="编辑" controller="Roles" action="edit" module="admin"/>
+    </mvcSiteMapNode>
 
   </mvcSiteMapNode>
 
