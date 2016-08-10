@@ -125,3 +125,7 @@
         left: 50%;
         top: 50%;
     }
+
+#section-groups .list-group-item img {
+    max-width: 200px;
+}

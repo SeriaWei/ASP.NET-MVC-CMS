@@ -17,9 +17,7 @@
         </div>
         <div class="pull-left">
             <label class="label label-primary">链接</label>
-            <a href="@Url.PathContent(Model.Href)" target="@Html.SmartLinkTarget(Model.Href)">
-                @Model.InnerText
-            </a>
+            @Html.Partial("SectionPartial.CallToAction",Model)
         </div>
     </div>
 </li>

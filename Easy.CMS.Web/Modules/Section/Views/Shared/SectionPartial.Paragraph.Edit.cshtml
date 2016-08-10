@@ -15,7 +15,7 @@
         </div>
         <div class="pull-left edit-pragraph">
             <label class="label label-primary">段落</label>
-            @Html.Raw(Model.HtmlContent)
+            @Html.Partial("SectionPartial.Paragraph",Model)
         </div>
     </div>
 </li>

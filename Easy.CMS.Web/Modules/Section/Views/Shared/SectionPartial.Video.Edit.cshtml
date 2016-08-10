@@ -19,17 +19,7 @@
         </div>
         <div class="pull-left">
             <label class="label label-primary">视频</label>
-            <div class="clearfix">
-                <div class="video pull-left">
-                    <img src="@Url.PathContent(Model.Thumbnail)" />
-                    <a target="_blank" class="video-play pop-dialog"
-                       data-width="@Model.Width"
-                       data-height="@Model.Height"
-                       data-title="@Model.VideoTitle"
-                       title="@Model.VideoTitle"
-                       href="@Url.Action("Play", "SectionContentVideo", new {module = "Section", Id = Model.ID})"></a>
-                </div>
-            </div>
+            @Html.Partial("SectionPartial.Video",Model)
         </div>
     </div>
 </li>

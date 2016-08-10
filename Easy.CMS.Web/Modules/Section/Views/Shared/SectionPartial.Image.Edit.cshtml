@@ -14,9 +14,7 @@
         </div>
         <div class="pull-left">
             <label class="label label-primary">图片</label>
-            <a href="@Url.Content(Model.ImageSrc)" data-lightbox="section-image" data-title="@Model.ImageTitle">
-                <img src="@Url.Content(Model.ImageSrc)" alt="@Model.ImageAlt" title="@Model.ImageTitle" style="max-height:200px" />
-            </a>
+            @Html.Partial("SectionPartial.Image",Model)
         </div>
     </div>
 </li>

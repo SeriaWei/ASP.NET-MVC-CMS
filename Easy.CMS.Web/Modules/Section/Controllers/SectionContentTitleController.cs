@@ -28,6 +28,7 @@ namespace Easy.CMS.Section.Controllers
             {
                 SectionGroupId = sectionGroupId,
                 SectionWidgetId = sectionWidgetId,
+                TitleLevel = SectionContentTitle.H3,
                 ActionType = ActionType.Create
             });
         }

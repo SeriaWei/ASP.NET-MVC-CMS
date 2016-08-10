@@ -34,6 +34,7 @@ namespace Easy.CMS.Section.Controllers
                 SectionWidgetId = sectionWidgetId,
                 ActionType = ActionType.Create,
                 Order = order,
+                PartialView = "SectionTemplate.Default",
                 GroupName = "组 " + order
             });
         }
