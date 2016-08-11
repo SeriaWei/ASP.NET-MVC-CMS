@@ -3,7 +3,7 @@
             xmlns="http://mvcsitemap.codeplex.com/schemas/MvcSiteMap-File-4.0"
             xsi:schemaLocation="http://mvcsitemap.codeplex.com/schemas/MvcSiteMap-File-4.0 MvcSiteMapSchema.xsd">
 
-  <mvcSiteMapNode title="管理" controller="layout" action="index">
+  <mvcSiteMapNode title="管理" controller="Dashboard" action="index" module="admin">
     <mvcSiteMapNode title="布局" controller="layout" action="index" module="admin">
       <mvcSiteMapNode title="布局组件" controller="layout" action="layoutwidget" module="admin"/>
       <mvcSiteMapNode title="编辑" controller="layout" action="edit" module="admin"/>

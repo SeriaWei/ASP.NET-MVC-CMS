@@ -124,6 +124,7 @@
     <Compile Include="CommonPlug.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CarouselController.cs" />
+    <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\LayoutController.cs" />
     <Compile Include="Controllers\MediaController.cs" />
@@ -170,6 +171,7 @@
     </Content>
     <Content Include="CopyItems.xml" />
     <Content Include="Content\Images\demoLayout.jpg" />
+    <Content Include="Scripts\Chart.bundle.min.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\LayoutDesign.js" />
     <Content Include="Scripts\LayoutDesign.min.js">
@@ -270,6 +272,7 @@
     <Content Include="Views\Roles\Index.cshtml" />
     <Content Include="Views\Roles\Partal.Permissions.cshtml" />
     <Content Include="Views\Error\Forbidden.cshtml" />
+    <Content Include="Views\Dashboard\Index.cshtml" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>

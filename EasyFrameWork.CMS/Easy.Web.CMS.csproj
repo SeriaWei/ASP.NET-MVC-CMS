@@ -115,6 +115,8 @@
     <Compile Include="Constant.cs" />
     <Compile Include="Encrypt\EncryptService.cs" />
     <Compile Include="Encrypt\IEncryptService.cs" />
+    <Compile Include="Event\IOnPageExecuted.cs" />
+    <Compile Include="Event\IOnPageExecuting.cs" />
     <Compile Include="Extend\ExtendFieldExtend.cs" />
     <Compile Include="ExtendField\ExtendFieldEntity.cs" />
     <Compile Include="ExtendField\ExtendFieldService.cs" />
@@ -182,6 +184,7 @@
     </None>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

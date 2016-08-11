@@ -806,6 +806,7 @@
     <Content Include="Scripts\tinymce\plugins\autoresize\plugin.min.js" />
     <Content Include="Scripts\tinymce\plugins\autosave\plugin.min.js" />
     <Content Include="Scripts\tinymce\plugins\bbcode\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\bootstrap\plugin.min.js" />
     <Content Include="Scripts\tinymce\plugins\charmap\plugin.min.js" />
     <Content Include="Scripts\tinymce\plugins\code\plugin.min.js" />
     <Content Include="Scripts\tinymce\plugins\colorpicker\plugin.min.js" />

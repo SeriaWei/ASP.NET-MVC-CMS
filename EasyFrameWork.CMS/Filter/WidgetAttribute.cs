@@ -12,6 +12,7 @@ using Easy.Extend;
 using System.Net;
 using System.Web;
 using Easy.Cache;
+using Easy.Web.CMS.Event;
 using Easy.Web.CMS.Theme;
 using Microsoft.Practices.ServiceLocation;
 
@@ -98,6 +99,7 @@ namespace Easy.Web.CMS.Filter
             {
                 filterContext.Result = new RedirectResult("~/error/notfond");
             }
+            ServiceLocator.Current.GetAllInstances<IOnPageExecuted>().Each(m => m.OnExecuted(HttpContext.Current));
         }
 
         public void OnActionExecuting(ActionExecutingContext filterContext)
@@ -107,6 +109,7 @@ namespace Easy.Web.CMS.Filter
             {
                 applicationContext.RequestUrl = HttpContext.Current.Request.Url;
             }
+            ServiceLocator.Current.GetAllInstances<IOnPageExecuting>().Each(m => m.OnExecuting(HttpContext.Current));
         }
     }
 

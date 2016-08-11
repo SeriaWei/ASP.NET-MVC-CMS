@@ -25,7 +25,7 @@ namespace Easy.CMS.Common
             {
                 RouteName = "admin",
                 Url = "admin/{controller}/{action}",
-                Defaults = new { controller = "page", action = "index", module = "admin" },
+                Defaults = new { controller = "Dashboard", action = "index", module = "admin" },
                 Priority = 10
             };
             yield return new RouteDescriptor
@@ -56,6 +56,13 @@ namespace Easy.CMS.Common
         {
             yield return new AdminMenu
             {
+                Title = "仪表盘",
+                Icon = "glyphicon-dashboard",
+                Url = "~/admin",
+                Order = 0
+            };
+            yield return new AdminMenu
+            {
                 Title = "布局",
                 Icon = "glyphicon-th-list",
                 Order = 1,
@@ -81,7 +88,7 @@ namespace Easy.CMS.Common
             {
                 Title = "页面",
                 Icon = "glyphicon-eye-open",
-                Url = "~/admin",
+                Url = "~/admin/Page",
                 Order = 2,
                 PermissionKey = PermissionKeys.ViewPage
             };
@@ -151,6 +158,8 @@ namespace Easy.CMS.Common
 
             script("LayoutDesign").Include("~/Modules/Common/Scripts/LayoutDesign.js", "~/Modules/Common/Scripts/LayoutDesign.min.js");
             script("PageDesign").Include("~/Modules/Common/Scripts/PageDesign.js", "~/Modules/Common/Scripts/PageDesign.min.js");
+
+            script("Chart").Include("~/Modules/Common/Scripts/Chart.bundle.min.js", "~/Modules/Common/Scripts/Chart.bundle.min.js", "//cdn.bootcss.com/Chart.js/2.2.1/Chart.bundle.min.js");
         }
 
         protected override void InitStyle(Func<string, Web.Resource.ResourceHelper> style)
