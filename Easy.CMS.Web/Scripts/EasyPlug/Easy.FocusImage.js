@@ -1,4 +1,9 @@
-﻿/*jQuery扩展方法*/
+﻿/*!
+ * http://www.zkea.net/
+ * Copyright 2016 ZKEASOFT
+ * http://www.zkea.net/licenses
+ */
+/*jQuery扩展方法*/
 jQuery.fn.extend({
 	FocusImages: function (data, speed) {
 		/// <summary>焦点点图，DIV放空</summary>

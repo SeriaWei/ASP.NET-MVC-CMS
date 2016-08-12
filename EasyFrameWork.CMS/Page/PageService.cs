@@ -155,7 +155,12 @@ namespace Easy.Web.CMS.Page
             filter.Where("IsPublishedPage", OperatorType.Equal, !isPreView).OrderBy("DisplayOrder", OrderType.Ascending);
             var pages = Get(filter, new Pagination { PageSize = 1 });
 
-            return pages.FirstOrDefault();
+            var result = pages.FirstOrDefault();
+            if (result != null && result.ExtendFields != null)
+            {
+                ((List<ExtendFieldEntity>)result.ExtendFields).Add(new ExtendFieldEntity { Title = "meta_support", Value = "ZKEASOFT" });
+            }
+            return result;
         }
 
         public void MarkChanged(string pageId)

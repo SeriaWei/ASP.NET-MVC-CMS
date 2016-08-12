@@ -1,5 +1,10 @@
 ﻿/// <reference path="jquery.js" />
 /// <reference path="Easy.js" />
+/*!
+ * http://www.zkea.net/
+ * Copyright 2016 ZKEASOFT
+ * http://www.zkea.net/licenses
+ */
 var Easy = Easy || {};
 Easy.UI = {
     DropDownList: function (callBack) {
