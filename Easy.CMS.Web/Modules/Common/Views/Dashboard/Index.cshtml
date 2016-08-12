@@ -1,39 +1,99 @@
 ﻿@{
     Script.Reqiured("Chart").AtHead();
 }
-
+@using Easy.CMS.Common
+@model Easy.CMS.Common.ViewModels.DashboardViewModel
 <div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">欢迎</div>
+                <div class="panel-body">
+                    <h2>
+                        欢迎使用ZKEACMS
+                    </h2>
+                    <p class="text-muted">
+                        <small>我们准备了几个链接供您开始：</small>
+                    </p>
+                    @if (Authorizer.Authorize(PermissionKeys.ManagePage))
+                    {
+                        <a class="btn btn-primary" href="@Url.Action("Create", "Page", new { module = "admin", ParentID = "#" })">创建页面</a>
+                    }
+                    @if (Authorizer.Authorize(PermissionKeys.ViewPage))
+                    {
+                        <a class="btn btn-primary" href="@Url.Action("Index", "Page", new { module = "admin", ParentID = "#" })">查看页面</a>
+                    }
+                    @if (Authorizer.Authorize(PermissionKeys.ManageLayout))
+                    {
+                        <a class="btn btn-primary" href="@Url.Action("Create", "Layout", new {module = "admin"})">创建布局</a>
+                    }
+                    @if (Authorizer.Authorize(PermissionKeys.ViewLayout))
+                    {
+                        <a class="btn btn-primary" href="@Url.Action("Index", "Layout", new {module = "admin"})">查看布局</a>
+                    }
+                    @if (Authorizer.Authorize(PermissionKeys.ViewNavigation))
+                    {
+                        <a class="btn btn-primary" href="@Url.Action("Index", "Navigation", new {module = "admin"})">查看导航</a>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default">
                 <div class="panel-heading">访问量</div>
                 <div class="panel-body">
-                    <canvas id="myChart"></canvas>
+                    <canvas id="page-view" height="80"></canvas>
                     <script>
-                        var ctx = document.getElementById("myChart");
-                        var myChart = new Chart(ctx, {
+                        var page = document.getElementById("page-view");
+                        var pageChart = new Chart(page, {
                             type: 'line',
                             data: {
-                                labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-                                datasets: [{
-                                    label: 'PV',
-                                    data: [120, 190, 200, 150, 255, 500],
-                                    backgroundColor: [
-                                        'rgba(54, 162, 235, 0.2)'
-                                    ],
-                                    borderColor: [
-                                        'rgba(54, 162, 235, 1)'
-                                    ],
-                                    borderWidth: 1
-                                }]
+                                labels: @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.PageViewDate)),
+                                datasets: [
+                                    {
+                                        label: 'PV',
+                                        data: @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.PageViewCount)),
+                                        backgroundColor: [
+                                            'rgba(54, 162, 235, 0)'
+                                        ],
+                                        borderColor: [
+                                            'rgba(54, 162, 235, 1)'
+                                        ],
+                                        borderWidth: 1
+                                    }, {
+                                        label: 'UV',
+                                        data: @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.PageUniqueViewCount)),
+                                        backgroundColor: [
+                                            'rgba(255, 99, 132, 0)'
+                                        ],
+                                        borderColor: [
+                                            'rgba(255, 99, 132, 1)'
+                                        ],
+                                        borderWidth: 1
+                                    }, {
+                                        label: 'IP',
+                                        data: @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.PageIpAddressCount)),
+                                        backgroundColor: [
+                                            'rgba(255, 206, 86, 0.2)'
+                                        ],
+                                        borderColor: [
+                                            'rgba(255, 206, 86, 1)'
+                                        ],
+                                        borderWidth: 1
+                                    }
+                                ]
                             },
                             options: {
                                 scales: {
-                                    yAxes: [{
-                                        ticks: {
-                                            beginAtZero: true
+                                    yAxes: [
+                                        {
+                                            ticks: {
+                                                beginAtZero: true
+                                            }
                                         }
-                                    }]
+                                    ]
                                 }
                             }
                         });
@@ -41,31 +101,113 @@
                 </div>
             </div>
         </div>
+
     </div>
     <div class="row">
         <div class="col-md-4">
             <div class="panel panel-default">
+                <div class="panel-heading">24小时访问 Top 10</div>
+                <ul class="list-group">
+                    @foreach (var page in Model.CurrentTop)
+                    {
+                        <li class="list-group-item clearfix">
+                            <a target="_blank" href="@Url.PathContent(page.PageUrl)" title="@page.PageUrl">@page.PageTitle</a>
+                            <br />
+                            <small class="text-muted">@page.PageUrl</small>
+                            <span class="badge">@page.Sum</span>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-default">
                 <div class="panel-heading">布局</div>
                 <div class="panel-body">
-                    ddddd
+                    <canvas id="layout-usage"></canvas>
+                    <script>
+                        var layout = document.getElementById("layout-usage");
+                        var layoutChart = new Chart(layout, {
+                            type: 'bar',
+                            data: {
+                                labels: @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.Layouts)),
+                                datasets: [
+                                    {
+                                        label: '布局使用情况',
+                                        data: @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.LayoutUsage)),
+                                        backgroundColor: [
+                                            'rgba(255, 99, 132, 0.2)',
+                                            'rgba(54, 162, 235, 0.2)',
+                                            'rgba(255, 206, 86, 0.2)',
+                                            'rgba(75, 192, 192, 0.2)',
+                                            'rgba(153, 102, 255, 0.2)',
+                                            'rgba(255, 159, 64, 0.2)'
+                                        ],
+                                        borderColor: [
+                                            'rgba(255,99,132,1)',
+                                            'rgba(54, 162, 235, 1)',
+                                            'rgba(255, 206, 86, 1)',
+                                            'rgba(75, 192, 192, 1)',
+                                            'rgba(153, 102, 255, 1)',
+                                            'rgba(255, 159, 64, 1)'
+                                        ],
+                                        borderWidth: 1
+                                    }
+                                ]
+                            },
+                            options: {
+                                scales: {
+                                    yAxes: [
+                                        {
+                                            ticks: {
+                                                beginAtZero: true
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        });
+                    </script>
                 </div>
             </div>
         </div>
         <div class="col-md-4">
             <div class="panel panel-default">
-                <div class="panel-heading">页面</div>
-                <div class="panel-body">
-                    ddddd
-                </div>
+                <div class="panel-heading">概览</div>
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        页面总数
+                        <span class="badge">@Model.Pages</span>
+                    </li>
+                    <li class="list-group-item">
+                        产品总数
+                        <span class="badge">@Model.Products</span>
+                    </li>
+                    <li class="list-group-item">
+                        文章总数
+                        <span class="badge">@Model.Articles</span>
+                    </li>
+                    <li class="list-group-item">
+                        媒体总数
+                        <span class="badge">@Model.Medias</span>
+                    </li>
+                </ul>
             </div>
-        </div>
-        <div class="col-md-4">
-            <div class="panel panel-default">
-                <div class="panel-heading">媒体</div>
-                <div class="panel-body">
-                    ddddd
+            @if (Authorizer.Authorize(PermissionKeys.ManagePage))
+            {
+                <div class="panel panel-default">
+                    <div class="panel-heading">等待发布的页面</div>
+                    <div class="panel-body">
+                        @foreach (var page in Model.UnPublishPage)
+                        {
+                            <p>
+                                <a target="_blank" href="@Url.Action("Design", "Page", new {module = "admin", ID = page.ID})">@page.PageName</a>
+                            </p>
+                        }
+                    </div>
                 </div>
-            </div>
+            }
         </div>
     </div>
+
 </div>

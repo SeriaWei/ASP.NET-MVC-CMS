@@ -94,12 +94,12 @@ namespace Easy.Web.CMS.Filter
                     viewResult.MasterName = GetLayout();
                     filterContext.Controller.ViewData.Model = layout;
                 }
+                ServiceLocator.Current.GetAllInstances<IOnPageExecuted>().Each(m => m.OnExecuted(page, HttpContext.Current));
             }
             else
             {
                 filterContext.Result = new RedirectResult("~/error/notfond");
             }
-            ServiceLocator.Current.GetAllInstances<IOnPageExecuted>().Each(m => m.OnExecuted(HttpContext.Current));
         }
 
         public void OnActionExecuting(ActionExecutingContext filterContext)

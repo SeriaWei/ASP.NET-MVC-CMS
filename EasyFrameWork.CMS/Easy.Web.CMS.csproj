@@ -136,6 +136,9 @@
     <Compile Include="Product\Models\ProductCategory.cs" />
     <Compile Include="Product\Service\IProductCategoryService.cs" />
     <Compile Include="Product\Service\IProductService.cs" />
+    <Compile Include="Setting\ApplicationSetting.cs" />
+    <Compile Include="Setting\ApplicationSettingService.cs" />
+    <Compile Include="Setting\IApplicationSettingService.cs" />
     <Compile Include="Theme\IThemeService.cs" />
     <Compile Include="Theme\ThemeEntity.cs" />
     <Compile Include="Theme\ThemeService.cs" />

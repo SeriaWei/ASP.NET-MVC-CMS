@@ -143,6 +143,7 @@
     <Compile Include="Models\ImageWidget.cs" />
     <Compile Include="Models\NavigationEntity.cs" />
     <Compile Include="Models\NavigationWidget.cs" />
+    <Compile Include="Models\PageView.cs" />
     <Compile Include="Models\StyleSheetWidget.cs" />
     <Compile Include="Models\VideoWidget.cs" />
     <Compile Include="Models\ScriptWidget.cs" />
@@ -155,11 +156,15 @@
     <Compile Include="Service\ICarouselService.cs" />
     <Compile Include="Service\ImageWidgetService.cs" />
     <Compile Include="Service\INavigationService.cs" />
+    <Compile Include="Service\IPageViewService.cs" />
     <Compile Include="Service\NavigationService.cs" />
     <Compile Include="Service\NavigationWidgetService.cs" />
+    <Compile Include="Service\OnPageExcuted.cs" />
+    <Compile Include="Service\PageViewService.cs" />
     <Compile Include="Service\StyleSheetWidgetService.cs" />
     <Compile Include="Service\VideoWidgetService.cs" />
     <Compile Include="Service\ScriptWidgetService.cs" />
+    <Compile Include="ViewModels\DashboardViewModel.cs" />
     <Compile Include="ViewModels\LayoutZonesViewModel.cs" />
     <Compile Include="ViewModels\MediaViewModel.cs" />
     <Compile Include="ViewModels\NavigationWidgetViewModel.cs" />

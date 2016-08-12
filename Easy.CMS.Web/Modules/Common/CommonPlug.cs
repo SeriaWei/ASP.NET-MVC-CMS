@@ -144,8 +144,16 @@ namespace Easy.CMS.Common
                         Title = "角色",
                         Icon = "glyphicon-eye-open",
                         Url = "~/admin/Roles",
-                        Order = 1,
+                        Order = 2,
                         PermissionKey = PermissionKeys.ViewRole
+                    },
+                    new AdminMenu
+                    {
+                        Title = "系统设置",
+                        Icon = "glyphicon-cog",
+                        Url = "~/admin/Application",
+                        Order = 3,
+                        PermissionKey = PermissionKeys.ViewApplication
                     }
                 }
             };
@@ -195,6 +203,9 @@ namespace Easy.CMS.Common
 
             yield return new PermissionDescriptor(PermissionKeys.ViewRole, "用户/安全", "查看角色", "");
             yield return new PermissionDescriptor(PermissionKeys.ManageRole, "用户/安全", "管理角色", "");
+
+            yield return new PermissionDescriptor(PermissionKeys.ViewApplication, "用户/安全", "查看系统设置", "");
+            yield return new PermissionDescriptor(PermissionKeys.ManageApplication, "用户/安全", "管理系统设置", "");
         }
     }
 }
