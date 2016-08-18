@@ -13,6 +13,7 @@ CREATE TABLE [dbo].[PageView](
 	[PageTitle] [nvarchar](200) NULL,
 	[IPAddress] [nvarchar](50) NULL,
 	[SessionID] [nvarchar](50) NULL,
+	[UserAgent] [nvarchar](500) NULL,
 	[CreateBy] [nvarchar](255) NULL,
 	[CreatebyName] [nvarchar](255) NULL,
 	[CreateDate] [datetime] NULL,

@@ -32,7 +32,8 @@ namespace Easy.CMS.Common.Service
                 PageUrl = context.Request.RawUrl,
                 PageTitle = currentPage.Title ?? currentPage.PageName,
                 SessionID = value,
-                IPAddress = context.Request.UserHostAddress
+                IPAddress = context.Request.UserHostAddress,
+                UserAgent = context.Request.UserAgent
             });
         }
     }

@@ -11,6 +11,7 @@ namespace Easy.CMS.Common.Models
         public string PageTitle { get; set; }
         public string IPAddress { get; set; }
         public string SessionID { get; set; }
+        public string UserAgent { get; set; }
         public int Sum { get; set; }
     }
 
