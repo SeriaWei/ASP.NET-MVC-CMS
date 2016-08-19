@@ -1,8 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Mvc;
+using System.Xml;
+using System.Xml.Serialization;
 using Easy.CMS.Common.Models;
 using Easy.CMS.Common.Service;
 using Easy.CMS.Common.ViewModels;
@@ -27,7 +31,8 @@ namespace Easy.CMS.Common.Controllers
         private readonly IProductService _productService;
         private readonly IArticleService _articleService;
         private readonly IMediaService _mediaService;
-        public DashboardController(ILayoutService layoutService, IPageService pageService, IPageViewService pageViewService, IProductService productService, IArticleService articleService, IMediaService mediaService)
+        private readonly ISearchEngineService _searchEngineService;
+        public DashboardController(ILayoutService layoutService, IPageService pageService, IPageViewService pageViewService, IProductService productService, IArticleService articleService, IMediaService mediaService, ISearchEngineService searchEngineService)
         {
             _layoutService = layoutService;
             _pageService = pageService;
@@ -35,6 +40,7 @@ namespace Easy.CMS.Common.Controllers
             _productService = productService;
             _articleService = articleService;
             _mediaService = mediaService;
+            _searchEngineService = searchEngineService;
         }
 
         public ActionResult Index()
@@ -59,11 +65,15 @@ namespace Easy.CMS.Common.Controllers
                         var pv = m.First();
                         pv.Sum = m.Count();
                         return pv;
-                    })
+                    }),
+                SearchEngine = new List<string>(),
+                SearchEngineCount = new List<int>()
             };
+
             var dateAgo = DateTime.Now.AddDays(-15);
-            _pageViewService.Get(new DataFilter().Where("CreateDate", OperatorType.GreaterThan, dateAgo).OrderBy("ID", OrderType.Descending))
-                .OrderBy(m => m.ID)
+            var searchEngines = _searchEngineService.GetSearchEngines();
+            var views = _pageViewService.Get(new DataFilter().Where("CreateDate", OperatorType.GreaterThan, dateAgo).OrderBy("ID", OrderType.Descending));
+            views.OrderBy(m => m.ID)
                 .GroupBy(m => (m.CreateDate ?? DateTime.Now).ToString("yyyy-MM-dd"))
                 .Each(
                     m =>
@@ -73,7 +83,28 @@ namespace Easy.CMS.Common.Controllers
                         viewMoldel.PageUniqueViewCount.Add(m.GroupBy(n => n.SessionID).Count());
                         viewMoldel.PageIpAddressCount.Add(m.GroupBy(n => n.IPAddress).Count());
                     });
-
+            views.Where(m => m.UserAgent.IsNotNullAndWhiteSpace())
+                .GroupBy(m => m.UserAgent)
+                .GroupBy(m =>
+                {
+                    foreach (SearchEngineItem item in searchEngines.SearchEngine)
+                    {
+                        if (Regex.IsMatch(m.Key, item.Match))
+                        {
+                            return item.Name;
+                        }
+                    }
+                    return "";
+                }).Each(g =>
+                {
+                    if (g.Key.IsNotNullAndWhiteSpace())
+                    {
+                        viewMoldel.SearchEngine.Add(g.Key);
+                        int i = 0;
+                        g.Each(ing => { i += ing.Count(); });
+                        viewMoldel.SearchEngineCount.Add(i);
+                    }
+                });
 
             var pages = _pageService.Get(m => m.IsPublishedPage == true);
             _layoutService.Get().Each(l =>
@@ -82,6 +113,9 @@ namespace Easy.CMS.Common.Controllers
                 viewMoldel.LayoutUsage.Add(pages.Count(m => m.LayoutId == l.ID));
             });
             viewMoldel.Pages = pages.Count();
+
+
+
             return View(viewMoldel);
         }
 

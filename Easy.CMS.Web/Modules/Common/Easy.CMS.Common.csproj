@@ -144,6 +144,7 @@
     <Compile Include="Models\NavigationEntity.cs" />
     <Compile Include="Models\NavigationWidget.cs" />
     <Compile Include="Models\PageView.cs" />
+    <Compile Include="Models\SearchEngines.cs" />
     <Compile Include="Models\StyleSheetWidget.cs" />
     <Compile Include="Models\VideoWidget.cs" />
     <Compile Include="Models\ScriptWidget.cs" />
@@ -157,10 +158,12 @@
     <Compile Include="Service\ImageWidgetService.cs" />
     <Compile Include="Service\INavigationService.cs" />
     <Compile Include="Service\IPageViewService.cs" />
+    <Compile Include="Service\ISearchEngineService.cs" />
     <Compile Include="Service\NavigationService.cs" />
     <Compile Include="Service\NavigationWidgetService.cs" />
     <Compile Include="Service\OnPageExcuted.cs" />
     <Compile Include="Service\PageViewService.cs" />
+    <Compile Include="Service\SearchEngineService.cs" />
     <Compile Include="Service\StyleSheetWidgetService.cs" />
     <Compile Include="Service\VideoWidgetService.cs" />
     <Compile Include="Service\ScriptWidgetService.cs" />
@@ -184,6 +187,7 @@
     </Content>
     <Content Include="Scripts\Owl.Carousel.js" />
     <None Include="bundleconfig.json" />
+    <Content Include="Config\SearchEngines.config" />
     <None Include="Properties\PublishProfiles\PublishLocal.pubxml" />
     <Content Include="Scripts\Owl.Carousel.min.js.map">
       <DependentUpon>Owl.Carousel.min.js</DependentUpon>

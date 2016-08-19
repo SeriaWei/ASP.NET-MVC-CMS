@@ -18,5 +18,9 @@ namespace Easy.CMS.Common.ViewModels
         public long Articles { get; set; }
         public long Medias { get; set; }
         public long Pages { get; set; }
+
+
+        public List<string> SearchEngine { get; set; }
+        public List<int> SearchEngineCount { get; set; }
     }
 }

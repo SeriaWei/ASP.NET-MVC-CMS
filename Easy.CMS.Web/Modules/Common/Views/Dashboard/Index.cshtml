@@ -3,6 +3,60 @@
 }
 @using Easy.CMS.Common
 @model Easy.CMS.Common.ViewModels.DashboardViewModel
+<script type="text/javascript">
+    var backgroundColor = [
+        'rgba(255, 99, 132, 0.2)',
+        'rgba(54, 162, 235, 0.2)',
+        'rgba(255, 206, 86, 0.2)',
+        'rgba(75, 192, 192, 0.2)',
+        'rgba(153, 102, 255, 0.2)',
+        'rgba(255, 159, 64, 0.2)',
+        'rgba(255, 99, 132, 0.2)',
+        'rgba(54, 162, 235, 0.2)',
+        'rgba(255, 206, 86, 0.2)',
+        'rgba(75, 192, 192, 0.2)',
+        'rgba(153, 102, 255, 0.2)',
+        'rgba(255, 159, 64, 0.2)',
+        'rgba(255, 99, 132, 0.2)',
+        'rgba(54, 162, 235, 0.2)',
+        'rgba(255, 206, 86, 0.2)',
+        'rgba(75, 192, 192, 0.2)',
+        'rgba(153, 102, 255, 0.2)',
+        'rgba(255, 159, 64, 0.2)',
+        'rgba(255, 99, 132, 0.2)',
+        'rgba(54, 162, 235, 0.2)',
+        'rgba(255, 206, 86, 0.2)',
+        'rgba(75, 192, 192, 0.2)',
+        'rgba(153, 102, 255, 0.2)',
+        'rgba(255, 159, 64, 0.2)'
+    ];
+    var borderColor = [
+        'rgba(255,99,132,1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)',
+        'rgba(75, 192, 192, 1)',
+        'rgba(153, 102, 255, 1)',
+        'rgba(255, 159, 64, 1)',
+        'rgba(255,99,132,1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)',
+        'rgba(75, 192, 192, 1)',
+        'rgba(153, 102, 255, 1)',
+        'rgba(255, 159, 64, 1)',
+        'rgba(255,99,132,1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)',
+        'rgba(75, 192, 192, 1)',
+        'rgba(153, 102, 255, 1)',
+        'rgba(255, 159, 64, 1)',
+        'rgba(255,99,132,1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)',
+        'rgba(75, 192, 192, 1)',
+        'rgba(153, 102, 255, 1)',
+        'rgba(255, 159, 64, 1)'
+    ];
+</script>
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12">
@@ -104,53 +158,23 @@
 
     </div>
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-6">
             <div class="panel panel-default">
-                <div class="panel-heading">24小时访问 Top 10</div>
-                <ul class="list-group">
-                    @foreach (var page in Model.CurrentTop)
-                    {
-                        <li class="list-group-item clearfix">
-                            <a target="_blank" href="@Url.PathContent(page.PageUrl)" title="@page.PageUrl">@page.PageTitle</a>
-                            <br />
-                            <small class="text-muted">@page.PageUrl</small>
-                            <span class="badge">@page.Sum</span>
-                        </li>
-                    }
-                </ul>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="panel panel-default">
-                <div class="panel-heading">布局</div>
+                <div class="panel-heading">15天搜索引擎访问量</div>
                 <div class="panel-body">
-                    <canvas id="layout-usage"></canvas>
+                    <canvas id="search-engine"></canvas>
                     <script>
-                        var layout = document.getElementById("layout-usage");
-                        var layoutChart = new Chart(layout, {
+                        var searchEngine = document.getElementById("search-engine");
+                        var searchEngineChart = new Chart(searchEngine, {
                             type: 'bar',
                             data: {
-                                labels: @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.Layouts)),
+                                labels: @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.SearchEngine)),
                                 datasets: [
                                     {
-                                        label: '布局使用情况',
-                                        data: @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.LayoutUsage)),
-                                        backgroundColor: [
-                                            'rgba(255, 99, 132, 0.2)',
-                                            'rgba(54, 162, 235, 0.2)',
-                                            'rgba(255, 206, 86, 0.2)',
-                                            'rgba(75, 192, 192, 0.2)',
-                                            'rgba(153, 102, 255, 0.2)',
-                                            'rgba(255, 159, 64, 0.2)'
-                                        ],
-                                        borderColor: [
-                                            'rgba(255,99,132,1)',
-                                            'rgba(54, 162, 235, 1)',
-                                            'rgba(255, 206, 86, 1)',
-                                            'rgba(75, 192, 192, 1)',
-                                            'rgba(153, 102, 255, 1)',
-                                            'rgba(255, 159, 64, 1)'
-                                        ],
+                                        label: '搜索引擎访问量',
+                                        data: @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.SearchEngineCount)),
+                                        backgroundColor: backgroundColor,
+                                        borderColor: borderColor,
                                         borderWidth: 1
                                     }
                                 ]
@@ -171,6 +195,63 @@
                 </div>
             </div>
         </div>
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">页面使用布局情况</div>
+                <div class="panel-body">
+                    <canvas id="layout-usage"></canvas>
+                    <script>
+                        var layout = document.getElementById("layout-usage");
+                        var layoutChart = new Chart(layout, {
+                            type: 'bar',
+                            data: {
+                                labels: @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.Layouts)),
+                                datasets: [
+                                    {
+                                        label: '页面使用布局情况',
+                                        data: @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.LayoutUsage)),
+                                        backgroundColor: backgroundColor,
+                                        borderColor: borderColor,
+                                        borderWidth: 1
+                                    }
+                                ]
+                            },
+                            options: {
+                                scales: {
+                                    yAxes: [
+                                        {
+                                            ticks: {
+                                                beginAtZero: true
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        });
+                    </script>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">24小时访问 Top 10</div>
+                <ul class="list-group">
+                    @foreach (var page in Model.CurrentTop)
+                    {
+                        <li class="list-group-item clearfix">
+                            <a target="_blank" href="@Url.PathContent(page.PageUrl)" title="@page.PageUrl">@page.PageTitle</a>
+                            <br />
+                            <small class="text-muted">@page.PageUrl</small>
+                            <span class="badge">@page.Sum</span>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+
         <div class="col-md-4">
             <div class="panel panel-default">
                 <div class="panel-heading">概览</div>
@@ -193,6 +274,11 @@
                     </li>
                 </ul>
             </div>
+            
+        </div>
+
+        <div class="col-md-4">
+            
             @if (Authorizer.Authorize(PermissionKeys.ManagePage))
             {
                 <div class="panel panel-default">
