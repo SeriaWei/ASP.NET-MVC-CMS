@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Web;
 using System.Web.Mvc;
 using Easy.Extend;
 
@@ -19,5 +20,11 @@ namespace Easy.Web.CMS
             return helper.Action("Code", "Validation", new { module = "Validation" });
         }
 
+        public static string AddQueryToCurrentUrl(this UrlHelper helper, string name, string value)
+        {
+            var query = HttpUtility.ParseQueryString(helper.RequestContext.HttpContext.Request.Url.Query);
+            query[name] = value;
+            return "{0}?{1}".FormatWith(helper.RequestContext.HttpContext.Request.Url.AbsolutePath, query);
+        }
     }
 }

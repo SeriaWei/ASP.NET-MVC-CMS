@@ -1,26 +1,11 @@
 ﻿@using System.Text.RegularExpressions
+@using Easy.Web.CMS
 @model Easy.Data.Pagination
 
-@{
-    Regex pageRegex = new Regex(@"p=(\d+)",RegexOptions.Compiled);
-    string currentUrl = Request.RawUrl.ToLower();
-    if (!pageRegex.IsMatch(currentUrl))
-    {
-        if (currentUrl.Contains("?"))
-        {
-            currentUrl += "&p=0";
-        }
-        else
-        {
-            currentUrl += "?p=0";
-        }
-    }
-    Func<int, string> pageFormat = index => "p=" + index;
-}
 <ul class="pagination">
     @if (Model.PageIndex >= 1)
     {
-        <li><a href="@pageRegex.Replace(currentUrl, pageFormat(0))">«</a></li>
+        <li><a href="@Url.AddQueryToCurrentUrl("p","0")">«</a></li>
     }
     else
     {
@@ -42,7 +27,7 @@
         for (; start < Model.AllPage && start <= end; start++)
         {
             <li class="@(start == Model.PageIndex ? "active" : "")">
-                <a href="@pageRegex.Replace(currentUrl, pageFormat(start))">@(start+1)</a>
+                <a href="@Url.AddQueryToCurrentUrl("p", start.ToString())">@(start+1)</a>
             </li>
         }
         if (Model.AllPage-Model.PageIndex>5)
@@ -56,7 +41,7 @@
     @if (Model.PageIndex < Model.AllPage - 1)
     {
         <li>
-            <a href="@pageRegex.Replace(currentUrl, pageFormat(Model.PageIndex + 1))">»</a>
+            <a href="@Url.AddQueryToCurrentUrl("p", (Model.PageIndex + 1).ToString())">»</a>
         </li>
     }
     else
