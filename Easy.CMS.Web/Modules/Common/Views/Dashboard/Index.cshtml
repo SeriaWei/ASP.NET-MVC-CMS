@@ -160,7 +160,7 @@
     <div class="row">
         <div class="col-md-6">
             <div class="panel panel-default">
-                <div class="panel-heading">15天搜索引擎访问量</div>
+                <div class="panel-heading">近15天搜索引擎访问量</div>
                 <div class="panel-body">
                     <canvas id="search-engine"></canvas>
                     <script>
@@ -197,7 +197,7 @@
         </div>
         <div class="col-md-6">
             <div class="panel panel-default">
-                <div class="panel-heading">页面使用布局情况</div>
+                <div class="panel-heading">布局使用情况</div>
                 <div class="panel-body">
                     <canvas id="layout-usage"></canvas>
                     <script>
@@ -246,7 +246,7 @@
                 <div class="panel-heading">概览</div>
                 <ul class="list-group">
                     <li class="list-group-item">
-                        页面总数
+                        <a href="@Url.Action("Index","Page",new{module="admin"})">页面总数</a>
                         <span class="badge">@Model.Pages</span>
                     </li>
                     <li class="list-group-item">
@@ -263,23 +263,29 @@
                     </li>
                 </ul>
             </div>
-            
+
         </div>
 
         <div class="col-md-4">
-            
+
             @if (Authorizer.Authorize(PermissionKeys.ManagePage))
             {
                 <div class="panel panel-default">
-                    <div class="panel-heading">等待发布的页面</div>
-                    <div class="panel-body">
+                    <div class="panel-heading">已修改/未发布页面</div>
+                    <ul class="list-group">
                         @foreach (var page in Model.UnPublishPage)
                         {
-                            <p>
+                            <li class="list-group-item clearfix">
                                 <a target="_blank" href="@Url.Action("Design", "Page", new {module = "admin", ID = page.ID})">@page.PageName</a>
-                            </p>
+                                <span class="badge">
+                                    @page.LastUpdateByName
+                                    于
+                                    @((DateTime.Now- (page.LastUpdateDate ?? DateTime.Now)).Days)
+                                    天前修改
+                                </span>
+                            </li>
                         }
-                    </div>
+                    </ul>
                 </div>
             }
         </div>

@@ -13,9 +13,9 @@
 </button>
 <ul class="dropdown-menu">
     <li>
-        <a href="~/admin">
-            <i class="glyphicon glyphicon-home"></i>
-            后台管理
+        <a href="@Url.Action("Index", "Dashboard", new { module = "admin" })">
+            <i class="glyphicon glyphicon-dashboard"></i>
+            仪表盘
         </a>
     </li>
     <li>
