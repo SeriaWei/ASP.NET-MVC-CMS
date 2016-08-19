@@ -203,7 +203,7 @@
                     <script>
                         var layout = document.getElementById("layout-usage");
                         var layoutChart = new Chart(layout, {
-                            type: 'bar',
+                            type: 'doughnut',
                             data: {
                                 labels: @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.Layouts)),
                                 datasets: [
@@ -215,17 +215,6 @@
                                         borderWidth: 1
                                     }
                                 ]
-                            },
-                            options: {
-                                scales: {
-                                    yAxes: [
-                                        {
-                                            ticks: {
-                                                beginAtZero: true
-                                            }
-                                        }
-                                    ]
-                                }
                             }
                         });
                     </script>
