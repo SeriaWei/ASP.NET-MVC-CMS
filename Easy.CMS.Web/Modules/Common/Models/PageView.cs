@@ -12,6 +12,9 @@ namespace Easy.CMS.Common.Models
         public string IPAddress { get; set; }
         public string SessionID { get; set; }
         public string UserAgent { get; set; }
+        public string Referer { get; set; }
+        public string RefererName { get; set; }
+        public string KeyWords { get; set; }
         public int Sum { get; set; }
     }
 

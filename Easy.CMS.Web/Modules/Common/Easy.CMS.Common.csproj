@@ -144,6 +144,7 @@
     <Compile Include="Models\NavigationEntity.cs" />
     <Compile Include="Models\NavigationWidget.cs" />
     <Compile Include="Models\PageView.cs" />
+    <Compile Include="Models\RefererConfig.cs" />
     <Compile Include="Models\SearchEngines.cs" />
     <Compile Include="Models\StyleSheetWidget.cs" />
     <Compile Include="Models\VideoWidget.cs" />
@@ -188,6 +189,7 @@
     <Content Include="Scripts\Owl.Carousel.js" />
     <None Include="bundleconfig.json" />
     <Content Include="Config\SearchEngines.config" />
+    <Content Include="Config\Referer.config" />
     <None Include="Properties\PublishProfiles\PublishLocal.pubxml" />
     <Content Include="Scripts\Owl.Carousel.min.js.map">
       <DependentUpon>Owl.Carousel.min.js</DependentUpon>

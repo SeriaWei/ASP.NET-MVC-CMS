@@ -14,11 +14,14 @@ CREATE TABLE [dbo].[PageView](
 	[IPAddress] [nvarchar](50) NULL,
 	[SessionID] [nvarchar](50) NULL,
 	[UserAgent] [nvarchar](500) NULL,
-	[CreateBy] [nvarchar](255) NULL,
-	[CreatebyName] [nvarchar](255) NULL,
+	[Referer] [nvarchar](1000) NULL,
+	[RefererName] [nvarchar](255) NULL,
+	[KeyWords] [nvarchar](255) NULL,
+	[CreateBy] [nvarchar](50) NULL,
+	[CreatebyName] [nvarchar](100) NULL,
 	[CreateDate] [datetime] NULL,
-	[LastUpdateBy] [nvarchar](255) NULL,
-	[LastUpdateByName] [nvarchar](255) NULL,
+	[LastUpdateBy] [nvarchar](50) NULL,
+	[LastUpdateByName] [nvarchar](100) NULL,
 	[LastUpdateDate] [datetime] NULL,
  CONSTRAINT [PK_PageView] PRIMARY KEY CLUSTERED 
 (

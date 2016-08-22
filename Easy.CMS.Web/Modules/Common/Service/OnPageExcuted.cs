@@ -27,14 +27,19 @@ namespace Easy.CMS.Common.Service
                 value = Guid.NewGuid().ToString("N");
                 _cookie.SetValue(UserKey, value, true, true);
             }
-            _pageViewService.Add(new PageView
+            var pageView = new PageView
             {
                 PageUrl = context.Request.RawUrl,
                 PageTitle = currentPage.Title ?? currentPage.PageName,
                 SessionID = value,
                 IPAddress = context.Request.UserHostAddress,
                 UserAgent = context.Request.UserAgent
-            });
+            };
+            if (context.Request.UrlReferrer != null)
+            {
+                pageView = _pageViewService.GenerateReferer(pageView, context.Request.UrlReferrer.ToString());
+            }
+            _pageViewService.Add(pageView);
         }
     }
 }
