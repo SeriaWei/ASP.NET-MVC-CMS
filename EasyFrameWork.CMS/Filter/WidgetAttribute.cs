@@ -68,9 +68,9 @@ namespace Easy.Web.CMS.Filter
                 widgetService.GetAllByPage(page).AsParallel().Each(widget =>
                 {
                     var partDriver = widget.CreateServiceInstance();
-                    var w = partDriver.GetWidget(widget);
-                    w.PartDriver = partDriver;
-                    allWidget.Add(w);
+                    var widgetBase = partDriver.GetWidget(widget);
+                    widgetBase.PartDriver = partDriver;
+                    allWidget.Add(widgetBase);
                 });
                 allWidget.Each(widget =>
                 {
@@ -94,7 +94,10 @@ namespace Easy.Web.CMS.Filter
                     viewResult.MasterName = GetLayout();
                     filterContext.Controller.ViewData.Model = layout;
                 }
-                ServiceLocator.Current.GetAllInstances<IOnPageExecuted>().Each(m => m.OnExecuted(page, HttpContext.Current));
+                if (page.IsPublishedPage)
+                {
+                    ServiceLocator.Current.GetAllInstances<IOnPageExecuted>().Each(m => m.OnExecuted(page, HttpContext.Current));    
+                }
             }
             else
             {
