@@ -82,7 +82,7 @@ namespace Easy.CMS.Common.Controllers
                 }
                 catch (PageExistException ex)
                 {
-                    ModelState.AddModelError("PageUrl",ex.Message);
+                    ModelState.AddModelError("PageUrl", ex.Message);
                     return View(entity);
                 }
                 return RedirectToAction("Design", new { ID = entity.ID });
@@ -138,7 +138,7 @@ namespace Easy.CMS.Common.Controllers
             Response.Cache.SetNoStore();
             return View();
         }
-        
+
         public ActionResult RedirectView(string Id, bool? preview)
         {
             return Redirect(Service.Get(Id).Url + ((preview ?? true) ? "?ViewType=" + ReView.Review : ""));
@@ -148,7 +148,7 @@ namespace Easy.CMS.Common.Controllers
         {
             return View();
         }
-        
+
         public ActionResult PageZones(QueryContext context)
         {
             var zoneService = ServiceLocator.Current.GetInstance<IZoneService>();
@@ -158,6 +158,8 @@ namespace Easy.CMS.Common.Controllers
             var layout = layoutService.Get(page.LayoutId);
             var viewModel = new ViewModels.LayoutZonesViewModel
                 {
+                    Page = page,
+                    Layout = layout,
                     PageID = context.PageID,
                     LayoutID = layout.ID,
                     Zones = zoneService.GetZonesByPageId(context.PageID),
@@ -178,8 +180,8 @@ namespace Easy.CMS.Common.Controllers
             Service.Publish(Service.Get(id));
             return Json(true);
         }
-        
-        public RedirectResult PublishPage(string ID,string ReturnUrl)
+
+        public RedirectResult PublishPage(string ID, string ReturnUrl)
         {
             Service.Publish(Service.Get(ID));
             return Redirect(ReturnUrl);

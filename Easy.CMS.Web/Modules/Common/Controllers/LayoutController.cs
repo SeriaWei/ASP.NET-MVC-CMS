@@ -48,6 +48,7 @@ namespace Easy.CMS.Common.Controllers
             var layout = Service.Get(ID);
             var viewModel = new LayoutZonesViewModel
             {
+                Layout = layout,
                 LayoutID = ID,
                 Zones = _zoneService.GetZonesByLayoutId(ID),
                 Widgets = widgetService.GetByLayoutId(ID),
