@@ -157,7 +157,6 @@
     <Compile Include="Service\INavigationService.cs" />
     <Compile Include="Service\NavigationService.cs" />
     <Compile Include="Service\NavigationWidgetService.cs" />
-    <Compile Include="Service\OnPageExcuted.cs" />
     <Compile Include="Service\PageViewService.cs" />
     <Compile Include="Service\SearchEngineService.cs" />
     <Compile Include="Service\StyleSheetWidgetService.cs" />
