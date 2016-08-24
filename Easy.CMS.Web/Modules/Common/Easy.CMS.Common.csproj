@@ -143,9 +143,6 @@
     <Compile Include="Models\ImageWidget.cs" />
     <Compile Include="Models\NavigationEntity.cs" />
     <Compile Include="Models\NavigationWidget.cs" />
-    <Compile Include="Models\PageView.cs" />
-    <Compile Include="Models\RefererConfig.cs" />
-    <Compile Include="Models\SearchEngines.cs" />
     <Compile Include="Models\StyleSheetWidget.cs" />
     <Compile Include="Models\VideoWidget.cs" />
     <Compile Include="Models\ScriptWidget.cs" />
@@ -158,8 +155,6 @@
     <Compile Include="Service\ICarouselService.cs" />
     <Compile Include="Service\ImageWidgetService.cs" />
     <Compile Include="Service\INavigationService.cs" />
-    <Compile Include="Service\IPageViewService.cs" />
-    <Compile Include="Service\ISearchEngineService.cs" />
     <Compile Include="Service\NavigationService.cs" />
     <Compile Include="Service\NavigationWidgetService.cs" />
     <Compile Include="Service\OnPageExcuted.cs" />

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Xml.Serialization;
 
-namespace Easy.CMS.Common.Models
+namespace Easy.Web.CMS.PageView
 {
     [XmlRoot("RefererList")]
     public class RefererConfig

@@ -2,59 +2,60 @@
     Script.Reqiured("Chart").AtHead();
 }
 @using Easy.CMS.Common
+@using Newtonsoft.Json
 @model Easy.CMS.Common.ViewModels.DashboardViewModel
 <script type="text/javascript">
     var backgroundColor = [
-        'rgba(255, 99, 132, 0.2)',
-        'rgba(54, 162, 235, 0.2)',
-        'rgba(255, 206, 86, 0.2)',
-        'rgba(75, 192, 192, 0.2)',
-        'rgba(153, 102, 255, 0.2)',
-        'rgba(255, 159, 64, 0.2)',
-        'rgba(255, 99, 132, 0.2)',
-        'rgba(54, 162, 235, 0.2)',
-        'rgba(255, 206, 86, 0.2)',
-        'rgba(75, 192, 192, 0.2)',
-        'rgba(153, 102, 255, 0.2)',
-        'rgba(255, 159, 64, 0.2)',
-        'rgba(255, 99, 132, 0.2)',
-        'rgba(54, 162, 235, 0.2)',
-        'rgba(255, 206, 86, 0.2)',
-        'rgba(75, 192, 192, 0.2)',
-        'rgba(153, 102, 255, 0.2)',
-        'rgba(255, 159, 64, 0.2)',
-        'rgba(255, 99, 132, 0.2)',
-        'rgba(54, 162, 235, 0.2)',
-        'rgba(255, 206, 86, 0.2)',
-        'rgba(75, 192, 192, 0.2)',
-        'rgba(153, 102, 255, 0.2)',
-        'rgba(255, 159, 64, 0.2)'
+        "rgba(255, 99, 132, 0.2)",
+        "rgba(54, 162, 235, 0.2)",
+        "rgba(255, 206, 86, 0.2)",
+        "rgba(75, 192, 192, 0.2)",
+        "rgba(153, 102, 255, 0.2)",
+        "rgba(255, 159, 64, 0.2)",
+        "rgba(255, 99, 132, 0.2)",
+        "rgba(54, 162, 235, 0.2)",
+        "rgba(255, 206, 86, 0.2)",
+        "rgba(75, 192, 192, 0.2)",
+        "rgba(153, 102, 255, 0.2)",
+        "rgba(255, 159, 64, 0.2)",
+        "rgba(255, 99, 132, 0.2)",
+        "rgba(54, 162, 235, 0.2)",
+        "rgba(255, 206, 86, 0.2)",
+        "rgba(75, 192, 192, 0.2)",
+        "rgba(153, 102, 255, 0.2)",
+        "rgba(255, 159, 64, 0.2)",
+        "rgba(255, 99, 132, 0.2)",
+        "rgba(54, 162, 235, 0.2)",
+        "rgba(255, 206, 86, 0.2)",
+        "rgba(75, 192, 192, 0.2)",
+        "rgba(153, 102, 255, 0.2)",
+        "rgba(255, 159, 64, 0.2)"
     ];
     var borderColor = [
-        'rgba(255,99,132,1)',
-        'rgba(54, 162, 235, 1)',
-        'rgba(255, 206, 86, 1)',
-        'rgba(75, 192, 192, 1)',
-        'rgba(153, 102, 255, 1)',
-        'rgba(255, 159, 64, 1)',
-        'rgba(255,99,132,1)',
-        'rgba(54, 162, 235, 1)',
-        'rgba(255, 206, 86, 1)',
-        'rgba(75, 192, 192, 1)',
-        'rgba(153, 102, 255, 1)',
-        'rgba(255, 159, 64, 1)',
-        'rgba(255,99,132,1)',
-        'rgba(54, 162, 235, 1)',
-        'rgba(255, 206, 86, 1)',
-        'rgba(75, 192, 192, 1)',
-        'rgba(153, 102, 255, 1)',
-        'rgba(255, 159, 64, 1)',
-        'rgba(255,99,132,1)',
-        'rgba(54, 162, 235, 1)',
-        'rgba(255, 206, 86, 1)',
-        'rgba(75, 192, 192, 1)',
-        'rgba(153, 102, 255, 1)',
-        'rgba(255, 159, 64, 1)'
+        "rgba(255,99,132,1)",
+        "rgba(54, 162, 235, 1)",
+        "rgba(255, 206, 86, 1)",
+        "rgba(75, 192, 192, 1)",
+        "rgba(153, 102, 255, 1)",
+        "rgba(255, 159, 64, 1)",
+        "rgba(255,99,132,1)",
+        "rgba(54, 162, 235, 1)",
+        "rgba(255, 206, 86, 1)",
+        "rgba(75, 192, 192, 1)",
+        "rgba(153, 102, 255, 1)",
+        "rgba(255, 159, 64, 1)",
+        "rgba(255,99,132,1)",
+        "rgba(54, 162, 235, 1)",
+        "rgba(255, 206, 86, 1)",
+        "rgba(75, 192, 192, 1)",
+        "rgba(153, 102, 255, 1)",
+        "rgba(255, 159, 64, 1)",
+        "rgba(255,99,132,1)",
+        "rgba(54, 162, 235, 1)",
+        "rgba(255, 206, 86, 1)",
+        "rgba(75, 192, 192, 1)",
+        "rgba(153, 102, 255, 1)",
+        "rgba(255, 159, 64, 1)"
     ];
 </script>
 <div class="container-fluid">
@@ -71,11 +72,11 @@
                     </p>
                     @if (Authorizer.Authorize(PermissionKeys.ManagePage))
                     {
-                        <a class="btn btn-primary" href="@Url.Action("Create", "Page", new { module = "admin", ParentID = "#" })">创建页面</a>
+                        <a class="btn btn-primary" href="@Url.Action("Create", "Page", new {module = "admin", ParentID = "#"})">创建页面</a>
                     }
                     @if (Authorizer.Authorize(PermissionKeys.ViewPage))
                     {
-                        <a class="btn btn-primary" href="@Url.Action("Index", "Page", new { module = "admin", ParentID = "#" })">查看页面</a>
+                        <a class="btn btn-primary" href="@Url.Action("Index", "Page", new {module = "admin", ParentID = "#"})">查看页面</a>
                     }
                     @if (Authorizer.Authorize(PermissionKeys.ManageLayout))
                     {
@@ -93,136 +94,59 @@
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-12">
-            <div class="panel panel-default">
-                <div class="panel-heading">访问量</div>
-                <div class="panel-body">
-                    <canvas id="page-view" height="80"></canvas>
-                    <script>
-                        var page = document.getElementById("page-view");
-                        var pageChart = new Chart(page, {
-                            type: 'line',
-                            data: {
-                                labels: @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.PageViewDate)),
-                                datasets: [
-                                    {
-                                        label: 'PV',
-                                        data: @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.PageViewCount)),
-                                        backgroundColor: [
-                                            'rgba(54, 162, 235, 0)'
-                                        ],
-                                        borderColor: [
-                                            'rgba(54, 162, 235, 1)'
-                                        ],
-                                        borderWidth: 1
-                                    }, {
-                                        label: 'UV',
-                                        data: @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.PageUniqueViewCount)),
-                                        backgroundColor: [
-                                            'rgba(255, 99, 132, 0)'
-                                        ],
-                                        borderColor: [
-                                            'rgba(255, 99, 132, 1)'
-                                        ],
-                                        borderWidth: 1
-                                    }, {
-                                        label: 'IP',
-                                        data: @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.PageIpAddressCount)),
-                                        backgroundColor: [
-                                            'rgba(255, 206, 86, 0.2)'
-                                        ],
-                                        borderColor: [
-                                            'rgba(255, 206, 86, 1)'
-                                        ],
-                                        borderWidth: 1
-                                    }
-                                ]
-                            },
-                            options: {
-                                scales: {
-                                    yAxes: [
-                                        {
-                                            ticks: {
-                                                beginAtZero: true
-                                            }
-                                        }
-                                    ]
-                                }
+    @{
+        foreach (var chart in Model.Charts.Where(m => m.IsFullRow))
+        {
+            var chartId = Guid.NewGuid().ToString("N");
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">@chart.Title</div>
+                        <div class="panel-body">
+                            <canvas id="@chartId" height="80"></canvas>
+                            @using (Script.AtFoot())
+                            {
+                                <script>
+                                    $(function() {
+                                        var chart= new Chart(document.getElementById("@chartId"),@(Html.Raw(JsonConvert.SerializeObject(chart.Option))));
+                                    });
+                                </script>
                             }
-                        });
-                    </script>
+                            
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
+        }
+    }
 
-    </div>
     <div class="row">
-        <div class="col-md-6">
-            <div class="panel panel-default">
-                <div class="panel-heading">近15天搜索引擎访问量</div>
-                <div class="panel-body">
-                    <canvas id="search-engine"></canvas>
-                    <script>
-                        var searchEngine = document.getElementById("search-engine");
-                        var searchEngineChart = new Chart(searchEngine, {
-                            type: 'bar',
-                            data: {
-                                labels: @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.SearchEngine)),
-                                datasets: [
-                                    {
-                                        label: '搜索引擎访问量',
-                                        data: @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.SearchEngineCount)),
-                                        backgroundColor: backgroundColor,
-                                        borderColor: borderColor,
-                                        borderWidth: 1
-                                    }
-                                ]
-                            },
-                            options: {
-                                scales: {
-                                    yAxes: [
-                                        {
-                                            ticks: {
-                                                beginAtZero: true
-                                            }
-                                        }
-                                    ]
-                                }
+        @{
+            foreach (var chart in Model.Charts.Where(m => !m.IsFullRow))
+            {
+                var chartId = Guid.NewGuid().ToString("N");
+                <div class="col-md-@chart.Column">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">@chart.Title</div>
+                        <div class="panel-body">
+                            <canvas id="@chartId" height="80"></canvas>
+                            @using (Script.AtFoot())
+                            {
+                                <script>
+                                    $(function() {
+                                        var chart= new Chart(document.getElementById("@chartId"),@(Html.Raw(JsonConvert.SerializeObject(chart.Option))));
+                                    });
+                                </script>
                             }
-                        });
-                    </script>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="panel panel-default">
-                <div class="panel-heading">布局使用情况</div>
-                <div class="panel-body">
-                    <canvas id="layout-usage"></canvas>
-                    <script>
-                        var layout = document.getElementById("layout-usage");
-                        var layoutChart = new Chart(layout, {
-                            type: 'doughnut',
-                            data: {
-                                labels: @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.Layouts)),
-                                datasets: [
-                                    {
-                                        label: '页面使用布局情况',
-                                        data: @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model.LayoutUsage)),
-                                        backgroundColor: backgroundColor,
-                                        borderColor: borderColor,
-                                        borderWidth: 1
-                                    }
-                                ]
-                            }
-                        });
-                    </script>
-                </div>
-            </div>
-        </div>
 
+            }
+        }
     </div>
+
+    
     <div class="row">
         <div class="col-md-4">
             <div class="panel panel-default">
@@ -280,7 +204,7 @@
                                 <span class="badge">
                                     @page.LastUpdateByName
                                     于
-                                    @((DateTime.Now- (page.LastUpdateDate ?? DateTime.Now)).Days)
+                                    @((DateTime.Now - (page.LastUpdateDate ?? DateTime.Now)).Days)
                                     天前修改
                                 </span>
                             </li>

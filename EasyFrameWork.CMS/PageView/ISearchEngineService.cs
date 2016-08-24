@@ -1,7 +1,6 @@
-﻿using Easy.CMS.Common.Models;
-using Easy.IOC;
+﻿using Easy.IOC;
 
-namespace Easy.CMS.Common.Service
+namespace Easy.Web.CMS.PageView
 {
     public interface ISearchEngineService : IDependency
     {

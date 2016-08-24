@@ -1,7 +1,6 @@
-﻿using Easy.CMS.Common.Models;
-using Easy.RepositoryPattern;
+﻿using Easy.RepositoryPattern;
 
-namespace Easy.CMS.Common.Service
+namespace Easy.Web.CMS.PageView
 {
     public interface IPageViewService : IService<PageView>
     {

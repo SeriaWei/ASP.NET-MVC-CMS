@@ -3,10 +3,10 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Xml.Serialization;
-using Easy.CMS.Common.Models;
 using Easy.Extend;
 using Easy.RepositoryPattern;
 using Easy.Web.CMS;
+using Easy.Web.CMS.PageView;
 
 namespace Easy.CMS.Common.Service
 {

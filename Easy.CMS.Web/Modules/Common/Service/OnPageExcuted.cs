@@ -4,6 +4,7 @@ using Easy.Web.CMS.Page;
 using System.Web;
 using Easy.CMS.Common.Models;
 using Easy.Extend;
+using Easy.Web.CMS.PageView;
 using Easy.Web.ValueProvider;
 
 namespace Easy.CMS.Common.Service

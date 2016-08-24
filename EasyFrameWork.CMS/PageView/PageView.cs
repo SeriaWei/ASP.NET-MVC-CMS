@@ -1,7 +1,7 @@
 ﻿using Easy.MetaData;
 using Easy.Models;
 
-namespace Easy.CMS.Common.Models
+namespace Easy.Web.CMS.PageView
 {
     [DataConfigure(typeof(PageViewMetaData))]
     public class PageView : EditorEntity
