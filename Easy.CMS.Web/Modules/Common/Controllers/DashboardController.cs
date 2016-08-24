@@ -19,7 +19,6 @@ using Easy.Web.CMS.Chart;
 using Easy.Web.CMS.Layout;
 using Easy.Web.CMS.Media;
 using Easy.Web.CMS.Page;
-using Easy.Web.CMS.PageView;
 using Easy.Web.CMS.Product.Service;
 
 namespace Easy.CMS.Common.Controllers
@@ -28,16 +27,14 @@ namespace Easy.CMS.Common.Controllers
     public class DashboardController : Controller
     {
         private readonly IPageService _pageService;
-        private readonly IPageViewService _pageViewService;
         private readonly IProductService _productService;
         private readonly IArticleService _articleService;
         private readonly IMediaService _mediaService;
         private readonly IChartProviderService _chartProviderService;
-        public DashboardController(IPageService pageService, IPageViewService pageViewService, IProductService productService, 
+        public DashboardController(IPageService pageService, IProductService productService, 
             IArticleService articleService, IMediaService mediaService, IChartProviderService chartProviderService)
         {
             _pageService = pageService;
-            _pageViewService = pageViewService;
             _productService = productService;
             _articleService = articleService;
             _mediaService = mediaService;
@@ -54,19 +51,19 @@ namespace Easy.CMS.Common.Controllers
                 Articles = _articleService.Count(new DataFilter()),
                 Medias = _mediaService.Count(new DataFilter()),
                 UnPublishPage = _pageService.Get(m => m.IsPublishedPage == false && m.IsPublish == false),
-                CurrentTop =
-                    _pageViewService.Get(new DataFilter().Where("CreateDate", OperatorType.GreaterThanOrEqualTo,
-                        datetime)
-                        .OrderBy("ID", OrderType.Descending))
-                        .GroupBy(m => m.PageUrl)
-                        .OrderByDescending(m => m.Count())
-                        .Take(10)
-                        .Select(m =>
-                        {
-                            var pv = m.First();
-                            pv.Sum = m.Count();
-                            return pv;
-                        }),
+                //CurrentTop =
+                //    _pageViewService.Get(new DataFilter().Where("CreateDate", OperatorType.GreaterThanOrEqualTo,
+                //        datetime)
+                //        .OrderBy("ID", OrderType.Descending))
+                //        .GroupBy(m => m.PageUrl)
+                //        .OrderByDescending(m => m.Count())
+                //        .Take(10)
+                //        .Select(m =>
+                //        {
+                //            var pv = m.First();
+                //            pv.Sum = m.Count();
+                //            return pv;
+                //        }),
                 Charts = _chartProviderService.GetAvailableChart().OrderBy(m=>m.Order),
                 Pages = pages.Count()
             };
