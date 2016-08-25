@@ -151,6 +151,7 @@
     <Compile Include="Service\CarouselItemService.cs" />
     <Compile Include="Service\CarouselService.cs" />
     <Compile Include="Service\CarouselWidgetService.cs" />
+    <Compile Include="Service\DashboardWelcomePartService.cs" />
     <Compile Include="Service\ICarouselItemService.cs" />
     <Compile Include="Service\ICarouselService.cs" />
     <Compile Include="Service\ImageWidgetService.cs" />
@@ -172,7 +173,6 @@
     </Content>
     <Content Include="CopyItems.xml" />
     <Content Include="Content\Images\demoLayout.jpg" />
-    <Content Include="Scripts\Chart.bundle.min.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\LayoutDesign.js" />
     <Content Include="Scripts\LayoutDesign.min.js">
@@ -274,6 +274,7 @@
     <Content Include="Views\Roles\Partal.Permissions.cshtml" />
     <Content Include="Views\Error\Forbidden.cshtml" />
     <Content Include="Views\Dashboard\Index.cshtml" />
+    <Content Include="Views\Dashboard.Welcome.cshtml" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>

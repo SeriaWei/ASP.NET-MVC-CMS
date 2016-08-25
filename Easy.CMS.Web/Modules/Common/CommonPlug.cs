@@ -166,8 +166,6 @@ namespace Easy.CMS.Common
 
             script("LayoutDesign").Include("~/Modules/Common/Scripts/LayoutDesign.js", "~/Modules/Common/Scripts/LayoutDesign.min.js");
             script("PageDesign").Include("~/Modules/Common/Scripts/PageDesign.js", "~/Modules/Common/Scripts/PageDesign.min.js");
-
-            script("Chart").Include("~/Modules/Common/Scripts/Chart.bundle.min.js", "~/Modules/Common/Scripts/Chart.bundle.min.js", "//cdn.bootcss.com/Chart.js/2.2.1/Chart.bundle.min.js");
         }
 
         protected override void InitStyle(Func<string, Web.Resource.ResourceHelper> style)
