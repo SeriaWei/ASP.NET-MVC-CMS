@@ -31,7 +31,7 @@ namespace Easy.CMS.Common
         public const string ViewRole = "Role_View";
         public const string ManageRole = "Role_Manage";
 
-        public const string ViewApplication = "Application_View";
-        public const string ManageApplication = "Application_Manage";
+        public const string ViewApplicationSetting = "ApplicationSetting_View";
+        public const string ManageApplicationSetting = "ApplicationSetting_Manage";
     }
 }

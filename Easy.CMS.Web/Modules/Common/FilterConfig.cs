@@ -5,6 +5,7 @@ using Easy.Web.Authorize;
 using Easy.Web.CMS.Layout;
 using Easy.Web.CMS.Media;
 using Easy.Web.CMS.Page;
+using Easy.Web.CMS.Setting;
 using Easy.Web.CMS.Theme;
 using Easy.Web.Filter;
 namespace Easy.CMS.Common
@@ -96,6 +97,13 @@ namespace Easy.CMS.Common
             Registry.Register<RolesController, DefaultAuthorizeAttribute>(m => m.Create(), auth => auth.SetPermissionKey(PermissionKeys.ManageRole));
             Registry.Register<RolesController, DefaultAuthorizeAttribute>(m => m.Create(null, null), auth => auth.SetPermissionKey(PermissionKeys.ManageRole));
             Registry.Register<RolesController, DefaultAuthorizeAttribute>(m => m.Delete(string.Empty), auth => auth.SetPermissionKey(PermissionKeys.ManageRole));
+
+            Registry.Register<ApplicationSettingController, DefaultAuthorizeAttribute>(m => m.Index(), auth => auth.SetPermissionKey(PermissionKeys.ViewApplicationSetting));
+            Registry.Register<ApplicationSettingController, DefaultAuthorizeAttribute>(m => m.Edit(string.Empty), auth => auth.SetPermissionKey(PermissionKeys.ManageApplicationSetting));
+            Registry.Register<ApplicationSettingController, DefaultAuthorizeAttribute>(m => m.Edit(new ApplicationSetting()), auth => auth.SetPermissionKey(PermissionKeys.ManageApplicationSetting));
+            Registry.Register<ApplicationSettingController, DefaultAuthorizeAttribute>(m => m.Create(), auth => auth.SetPermissionKey(PermissionKeys.ManageApplicationSetting));
+            Registry.Register<ApplicationSettingController, DefaultAuthorizeAttribute>(m => m.Create(new ApplicationSetting()), auth => auth.SetPermissionKey(PermissionKeys.ManageApplicationSetting));
+            Registry.Register<ApplicationSettingController, DefaultAuthorizeAttribute>(m => m.Delete(string.Empty), auth => auth.SetPermissionKey(PermissionKeys.ManageApplicationSetting));
         }
 
     }

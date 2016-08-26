@@ -1,0 +1,13 @@
+﻿@using Easy.Data
+@using Easy.Web.CMS.Setting
+@model ApplicationSetting
+
+<div id="toolBar">
+    <a href="@Url.Action("Create")" class="btn btn-primary btn-xs btn">新建</a>
+</div>
+@(
+ Html.Grid().SetColumnTemplate(col =>
+ {
+     col.Add(m => m.SettingKey, "<a href='" + Url.Action("Edit") + "?ID={SettingKey}'>{SettingKey}</a>");
+ }).SetAsToolBar("#toolBar").ShowCheckbox(m => m.SettingKey).OrderBy(m => m.SettingKey, OrderType.Ascending)
+)

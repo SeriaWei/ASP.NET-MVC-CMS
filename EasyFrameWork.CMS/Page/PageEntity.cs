@@ -44,9 +44,8 @@ namespace Easy.Web.CMS.Page
 
         public DateTime? PublishDate { get; set; }
         public bool IsPublish { get; set; }
-
-
         public IEnumerable<ExtendFieldEntity> ExtendFields { get; set; }
+        public string Favicon { get; set; }
     }
     class PageBaseMetaData : DataViewMetaData<PageEntity>
     {
@@ -57,6 +56,7 @@ namespace Easy.Web.CMS.Page
             DataConfig(m => m.PageUrl).Ignore();
             DataConfig(m => m.ExtendFields)
                 .SetReference<ExtendFieldEntity, IExtendFieldService>((page, extend) => extend.OwnerModule == TargetType.Name && extend.OwnerID == page.ID);
+            DataConfig(m => m.Favicon).Ignore();
         }
 
         protected override void ViewConfigure()
@@ -76,6 +76,7 @@ namespace Easy.Web.CMS.Page
             ViewConfig(m => m.PublishDate).AsTextBox().Hide();
             ViewConfig(m => m.IsPublish).AsTextBox().Hide();
             ViewConfig(m => m.IsPublishedPage).AsTextBox().Hide();
+            ViewConfig(m => m.Favicon).AsHidden().Ignore();
         }
     }
 

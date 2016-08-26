@@ -123,6 +123,7 @@
   <ItemGroup>
     <Compile Include="CommonPlug.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ApplicationSettingController.cs" />
     <Compile Include="Controllers\CarouselController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
@@ -275,6 +276,9 @@
     <Content Include="Views\Error\Forbidden.cshtml" />
     <Content Include="Views\Dashboard\Index.cshtml" />
     <Content Include="Views\Dashboard.Welcome.cshtml" />
+    <Content Include="Views\ApplicationSetting\Index.cshtml" />
+    <Content Include="Views\ApplicationSetting\Edit.cshtml" />
+    <Content Include="Views\ApplicationSetting\Create.cshtml" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>

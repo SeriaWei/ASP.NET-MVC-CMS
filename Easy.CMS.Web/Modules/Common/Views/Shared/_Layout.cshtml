@@ -1,6 +1,7 @@
 ﻿@using Easy
 @using Easy.Web.CMS.Page
 @using Easy.Web.CMS.Layout
+@using Easy.Web.CMS.Setting
 @using Microsoft.Practices.ServiceLocation
 @model LayoutEntity
 @{
@@ -8,7 +9,6 @@
     {
         return;
     }
-
     Style.Reqiured("Easy").AtFoot();
 }
 <!DOCTYPE html>
@@ -26,8 +26,9 @@
     <meta name="keywords" content="@Model.Page.MetaKeyWorlds" />
     <meta name="description" content="@Model.Page.MetaDescription" />
     <meta name="author" content="ZKEASOFT"/>
+    <meta name="about" content="@Easy.Web.CMS.Version.CurrentVersion" />
     <meta name="website" content="http://www.zkea.net" />
-    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="@Url.PathContent(Model.Page.Favicon)" rel="shortcut icon" type="image/x-icon" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,maximum-scale=1.0" />
 
     @if (Model.Page.ExtendFields != null)

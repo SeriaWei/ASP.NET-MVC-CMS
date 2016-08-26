@@ -21,7 +21,8 @@ namespace Easy.Web.CMS.Setting
 
         protected override void ViewConfigure()
         {
-            
+            ViewConfig(m => m.SettingKey).AsTextBox().Required();
+            ViewConfig(m => m.Value).AsTextBox().Required();
         }
     }
 }

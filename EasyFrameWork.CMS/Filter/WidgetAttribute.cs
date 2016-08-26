@@ -13,6 +13,7 @@ using System.Net;
 using System.Web;
 using Easy.Cache;
 using Easy.Web.CMS.Event;
+using Easy.Web.CMS.Setting;
 using Easy.Web.CMS.Theme;
 using Microsoft.Practices.ServiceLocation;
 
@@ -56,6 +57,7 @@ namespace Easy.Web.CMS.Filter
             {
                 LayoutEntity layout = ServiceLocator.Current.GetInstance<ILayoutService>().Get(page.LayoutId);
                 layout.Page = page;
+                page.Favicon = ServiceLocator.Current.GetInstance<IApplicationSettingService>().Get(SettingKeys.Favicon, "~/favicon.ico");
                 if (filterContext.RequestContext.HttpContext.Request.IsAuthenticated && page.IsPublishedPage)
                 {
                     layout.PreViewPage = PageService.GetByPath(page.Url, true);
@@ -96,7 +98,7 @@ namespace Easy.Web.CMS.Filter
                 }
                 if (page.IsPublishedPage)
                 {
-                    ServiceLocator.Current.GetAllInstances<IOnPageExecuted>().Each(m => m.OnExecuted(page, HttpContext.Current));    
+                    ServiceLocator.Current.GetAllInstances<IOnPageExecuted>().Each(m => m.OnExecuted(page, HttpContext.Current));
                 }
             }
             else

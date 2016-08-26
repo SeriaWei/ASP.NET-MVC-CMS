@@ -79,3 +79,6 @@ CREATE TABLE [dbo].[ApplicationSetting](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 
 GO
+DELETE FROM dbo.Language WHERE LanKey=N'ApplicationSetting@SettingKey'
+INSERT INTO dbo.Language( LanKey ,LanID ,LanValue ,Module ,LanType) VALUES  ( N'ApplicationSetting@SettingKey' , 2052 , N'¼ü' , N'ApplicationSetting' ,N'EntityProperty' )
+GO

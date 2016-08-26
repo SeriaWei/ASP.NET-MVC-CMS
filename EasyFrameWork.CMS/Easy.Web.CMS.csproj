@@ -140,6 +140,7 @@
     <Compile Include="Product\Models\ProductCategory.cs" />
     <Compile Include="Product\Service\IProductCategoryService.cs" />
     <Compile Include="Product\Service\IProductService.cs" />
+    <Compile Include="SettingKeys.cs" />
     <Compile Include="Setting\ApplicationSetting.cs" />
     <Compile Include="Setting\ApplicationSettingService.cs" />
     <Compile Include="Setting\IApplicationSettingService.cs" />
