@@ -165,8 +165,8 @@ namespace Easy.Web.CMS.Page
 
         public void MarkChanged(string pageId)
         {
-            this.Update(new PageEntity { IsPublish = false },
-              new DataFilter(new List<string> { "IsPublish" })
+            this.Update(new PageEntity { IsPublish = false, LastUpdateDate = DateTime.Now, LastUpdateBy = ApplicationContext.CurrentUser.UserID },
+              new DataFilter(new List<string> { "IsPublish", "LastUpdateDate", "LastUpdateBy" })
               .Where("ID", OperatorType.Equal, pageId));
         }
     }
