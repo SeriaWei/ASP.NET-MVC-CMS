@@ -11,9 +11,11 @@ using EasyZip;
 using Microsoft.Practices.ServiceLocation;
 using Easy.Web.CMS;
 using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 using Newtonsoft.Json;
 using Easy.CMS.Section.ContentJsonConvert;
 using System.Text;
+using Easy.Cache;
 
 namespace Easy.CMS.Section.Service
 {
@@ -36,7 +38,6 @@ namespace Easy.CMS.Section.Service
         public override WidgetBase GetWidget(WidgetBase widget)
         {
             SectionWidget sectionWidget = base.GetWidget(widget) as SectionWidget;
-
             return InitSectionWidget(sectionWidget);
         }
 
@@ -111,11 +112,11 @@ namespace Easy.CMS.Section.Service
             {
                 var template = ServiceLocator.Current.GetInstance<ISectionTemplateService>().Get(g.PartialView);
                 string infoFile = (ApplicationContext as CMSApplicationContext).MapPath("~/Modules/Section/Views/Thumbnail/{0}.json".FormatWith(template.TemplateName));
-                using (var writer = System.IO.File.CreateText(infoFile))
+                using (var writer = File.CreateText(infoFile))
                 {
-                    writer.Write(Newtonsoft.Json.JsonConvert.SerializeObject(template));
+                    writer.Write(JsonConvert.SerializeObject(template));
                 }
-                zipFile.AddFile(new System.IO.FileInfo(infoFile), Path.GetDirectoryName(infoFile.Replace(rootPath, @"\")));
+                zipFile.AddFile(new FileInfo(infoFile), Path.GetDirectoryName(infoFile.Replace(rootPath, @"\")));
 
                 files.Each(f =>
                 {

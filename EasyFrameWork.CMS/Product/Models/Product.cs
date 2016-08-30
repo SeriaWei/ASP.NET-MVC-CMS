@@ -69,6 +69,8 @@ namespace Easy.Web.CMS.Product.Models
         public string TargetUrl { get; set; }
 
         public IEnumerable<ExtendFieldEntity> ExtendFields { get; set; }
+        public IEnumerable<ExtendFieldEntity> CategoryFields { get; set; }
+
     }
     class ProductMetaData : DataViewMetaData<ProductEntity>
     {
@@ -79,6 +81,7 @@ namespace Easy.Web.CMS.Product.Models
             DataConfig(m => m.ExtendFields)
                 .SetReference<ExtendFieldEntity, IExtendFieldService>(
                     (product, extend) => extend.OwnerModule == TargetType.Name && extend.OwnerID == product.ID.ToString());
+            DataConfig(m => m.CategoryFields).Ignore();
         }
 
         protected override void ViewConfigure()
@@ -97,6 +100,7 @@ namespace Easy.Web.CMS.Product.Models
             ViewConfig(m => m.ProductContent).AsTextArea().AddClass("html").HideInGrid();
             ViewConfig(m => m.Description).AsTextArea();
             ViewConfig(m => m.IsPublish).AsTextBox().Hide();
+            ViewConfig(m => m.CategoryFields).AsHidden().Ignore();
         }
     }
 
