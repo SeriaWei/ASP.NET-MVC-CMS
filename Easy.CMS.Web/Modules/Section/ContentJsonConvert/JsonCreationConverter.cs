@@ -9,10 +9,10 @@ namespace Easy.CMS.Section.ContentJsonConvert
 {
     public abstract class JsonCreationConverter<T> : JsonConverter
     {
-        Type _ChildType;
+        Type _childType;
         public Type ChildType
         {
-            get { return _ChildType ?? (_ChildType = typeof(T)); }
+            get { return _childType ?? (_childType = typeof(T)); }
         }
         protected abstract T Create(Type objectType, JObject jObject);
 

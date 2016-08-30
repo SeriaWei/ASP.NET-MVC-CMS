@@ -13,27 +13,30 @@ namespace Easy.CMS.Section.ContentJsonConvert
         protected override SectionContent Create(Type objectType, JObject jObject)
         {
             var contentType = jObject["SectionContentType"].Value<int>();
-            if (((int)SectionContent.Types.CallToAction).Equals(contentType))
+            switch (contentType)
             {
-                return new SectionContentCallToAction();
+                case (int)SectionContentBase.Types.CallToAction:
+                    {
+                        return new SectionContentCallToAction();
+                    }
+                case (int)SectionContentBase.Types.Image:
+                    {
+                        return new SectionContentImage();
+                    }
+                case (int)SectionContentBase.Types.Paragraph:
+                    {
+                        return new SectionContentParagraph();
+                    }
+                case (int)SectionContentBase.Types.Title:
+                    {
+                        return new SectionContentTitle();
+                    }
+                case (int)SectionContentBase.Types.Video:
+                    {
+                        return new SectionContentVideo();
+                    }
+                default: return new SectionContent();
             }
-            else if (((int)SectionContent.Types.Image).Equals(contentType))
-            {
-                return new SectionContentImage();
-            }
-            else if (((int)SectionContent.Types.Paragraph).Equals(contentType))
-            {
-                return new SectionContentParagraph();
-            }
-            else if (((int)SectionContent.Types.Title).Equals(contentType))
-            {
-                return new SectionContentTitle();
-            }
-            else if (((int)SectionContent.Types.Video).Equals(contentType))
-            {
-                return new SectionContentVideo();
-            }
-            return new SectionContent();
         }
     }
 }
