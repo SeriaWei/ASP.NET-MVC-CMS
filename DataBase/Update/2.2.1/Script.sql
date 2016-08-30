@@ -36,8 +36,8 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE TABLE [dbo].[ChartDataArchived](
-	[ChartID] [nvarchar](50) NOT NULL,
+CREATE TABLE [dbo].[DataArchived](
+	[ID] [nvarchar](50) NOT NULL,
 	[Data] [nvarchar](max) NULL,
 	[Title] [nvarchar](50) NULL,
 	[Description] [nvarchar](500) NULL,
@@ -48,9 +48,9 @@ CREATE TABLE [dbo].[ChartDataArchived](
 	[LastUpdateBy] [nvarchar](50) NULL,
 	[LastUpdateByName] [nvarchar](100) NULL,
 	[LastUpdateDate] [datetime] NULL,
- CONSTRAINT [PK_ChartDataArchived] PRIMARY KEY CLUSTERED 
+ CONSTRAINT [PK_DataArchived] PRIMARY KEY CLUSTERED 
 (
-	[ChartID] ASC
+	[ID] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 

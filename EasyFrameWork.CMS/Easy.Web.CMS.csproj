@@ -117,6 +117,9 @@
     <Compile Include="Dashboard\DashboardProviderService.cs" />
     <Compile Include="Dashboard\IDashboardPartDriveService.cs" />
     <Compile Include="Dashboard\IDashboardProviderService.cs" />
+    <Compile Include="DataArchived\DataArchived.cs" />
+    <Compile Include="DataArchived\DataArchivedService.cs" />
+    <Compile Include="DataArchived\IDataArchivedService.cs" />
     <Compile Include="Encrypt\EncryptService.cs" />
     <Compile Include="Encrypt\IEncryptService.cs" />
     <Compile Include="Event\IOnPageExecuted.cs" />

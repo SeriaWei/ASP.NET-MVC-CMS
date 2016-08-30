@@ -171,6 +171,9 @@ if %ERRORLEVEL% NEQ 0 goto errors
 @echo ApplicationSetting
 sqlcmd -S %server% -d %dataBase% -U %dbUserId% -P %dbPassword% -b -i "Tables\dbo.ApplicationSetting.Table.sql"
 if %ERRORLEVEL% NEQ 0 goto errors
+@echo DataArchived
+sqlcmd -S %server% -d %dataBase% -U %dbUserId% -P %dbPassword% -b -i "Tables\dbo.DataArchived.Table.sql"
+if %ERRORLEVEL% NEQ 0 goto errors
 
 @echo InitailData...
 @echo ArticleType
