@@ -22,13 +22,15 @@ namespace Easy.CMS.Breadcrumb.Service
 
         private List<PageEntity> _parentPages;
 
-        public List<PageEntity> ParentPages
-        {
-            get { return _parentPages ?? (_parentPages = new List<PageEntity>()); }
-        }
+        public List<PageEntity> ParentPages { get; set; }
         public override WidgetPart Display(WidgetBase widget, HttpContextBase httpContext)
         {
-            GetParentPage(httpContext.GetLayout().Page);
+            if (ParentPages == null)
+            {
+                ParentPages = new List<PageEntity>();
+                GetParentPage(httpContext.GetLayout().Page);
+            }
+
             return widget.ToWidgetPart(ParentPages);
         }
 
@@ -40,7 +42,7 @@ namespace Easy.CMS.Breadcrumb.Service
                 var parentPage = PageService.Get(m => m.ID == page.ParentId).FirstOrDefault();
                 if (parentPage != null)
                 {
-                    GetParentPage(parentPage);    
+                    GetParentPage(parentPage);
                 }
             }
         }

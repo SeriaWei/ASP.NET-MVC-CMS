@@ -16,6 +16,7 @@ using Newtonsoft.Json;
 using Easy.CMS.Section.ContentJsonConvert;
 using System.Text;
 using Easy.Cache;
+using Easy.Web.CMS.DataArchived;
 
 namespace Easy.CMS.Section.Service
 {
@@ -35,6 +36,10 @@ namespace Easy.CMS.Section.Service
             _sectionContentProviderService = sectionContentProviderService;
         }
 
+        private IDataArchivedService _dataArchivedService;
+
+
+
         public override WidgetBase GetWidget(WidgetBase widget)
         {
             SectionWidget sectionWidget = base.GetWidget(widget) as SectionWidget;
@@ -44,8 +49,7 @@ namespace Easy.CMS.Section.Service
         public override SectionWidget Get(params object[] primaryKeys)
         {
             SectionWidget widget = base.Get(primaryKeys);
-            widget = InitSectionWidget(widget);
-            return widget;
+            return InitSectionWidget(widget);
         }
 
         private SectionWidget InitSectionWidget(SectionWidget widget)

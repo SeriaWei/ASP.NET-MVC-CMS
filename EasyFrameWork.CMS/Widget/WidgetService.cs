@@ -23,7 +23,7 @@ namespace Easy.Web.CMS.Widget
     public class WidgetService : ServiceBase<WidgetBase>, IWidgetService
     {
         protected const string EncryptWidgetTemplate = "EncryptWidgetTemplate";
-
+        protected const string WidgetChanged = "WidgetUpdate:";
 
         private void TriggerPage(WidgetBase widget)
         {
@@ -65,7 +65,7 @@ namespace Easy.Web.CMS.Widget
             var result = GetByLayoutId(page.LayoutId);
             List<WidgetBase> widgets = result.ToList();
             widgets.AddRange(GetByPageId(page.ID));
-            return widgets;
+            return widgets.Select(widget => widget.CreateServiceInstance().GetWidget(widget)).ToList();
         }
         public override void Add(WidgetBase item)
         {
@@ -230,6 +230,7 @@ namespace Easy.Web.CMS.Widget
                 to.Thumbnail = from.Thumbnail;
                 to.IsSystem = from.IsSystem;
                 to.ExtendFields = from.ExtendFields;
+                to.PartDriver = from.PartDriver;
             }
         }
 

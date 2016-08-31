@@ -8,6 +8,7 @@ using Easy.RepositoryPattern;
 using Easy.Extend;
 using Easy.Web.CMS.Zone;
 using Easy.Constant;
+using Easy.Web.CMS.DataArchived;
 using Easy.Web.CMS.Page;
 using Easy.Web.CMS.Widget;
 using Microsoft.Practices.ServiceLocation;
@@ -16,7 +17,12 @@ namespace Easy.Web.CMS.Layout
 {
     public class LayoutService : ServiceBase<LayoutEntity>, ILayoutService
     {
-        public const string LayoutChanged = "LayoutChanged";
+        private IDataArchivedService _dataArchivedService;
+
+        public IDataArchivedService DataArchivedService
+        {
+            get { return _dataArchivedService ?? (_dataArchivedService = ServiceLocator.Current.GetInstance<IDataArchivedService>()); }
+        }
         private IPageService _pageService;
         public IPageService PageService
         {
@@ -33,6 +39,11 @@ namespace Easy.Web.CMS.Layout
         public IWidgetService WidgetService
         {
             get { return _widgetService ?? (_widgetService = ServiceLocator.Current.GetInstance<IWidgetService>()); }
+        }
+
+        private string GenerateKey(object id)
+        {
+            return "Layout:" + id;
         }
         public override void Add(LayoutEntity item)
         {
@@ -59,7 +70,7 @@ namespace Easy.Web.CMS.Layout
 
         public void UpdateDesign(LayoutEntity item)
         {
-            this.Update(item, new Data.DataFilter(new List<string> { "ContainerClass" }).Where("ID", OperatorType.Equal, item.ID));
+            this.Update(item, new DataFilter(new List<string> { "ContainerClass" }).Where("ID", OperatorType.Equal, item.ID));
             if (item.Zones != null)
             {
                 var zones = ZoneService.Get(m => m.LayoutId == item.ID);
@@ -88,76 +99,80 @@ namespace Easy.Web.CMS.Layout
             }
 
         }
-        public override bool Update(LayoutEntity item, Data.DataFilter filter)
+        public override bool Update(LayoutEntity item, DataFilter filter)
         {
-            Signal.Trigger(LayoutChanged);
+            DataArchivedService.Delete(GenerateKey(item.ID));
             return base.Update(item, filter);
         }
         public override bool Update(LayoutEntity item, params object[] primaryKeys)
         {
-            Signal.Trigger(LayoutChanged);
+            DataArchivedService.Delete(GenerateKey(item.ID));
             return base.Update(item, primaryKeys);
         }
         public override LayoutEntity Get(params object[] primaryKeys)
         {
-            var cache = new StaticCache();
-            var layout = cache.Get((ApplicationContext as CMSApplicationContext).RequestUrl.Host + "_Layout_" + primaryKeys[0], m =>
-             {
-                 m.When(LayoutChanged);
-                 LayoutEntity entity = base.Get(primaryKeys);
-                 if (entity == null)
-                     return null;
-                 IEnumerable<ZoneEntity> zones = ZoneService.Get(new Data.DataFilter().Where("LayoutId", OperatorType.Equal, entity.ID));
-                 entity.Zones = new ZoneCollection();
-                 zones.Each(entity.Zones.Add);
-                 IEnumerable<LayoutHtml> htmls = new LayoutHtmlService().Get(new Data.DataFilter().OrderBy("LayoutHtmlId", OrderType.Ascending).Where("LayoutId", OperatorType.Equal, entity.ID));
-                 entity.Html = new LayoutHtmlCollection();
-                 htmls.Each(entity.Html.Add);
-                 return entity;
-             });
-            layout.Page = null;
+            var layout = DataArchivedService.Get(GenerateKey(primaryKeys[0]), () =>
+            {
+                LayoutEntity entity = base.Get(primaryKeys);
+                if (entity == null)
+                    return null;
+                IEnumerable<ZoneEntity> zones =
+                    ZoneService.Get(new DataFilter().Where("LayoutId", OperatorType.Equal, entity.ID));
+                entity.Zones = new ZoneCollection();
+                zones.Each(entity.Zones.Add);
+                IEnumerable<LayoutHtml> htmls =
+                    new LayoutHtmlService().Get(
+                        new DataFilter().OrderBy("LayoutHtmlId", OrderType.Ascending)
+                            .Where("LayoutId", OperatorType.Equal, entity.ID));
+                entity.Html = new LayoutHtmlCollection();
+                htmls.Each(entity.Html.Add);
+                return entity;
+            });
             return layout;
         }
-        public override int Delete(Data.DataFilter filter)
+        public override int Delete(DataFilter filter)
         {
             var deletes = this.Get(filter).ToList(m => m.ID);
             if (deletes.Any())
             {
                 var layoutHtmlService = new LayoutHtmlService();
-                layoutHtmlService.Delete(new Data.DataFilter().Where("LayoutId", OperatorType.In, deletes));
+                layoutHtmlService.Delete(new DataFilter().Where("LayoutId", OperatorType.In, deletes));
 
-                ZoneService.Delete(new Data.DataFilter().Where("LayoutId", OperatorType.In, deletes));
+                ZoneService.Delete(new DataFilter().Where("LayoutId", OperatorType.In, deletes));
 
 
-                PageService.Delete(new Data.DataFilter().Where("LayoutId", OperatorType.In, deletes));
+                PageService.Delete(new DataFilter().Where("LayoutId", OperatorType.In, deletes));
 
-                var widgets = WidgetService.Get(new Data.DataFilter().Where("LayoutId", OperatorType.In, deletes));
+                var widgets = WidgetService.Get(new DataFilter().Where("LayoutId", OperatorType.In, deletes));
                 widgets.Each(m =>
                 {
                     m.CreateServiceInstance().DeleteWidget(m.ID);
                 });
-
+                deletes.Each(id => DataArchivedService.Delete(GenerateKey(id)));
             }
-            Signal.Trigger(LayoutChanged);
+
             return base.Delete(filter);
         }
         public override int Delete(params object[] primaryKeys)
         {
             LayoutEntity layout = Get(primaryKeys);
-            var layoutHtmlService = new LayoutHtmlService();
-            layoutHtmlService.Delete(m => m.LayoutId == layout.ID);
-
-            ZoneService.Delete(new Data.DataFilter().Where("LayoutId", OperatorType.Equal, layout.ID));
-
-
-            PageService.Delete(new DataFilter().Where("LayoutId", OperatorType.Equal, layout.ID));
-
-            var widgets = WidgetService.Get(new DataFilter().Where("LayoutId", OperatorType.Equal, layout.ID));
-            widgets.Each(m =>
+            if (layout != null)
             {
-                m.CreateServiceInstance().DeleteWidget(m.ID);
-            });
-            Signal.Trigger(LayoutChanged);
+                var layoutHtmlService = new LayoutHtmlService();
+                layoutHtmlService.Delete(m => m.LayoutId == layout.ID);
+
+                ZoneService.Delete(new DataFilter().Where("LayoutId", OperatorType.Equal, layout.ID));
+
+
+                PageService.Delete(new DataFilter().Where("LayoutId", OperatorType.Equal, layout.ID));
+
+                var widgets = WidgetService.Get(new DataFilter().Where("LayoutId", OperatorType.Equal, layout.ID));
+                widgets.Each(m =>
+                {
+                    m.CreateServiceInstance().DeleteWidget(m.ID);
+                });
+                DataArchivedService.Delete(GenerateKey(layout.ID));
+            }
             return base.Delete(primaryKeys);
         }
     }
