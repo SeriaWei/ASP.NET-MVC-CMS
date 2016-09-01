@@ -7,8 +7,10 @@ using Easy.Models;
 
 namespace Easy.CMS.Section.Models
 {
+    [Serializable]
     public abstract class SectionContentBase : EditorEntity
     {
+        [Serializable]
         public enum Types
         {
             None = 0,
@@ -28,7 +30,7 @@ namespace Easy.CMS.Section.Models
             set;
         }
     }
-    [DataConfigure(typeof(SectionContentMetaData))]
+    [DataConfigure(typeof(SectionContentMetaData)), Serializable]
     public class SectionContent : SectionContentBase
     {
         public override int SectionContentType

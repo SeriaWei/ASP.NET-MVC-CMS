@@ -15,9 +15,10 @@ using Easy.Web.CMS.ExtendField;
 
 namespace Easy.Web.CMS.Widget
 {
-    [DataConfigure(typeof(WidgetBaseMetaData))]
+    [DataConfigure(typeof(WidgetBaseMetaData)), Serializable]
     public class WidgetBase : EditorEntity, IExtendField
     {
+        [NonSerialized]
         public static Dictionary<string, Type> KnownWidgetModel;
         static WidgetBase()
         {
@@ -98,20 +99,22 @@ namespace Easy.Web.CMS.Widget
             };
         }
 
-        public IWidgetPartDriver PartDriver { get; set; }
+        [NonSerialized] 
+        private IWidgetPartDriver _partDriver;
         public IWidgetPartDriver CreateServiceInstance()
         {
-            if (PartDriver != null) return PartDriver;
+            if (_partDriver != null) return _partDriver;
             StaticCache cache = new StaticCache();
             var type = cache.Get("WidgetPart_" + this.AssemblyName + this.ServiceTypeName, source =>
               {
-                  PartDriver = PartDriver ??
-                            (PartDriver = Activator.CreateInstance(this.AssemblyName, this.ServiceTypeName).Unwrap() as IWidgetPartDriver);
-                  return PartDriver.GetType();
+                  _partDriver = _partDriver ??
+                            (_partDriver = Activator.CreateInstance(this.AssemblyName, this.ServiceTypeName).Unwrap() as IWidgetPartDriver);
+                  return _partDriver.GetType();
               });
-            return PartDriver ?? (PartDriver = ServiceLocator.Current.GetInstance(type) as IWidgetPartDriver);
+            return _partDriver ?? (_partDriver = ServiceLocator.Current.GetInstance(type) as IWidgetPartDriver);
         }
 
+        [NonSerialized] 
         private WidgetBase _widgetBase;
         public WidgetBase CreateViewModelInstance()
         {

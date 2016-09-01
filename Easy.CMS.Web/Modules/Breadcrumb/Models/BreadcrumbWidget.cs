@@ -8,7 +8,7 @@ using Easy.Web.CMS.Widget;
 
 namespace Easy.CMS.Breadcrumb.Models
 {
-    [DataConfigure(typeof(BreadcrumbWidgetMetaData))]
+    [DataConfigure(typeof(BreadcrumbWidgetMetaData)), Serializable]
     public class BreadcrumbWidget : WidgetBase
     {
         public bool IsLinkAble { get; set; }

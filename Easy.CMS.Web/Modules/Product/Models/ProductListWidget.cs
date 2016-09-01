@@ -14,7 +14,7 @@ using Microsoft.Practices.ServiceLocation;
 
 namespace Easy.CMS.Product.Models
 {
-    [DataConfigure(typeof(ProductListWidgetMetaData))]
+    [DataConfigure(typeof(ProductListWidgetMetaData)), Serializable]
     public class ProductListWidget : WidgetBase
     {
         public bool IsPageable { get; set; }

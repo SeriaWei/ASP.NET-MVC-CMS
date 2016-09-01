@@ -7,7 +7,7 @@ using Easy.Web.CMS.MetaData;
 
 namespace Easy.Web.CMS.Widget
 {
-    [DataConfigure(typeof(HtmlWidgetMetaData))]
+    [DataConfigure(typeof(HtmlWidgetMetaData)), Serializable]
     public class HtmlWidget : WidgetBase
     {
         public string HTML { get; set; }

@@ -8,7 +8,7 @@ using Easy.Web.CMS.MetaData;
 
 namespace Easy.CMS.Article.Models
 {
-    [DataConfigure(typeof(ArticleDetailWidgetMetaData))]
+    [DataConfigure(typeof(ArticleDetailWidgetMetaData)), Serializable]
     public class ArticleDetailWidget : WidgetBase
     {
         public string CustomerClass { get; set; }

@@ -101,12 +101,12 @@ namespace Easy.Web.CMS.Layout
         }
         public override bool Update(LayoutEntity item, DataFilter filter)
         {
-            DataArchivedService.Delete(GenerateKey(item.ID));
+            MarkChanged(item.ID);
             return base.Update(item, filter);
         }
         public override bool Update(LayoutEntity item, params object[] primaryKeys)
         {
-            DataArchivedService.Delete(GenerateKey(item.ID));
+            MarkChanged(item.ID);
             return base.Update(item, primaryKeys);
         }
         public override LayoutEntity Get(params object[] primaryKeys)
@@ -148,7 +148,7 @@ namespace Easy.Web.CMS.Layout
                 {
                     m.CreateServiceInstance().DeleteWidget(m.ID);
                 });
-                deletes.Each(id => DataArchivedService.Delete(GenerateKey(id)));
+                deletes.Each(MarkChanged);
             }
 
             return base.Delete(filter);
@@ -171,9 +171,19 @@ namespace Easy.Web.CMS.Layout
                 {
                     m.CreateServiceInstance().DeleteWidget(m.ID);
                 });
-                DataArchivedService.Delete(GenerateKey(layout.ID));
+                MarkChanged(layout.ID);
             }
             return base.Delete(primaryKeys);
+        }
+
+
+        public void MarkChanged(string ID)
+        {
+            DataArchivedService.Delete(GenerateKey(ID));
+            PageService.Get(new DataFilter().Where("LayoutId", OperatorType.Equal, ID)).Each(m =>
+            {
+                DataArchivedService.Delete(CacheTrigger.PageWidgetsArchivedKey.FormatWith(m.ID));
+            });
         }
     }
 }

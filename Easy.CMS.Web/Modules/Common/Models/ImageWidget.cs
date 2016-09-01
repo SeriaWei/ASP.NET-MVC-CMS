@@ -10,7 +10,7 @@ using Easy.Web.CMS.MetaData;
 
 namespace Easy.CMS.Common.Models
 {
-    [DataConfigure(typeof(ImageWidgetMedaData))]
+    [DataConfigure(typeof(ImageWidgetMedaData)), Serializable]
     public class ImageWidget : WidgetBase
     {
         public string ImageUrl { get; set; }

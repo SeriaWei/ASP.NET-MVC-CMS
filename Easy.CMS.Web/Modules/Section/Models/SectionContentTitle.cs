@@ -7,7 +7,7 @@ using Easy.Web.CMS;
 
 namespace Easy.CMS.Section.Models
 {
-    [DataConfigure(typeof(SectionContentTitleMetaData))]
+    [DataConfigure(typeof(SectionContentTitleMetaData)), Serializable]
     public class SectionContentTitle : SectionContent
     {
         public const string H1 = "h1";

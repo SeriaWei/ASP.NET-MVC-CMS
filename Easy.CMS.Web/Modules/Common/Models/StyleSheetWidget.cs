@@ -8,7 +8,7 @@ using Easy.Web.CMS.Widget;
 
 namespace Easy.CMS.Common.Models
 {
-    [DataConfigure(typeof(StyleSheetWidgetMetaData))]
+    [DataConfigure(typeof(StyleSheetWidgetMetaData)), Serializable]
     public class StyleSheetWidget : WidgetBase
     {
         public string StyleSheet { get; set; }

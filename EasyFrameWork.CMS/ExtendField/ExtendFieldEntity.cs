@@ -1,9 +1,10 @@
-﻿using Easy.MetaData;
+﻿using System;
+using Easy.MetaData;
 using Easy.Models;
 
 namespace Easy.Web.CMS.ExtendField
 {
-    [DataConfigure(typeof(ExtendFieldEntityMetaData))]
+    [DataConfigure(typeof(ExtendFieldEntityMetaData)), Serializable]
     public class ExtendFieldEntity : EditorEntity
     {
         public int? ID { get; set; }

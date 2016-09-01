@@ -9,7 +9,7 @@ using Easy.Web.CMS.MetaData;
 
 namespace Easy.CMS.Article.Models
 {
-    [DataConfigure(typeof(ArticleSummaryWidgetMetaData))]
+    [DataConfigure(typeof(ArticleSummaryWidgetMetaData)), Serializable]
     public class ArticleSummaryWidget : WidgetBase
     {
         public string SubTitle { get; set; }

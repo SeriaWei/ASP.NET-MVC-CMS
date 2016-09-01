@@ -8,7 +8,7 @@ using Easy.Web.CMS;
 
 namespace Easy.CMS.Section.Models
 {
-    [DataConfigure(typeof(SectionContentCallToActionMetaData))]
+    [DataConfigure(typeof(SectionContentCallToActionMetaData)), Serializable]
     public class SectionContentCallToAction : SectionContent
     {
         public string InnerText { get; set; }

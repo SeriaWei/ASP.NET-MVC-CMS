@@ -8,7 +8,7 @@ using Easy.Web.CMS.Widget;
 
 namespace Easy.CMS.Section.Models
 {
-    [DataConfigure(typeof(SectionWidgetMetaData))]
+    [DataConfigure(typeof(SectionWidgetMetaData)), Serializable]
     public class SectionWidget : WidgetBase
     {
         public string SectionTitle { get; set; }

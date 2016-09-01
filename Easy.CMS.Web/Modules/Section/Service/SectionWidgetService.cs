@@ -36,10 +36,6 @@ namespace Easy.CMS.Section.Service
             _sectionContentProviderService = sectionContentProviderService;
         }
 
-        private IDataArchivedService _dataArchivedService;
-
-
-
         public override WidgetBase GetWidget(WidgetBase widget)
         {
             SectionWidget sectionWidget = base.GetWidget(widget) as SectionWidget;

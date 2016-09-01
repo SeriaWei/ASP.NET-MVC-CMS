@@ -16,23 +16,33 @@ using System.IO;
 using System.Configuration;
 using System.Security.Cryptography;
 using Easy.Constant;
+using Easy.Web.CMS.DataArchived;
 using Easy.Web.CMS.Encrypt;
+using Easy.Web.CMS.Layout;
 
 namespace Easy.Web.CMS.Widget
 {
     public class WidgetService : ServiceBase<WidgetBase>, IWidgetService
     {
         protected const string EncryptWidgetTemplate = "EncryptWidgetTemplate";
-        protected const string WidgetChanged = "WidgetUpdate:";
 
-        private void TriggerPage(WidgetBase widget)
+        private void TriggerChange(WidgetBase widget)
         {
             if (widget != null && widget.PageID.IsNotNullAndWhiteSpace())
             {
                 PageService.MarkChanged(widget.PageID);
             }
+            else if (widget != null && widget.LayoutID.IsNotNullAndWhiteSpace())
+            {
+                LayoutService.MarkChanged(widget.LayoutID);
+            }
         }
+        private ILayoutService _layoutService;
 
+        public ILayoutService LayoutService
+        {
+            get { return _layoutService ?? (_layoutService = ServiceLocator.Current.GetInstance<ILayoutService>()); }
+        }
         private IPageService _pageService;
 
         public IPageService PageService
@@ -45,6 +55,12 @@ namespace Easy.Web.CMS.Widget
         public IEncryptService EncryptService
         {
             get { return _encryptService ?? (_encryptService = ServiceLocator.Current.GetInstance<IEncryptService>()); }
+        }
+        private IDataArchivedService _dataArchivedService;
+
+        public IDataArchivedService DataArchivedService
+        {
+            get { return _dataArchivedService ?? (_dataArchivedService = ServiceLocator.Current.GetInstance<IDataArchivedService>()); }
         }
         public IEnumerable<WidgetBase> GetByLayoutId(string layoutId)
         {
@@ -62,50 +78,58 @@ namespace Easy.Web.CMS.Widget
 
         public IEnumerable<WidgetBase> GetAllByPage(PageEntity page)
         {
-            var result = GetByLayoutId(page.LayoutId);
-            List<WidgetBase> widgets = result.ToList();
-            widgets.AddRange(GetByPageId(page.ID));
-            return widgets.Select(widget => widget.CreateServiceInstance().GetWidget(widget)).ToList();
+            Func<PageEntity, List<WidgetBase>> getPageWidgets = (p) =>
+            {
+                var result = GetByLayoutId(p.LayoutId);
+                List<WidgetBase> widgets = result.ToList();
+                widgets.AddRange(GetByPageId(p.ID));
+                return widgets.Select(widget => widget.CreateServiceInstance().GetWidget(widget)).ToList();
+            };
+            if (page.IsPublishedPage)
+            {
+                return DataArchivedService.Get(CacheTrigger.PageWidgetsArchivedKey.FormatWith(page.ReferencePageID), () => getPageWidgets(page));    
+            }
+            return getPageWidgets(page);
         }
         public override void Add(WidgetBase item)
         {
             base.Add(item);
-            TriggerPage(item);
+            TriggerChange(item);
         }
 
         public override bool Update(WidgetBase item, DataFilter filter)
         {
-            Get(filter).Each(TriggerPage);
+            Get(filter).Each(TriggerChange);
             return base.Update(item, filter);
         }
 
         public override bool Update(WidgetBase item, params object[] primaryKeys)
         {
-            TriggerPage(item);
+            TriggerChange(item);
             return base.Update(item, primaryKeys);
         }
 
         public override int Delete(params object[] primaryKeys)
         {
-            TriggerPage(Get(primaryKeys));
+            TriggerChange(Get(primaryKeys));
             return base.Delete(primaryKeys);
         }
 
         public override int Delete(DataFilter filter)
         {
-            Get(filter).Each(TriggerPage);
+            Get(filter).Each(TriggerChange);
             return base.Delete(filter);
         }
 
         public override int Delete(Expression<Func<WidgetBase, bool>> expression)
         {
-            Get(expression).Each(TriggerPage);
+            Get(expression).Each(TriggerChange);
             return base.Delete(expression);
         }
 
         public override int Delete(WidgetBase item)
         {
-            TriggerPage(item);
+            TriggerChange(item);
             return base.Delete(item);
 
         }
@@ -230,7 +254,6 @@ namespace Easy.Web.CMS.Widget
                 to.Thumbnail = from.Thumbnail;
                 to.IsSystem = from.IsSystem;
                 to.ExtendFields = from.ExtendFields;
-                to.PartDriver = from.PartDriver;
             }
         }
 

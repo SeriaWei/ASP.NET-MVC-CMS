@@ -9,6 +9,7 @@ using Easy.Constant;
 using Easy.Web.CMS.ExtendField;
 using Easy.Web.CMS.Widget;
 using Microsoft.Practices.ServiceLocation;
+using Easy.Web.CMS.DataArchived;
 
 namespace Easy.Web.CMS.Page
 {
@@ -33,7 +34,12 @@ namespace Easy.Web.CMS.Page
             }
             base.Add(item);
         }
+        private IDataArchivedService _dataArchivedService;
 
+        public IDataArchivedService DataArchivedService
+        {
+            get { return _dataArchivedService ?? (_dataArchivedService = ServiceLocator.Current.GetInstance<IDataArchivedService>()); }
+        }
         public override bool Update(PageEntity item, params object[] primaryKeys)
         {
             if (Count(m => m.ID != item.ID && m.Url == item.Url && m.IsPublishedPage == false) > 0)
@@ -51,7 +57,7 @@ namespace Easy.Web.CMS.Page
                .Where("ID", OperatorType.Equal, item.ID));
 
             this.Delete(m => m.ReferencePageID == item.ID && m.IsPublishedPage == true);
-
+            DataArchivedService.Delete(CacheTrigger.PageWidgetsArchivedKey.FormatWith(item.ID));
             item.ReferencePageID = item.ID;
             item.IsPublishedPage = true;
             item.PublishDate = DateTime.Now;
