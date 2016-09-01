@@ -57,7 +57,9 @@ namespace Easy.Web.CMS.Page
                .Where("ID", OperatorType.Equal, item.ID));
 
             this.Delete(m => m.ReferencePageID == item.ID && m.IsPublishedPage == true);
+
             DataArchivedService.Delete(CacheTrigger.PageWidgetsArchivedKey.FormatWith(item.ID));
+
             item.ReferencePageID = item.ID;
             item.IsPublishedPage = true;
             item.PublishDate = DateTime.Now;
@@ -91,20 +93,26 @@ namespace Easy.Web.CMS.Page
             {
                 var widgets = WidgetService.Get(new DataFilter().Where("PageID", OperatorType.In, deletes));
                 widgets.Each(m => m.CreateServiceInstance().DeleteWidget(m.ID));
+
+                deletes.Each(p => DataArchivedService.Delete(CacheTrigger.PageWidgetsArchivedKey.FormatWith(p)));
             }
             return base.Delete(filter);
         }
         public override int Delete(params object[] primaryKeys)
         {
             PageEntity page = Get(primaryKeys);
-            this.Delete(m => m.ParentId == page.ID);
-
-            var widgets = WidgetService.Get(m => m.PageID == page.ID);
-            widgets.Each(m => m.CreateServiceInstance().DeleteWidget(m.ID));
-            if (page.PublishDate.HasValue)
+            if (page != null)
             {
-                this.Delete(m => m.ReferencePageID == page.ID);
+                this.Delete(m => m.ParentId == page.ID);
+                var widgets = WidgetService.Get(m => m.PageID == page.ID);
+                widgets.Each(m => m.CreateServiceInstance().DeleteWidget(m.ID));
+                if (page.PublishDate.HasValue)
+                {
+                    this.Delete(m => m.ReferencePageID == page.ID);
+                }
+                DataArchivedService.Delete(CacheTrigger.PageWidgetsArchivedKey.FormatWith(page.ID));
             }
+
 
             return base.Delete(primaryKeys);
         }
