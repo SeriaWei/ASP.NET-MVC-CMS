@@ -6,7 +6,7 @@ using Easy.MetaData;
 
 namespace Easy.CMS.Section.Models
 {
-    [DataConfigure(typeof(SectionContentParagraphMetaData))]
+    [DataConfigure(typeof(SectionContentParagraphMetaData)), Serializable]
     public class SectionContentParagraph : SectionContent
     {
         public string HtmlContent { get; set; }

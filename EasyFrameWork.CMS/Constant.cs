@@ -23,6 +23,8 @@ namespace Easy.Web.CMS
     public class CacheTrigger
     {
         public const string WidgetChanged = "WidgetChanged";
+
+        public const string PageWidgetsArchivedKey = "PageWidgets:{0}";
     }
 
     public class Urls

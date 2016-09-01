@@ -7,7 +7,7 @@ using Easy.Web.CMS;
 
 namespace Easy.CMS.Section.Models
 {
-    [DataConfigure(typeof(SectionContentVideoMetaData))]
+    [DataConfigure(typeof(SectionContentVideoMetaData)), Serializable]
     public class SectionContentVideo : SectionContent
     {
         public string VideoTitle { get; set; }

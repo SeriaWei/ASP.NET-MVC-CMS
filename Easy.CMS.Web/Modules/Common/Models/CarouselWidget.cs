@@ -11,7 +11,7 @@ using Microsoft.Practices.ServiceLocation;
 
 namespace Easy.CMS.Common.Models
 {
-    [DataConfigure(typeof(CarouselWidgetMetaData))]
+    [DataConfigure(typeof(CarouselWidgetMetaData)), Serializable]
     public class CarouselWidget : WidgetBase
     {
         public long? CarouselID { get; set; }

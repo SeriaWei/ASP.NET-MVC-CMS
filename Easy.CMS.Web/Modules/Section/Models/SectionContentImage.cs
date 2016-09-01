@@ -7,7 +7,7 @@ using Easy.Web.CMS;
 
 namespace Easy.CMS.Section.Models
 {
-    [DataConfigure(typeof(SectionContentImageMetaData))]
+    [DataConfigure(typeof(SectionContentImageMetaData)), Serializable]
     public class SectionContentImage : SectionContent
     {
         public string ImageSrc { get; set; }

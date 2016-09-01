@@ -8,7 +8,7 @@ using Easy.Web.CMS.Widget;
 
 namespace Easy.CMS.Common.Models
 {
-    [DataConfigure(typeof(ScriptWidgetMetaData))]
+    [DataConfigure(typeof(ScriptWidgetMetaData)), Serializable]
     public class ScriptWidget : WidgetBase
     {
         public string Script { get; set; }

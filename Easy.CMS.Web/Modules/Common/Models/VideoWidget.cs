@@ -9,7 +9,7 @@ using Easy.Web.CMS;
 
 namespace Easy.CMS.Common.Models
 {
-    [DataConfigure(typeof(VideoWidgetMetaData))]
+    [DataConfigure(typeof(VideoWidgetMetaData)), Serializable]
     public class VideoWidget : WidgetBase
     {
         public int? Width { get; set; }

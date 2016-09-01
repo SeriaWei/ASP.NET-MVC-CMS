@@ -11,7 +11,7 @@ using Microsoft.Practices.ServiceLocation;
 
 namespace Easy.CMS.Section.Models
 {
-    [DataConfigure(typeof(SectionGroupMetaData))]
+    [DataConfigure(typeof(SectionGroupMetaData)), Serializable]
     public class SectionGroup : EditorEntity
     {
         public int? ID { get; set; }

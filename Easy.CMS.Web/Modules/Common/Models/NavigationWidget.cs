@@ -9,7 +9,7 @@ using Easy.Web.CMS.MetaData;
 
 namespace Easy.CMS.Common.Models
 {
-    [DataConfigure(typeof(NavigationWidgetMetaData))]
+    [DataConfigure(typeof(NavigationWidgetMetaData)), Serializable]
     public class NavigationWidget : WidgetBase
     {
         public string Logo { get; set; }

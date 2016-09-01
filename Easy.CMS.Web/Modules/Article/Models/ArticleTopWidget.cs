@@ -14,7 +14,7 @@ using Microsoft.Practices.ServiceLocation;
 
 namespace Easy.CMS.Article.Models
 {
-    [DataConfigure(typeof(ArticleTopWidgetMetaData))]
+    [DataConfigure(typeof(ArticleTopWidgetMetaData)), Serializable]
     public class ArticleTopWidget : WidgetBase
     {
         public int ArticleTypeID { get; set; }

@@ -1,10 +1,12 @@
 ﻿using Easy.RepositoryPattern;
 using System;
+using Newtonsoft.Json;
 
 namespace Easy.Web.CMS.DataArchived
 {
     public interface IDataArchivedService : IService<DataArchived>
     {
-        T Get<T>(string key, Func<T> fun);
+        JsonConverter[] JsonConverters { get; set; }
+        T Get<T>(string key, Func<T> fun) where T : class;
     }
 }

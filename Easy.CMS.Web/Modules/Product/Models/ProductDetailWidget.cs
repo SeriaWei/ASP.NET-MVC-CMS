@@ -8,7 +8,7 @@ using System.Web;
 
 namespace Easy.CMS.Product.Models
 {
-    [DataConfigure(typeof(ProductDetailWidgetMetaData))]
+    [DataConfigure(typeof(ProductDetailWidgetMetaData)), Serializable]
     public class ProductDetailWidget : WidgetBase
     {
         public string CustomerClass { get; set; }

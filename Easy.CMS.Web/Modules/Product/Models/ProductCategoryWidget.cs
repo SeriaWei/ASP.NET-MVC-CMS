@@ -12,7 +12,7 @@ using Microsoft.Practices.ServiceLocation;
 
 namespace Easy.CMS.Product.Models
 {
-    [DataConfigure(typeof(ProductCategoryWidgetMedata))]
+    [DataConfigure(typeof(ProductCategoryWidgetMedata)), Serializable]
     public class ProductCategoryWidget : WidgetBase
     {
         public int ProductCategoryID { get; set; }

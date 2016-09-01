@@ -8,7 +8,7 @@ using Easy.Web.CMS;
 
 namespace Easy.CMS.Common.Models
 {
-    [DataConfigure(typeof(CarouselItemEntityMeta))]
+    [DataConfigure(typeof(CarouselItemEntityMeta)), Serializable]
     public class CarouselItemEntity : EditorEntity
     {
         public long? ID { get; set; }

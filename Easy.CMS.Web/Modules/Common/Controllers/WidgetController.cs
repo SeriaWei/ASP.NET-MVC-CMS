@@ -135,7 +135,7 @@ namespace Easy.CMS.Common.Controllers
         {
             foreach (var widget in widgets)
             {
-                _widgetService.Update(widget, new Data.DataFilter(new List<string> { "ZoneID", "Position" }).Where("ID", OperatorType.Equal, widget.ID));
+                _widgetService.Update(widget, new DataFilter(new List<string> { "ZoneID", "Position" }).Where("ID", OperatorType.Equal, widget.ID));
             }
             return Json(true);
         }
