@@ -71,24 +71,20 @@ ZKEACMS 的模板组件可以更方便的进行扩展。直接更换显示模板
 
 ## Theme/主题
 ZKEACMS 使用LESS，可以轻松的创建主题。
-
 ![主题](http://ww2.sinaimg.cn/large/005zTNGqjw1f57aa1b7d1j31hk0qfgwn.jpg)
-
-## 部分缩略图
-[http://www.zkea.net/zkeacms/thumbnail](http://www.zkea.net/zkeacms/thumbnail)
-
 ## 视频演示
 [http://www.zkea.net/zkeacms/videos](http://www.zkea.net/zkeacms/videos)
-
-## 官方网站
+### 官方网站
 [http://www.zkea.net/zkeacms](http://www.zkea.net/zkeacms)
-## 安装和部署
+### 安装和部署
 [安装和部署](http://blog.zkea.net/2015/09/install-ZKEACMS/)
-## DEMO站点
+### 开发文档
+[开发文档](http://www.zkea.net/zkeacms/document)
+### DEMO站点
 [DEMO站点](http://demo.zkea.net/)
-## 关注微信(ZKEASOFT)
+### 关注微信(ZKEASOFT)
 ![关注微信](http://blog.zkea.net/wp-content/uploads/2016/03/263801921375bdf2.jpg)
-## QQ群(493586356)
+### QQ群(493586356)
 ![QQ群493586356](http://blog.zkea.net/wp-content/uploads/2016/03/00c84f6600d8c3e0.jpg)
-## License
+### License
 [许可协议](http://www.zkea.net/licenses)
