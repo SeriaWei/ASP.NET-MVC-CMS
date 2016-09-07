@@ -29,7 +29,9 @@ Microsoft Sql Server 2005 以上
 ![简单演示](http://ww3.sinaimg.cn/mw690/005zTNGqgw1f4wcc6gjqqg30dw08g4jr.gif)
 
 ## 移动友好
-![移动友好](http://i1291.photobucket.com/albums/b560/SeriaWei/BlogPic/responsive_zps475ly5og.gif)
+![移动友好](http://ww2.sinaimg.cn/large/005zTNGqgw1f7l2aq95fvj30ae0fswf2.jpg)
+### 手机扫码体检
+![手机扫码体检](http://ww1.sinaimg.cn/large/005zTNGqgw1f7l2d7386rj307s07smxl.jpg)
 
 ZKEACMS采用了现代的响应式设计，可以自动适配不同大小的屏幕和设备。从PC，笔记本，电视，平板到手机页面都会自动响应适应。
 
