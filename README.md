@@ -95,6 +95,6 @@ ZKEACMS 使用LESS，可以轻松的创建主题。
 ## 关注微信(ZKEASOFT)
 ![关注微信](http://blog.zkea.net/wp-content/uploads/2016/03/263801921375bdf2.jpg)
 ## QQ群(493586356)
-![QQ群493586356](http://blog.zkea.net/wp-content/uploads/2016/03/00c84f6600d8c3e0.jpg)
+![QQ群493586356](http://ww3.sinaimg.cn/mw690/005zTNGqgw1f7l3g7ybdfj307609uq3m.jpg)
 ## License
 [许可协议](http://www.zkea.net/licenses)
