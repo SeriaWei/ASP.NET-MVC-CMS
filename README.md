@@ -1,4 +1,5 @@
-﻿# ZKEACMS
+# ZKEACMS
+![BuildSuccess](http://cdn.zkeasoft.com/images/buildsuccess.svg)
 #### [Fork me on GitHub](https://github.com/SeriaWei/ASP.NET-MVC-CMS)
 ### [下载](http://www.zkea.net/zkeacms/download)
 ZKEACMS是基于EasyFrameWork，使用ASP.NET MVC4开发的开源CMS。
