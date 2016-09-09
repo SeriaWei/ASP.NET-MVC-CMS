@@ -1,6 +1,11 @@
-﻿# ZKEACMS
-#### [Fork me on GitHub](https://github.com/SeriaWei/ASP.NET-MVC-CMS)
-### [下载](http://www.zkea.net/zkeacms/download)
+# ZKEACMS
+![BuildSuccess](http://cdn.zkeasoft.com/images/buildsuccess.svg) 
+#### [下载](http://www.zkea.net/zkeacms/download)
+
+![GitHub](http://cdn.zkeasoft.com/images/github.svg)
+#### [GitHub](https://github.com/SeriaWei/ASP.NET-MVC-CMS)
+
+### 简介
 ZKEACMS是基于EasyFrameWork，使用ASP.NET MVC4开发的开源CMS。
 
 ZKEACMS一个内容管理软件（网站）。ZKEACMS不仅只是管理内容，更是重新定义了布局、页面和组件，让用户可以自由规划页面的布局，页面和内容。
