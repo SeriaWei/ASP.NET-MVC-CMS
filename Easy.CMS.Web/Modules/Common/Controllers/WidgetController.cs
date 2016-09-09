@@ -13,11 +13,13 @@ using System.Web.Mvc;
 using Easy.CMS.Common.ViewModels;
 using Easy.Extend;
 using Easy.Constant;
+using Easy.Web;
 using Easy.Web.CMS.Widget;
 using EasyZip;
 using Microsoft.Practices.ServiceLocation;
 using Newtonsoft.Json;
 using Easy.Web.Authorize;
+using Easy.Web.ValueProvider;
 
 namespace Easy.CMS.Common.Controllers
 {
@@ -26,12 +28,13 @@ namespace Easy.CMS.Common.Controllers
     {
         private readonly IWidgetService _widgetService;
         private readonly IWidgetTemplateService _widgetTemplateService;
+        private readonly ICookie _cookie;
 
-
-        public WidgetController(IWidgetService widgetService, IWidgetTemplateService widgetTemplateService)
+        public WidgetController(IWidgetService widgetService, IWidgetTemplateService widgetTemplateService, ICookie cookie)
         {
             _widgetService = widgetService;
             _widgetTemplateService = widgetTemplateService;
+            _cookie = cookie;
         }
 
         [ViewDataZones]
@@ -162,9 +165,9 @@ namespace Easy.CMS.Common.Controllers
             var widgetPart = _widgetService.ApplyTemplate(widget, HttpContext);
             if (widgetPart == null)
             {
-                widgetPart = new HtmlWidget { PartialView = "Widget.HTML", HTML = "<label class='text-danger'>模板已被删除，添加失败！</label>" }.ToWidgetPart();
+                widgetPart = new HtmlWidget { PartialView = "Widget.HTML", HTML = "<h1 class='text-danger'><hr/>操作失败，找不到数据源，刷新页面后该消息会消失。<hr/></h1>" }.ToWidgetPart();
             }
-            return PartialView(new DesignWidgetViewModel(widgetPart, widget.PageID));
+            return PartialView("AppendWidget", new DesignWidgetViewModel(widgetPart, widget.PageID));
         }
         [HttpPost]
         public JsonResult CancelTemplate(string Id)
@@ -243,6 +246,36 @@ namespace Easy.CMS.Common.Controllers
                 }
             }
             return Redirect(returnUrl);
+        }
+        [HttpPost]
+        public JsonResult Copy(string widgetId)
+        {
+
+            _cookie.SetValue(Const.CopyWidgetCookie, widgetId);
+            return Json(new AjaxResult { Status = AjaxStatus.Normal, Message = "复制成功，请到需要的页面区域粘贴！" });
+        }
+
+        [HttpPost]
+        public PartialViewResult Paste(WidgetBase widget)
+        {
+            widget.ID = _cookie.GetValue<string>(Const.CopyWidgetCookie);
+            return AppendWidget(widget);
+        }
+
+        public ActionResult PasteAndRedirect(WidgetBase widget, string ReturnUrl)
+        {
+            widget.ID = _cookie.GetValue<string>(Const.CopyWidgetCookie);
+            var widgetPart = _widgetService.ApplyTemplate(widget, HttpContext);
+            if (widgetPart != null)
+            {
+                if (ReturnUrl.IsNotNullAndWhiteSpace())
+                {
+                    return Redirect(ReturnUrl);
+                }
+                return RedirectToAction("Edit", new { widgetPart.Widget.ID, ReturnUrl });
+            }
+            _cookie.GetValue<string>(Const.CopyWidgetCookie, true);
+            return RedirectToAction("SelectWidget", "WidgetTemplate", new { widget.PageID, widget.ZoneID, widget.LayoutID, ReturnUrl });
         }
     }
 }

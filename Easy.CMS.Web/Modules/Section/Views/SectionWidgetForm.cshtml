@@ -102,6 +102,7 @@
                     </a>
                 }
             }
+            <input id="copy-widget" type="button" class="btn btn-warning" data-id="@Model.ID" value="复制" />
             <input type="button" class="btn btn-default cancel" value="取消" />
         </div>
 
@@ -129,6 +130,10 @@
                 }, "json");
             }, true, 3);
             return false;
+        }).on("click", "#copy-widget", function () {
+            $.post("@Url.Action("Copy","Widget",new{module="admin"})", { widgetId: $(this).data("id") }, function (data) {
+                Easy.MessageTip.Show(data.Message);
+            });
         });
         function reload() {
             $.get("@Url.Action("Editor","SectionWidget")", { sectionWidgetId: '@Model.ID' }, function (html) {

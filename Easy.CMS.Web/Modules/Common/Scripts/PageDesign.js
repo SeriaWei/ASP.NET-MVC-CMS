@@ -102,6 +102,16 @@
             isDialog: false
         });
 
+    }).on("click", ".paste-widget", function () {
+        var zone = $(this).closest(".zone");
+        if (!zone.data("pasting")) {
+            zone.data("pasting", true);
+            $.post($(this).attr("href"), { Position: $(".widget", zone).size() + 1 }, function (html) {
+                zone.append(html);
+                zone.data("pasting", false);
+            }, "html");
+        }
+        return false;
     });
     $(".helper").click(function () {
         $("#containers").toggleClass($(this).data("class"));

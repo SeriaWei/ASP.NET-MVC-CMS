@@ -22,8 +22,21 @@
                         打包模板
                     </a>
                 }
+                <input id="copy-widget" type="button" class="btn btn-warning" data-id="@Model.ID" value="复制" />
                 <input type="button" class="btn btn-default cancel" value="取消" />
             </div>
         }
     </div>
 </div>
+@using (Script.AtFoot())
+{
+    <script type="text/javascript">
+        $(function () {
+            $(document).on("click", "#copy-widget", function () {
+                $.post("@Url.Action("Copy","Widget",new{module="admin"})", { widgetId: $(this).data("id") }, function (data) {
+                    Easy.MessageTip.Show(data.Message);
+                });
+            });
+        });
+    </script>
+}

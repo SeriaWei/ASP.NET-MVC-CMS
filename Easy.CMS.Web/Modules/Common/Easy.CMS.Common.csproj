@@ -128,6 +128,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CommonPlug.cs" />
+    <Compile Include="Const.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ApplicationSettingController.cs" />
     <Compile Include="Controllers\CarouselController.cs" />

@@ -320,7 +320,9 @@ label.additional {
 .design-border .zoneName {
     display: block;
 }
-
+.design-border .zoneName a.label {
+    margin-right: 10px;
+}
 .dropInfo {
     background-color: #92daef !important;
 }

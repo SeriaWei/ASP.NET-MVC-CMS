@@ -138,6 +138,7 @@ namespace Easy.Web.CMS.Widget
         public WidgetPart ApplyTemplate(WidgetBase widget, HttpContextBase httpContext)
         {
             var widgetBase = Get(widget.ID);
+            if (widgetBase == null) return null;
             if (widgetBase.ExtendFields != null)
             {
                 widgetBase.ExtendFields.Each(f => { f.ActionType = ActionType.Create; });
@@ -148,9 +149,9 @@ namespace Easy.Web.CMS.Widget
             widgetBase.PageID = widget.PageID;
             widgetBase.ZoneID = widget.ZoneID;
             widgetBase.Position = widget.Position;
+            widgetBase.LayoutID = widget.LayoutID;
             widgetBase.IsTemplate = false;
             widgetBase.Thumbnail = null;
-            widgetBase.LayoutID = null;
 
             var widgetPart = service.Display(widgetBase, httpContext);
             service.AddWidget(widgetBase);

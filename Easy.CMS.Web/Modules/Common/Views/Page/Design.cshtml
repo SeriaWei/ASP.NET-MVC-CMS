@@ -34,10 +34,18 @@
                 <div class="zoneName">
                     <a title="添加组件到该区域"
                        class="add-widget label label-danger"
-                       href="@Url.Action("SelectWidget", "WidgetTemplate", new { module = "admin", pageId = Model.Page.ID, ZoneId = zoneId })">
+                       href="@Url.Action("SelectWidget", "WidgetTemplate", new {module = "admin", pageId = Model.Page.ID, ZoneId = zoneId})">
                         <i class="glyphicon glyphicon-plus"></i>
                         @Model.Zones.First(m => m.ID == zoneId).ZoneName
                     </a>
+                    @if (ViewBag.CanPasteWidget == true)
+                    {
+                        <a class="paste-widget label label-warning" title="粘贴复制的组件到该区域"
+                           href="@Url.Action("Paste", "Widget", new { module = "admin", PageID = Model.Page.ID, ZoneID = zoneId })">
+                            <i class="glyphicon glyphicon-paste"></i>
+                            粘贴
+                        </a>
+                    }
                 </div>
             }
             if (Model.ZoneWidgets.ContainsKey(zoneId))

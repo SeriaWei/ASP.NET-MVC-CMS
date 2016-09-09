@@ -17,6 +17,7 @@ using Easy.Extend;
 using Easy.Web.CMS.Layout;
 using Microsoft.Practices.ServiceLocation;
 using Easy.Web.Authorize;
+using Easy.Web.ValueProvider;
 
 namespace Easy.CMS.Common.Controllers
 {
@@ -132,10 +133,16 @@ namespace Easy.CMS.Common.Controllers
         public ActionResult Design(string ID)
         {
             // Stop Caching in IE
-            Response.Cache.SetCacheability(System.Web.HttpCacheability.NoCache);
+            Response.Cache.SetCacheability(HttpCacheability.NoCache);
 
             // Stop Caching in Firefox
             Response.Cache.SetNoStore();
+
+            ViewBag.CanPasteWidget =
+                ServiceLocator.Current.GetInstance<ICookie>()
+                    .GetValue<string>(Const.CopyWidgetCookie)
+                    .IsNotNullAndWhiteSpace();
+
             return View();
         }
 
