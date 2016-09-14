@@ -175,9 +175,14 @@
     <Compile Include="ViewModels\NavigationWidgetViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Images\login-bg.jpg" />
+    <Content Include="Content\Login.css" />
     <Content Include="Content\Layout.css" />
     <Content Include="Content\Layout.min.css">
       <DependentUpon>Layout.css</DependentUpon>
+    </Content>
+    <Content Include="Content\Login.min.css">
+      <DependentUpon>Login.css</DependentUpon>
     </Content>
     <Content Include="CopyItems.xml" />
     <Content Include="Content\Images\demoLayout.jpg" />

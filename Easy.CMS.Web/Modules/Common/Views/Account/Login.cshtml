@@ -1,53 +1,41 @@
 ﻿@{
     ViewBag.Title = "Login";
     Style.Reqiured("admin").AtHead();
+    Style.Reqiured("Login").AtHead();
     Script.Reqiured("validate").AtFoot();
-}
-@using (Style.AtHead())
-{
-    <style>
-        .panel-default {
-            margin: 120px auto auto auto;
-            width: 500px;
-        }
-        .input-group {
-            margin: 10px 30px;
-        }
-    </style>
 }
 
 @using (Html.BeginForm())
 {
 
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <i class="glyphicon glyphicon-user"></i>
-            登录
+    <div class="login-panel">
+        <div class="login-panel-heading">
+            <img class="logo" src="~/Content/Images/logo_zkea.png" alt="ZKEACMS" />
         </div>
-        <div class="panel-body">
-            <div class="input-group">
-                <span class="input-group-addon">用户名</span>
-                <input type="text" id="userName" name="userName" class="form-control" data-val="true" data-val-required="请输入用户名" />
-            </div>
-            <div class="input-group">
+        <div class="login-panel-body">
+            <h3 class="version text-center">@Easy.Web.CMS.Version.CurrentVersion</h3>
+            <p>请输入您的用户信息以登录系统</p>
+            <div class="form-input">
+                <h4>用户名</h4>
+                <input type="text" id="userName" name="userName" class="form-control" data-val="true" data-val-required="请输入用户名"/>
                 <span class="field-validation-valid " data-valmsg-for="userName" data-valmsg-replace="true"></span>
             </div>
-            <div class="input-group">
-                <span class="input-group-addon">
-                    <span style="padding: 0 7px;">密码</span>
-                </span>
+            <div class="form-input">
+                <h4>密码</h4>
                 <input type="password" id="password" name="password" class="form-control" data-val="true" data-val-required="请输入密码" />
-            </div>
-            <div class="input-group">
                 <span class="field-validation-valid" data-valmsg-for="password" data-valmsg-replace="true"></span>
             </div>
-
-        </div>
-        <div class="panel-footer clearfix">
-            <div class="pull-right">
-                <input type="submit" class="btn btn-primary" value="登录" />
+            <div>
+                <input type="submit" class="btn btn-danger btn-login" value="登录" />
             </div>
-
+        </div>
+        <div class="login-panel-footer">
+            <p>
+                <a href="http://www.zkea.net/licenses" target="_blank">许可协议</a>
+            </p>
+            <p>
+                Copyright © 2015-@DateTime.Now.Year ZKEASOFT. All Rights Reserved | <a href="http://www.zkea.net" target="_blank">www.zkea.net</a>
+            </p>
         </div>
     </div>
 }

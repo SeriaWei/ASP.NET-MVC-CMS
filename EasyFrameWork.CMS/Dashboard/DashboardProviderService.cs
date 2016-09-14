@@ -9,8 +9,8 @@ namespace Easy.Web.CMS.Dashboard
 
         public IEnumerable<DashboardPart> GetDashboardParts()
         {
-            var partDrives = ServiceLocator.Current.GetAllInstances<IDashboardPartDriveService>();
-            if (partDrives == null || !partDrives.Any()) return new List<DashboardPart>();
+            var partDrives = ServiceLocator.Current.GetAllInstances<IDashboardPartDriveService>().ToList();
+            if (!partDrives.Any()) return new List<DashboardPart>();
             return partDrives.Select(p => p.Create());
         }
     }
