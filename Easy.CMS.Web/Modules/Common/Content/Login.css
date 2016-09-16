@@ -12,6 +12,8 @@
     width: 280px;
     padding: 0 50px;
     background-color: #2d3336;
+    border-left:1px solid #000;
+    border-right:1px solid #000;
     height: 100%;
 }
 
@@ -47,6 +49,7 @@
     }
 
     .login-panel .btn-login {
+        margin-top: 20px;
         display: block;
         width: 100%;
     }
@@ -60,18 +63,20 @@
         text-decoration: underline;
     }
 
-        .login-panel a:hover {
+        .login-panel a:hover ,.login-panel a:focus {
             color: #fff;
         }
 
-@media(max-height:700px) {
+@media(max-height:750px) {
     .login-panel .login-panel-heading {
         margin: 0 0 30px 0;
     }
+
     .login-panel .login-panel-body {
         padding-bottom: 30px;
         margin-bottom: 30px;
     }
+
     .login-panel .version {
         margin-bottom: 40px;
     }

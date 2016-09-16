@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "Login";
+    ViewBag.Title = Easy.Web.CMS.Version.CurrentVersion;
     Style.Reqiured("admin").AtHead();
     Style.Reqiured("Login").AtHead();
     Script.Reqiured("validate").AtFoot();
@@ -10,7 +10,9 @@
 
     <div class="login-panel">
         <div class="login-panel-heading">
-            <img class="logo" src="~/Content/Images/logo_zkea.png" alt="ZKEACMS" />
+            <a href="http://www.zkea.net/" target="_blank">
+                <img class="logo" src="~/Content/Images/logo_zkea.png" alt="ZKEACMS" />
+            </a>
         </div>
         <div class="login-panel-body">
             <h3 class="version text-center">@Easy.Web.CMS.Version.CurrentVersion</h3>
@@ -25,6 +27,12 @@
                 <input type="password" id="password" name="password" class="form-control" data-val="true" data-val-required="请输入密码" />
                 <span class="field-validation-valid" data-valmsg-for="password" data-valmsg-replace="true"></span>
             </div>
+            @if (ViewBag.Errormessage != null)
+            {
+                <div class="text-center alert alert-danger">
+                    @ViewBag.Errormessage
+                </div>
+            }            
             <div>
                 <input type="submit" class="btn btn-danger btn-login" value="登录" />
             </div>

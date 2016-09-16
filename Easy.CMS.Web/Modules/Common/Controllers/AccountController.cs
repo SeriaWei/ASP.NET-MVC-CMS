@@ -39,6 +39,7 @@ namespace Easy.CMS.Common.Controllers
                 }
                 return Redirect(ReturnUrl);
             }
+            ViewBag.Errormessage = "登录失败，用户名密码不正确";
             return View();
         }
 

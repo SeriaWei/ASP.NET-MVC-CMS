@@ -93,7 +93,7 @@ namespace Easy.Web.CMS
 
     public static class CustomRegex
     {
-        public static readonly Regex StyleRegex = new Regex(@"style=""([^""]*)""", RegexOptions.Compiled | RegexOptions.IgnoreCase);
+        public static readonly Regex StyleRegex = new Regex(@"style=""([^""]*)""", RegexOptions.IgnoreCase);
     }
     public static class Version
     {

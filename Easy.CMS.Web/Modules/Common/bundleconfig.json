@@ -28,5 +28,11 @@
     "inputFiles": [
       "Scripts/PageDesign.js"
     ]
+  },
+  {
+    "outputFileName": "Content/Login.min.css",
+    "inputFiles": [
+      "Content/Login.css"
+    ]
   }
 ]
