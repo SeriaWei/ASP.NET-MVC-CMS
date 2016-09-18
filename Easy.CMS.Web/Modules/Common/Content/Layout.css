@@ -423,9 +423,12 @@ label.additional {
     text-decoration:none;
 }
 
-    .zoneToolbar a:hover {
+    .zoneToolbar a:hover,
+    .zoneToolbar a:active,
+    .zoneToolbar a:focus {
         color: red;
-    text-decoration:none;
+        text-decoration: none;
+        outline: none;
     }
 
 .zoneToolbar .glyphicon {
