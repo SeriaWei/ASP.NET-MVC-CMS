@@ -64,6 +64,7 @@
     margin-left: -150px;
     margin-top: -100px;
     top: 45%;
+    color: black;
 }
 
     .MessageBox .MBContent {
@@ -412,6 +413,7 @@
     bottom: 10px;
     padding: 10px;
     background-color: white;
+    color: black;
 }
 
 .HtmlInput {
