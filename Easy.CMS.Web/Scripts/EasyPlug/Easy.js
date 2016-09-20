@@ -156,6 +156,9 @@ Easy.OpacityBackGround = (function () {
     }
     function CloseOpacityBg(callBack) {
         ref--;
+        if (ref < 0) {
+            ref = 0;
+        }
         if (ref === 0) {
             var Bele = $(".OpacityBackGround");
             Bele.fadeTo(300, 0, function () {
@@ -176,9 +179,11 @@ Easy.OpacityBackGround = (function () {
 })();
 
 Easy.Block = function () {
-    Easy.OpacityBackGround.Show();
-    $(".OpacityBackGround").addClass("busy");
-    $("body").append("<div class='easy-block' />");
+    if ($(".easy-block").size() === 0) {
+        Easy.OpacityBackGround.Show();
+        $(".OpacityBackGround").addClass("busy");
+        $("body").append("<div class='easy-block' />");
+    }
 }
 Easy.UnBlock = function () {
     $(".OpacityBackGround").removeClass("busy");
@@ -711,7 +716,17 @@ jQuery.fn.extend({
         });
     }
 });
-
+$.ajaxSetup({
+    beforeSend: function (xhr) {
+        xhr.busyTimer = setTimeout(function() {
+            Easy.Block();
+        }, 1000);
+    },
+    complete: function (xhr, status) {
+        clearTimeout(xhr.busyTimer);
+        Easy.UnBlock();
+    }
+});
 $(function () {
     if (!(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))) {
         $(document).on("click", ".pop-dialog", function () {

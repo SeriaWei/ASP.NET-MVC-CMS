@@ -64,8 +64,10 @@
             $(this).siblings().removeClass("actived");
             $(this).addClass("actived");
             location.hash = $(this).data("id");
+            var layoutZones = $("#layoutZones");
+            layoutZones.empty();
             $.post("@Url.Action("LayoutZones", "Layout", new { module="admin"})", { ID: $(this).data("id") }, function (html) {
-                $("#layoutZones").html(html);
+                layoutZones.html(html);
             }, "html");
         });
     </script>

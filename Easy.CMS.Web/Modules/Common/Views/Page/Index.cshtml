@@ -138,8 +138,10 @@
         }
         function ActiveNode(node, selected) {
             location.hash = selected.node.id;
+            var pageZones = $("#pageZones");
+            pageZones.empty();
             $.post("@Url.Action("PageZones", "Page", new { module = "admin" })", { PageID: selected.node.id }, function (html) {
-                $("#pageZones").html(html);
+                pageZones.html(html);
             }, "html");
         }
         function checkCallBack(operation, node, node_parent, node_position, more) {

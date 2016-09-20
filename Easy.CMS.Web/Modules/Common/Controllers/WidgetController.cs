@@ -250,8 +250,7 @@ namespace Easy.CMS.Common.Controllers
         [HttpPost]
         public JsonResult Copy(string widgetId)
         {
-
-            _cookie.SetValue(Const.CopyWidgetCookie, widgetId);
+            _cookie.SetValue(Const.CopyWidgetCookie, widgetId, true, true);
             return Json(new AjaxResult { Status = AjaxStatus.Normal, Message = "复制成功，请到需要的页面区域粘贴！" });
         }
 
