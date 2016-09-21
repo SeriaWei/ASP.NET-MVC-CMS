@@ -1,12 +1,10 @@
-﻿using Easy.CMS.Article.Models;
+﻿using System.Web;
+using Easy.CMS.Article.Models;
 using Easy.CMS.Article.ViewModel;
-using Easy.Web.CMS.Widget;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using Easy.Data;
 using Easy.Extend;
 using Easy.Web.CMS.Article.Service;
+using Easy.Web.CMS.Widget;
 using Microsoft.Practices.ServiceLocation;
 
 namespace Easy.CMS.Article.Service
@@ -17,7 +15,7 @@ namespace Easy.CMS.Article.Service
         {
             ArticleTypeWidget currentWidget = widget as ArticleTypeWidget;
             var service = ServiceLocator.Current.GetInstance<IArticleTypeService>();
-            var filter = new Data.DataFilter().Where("ParentID", Data.OperatorType.Equal, currentWidget.ArticleTypeID);
+            var filter = new DataFilter().Where("ParentID", OperatorType.Equal, currentWidget.ArticleTypeID);
             int ac = 0;
             int.TryParse(httpContext.Request.QueryString["ac"], out ac);
             return widget.ToWidgetPart(new ArticleTypeWidgetViewModel

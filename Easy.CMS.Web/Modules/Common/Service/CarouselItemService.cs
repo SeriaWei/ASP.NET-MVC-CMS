@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using Easy.RepositoryPattern;
-using Easy.CMS.Common.Models;
+﻿using Easy.CMS.Common.Models;
+using Easy.Constant;
 using Easy.Data;
+using Easy.RepositoryPattern;
 
 namespace Easy.CMS.Common.Service
 {
@@ -12,7 +9,7 @@ namespace Easy.CMS.Common.Service
     {
         public override void Add(CarouselItemEntity item)
         {
-            if (item.ActionType != Constant.ActionType.Unattached)
+            if (item.ActionType != ActionType.Unattached)
             {
                 base.Add(item);
             }
@@ -20,34 +17,34 @@ namespace Easy.CMS.Common.Service
 
         public override bool Update(CarouselItemEntity item, DataFilter filter)
         {
-            if (item.ActionType == Constant.ActionType.Update)
+            if (item.ActionType == ActionType.Update)
             {
                 base.Update(item, filter);
             }
-            else if (item.ActionType == Constant.ActionType.Create)
+            else if (item.ActionType == ActionType.Create)
             {
                 base.Add(item);
             }
-            else if (item.ActionType == Constant.ActionType.Delete)
+            else if (item.ActionType == ActionType.Delete)
             {
-                base.Delete(filter);
+                Delete(filter);
             }
             return true;
         }
 
         public override bool Update(CarouselItemEntity item, params object[] primaryKeys)
         {
-            if (item.ActionType == Constant.ActionType.Update)
+            if (item.ActionType == ActionType.Update)
             {
                 base.Update(item, primaryKeys);
             }
-            else if (item.ActionType == Constant.ActionType.Create)
+            else if (item.ActionType == ActionType.Create)
             {
                 base.Add(item);
             }
-            else if (item.ActionType == Constant.ActionType.Delete)
+            else if (item.ActionType == ActionType.Delete)
             {
-                base.Delete(item.ID);
+                Delete(item.ID);
             }
             return true;
         }

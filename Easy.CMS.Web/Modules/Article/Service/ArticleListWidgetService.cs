@@ -1,14 +1,9 @@
-﻿using Easy.Data;
+﻿using System.Web;
 using Easy.CMS.Article.Models;
 using Easy.CMS.Article.ViewModel;
-using Easy.Web.CMS.Widget;
-using Easy.Modules.DataDictionary;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using Easy.Extend;
+using Easy.Data;
 using Easy.Web.CMS.Article.Service;
+using Easy.Web.CMS.Widget;
 using Microsoft.Practices.ServiceLocation;
 
 namespace Easy.CMS.Article.Service
@@ -24,11 +19,11 @@ namespace Easy.CMS.Article.Service
             int ac = 0;
             int.TryParse(httpContext.Request.QueryString["ac"], out ac);
             int.TryParse(httpContext.Request.QueryString["p"], out pageIndex);
-            var filter = new Data.DataFilter();
+            var filter = new DataFilter();
             filter.Where("IsPublish", OperatorType.Equal, true);
             filter.OrderBy("CreateDate", OrderType.Descending);
             var articleService = ServiceLocator.Current.GetInstance<IArticleService>();
-            var page = new Data.Pagination { PageIndex = pageIndex, PageSize = currentWidget.PageSize ?? 20 };
+            var page = new Pagination { PageIndex = pageIndex, PageSize = currentWidget.PageSize ?? 20 };
             if (ac != 0)
             {
                 filter.Where("ArticleTypeID", OperatorType.Equal, ac);

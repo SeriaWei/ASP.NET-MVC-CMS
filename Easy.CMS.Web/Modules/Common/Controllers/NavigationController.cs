@@ -1,15 +1,12 @@
-﻿using Easy.CMS.Common.Models;
+﻿using System.Linq;
+using System.Web.Mvc;
+using Easy.CMS.Common.Models;
 using Easy.CMS.Common.Service;
 using Easy.Data;
+using Easy.ViewPort.jsTree;
 using Easy.Web.Attribute;
-using Easy.Web.Controller;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using Easy.Extend;
 using Easy.Web.Authorize;
+using Easy.Web.Controller;
 
 namespace Easy.CMS.Common.Controllers
 {
@@ -38,8 +35,8 @@ namespace Easy.CMS.Common.Controllers
         }
         public JsonResult GetNavTree()
         {
-            var navs = Service.Get(new Data.DataFilter().OrderBy("DisplayOrder", OrderType.Ascending));
-            var node = new Easy.ViewPort.jsTree.Tree<NavigationEntity>().Source(navs).ToNode(m => m.ID, m => m.Title, m => m.ParentId, "#");
+            var navs = Service.Get(new DataFilter().OrderBy("DisplayOrder", OrderType.Ascending));
+            var node = new Tree<NavigationEntity>().Source(navs).ToNode(m => m.ID, m => m.Title, m => m.ParentId, "#");
             return Json(node, JsonRequestBehavior.AllowGet);
         }
 

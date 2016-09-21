@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using Easy.Data;
-using Easy.RepositoryPattern;
 using Easy.CMS.Common.Models;
+using Easy.Constant;
+using Easy.Data;
 using Easy.Extend;
+using Easy.RepositoryPattern;
 
 namespace Easy.CMS.Common.Service
 {
@@ -47,7 +46,7 @@ namespace Easy.CMS.Common.Service
         {
             CarouselEntity entity = base.Get(primaryKeys);
             entity.CarouselItems = _carouselItemService.Get("CarouselID", OperatorType.Equal, entity.ID).ToList();
-            entity.CarouselItems.Each(m => m.ActionType = Constant.ActionType.Update);
+            entity.CarouselItems.Each(m => m.ActionType = ActionType.Update);
             return entity;
         }
 
@@ -63,7 +62,7 @@ namespace Easy.CMS.Common.Service
 
         public override int Delete(DataFilter filter)
         {
-            this.Get(filter).Each(m => _carouselItemService.Delete(new DataFilter().Where("CarouselID", OperatorType.Equal, m.ID)));
+            Get(filter).Each(m => _carouselItemService.Delete(new DataFilter().Where("CarouselID", OperatorType.Equal, m.ID)));
             return base.Delete(filter);
         }
 

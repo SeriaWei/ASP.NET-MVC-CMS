@@ -5,18 +5,17 @@ using System.Reflection;
 using System.Web.Compilation;
 using System.Web.Mvc;
 using System.Web.Routing;
-using Easy.Web.Application;
-using Easy.Web.CMS.ModelBinder;
-using Easy.Web.CMS.Widget;
-using Easy.Web.Route;
-using Easy.Web.ViewEngine;
 using Easy.Extend;
 using Easy.IOC;
 using Easy.Modules.DataDictionary;
 using Easy.Modules.MutiLanguage;
 using Easy.Modules.User.Service;
-using Easy.Web.ValueProvider;
 using Easy.Security;
+using Easy.Web.Application;
+using Easy.Web.CMS.ModelBinder;
+using Easy.Web.CMS.Widget;
+using Easy.Web.Route;
+using Easy.Web.ViewEngine;
 
 namespace Easy.Web.CMS
 {

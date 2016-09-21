@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using Easy.CMS.Article.Models;
 using Easy.Web.CMS.Article.Models;
 

@@ -1,17 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿/*!
+ * http://www.zkea.net/
+ * Copyright 2016 ZKEASOFT
+ * http://www.zkea.net/licenses
+ */
+
 using System.Web.Mvc;
-using Easy.CMS.Article.ActionFilter;
 using Easy.Constant;
-using Easy.Web.Controller;
-using Easy.CMS.Article.Models;
-using Easy.CMS.Article.Service;
 using Easy.Web.Attribute;
+using Easy.Web.Authorize;
 using Easy.Web.CMS.Article.Models;
 using Easy.Web.CMS.Article.Service;
-using Easy.Web.Authorize;
+using Easy.Web.Controller;
 
 namespace Easy.CMS.Article.Controllers
 {

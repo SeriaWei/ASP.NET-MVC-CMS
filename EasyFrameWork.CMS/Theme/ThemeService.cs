@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Easy.Data;
@@ -42,7 +40,7 @@ namespace Easy.Web.CMS.Theme
                     theme.IsPreView = true;
                 }
             }
-            return theme ?? Get(m => m.IsActived == true).FirstOrDefault();
+            return theme ?? Get(m => m.IsActived).FirstOrDefault();
         }
 
 

@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
+using System.IO;
 using System.Web;
 using Easy.RepositoryPattern;
-using System.IO;
-using EasyZip;
+using Easy.Web.CMS.Page;
 
 namespace Easy.Web.CMS.Widget
 {
@@ -11,7 +11,7 @@ namespace Easy.Web.CMS.Widget
         IEnumerable<WidgetBase> GetByLayoutId(string layoutId);
         IEnumerable<WidgetBase> GetByPageId(string pageId);
         IEnumerable<WidgetBase> GetAllByPageId(string pageId);
-        IEnumerable<WidgetBase> GetAllByPage(Page.PageEntity page);
+        IEnumerable<WidgetBase> GetAllByPage(PageEntity page);
         WidgetPart ApplyTemplate(WidgetBase widget, HttpContextBase httpContext);
         MemoryStream PackWidget(string widgetId);
         WidgetBase InstallPackWidget(Stream stream);

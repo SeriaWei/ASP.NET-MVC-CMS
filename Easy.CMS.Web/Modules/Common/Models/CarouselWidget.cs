@@ -1,12 +1,10 @@
-﻿using Easy.Web.CMS.MetaData;
-using Easy.Web.CMS.Widget;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using Easy.MetaData;
 using Easy.CMS.Common.Service;
 using Easy.Extend;
+using Easy.MetaData;
+using Easy.Web.CMS.MetaData;
+using Easy.Web.CMS.Widget;
 using Microsoft.Practices.ServiceLocation;
 
 namespace Easy.CMS.Common.Models

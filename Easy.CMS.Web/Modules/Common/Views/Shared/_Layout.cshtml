@@ -1,9 +1,5 @@
-﻿@using Easy
-@using Easy.Web.CMS.Page
-@using Easy.Web.CMS.Layout
-@using Easy.Web.CMS.Setting
-@using Microsoft.Practices.ServiceLocation
-@model LayoutEntity
+﻿@using Version = Easy.Web.CMS.Version
+@model Easy.Web.CMS.Layout.LayoutEntity
 @{
     if (Model == null)
     {
@@ -26,7 +22,7 @@
     <meta name="keywords" content="@Model.Page.MetaKeyWorlds" />
     <meta name="description" content="@Model.Page.MetaDescription" />
     <meta name="author" content="ZKEASOFT"/>
-    <meta name="about" content="@Easy.Web.CMS.Version.CurrentVersion" />
+    <meta name="about" content="@Version.CurrentVersion" />
     <meta name="website" content="http://www.zkea.net" />
     <link href="@Url.PathContent(Model.Page.Favicon)" rel="shortcut icon" type="image/x-icon" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,maximum-scale=1.0" />
@@ -63,7 +59,7 @@
                 </a>
                 @if (!Model.Page.IsPublishedPage)
                 {
-                    <a class="btn btn-primary" href="@Url.Action("Design", "Page", new { module = "admin", ID = Model.Page.ID })">
+                    <a class="btn btn-primary" href="@Url.Action("Design", "Page", new { module = "admin", Model.Page.ID })">
                         <i class="glyphicon glyphicon-wrench"></i>
                         设计
                     </a>
@@ -71,11 +67,11 @@
                         <i class="glyphicon glyphicon-th"></i>
                         概览
                     </a>
-                    <a class="btn btn-primary" href="@Url.Action("Edit", "Page", new { module = "admin", ID = Model.Page.ID })">
+                    <a class="btn btn-primary" href="@Url.Action("Edit", "Page", new { module = "admin", Model.Page.ID })">
                         <i class="glyphicon glyphicon-edit"></i>
                         属性
                     </a>
-                    <a class="btn btn-primary" href="@Url.Action("PublishPage", "Page", new {module = "admin", ID = Model.Page.ID, ReturnUrl = Model.Page.Url})">
+                    <a class="btn btn-primary" href="@Url.Action("PublishPage", "Page", new {module = "admin", Model.Page.ID, ReturnUrl = Model.Page.Url})">
                         <i class="glyphicon glyphicon-open"></i>
                         发布
                     </a>
@@ -92,7 +88,7 @@
                 }
                 else if (Model.PreViewPage != null)
                 {
-                    <a class="btn btn-primary" href="@Url.Action("Design", "Page", new {module = "admin", ID = Model.PreViewPage.ID})">
+                    <a class="btn btn-primary" href="@Url.Action("Design", "Page", new {module = "admin", Model.PreViewPage.ID})">
                         <i class="glyphicon glyphicon-pencil"></i>
                         编辑
                     </a>

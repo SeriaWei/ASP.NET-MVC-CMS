@@ -1,19 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.IO;
-using System.Linq;
-using System.Text;
 
 namespace Easy.Web.CMS.Validate
 {
     public class ValidateCode
     {
-        public ValidateCode()
-        {
-        }
         /// <summary>
         /// 验证码的最大长度
         /// </summary>
@@ -41,7 +35,7 @@ namespace Easy.Web.CMS.Validate
             //生成起始序列值
             int seekSeek = unchecked((int)DateTime.Now.Ticks);
             Random seekRand = new Random(seekSeek);
-            int beginSeek = (int)seekRand.Next(0, Int32.MaxValue - length * 10000);
+            int beginSeek = seekRand.Next(0, Int32.MaxValue - length * 10000);
             int[] seeks = new int[length];
             for (int i = 0; i < length; i++)
             {

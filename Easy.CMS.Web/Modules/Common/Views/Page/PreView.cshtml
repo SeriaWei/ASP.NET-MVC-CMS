@@ -1,7 +1,5 @@
-﻿@using System.Text.RegularExpressions
-@using Easy.Web.CMS
-@using Easy.Web.CMS.Layout
-@model LayoutEntity
+﻿@using Easy.Web.CMS.Zone
+@model Easy.Web.CMS.Layout.LayoutEntity
 @{
     if (Model == null)
     {
@@ -11,7 +9,7 @@
 @for (int i = 0; i < Model.Html.Count; i++)
 {
     var item = Model.Html[i];
-    if (item.Html == Easy.Web.CMS.Zone.ZoneEntity.ZoneTag)
+    if (item.Html == ZoneEntity.ZoneTag)
     {
         i++;
         var zoneId = Model.Html[i].Html;

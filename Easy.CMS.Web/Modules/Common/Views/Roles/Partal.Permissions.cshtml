@@ -1,6 +1,5 @@
 ﻿@using Microsoft.Practices.ServiceLocation
-@using Easy.Modules.Role
-@model IEnumerable<Permission>
+@model IEnumerable<Easy.Modules.Role.Permission>
 @{
     var allPlug = ServiceLocator.Current.GetAllInstances<PluginBase>();
     var AllPermission = new List<PermissionDescriptor>();

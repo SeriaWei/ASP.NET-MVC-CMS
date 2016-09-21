@@ -1,15 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using Easy.Data;
-using Easy.RepositoryPattern;
-using Easy.Extend;
 using Easy.Constant;
+using Easy.Data;
+using Easy.Extend;
+using Easy.RepositoryPattern;
+using Easy.Web.CMS.DataArchived;
 using Easy.Web.CMS.ExtendField;
 using Easy.Web.CMS.Widget;
 using Microsoft.Practices.ServiceLocation;
-using Easy.Web.CMS.DataArchived;
 
 namespace Easy.Web.CMS.Page
 {
@@ -52,11 +51,11 @@ namespace Easy.Web.CMS.Page
 
         public void Publish(PageEntity item)
         {
-            this.Update(new PageEntity { IsPublish = true, PublishDate = DateTime.Now },
+            Update(new PageEntity { IsPublish = true, PublishDate = DateTime.Now },
                new DataFilter(new List<string> { "IsPublish", "PublishDate" })
                .Where("ID", OperatorType.Equal, item.ID));
 
-            this.Delete(m => m.ReferencePageID == item.ID && m.IsPublishedPage == true);
+            Delete(m => m.ReferencePageID == item.ID && m.IsPublishedPage);
 
             DataArchivedService.Delete(CacheTrigger.PageWidgetsArchivedKey.FormatWith(item.ID));
 
@@ -83,11 +82,11 @@ namespace Easy.Web.CMS.Page
         }
         public override int Delete(DataFilter filter)
         {
-            var deletes = this.Get(filter).ToList(m => m.ID);
-            if (deletes.Any() && this.Get(new DataFilter().Where("ParentId", OperatorType.In, deletes)).Any())
+            var deletes = Get(filter).ToList(m => m.ID);
+            if (deletes.Any() && Get(new DataFilter().Where("ParentId", OperatorType.In, deletes)).Any())
             {
-                this.Delete(new DataFilter().Where("ParentId", OperatorType.In, deletes));
-                this.Delete(new DataFilter().Where("ReferencePageID", OperatorType.In, deletes));
+                Delete(new DataFilter().Where("ParentId", OperatorType.In, deletes));
+                Delete(new DataFilter().Where("ReferencePageID", OperatorType.In, deletes));
             }
             if (deletes.Any())
             {
@@ -103,12 +102,12 @@ namespace Easy.Web.CMS.Page
             PageEntity page = Get(primaryKeys);
             if (page != null)
             {
-                this.Delete(m => m.ParentId == page.ID);
+                Delete(m => m.ParentId == page.ID);
                 var widgets = WidgetService.Get(m => m.PageID == page.ID);
                 widgets.Each(m => m.CreateServiceInstance().DeleteWidget(m.ID));
                 if (page.PublishDate.HasValue)
                 {
-                    this.Delete(m => m.ReferencePageID == page.ID);
+                    Delete(m => m.ReferencePageID == page.ID);
                 }
                 DataArchivedService.Delete(CacheTrigger.PageWidgetsArchivedKey.FormatWith(page.ID));
             }
@@ -119,7 +118,7 @@ namespace Easy.Web.CMS.Page
 
         public void Move(string id, int position, int oldPosition)
         {
-            var page = this.Get(id);
+            var page = Get(id);
             page.DisplayOrder = position;
             var filter = new DataFilter()
                 .Where("IsPublishedPage", OperatorType.Equal, false)
@@ -129,25 +128,25 @@ namespace Easy.Web.CMS.Page
             {
                 filter.Where("DisplayOrder", OperatorType.LessThanOrEqualTo, position);
                 filter.Where("DisplayOrder", OperatorType.GreaterThanOrEqualTo, oldPosition);
-                var pages = this.Get(filter);
+                var pages = Get(filter);
                 pages.Each(m =>
                 {
                     m.DisplayOrder--;
-                    this.Update(m);
+                    Update(m);
                 });
             }
             else
             {
                 filter.Where("DisplayOrder", OperatorType.LessThanOrEqualTo, oldPosition);
                 filter.Where("DisplayOrder", OperatorType.GreaterThanOrEqualTo, position);
-                var pages = this.Get(filter);
+                var pages = Get(filter);
                 pages.Each(m =>
                 {
                     m.DisplayOrder++;
-                    this.Update(m);
+                    Update(m);
                 });
             }
-            this.Update(page);
+            Update(page);
         }
         public PageEntity GetByPath(string path, bool isPreView)
         {
@@ -179,7 +178,7 @@ namespace Easy.Web.CMS.Page
 
         public void MarkChanged(string pageId)
         {
-            this.Update(new PageEntity { IsPublish = false, LastUpdateDate = DateTime.Now, LastUpdateBy = ApplicationContext.CurrentUser.UserID },
+            Update(new PageEntity { IsPublish = false, LastUpdateDate = DateTime.Now, LastUpdateBy = ApplicationContext.CurrentUser.UserID },
               new DataFilter(new List<string> { "IsPublish", "LastUpdateDate", "LastUpdateBy" })
               .Where("ID", OperatorType.Equal, pageId));
         }

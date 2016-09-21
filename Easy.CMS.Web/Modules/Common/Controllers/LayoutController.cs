@@ -1,20 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Web;
 using System.Web.Mvc;
-using Easy.Data;
-using Easy.Web.Controller;
-using Easy.Web.CMS.Layout;
-using Easy.Web.Attribute;
-using Easy.Extend;
-using Easy.Constant;
-using Easy.Web.CMS.Zone;
 using Easy.CMS.Common.ViewModels;
+using Easy.Constant;
+using Easy.Extend;
+using Easy.Web.Attribute;
+using Easy.Web.Authorize;
+using Easy.Web.CMS.Layout;
 using Easy.Web.CMS.Page;
 using Easy.Web.CMS.Widget;
+using Easy.Web.CMS.Zone;
+using Easy.Web.Controller;
 using Microsoft.Practices.ServiceLocation;
-using Easy.Web.Authorize;
 
 namespace Easy.CMS.Common.Controllers
 {
@@ -78,7 +74,7 @@ namespace Easy.CMS.Common.Controllers
         {
             if (entity.ActionType == ActionType.Design)
             {
-                return RedirectToAction("Design", new { ID = entity.ID });
+                return RedirectToAction("Design", new {entity.ID });
             }
             return base.Edit(entity);
         }
@@ -109,7 +105,7 @@ namespace Easy.CMS.Common.Controllers
             Service.UpdateDesign(layout);
             if (layout.Page != null)
             {
-                return RedirectToAction("Design", "Page", new { module = "admin", ID = layout.Page.ID });
+                return RedirectToAction("Design", "Page", new { module = "admin", layout.Page.ID });
             }
             return RedirectToAction("Index");
         }

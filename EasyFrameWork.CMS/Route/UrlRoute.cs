@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Web.Routing;
-using Easy.Extend;
+﻿using System.Web;
 using System.Web.Mvc;
+using System.Web.Routing;
 
 namespace Easy.Web.CMS.Route
 {
     class UrlRoute : RouteBase
     {
-        public override RouteData GetRouteData(System.Web.HttpContextBase httpContext)
+        public override RouteData GetRouteData(HttpContextBase httpContext)
         {
             RouteData data = new RouteData(this, new MvcRouteHandler());
             return data;

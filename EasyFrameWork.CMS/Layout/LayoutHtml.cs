@@ -1,11 +1,6 @@
-﻿using Easy.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.ObjectModel;
 using Easy.MetaData;
-using System.Collections.ObjectModel;
-using System.Text.RegularExpressions;
+using Easy.Models;
 
 namespace Easy.Web.CMS.Layout
 {

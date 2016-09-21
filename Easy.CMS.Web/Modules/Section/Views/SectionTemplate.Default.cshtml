@@ -1,12 +1,11 @@
-﻿@using System.Linq
-@using Easy.CMS.Section
+﻿@using Easy.CMS.Section
 @using Easy.CMS.Section.Models
-@model SectionGroup
+@model Easy.CMS.Section.Models.SectionGroup
 
 <div class="section-group-default">
     @foreach (SectionContent content in Model.SectionContents.OrderBy(m => m.Order))
     {
-        if (content.SectionContentType == (int)SectionContent.Types.CallToAction || content.SectionContentType == (int)SectionContent.Types.Image)
+        if (content.SectionContentType == (int)SectionContentBase.Types.CallToAction || content.SectionContentType == (int)SectionContentBase.Types.Image)
         {
             <p>
                 @{

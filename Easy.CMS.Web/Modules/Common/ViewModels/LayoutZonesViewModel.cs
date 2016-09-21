@@ -1,11 +1,8 @@
-﻿using Easy.Web.CMS.Layout;
+﻿using System.Collections.Generic;
+using Easy.Web.CMS.Layout;
+using Easy.Web.CMS.Page;
 using Easy.Web.CMS.Widget;
 using Easy.Web.CMS.Zone;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using Easy.Web.CMS.Page;
 
 namespace Easy.CMS.Common.ViewModels
 {

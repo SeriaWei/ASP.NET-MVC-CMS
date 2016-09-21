@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Easy.CMS.Web
+﻿namespace Easy.CMS.Web
 {
     public static class AuthConfig
     {

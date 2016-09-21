@@ -1,8 +1,9 @@
 ﻿@using Easy.CMS.Common
+@using Easy.Web.CMS.Zone
 @model Easy.CMS.Common.ViewModels.LayoutZonesViewModel
 @{
     Layout = null;
-    string returnUrl = Url.Action("Index", "Page", new { module = "admin", PageID = Model.PageID });
+    string returnUrl = Url.Action("Index", "Page", new { module = "admin", Model.PageID });
     var noZoneWidgets = Model.Widgets.Where(m => Model.Zones.All(n => n.ID != m.ZoneID));
 }
 
@@ -23,7 +24,7 @@
                         }
                         @if (Authorizer.Authorize(PermissionKeys.ManagePage))
                         {
-                            <a href="@Url.Action("Edit", "Widget", new {module = "admin", ID = widget.ID, ReturnUrl = returnUrl})"><i class="glyphicon glyphicon-edit"></i></a>
+                            <a href="@Url.Action("Edit", "Widget", new {module = "admin", widget.ID, ReturnUrl = returnUrl})"><i class="glyphicon glyphicon-edit"></i></a>
                             <a href="javascript:void(0)" class="delete" data-widgetid="@widget.ID"><i class="glyphicon glyphicon-trash"></i></a>
                         }
                         @widget.WidgetName
@@ -49,7 +50,7 @@
             @for (int i = 0; i < Model.LayoutHtml.Count; i++)
             {
                 var itemHtml = Model.LayoutHtml[i];
-                if (itemHtml.Html == Easy.Web.CMS.Zone.ZoneEntity.ZoneTag)
+                if (itemHtml.Html == ZoneEntity.ZoneTag)
                 {
                     i++;
                     itemHtml = Model.LayoutHtml[i];
@@ -61,7 +62,7 @@
                             <div class="panel-toolbar">
                                 @if (Authorizer.Authorize(PermissionKeys.ManagePage))
                                 {
-                                    <a class="label label-danger" title="添加组件到该区域" href="@Url.Action("SelectWidget", "WidgetTemplate", new {module = "admin", PageID = Model.PageID, ZoneID = item.ID, ReturnUrl = returnUrl})">
+                                    <a class="label label-danger" title="添加组件到该区域" href="@Url.Action("SelectWidget", "WidgetTemplate", new {module = "admin", Model.PageID, ZoneID = item.ID, ReturnUrl = returnUrl})">
                                         <i class="glyphicon glyphicon-plus"></i>
                                         @item.ZoneName
                                     </a>
@@ -84,7 +85,7 @@
                                         }
                                         @if (Authorizer.Authorize(PermissionKeys.ManagePage))
                                         {
-                                            <a href="@Url.Action("Edit", "Widget", new { module = "admin", ID = widget.ID, ReturnUrl = returnUrl })"><i class="glyphicon glyphicon-edit"></i></a>
+                                            <a href="@Url.Action("Edit", "Widget", new { module = "admin", widget.ID, ReturnUrl = returnUrl })"><i class="glyphicon glyphicon-edit"></i></a>
                                             <a href="javascript:void(0)" class="delete" data-widgetid="@widget.ID"><i class="glyphicon glyphicon-trash"></i></a>
                                         }
                                         @widget.WidgetName
@@ -127,7 +128,7 @@
             }
             @if (Authorizer.Authorize(PermissionKeys.ManageLayout))
             {
-                <a class="btn btn-primary" href="@Url.Action("Design", "Layout", new {module = "admin", ID = Model.LayoutID, PageID = Model.PageID})">
+                <a class="btn btn-primary" href="@Url.Action("Design", "Layout", new {module = "admin", ID = Model.LayoutID, Model.PageID})">
                     <i class="glyphicon glyphicon-th-list"></i>
                     布局
                 </a>

@@ -1,6 +1,6 @@
 ﻿@using Easy.CMS.Article
-@using Easy.Web.CMS.Article.Models
 @using Easy.ViewPort.jsTree
+@using Easy.Web.CMS.Article.Models
 @{
     Script.Reqiured("jsTree").AtFoot();
     var articleTree = Html.Tree<ArticleType>().Source("GetArticleTypeTree", "ArticleType", new {module = "admin"});

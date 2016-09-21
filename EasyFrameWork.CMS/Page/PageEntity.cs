@@ -1,11 +1,9 @@
-﻿using Easy.Constant;
-using Easy.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Easy.MetaData;
+using Easy.Constant;
 using Easy.Extend;
+using Easy.MetaData;
+using Easy.Models;
 using Easy.Web.CMS.ExtendField;
 
 namespace Easy.Web.CMS.Page
@@ -24,11 +22,11 @@ namespace Easy.Web.CMS.Page
             get
             {
                 if (_pageUrl.IsNotNullAndWhiteSpace()) return _pageUrl;
-                if (!this.Url.IsNullOrEmpty())
+                if (!Url.IsNullOrEmpty())
                 {
-                    return this.Url.Substring(this.Url.LastIndexOf("/") + 1, this.Url.Length - this.Url.LastIndexOf("/") - 1);
+                    return Url.Substring(Url.LastIndexOf("/") + 1, Url.Length - Url.LastIndexOf("/") - 1);
                 }
-                return this.Url;
+                return Url;
             }
             set { _pageUrl = value; }
         }

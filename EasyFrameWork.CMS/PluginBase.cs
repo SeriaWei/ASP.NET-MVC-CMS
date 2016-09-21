@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using Easy.IOC;
 using Easy.Web.Resource;
 using Easy.Web.Route;
@@ -16,7 +13,7 @@ namespace Easy.Web.CMS
 
         public virtual void Load(IContainerAdapter adapter)
         {
-            adapter.RegisterType(typeof (PluginBase), this.GetType());
+            adapter.RegisterType(typeof (PluginBase), GetType());
         }
     }
 }

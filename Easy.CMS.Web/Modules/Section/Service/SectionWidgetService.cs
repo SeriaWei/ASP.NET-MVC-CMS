@@ -1,22 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-using System.Web;
+using System.Text;
+using Easy.CMS.Section.ContentJsonConvert;
 using Easy.CMS.Section.Models;
 using Easy.Data;
 using Easy.Extend;
-using Easy.RepositoryPattern;
+using Easy.Web.CMS;
 using Easy.Web.CMS.Widget;
 using EasyZip;
 using Microsoft.Practices.ServiceLocation;
-using Easy.Web.CMS;
-using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
 using Newtonsoft.Json;
-using Easy.CMS.Section.ContentJsonConvert;
-using System.Text;
-using Easy.Cache;
-using Easy.Web.CMS.DataArchived;
 
 namespace Easy.CMS.Section.Service
 {

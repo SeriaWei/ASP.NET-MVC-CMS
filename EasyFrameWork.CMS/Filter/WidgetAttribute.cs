@@ -1,20 +1,13 @@
-﻿using Easy.Web.CMS.Widget;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Web.Mvc;
-using Easy;
-using Easy.Web.CMS.Page;
-using Easy.Web.CMS.Layout;
-using Easy.Constant;
-using Easy.Extend;
-using System.Net;
+﻿using System;
 using System.Web;
-using Easy.Cache;
+using System.Web.Mvc;
+using Easy.Extend;
 using Easy.Web.CMS.Event;
+using Easy.Web.CMS.Layout;
+using Easy.Web.CMS.Page;
 using Easy.Web.CMS.Setting;
 using Easy.Web.CMS.Theme;
+using Easy.Web.CMS.Widget;
 using Microsoft.Practices.ServiceLocation;
 
 namespace Easy.Web.CMS.Filter

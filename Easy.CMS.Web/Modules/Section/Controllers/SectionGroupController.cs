@@ -9,9 +9,9 @@ using Easy.Data;
 using Easy.Extend;
 using Easy.Web;
 using Easy.Web.Attribute;
-using EasyZip;
-using Microsoft.Practices.ServiceLocation;
 using Easy.Web.Authorize;
+using Easy.Web.CMS.Widget;
+using Microsoft.Practices.ServiceLocation;
 
 namespace Easy.CMS.Section.Controllers
 {
@@ -98,7 +98,7 @@ namespace Easy.CMS.Section.Controllers
             {
                 try
                 {
-                    ServiceLocator.Current.GetInstance<Easy.Web.CMS.Widget.IWidgetService>().InstallPackWidget(Request.Files[0].InputStream);
+                    ServiceLocator.Current.GetInstance<IWidgetService>().InstallPackWidget(Request.Files[0].InputStream);
                 }
                 catch (Exception ex)
                 {

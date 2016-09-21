@@ -1,18 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using Easy.CMS.Common.ViewModels;
 using Easy.Data;
 using Easy.Extend;
 using Easy.Web.Attribute;
+using Easy.Web.Authorize;
 using Easy.Web.CMS;
 using Easy.Web.CMS.Media;
 using Easy.Web.Controller;
 using Easy.Web.Extend;
-using Easy.Web.Authorize;
 
 namespace Easy.CMS.Common.Controllers
 {
@@ -97,7 +95,7 @@ namespace Easy.CMS.Common.Controllers
                 var entity = new MediaEntity
                 {
                     ParentID = parentId,
-                    Title = fileName,
+                    Title = fileName
                 };
                 string extension = Path.GetExtension(fileName).ToLower();
                 if (Web.Common.IsImage(extension))

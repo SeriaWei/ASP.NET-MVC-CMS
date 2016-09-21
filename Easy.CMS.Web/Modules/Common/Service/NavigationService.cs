@@ -1,11 +1,9 @@
-﻿using Easy.CMS.Common.Models;
-using Easy.Data;
-using Easy.RepositoryPattern;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Linq;
-using System.Web;
+using Easy.CMS.Common.Models;
+using Easy.Data;
 using Easy.Extend;
+using Easy.RepositoryPattern;
 
 namespace Easy.CMS.Common.Service
 {
@@ -20,31 +18,31 @@ namespace Easy.CMS.Common.Service
             item.ID = Guid.NewGuid().ToString("N");
             base.Add(item);
         }
-        public override int Delete(Data.DataFilter filter)
+        public override int Delete(DataFilter filter)
         {
-            var deletes = this.Get(filter).ToList(m => m.ID);
-            if (deletes.Any() && this.Get(new Data.DataFilter().Where("ParentId", OperatorType.In, deletes)).Any())
+            var deletes = Get(filter).ToList(m => m.ID);
+            if (deletes.Any() && Get(new DataFilter().Where("ParentId", OperatorType.In, deletes)).Any())
             {
-                this.Delete(new Data.DataFilter().Where("ParentId", OperatorType.In, deletes));
+                Delete(new DataFilter().Where("ParentId", OperatorType.In, deletes));
             }
             return base.Delete(filter);
         }
         public override int Delete(params object[] primaryKeys)
         {
             var entity = Get(primaryKeys);
-            this.Delete(new Data.DataFilter().Where("ParentId", OperatorType.Equal, entity.ID));
+            Delete(new DataFilter().Where("ParentId", OperatorType.Equal, entity.ID));
             return base.Delete(primaryKeys);
         }
 
         public void Move(string id, string parentId, int position, int oldPosition)
         {
-            var nav = this.Get(id);
+            var nav = Get(id);
             nav.ParentId = parentId;
             nav.DisplayOrder = position;
-            var filter = new Data.DataFilter()
+            var filter = new DataFilter()
                 .Where("ParentId", OperatorType.Equal, nav.ParentId)
                 .Where("Id", OperatorType.NotEqual, nav.ID).OrderBy("DisplayOrder", OrderType.Ascending);
-            var navs = this.Get(filter);
+            var navs = Get(filter);
             int order = 1;
             for (int i = 0; i < navs.Count(); i++)
             {
@@ -54,10 +52,10 @@ namespace Easy.CMS.Common.Service
                     order++;
                 }
                 eleNav.DisplayOrder = order;
-                this.Update(eleNav);
+                Update(eleNav);
                 order++;
             }
-            this.Update(nav);
+            Update(nav);
         }
     }
 }

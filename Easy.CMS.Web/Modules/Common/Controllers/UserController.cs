@@ -1,11 +1,11 @@
 ﻿using System.Web.Mvc;
+using Easy.Extend;
 using Easy.Modules.User.Models;
 using Easy.Modules.User.Service;
 using Easy.Web.Attribute;
-using Easy.Web.Controller;
-using Easy.Extend;
-using Easy.Web.Extend;
 using Easy.Web.Authorize;
+using Easy.Web.Controller;
+using Easy.Web.Extend;
 
 namespace Easy.CMS.Common.Controllers
 {

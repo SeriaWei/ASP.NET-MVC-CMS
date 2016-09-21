@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using Easy.Data;
-using Easy.RepositoryPattern;
-using Easy.CMS.Article.Models;
+﻿using System.Collections.Generic;
 using Easy.Extend;
+using Easy.RepositoryPattern;
 using Easy.Web.CMS.Article.Models;
 using Easy.Web.CMS.Article.Service;
 using Microsoft.Practices.ServiceLocation;

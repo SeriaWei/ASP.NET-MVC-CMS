@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using Easy.Data;
-using Easy.RepositoryPattern;
 using Easy.Extend;
+using Easy.RepositoryPattern;
 using Easy.Web.CMS.Layout;
 using Easy.Web.CMS.Page;
 using Microsoft.Practices.ServiceLocation;

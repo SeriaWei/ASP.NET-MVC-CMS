@@ -1,16 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using Easy.Cache;
 using Easy.Data;
-using Easy.RepositoryPattern;
 using Easy.Extend;
-using Easy.Web.CMS.Zone;
-using Easy.Constant;
+using Easy.RepositoryPattern;
 using Easy.Web.CMS.DataArchived;
 using Easy.Web.CMS.Page;
 using Easy.Web.CMS.Widget;
+using Easy.Web.CMS.Zone;
 using Microsoft.Practices.ServiceLocation;
 
 namespace Easy.Web.CMS.Layout
@@ -70,7 +67,7 @@ namespace Easy.Web.CMS.Layout
 
         public void UpdateDesign(LayoutEntity item)
         {
-            this.Update(item, new DataFilter(new List<string> { "ContainerClass" }).Where("ID", OperatorType.Equal, item.ID));
+            Update(item, new DataFilter(new List<string> { "ContainerClass" }).Where("ID", OperatorType.Equal, item.ID));
             if (item.Zones != null)
             {
                 var zones = ZoneService.Get(m => m.LayoutId == item.ID);
@@ -132,7 +129,7 @@ namespace Easy.Web.CMS.Layout
         }
         public override int Delete(DataFilter filter)
         {
-            var deletes = this.Get(filter).ToList(m => m.ID);
+            var deletes = Get(filter).ToList(m => m.ID);
             if (deletes.Any())
             {
                 var layoutHtmlService = new LayoutHtmlService();

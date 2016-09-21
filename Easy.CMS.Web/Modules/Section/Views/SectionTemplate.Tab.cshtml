@@ -1,7 +1,5 @@
-﻿@using System.Linq
-@using Easy.CMS.Section
-@using Easy.CMS.Section.Models
-@model SectionGroup
+﻿@using Easy.CMS.Section.Models
+@model Easy.CMS.Section.Models.SectionGroup
 @{
     string tabId = Guid.NewGuid().ToString("N");
 }
@@ -9,7 +7,7 @@
     <p>
         <ul class="nav nav-tabs" role="tablist">
             @{
-                var titles = Model.SectionContents.Where(m => m.SectionContentType == (int)SectionContent.Types.Title).Cast<SectionContentTitle>().ToList();
+                var titles = Model.SectionContents.Where(m => m.SectionContentType == (int)SectionContentBase.Types.Title).Cast<SectionContentTitle>().ToList();
                 for (int i = 0; i < titles.Count; i++)
                 {
                     var itemId = tabId + "-" + i;
@@ -22,7 +20,7 @@
     </p>
     <div class="tab-content">
         @{
-            var paragraphs = Model.SectionContents.Where(m => m.SectionContentType == (int)SectionContent.Types.Paragraph).Cast<SectionContentParagraph>().ToList();
+            var paragraphs = Model.SectionContents.Where(m => m.SectionContentType == (int)SectionContentBase.Types.Paragraph).Cast<SectionContentParagraph>().ToList();
             for (int i = 0; i < paragraphs.Count; i++)
             {
                 var itemId = tabId + "-" + i;

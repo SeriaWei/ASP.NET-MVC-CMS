@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using Easy.Web.Controller;
-using Easy.CMS.Article.Service;
-using Easy.CMS.Article.Models;
+﻿using System.Web.Mvc;
+using Easy.ViewPort.jsTree;
 using Easy.Web.Attribute;
+using Easy.Web.Authorize;
 using Easy.Web.CMS.Article.Models;
 using Easy.Web.CMS.Article.Service;
-using Easy.Web.Authorize;
+using Easy.Web.Controller;
 
 namespace Easy.CMS.Article.Controllers
 {
@@ -39,7 +34,7 @@ namespace Easy.CMS.Article.Controllers
         public JsonResult GetArticleTypeTree()
         {
             var allNodes = Service.Get();
-            var node = new ViewPort.jsTree.Tree<ArticleType>().Source(allNodes).ToNode(m => m.ID.ToString(), m => m.Title, m => m.ParentID.ToString(), "0");
+            var node = new Tree<ArticleType>().Source(allNodes).ToNode(m => m.ID.ToString(), m => m.Title, m => m.ParentID.ToString(), "0");
             return Json(node, JsonRequestBehavior.AllowGet);
         }
     }

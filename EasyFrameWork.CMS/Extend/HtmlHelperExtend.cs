@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Web;
+﻿using System.Web;
 using System.Web.Mvc;
 using System.Web.Mvc.Html;
 using Easy.Data;
@@ -19,10 +15,7 @@ namespace Easy.Web.CMS
             {
                 return html.Partial(widget.Widget.PartialView, widget.ViewModel);
             }
-            else
-            {
-                return html.WidgetError();
-            }
+            return html.WidgetError();
         }
 
         public static MvcHtmlString DesignWidget(this HtmlHelper html, DesignWidgetViewModel viewModel)

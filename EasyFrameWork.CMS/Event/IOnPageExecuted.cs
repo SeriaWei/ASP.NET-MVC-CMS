@@ -1,5 +1,5 @@
-﻿using Easy.IOC;
-using System.Web;
+﻿using System.Web;
+using Easy.IOC;
 using Easy.Web.CMS.Page;
 
 namespace Easy.Web.CMS.Event

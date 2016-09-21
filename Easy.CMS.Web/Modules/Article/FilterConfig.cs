@@ -2,6 +2,7 @@
 using Easy.CMS.Article.Controllers;
 using Easy.Web.Authorize;
 using Easy.Web.Filter;
+
 namespace Easy.CMS.Article
 {
     public class FilterConfig : ConfigureFilterBase

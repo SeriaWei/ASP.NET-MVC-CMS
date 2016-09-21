@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Easy.CMS.Article
+﻿namespace Easy.CMS.Article
 {
     public class PermissionKeys
     {

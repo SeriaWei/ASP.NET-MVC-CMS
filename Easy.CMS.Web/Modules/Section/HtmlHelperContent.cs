@@ -10,7 +10,7 @@ namespace Easy.CMS.Section
         {
             if (content != null && content.SectionContentType > 0)
             {
-                html.RenderPartial("SectionPartial." + ((SectionContent.Types)content.SectionContentType), content);
+                html.RenderPartial("SectionPartial." + ((SectionContentBase.Types)content.SectionContentType), content);
             }
         }
 
@@ -18,7 +18,7 @@ namespace Easy.CMS.Section
         {
             if (content != null && content.SectionContentType > 0)
             {
-                html.RenderPartial("SectionPartial." + ((SectionContent.Types)content.SectionContentType + ".Edit"), content);
+                html.RenderPartial("SectionPartial." + ((SectionContentBase.Types)content.SectionContentType + ".Edit"), content);
             }
         }
     }

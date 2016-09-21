@@ -1,24 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
-using Easy.Data;
-using Easy.RepositoryPattern;
 using System.Web;
 using Easy.Cache;
-using Easy.Extend;
-using Easy.Web.CMS.Page;
-using Microsoft.Practices.ServiceLocation;
-using EasyZip;
-using Newtonsoft.Json;
-using System.IO;
-using System.Configuration;
-using System.Security.Cryptography;
 using Easy.Constant;
+using Easy.Data;
+using Easy.Extend;
+using Easy.RepositoryPattern;
 using Easy.Web.CMS.DataArchived;
 using Easy.Web.CMS.Encrypt;
 using Easy.Web.CMS.Layout;
+using Easy.Web.CMS.Page;
+using EasyZip;
+using Microsoft.Practices.ServiceLocation;
+using Newtonsoft.Json;
 
 namespace Easy.Web.CMS.Widget
 {
@@ -64,11 +63,11 @@ namespace Easy.Web.CMS.Widget
         }
         public IEnumerable<WidgetBase> GetByLayoutId(string layoutId)
         {
-            return this.Get(new DataFilter().Where("LayoutID", OperatorType.Equal, layoutId));
+            return Get(new DataFilter().Where("LayoutID", OperatorType.Equal, layoutId));
         }
         public IEnumerable<WidgetBase> GetByPageId(string pageId)
         {
-            return this.Get(new DataFilter().Where("PageID", OperatorType.Equal, pageId));
+            return Get(new DataFilter().Where("PageID", OperatorType.Equal, pageId));
         }
         public IEnumerable<WidgetBase> GetAllByPageId(string pageId)
         {
@@ -78,7 +77,7 @@ namespace Easy.Web.CMS.Widget
 
         public IEnumerable<WidgetBase> GetAllByPage(PageEntity page)
         {
-            Func<PageEntity, List<WidgetBase>> getPageWidgets = (p) =>
+            Func<PageEntity, List<WidgetBase>> getPageWidgets = p =>
             {
                 var result = GetByLayoutId(p.LayoutId);
                 List<WidgetBase> widgets = result.ToList();
@@ -369,18 +368,18 @@ namespace Easy.Web.CMS.Widget
         #region PartDrive
         public virtual void AddWidget(WidgetBase widget)
         {
-            this.Add((T)widget);
+            Add((T)widget);
         }
 
 
         public virtual void DeleteWidget(string widgetId)
         {
-            this.Delete(widgetId);
+            Delete(widgetId);
         }
 
         public virtual void UpdateWidget(WidgetBase widget)
         {
-            this.Update((T)widget);
+            Update((T)widget);
         }
         #endregion
 

@@ -1,15 +1,13 @@
-﻿using System.Web.Mvc;
-using Easy.Modules.User.Models;
-using Easy.Modules.User.Service;
-using Easy.Web.Attribute;
-using Easy.Web.Controller;
-using Easy.Extend;
-using Easy.Web.Extend;
-using Easy.Web.Authorize;
-using Easy.Modules.Role;
-using System.Collections.Generic;
-using Easy.Web.CMS;
+﻿using System.Collections.Generic;
 using System.Linq;
+using System.Web.Mvc;
+using Easy.Constant;
+using Easy.Extend;
+using Easy.Modules.Role;
+using Easy.Web.Attribute;
+using Easy.Web.Authorize;
+using Easy.Web.CMS;
+using Easy.Web.Controller;
 
 namespace Easy.CMS.Common.Controllers
 {
@@ -32,7 +30,7 @@ namespace Easy.CMS.Common.Controllers
             entity.Permissions = new List<Permission>();
             PermissionSet.Where(m => m.Checked ?? false).Each(m =>
             {
-                ((List<Permission>)entity.Permissions).Add(new Permission { PermissionKey = m.Key, Module = m.Module, Title = m.Title, ActionType = Constant.ActionType.Create });
+                ((List<Permission>)entity.Permissions).Add(new Permission { PermissionKey = m.Key, Module = m.Module, Title = m.Title, ActionType = ActionType.Create });
             });
             Service.Add(entity);
             return RedirectToAction("Index");
@@ -46,7 +44,7 @@ namespace Easy.CMS.Common.Controllers
         public ActionResult Edit(RoleEntity entity, List<PermissionDescriptor> PermissionSet)
         {
             entity.Permissions = Service.Get(entity.ID).Permissions;
-            entity.Permissions.Each(m => m.ActionType = Constant.ActionType.Delete);
+            entity.Permissions.Each(m => m.ActionType = ActionType.Delete);
             PermissionSet.Where(m => m.Checked ?? false).Each(m =>
             {
                 bool exists = false;
@@ -54,13 +52,13 @@ namespace Easy.CMS.Common.Controllers
                 {
                     if (item.PermissionKey == m.Key)
                     {
-                        item.ActionType = Constant.ActionType.Update;
+                        item.ActionType = ActionType.Update;
                         exists = true;
                     }
                 }
                 if (!exists)
                 {
-                    ((List<Permission>)entity.Permissions).Add(new Permission { PermissionKey = m.Key, Module = m.Module, Title = m.Title, ActionType = Constant.ActionType.Create });
+                    ((List<Permission>)entity.Permissions).Add(new Permission { PermissionKey = m.Key, Module = m.Module, Title = m.Title, ActionType = ActionType.Create });
                 }
 
             });

@@ -1,24 +1,16 @@
-﻿using Easy.Data;
-using Easy.Web.CMS;
-using Easy.Web.CMS.WidgetTemplate;
-using Easy.Web.CMS.Zone;
-using Easy.Web.Attribute;
-using Easy.Web.Controller;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using Easy.CMS.Common.ViewModels;
-using Easy.Extend;
 using Easy.Constant;
+using Easy.Data;
+using Easy.Extend;
 using Easy.Web;
-using Easy.Web.CMS.Widget;
-using EasyZip;
-using Microsoft.Practices.ServiceLocation;
-using Newtonsoft.Json;
+using Easy.Web.Attribute;
 using Easy.Web.Authorize;
+using Easy.Web.CMS;
+using Easy.Web.CMS.Widget;
+using Easy.Web.CMS.WidgetTemplate;
 using Easy.Web.ValueProvider;
 
 namespace Easy.CMS.Common.Controllers
@@ -75,18 +67,15 @@ namespace Easy.CMS.Common.Controllers
             {
                 return RedirectToAction("Edit", new { widget.ID, ReturnUrl });
             }
-            else if (!ReturnUrl.IsNullOrEmpty())
+            if (!ReturnUrl.IsNullOrEmpty())
             {
                 return Redirect(ReturnUrl);
             }
-            else if (!widget.PageID.IsNullOrEmpty())
+            if (!widget.PageID.IsNullOrEmpty())
             {
                 return RedirectToAction("Design", "Page", new { module = "admin", ID = widget.PageID });
             }
-            else
-            {
-                return RedirectToAction("LayoutWidget", "Layout", new { module = "admin" });
-            }
+            return RedirectToAction("LayoutWidget", "Layout", new { module = "admin" });
         }
         [ViewDataZones]
         public ActionResult Edit(string ID, string ReturnUrl)
@@ -127,10 +116,7 @@ namespace Easy.CMS.Common.Controllers
             {
                 return RedirectToAction("Design", "Page", new { module = "admin", ID = widget.PageID });
             }
-            else
-            {
-                return RedirectToAction("LayoutWidget", "Layout", new { module = "admin" });
-            }
+            return RedirectToAction("LayoutWidget", "Layout", new { module = "admin" });
         }
 
         [HttpPost]
@@ -156,7 +142,7 @@ namespace Easy.CMS.Common.Controllers
 
         public PartialViewResult Templates()
         {
-            return PartialView(_widgetService.Get(m => m.IsTemplate == true));
+            return PartialView(_widgetService.Get(m => m.IsTemplate));
         }
 
         [HttpPost]

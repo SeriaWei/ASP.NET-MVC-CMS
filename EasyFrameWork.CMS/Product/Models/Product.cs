@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using Easy.Constant;
 using Easy.MetaData;
 using Easy.Models;
 using Easy.Web.CMS.ExtendField;
@@ -89,7 +88,7 @@ namespace Easy.Web.CMS.Product.Models
             ViewConfig(m => m.ImageUrl).AsTextBox().AddClass(StringKeys.SelectImageClass).AddProperty("data-url", Urls.SelectMedia);
             ViewConfig(m => m.ImageThumbUrl).AsTextBox().AddClass(StringKeys.SelectImageClass).AddProperty("data-url", Urls.SelectMedia);
             ViewConfig(m => m.BrandCD).AsHidden();
-            ViewConfig(m => m.ProductCategoryID).AsDropDownList().Required().DataSource(ViewDataKeys.ProductCategory, Constant.SourceType.ViewData);
+            ViewConfig(m => m.ProductCategoryID).AsDropDownList().Required().DataSource(ViewDataKeys.ProductCategory, SourceType.ViewData);
             ViewConfig(m => m.ExtendFields).AsListEditor();
             ViewConfig(m => m.ShelfLife).AsHidden();
             ViewConfig(m => m.Norm).AsHidden();

@@ -1,18 +1,14 @@
-﻿using Easy.Web.CMS.Zone;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using Easy.Extend;
 using Easy.Web.Attribute;
+using Easy.Web.CMS.Zone;
 using Microsoft.Practices.ServiceLocation;
 
 namespace Easy.Web.CMS.Widget
 {
     public class ViewDataZonesAttribute : ViewDataAttribute
     {
-        public override void OnActionExecuted(System.Web.Mvc.ActionExecutedContext filterContext)
+        public override void OnActionExecuted(ActionExecutedContext filterContext)
         {
             ViewResult result = filterContext.Result as ViewResult;
             if (result != null)
@@ -33,7 +29,7 @@ namespace Easy.Web.CMS.Widget
             }
         }
 
-        public override void OnActionExecuting(System.Web.Mvc.ActionExecutingContext filterContext)
+        public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
         }
     }

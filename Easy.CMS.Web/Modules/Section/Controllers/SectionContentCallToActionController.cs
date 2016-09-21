@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using Easy.CMS.Section.Models;
 using Easy.CMS.Section.Service;
 using Easy.Constant;
-using Easy.Data;
 using Easy.Web.Attribute;
 using Easy.Web.Authorize;
 

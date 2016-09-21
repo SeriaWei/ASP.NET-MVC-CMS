@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Web;
 using Easy.CMS.Section.Service;
 using Easy.Extend;
 using Easy.MetaData;
@@ -23,7 +21,7 @@ namespace Easy.CMS.Section.Models
         public bool IsLoadDefaultData { get; set; }
         public IEnumerable<SectionContent> SectionContents { get; set; }
 
-        private T GetContent<T>(SectionContent.Types type) where T : SectionContent
+        private T GetContent<T>(SectionContentBase.Types type) where T : SectionContent
         {
             if (SectionContents != null)
             {
@@ -32,7 +30,7 @@ namespace Easy.CMS.Section.Models
             return null;
         }
 
-        private IEnumerable<T> GetContents<T>(SectionContent.Types type) where T : SectionContent
+        private IEnumerable<T> GetContents<T>(SectionContentBase.Types type) where T : SectionContent
         {
             if (SectionContents != null)
             {
@@ -44,21 +42,21 @@ namespace Easy.CMS.Section.Models
         {
             get
             {
-                return GetContent<SectionContentTitle>(SectionContent.Types.Title);
+                return GetContent<SectionContentTitle>(SectionContentBase.Types.Title);
             }
         }
         public IEnumerable<SectionContentTitle> SectionTitles
         {
             get
             {
-                return GetContents<SectionContentTitle>(SectionContent.Types.Title);
+                return GetContents<SectionContentTitle>(SectionContentBase.Types.Title);
             }
         }
         public SectionContentCallToAction CallToAction
         {
             get
             {
-                return GetContent<SectionContentCallToAction>(SectionContent.Types.CallToAction);
+                return GetContent<SectionContentCallToAction>(SectionContentBase.Types.CallToAction);
             }
         }
 
@@ -66,35 +64,35 @@ namespace Easy.CMS.Section.Models
         {
             get
             {
-                return GetContents<SectionContentCallToAction>(SectionContent.Types.CallToAction);
+                return GetContents<SectionContentCallToAction>(SectionContentBase.Types.CallToAction);
             }
         }
         public SectionContentImage SectionImage
         {
             get
             {
-                return GetContent<SectionContentImage>(SectionContent.Types.Image);
+                return GetContent<SectionContentImage>(SectionContentBase.Types.Image);
             }
         }
         public IEnumerable<SectionContentImage> SectionImages
         {
             get
             {
-                return GetContents<SectionContentImage>(SectionContent.Types.Image);
+                return GetContents<SectionContentImage>(SectionContentBase.Types.Image);
             }
         }
         public SectionContentParagraph Paragraph
         {
             get
             {
-                return GetContent<SectionContentParagraph>(SectionContent.Types.Paragraph);
+                return GetContent<SectionContentParagraph>(SectionContentBase.Types.Paragraph);
             }
         }
         public IEnumerable<SectionContentParagraph> Paragraphs
         {
             get
             {
-                return GetContents<SectionContentParagraph>(SectionContent.Types.Paragraph);
+                return GetContents<SectionContentParagraph>(SectionContentBase.Types.Paragraph);
             }
         }
 

@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using Easy.Constant;
-using Easy.Models;
-using Easy.RepositoryPattern;
+﻿using Easy.Constant;
 using Easy.MetaData;
+using Easy.Models;
 
 namespace Easy.Web.CMS.Article.Models
 {

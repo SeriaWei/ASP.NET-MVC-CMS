@@ -8,6 +8,7 @@ using Easy.Web.CMS.Page;
 using Easy.Web.CMS.Setting;
 using Easy.Web.CMS.Theme;
 using Easy.Web.Filter;
+
 namespace Easy.CMS.Common
 {
     public class FilterConfig : ConfigureFilterBase

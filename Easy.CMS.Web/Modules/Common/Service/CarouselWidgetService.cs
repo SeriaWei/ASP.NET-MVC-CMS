@@ -1,8 +1,8 @@
-﻿using Easy.CMS.Common.Models;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Easy.CMS.Common.Models;
+using Easy.Constant;
 using Easy.Data;
 using Easy.Extend;
 using Easy.Web.CMS.Widget;
@@ -25,7 +25,7 @@ namespace Easy.CMS.Common.Service
 
             carouselWidget.CarouselItems = _carouselItemService.Get("CarouselWidgetID", OperatorType.Equal,
                     carouselWidget.ID);
-            carouselWidget.CarouselItems.Each(m => m.ActionType = Constant.ActionType.Update);
+            carouselWidget.CarouselItems.Each(m => m.ActionType = ActionType.Update);
             return carouselWidget;
         }
 
@@ -78,7 +78,7 @@ namespace Easy.CMS.Common.Service
                 }
             }
             carouselWidget.CarouselItems =
-                carouselWidget.CarouselItems.Where(m => m.Status == (int)Constant.RecordStatus.Active);
+                carouselWidget.CarouselItems.Where(m => m.Status == (int)RecordStatus.Active);
             return base.Display(widget, httpContext);
         }
     }

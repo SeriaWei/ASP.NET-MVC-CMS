@@ -1,16 +1,12 @@
-﻿using Easy.Web.CMS.Widget;
+﻿using Easy.Constant;
 using Easy.MetaData;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Easy.Web.CMS.ExtendField;
+using Easy.Web.CMS.Widget;
 
 namespace Easy.Web.CMS.MetaData
 {
     public abstract class WidgetMetaData<T> : DataViewMetaData<T> where T : WidgetBase
     {
-        int orderStart = 0;
+        int orderStart;
         protected override bool IsIgnoreBase()
         {
             return true;
@@ -23,8 +19,8 @@ namespace Easy.Web.CMS.MetaData
         {
             ViewConfig(m => m.WidgetName).AsTextBox().Order(NextOrder()).Required();
             ViewConfig(m => m.Title).AsTextBox().Order(NextOrder());
-            ViewConfig(m => m.ZoneID).AsDropDownList().Order(NextOrder()).DataSource(ViewDataKeys.Zones, Easy.Constant.SourceType.ViewData).Required();
-            ViewConfig(m => m.Position).AsTextBox().Order(NextOrder()).RegularExpression(Easy.Constant.RegularExpression.Integer);
+            ViewConfig(m => m.ZoneID).AsDropDownList().Order(NextOrder()).DataSource(ViewDataKeys.Zones, SourceType.ViewData).Required();
+            ViewConfig(m => m.Position).AsTextBox().Order(NextOrder()).RegularExpression(RegularExpression.Integer);
             ViewConfig(m => m.IsTemplate).AsCheckBox().Order(NextOrder());
             ViewConfig(m => m.Thumbnail).AsTextBox().Order(NextOrder()).AddClass(StringKeys.SelectImageClass).AddProperty("data-url", Urls.SelectMedia);
             ViewConfig(m => m.StyleClass).AsTextBox().Order(NextOrder()).AddClass(StringKeys.StyleEditor).AddProperty("data-url", Urls.StyleEditor).AddProperty("data-width", "1024").MaxLength(1000);

@@ -1,6 +1,6 @@
 ﻿@using Easy.CMS.Product
-@using Easy.Web.CMS.Product.Models
 @using Easy.ViewPort.jsTree
+@using Easy.Web.CMS.Product.Models
 @{
     Script.Reqiured("jsTree").AtFoot();
     var categoryTree = Html.Tree<ProductCategory>().Source("GetProductCategoryTree", "ProductCategory");

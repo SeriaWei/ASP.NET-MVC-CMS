@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Linq;
 using System.Web.Mvc;
 using Easy.Data;
 using Easy.Extend;
+using Easy.Web.Attribute;
+using Easy.Web.Authorize;
 using Easy.Web.CMS;
 using Easy.Web.CMS.WidgetTemplate;
 using Easy.Web.Controller;
-using Easy.Web.Attribute;
-using Easy.Web.Authorize;
 using Easy.Web.ValueProvider;
 
 namespace Easy.CMS.Common.Controllers

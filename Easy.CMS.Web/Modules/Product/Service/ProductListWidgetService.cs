@@ -1,15 +1,11 @@
-﻿using Easy.Web.CMS;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Web;
-using Easy.RepositoryPattern;
 using Easy.CMS.Product.Models;
-using Easy.Web.CMS.Widget;
-using Easy.Data;
 using Easy.CMS.Product.ViewModel;
+using Easy.Data;
 using Easy.Web.CMS.Product.Models;
 using Easy.Web.CMS.Product.Service;
+using Easy.Web.CMS.Widget;
 using Microsoft.Practices.ServiceLocation;
 
 namespace Easy.CMS.Product.Service
@@ -54,7 +50,7 @@ namespace Easy.CMS.Product.Service
             {
                 products = service.Get(filter);
             }
-            return widget.ToWidgetPart(new ProductListWidgetViewModel()
+            return widget.ToWidgetPart(new ProductListWidgetViewModel
             {
                 Products = products,
                 Page = page,

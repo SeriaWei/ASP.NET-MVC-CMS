@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using Easy.Constant;
-using Easy.Models;
 using Easy.MetaData;
+using Easy.Models;
 using Easy.Web.CMS.ExtendField;
 
 namespace Easy.Web.CMS.Article.Models

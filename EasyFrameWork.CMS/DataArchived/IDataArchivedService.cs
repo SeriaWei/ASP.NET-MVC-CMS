@@ -1,5 +1,5 @@
-﻿using Easy.RepositoryPattern;
-using System;
+﻿using System;
+using Easy.RepositoryPattern;
 using Newtonsoft.Json;
 
 namespace Easy.Web.CMS.DataArchived

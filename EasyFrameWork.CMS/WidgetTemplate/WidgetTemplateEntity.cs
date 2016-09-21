@@ -1,9 +1,6 @@
-﻿using Easy.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System;
 using Easy.MetaData;
+using Easy.Models;
 using Easy.Web.CMS.Widget;
 
 namespace Easy.Web.CMS.WidgetTemplate
@@ -25,16 +22,16 @@ namespace Easy.Web.CMS.WidgetTemplate
 
         private void CopyToWidget(WidgetBase widget)
         {
-            widget.AssemblyName = this.AssemblyName;
-            widget.Description = this.Description;
-            widget.PartialView = this.PartialView;
-            widget.ViewModelTypeName = this.ViewModelTypeName;
-            widget.WidgetName = this.Title;
-            widget.ServiceTypeName = this.ServiceTypeName;
+            widget.AssemblyName = AssemblyName;
+            widget.Description = Description;
+            widget.PartialView = PartialView;
+            widget.ViewModelTypeName = ViewModelTypeName;
+            widget.WidgetName = Title;
+            widget.ServiceTypeName = ServiceTypeName;
         }
         public WidgetBase CreateWidgetInstance()
         {
-            var widget = Activator.CreateInstance(this.AssemblyName, this.ViewModelTypeName).Unwrap() as WidgetBase;
+            var widget = Activator.CreateInstance(AssemblyName, ViewModelTypeName).Unwrap() as WidgetBase;
             CopyToWidget(widget);
             return widget;
         }

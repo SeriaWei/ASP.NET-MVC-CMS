@@ -1,7 +1,5 @@
-﻿using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using Easy.Web.Attribute;
-using Easy.Web.CMS.Filter;
 
 namespace Easy.CMS.Web
 {

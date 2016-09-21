@@ -1,23 +1,21 @@
-﻿using Easy.Constant;
-using Easy.Data;
-using Easy.Web.CMS;
-using Easy.Web.CMS.Filter;
-using Easy.Web.CMS.Page;
-using Easy.Web.CMS.Widget;
-using Easy.Web.Attribute;
-using Easy.Web.CMS.Zone;
-using Easy.Web.Controller;
-using Easy.Web.Route;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Easy.CMS.Common.ViewModels;
+using Easy.Constant;
+using Easy.Data;
 using Easy.Extend;
+using Easy.ViewPort.jsTree;
+using Easy.Web.Attribute;
+using Easy.Web.CMS;
+using Easy.Web.CMS.Filter;
 using Easy.Web.CMS.Layout;
-using Microsoft.Practices.ServiceLocation;
-using Easy.Web.Authorize;
+using Easy.Web.CMS.Page;
+using Easy.Web.CMS.Widget;
+using Easy.Web.CMS.Zone;
+using Easy.Web.Controller;
 using Easy.Web.ValueProvider;
+using Microsoft.Practices.ServiceLocation;
 
 namespace Easy.CMS.Common.Controllers
 {
@@ -42,7 +40,7 @@ namespace Easy.CMS.Common.Controllers
         public JsonResult GetPageTree()
         {
             var pages = Service.Get(new DataFilter().Where("IsPublishedPage", OperatorType.Equal, false).OrderBy("DisplayOrder", OrderType.Ascending));
-            var node = new Easy.ViewPort.jsTree.Tree<PageEntity>().Source(pages).ToNode(m => m.ID, m => m.PageName, m => m.ParentId, "#");
+            var node = new Tree<PageEntity>().Source(pages).ToNode(m => m.ID, m => m.PageName, m => m.ParentId, "#");
             return Json(node, JsonRequestBehavior.AllowGet);
         }
         [NonAction]
@@ -86,7 +84,7 @@ namespace Easy.CMS.Common.Controllers
                     ModelState.AddModelError("PageUrl", ex.Message);
                     return View(entity);
                 }
-                return RedirectToAction("Design", new { ID = entity.ID });
+                return RedirectToAction("Design", new {entity.ID });
             }
             return View(entity);
         }
@@ -101,7 +99,7 @@ namespace Easy.CMS.Common.Controllers
         {
             if (entity.ActionType == ActionType.Design)
             {
-                return RedirectToAction("Design", new { ID = entity.ID });
+                return RedirectToAction("Design", new {entity.ID });
             }
             string id = entity.ID;
             if (entity.ActionType == ActionType.Delete)
@@ -163,7 +161,7 @@ namespace Easy.CMS.Common.Controllers
             var page = Service.Get(context.PageID);
             var layoutService = ServiceLocator.Current.GetInstance<ILayoutService>();
             var layout = layoutService.Get(page.LayoutId);
-            var viewModel = new ViewModels.LayoutZonesViewModel
+            var viewModel = new LayoutZonesViewModel
                 {
                     Page = page,
                     Layout = layout,

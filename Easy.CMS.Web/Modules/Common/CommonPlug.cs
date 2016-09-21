@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using Easy.Web.CMS;
+using Easy.Web.Resource;
 using Easy.Web.Route;
 
 namespace Easy.CMS.Common
@@ -18,8 +17,8 @@ namespace Easy.CMS.Common
                 RouteName = "pageRoute",
                 Url = "{*path}",
                 Defaults = new { controller = "Page", action = "PreView", path = UrlParameter.Optional },
-                Namespaces = new string[] { "Easy.CMS.Common.Controllers" },
-                Priority = -1,
+                Namespaces = new[] { "Easy.CMS.Common.Controllers" },
+                Priority = -1
                 // Constraints = new { path = new RouteConstraint() }
             };
             yield return new RouteDescriptor
@@ -48,7 +47,7 @@ namespace Easy.CMS.Common
                 RouteName = "AccountAdmin",
                 Url = "Account/{action}",
                 Defaults = new { controller = "Account", action = "Login", module = "common" },
-                Namespaces = new string[] { "Easy.CMS.Common.Controllers" },
+                Namespaces = new[] { "Easy.CMS.Common.Controllers" },
                 Priority = 10
             };
         }
@@ -160,7 +159,7 @@ namespace Easy.CMS.Common
             };
         }
 
-        protected override void InitScript(Func<string, Web.Resource.ResourceHelper> script)
+        protected override void InitScript(Func<string, ResourceHelper> script)
         {
             script("OWL.Carousel").Include("~/Modules/Common/Scripts/OwlCarousel/owl.carousel.min.js", "~/Modules/Common/Scripts/OwlCarousel/owl.carousel.min.js", CdnHost + "/Modules/Common/Scripts/OwlCarousel/owl.carousel.min.js")
                 .Include("~/Modules/Common/Scripts/Owl.Carousel.js", "~/Modules/Common/Scripts/Owl.Carousel.min.js", CdnHost + "/Modules/Common/Scripts/Owl.Carousel.min.js");
@@ -169,7 +168,7 @@ namespace Easy.CMS.Common
             script("PageDesign").Include("~/Modules/Common/Scripts/PageDesign.js", "~/Modules/Common/Scripts/PageDesign.min.js", CdnHost + "/Modules/Common/Scripts/PageDesign.min.js");
         }
 
-        protected override void InitStyle(Func<string, Web.Resource.ResourceHelper> style)
+        protected override void InitStyle(Func<string, ResourceHelper> style)
         {
             style("Layout").Include("~/Modules/Common/Content/Layout.css", "~/Modules/Common/Content/Layout.min.css", CdnHost + "/Modules/Common/Content/Layout.min.css");
 

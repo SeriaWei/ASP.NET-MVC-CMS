@@ -1,17 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Web;
 using Easy.Cache;
 using Easy.Extend;
 using Easy.MetaData;
 using Easy.Models;
-using Easy.RepositoryPattern;
-using Microsoft.Practices.ServiceLocation;
-using Easy.IOC;
 using Easy.Web.CMS.ExtendField;
+using Microsoft.Practices.ServiceLocation;
 
 namespace Easy.Web.CMS.Widget
 {
@@ -105,10 +99,10 @@ namespace Easy.Web.CMS.Widget
         {
             if (_partDriver != null) return _partDriver;
             StaticCache cache = new StaticCache();
-            var type = cache.Get("WidgetPart_" + this.AssemblyName + this.ServiceTypeName, source =>
+            var type = cache.Get("WidgetPart_" + AssemblyName + ServiceTypeName, source =>
               {
                   _partDriver = _partDriver ??
-                            (_partDriver = Activator.CreateInstance(this.AssemblyName, this.ServiceTypeName).Unwrap() as IWidgetPartDriver);
+                            (_partDriver = Activator.CreateInstance(AssemblyName, ServiceTypeName).Unwrap() as IWidgetPartDriver);
                   return _partDriver.GetType();
               });
             return _partDriver ?? (_partDriver = ServiceLocator.Current.GetInstance(type) as IWidgetPartDriver);
@@ -119,19 +113,19 @@ namespace Easy.Web.CMS.Widget
         public WidgetBase CreateViewModelInstance()
         {
             StaticCache cache = new StaticCache();
-            var type = cache.Get("WidgetBase_" + this.AssemblyName + this.ViewModelTypeName, source =>
+            var type = cache.Get("WidgetBase_" + AssemblyName + ViewModelTypeName, source =>
             {
                 _widgetBase = _widgetBase ??
-                   (_widgetBase = Activator.CreateInstance(this.AssemblyName, this.ViewModelTypeName).Unwrap() as WidgetBase);
+                   (_widgetBase = Activator.CreateInstance(AssemblyName, ViewModelTypeName).Unwrap() as WidgetBase);
                 return _widgetBase.GetType();
             });
             return _widgetBase ?? (_widgetBase = ServiceLocator.Current.GetInstance(type) as WidgetBase);
         }
         public Type GetViewModelType()
         {
-            if (KnownWidgetModel.ContainsKey(this.ViewModelTypeName))
+            if (KnownWidgetModel.ContainsKey(ViewModelTypeName))
             {
-                return KnownWidgetModel[this.ViewModelTypeName];
+                return KnownWidgetModel[ViewModelTypeName];
             }
             return null;
         }

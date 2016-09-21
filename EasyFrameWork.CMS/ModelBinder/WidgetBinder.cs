@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using Easy.Extend;
+using Easy.Web.CMS.Widget;
 
 namespace Easy.Web.CMS.ModelBinder
 {
@@ -12,7 +9,7 @@ namespace Easy.Web.CMS.ModelBinder
         public override object BindModel(ControllerContext controllerContext, ModelBindingContext bindingContext)
         {
             object model = base.BindModel(controllerContext, bindingContext);
-            var widgetBase = model as Widget.WidgetBase;
+            var widgetBase = model as WidgetBase;
             if (!widgetBase.ViewModelTypeName.IsNullOrEmpty())
             {
                 bindingContext.ModelMetadata = ModelMetadataProviders.Current.GetMetadataForType(() => widgetBase.CreateViewModelInstance(), widgetBase.GetViewModelType());

@@ -1,5 +1,5 @@
 ﻿@using Easy.Web.CMS.WidgetTemplate
-@model WidgetTemplateViewModel
+@model Easy.Web.CMS.WidgetTemplate.WidgetTemplateViewModel
 @{
     Style.Reqiured("Layout").AtFoot();
 }
@@ -10,7 +10,7 @@
     <div class="panel-body template-list">
         @using (Html.BeginForm("RedirectToWidget", "WidgetTemplate", new { module = "admin", Model.PageID, Model.LayoutID, Model.ZoneID, Model.ReturnUrl }))
         {
-            foreach (var item in this.Model.WidgetTemplates.GroupBy(m => m.GroupName).OrderBy(m => m.Key))
+            foreach (var item in Model.WidgetTemplates.GroupBy(m => m.GroupName).OrderBy(m => m.Key))
             {
                 foreach (WidgetTemplateEntity template in item.OrderBy(m => m.Order))
                 {

@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using Easy.MetaData;
 using Easy.Models;
-using Easy.MetaData;
 
 namespace Easy.Web.CMS.Media
 {
@@ -17,7 +13,7 @@ namespace Easy.Web.CMS.Media
 
         public string MediaTypeImage
         {
-            get { return ((CMS.MediaType)MediaType).ToString(); }
+            get { return ((MediaType)MediaType).ToString(); }
         }
     }
 

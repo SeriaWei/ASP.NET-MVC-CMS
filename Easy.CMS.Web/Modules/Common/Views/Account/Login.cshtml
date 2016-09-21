@@ -1,5 +1,6 @@
-﻿@{
-    ViewBag.Title = Easy.Web.CMS.Version.CurrentVersion;
+﻿@using Version = Easy.Web.CMS.Version
+@{
+    ViewBag.Title = Version.CurrentVersion;
     Style.Reqiured("admin").AtHead();
     Style.Reqiured("Login").AtHead();
     Script.Reqiured("validate").AtFoot();
@@ -15,7 +16,7 @@
             </a>
         </div>
         <div class="login-panel-body">
-            <h3 class="version text-center">@Easy.Web.CMS.Version.CurrentVersion</h3>
+            <h3 class="version text-center">@Version.CurrentVersion</h3>
             <p>请输入您的用户信息以登录系统</p>
             <div class="form-input">
                 <h4>用户名</h4>

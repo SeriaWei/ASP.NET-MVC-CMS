@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using Easy.Web.CMS;
+using Easy.Web.Resource;
 using Easy.Web.Route;
 
 namespace Easy.CMS.Product
@@ -41,13 +40,13 @@ namespace Easy.CMS.Product
             };
         }
 
-        protected override void InitScript(Func<string, Web.Resource.ResourceHelper> script)
+        protected override void InitScript(Func<string, ResourceHelper> script)
         {
             script("PhotoWall")
                 .Include("~/Modules/Product/Scripts/jquery-photowall/jquery-photowall.js");
         }
 
-        protected override void InitStyle(Func<string, Web.Resource.ResourceHelper> style)
+        protected override void InitStyle(Func<string, ResourceHelper> style)
         {
             style("PhotoWall")
                 .Include("~/Modules/Product/Scripts/jquery-photowall/jquery-photowall.css");

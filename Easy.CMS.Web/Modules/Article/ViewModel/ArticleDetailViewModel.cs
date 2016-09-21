@@ -1,9 +1,4 @@
-﻿using Easy.CMS.Article.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using Easy.Web.CMS.Article.Models;
+﻿using Easy.Web.CMS.Article.Models;
 
 namespace Easy.CMS.Article.ViewModel
 {

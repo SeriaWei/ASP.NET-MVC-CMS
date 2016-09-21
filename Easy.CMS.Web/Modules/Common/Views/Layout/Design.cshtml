@@ -1,4 +1,5 @@
-﻿@model Easy.Web.CMS.Layout.LayoutEntity
+﻿@using Easy.Web.CMS.Zone
+@model Easy.Web.CMS.Layout.LayoutEntity
 @{
     Layout = "~/Modules/Common/Views/Shared/_DesignLayout.cshtml";
     Script.Reqiured("LayoutDesign").AtFoot();
@@ -12,7 +13,7 @@
 {
     var item = Model.Html[i];
     @Html.Raw(item.Html)
-    if (item.Html == Easy.Web.CMS.Zone.ZoneEntity.ZoneTag)
+    if (item.Html == ZoneEntity.ZoneTag)
     {
         i++;
         var zoneId = Model.Html[i].Html;

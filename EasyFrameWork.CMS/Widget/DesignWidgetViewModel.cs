@@ -1,6 +1,4 @@
-﻿using Easy.Web.CMS.Widget;
-
-namespace Easy.Web.CMS.Widget
+﻿namespace Easy.Web.CMS.Widget
 {
     public class DesignWidgetViewModel:WidgetPart
     {

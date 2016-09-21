@@ -1,11 +1,9 @@
-﻿@using System.Linq
-@using Easy.CMS.Section
-@using Easy.CMS.Section.Models
-@model SectionGroup
+﻿@using Easy.CMS.Section.Models
+@model Easy.CMS.Section.Models.SectionGroup
 @{
     Script.Reqiured("lightBox").AtFoot();
     Style.Reqiured("lightBox").AtFoot();
-    var contents = Model.SectionContents.Where(m=>m.SectionContentType==(int)SectionContent.Types.Image).OrderBy(m=>m.Order).Cast<SectionContentImage>();
+    var contents = Model.SectionContents.Where(m=>m.SectionContentType==(int)SectionContentBase.Types.Image).OrderBy(m=>m.Order).Cast<SectionContentImage>();
     int count = contents.Count() / 4;
     count += contents.Count() % 4 == 0 ? 0 : 1;
 }

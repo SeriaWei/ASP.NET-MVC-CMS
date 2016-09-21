@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using Easy.CMS.Product.Models;
-using Easy.CMS.Product.Service;
-using Easy.Web.Controller;
-using Easy.Web.Attribute;
+﻿using System.Web.Mvc;
+using Easy.Data;
 using Easy.ViewPort.jsTree;
+using Easy.Web.Attribute;
+using Easy.Web.Authorize;
 using Easy.Web.CMS.Product.Models;
 using Easy.Web.CMS.Product.Service;
-using Easy.Web.Authorize;
+using Easy.Web.Controller;
 
 namespace Easy.CMS.Product.Controllers
 {
@@ -39,7 +34,7 @@ namespace Easy.CMS.Product.Controllers
 
         public JsonResult GetProductCategoryTree()
         {
-            var pages = Service.Get(new Data.DataFilter());
+            var pages = Service.Get(new DataFilter());
             var node = new Tree<ProductCategory>().Source(pages).ToNode(m => m.ID.ToString(), m => m.Title, m => m.ParentID.ToString(), "0");
             return Json(node, JsonRequestBehavior.AllowGet);
         }

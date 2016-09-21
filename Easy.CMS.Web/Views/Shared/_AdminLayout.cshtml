@@ -1,6 +1,6 @@
-﻿@using Easy
-@using Easy.Web.CMS
+﻿@using Easy.Web.CMS
 @using Microsoft.Practices.ServiceLocation
+@using Version = Easy.Web.CMS.Version
 @{
     Style.Reqiured("bootStrap").AtHead();
     Style.Reqiured("admin").AtHead();
@@ -46,7 +46,7 @@
                 </div>
                 <div class="collapse navbar-collapse">
                     <p class="navbar-text">
-                        @Easy.Web.CMS.Version.CurrentVersion
+                        @Version.CurrentVersion
                     </p>
                     <ul class="nav navbar-nav">
                         <li>

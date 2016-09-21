@@ -1,16 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Web;
-using Easy.Extend;
-using Easy.MetaData;
-using Easy.Web.CMS.Zone;
+﻿using Easy.MetaData;
 using Easy.Models;
 using Easy.Web.CMS.Page;
 using Easy.Web.CMS.Theme;
 using Easy.Web.CMS.Widget;
+using Easy.Web.CMS.Zone;
 
 namespace Easy.Web.CMS.Layout
 {

@@ -1,17 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Web;
 using System.Web.Mvc;
-using Easy.Data;
 using Easy.Web;
 using Easy.Web.Attribute;
+using Easy.Web.Authorize;
 using Easy.Web.CMS.Theme;
 using Easy.Web.Controller;
 using EasyZip;
-using Easy.Web.Authorize;
+using Newtonsoft.Json;
 
 namespace Easy.CMS.Common.Controllers
 {
@@ -55,7 +53,7 @@ namespace Easy.CMS.Common.Controllers
                 var theme = Service.Get(id);
                 if (theme != null)
                 {
-                    string json = Newtonsoft.Json.JsonConvert.SerializeObject(theme);
+                    string json = JsonConvert.SerializeObject(theme);
                     var writer = System.IO.File.CreateText(path + "/info.json");
                     writer.Write(json);
                     writer.Dispose();
@@ -79,7 +77,7 @@ namespace Easy.CMS.Common.Controllers
                     var files = zipFile.ToFileCollection(file.InputStream);
                     var themeInfo = files.FirstOrDefault(m => m.RelativePath.EndsWith("\\info.json"));
                     string json = Encoding.UTF8.GetString(themeInfo.FileBytes);
-                    var newTheme = Newtonsoft.Json.JsonConvert.DeserializeObject<ThemeEntity>(json);
+                    var newTheme = JsonConvert.DeserializeObject<ThemeEntity>(json);
                     newTheme.IsActived = false;
                     if (Service.Count(m => m.ID == newTheme.ID) == 0)
                     {

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Easy.Web.CMS.Widget
+﻿namespace Easy.Web.CMS.Widget
 {
     public class WidgetPart
     {
@@ -13,9 +8,9 @@ namespace Easy.Web.CMS.Widget
         public override bool Equals(object obj)
         {
             var target = obj as WidgetPart;
-            if (target != null && target.Widget != null && this.Widget != null)
+            if (target != null && target.Widget != null && Widget != null)
             {
-                return target.Widget.ID == this.Widget.ID;
+                return target.Widget.ID == Widget.ID;
             }
             return false;
         }

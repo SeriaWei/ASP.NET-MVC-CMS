@@ -1,13 +1,9 @@
-﻿using Easy.CMS.Product.Models;
-using Easy.Web.CMS.Widget;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Web;
+using Easy.CMS.Product.Models;
 using Easy.Web.CMS;
-using Easy.Extend;
 using Easy.Web.CMS.Product.Models;
 using Easy.Web.CMS.Product.Service;
+using Easy.Web.CMS.Widget;
 using Microsoft.Practices.ServiceLocation;
 
 namespace Easy.CMS.Product.Service

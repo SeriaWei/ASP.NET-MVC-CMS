@@ -1,13 +1,12 @@
-﻿@using System.Linq
-@using Easy.CMS.Section
+﻿@using Easy.CMS.Section
 @using Easy.CMS.Section.Models
-@model SectionGroup
+@model Easy.CMS.Section.Models.SectionGroup
 <div class="section-group-quote" style="padding:20px">
     <div style="background: url('http://cdn.zkeasoft.com/images/quote-left.png') left top no-repeat;padding-left:40px">
         <div style="background: url('http://cdn.zkeasoft.com/images/quote-right.png') right bottom no-repeat;padding-right:40px">
             @foreach (SectionContent content in Model.SectionContents.OrderBy(m => m.Order))
             {
-                if (content.SectionContentType == (int)SectionContent.Types.CallToAction || content.SectionContentType == (int)SectionContent.Types.Image)
+                if (content.SectionContentType == (int)SectionContentBase.Types.CallToAction || content.SectionContentType == (int)SectionContentBase.Types.Image)
                 {
                     <p>
                         @{

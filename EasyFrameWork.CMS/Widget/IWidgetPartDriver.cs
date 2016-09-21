@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Easy.RepositoryPattern;
-using System.ComponentModel;
-using System.IO;
+﻿using System.Web;
 using EasyZip;
 
 namespace Easy.Web.CMS.Widget
@@ -16,7 +10,7 @@ namespace Easy.Web.CMS.Widget
         void UpdateWidget(WidgetBase widget);
         void Publish(WidgetBase widget);
         WidgetBase GetWidget(WidgetBase widget);
-        WidgetPart Display(WidgetBase widget, System.Web.HttpContextBase httpContext);
+        WidgetPart Display(WidgetBase widget, HttpContextBase httpContext);
         ZipFile PackWidget(WidgetBase widget);
         WidgetBase UnPackWidget(ZipFileInfoCollection pack);
     }

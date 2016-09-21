@@ -1,14 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using Easy.Web.Resource;
 
 namespace Easy
 {
-    public class ResourceManager : Easy.Web.Resource.ResourceManager
+    public class ResourceManager : Web.Resource.ResourceManager
     {
         const string CdnHost = "http://cdn.zkeasoft.com";
-        protected override void InitScript(Func<string, Web.Resource.ResourceHelper> script)
+        protected override void InitScript(Func<string, ResourceHelper> script)
         {
 
             script("jQuery").Include("~/Scripts/jquery-2.2.3.js", "~/Scripts/jquery-2.2.3.min.js", "//cdn.bootcss.com/jquery/2.2.3/jquery.js").RequiredAtHead();
@@ -52,7 +50,7 @@ namespace Easy
 
         }
 
-        protected override void InitStyle(Func<string, Web.Resource.ResourceHelper> style)
+        protected override void InitStyle(Func<string, ResourceHelper> style)
         {
             style("bootStrap")
                 .Include("~/Content/bootstrap/css/bootstrap.css", "~/Content/bootstrap/css/bootstrap.min.css", "//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.css")
