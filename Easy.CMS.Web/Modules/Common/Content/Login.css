@@ -1,4 +1,10 @@
-﻿body {
+﻿/*!
+ * http://www.zkea.net/
+ * Copyright 2016 ZKEASOFT
+ * http://www.zkea.net/licenses
+ */
+
+body {
     background: url(./Images/login-bg.jpg) center center no-repeat;
     background-size: cover;
     color: #fff !important;

@@ -1,4 +1,10 @@
-﻿$(function () {
+﻿/*!
+ * http://www.zkea.net/
+ * Copyright 2016 ZKEASOFT
+ * http://www.zkea.net/licenses
+ */
+
+$(function () {
 
     $(".accordion-group>a").click(function () {
         if ($(this).nextAll(".accordion-inner").hasClass("active")) {
