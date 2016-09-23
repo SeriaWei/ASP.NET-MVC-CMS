@@ -344,7 +344,9 @@
     <Content Include="Views\Widget.HTML.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Shared\_Layout.cshtml" />
+    <None Include="Views\Shared\_Layout.cshtml">
+      <LastGenOutput>_Layout.generated.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\_DesignPageLayout.cshtml" />

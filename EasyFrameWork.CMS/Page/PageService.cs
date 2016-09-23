@@ -56,7 +56,7 @@ namespace Easy.Web.CMS.Page
                new DataFilter(new List<string> { "IsPublish", "PublishDate" })
                .Where("ID", OperatorType.Equal, item.ID));
 
-            Delete(m => m.ReferencePageID == item.ID && m.IsPublishedPage);
+            Delete(m => m.ReferencePageID == item.ID && m.IsPublishedPage == true);
 
             DataArchivedService.Delete(CacheTrigger.PageWidgetsArchivedKey.FormatWith(item.ID));
 
@@ -172,6 +172,7 @@ namespace Easy.Web.CMS.Page
             var result = pages.FirstOrDefault();
             if (result != null && result.ExtendFields != null)
             {
+                /* http://www.zkea.net/ Copyright 2016 ZKEASOFT http://www.zkea.net/licenses */
                 ((List<ExtendFieldEntity>)result.ExtendFields).Add(new ExtendFieldEntity { Title = "meta_support", Value = "ZKEASOFT" });
             }
             return result;

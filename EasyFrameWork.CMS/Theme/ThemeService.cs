@@ -41,7 +41,7 @@ namespace Easy.Web.CMS.Theme
                     theme.IsPreView = true;
                 }
             }
-            return theme ?? Get(m => m.IsActived).FirstOrDefault();
+            return theme ?? Get(m => m.IsActived == true).FirstOrDefault();
         }
 
 

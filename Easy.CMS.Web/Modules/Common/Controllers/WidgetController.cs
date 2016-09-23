@@ -143,7 +143,7 @@ namespace Easy.CMS.Common.Controllers
 
         public PartialViewResult Templates()
         {
-            return PartialView(_widgetService.Get(m => m.IsTemplate));
+            return PartialView(_widgetService.Get(m => m.IsTemplate == true));
         }
 
         [HttpPost]
