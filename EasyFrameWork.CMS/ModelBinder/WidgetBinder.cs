@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+/* http://www.zkea.net/ Copyright 2016 ZKEASOFT http://www.zkea.net/licenses */
+using System.Web.Mvc;
 using Easy.Extend;
 using Easy.Web.CMS.Widget;
 

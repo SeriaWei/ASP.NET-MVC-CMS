@@ -1,4 +1,5 @@
-﻿using Easy.CMS.Article.ActionFilter;
+/* http://www.zkea.net/ Copyright 2016 ZKEASOFT http://www.zkea.net/licenses */
+using Easy.CMS.Article.ActionFilter;
 using Easy.CMS.Article.Controllers;
 using Easy.Web.Authorize;
 using Easy.Web.Filter;

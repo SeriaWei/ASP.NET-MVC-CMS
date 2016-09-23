@@ -1,4 +1,5 @@
-﻿using Easy.Web.Attribute;
+/* http://www.zkea.net/ Copyright 2016 ZKEASOFT http://www.zkea.net/licenses */
+using Easy.Web.Attribute;
 using Easy.Web.Authorize;
 using Easy.Web.CMS.Setting;
 using Easy.Web.Controller;

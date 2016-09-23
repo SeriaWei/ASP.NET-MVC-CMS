@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+/* http://www.zkea.net/ Copyright 2016 ZKEASOFT http://www.zkea.net/licenses */
+using System.Collections.Generic;
 using Easy.Web.CMS.Layout;
 using Easy.Web.CMS.Page;
 using Easy.Web.CMS.Widget;

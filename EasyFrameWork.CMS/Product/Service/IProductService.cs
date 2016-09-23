@@ -1,4 +1,5 @@
-﻿using Easy.RepositoryPattern;
+/* http://www.zkea.net/ Copyright 2016 ZKEASOFT http://www.zkea.net/licenses */
+using Easy.RepositoryPattern;
 using Easy.Web.CMS.Product.Models;
 
 namespace Easy.Web.CMS.Product.Service

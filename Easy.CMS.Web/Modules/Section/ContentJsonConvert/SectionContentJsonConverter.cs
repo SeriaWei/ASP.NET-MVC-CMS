@@ -1,4 +1,5 @@
-﻿using System;
+/* http://www.zkea.net/ Copyright 2016 ZKEASOFT http://www.zkea.net/licenses */
+using System;
 using Easy.CMS.Section.Models;
 using Newtonsoft.Json.Linq;
 

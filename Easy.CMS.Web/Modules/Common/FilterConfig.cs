@@ -1,4 +1,5 @@
-﻿using Easy.CMS.Common.Controllers;
+/* http://www.zkea.net/ Copyright 2016 ZKEASOFT http://www.zkea.net/licenses */
+using Easy.CMS.Common.Controllers;
 using Easy.CMS.Common.Models;
 using Easy.Modules.User.Models;
 using Easy.Web.Authorize;

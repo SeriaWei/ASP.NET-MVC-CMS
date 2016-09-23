@@ -1,4 +1,5 @@
-﻿using System.Linq;
+/* http://www.zkea.net/ Copyright 2016 ZKEASOFT http://www.zkea.net/licenses */
+using System.Linq;
 using System.Web.Mvc;
 using Easy.CMS.Common.Models;
 using Easy.CMS.Common.Service;

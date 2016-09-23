@@ -1,4 +1,5 @@
-﻿namespace Easy.CMS.Product
+/* http://www.zkea.net/ Copyright 2016 ZKEASOFT http://www.zkea.net/licenses */
+namespace Easy.CMS.Product
 {
     public class PermissionKeys
     {

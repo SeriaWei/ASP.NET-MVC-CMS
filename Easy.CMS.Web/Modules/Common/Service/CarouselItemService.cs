@@ -1,4 +1,5 @@
-﻿using Easy.CMS.Common.Models;
+/* http://www.zkea.net/ Copyright 2016 ZKEASOFT http://www.zkea.net/licenses */
+using Easy.CMS.Common.Models;
 using Easy.Constant;
 using Easy.Data;
 using Easy.RepositoryPattern;
