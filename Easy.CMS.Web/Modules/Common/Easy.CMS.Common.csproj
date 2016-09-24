@@ -56,8 +56,8 @@
       <HintPath>..\..\..\packages\EasyFrameWork.1.0.7.2\lib\net40\Easy.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Easy.Web, Version=1.0.7.0, Culture=neutral, PublicKeyToken=48e55983b3ecaefe, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\EasyFrameWork.Web.1.0.7.0\lib\net40\Easy.Web.dll</HintPath>
+    <Reference Include="Easy.Web, Version=1.0.8.0, Culture=neutral, PublicKeyToken=48e55983b3ecaefe, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\EasyFrameWork.Web.1.0.8.0\lib\net40\Easy.Web.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="EasyZip">
@@ -260,7 +260,6 @@
     <Content Include="Views\Carousel\Edit.cshtml" />
     <Content Include="Views\Widget.Carousel.cshtml" />
     <Content Include="Views\Widget.Image.cshtml" />
-    <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\User\Create.cshtml" />
     <Content Include="Views\User\Edit.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
@@ -288,12 +287,6 @@
     <Content Include="Views\ApplicationSetting\Index.cshtml" />
     <Content Include="Views\ApplicationSetting\Edit.cshtml" />
     <Content Include="Views\ApplicationSetting\Create.cshtml" />
-    <Content Include="Views\Shared\DesignWidget.cshtml" />
-    <Content Include="Views\Shared\Partial.Menu.cshtml" />
-    <Content Include="Views\Shared\_DesignLayout.cshtml" />
-    <Content Include="Views\Shared\_DesignPageLayout.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Shared\_LayoutNormal.cshtml" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
