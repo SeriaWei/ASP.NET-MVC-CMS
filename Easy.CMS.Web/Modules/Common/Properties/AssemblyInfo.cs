@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Layout")]
-[assembly: AssemblyCopyright("版权所有(C)  2014")]
+[assembly: AssemblyCopyright("ZKEASOFT 版权所有(C)  2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // 如果此项目向 COM 公开，则下列 GUID 用于类型库的 ID
-[assembly: Guid("bccbb6ce-526f-4ccd-9398-b2fe0b4b961f")]
+[assembly: Guid("5E3799C0-0812-4A9F-A410-814347A6A2D4")]
 
 // 程序集的版本信息由下列四个值组成:
 //

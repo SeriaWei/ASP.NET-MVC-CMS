@@ -56,8 +56,8 @@
       <HintPath>..\..\..\packages\EasyFrameWork.1.0.7.2\lib\net40\Easy.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Easy.Web, Version=1.0.6.0, Culture=neutral, PublicKeyToken=48e55983b3ecaefe, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\EasyFrameWork.Web.1.0.6.0\lib\net40\Easy.Web.dll</HintPath>
+    <Reference Include="Easy.Web, Version=1.0.7.0, Culture=neutral, PublicKeyToken=48e55983b3ecaefe, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\EasyFrameWork.Web.1.0.7.0\lib\net40\Easy.Web.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="EasyZip">
@@ -261,16 +261,13 @@
     <Content Include="Views\Widget.Carousel.cshtml" />
     <Content Include="Views\Widget.Image.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
-    <Content Include="Views\Shared\_LayoutNormal.cshtml" />
     <Content Include="Views\User\Create.cshtml" />
     <Content Include="Views\User\Edit.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
-    <Content Include="Views\Shared\Partial.Menu.cshtml" />
     <Content Include="web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Widget.Script.cshtml" />
     <Content Include="Views\Layout\SelectZone.cshtml" />
-    <Content Include="Views\Shared\DesignWidget.cshtml" />
     <Content Include="Views\Widget\Templates.cshtml" />
     <Content Include="Views\Error\NotFond.cshtml" />
     <Content Include="Views\Layout\Templates.cshtml" />
@@ -291,6 +288,12 @@
     <Content Include="Views\ApplicationSetting\Index.cshtml" />
     <Content Include="Views\ApplicationSetting\Edit.cshtml" />
     <Content Include="Views\ApplicationSetting\Create.cshtml" />
+    <Content Include="Views\Shared\DesignWidget.cshtml" />
+    <Content Include="Views\Shared\Partial.Menu.cshtml" />
+    <Content Include="Views\Shared\_DesignLayout.cshtml" />
+    <Content Include="Views\Shared\_DesignPageLayout.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\_LayoutNormal.cshtml" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
@@ -312,9 +315,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Layout\Design.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Shared\_DesignLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Page\PreView.cshtml" />
@@ -342,14 +342,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Widget.HTML.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Views\Shared\_Layout.cshtml">
-      <LastGenOutput>_Layout.generated.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Shared\_DesignPageLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Layout\Create.cshtml" />

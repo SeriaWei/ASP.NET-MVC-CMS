@@ -17,6 +17,7 @@ using Easy.Web.CMS.ModelBinder;
 using Easy.Web.CMS.Widget;
 using Easy.Web.Route;
 using Easy.Web.ViewEngine;
+using System.Web.WebPages;
 
 namespace Easy.Web.CMS
 {
@@ -25,13 +26,18 @@ namespace Easy.Web.CMS
         public override void Application_Starting()
         {
             ViewEngines.Engines.Clear();
-            ViewEngines.Engines.Add(new PlugViewEngine());
+
+            var engine = new PrecompliedViewEngine();
+            ViewEngines.Engines.Add(engine);
+
+            VirtualPathFactoryManager.RegisterVirtualPathFactory(engine);
 
             ModelBinders.Binders.Add(typeof(WidgetBase), new WidgetBinder());
 
             var routes = new List<RouteDescriptor>();
             Type plugBaseType = typeof(PluginBase);
             Type widgetModelType = typeof(WidgetBase);
+            Type webPageType = typeof(WebPageBase);
             BuildManager.GetReferencedAssemblies().Cast<Assembly>().Each(m => m.GetTypes().Each(p =>
             {
                 if (plugBaseType.IsAssignableFrom(p) && !p.IsAbstract && !p.IsInterface)
@@ -53,6 +59,10 @@ namespace Easy.Web.CMS
                     {
                         WidgetBase.KnownWidgetModel.Add(p.FullName, p);
                     }
+                }
+                else if (webPageType.IsAssignableFrom(p) && !p.IsAbstract && !p.IsInterface)
+                {
+                    PrecompliedViewEngine.Regist(p);
                 }
             }));
             RouteTable.Routes.IgnoreRoute("{resource}.axd/{*pathInfo}");

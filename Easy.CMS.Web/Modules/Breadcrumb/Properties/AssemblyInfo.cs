@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // 有关程序集的常规信息通过下列特性集
 // 控制。更改这些特性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("Easy.CMS.Standard")]
+[assembly: AssemblyTitle("Easy.CMS.Breadcrumb")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Easy.CMS.Standard")]
-[assembly: AssemblyCopyright("版权所有(C)  2014")]
+[assembly: AssemblyProduct("Easy.CMS.Breadcrumb")]
+[assembly: AssemblyCopyright("ZKEASOFT 版权所有(C)  2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // 如果此项目向 COM 公开，则下列 GUID 用于类型库的 ID
-[assembly: Guid("fa2060b8-d708-4039-870e-81403a99d191")]
+[assembly: Guid("DF0514DD-DEE5-43C4-9E61-39E13B7033B3")]
 
 // 程序集的版本信息由下列四个值组成:
 //

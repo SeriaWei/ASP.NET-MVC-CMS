@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("PlugWeb.Product")]
-[assembly: AssemblyCopyright("版权所有(C)  2014")]
+[assembly: AssemblyCopyright("ZKEASOFT 版权所有(C)  2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // 如果此项目向 COM 公开，则下列 GUID 用于类型库的 ID
-[assembly: Guid("fa2060b8-d708-4039-870e-81403a99d191")]
+[assembly: Guid("6C7D1DE8-E6B8-4E54-958D-8BD4479E6F1A")]
 
 // 程序集的版本信息由下列四个值组成:
 //

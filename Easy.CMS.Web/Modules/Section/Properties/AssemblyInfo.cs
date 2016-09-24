@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Easy.CMS.Section")]
-[assembly: AssemblyCopyright("版权所有(C)  2015")]
+[assembly: AssemblyCopyright("ZKEASOFT 版权所有(C)  2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // 如果此项目向 COM 公开，则下列 GUID 用于类型库的 ID
-[assembly: Guid("dbb14be3-f115-4e3a-b1c2-19b7e1ec8e10")]
+[assembly: Guid("B44C5709-F66F-4765-886C-1CEFACEE88AA")]
 
 // 程序集的版本信息由下列四个值组成:
 //
