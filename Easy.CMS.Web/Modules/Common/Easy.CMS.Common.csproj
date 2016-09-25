@@ -56,8 +56,8 @@
       <HintPath>..\..\..\packages\EasyFrameWork.1.0.7.2\lib\net40\Easy.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Easy.Web, Version=1.0.8.0, Culture=neutral, PublicKeyToken=48e55983b3ecaefe, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\EasyFrameWork.Web.1.0.8.0\lib\net40\Easy.Web.dll</HintPath>
+    <Reference Include="Easy.Web, Version=1.0.9.1, Culture=neutral, PublicKeyToken=48e55983b3ecaefe, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\EasyFrameWork.Web.1.0.9.1\lib\net40\Easy.Web.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="EasyZip">
@@ -268,9 +268,7 @@
     <Content Include="Views\Widget.Script.cshtml" />
     <Content Include="Views\Layout\SelectZone.cshtml" />
     <Content Include="Views\Widget\Templates.cshtml" />
-    <Content Include="Views\Error\NotFond.cshtml" />
     <Content Include="Views\Layout\Templates.cshtml" />
-    <Content Include="Views\Error\Index.cshtml" />
     <Content Include="Views\Media\Index.cshtml" />
     <Content Include="Views\Theme\Index.cshtml" />
     <Content Include="Views\Widget.Video.cshtml" />
@@ -281,7 +279,6 @@
     <Content Include="Views\Roles\Edit.cshtml" />
     <Content Include="Views\Roles\Index.cshtml" />
     <Content Include="Views\Roles\Partal.Permissions.cshtml" />
-    <Content Include="Views\Error\Forbidden.cshtml" />
     <Content Include="Views\Dashboard\Index.cshtml" />
     <Content Include="Views\Dashboard.Welcome.cshtml" />
     <Content Include="Views\ApplicationSetting\Index.cshtml" />

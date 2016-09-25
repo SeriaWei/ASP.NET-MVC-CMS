@@ -19,8 +19,7 @@ namespace Easy.CMS.Breadcrumb.Service
         {
             get { return _pageService ?? (_pageService = ServiceLocator.Current.GetInstance<IPageService>()); }
         }
-
-        private List<PageEntity> _parentPages;
+        
 
         public List<PageEntity> ParentPages { get; set; }
         public override WidgetPart Display(WidgetBase widget, HttpContextBase httpContext)

@@ -25,20 +25,13 @@ namespace Easy.Web.CMS
     {
         public override void Application_Starting()
         {
-            ViewEngines.Engines.Clear();
-
-            var engine = new PrecompliedViewEngine();
-            ViewEngines.Engines.Add(engine);
-
-            VirtualPathFactoryManager.RegisterVirtualPathFactory(engine);
-
             ModelBinders.Binders.Add(typeof(WidgetBase), new WidgetBinder());
 
             var routes = new List<RouteDescriptor>();
             Type plugBaseType = typeof(PluginBase);
             Type widgetModelType = typeof(WidgetBase);
-            Type webPageType = typeof(WebPageBase);
-            BuildManager.GetReferencedAssemblies().Cast<Assembly>().Each(m => m.GetTypes().Each(p =>
+            var types= BuildManager.GetReferencedAssemblies().Cast<Assembly>().SelectMany(assembly => assembly.GetTypes());
+            types.Each(p =>
             {
                 if (plugBaseType.IsAssignableFrom(p) && !p.IsAbstract && !p.IsInterface)
                 {
@@ -60,11 +53,8 @@ namespace Easy.Web.CMS
                         WidgetBase.KnownWidgetModel.Add(p.FullName, p);
                     }
                 }
-                else if (webPageType.IsAssignableFrom(p) && !p.IsAbstract && !p.IsInterface)
-                {
-                    PrecompliedViewEngine.Regist(p);
-                }
-            }));
+            });
+            PrecompliedViewEngine.Regist(types);
             RouteTable.Routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
             routes.OrderByDescending(m => m.Priority).Each(m => RouteTable.Routes.MapRoute(m.RouteName, m.Url, m.Defaults, m.Constraints, m.Namespaces));
             ContainerAdapter.RegisterType<IUserService, UserService>();
