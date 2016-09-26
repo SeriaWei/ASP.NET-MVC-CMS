@@ -30,7 +30,7 @@ namespace Easy.Web.CMS
             var routes = new List<RouteDescriptor>();
             Type plugBaseType = typeof(PluginBase);
             Type widgetModelType = typeof(WidgetBase);
-            var types= BuildManager.GetReferencedAssemblies().Cast<Assembly>().SelectMany(assembly => assembly.GetTypes()).ToArray();
+            var types = BuildManager.GetReferencedAssemblies().Cast<Assembly>().SelectMany(assembly => assembly.GetTypes()).ToArray();
             types.Each(p =>
             {
                 if (plugBaseType.IsAssignableFrom(p) && !p.IsAbstract && !p.IsInterface)
@@ -39,9 +39,13 @@ namespace Easy.Web.CMS
                     if (plug != null)
                     {
                         var moduleRoutes = plug.RegistRoute();
-                        if (moduleRoutes != null && moduleRoutes.Any())
+                        if (moduleRoutes != null)
                         {
-                            routes.AddRange(moduleRoutes);
+                            var routeArray = moduleRoutes.ToArray();
+                            if (routeArray.Length > 0)
+                            {
+                                routes.AddRange(routeArray);
+                            }
                         }
                         plug.Excute();
                     }
