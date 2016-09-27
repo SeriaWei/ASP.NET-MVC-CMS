@@ -9,8 +9,8 @@
 }
 @helper DropDown(IEnumerable<NavigationEntity> items)
 {
-if (items != null && items.Any())
-{
+    if (items != null && items.Any())
+    {
         <ul class="dropdown-menu">
             @foreach (NavigationEntity child in items)
             {
@@ -31,7 +31,7 @@ if (items != null && items.Any())
                 }
             }
         </ul>
-}
+    }
 }
 <div class="navigation">
     <div class="navbar navbar-default @(Model.Widget.IsTopFix?"navbar-fixed-top":"")" role="navigation">
@@ -42,18 +42,26 @@ if (items != null && items.Any())
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @if (Model.Widget.Logo.IsNotNullAndWhiteSpace() || Model.Widget.Title.IsNotNullAndWhiteSpace())
+                @if (Model.Widget.Logo.IsNotNullAndWhiteSpace())
                 {
                     <a class="navbar-brand" href="~/">
                         @if (Model.Widget.Logo.IsNotNullAndWhiteSpace())
                         {
-                            <img src="@Url.Content(Model.Widget.Logo)" alt="@Model.Widget.Title" class="logo" />
-                        }
-                        else
-                        {
-                            @Model.Widget.Title
+                            <img src="@Url.Content(Model.Widget.Logo)" alt="logo" class="logo" />
                         }
                     </a>
+                }
+                @{
+                    var top = Model.Navigations.Where(m => m.ParentId == "#").Skip(1).Take(2);
+                    <ul class="nav navbar-nav nav-mobile visible-xs">
+                        @foreach (var item in top)
+                        {
+                            <li class="pull-left @(item.IsCurrent ? "active" : "")">
+                                @Html.SmartLink(Url.PathContent(item.Url), item.Title)
+                            </li>
+
+                        }
+                    </ul>
                 }
             </div>
             <div class="navbar-collapse collapse navbar-responsive-collapse">

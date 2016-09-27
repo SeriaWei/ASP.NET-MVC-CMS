@@ -7233,6 +7233,14 @@ img {
 .navigation {
   margin: -15px;
 }
+.navigation .nav.nav-mobile {
+  margin: 5px auto;
+  float: left;
+}
+.navigation .nav.nav-mobile > li > a {
+  padding-left: 10px;
+  padding-right: 10px;
+}
 .navigation .navbar {
   margin-bottom: 0;
   border-radius: 0;
