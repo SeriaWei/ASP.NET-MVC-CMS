@@ -24,24 +24,12 @@
     }
     else if (video.Code.IsNotNullAndWhiteSpace())
     {
-        if (video.Width.HasValue)
-        {
-            video.Code = Regex.Replace(video.Code, @"width=""(\d+)""", "width=\"" + video.Width + "\"");
-            video.Code = Regex.Replace(video.Code, @"width=(\d+)", "width=" + video.Width);
-            video.Code = Regex.Replace(video.Code, @"width:(\d+)", "width:" + video.Width);
-        }
-        else
-        {
-            video.Code = Regex.Replace(video.Code, @"width=""(\d+)""", "width=\"100%\"");
-            video.Code = Regex.Replace(video.Code, @"width=(\d+)", "width=100%");
-            video.Code = Regex.Replace(video.Code, @"width:(\d+)", "width:100%");
-        }
-        if (video.Height.HasValue)
-        {
-            video.Code = Regex.Replace(video.Code, @"height=""(\d+)""", "height=\"" + video.Height + "\"");
-            video.Code = Regex.Replace(video.Code, @"height=(\d+)", "height=" + video.Height);
-            video.Code = Regex.Replace(video.Code, @"height:(\d+)", "height:" + video.Height);
-        }
+        video.Code = Regex.Replace(video.Code, @"("")?width("")?=("")?(\d+)("")?", "width=\"" + (video.Width ?? 798) + "\"");
+        video.Code = Regex.Replace(video.Code, @"("")?width("")?:("")?(\d+)("")?", "width:" + (video.Width ?? 798));
+
+        video.Code = Regex.Replace(video.Code, @"("")?height("")?=("")?(\d+)("")?", "height=" + (video.Height ?? 500));
+        video.Code = Regex.Replace(video.Code, @"("")?height("")?:("")?(\d+)("")?", "height:" + (video.Height ?? 500));
+
         @Html.Raw(video.Code)
     }
 </div>
