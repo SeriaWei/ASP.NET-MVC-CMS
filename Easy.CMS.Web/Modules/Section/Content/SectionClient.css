@@ -21,17 +21,21 @@
 
         .video .video-play:hover {
             opacity: 1;
-            background-position:50% 50%;
+            background-position: 50% 50%;
         }
 
 .pop-video {
     height: 100%;
+    overflow: hidden;
 }
 
     .pop-video video,
-    .pop-video embed {
+    .pop-video embed,
+    .pop-video iframe {
         display: block;
         margin: 0 auto;
+        padding: 0;
+        border: none;
         height: 100% !important;
         width: 100% !important;
         max-width: 100%;

@@ -28,13 +28,13 @@ namespace Easy.CMS.Section
 
         protected override void InitScript(Func<string, ResourceHelper> script)
         {
-            
+
         }
 
         protected override void InitStyle(Func<string, ResourceHelper> style)
         {
-            style("SectionAdmin").Include("~/Modules/Section/Content/Section.css", "~/Modules/Section/Content/Section.min.css");
-            style("Section").Include("~/Modules/Section/Content/SectionClient.css", "~/Modules/Section/Content/SectionClient.min.css");
+            style("SectionAdmin").Include("~/Modules/Section/Content/Section.css", "~/Modules/Section/Content/Section.min.css", Urls.CdnHost + "/Modules/Section/Content/Section.min.css");
+            style("Section").Include("~/Modules/Section/Content/SectionClient.css", "~/Modules/Section/Content/SectionClient.min.css", Urls.CdnHost + "/Modules/Section/Content/SectionClient.min.css");
         }
 
         public override IEnumerable<PermissionDescriptor> RegistPermission()

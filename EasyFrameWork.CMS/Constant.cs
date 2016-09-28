@@ -27,6 +27,7 @@ namespace Easy.Web.CMS
 
     public class Urls
     {
+        public const string CdnHost = "http://cdn.zkeasoft.com";
         public const string SelectPage = "/admin/page/select";
         public const string SelectMedia = "/admin/Media/Select";
         public const string StyleEditor = "/Modules/Common/Scripts/StyleEditor/index.html";

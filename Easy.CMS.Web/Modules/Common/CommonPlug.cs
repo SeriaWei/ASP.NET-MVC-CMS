@@ -10,7 +10,6 @@ namespace Easy.CMS.Common
 {
     public class CommonPlug : PluginBase
     {
-        const string CdnHost = "http://cdn.zkeasoft.com";
         public override IEnumerable<RouteDescriptor> RegistRoute()
         {
             yield return new RouteDescriptor
@@ -162,22 +161,22 @@ namespace Easy.CMS.Common
 
         protected override void InitScript(Func<string, ResourceHelper> script)
         {
-            script("OWL.Carousel").Include("~/Modules/Common/Scripts/OwlCarousel/owl.carousel.min.js", "~/Modules/Common/Scripts/OwlCarousel/owl.carousel.min.js", CdnHost + "/Modules/Common/Scripts/OwlCarousel/owl.carousel.min.js")
-                .Include("~/Modules/Common/Scripts/Owl.Carousel.js", "~/Modules/Common/Scripts/Owl.Carousel.min.js", CdnHost + "/Modules/Common/Scripts/Owl.Carousel.min.js");
+            script("OWL.Carousel").Include("~/Modules/Common/Scripts/OwlCarousel/owl.carousel.min.js", "~/Modules/Common/Scripts/OwlCarousel/owl.carousel.min.js", Urls.CdnHost + "/Modules/Common/Scripts/OwlCarousel/owl.carousel.min.js")
+                .Include("~/Modules/Common/Scripts/Owl.Carousel.js", "~/Modules/Common/Scripts/Owl.Carousel.min.js", Urls.CdnHost + "/Modules/Common/Scripts/Owl.Carousel.min.js");
 
-            script("LayoutDesign").Include("~/Modules/Common/Scripts/LayoutDesign.js", "~/Modules/Common/Scripts/LayoutDesign.min.js", CdnHost + "/Modules/Common/Scripts/LayoutDesign.min.js");
-            script("PageDesign").Include("~/Modules/Common/Scripts/PageDesign.js", "~/Modules/Common/Scripts/PageDesign.min.js", CdnHost + "/Modules/Common/Scripts/PageDesign.min.js");
+            script("LayoutDesign").Include("~/Modules/Common/Scripts/LayoutDesign.js", "~/Modules/Common/Scripts/LayoutDesign.min.js", Urls.CdnHost + "/Modules/Common/Scripts/LayoutDesign.min.js");
+            script("PageDesign").Include("~/Modules/Common/Scripts/PageDesign.js", "~/Modules/Common/Scripts/PageDesign.min.js", Urls.CdnHost + "/Modules/Common/Scripts/PageDesign.min.js");
         }
 
         protected override void InitStyle(Func<string, ResourceHelper> style)
         {
-            style("Layout").Include("~/Modules/Common/Content/Layout.css", "~/Modules/Common/Content/Layout.min.css", CdnHost + "/Modules/Common/Content/Layout.min.css");
+            style("Layout").Include("~/Modules/Common/Content/Layout.css", "~/Modules/Common/Content/Layout.min.css", Urls.CdnHost + "/Modules/Common/Content/Layout.min.css");
 
-            style("Login").Include("~/Modules/Common/Content/Login.css", "~/Modules/Common/Content/Login.min.css", CdnHost + "/Modules/Common/Content/Login.min.css");
+            style("Login").Include("~/Modules/Common/Content/Login.css", "~/Modules/Common/Content/Login.min.css", Urls.CdnHost + "/Modules/Common/Content/Login.min.css");
 
             style("OWL.Carousel")
-                .Include("~/Modules/Common/Scripts/OwlCarousel/owl.carousel.css", "~/Modules/Common/Scripts/OwlCarousel/owl.carousel.min.css", CdnHost + "/Modules/Common/Scripts/OwlCarousel/owl.carousel.min.css")
-                .Include("~/Modules/Common/Scripts/OwlCarousel/owl.transitions.css", "~/Modules/Common/Scripts/OwlCarousel/owl.transitions.min.css", CdnHost + "/Modules/Common/Scripts/OwlCarousel/owl.transitions.min.css");
+                .Include("~/Modules/Common/Scripts/OwlCarousel/owl.carousel.css", "~/Modules/Common/Scripts/OwlCarousel/owl.carousel.min.css", Urls.CdnHost + "/Modules/Common/Scripts/OwlCarousel/owl.carousel.min.css")
+                .Include("~/Modules/Common/Scripts/OwlCarousel/owl.transitions.css", "~/Modules/Common/Scripts/OwlCarousel/owl.transitions.min.css", Urls.CdnHost + "/Modules/Common/Scripts/OwlCarousel/owl.transitions.min.css");
         }
 
         public override IEnumerable<PermissionDescriptor> RegistPermission()
