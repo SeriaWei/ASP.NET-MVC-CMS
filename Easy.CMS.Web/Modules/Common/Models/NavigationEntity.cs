@@ -10,7 +10,7 @@ namespace Easy.CMS.Common.Models
     {
         public string ID { get; set; }
         public int? DisplayOrder { get; set; }
-
+        public bool? IsMobile { get; set; }
         public string ParentId { get; set; }
         public string Url { get; set; }
         public bool IsCurrent { get; set; }
@@ -31,6 +31,7 @@ namespace Easy.CMS.Common.Models
             ViewConfig(m => m.DisplayOrder).AsHidden();
             ViewConfig(m => m.Title).AsTextBox().Required().Order(1);
             ViewConfig(m => m.Url).AsTextBox().Required().Order(2).AddClass("select").AddProperty("data-url", Urls.SelectPage);
+            ViewConfig(m => m.IsMobile).AsCheckBox();
             ViewConfig(m => m.IsCurrent).AsHidden();
         }
     }

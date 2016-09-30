@@ -33,6 +33,19 @@
         </ul>
     }
 }
+@helper MobileLi(string parentId = "#")
+{
+    foreach (var item in Model.Navigations.Where(m => m.ParentId == parentId))
+    {
+        if (item.IsMobile ?? false)
+        {
+            <li class="pull-left @(item.IsCurrent ? "active" : "")">
+                @Html.SmartLink(Url.PathContent(item.Url), item.Title)
+            </li>
+        }
+        @MobileLi(item.ID)
+    }
+}
 <div class="navigation">
     <div class="navbar navbar-default @(Model.Widget.IsTopFix?"navbar-fixed-top":"")" role="navigation">
         <div class="@(Model.Widget.CustomerClass??"container")">
@@ -52,15 +65,8 @@
                     </a>
                 }
                 @{
-                    var top = Model.Navigations.Where(m => m.ParentId == "#").Skip(1).Take(2);
                     <ul class="nav navbar-nav nav-mobile visible-xs">
-                        @foreach (var item in top)
-                        {
-                            <li class="pull-left @(item.IsCurrent ? "active" : "")">
-                                @Html.SmartLink(Url.PathContent(item.Url), item.Title)
-                            </li>
-
-                        }
+                       @MobileLi()
                     </ul>
                 }
             </div>

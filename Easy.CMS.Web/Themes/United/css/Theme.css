@@ -7083,12 +7083,11 @@ img {
   margin: -15px;
 }
 .navigation .nav.nav-mobile {
-  margin: 5px auto;
+  margin: 0 auto;
   float: left;
 }
 .navigation .nav.nav-mobile > li > a {
-  padding-left: 10px;
-  padding-right: 10px;
+  padding: 15px 10px;
 }
 .navigation .navbar {
   margin-bottom: 0;

@@ -1,34 +1,33 @@
 ﻿@using System.Text.RegularExpressions
 @model Easy.CMS.Common.Models.VideoWidget
 
-@if (Model.Url.IsNotNullAndWhiteSpace())
-{
-    <video controls="controls"
-           name="media"
-           src="@Url.Content(Model.Url)"
-           style="width:@(Model.Width.HasValue?Model.Width+"px":"auto");height:@(Model.Height.HasValue?Model.Height+"px":"auto")">
-        您的浏览器不支持播放该视频
-    </video>
-}
-else if (Model.Code.IsNotNullAndWhiteSpace())
-{
-    if (Model.Width.HasValue)
+<div class="widget-video">
+    @if (Model.Url.IsNotNullAndWhiteSpace())
     {
-        Model.Code = Regex.Replace(Model.Code, @"width=""(\d+)""", "width=\"" + Model.Width + "\"");
-        Model.Code = Regex.Replace(Model.Code, @"width=(\d+)", "width=" + Model.Width);
-        Model.Code = Regex.Replace(Model.Code, @"width:(\d+)", "width:" + Model.Width);
+        <video controls="controls"
+               name="media"
+               src="@Url.Content(Model.Url)"
+               style="width:@(Model.Width.HasValue?Model.Width+"px":"auto");height:@(Model.Height.HasValue?Model.Height+"px":"auto")">
+            您的浏览器不支持播放该视频
+        </video>
     }
-    else
+    else if (Model.Code.IsNotNullAndWhiteSpace())
     {
-        Model.Code = Regex.Replace(Model.Code, @"width=""(\d+)""", "width=\"100%\"");
-        Model.Code = Regex.Replace(Model.Code, @"width=(\d+)", "width=100%");
-        Model.Code = Regex.Replace(Model.Code, @"width:(\d+)", "width:100%");
+        if (Model.Width.HasValue)
+        {
+            Model.Code = Regex.Replace(Model.Code, @"("")?width("")?=("")?(\d+)("")?", "width=\"" + Model.Width.Value + "\"");
+            Model.Code = Regex.Replace(Model.Code, @"("")?width("")?:("")?(\d+)("")?", "width:" + Model.Width);
+        }
+        else
+        {
+            Model.Code = Regex.Replace(Model.Code, @"("")?width("")?=("")?(\d+)("")?", "width=\"100%\"");
+            Model.Code = Regex.Replace(Model.Code, @"width:(\d+)(px|%)", "width:100%");
+        }
+        if (Model.Height.HasValue)
+        {
+            Model.Code = Regex.Replace(Model.Code, @"("")?height("")?=("")?(\d+)("")?", "height=" + Model.Height.Value);
+            Model.Code = Regex.Replace(Model.Code, @"("")?height("")?:("")?(\d+)("")?", "height:" + Model.Height.Value);
+        }
+        @Html.Raw(Model.Code)
     }
-    if (Model.Height.HasValue)
-    {
-        Model.Code = Regex.Replace(Model.Code, @"height=""(\d+)""", "height=\"" + Model.Height + "\"");
-        Model.Code = Regex.Replace(Model.Code, @"height=(\d+)", "height=" + Model.Height);
-        Model.Code = Regex.Replace(Model.Code, @"height:(\d+)", "height:" + Model.Height);
-    }
-    @Html.Raw(Model.Code)
-}
+</div>
