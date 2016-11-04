@@ -27,7 +27,7 @@ namespace Easy.CMS.Article.Models
         {
             base.ViewConfigure();
             var articleTypeService = ServiceLocator.Current.GetInstance<IArticleTypeService>();
-            ViewConfig(m => m.ArticleTypeID).AsDropDownList().Order(NextOrder()).DataSource(articleTypeService.Get().ToDictionary(m => m.ID.ToString(), m => m.Title)).Required();
+            ViewConfig(m => m.ArticleTypeID).AsDropDownList().Order(NextOrder()).DataSource(() => articleTypeService.Get().ToDictionary(m => m.ID.ToString(), m => m.Title)).Required();
             ViewConfig(m => m.DetailPageUrl).AsTextBox().Order(NextOrder()).AddClass("select").AddProperty("data-url", Urls.SelectPage);
 
             ViewConfig(m => m.PartialView).AsDropDownList().Order(NextOrder()).DataSource(() =>
