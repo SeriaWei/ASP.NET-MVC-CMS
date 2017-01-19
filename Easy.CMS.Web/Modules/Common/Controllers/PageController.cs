@@ -1,4 +1,6 @@
 /* http://www.zkea.net/ Copyright 2016 ZKEASOFT http://www.zkea.net/licenses */
+
+using System;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -7,6 +9,7 @@ using Easy.Constant;
 using Easy.Data;
 using Easy.Extend;
 using Easy.ViewPort.jsTree;
+using Easy.Web;
 using Easy.Web.Attribute;
 using Easy.Web.CMS;
 using Easy.Web.CMS.Filter;
@@ -85,14 +88,20 @@ namespace Easy.CMS.Common.Controllers
                     ModelState.AddModelError("PageUrl", ex.Message);
                     return View(entity);
                 }
-                return RedirectToAction("Design", new {entity.ID });
+                return RedirectToAction("Design", new { entity.ID });
             }
             return View(entity);
         }
         [AdminTheme, ViewDataLayouts]
         public override ActionResult Edit(string Id)
         {
-            return base.Edit(Id);
+            var page = Service.Get(Id);
+            if (page == null || page.IsPublishedPage)
+            {
+                return RedirectToAction("Index");
+            }
+            ViewBag.OldVersions = Service.Get(m => m.Url == page.Url && m.IsPublishedPage == true).OrderByDescending(m => m.PublishDate);
+            return View(page);
         }
         [AdminTheme, ViewDataLayouts]
         [HttpPost]
@@ -100,7 +109,7 @@ namespace Easy.CMS.Common.Controllers
         {
             if (entity.ActionType == ActionType.Design)
             {
-                return RedirectToAction("Design", new {entity.ID });
+                return RedirectToAction("Design", new { entity.ID });
             }
             string id = entity.ID;
             if (entity.ActionType == ActionType.Delete)
@@ -144,7 +153,53 @@ namespace Easy.CMS.Common.Controllers
 
             return View();
         }
-
+        [ViewWidget]
+        public ActionResult ViewPage(string ID)
+        {
+            return View("PreView");
+        }
+        [HttpPost]
+        public JsonResult Revert(string ID)
+        {
+            try
+            {
+                Service.Revert(ID);
+                return Json(new AjaxResult
+                {
+                    Status = AjaxStatus.Normal
+                });
+            }
+            catch (Exception ex)
+            {
+                Logger.Error(ex);
+                return Json(new AjaxResult
+                {
+                    Status = AjaxStatus.Error,
+                    Message = ex.Message
+                });
+            }
+        }
+        [HttpPost]
+        public JsonResult DeleteVersion(string ID)
+        {
+            try
+            {
+                Service.DeleteVersion(ID);
+                return Json(new AjaxResult
+                {
+                    Status = AjaxStatus.Normal
+                });
+            }
+            catch (Exception ex)
+            {
+                Logger.Error(ex);
+                return Json(new AjaxResult
+                {
+                    Status = AjaxStatus.Error,
+                    Message = ex.Message
+                });
+            }
+        }
         public ActionResult RedirectView(string Id, bool? preview)
         {
             return Redirect(Service.Get(Id).Url + ((preview ?? true) ? "?ViewType=" + ReView.Review : ""));

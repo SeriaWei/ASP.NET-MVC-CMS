@@ -52,11 +52,11 @@ namespace Easy.Web.CMS.Page
 
         public void Publish(PageEntity item)
         {
-            Update(new PageEntity { IsPublish = true, PublishDate = DateTime.Now },
-               new DataFilter(new List<string> { "IsPublish", "PublishDate" })
+            Update(new PageEntity { IsPublish = true },
+               new DataFilter(new List<string> { "IsPublish" })
                .Where("ID", OperatorType.Equal, item.ID));
 
-            Delete(m => m.ReferencePageID == item.ID && m.IsPublishedPage == true);
+            //Delete(m => m.ReferencePageID == item.ID && m.IsPublishedPage == true);
 
             DataArchivedService.Delete(CacheTrigger.PageWidgetsArchivedKey.FormatWith(item.ID));
 
@@ -80,6 +80,39 @@ namespace Easy.Web.CMS.Page
                 m.PageID = item.ID;
                 widgetService.Publish(m);
             });
+        }
+
+        public void Revert(string ID)
+        {
+            var page = Get(ID);
+            if (page.IsPublishedPage)
+            {
+                Update(new PageEntity { PublishDate = null }, new DataFilter(new List<string> { "PublishDate" }).Where("ID", OperatorType.Equal, page.ReferencePageID));
+
+                Delete(page.ReferencePageID);//删除当前的编辑版本，加入旧的版本做为编辑版本，再发布
+                page.ID = page.ReferencePageID;
+                page.ReferencePageID = null;
+                page.IsPublish = false;
+                page.IsPublishedPage = false;
+                if (page.ExtendFields != null)
+                {
+                    page.ExtendFields.Each(m => m.ActionType = ActionType.Create);
+                }
+                base.Add(page);
+                var widgets = WidgetService.GetByPageId(ID);
+                widgets.Each(m =>
+                {
+                    var widgetService = m.CreateServiceInstance();
+                    m = widgetService.GetWidget(m);
+                    if (m.ExtendFields != null)
+                    {
+                        m.ExtendFields.Each(f => f.ActionType = ActionType.Create);
+                    }
+                    m.PageID = page.ID;
+                    widgetService.Publish(m);
+                });
+                Publish(page);
+            }
         }
         public override int Delete(DataFilter filter)
         {
@@ -117,6 +150,17 @@ namespace Easy.Web.CMS.Page
             return base.Delete(primaryKeys);
         }
 
+        public void DeleteVersion(string ID)
+        {
+            PageEntity page = Get(ID);
+            if (page != null)
+            {
+                var widgets = WidgetService.Get(m => m.PageID == page.ID);
+                widgets.Each(m => m.CreateServiceInstance().DeleteWidget(m.ID));
+                DataArchivedService.Delete(CacheTrigger.PageWidgetsArchivedKey.FormatWith(page.ID));
+            }
+            base.Delete(ID);
+        }
         public void Move(string id, int position, int oldPosition)
         {
             var page = Get(id);
@@ -159,14 +203,10 @@ namespace Easy.Web.CMS.Page
 
             if (path == "/")
             {
-                filter.Where("ParentId", OperatorType.Equal, "#");
+                path = "~/index";
             }
-            else
-            {
-                filter.Where("Url", OperatorType.Equal, (path.StartsWith("~") ? "" : "~") + path);
-            }
-
-            filter.Where("IsPublishedPage", OperatorType.Equal, !isPreView).OrderBy("DisplayOrder", OrderType.Ascending);
+            filter.Where("Url", OperatorType.Equal, (path.StartsWith("~") ? "" : "~") + path);
+            filter.Where("IsPublishedPage", OperatorType.Equal, !isPreView).OrderBy("PublishDate", OrderType.Descending);
             var pages = Get(filter, new Pagination { PageSize = 1 });
 
             var result = pages.FirstOrDefault();
@@ -184,5 +224,6 @@ namespace Easy.Web.CMS.Page
               new DataFilter(new List<string> { "IsPublish", "LastUpdateDate", "LastUpdateBy" })
               .Where("ID", OperatorType.Equal, pageId));
         }
+
     }
 }

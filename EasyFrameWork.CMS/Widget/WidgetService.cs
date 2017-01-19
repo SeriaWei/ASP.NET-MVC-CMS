@@ -85,9 +85,9 @@ namespace Easy.Web.CMS.Widget
                 widgets.AddRange(GetByPageId(p.ID));
                 return widgets.Select(widget => widget.CreateServiceInstance().GetWidget(widget)).ToList();
             };
-            if (page.IsPublishedPage)
+            if (page.IsPublishedPage && (ApplicationContext as CMSApplicationContext).ViewMode == PageViewMode.Publish)
             {
-                return DataArchivedService.Get(CacheTrigger.PageWidgetsArchivedKey.FormatWith(page.ReferencePageID), () => getPageWidgets(page));    
+                return DataArchivedService.Get(CacheTrigger.PageWidgetsArchivedKey.FormatWith(page.ReferencePageID), () => getPageWidgets(page));
             }
             return getPageWidgets(page);
         }

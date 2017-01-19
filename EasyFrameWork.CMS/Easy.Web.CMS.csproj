@@ -129,6 +129,7 @@
     <Compile Include="ExtendField\ExtendFieldService.cs" />
     <Compile Include="ExtendField\IExtendField.cs" />
     <Compile Include="ExtendField\IExtendFieldService.cs" />
+    <Compile Include="Filter\ViewWidgetAttribute.cs" />
     <Compile Include="Filter\EditWidgetAttribute.cs" />
     <Compile Include="Filter\WidgetAttribute.cs" />
     <Compile Include="Extend\HtmlHelperExtend.cs" />
@@ -138,6 +139,7 @@
     <Compile Include="Layout\LayoutHtmlService.cs" />
     <Compile Include="Layout\ViewDataLayoutsAttribute.cs" />
     <Compile Include="Layout\LayoutService.cs" />
+    <Compile Include="Page\PageViewType.cs" />
     <Compile Include="PermissionDescriptor.cs" />
     <Compile Include="Product\Models\Product.cs" />
     <Compile Include="Product\Models\ProductCategory.cs" />

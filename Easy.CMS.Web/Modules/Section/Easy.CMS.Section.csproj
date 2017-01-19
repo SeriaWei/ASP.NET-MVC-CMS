@@ -178,6 +178,7 @@
     <Content Include="Views\Thumbnail\SectionTemplate.Brand.xml">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Views\Thumbnail\SectionTemplate.SalePrice.xml" />
     <Content Include="Views\Thumbnail\SectionTemplate.JCarousel.xml">
       <SubType>Designer</SubType>
     </Content>
@@ -202,6 +203,7 @@
     <Content Include="Views\Thumbnail\SectionTemplate.Quote.png" />
     <Content Include="Views\Thumbnail\SectionTemplate.RightThreeIcon.png" />
     <Content Include="Views\Thumbnail\SectionTemplate.RightThreeIcon.xml" />
+    <Content Include="Views\Thumbnail\SectionTemplate.SalePrice.png" />
     <Content Include="Views\Thumbnail\SectionTemplate.Thumbnail.xml" />
     <Content Include="Views\Thumbnail\SectionTemplate.Column.xml" />
     <Content Include="Views\Thumbnail\SectionTemplate.Tab.xml" />
@@ -322,6 +324,7 @@
     <Content Include="Views\SectionTemplate.ImageBox.cshtml" />
     <Content Include="Views\SectionTemplate.ImageGreyBox.cshtml" />
     <Content Include="Views\SectionTemplate.JCarousel.cshtml" />
+    <Content Include="Views\SectionTemplate.SalePrice.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

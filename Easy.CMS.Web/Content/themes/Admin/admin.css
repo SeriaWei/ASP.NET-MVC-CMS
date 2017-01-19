@@ -432,3 +432,6 @@ a.badge:hover {
 .navbar-inverse .navbar-nav > li a:hover {
     background-color: #000;
 }
+.old-versions .glyphicon {
+    margin: 0 3px;
+}

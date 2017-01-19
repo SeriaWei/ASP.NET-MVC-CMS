@@ -1,3 +1,4 @@
+using Easy.Web.CMS.Page;
 /* http://www.zkea.net/ Copyright 2016 ZKEASOFT http://www.zkea.net/licenses */
 using System;
 using System.Web;
@@ -30,5 +31,8 @@ namespace Easy.Web.CMS
             }
             return path;
         }
+
+        public PageViewMode ViewMode { get; set; }
+
     }
 }

@@ -38,11 +38,15 @@ namespace Easy.Web.CMS.Filter
 
             return PageService.GetByPath(path, isPreView);
         }
+
         public virtual string GetLayout()
         {
             return "~/Modules/Common/Views/Shared/_Layout.cshtml";
         }
-
+        public virtual PageViewMode GetPageViewMode()
+        {
+            return PageViewMode.Publish;
+        }
         public void OnActionExecuted(ActionExecutedContext filterContext)
         {
             //Page
@@ -98,6 +102,7 @@ namespace Easy.Web.CMS.Filter
             var applicationContext = ServiceLocator.Current.GetInstance<IApplicationContext>() as CMSApplicationContext;
             if (applicationContext != null && HttpContext.Current != null)
             {
+                applicationContext.ViewMode = GetPageViewMode();
                 applicationContext.RequestUrl = HttpContext.Current.Request.Url;
             }
             ServiceLocator.Current.GetAllInstances<IOnPageExecuting>().Each(m => m.OnExecuting(HttpContext.Current));
