@@ -4,7 +4,7 @@ using Easy.Web.CMS.Page;
 
 namespace Easy.Web.CMS.Filter
 {
-    public class ViewWidgetAttribute : WidgetAttribute
+    public class ViewPageAttribute : WidgetAttribute
     {
         public override PageEntity GetPage(ActionExecutedContext filterContext)
         {

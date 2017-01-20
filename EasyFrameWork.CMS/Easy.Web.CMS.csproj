@@ -129,7 +129,7 @@
     <Compile Include="ExtendField\ExtendFieldService.cs" />
     <Compile Include="ExtendField\IExtendField.cs" />
     <Compile Include="ExtendField\IExtendFieldService.cs" />
-    <Compile Include="Filter\ViewWidgetAttribute.cs" />
+    <Compile Include="Filter\ViewPageAttribute.cs" />
     <Compile Include="Filter\EditWidgetAttribute.cs" />
     <Compile Include="Filter\WidgetAttribute.cs" />
     <Compile Include="Extend\HtmlHelperExtend.cs" />

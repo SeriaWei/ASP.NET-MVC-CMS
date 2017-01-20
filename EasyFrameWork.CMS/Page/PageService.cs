@@ -82,23 +82,35 @@ namespace Easy.Web.CMS.Page
             });
         }
 
-        public void Revert(string ID)
+        public void Revert(string ID, bool RetainLatest)
         {
             var page = Get(ID);
             if (page.IsPublishedPage)
             {
-                Update(new PageEntity { PublishDate = null }, new DataFilter(new List<string> { "PublishDate" }).Where("ID", OperatorType.Equal, page.ReferencePageID));
-
-                Delete(page.ReferencePageID);//删除当前的编辑版本，加入旧的版本做为编辑版本，再发布
-                page.ID = page.ReferencePageID;
-                page.ReferencePageID = null;
-                page.IsPublish = false;
-                page.IsPublishedPage = false;
-                if (page.ExtendFields != null)
-                {
-                    page.ExtendFields.Each(m => m.ActionType = ActionType.Create);
+                if (RetainLatest)
+                {//保留当前编辑版本
+                    Update(new PageEntity { IsPublish = false },
+                          new DataFilter(new List<string> { "IsPublish" }).Where("ID", OperatorType.Equal,
+                              page.ReferencePageID));
+                    page.PublishDate = DateTime.Now;
+                    Add(page);
                 }
-                base.Add(page);
+                else
+                {
+                    Update(new PageEntity { PublishDate = null },
+                        new DataFilter(new List<string> { "PublishDate" }).Where("ID", OperatorType.Equal,
+                            page.ReferencePageID));
+                    Delete(page.ReferencePageID); //删除当前的编辑版本，加入旧的版本做为编辑版本，再发布
+                    page.ID = page.ReferencePageID;
+                    page.ReferencePageID = null;
+                    page.IsPublish = false;
+                    page.IsPublishedPage = false;
+                    if (page.ExtendFields != null)
+                    {
+                        page.ExtendFields.Each(m => m.ActionType = ActionType.Create);
+                    }
+                    base.Add(page);
+                }
                 var widgets = WidgetService.GetByPageId(ID);
                 widgets.Each(m =>
                 {
@@ -111,7 +123,11 @@ namespace Easy.Web.CMS.Page
                     m.PageID = page.ID;
                     widgetService.Publish(m);
                 });
-                Publish(page);
+                if (!RetainLatest)
+                {
+                    Publish(page);
+                }
+
             }
         }
         public override int Delete(DataFilter filter)

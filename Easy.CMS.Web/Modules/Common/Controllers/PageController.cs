@@ -153,17 +153,17 @@ namespace Easy.CMS.Common.Controllers
 
             return View();
         }
-        [ViewWidget]
+        [ViewPage]
         public ActionResult ViewPage(string ID)
         {
             return View("PreView");
         }
         [HttpPost]
-        public JsonResult Revert(string ID)
+        public JsonResult Revert(string ID, bool RetainLatest)
         {
             try
             {
-                Service.Revert(ID);
+                Service.Revert(ID, RetainLatest);
                 return Json(new AjaxResult
                 {
                     Status = AjaxStatus.Normal
