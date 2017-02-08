@@ -1,4 +1,6 @@
 /* http://www.zkea.net/ Copyright 2016 ZKEASOFT http://www.zkea.net/licenses */
+
+using System.Linq;
 using System.Web;
 using Easy.CMS.Article.Models;
 using Easy.CMS.Article.ViewModel;
@@ -31,7 +33,15 @@ namespace Easy.CMS.Article.Service
             }
             else
             {
-                filter.Where("ArticleTypeID", OperatorType.Equal, currentWidget.ArticleTypeID);
+                var ids = articleTypeService.Get(new DataFilter().Where("ParentID", OperatorType.Equal, currentWidget.ArticleTypeID)).Select(m => m.ID);
+                if (ids.Any())
+                {
+                    filter.Where("ArticleTypeID", OperatorType.In, ids);
+                }
+                else
+                {
+                    filter.Where("ArticleTypeID", OperatorType.Equal, currentWidget.ArticleTypeID);
+                }
             }
             return widget.ToWidgetPart(new ArticleListWidgetViewModel
             {

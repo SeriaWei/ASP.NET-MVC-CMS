@@ -1,5 +1,6 @@
 /* http://www.zkea.net/ Copyright 2016 ZKEASOFT http://www.zkea.net/licenses */
 using System.Collections.Generic;
+using System.Linq;
 using System.Web;
 using Easy.CMS.Product.Models;
 using Easy.CMS.Product.ViewModel;
@@ -36,7 +37,16 @@ namespace Easy.CMS.Product.Service
             }
             else
             {
-                filter.Where("ProductCategoryID", OperatorType.Equal, pwidget.ProductCategoryID);
+                var categoryService = ServiceLocator.Current.GetInstance<IProductCategoryService>();
+                var ids = categoryService.Get(new DataFilter().Where("ParentID", OperatorType.Equal, pwidget.ProductCategoryID)).Select(m => m.ID);
+                if (ids.Any())
+                {
+                    filter.Where("ProductCategoryID", OperatorType.In, ids);
+                }
+                else
+                {
+                    filter.Where("ProductCategoryID", OperatorType.Equal, pwidget.ProductCategoryID);
+                }
             }
 
 
