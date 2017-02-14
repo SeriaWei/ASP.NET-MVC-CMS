@@ -100,7 +100,7 @@ namespace Easy.CMS.Common.Controllers
             {
                 return RedirectToAction("Index");
             }
-            ViewBag.OldVersions = Service.Get(m => m.Url == page.Url && m.IsPublishedPage == true).OrderByDescending(m => m.PublishDate);
+            ViewBag.OldVersions = Service.Get(m => m.Url == page.Url && m.IsPublishedPage == true).OrderBy(m => m.PublishDate);
             return View(page);
         }
         [AdminTheme, ViewDataLayouts]

@@ -2,7 +2,7 @@
 @model PageEntity
 @{
     Script.Reqiured("validate").AtFoot();
-    IEnumerable<PageEntity> oldVersions = ViewBag.OldVersions as IEnumerable<PageEntity>;
+    List<PageEntity> oldVersions = (ViewBag.OldVersions as IEnumerable<PageEntity>).ToList();
 }
 
 
@@ -46,17 +46,22 @@
                 <tbody>
                     @foreach (var page in oldVersions)
                     {
+                        bool isCurrent = (index + 1) == oldVersions.Count;
                         <tr>
                             <td>
-                                @(index + 1)
-                                @if (index == 0)
+                                
+                                @if (isCurrent)
                                 {
                                     <span class="badge">当前</span>
+                                }
+                                else
+                                {
+                                    @(index + 1)
                                 }
                             </td>
                             <td>
                                 <a href="@Url.Action("ViewPage", new {ID = page.ID})" class="glyphicon glyphicon-eye-open" title="查看" target="_blank"></a>
-                                @if (index > 0)
+                                @if (!isCurrent)
                                 {
                                     <a href="javascript:void(0)" class="glyphicon glyphicon-share-alt revert" title="撤回到该版本" data-id="@page.ID"></a>
                                     <a href="javascript:void(0)" class="glyphicon glyphicon-remove remove" title="删除该版本" data-id="@page.ID"></a>

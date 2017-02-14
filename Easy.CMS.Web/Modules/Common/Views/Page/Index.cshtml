@@ -34,7 +34,7 @@
                 <div class="panel-heading">
                     页面
                 </div>
-                <div class="panel-body">
+                <div id="tree-body" class="panel-body" style="overflow:auto;">
                     @pageTree
                 </div>
                 @if (Authorizer.Authorize(PermissionKeys.ManagePage))
@@ -179,5 +179,8 @@
         if (!location.hash) {
             location.hash = '@(pageId)';
         }
+        $(function () {
+            $("#tree-body").css("max-height",$(window).height() - 240);
+        });
     </script>
 }
