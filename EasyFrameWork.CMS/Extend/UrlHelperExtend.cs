@@ -20,8 +20,22 @@ namespace Easy.Web.CMS
         public static string AddQueryToCurrentUrl(this UrlHelper helper, string name, string value)
         {
             var query = HttpUtility.ParseQueryString(helper.RequestContext.HttpContext.Request.Url.Query);
-            query[name] = value;
-            return "{0}?{1}".FormatWith(helper.RequestContext.HttpContext.Request.Url.AbsolutePath, query);
+            if(query[name] == value)
+            {
+                query.Remove(name);
+            }
+            else
+            {
+                query[name] = value;
+            }
+            if (query.AllKeys.Length > 0)
+            {
+                return "{0}?{1}".FormatWith(helper.RequestContext.HttpContext.Request.Url.AbsolutePath, query);
+            }
+            else
+            {
+                return helper.RequestContext.HttpContext.Request.Url.AbsolutePath;
+            }
         }
     }
 }

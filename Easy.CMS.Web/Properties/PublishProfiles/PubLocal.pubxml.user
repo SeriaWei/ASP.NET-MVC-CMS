@@ -16,10 +16,10 @@
       <publishTime>07/02/2014 21:58:06</publishTime>
     </File>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>10/24/2016 14:00:12</publishTime>
+      <publishTime>02/15/2017 15:29:50</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>10/24/2016 14:00:12</publishTime>
+      <publishTime>02/15/2017 15:29:49</publishTime>
     </File>
     <File Include="bin/App_Web_dljcttax.dll">
       <publishTime>09/08/2015 09:16:14</publishTime>
@@ -61,7 +61,7 @@
       <publishTime>09/26/2016 08:13:13</publishTime>
     </File>
     <File Include="bin/Easy.CMS.Web.dll">
-      <publishTime>10/24/2016 13:59:48</publishTime>
+      <publishTime>02/15/2017 15:29:45</publishTime>
     </File>
     <File Include="bin/Easy.CMS.Web.Views.dll">
       <publishTime>09/08/2015 09:17:52</publishTime>
@@ -70,7 +70,7 @@
       <publishTime>09/01/2016 09:36:24</publishTime>
     </File>
     <File Include="bin/Easy.Web.CMS.dll">
-      <publishTime>10/24/2016 13:59:48</publishTime>
+      <publishTime>02/15/2017 15:29:44</publishTime>
     </File>
     <File Include="bin/Easy.Web.dll">
       <publishTime>09/26/2016 08:13:13</publishTime>
@@ -475,10 +475,10 @@
       <publishTime>09/22/2016 13:07:57</publishTime>
     </File>
     <File Include="Content/themes/Admin/admin.css">
-      <publishTime>09/22/2016 13:08:34</publishTime>
+      <publishTime>01/19/2017 16:59:57</publishTime>
     </File>
     <File Include="Content/themes/Admin/admin.min.css">
-      <publishTime>09/22/2016 13:08:34</publishTime>
+      <publishTime>01/19/2017 16:59:57</publishTime>
     </File>
     <File Include="Content/themes/Admin/images/dotted.png">
       <publishTime>12/13/2014 17:18:00</publishTime>
@@ -925,7 +925,7 @@
       <publishTime>09/26/2016 08:13:13</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>10/24/2016 14:00:10</publishTime>
+      <publishTime>02/15/2017 15:29:47</publishTime>
     </File>
     <File Include="Scripts/angular/angular-animate.js">
       <publishTime>01/07/2016 15:49:06</publishTime>
@@ -2683,7 +2683,7 @@
       <publishTime>08/17/2015 10:09:02</publishTime>
     </File>
     <File Include="Scripts/tinymce/plugins/filebrowser/plugin.min.js">
-      <publishTime>09/21/2016 11:48:58</publishTime>
+      <publishTime>10/24/2016 14:05:11</publishTime>
     </File>
     <File Include="Scripts/tinymce/plugins/fullpage/plugin.min.js">
       <publishTime>08/17/2015 10:09:02</publishTime>
@@ -2950,7 +2950,7 @@
       <publishTime>09/28/2016 16:48:51</publishTime>
     </File>
     <File Include="Themes/Cerulean/css/Theme.less">
-      <publishTime>09/28/2016 16:48:46</publishTime>
+      <publishTime>10/25/2016 14:46:18</publishTime>
     </File>
     <File Include="Themes/Cerulean/css/Theme.min.css">
       <publishTime>09/28/2016 16:48:51</publishTime>
@@ -4009,7 +4009,7 @@
       <publishTime>09/22/2016 13:14:17</publishTime>
     </File>
     <File Include="Themes/Simplex/css/Navigation.less">
-      <publishTime>09/28/2016 16:47:45</publishTime>
+      <publishTime>10/25/2016 14:49:27</publishTime>
     </File>
     <File Include="Themes/Simplex/css/Pagination.less">
       <publishTime>05/27/2016 08:28:38</publishTime>
@@ -4021,16 +4021,16 @@
       <publishTime>05/27/2016 08:28:38</publishTime>
     </File>
     <File Include="Themes/Simplex/css/Theme.css">
-      <publishTime>09/28/2016 16:50:08</publishTime>
+      <publishTime>10/25/2016 14:49:32</publishTime>
     </File>
     <File Include="Themes/Simplex/css/Theme.css.map">
       <publishTime>09/28/2016 16:50:08</publishTime>
     </File>
     <File Include="Themes/Simplex/css/Theme.less">
-      <publishTime>09/28/2016 16:50:05</publishTime>
+      <publishTime>10/25/2016 14:49:37</publishTime>
     </File>
     <File Include="Themes/Simplex/css/Theme.min.css">
-      <publishTime>09/28/2016 16:50:08</publishTime>
+      <publishTime>10/25/2016 14:49:32</publishTime>
     </File>
     <File Include="Themes/Simplex/css/Widget.less">
       <publishTime>07/27/2016 15:23:41</publishTime>
@@ -4645,7 +4645,7 @@
       <publishTime>03/21/2016 08:52:52</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>10/24/2016 13:59:59</publishTime>
+      <publishTime>02/15/2017 15:27:27</publishTime>
     </File>
   </ItemGroup>
 </Project>

@@ -67,13 +67,13 @@
       <publishTime>09/08/2015 09:26:45</publishTime>
     </File>
     <File Include="bin/Easy.CMS.Common.dll">
-      <publishTime>10/24/2016 14:00:42</publishTime>
+      <publishTime>02/15/2017 15:30:17</publishTime>
     </File>
     <File Include="bin/Easy.dll">
       <publishTime>09/01/2016 09:36:24</publishTime>
     </File>
     <File Include="bin/Easy.Web.CMS.dll">
-      <publishTime>10/24/2016 13:59:48</publishTime>
+      <publishTime>02/15/2017 15:29:44</publishTime>
     </File>
     <File Include="bin/Easy.Web.dll">
       <publishTime>09/26/2016 08:13:13</publishTime>
@@ -253,7 +253,7 @@
       <publishTime>09/26/2016 08:13:13</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>10/24/2016 14:00:51</publishTime>
+      <publishTime>02/15/2017 15:30:19</publishTime>
     </File>
     <File Include="Scripts/jquery-1.8.2.js">
       <publishTime>01/30/2015 22:48:00</publishTime>
@@ -457,10 +457,10 @@
       <publishTime>09/21/2016 12:01:59</publishTime>
     </File>
     <File Include="Views/Page/Edit.cshtml">
-      <publishTime>09/21/2016 12:01:59</publishTime>
+      <publishTime>02/14/2017 13:59:16</publishTime>
     </File>
     <File Include="Views/Page/Index.cshtml">
-      <publishTime>09/21/2016 12:02:05</publishTime>
+      <publishTime>02/14/2017 14:09:32</publishTime>
     </File>
     <File Include="Views/Page/PageZones.cshtml">
       <publishTime>09/21/2016 12:02:05</publishTime>
@@ -559,7 +559,7 @@
       <publishTime>07/27/2015 16:34:27</publishTime>
     </File>
     <File Include="web.config">
-      <publishTime>10/24/2016 14:00:49</publishTime>
+      <publishTime>02/15/2017 15:28:24</publishTime>
     </File>
   </ItemGroup>
 </Project>

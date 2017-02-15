@@ -37,13 +37,13 @@
       <publishTime>07/27/2015 08:41:42</publishTime>
     </File>
     <File Include="bin/Easy.CMS.Section.dll">
-      <publishTime>10/24/2016 14:01:15</publishTime>
+      <publishTime>02/15/2017 15:30:31</publishTime>
     </File>
     <File Include="bin/Easy.dll">
       <publishTime>09/01/2016 09:36:24</publishTime>
     </File>
     <File Include="bin/Easy.Web.CMS.dll">
-      <publishTime>10/24/2016 13:59:48</publishTime>
+      <publishTime>02/15/2017 15:29:44</publishTime>
     </File>
     <File Include="bin/Easy.Web.dll">
       <publishTime>09/26/2016 08:13:13</publishTime>
@@ -181,7 +181,7 @@
       <publishTime>09/26/2016 08:13:13</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>10/24/2016 14:01:17</publishTime>
+      <publishTime>02/15/2017 15:30:32</publishTime>
     </File>
     <File Include="Views/SectionContentCallToAction/Form.cshtml">
       <publishTime>05/11/2016 08:25:13</publishTime>
@@ -211,7 +211,7 @@
       <publishTime>09/21/2016 12:01:59</publishTime>
     </File>
     <File Include="Views/SectionTemplate.Default.cshtml">
-      <publishTime>09/21/2016 12:01:59</publishTime>
+      <publishTime>02/09/2017 16:15:06</publishTime>
     </File>
     <File Include="Views/SectionTemplate.GreyBox.cshtml">
       <publishTime>09/21/2016 12:01:59</publishTime>
@@ -251,6 +251,9 @@
     </File>
     <File Include="Views/SectionTemplate.RightThreeIcon.cshtml">
       <publishTime>09/21/2016 12:01:59</publishTime>
+    </File>
+    <File Include="Views/SectionTemplate.SalePrice.cshtml">
+      <publishTime>01/19/2017 13:42:50</publishTime>
     </File>
     <File Include="Views/SectionTemplate.Tab.cshtml">
       <publishTime>09/21/2016 12:01:59</publishTime>
@@ -313,10 +316,10 @@
       <publishTime>06/29/2016 13:17:32</publishTime>
     </File>
     <File Include="Views/Thumbnail/SectionTemplate.Default.png">
-      <publishTime>07/21/2016 16:03:40</publishTime>
+      <publishTime>02/09/2017 16:15:06</publishTime>
     </File>
     <File Include="Views/Thumbnail/SectionTemplate.Default.xml">
-      <publishTime>07/21/2016 16:03:40</publishTime>
+      <publishTime>02/09/2017 16:15:06</publishTime>
     </File>
     <File Include="Views/Thumbnail/SectionTemplate.GreyBox.png">
       <publishTime>06/16/2016 16:41:42</publishTime>
@@ -396,6 +399,12 @@
     <File Include="Views/Thumbnail/SectionTemplate.RightThreeIcon.xml">
       <publishTime>06/13/2016 14:58:28</publishTime>
     </File>
+    <File Include="Views/Thumbnail/SectionTemplate.SalePrice.png">
+      <publishTime>01/19/2017 10:55:16</publishTime>
+    </File>
+    <File Include="Views/Thumbnail/SectionTemplate.SalePrice.xml">
+      <publishTime>01/19/2017 10:58:34</publishTime>
+    </File>
     <File Include="Views/Thumbnail/SectionTemplate.Tab.png">
       <publishTime>06/01/2016 17:09:07</publishTime>
     </File>
@@ -418,7 +427,7 @@
       <publishTime>09/21/2016 12:01:59</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>10/24/2016 14:01:16</publishTime>
+      <publishTime>02/15/2017 15:28:53</publishTime>
     </File>
   </ItemGroup>
 </Project>
