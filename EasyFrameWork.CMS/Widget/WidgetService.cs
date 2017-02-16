@@ -434,4 +434,65 @@ namespace Easy.Web.CMS.Widget
         }
         #endregion
     }
+
+    public abstract class SimpleWidgetService<T> : WidgetService<T> where T : WidgetBase
+    {
+        public override void Add(T item)
+        {
+            item.ID = Guid.NewGuid().ToString("N");
+            item.ExtendData = JsonConvert.SerializeObject(item);
+            WidgetBaseService.Add(item);
+        }
+        public override bool Update(T item, params object[] primaryKeys)
+        {
+            item.ExtendData = JsonConvert.SerializeObject(item);
+            bool result = WidgetBaseService.Update(item, primaryKeys);
+            Signal.Trigger(CacheTrigger.WidgetChanged);
+            return result;
+        }
+        public override bool Update(T item, DataFilter filter)
+        {
+            item.ExtendData = JsonConvert.SerializeObject(item);
+            bool result = WidgetBaseService.Update(item, filter);
+            Signal.Trigger(CacheTrigger.WidgetChanged);
+            return result;
+        }
+        public override IEnumerable<T> Get(DataFilter filter)
+        {
+            List<WidgetBase> widgetBases = WidgetBaseService.Get(filter).ToList();  
+            for (int i = 0; i < widgetBases.Count; i++)
+            {
+                yield return JsonConvert.DeserializeObject<T>(widgetBases[i].ExtendData);
+            }
+        }
+        public override IEnumerable<T> Get(DataFilter filter, Pagination pagin)
+        {
+            List<WidgetBase> widgetBases = WidgetBaseService.Get(filter, pagin).ToList();
+            for (int i = 0; i < widgetBases.Count; i++)
+            {
+                yield return JsonConvert.DeserializeObject<T>(widgetBases[i].ExtendData);
+            }
+        }
+        public override int Delete(DataFilter filter)
+        {
+            int result = WidgetBaseService.Delete(filter);
+            Signal.Trigger(CacheTrigger.WidgetChanged);
+            return result;
+        }
+        public override int Delete(params object[] primaryKeys)
+        {
+            int result = WidgetBaseService.Delete(primaryKeys);
+            Signal.Trigger(CacheTrigger.WidgetChanged);
+            return result;
+        }
+        public override T Get(params object[] primaryKeys)
+        {
+            T model = base.Get(primaryKeys);
+            if (model != null)
+            {
+                return JsonConvert.DeserializeObject<T>(model.ExtendData);
+            }
+            return null;
+        }
+    }
 }

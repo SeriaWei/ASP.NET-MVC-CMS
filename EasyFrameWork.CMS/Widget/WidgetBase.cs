@@ -62,6 +62,7 @@ namespace Easy.Web.CMS.Widget
                 return _customStyle;
             }
         }
+        public string ExtendData { get; set; }
         private void InitStyleClass()
         {
             if (StyleClass.IsNullOrWhiteSpace())
