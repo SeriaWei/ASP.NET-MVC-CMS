@@ -1,13 +1,13 @@
 ﻿@using Easy.CMS.Section
 @using Easy.CMS.Section.Models
 @model Easy.CMS.Section.Models.SectionGroup
-<div class="section-group-default text-center">
+<div class="section-group-brand text-center">
     @{
         Html.RenderContent(Model.SectionTitle);
         Html.RenderContent(Model.Paragraph);
     }
     <div class="row">
-        @foreach (SectionContent content in Model.SectionImages)
+        @foreach (SectionContent content in Model.SectionImages.OrderBy(m=>m.Order))
         {
             <div class="col-xs-4 col-md-2">
                 <div class="image-border" style="margin:20px 0">
