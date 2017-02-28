@@ -59,7 +59,7 @@ namespace Easy.Web.CMS
             string currentCategory = helper.RequestContext.RouteData.GetCategory().ToString();
             if (currentCategory != id)
             {
-                return url + (url.EndsWith("/") ? "" : "/") + "category-" + id;
+                return url + (url.EndsWith("/") ? "" : "/") + "cate-" + id;
             }
             else
             {
@@ -71,9 +71,9 @@ namespace Easy.Web.CMS
             var category = helper.RequestContext.RouteData.GetCategory();
             if (category > 0)
             {
-                return helper.RequestContext.RouteData.GetPath() + "/category-" + category + "/page-" + pageIndex;
+                return helper.RequestContext.RouteData.GetPath() + "/cate-" + category + "/p-" + pageIndex;
             }
-            return helper.RequestContext.RouteData.GetPath() + "/page-" + pageIndex;
+            return helper.RequestContext.RouteData.GetPath() + "/p-" + pageIndex;
         }
     }
 }

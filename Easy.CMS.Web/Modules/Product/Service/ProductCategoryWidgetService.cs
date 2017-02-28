@@ -8,6 +8,7 @@ using Easy.Web.CMS.Product.Service;
 using Easy.Web.CMS.Widget;
 using Microsoft.Practices.ServiceLocation;
 using System.Web.Mvc;
+using Easy.Web.CMS;
 
 namespace Easy.CMS.Product.Service
 {
@@ -15,11 +16,7 @@ namespace Easy.CMS.Product.Service
     {
         public override WidgetPart Display(WidgetBase widget, ControllerContext controllerContext)
         {
-            int category = 0;
-            if (controllerContext.RouteData.Values.ContainsKey("category"))
-            {
-                int.TryParse(controllerContext.RouteData.Values["category"].ToString(), out category);
-            }
+            int category = controllerContext.RouteData.GetCategory();
             ProductCategoryWidget currentWidget = widget as ProductCategoryWidget;
             var categoryService = ServiceLocator.Current.GetInstance<IProductCategoryService>();
             var filter = new DataFilter().Where("ParentID", OperatorType.Equal, currentWidget.ProductCategoryID);

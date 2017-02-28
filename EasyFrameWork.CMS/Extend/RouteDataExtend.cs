@@ -31,9 +31,9 @@ namespace Easy.Web.CMS
         public static int GetCategory(this RouteData roteData)
         {
             int post = 0;
-            if (roteData.Values.ContainsKey("category"))
+            if (roteData.Values.ContainsKey("cate"))
             {
-                int.TryParse(roteData.Values["category"].ToString(), out post);
+                int.TryParse(roteData.Values["cate"].ToString(), out post);
             }
             return post;
         }

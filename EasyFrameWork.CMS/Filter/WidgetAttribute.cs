@@ -92,7 +92,7 @@ namespace Easy.Web.CMS.Filter
                     ServiceLocator.Current.GetAllInstances<IOnPageExecuted>().Each(m => m.OnExecuted(page, HttpContext.Current));
                 }
             }
-            else
+            else if(!(filterContext.Result is RedirectResult))
             {
                 filterContext.Result = new RedirectResult("~/error/notfond");
             }

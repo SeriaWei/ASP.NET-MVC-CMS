@@ -14,11 +14,7 @@ namespace Easy.CMS.Product.Service
     {
         public override WidgetPart Display(WidgetBase widget, ControllerContext controllerContext)
         {
-            long productId = 0;
-            if (controllerContext.RouteData.Values.ContainsKey("post"))
-            {
-                long.TryParse(controllerContext.RouteData.Values["post"].ToString(), out productId);
-            }
+            int productId = controllerContext.RouteData.GetPost();
             var service = ServiceLocator.Current.GetInstance<IProductService>();
             var product = service.Get(productId) ?? new ProductEntity
             {

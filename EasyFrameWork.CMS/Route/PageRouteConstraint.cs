@@ -11,8 +11,8 @@ namespace Easy.Web.CMS.Route
     public class PageRouteConstraint : IRouteConstraint
     {
         static Regex postIdRegex = new Regex(@"/post-(\d+)");
-        static Regex categoryIdRegex = new Regex(@"/category-(\d+)");
-        static Regex pageRegex = new Regex(@"/page-(\d+)");
+        static Regex categoryIdRegex = new Regex(@"/cate-(\d+)");
+        static Regex pageRegex = new Regex(@"/p-(\d+)");
         public bool Match(HttpContextBase httpContext, System.Web.Routing.Route route, string parameterName, RouteValueDictionary values, RouteDirection routeDirection)
         {
             if (parameterName == "path")
@@ -54,7 +54,7 @@ namespace Easy.Web.CMS.Route
                 }
                 if (categoryId > 0)
                 {
-                    values.Add("category", categoryId);
+                    values.Add("cate", categoryId);
                 }
             }
             return true;
