@@ -21,12 +21,7 @@ namespace Easy.Web.CMS.Filter
         }
         public virtual PageEntity GetPage(ActionExecutedContext filterContext)
         {
-            const string routePath = "path";
-            string path = "/";
-            if (filterContext.RouteData.Values.ContainsKey(routePath))
-            {
-                path += filterContext.RouteData.Values[routePath].ToString();
-            }
+            string path = filterContext.RouteData.GetPath();
 
             if (path.EndsWith("/") && path.Length > 1)
             {
