@@ -8,15 +8,16 @@ using Easy.Data;
 using Easy.Extend;
 using Easy.Web.CMS.Widget;
 using Microsoft.Practices.ServiceLocation;
+using System.Web.Mvc;
 
 namespace Easy.CMS.Common.Service
 {
     public class NavigationWidgetService : WidgetService<NavigationWidget>
     {
-        public override WidgetPart Display(WidgetBase widget, HttpContextBase httpContext)
+        public override WidgetPart Display(WidgetBase widget, ControllerContext controllerContext)
         {
             var navs = ServiceLocator.Current.GetInstance<INavigationService>().Get(new DataFilter().OrderBy("DisplayOrder", OrderType.Ascending)).Where(m => m.Status == (int)RecordStatus.Active);
-            string path = "~" + httpContext.Request.Path.ToLower();
+            string path = "~" + controllerContext.HttpContext.Request.Path.ToLower();
             NavigationEntity current = null;
             int length = 0;
             foreach (var navigationEntity in navs)

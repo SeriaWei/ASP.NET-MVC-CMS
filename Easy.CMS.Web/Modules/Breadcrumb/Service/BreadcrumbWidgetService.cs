@@ -8,6 +8,7 @@ using Easy.Web.CMS;
 using Easy.Web.CMS.Page;
 using Easy.Web.CMS.Widget;
 using Microsoft.Practices.ServiceLocation;
+using System.Web.Mvc;
 
 namespace Easy.CMS.Breadcrumb.Service
 {
@@ -22,12 +23,12 @@ namespace Easy.CMS.Breadcrumb.Service
         
 
         public List<PageEntity> ParentPages { get; set; }
-        public override WidgetPart Display(WidgetBase widget, HttpContextBase httpContext)
+        public override WidgetPart Display(WidgetBase widget, ControllerContext controllerContext)
         {
             if (ParentPages == null)
             {
                 ParentPages = new List<PageEntity>();
-                GetParentPage(httpContext.GetLayout().Page);
+                GetParentPage(controllerContext.HttpContext.GetLayout().Page);
             }
 
             return widget.ToWidgetPart(ParentPages);

@@ -1,6 +1,7 @@
 /* http://www.zkea.net/ Copyright 2016 ZKEASOFT http://www.zkea.net/licenses */
 using System.Web;
 using EasyZip;
+using System.Web.Mvc;
 
 namespace Easy.Web.CMS.Widget
 {
@@ -11,7 +12,7 @@ namespace Easy.Web.CMS.Widget
         void UpdateWidget(WidgetBase widget);
         void Publish(WidgetBase widget);
         WidgetBase GetWidget(WidgetBase widget);
-        WidgetPart Display(WidgetBase widget, HttpContextBase httpContext);
+        WidgetPart Display(WidgetBase widget, ControllerContext controllerContext);
         ZipFile PackWidget(WidgetBase widget);
         WidgetBase UnPackWidget(ZipFileInfoCollection pack);
     }

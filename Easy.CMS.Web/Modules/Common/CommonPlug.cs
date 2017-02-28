@@ -5,6 +5,7 @@ using System.Web.Mvc;
 using Easy.Web.CMS;
 using Easy.Web.Resource;
 using Easy.Web.Route;
+using Easy.Web.CMS.Route;
 
 namespace Easy.CMS.Common
 {
@@ -18,8 +19,8 @@ namespace Easy.CMS.Common
                 Url = "{*path}",
                 Defaults = new { controller = "Page", action = "PreView", path = UrlParameter.Optional },
                 Namespaces = new[] { "Easy.CMS.Common.Controllers" },
-                Priority = -1
-                // Constraints = new { path = new RouteConstraint() }
+                Priority = -1,
+                Constraints = new { path = new PageRouteConstraint() }
             };
             yield return new RouteDescriptor
             {

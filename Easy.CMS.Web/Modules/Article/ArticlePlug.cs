@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Easy.Web.CMS;
 using Easy.Web.Resource;
 using Easy.Web.Route;
+using System.Web.Mvc;
 
 namespace Easy.CMS.Article
 {

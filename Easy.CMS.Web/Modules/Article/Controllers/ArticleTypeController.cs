@@ -23,8 +23,8 @@ namespace Easy.CMS.Article.Controllers
             var articleType = new ArticleType { ParentID = 0 };
             if (parentId != null)
             {
-                long id;
-                if (long.TryParse(parentId.AttemptedValue, out id))
+                int id;
+                if (int.TryParse(parentId.AttemptedValue, out id))
                 {
                     articleType.ParentID = id;
                 }

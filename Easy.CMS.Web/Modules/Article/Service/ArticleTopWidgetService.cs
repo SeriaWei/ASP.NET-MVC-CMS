@@ -6,12 +6,13 @@ using Easy.Data;
 using Easy.Web.CMS.Article.Service;
 using Easy.Web.CMS.Widget;
 using Microsoft.Practices.ServiceLocation;
+using System.Web.Mvc;
 
 namespace Easy.CMS.Article.Service
 {
     public class ArticleTopWidgetService : WidgetService<ArticleTopWidget>
     {
-        public override WidgetPart Display(WidgetBase widget, HttpContextBase httpContext)
+        public override WidgetPart Display(WidgetBase widget, ControllerContext controllerContext)
         {
             var currentWidget = widget as ArticleTopWidget;
             var page = new Pagination

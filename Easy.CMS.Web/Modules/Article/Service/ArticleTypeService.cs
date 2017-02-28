@@ -14,7 +14,7 @@ namespace Easy.CMS.Article.Service
 
         public override void Add(ArticleType item)
         {
-            item.ParentID = item.ParentID ?? 0;
+            item.ParentID = item.ParentID;
             base.Add(item);
         }
 
@@ -29,7 +29,7 @@ namespace Easy.CMS.Article.Service
             var item = Get(primaryKeys);
             if (item != null)
             {
-                GetChildren(item.ID ?? 0).Each(m =>
+                GetChildren(item.ID).Each(m =>
                 {
                     _articleService.Delete(n => n.ArticleTypeID == m.ID);
                     Delete(m.ID);

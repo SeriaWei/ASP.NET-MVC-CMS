@@ -21,7 +21,13 @@ namespace Easy.Web.CMS.Filter
         }
         public virtual PageEntity GetPage(ActionExecutedContext filterContext)
         {
-            string path = filterContext.RequestContext.HttpContext.Request.Path;
+            const string routePath = "path";
+            string path = "/";
+            if (filterContext.RouteData.Values.ContainsKey(routePath))
+            {
+                path += filterContext.RouteData.Values[routePath].ToString();
+            }
+
             if (path.EndsWith("/") && path.Length > 1)
             {
                 path = path.Substring(0, path.Length - 1);
@@ -67,7 +73,7 @@ namespace Easy.Web.CMS.Filter
                 widgetService.GetAllByPage(page).Each(widget =>
                 {
                     IWidgetPartDriver partDriver = widget.CreateServiceInstance();
-                    WidgetPart part = partDriver.Display(widget, filterContext.HttpContext);
+                    WidgetPart part = partDriver.Display(widget, filterContext);
                     lock (layout.ZoneWidgets)
                     {
                         if (layout.ZoneWidgets.ContainsKey(part.Widget.ZoneID))

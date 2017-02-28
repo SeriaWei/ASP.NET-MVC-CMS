@@ -9,7 +9,7 @@
             {
                 if (url.IsNullOrWhiteSpace() && Model.DetailPageUrl.IsNotNullAndWhiteSpace())
                 {
-                    url = Model.DetailPageUrl + "?id=" + item.ID;
+                    url = Url.PostUrl(Model.DetailPageUrl, item.ID);
                 }
             }
             <div class="@Model.Columns">

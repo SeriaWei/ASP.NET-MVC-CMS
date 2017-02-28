@@ -8,28 +8,28 @@ using Easy.Data;
 using Easy.Web.CMS.Article.Service;
 using Easy.Web.CMS.Widget;
 using Microsoft.Practices.ServiceLocation;
+using System.Web.Mvc;
+using Easy.Web.CMS;
 
 namespace Easy.CMS.Article.Service
 {
     public class ArticleListWidgetService : WidgetService<ArticleListWidget>
     {
-        public override WidgetPart Display(WidgetBase widget, HttpContextBase httpContext)
+        public override WidgetPart Display(WidgetBase widget, ControllerContext controllerContext)
         {
             var currentWidget = widget as ArticleListWidget;
             var articleTypeService = ServiceLocator.Current.GetInstance<IArticleTypeService>();
             var categoryEntity = articleTypeService.Get(currentWidget.ArticleTypeID);
-            int pageIndex = 0;
-            int ac = 0;
-            int.TryParse(httpContext.Request.QueryString["ac"], out ac);
-            int.TryParse(httpContext.Request.QueryString["p"], out pageIndex);
+            int pageIndex = controllerContext.RouteData.GetPage();
+            int category = controllerContext.RouteData.GetCategory();
             var filter = new DataFilter();
             filter.Where("IsPublish", OperatorType.Equal, true);
             filter.OrderBy("CreateDate", OrderType.Descending);
             var articleService = ServiceLocator.Current.GetInstance<IArticleService>();
             var page = new Pagination { PageIndex = pageIndex, PageSize = currentWidget.PageSize ?? 20 };
-            if (ac != 0)
+            if (category != 0)
             {
-                filter.Where("ArticleTypeID", OperatorType.Equal, ac);
+                filter.Where("ArticleTypeID", OperatorType.Equal, category);
             }
             else
             {

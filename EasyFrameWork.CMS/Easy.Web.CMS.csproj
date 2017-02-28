@@ -129,6 +129,7 @@
     <Compile Include="ExtendField\ExtendFieldService.cs" />
     <Compile Include="ExtendField\IExtendField.cs" />
     <Compile Include="ExtendField\IExtendFieldService.cs" />
+    <Compile Include="Extend\RouteDataExtend.cs" />
     <Compile Include="Filter\ViewPageAttribute.cs" />
     <Compile Include="Filter\EditWidgetAttribute.cs" />
     <Compile Include="Filter\WidgetAttribute.cs" />
@@ -145,6 +146,7 @@
     <Compile Include="Product\Models\ProductCategory.cs" />
     <Compile Include="Product\Service\IProductCategoryService.cs" />
     <Compile Include="Product\Service\IProductService.cs" />
+    <Compile Include="Route\PageRouteConstraint.cs" />
     <Compile Include="SettingKeys.cs" />
     <Compile Include="Setting\ApplicationSetting.cs" />
     <Compile Include="Setting\ApplicationSettingService.cs" />

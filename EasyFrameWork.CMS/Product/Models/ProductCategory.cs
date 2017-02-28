@@ -8,9 +8,9 @@ namespace Easy.Web.CMS.Product.Models
     [DataConfigure(typeof(ProductCategoryMetaData))]
     public class ProductCategory : EditorEntity
     {
-        public long ID { get; set; }
+        public int ID { get; set; }
 
-        public long ParentID { get; set; }
+        public int ParentID { get; set; }
     }
     class ProductCategoryMetaData : DataViewMetaData<ProductCategory>
     {

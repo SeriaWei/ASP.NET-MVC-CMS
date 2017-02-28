@@ -7,15 +7,15 @@ using Easy.Web.CMS.Article.Models;
 using Easy.Web.CMS.Article.Service;
 using Easy.Web.CMS.Widget;
 using Microsoft.Practices.ServiceLocation;
+using System.Web.Mvc;
 
 namespace Easy.CMS.Article.Service
 {
     public class ArticleDetailWidgetService : WidgetService<ArticleDetailWidget>
     {
-        public override WidgetPart Display(WidgetBase widget, HttpContextBase httpContext)
+        public override WidgetPart Display(WidgetBase widget, ControllerContext controllerContext)
         {
-            long articleId;
-            long.TryParse(httpContext.Request.QueryString["id"], out articleId);
+            int articleId = controllerContext.RouteData.GetPost();
             var viewModel = new ArticleDetailViewModel
             {
                 Current = ServiceLocator.Current.GetInstance<IArticleService>().Get(articleId)
@@ -30,7 +30,7 @@ namespace Easy.CMS.Article.Service
                     CreatebyName = "ZKEASOFT"
                 };
             }
-            var layout = httpContext.GetLayout();
+            var layout = controllerContext.HttpContext.GetLayout();
             layout.Page.MetaKeyWorlds = viewModel.Current.MetaKeyWords;
             layout.Page.MetaDescription = viewModel.Current.MetaDescription;
             layout.Page.Title = viewModel.Current.Title;

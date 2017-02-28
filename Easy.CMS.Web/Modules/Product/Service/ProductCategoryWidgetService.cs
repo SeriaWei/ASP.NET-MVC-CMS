@@ -7,23 +7,27 @@ using Easy.Extend;
 using Easy.Web.CMS.Product.Service;
 using Easy.Web.CMS.Widget;
 using Microsoft.Practices.ServiceLocation;
+using System.Web.Mvc;
 
 namespace Easy.CMS.Product.Service
 {
     public class ProductCategoryWidgetService : WidgetService<ProductCategoryWidget>
     {
-        public override WidgetPart Display(WidgetBase widget, HttpContextBase httpContext)
+        public override WidgetPart Display(WidgetBase widget, ControllerContext controllerContext)
         {
+            int category = 0;
+            if (controllerContext.RouteData.Values.ContainsKey("category"))
+            {
+                int.TryParse(controllerContext.RouteData.Values["category"].ToString(), out category);
+            }
             ProductCategoryWidget currentWidget = widget as ProductCategoryWidget;
-            int c;
             var categoryService = ServiceLocator.Current.GetInstance<IProductCategoryService>();
-            int.TryParse(httpContext.Request.QueryString["pc"], out c);
             var filter = new DataFilter().Where("ParentID", OperatorType.Equal, currentWidget.ProductCategoryID);
             return widget.ToWidgetPart(new ProductCategoryWidgetViewModel
             {
                 Categorys = categoryService.Get(filter),
-                CurrentCategory = c,
-                TargetPage = currentWidget.TargetPage.IsNullOrEmpty() ? httpContext.Request.Url.PathAndQuery.ToLower() : currentWidget.TargetPage
+                CurrentCategory = category,
+                TargetPage = currentWidget.TargetPage.IsNullOrEmpty() ? controllerContext.HttpContext.Request.Url.PathAndQuery.ToLower() : currentWidget.TargetPage
             });
         }
     }

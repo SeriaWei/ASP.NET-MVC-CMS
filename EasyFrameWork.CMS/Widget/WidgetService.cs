@@ -19,6 +19,7 @@ using Easy.Web.CMS.Page;
 using EasyZip;
 using Microsoft.Practices.ServiceLocation;
 using Newtonsoft.Json;
+using System.Web.Mvc;
 
 namespace Easy.Web.CMS.Widget
 {
@@ -135,7 +136,7 @@ namespace Easy.Web.CMS.Widget
         }
 
 
-        public WidgetPart ApplyTemplate(WidgetBase widget, HttpContextBase httpContext)
+        public WidgetPart ApplyTemplate(WidgetBase widget, ControllerContext controllerContext)
         {
             var widgetBase = Get(widget.ID);
             if (widgetBase == null) return null;
@@ -153,7 +154,7 @@ namespace Easy.Web.CMS.Widget
             widgetBase.IsTemplate = false;
             widgetBase.Thumbnail = null;
 
-            var widgetPart = service.Display(widgetBase, httpContext);
+            var widgetPart = service.Display(widgetBase, controllerContext);
             service.AddWidget(widgetBase);
             return widgetPart;
         }
@@ -361,7 +362,7 @@ namespace Easy.Web.CMS.Widget
             return result;
         }
 
-        public virtual WidgetPart Display(WidgetBase widget, HttpContextBase httpContext)
+        public virtual WidgetPart Display(WidgetBase widget, ControllerContext controllerContext)
         {
             return widget.ToWidgetPart();
         }

@@ -9,6 +9,8 @@ using Easy.Web.CMS.Product.Models;
 using Easy.Web.CMS.Product.Service;
 using Easy.Web.CMS.Widget;
 using Microsoft.Practices.ServiceLocation;
+using System.Web.Mvc;
+using Easy.Web.CMS;
 
 namespace Easy.CMS.Product.Service
 {
@@ -22,18 +24,19 @@ namespace Easy.CMS.Product.Service
             }
             base.Add(item);
         }
-        public override WidgetPart Display(WidgetBase widget, HttpContextBase httpContext)
+        public override WidgetPart Display(WidgetBase widget, ControllerContext controllerContext)
         {
             ProductListWidget pwidget = widget as ProductListWidget;
             var filter = new DataFilter();
             filter.Where("IsPublish", OperatorType.Equal, true);
             filter.OrderBy("CreateDate", OrderType.Descending);
-            int p;
-            int.TryParse(httpContext.Request.QueryString["p"], out p);
-            int c;
-            if (int.TryParse(httpContext.Request.QueryString["pc"], out c))
+
+            int pageIndex = controllerContext.RouteData.GetPage();
+            int category = controllerContext.RouteData.GetCategory();
+
+            if (category > 0)
             {
-                filter.Where("ProductCategoryID", OperatorType.Equal, c);
+                filter.Where("ProductCategoryID", OperatorType.Equal, category);
             }
             else
             {
@@ -52,7 +55,7 @@ namespace Easy.CMS.Product.Service
 
             var service = ServiceLocator.Current.GetInstance<IProductService>();
             IEnumerable<ProductEntity> products = null;
-            var page = new Pagination { PageIndex = p, PageSize = pwidget.PageSize ?? 20 };
+            var page = new Pagination { PageIndex = pageIndex, PageSize = pwidget.PageSize ?? 20 };
             if (pwidget.IsPageable)
             {
                 products = service.Get(filter, page);

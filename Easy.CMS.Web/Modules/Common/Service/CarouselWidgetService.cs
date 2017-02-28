@@ -8,6 +8,7 @@ using Easy.Data;
 using Easy.Extend;
 using Easy.Web.CMS.Widget;
 using Microsoft.Practices.ServiceLocation;
+using System.Web.Mvc;
 
 namespace Easy.CMS.Common.Service
 {
@@ -62,7 +63,7 @@ namespace Easy.CMS.Common.Service
             base.DeleteWidget(widgetId);
         }
 
-        public override WidgetPart Display(WidgetBase widget, HttpContextBase httpContext)
+        public override WidgetPart Display(WidgetBase widget, ControllerContext controllerContext)
         {
             var carouselWidget = widget as CarouselWidget;
             if (carouselWidget.CarouselID.HasValue)
@@ -80,7 +81,7 @@ namespace Easy.CMS.Common.Service
             }
             carouselWidget.CarouselItems =
                 carouselWidget.CarouselItems.Where(m => m.Status == (int)RecordStatus.Active);
-            return base.Display(widget, httpContext);
+            return base.Display(widget, controllerContext);
         }
     }
 }

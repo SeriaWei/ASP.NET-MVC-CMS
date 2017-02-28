@@ -11,7 +11,7 @@ namespace Easy.Web.CMS.Article.Models
     [DataConfigure(typeof(ArticleEntityMeta))]
     public class ArticleEntity : EditorEntity, IImage, IExtendField
     {
-        public long ID { get; set; }
+        public int ID { get; set; }
 
         public string Summary { get; set; }
         public string MetaKeyWords { get; set; }

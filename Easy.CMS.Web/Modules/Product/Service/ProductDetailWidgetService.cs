@@ -6,15 +6,19 @@ using Easy.Web.CMS.Product.Models;
 using Easy.Web.CMS.Product.Service;
 using Easy.Web.CMS.Widget;
 using Microsoft.Practices.ServiceLocation;
+using System.Web.Mvc;
 
 namespace Easy.CMS.Product.Service
 {
     public class ProductDetailWidgetService : WidgetService<ProductDetailWidget>
     {
-        public override WidgetPart Display(WidgetBase widget, HttpContextBase httpContext)
+        public override WidgetPart Display(WidgetBase widget, ControllerContext controllerContext)
         {
             long productId = 0;
-            long.TryParse(httpContext.Request.QueryString["id"], out productId);
+            if (controllerContext.RouteData.Values.ContainsKey("post"))
+            {
+                long.TryParse(controllerContext.RouteData.Values["post"].ToString(), out productId);
+            }
             var service = ServiceLocator.Current.GetInstance<IProductService>();
             var product = service.Get(productId) ?? new ProductEntity
             {
@@ -24,7 +28,7 @@ namespace Easy.CMS.Product.Service
                 CreatebyName = "ZKEASOFT"
             };
 
-            var page = httpContext.GetLayout().Page;
+            var page = controllerContext.HttpContext.GetLayout().Page;
             page.MetaDescription = product.SEODescription;
             page.MetaKeyWorlds = product.SEOKeyWord;
             page.Title = product.SEOTitle ?? product.Title;

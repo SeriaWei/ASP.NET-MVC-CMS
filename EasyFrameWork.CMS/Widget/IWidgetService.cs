@@ -4,6 +4,7 @@ using System.IO;
 using System.Web;
 using Easy.RepositoryPattern;
 using Easy.Web.CMS.Page;
+using System.Web.Mvc;
 
 namespace Easy.Web.CMS.Widget
 {
@@ -13,7 +14,7 @@ namespace Easy.Web.CMS.Widget
         IEnumerable<WidgetBase> GetByPageId(string pageId);
         IEnumerable<WidgetBase> GetAllByPageId(string pageId);
         IEnumerable<WidgetBase> GetAllByPage(PageEntity page);
-        WidgetPart ApplyTemplate(WidgetBase widget, HttpContextBase httpContext);
+        WidgetPart ApplyTemplate(WidgetBase widget, ControllerContext httpContext);
         MemoryStream PackWidget(string widgetId);
         WidgetBase InstallPackWidget(Stream stream);
     }

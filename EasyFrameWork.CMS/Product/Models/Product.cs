@@ -11,7 +11,7 @@ namespace Easy.Web.CMS.Product.Models
     [DataConfigure(typeof(ProductMetaData))]
     public class ProductEntity : EditorEntity, IImage, IExtendField
     {
-        public long? ID { get; set; }
+        public int ID { get; set; }
         /// <summary>
         /// 产品图
         /// </summary>

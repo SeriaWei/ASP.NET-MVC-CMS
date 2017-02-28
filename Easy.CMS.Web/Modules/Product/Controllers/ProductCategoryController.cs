@@ -24,8 +24,8 @@ namespace Easy.CMS.Product.Controllers
             var productCategory = new ProductCategory { ParentID = 0 };
             if (parentId != null)
             {
-                long id;
-                if (long.TryParse(parentId.AttemptedValue, out id))
+                int id;
+                if (int.TryParse(parentId.AttemptedValue, out id))
                 {
                     productCategory.ParentID = id;
                 }
