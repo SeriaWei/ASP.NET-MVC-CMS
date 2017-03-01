@@ -51,6 +51,9 @@ if %ERRORLEVEL% NEQ 0 goto errors
 @echo CMS_Theme
 sqlcmd -S %server% -d %dataBase% -U %dbUserId% -P %dbPassword% -b -i "Tables\dbo.CMS_Theme.Table.sql"
 if %ERRORLEVEL% NEQ 0 goto errors
+@echo CMS_Message
+sqlcmd -S %server% -d %dataBase% -U %dbUserId% -P %dbPassword% -b -i "Tables\dbo.CMS_Message.Table.sql"
+if %ERRORLEVEL% NEQ 0 goto errors
 @echo ArticleType
 sqlcmd -S %server% -d %dataBase% -U %dbUserId% -P %dbPassword% -b -i "Tables\dbo.ArticleType.Table.sql"
 if %ERRORLEVEL% NEQ 0 goto errors

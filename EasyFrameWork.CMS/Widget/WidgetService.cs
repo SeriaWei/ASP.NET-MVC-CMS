@@ -227,7 +227,7 @@ namespace Easy.Web.CMS.Widget
         }
         public IWidgetService WidgetBaseService { get; private set; }
 
-        private void CopyTo(WidgetBase from, T to)
+        protected T CopyTo(WidgetBase from, T to)
         {
             if (to != null)
             {
@@ -257,6 +257,7 @@ namespace Easy.Web.CMS.Widget
                 to.IsSystem = from.IsSystem;
                 to.ExtendFields = from.ExtendFields;
             }
+            return to;
         }
 
         public override void Add(T item)
@@ -463,7 +464,7 @@ namespace Easy.Web.CMS.Widget
             List<WidgetBase> widgetBases = WidgetBaseService.Get(filter).ToList();  
             for (int i = 0; i < widgetBases.Count; i++)
             {
-                yield return JsonConvert.DeserializeObject<T>(widgetBases[i].ExtendData);
+                yield return CopyTo(widgetBases[i], JsonConvert.DeserializeObject<T>(widgetBases[i].ExtendData));
             }
         }
         public override IEnumerable<T> Get(DataFilter filter, Pagination pagin)
@@ -471,7 +472,7 @@ namespace Easy.Web.CMS.Widget
             List<WidgetBase> widgetBases = WidgetBaseService.Get(filter, pagin).ToList();
             for (int i = 0; i < widgetBases.Count; i++)
             {
-                yield return JsonConvert.DeserializeObject<T>(widgetBases[i].ExtendData);
+                yield return CopyTo(widgetBases[i], JsonConvert.DeserializeObject<T>(widgetBases[i].ExtendData));
             }
         }
         public override int Delete(DataFilter filter)
@@ -488,10 +489,19 @@ namespace Easy.Web.CMS.Widget
         }
         public override T Get(params object[] primaryKeys)
         {
-            T model = base.Get(primaryKeys);
+            var model = WidgetBaseService.Get(primaryKeys);
             if (model != null)
             {
-                return JsonConvert.DeserializeObject<T>(model.ExtendData);
+                return CopyTo(model, JsonConvert.DeserializeObject<T>(model.ExtendData));
+            }
+            return null;
+        }
+        public override WidgetBase GetWidget(WidgetBase widget)
+        {
+            var result = WidgetBaseService.Get(widget.ID);
+            if (result != null)
+            {
+                return CopyTo(result, JsonConvert.DeserializeObject<T>(result.ExtendData));
             }
             return null;
         }
