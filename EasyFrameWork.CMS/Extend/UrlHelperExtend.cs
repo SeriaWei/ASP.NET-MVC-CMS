@@ -47,7 +47,7 @@ namespace Easy.Web.CMS
             {
                 url = "/";
             }
-            return url + (url.EndsWith("/") ? "" : "/") + "post-" + id;
+            return url + (url.EndsWith("/") ? "" : "/") + StringKeys.PathFormat(StringKeys.RouteValue_Post) + id;
         }
         public static string CategoryUrl(this UrlHelper helper, int id)
         {
@@ -59,7 +59,7 @@ namespace Easy.Web.CMS
             string currentCategory = helper.RequestContext.RouteData.GetCategory().ToString();
             if (currentCategory != id)
             {
-                return url + (url.EndsWith("/") ? "" : "/") + "cate-" + id;
+                return url + (url.EndsWith("/") ? "" : "/") + StringKeys.PathFormat(StringKeys.RouteValue_Category) + id;
             }
             else
             {
@@ -71,9 +71,11 @@ namespace Easy.Web.CMS
             var category = helper.RequestContext.RouteData.GetCategory();
             if (category > 0)
             {
-                return helper.RequestContext.RouteData.GetPath() + "/cate-" + category + "/p-" + pageIndex;
+                return helper.RequestContext.RouteData.GetPath() + 
+                    "/" + StringKeys.PathFormat(StringKeys.RouteValue_Category) + category + 
+                    "/" + StringKeys.PathFormat(StringKeys.RouteValue_Page) + pageIndex;
             }
-            return helper.RequestContext.RouteData.GetPath() + "/p-" + pageIndex;
+            return helper.RequestContext.RouteData.GetPath() + "/" + StringKeys.PathFormat(StringKeys.RouteValue_Page) + pageIndex;
         }
     }
 }

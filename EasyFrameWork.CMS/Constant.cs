@@ -1,5 +1,7 @@
 /* http://www.zkea.net/ Copyright 2016 ZKEASOFT http://www.zkea.net/licenses */
+using Easy.Extend;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Reflection;
 using System.Text.RegularExpressions;
 
@@ -27,7 +29,10 @@ namespace Easy.Web.CMS
 
     public class Urls
     {
-        public const string CdnHost = "http://cdn.zkeasoft.com";
+        public static string CdnHost
+        {
+            get { return ConfigurationManager.AppSettings["CDN"]; }
+        }
         public const string SelectPage = "/admin/page/select";
         public const string SelectMedia = "/admin/Media/Select";
         public const string StyleEditor = "/Modules/Common/Scripts/StyleEditor/index.html";
@@ -88,11 +93,25 @@ namespace Easy.Web.CMS
         public const string SelectPageClass = "select select-page";
         public const string StyleEditor = "select custom-style-target";
         public const string HtmlEditorClass = "html";
+
+        public const string RouteValue_Path = "path";
+        public const string RouteValue_Post = "post";
+        public const string RouteValue_Category = "cate";
+        public const string RouteValue_Page = "p";
+
+        public static string PathFormat(string routeKey)
+        {
+            return "{0}-".FormatWith(routeKey);
+        }
     }
 
     public static class CustomRegex
     {
         public static readonly Regex StyleRegex = new Regex(@"style=""([^""]*)""", RegexOptions.IgnoreCase);
+
+        public static Regex PostIdRegex = new Regex(@"/post-(\d+)", RegexOptions.IgnoreCase);
+        public static Regex CategoryIdRegex = new Regex(@"/cate-(\d+)", RegexOptions.IgnoreCase);
+        public static Regex PageRegex = new Regex(@"/p-(\d+)", RegexOptions.IgnoreCase);
     }
     public static class Version
     {

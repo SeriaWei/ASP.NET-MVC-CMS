@@ -10,9 +10,6 @@ namespace Easy.Web.CMS.Route
 {
     public class PageRouteConstraint : IRouteConstraint
     {
-        static Regex postIdRegex = new Regex(@"/post-(\d+)");
-        static Regex categoryIdRegex = new Regex(@"/cate-(\d+)");
-        static Regex pageRegex = new Regex(@"/p-(\d+)");
         public bool Match(HttpContextBase httpContext, System.Web.Routing.Route route, string parameterName, RouteValueDictionary values, RouteDirection routeDirection)
         {
             if (parameterName == "path")
@@ -21,27 +18,27 @@ namespace Easy.Web.CMS.Route
                 int postId = 0;
                 int categoryId = 0;
                 int page = 0;
-                if (pageRegex.IsMatch(path))
+                if (CustomRegex.PageRegex.IsMatch(path))
                 {
-                    path = pageRegex.Replace(path, evaluator =>
+                    path = CustomRegex.PageRegex.Replace(path, evaluator =>
                     {
                         int.TryParse(evaluator.Groups[1].Value, out page);
                         return "";
                     });
-                    values.Add("page", page);
+                    values.Add(StringKeys.RouteValue_Page, page);
                 }
 
-                if (postIdRegex.IsMatch(path))
+                if (CustomRegex.PostIdRegex.IsMatch(path))
                 {
-                    path = postIdRegex.Replace(path, evaluator =>
+                    path = CustomRegex.PostIdRegex.Replace(path, evaluator =>
                     {
                         int.TryParse(evaluator.Groups[1].Value, out postId);
                         return "";
                     });
                 }
-                else if (categoryIdRegex.IsMatch(path))
+                else if (CustomRegex.CategoryIdRegex.IsMatch(path))
                 {
-                    path = categoryIdRegex.Replace(path, evaluator =>
+                    path = CustomRegex.CategoryIdRegex.Replace(path, evaluator =>
                     {
                         int.TryParse(evaluator.Groups[1].Value, out categoryId);
                         return "";
@@ -50,11 +47,11 @@ namespace Easy.Web.CMS.Route
                 values[parameterName] = path;
                 if (postId > 0)
                 {
-                    values.Add("post", postId);
+                    values.Add(StringKeys.RouteValue_Post, postId);
                 }
                 if (categoryId > 0)
                 {
-                    values.Add("cate", categoryId);
+                    values.Add(StringKeys.RouteValue_Category, categoryId);
                 }
             }
             return true;

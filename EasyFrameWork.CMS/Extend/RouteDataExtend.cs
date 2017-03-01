@@ -13,36 +13,36 @@ namespace Easy.Web.CMS
     {
         public static string GetPath(this RouteData roteData)
         {
-            if (roteData.Values.ContainsKey("path"))
+            if (roteData.Values.ContainsKey(StringKeys.RouteValue_Path))
             {
-                return "/" + roteData.Values["path"].ToString();
+                return "/" + roteData.Values[StringKeys.RouteValue_Path].ToString();
             }
             return "/";
         }
         public static int GetPost(this RouteData roteData)
         {
             int post = 0;
-            if (roteData.Values.ContainsKey("post"))
+            if (roteData.Values.ContainsKey(StringKeys.RouteValue_Post))
             {
-                int.TryParse(roteData.Values["post"].ToString(), out post);
+                int.TryParse(roteData.Values[StringKeys.RouteValue_Post].ToString(), out post);
             }
             return post;
         }
         public static int GetCategory(this RouteData roteData)
         {
             int post = 0;
-            if (roteData.Values.ContainsKey("cate"))
+            if (roteData.Values.ContainsKey(StringKeys.RouteValue_Category))
             {
-                int.TryParse(roteData.Values["cate"].ToString(), out post);
+                int.TryParse(roteData.Values[StringKeys.RouteValue_Category].ToString(), out post);
             }
             return post;
         }
         public static int GetPage(this RouteData roteData)
         {
             int page = 0;
-            if (roteData.Values.ContainsKey("page"))
+            if (roteData.Values.ContainsKey(StringKeys.RouteValue_Page))
             {
-                int.TryParse(roteData.Values["page"].ToString(), out page);
+                int.TryParse(roteData.Values[StringKeys.RouteValue_Page].ToString(), out page);
             }
             return page;
         }

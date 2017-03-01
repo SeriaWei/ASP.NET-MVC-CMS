@@ -22,7 +22,31 @@ namespace Easy.Web.CMS.Filter
         public virtual PageEntity GetPage(ActionExecutedContext filterContext)
         {
             string path = filterContext.RouteData.GetPath();
-
+            #region Redirect
+            var query = filterContext.RequestContext.HttpContext.Request.QueryString;
+            string redirectPath = string.Empty;
+            if (query["id"].IsNotNullAndWhiteSpace())
+            {
+                redirectPath += "/post-" + query["id"];
+            }
+            if (query["ac"].IsNotNullAndWhiteSpace())
+            {
+                redirectPath += "/cate-" + query["ac"];
+            }
+            if (query["pc"].IsNotNullAndWhiteSpace())
+            {
+                redirectPath += "/cate-" + query["pc"];
+            }
+            if (query["p"].IsNotNullAndWhiteSpace())
+            {
+                redirectPath += "/p-" + query["p"];
+            }
+            if (redirectPath.IsNotNullAndWhiteSpace())
+            {
+                filterContext.Result = new RedirectResult(path + redirectPath);
+                return null;
+            }
+            #endregion
             if (path.EndsWith("/") && path.Length > 1)
             {
                 path = path.Substring(0, path.Length - 1);
@@ -92,7 +116,7 @@ namespace Easy.Web.CMS.Filter
                     ServiceLocator.Current.GetAllInstances<IOnPageExecuted>().Each(m => m.OnExecuted(page, HttpContext.Current));
                 }
             }
-            else if(!(filterContext.Result is RedirectResult))
+            else if (!(filterContext.Result is RedirectResult))
             {
                 filterContext.Result = new RedirectResult("~/error/notfond");
             }
