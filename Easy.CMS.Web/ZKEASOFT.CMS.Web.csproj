@@ -1281,7 +1281,6 @@
     <Content Include="Themes\Default\css\Article.less" />
     <Content Include="Themes\Default\css\Carousel.less" />
     <Content Include="Views\Shared\Partial_Pagination.cshtml" />
-    <Content Include="Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Views\Shared\_PopUpLayout.cshtml" />
     <Content Include="Themes\Default\css\Product.less" />
     <Content Include="Themes\Default\css\Navigation.less" />
