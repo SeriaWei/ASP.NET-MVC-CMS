@@ -52,8 +52,8 @@ namespace Easy.Web.CMS.Page
 
         public void Publish(PageEntity item)
         {
-            Update(new PageEntity { IsPublish = true },
-               new DataFilter(new List<string> { "IsPublish" })
+            Update(new PageEntity { IsPublish = true, PublishDate = DateTime.Now },
+               new DataFilter(new List<string> { "IsPublish", "PublishDate" })
                .Where("ID", OperatorType.Equal, item.ID));
 
             //Delete(m => m.ReferencePageID == item.ID && m.IsPublishedPage == true);
