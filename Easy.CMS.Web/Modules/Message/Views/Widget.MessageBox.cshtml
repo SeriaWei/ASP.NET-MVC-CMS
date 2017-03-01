@@ -13,6 +13,7 @@
                 foreach (var item in Model)
                 {
                     <p>
+                        <em>@item.CreateDate.Value.ToString("D")</em>
                         <strong>
                             @item.PostMessage
                         </strong>
