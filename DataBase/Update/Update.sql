@@ -2,6 +2,29 @@ IF NOT EXISTS(select 1 FROM syscolumns where id=object_id('CMS_WidgetBase') and 
 BEGIN
 	ALTER TABLE dbo.CMS_WidgetBase ADD ExtendData NVARCHAR(max)
 END
+GO
+CREATE TABLE [dbo].[CMS_Message](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[Title] [nvarchar](50) NULL,
+	[Email] [nvarchar](50) NOT NULL,
+	[PostMessage] [nvarchar](max) NOT NULL,
+	[Reply] [nvarchar](max) NULL,
+	[Status] [int] NULL,
+	[CreateBy] [nvarchar](50) NULL,
+	[CreatebyName] [nvarchar](100) NULL,
+	[CreateDate] [datetime] NULL,
+	[LastUpdateBy] [nvarchar](50) NULL,
+	[LastUpdateByName] [nvarchar](100) NULL,
+	[LastUpdateDate] [datetime] NULL,
+	[Description] [nchar](200) NULL,
+ CONSTRAINT [PK_CMS_Message] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+
 INSERT INTO dbo.CMS_WidgetTemplate
         ( Title ,
           GroupName ,

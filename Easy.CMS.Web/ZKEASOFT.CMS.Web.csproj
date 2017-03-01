@@ -214,6 +214,8 @@
     <Content Include="Content\Images\logo_zkea.png" />
     <Content Include="Content\Images\play-video.png" />
     <Content Include="Content\Images\theme.jpg" />
+    <Content Include="Content\Images\Widget.Message.png" />
+    <Content Include="Content\Images\Widget.MessageBox.png" />
     <Content Include="Content\Images\Widget.ProductCategory.png" />
     <Content Include="Content\Images\Widget.ArticleDetail.png" />
     <Content Include="Content\Images\Widget.ArticleList.png" />
