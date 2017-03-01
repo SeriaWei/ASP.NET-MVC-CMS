@@ -8,7 +8,7 @@ using System.Web;
 
 namespace Easy.CMS.Message.Models
 {
-    [DataConfigure(typeof(MessageBoxWidgetMetaData))]
+    [DataConfigure(typeof(MessageBoxWidgetMetaData)), Serializable]
     public class MessageBoxWidget : WidgetBase
     {
     }
