@@ -3,10 +3,13 @@
     Script.Reqiured("validate").AtFoot();
 }
 <div class="message">
-    @if (Request.Cookies.AllKeys.Any(key => key == "Message"))
+    @if (Request.Cookies.AllKeys.Any(key => key != "Message"))
     {
         <div class="alert alert-info">
-            我们已经收到您的留言，感谢您的参与！
+            <h4>Thank You!</h4>
+            <p>
+                我们已经收到您的留言，我们会在第一时间处理您的信息，并在需要的时候通过邮件与您取得联系。
+            </p>
         </div>
     }
     @using (Html.BeginForm("PostMessage", "MessageHandle", FormMethod.Post))

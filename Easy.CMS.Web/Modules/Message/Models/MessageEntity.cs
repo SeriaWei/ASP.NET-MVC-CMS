@@ -28,8 +28,8 @@ namespace Easy.CMS.Message.Models
             ViewConfig(m => m.ID).AsHidden();
             ViewConfig(m => m.Title).AsTextBox().Required().MaxLength(50).Order(1);
             ViewConfig(m => m.Email).AsTextBox().Email().Required().MaxLength(50).Order(2);
-            ViewConfig(m => m.PostMessage).AsTextArea().Required().MaxLength(1000).Order(3);
-            ViewConfig(m => m.Reply).AsTextArea().AddClass("html").Order(4);
+            ViewConfig(m => m.PostMessage).AsTextArea().Required().MaxLength(500).Order(3);
+            ViewConfig(m => m.Reply).AsTextArea().MaxLength(500).Order(4);
         }
     }
 }

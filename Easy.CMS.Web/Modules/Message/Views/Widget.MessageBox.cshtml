@@ -7,23 +7,30 @@
     }
     else
     {
-        <div class="bs-callout bs-callout-info">
+        <div class="container-fluid">
             @{
                 var last = Model.Last();
                 foreach (var item in Model)
                 {
-                    <p>
-                        <em>@item.CreateDate.Value.ToString("D")</em>
-                        <strong>
-                            @item.PostMessage
-                        </strong>
-                    </p>
-                    <div class="sumary text-muted">
-                        @Html.Raw(item.Reply)
+                    <div class="row">
+                        <div class="col-xs-3 col-sm-2 col-md-1 bg-primary text-center">
+                            <h4>@item.CreateDate.Value.Year</h4>
+                            <p>@item.CreateDate.Value.ToString("M月d日")</p>
+                        </div>
+                        <div class="col-xs-9 col-sm-10 col-md-11">
+                            <p>
+                              <strong>@item.PostMessage</strong>  
+                            </p>
+                            <div class="text-muted">
+                                @item.Reply
+                            </div>
+                        </div>
                     </div>
                     if (!item.Equals(last))
                     {
-                        <hr />
+                        <div class="row">
+                            <hr />
+                        </div>
                     }
                 }
             }
