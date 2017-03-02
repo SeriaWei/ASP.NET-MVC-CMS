@@ -3,7 +3,7 @@
     Script.Reqiured("validate").AtFoot();
 }
 <div class="message">
-    @if (Request.Cookies.AllKeys.Any(key => key != "Message"))
+    @if (Request.Cookies.AllKeys.Any(key => key == "Message"))
     {
         <div class="alert alert-info">
             <h4>Thank You!</h4>
