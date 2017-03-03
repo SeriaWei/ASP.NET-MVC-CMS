@@ -178,6 +178,8 @@
     <Content Include="Views\Thumbnail\SectionTemplate.Brand.xml">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Views\Thumbnail\SectionTemplate.CalendarEvent.png" />
+    <Content Include="Views\Thumbnail\SectionTemplate.CalendarEvent.xml" />
     <Content Include="Views\Thumbnail\SectionTemplate.SalePrice.xml" />
     <Content Include="Views\Thumbnail\SectionTemplate.JCarousel.xml">
       <SubType>Designer</SubType>
@@ -325,6 +327,7 @@
     <Content Include="Views\SectionTemplate.ImageGreyBox.cshtml" />
     <Content Include="Views\SectionTemplate.JCarousel.cshtml" />
     <Content Include="Views\SectionTemplate.SalePrice.cshtml" />
+    <Content Include="Views\SectionTemplate.CalendarEvent.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

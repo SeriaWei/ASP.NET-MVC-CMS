@@ -1,7 +1,7 @@
 ﻿@using Easy.CMS.Message.Models
 @model IEnumerable<MessageEntity>
 <div class="message-box">
-    @if (Model == null || Model.Count() == 0)
+    @if (Model == null || !Model.Any())
     {
         <em>还没有留言……</em>
     }
@@ -13,11 +13,11 @@
                 foreach (var item in Model)
                 {
                     <div class="row">
-                        <div class="col-xs-3 col-sm-2 col-md-1 bg-primary text-center">
-                            <h4>@item.CreateDate.Value.Year</h4>
-                            <p>@item.CreateDate.Value.ToString("M月d日")</p>
+                        <div class="col-xs-2 col-sm-2 col-md-1 bg-primary text-center">
+                            <h4 style="word-break:break-all">@item.CreateDate.Value.Year</h4>
+                            <p>@item.CreateDate.Value.ToString("M / d")</p>
                         </div>
-                        <div class="col-xs-9 col-sm-10 col-md-11">
+                        <div class="col-xs-10 col-sm-10 col-md-11">
                             <p>
                               <strong>@item.PostMessage</strong>  
                             </p>
