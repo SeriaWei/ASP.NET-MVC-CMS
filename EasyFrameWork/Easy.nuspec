@@ -1,0 +1,17 @@
+﻿<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>EasyFrameWork</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>ZKEASOFT</authors>
+    <owners>SeriaWei</owners>
+    <licenseUrl>http://opensource.org/licenses/Apache-2.0</licenseUrl>
+    <projectUrl>http://www.zkea.net/easyframework</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Easy to coding</description>
+    <releaseNotes>http://www.zkea.net</releaseNotes>
+    <copyright>© ZKEASOFT. All rights reserved. www.zkea.net</copyright>
+    <tags>EasyFrameWork</tags>
+  </metadata>
+</package>

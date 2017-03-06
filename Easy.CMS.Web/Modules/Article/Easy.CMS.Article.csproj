@@ -54,14 +54,6 @@
       <HintPath>..\..\..\packages\Autofac.3.5.2\lib\net40\Autofac.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Easy, Version=1.0.7.2, Culture=neutral, PublicKeyToken=2b89634455a72a39, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\EasyFrameWork.1.0.7.2\lib\net40\Easy.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Easy.Web, Version=1.0.9.1, Culture=neutral, PublicKeyToken=48e55983b3ecaefe, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\EasyFrameWork.Web.1.0.9.1\lib\net40\Easy.Web.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
@@ -195,6 +187,14 @@
     <ProjectReference Include="..\..\..\EasyFrameWork.CMS\Easy.Web.CMS.csproj">
       <Project>{2e8362ae-80d6-43e0-b3bf-cab6d888d154}</Project>
       <Name>Easy.Web.CMS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\EasyFrameWork.Web\Easy.Web.csproj">
+      <Project>{a1228125-f5c4-4001-ac7d-1accf1679828}</Project>
+      <Name>Easy.Web</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\EasyFrameWork\Easy.csproj">
+      <Project>{edb1baa7-ec61-4292-bbe5-3bc39eb171e4}</Project>
+      <Name>Easy</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
