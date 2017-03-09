@@ -8,7 +8,7 @@ namespace Easy.Web.CMS.Filter
     {
         public override PageEntity GetPage(ActionExecutedContext filterContext)
         {
-            string pageId = filterContext.RequestContext.HttpContext.Request.QueryString["ID"];
+            string pageId = filterContext.RouteData.Values["id"].ToString();
             return PageService.Get(pageId);
         }
 

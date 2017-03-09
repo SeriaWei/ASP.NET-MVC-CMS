@@ -7,6 +7,6 @@
 @(
  Html.Grid().SetColumnTemplate(col =>
  {
-     col.Add(m => m.UserID, "<a href='" + Url.Action("Edit") + "?ID={UserID}'>{UserID}</a>");
+     col.Add(m => m.UserID, "<a href='" + Url.Action("Edit") + "/{UserID}'>{UserID}</a>");
  }).SetAsToolBar("#toolBar").ShowCheckbox(m => m.UserID).OrderBy(m => m.UserID, OrderType.Descending)
 )

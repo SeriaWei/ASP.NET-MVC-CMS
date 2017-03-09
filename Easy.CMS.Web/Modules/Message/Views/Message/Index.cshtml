@@ -8,7 +8,7 @@
 </div>
 @(
  Html.Grid<MessageEntity>().SetColumnTemplate(col => {
-     col.Add(m => m.Title, "<a href='"+Url.Action("Edit")+"?ID={ID}'>{Title}</a>");
+     col.Add(m => m.Title, "<a href='"+Url.Action("Edit")+"/{ID}'>{Title}</a>");
  }).SetAsToolBar("#toolBar").ShowCheckbox(m=>m.ID).OrderBy(m=>m.CreateDate, OrderType.Descending)
 )
 

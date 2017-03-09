@@ -40,7 +40,7 @@
     }
     function Edit(node) {
         var id = node.reference.attr("id");
-        window.location.href = '@Url.Action("Edit", "Navigation", new { module = "admin" })' + '?ID=' + id;
+        window.location.href = '@Url.Action("Edit", "Navigation", new { module = "admin" })' + '/' + id;
     }
     function checkCallBack(operation, node, node_parent, node_position, more) {
         return true;

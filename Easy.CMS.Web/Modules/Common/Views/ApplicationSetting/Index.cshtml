@@ -7,6 +7,6 @@
 @(
  Html.Grid().SetColumnTemplate(col =>
  {
-     col.Add(m => m.SettingKey, "<a href='" + Url.Action("Edit") + "?ID={SettingKey}'>{SettingKey}</a>");
+     col.Add(m => m.SettingKey, "<a href='" + Url.Action("Edit") + "/{SettingKey}'>{SettingKey}</a>");
  }).SetAsToolBar("#toolBar").ShowCheckbox(m => m.SettingKey).OrderBy(m => m.SettingKey, OrderType.Ascending)
 )

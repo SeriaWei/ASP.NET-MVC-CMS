@@ -25,8 +25,8 @@ namespace Easy.CMS.Common
             yield return new RouteDescriptor
             {
                 RouteName = "admin",
-                Url = "admin/{controller}/{action}",
-                Defaults = new { controller = "Dashboard", action = "index", module = "admin" },
+                Url = "admin/{controller}/{action}/{id}",
+                Defaults = new { controller = "Dashboard", action = "index", module = "admin", id = UrlParameter.Optional },
                 Priority = 10
             };
             yield return new RouteDescriptor
