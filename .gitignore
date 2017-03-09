@@ -1,8 +1,6 @@
 /Easy.CMS.Web/Logs
 bin
 obj
-/Easy.CMS.Web/App_Data/ZkeaCMS.mdf
-/Easy.CMS.Web/App_Data/ZkeaCMS_log.ldf
 /Release
 /Easy.CMS.Web.sln.metaproj
 /Easy.CMS.Web.sln.metaproj.tmp
@@ -12,7 +10,6 @@ obj
 /Easy.CMS.Web/Modules/Statistics
 /Easy.CMS.Web/Modules/SelfService_Provider
 /Easy.CMS.Web/Modules/SelfService_Register
-/Easy.CMS.Web/Modules/LayoutEngine
 /Easy.CMS.Web/Modules/Chart
 /Easy.CMS.Web/Modules/.svn
 /ZKEASOFT.Privite.CMS.Web.sln
