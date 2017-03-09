@@ -22,6 +22,10 @@ namespace Easy.Security
 
         public bool Authorize(string permission, IUser user)
         {
+            if (user == null)
+            {
+                return false;
+            }
             if (permission.IsNullOrWhiteSpace())
             {
                 return true;

@@ -1,9 +1,12 @@
 ﻿@using Easy.Data
 @model Easy.CMS.Common.Models.CarouselEntity
 
-<div id="toolBar">
-    <a href="@Url.Action("Create")" class="btn btn-primary btn-xs btn">新建</a>
-</div>
+@if (Authorizer.Authorize(Easy.CMS.Common.PermissionKeys.ManageCarousel))
+{
+    <div id="toolBar">
+        <a href="@Url.Action("Create")" class="btn btn-primary btn-xs">新建</a>
+    </div>
+}
 @(
  Html.Grid().SetColumnTemplate(col =>
  {

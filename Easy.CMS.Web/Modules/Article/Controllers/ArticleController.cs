@@ -12,6 +12,7 @@ using Easy.Web.Authorize;
 using Easy.Web.CMS.Article.Models;
 using Easy.Web.CMS.Article.Service;
 using Easy.Web.Controller;
+using Easy.Extend;
 
 namespace Easy.CMS.Article.Controllers
 {
@@ -39,6 +40,11 @@ namespace Easy.CMS.Article.Controllers
             if (entity.ActionType == ActionType.Publish)
             {
                 Service.Publish(entity.ID);
+                var returnUrl = Request.QueryString["ReturnUrl"];
+                if (returnUrl.IsNotNullAndWhiteSpace())
+                {
+                    return Redirect(returnUrl);
+                }
             }
             return result;
         }

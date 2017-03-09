@@ -112,10 +112,12 @@
   <ItemGroup>
     <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Controllers\MessageHandleController.cs" />
+    <Compile Include="FilterConfig.cs" />
     <Compile Include="MessagePlug.cs" />
     <Compile Include="Models\MessageEntity.cs" />
     <Compile Include="Models\MessageBoxWidget.cs" />
     <Compile Include="Models\MessageWidget.cs" />
+    <Compile Include="PermissionKeys.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\IMessageService.cs" />
     <Compile Include="Service\MessageService.cs" />

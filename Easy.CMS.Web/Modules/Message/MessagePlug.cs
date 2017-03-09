@@ -29,23 +29,25 @@ namespace Easy.CMS.Message
                 Title = "¡Ù—‘∞Â",
                 Icon = "glyphicon-volume-up",
                 Url = "~/Admin/Message",
-                Order = 7
+                Order = 7,
+                PermissionKey = PermissionKeys.ViewMessage
             };
         }
 
         protected override void InitScript(Func<string, Web.Resource.ResourceHelper> script)
         {
-            
+
         }
 
         protected override void InitStyle(Func<string, Web.Resource.ResourceHelper> style)
         {
-            
+
         }
 
         public override IEnumerable<PermissionDescriptor> RegistPermission()
         {
-            return null;
+            yield return new PermissionDescriptor(PermissionKeys.ViewMessage, "¡Ù—‘∞Â", "≤Èø¥¡Ù—‘", "");
+            yield return new PermissionDescriptor(PermissionKeys.ManageMessage, "¡Ù—‘∞Â", "π‹¿Ì¡Ù—‘", "");
         }
     }
 }

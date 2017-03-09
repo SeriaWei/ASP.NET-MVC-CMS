@@ -17,6 +17,10 @@
                 <i class="glyphicon glyphicon-calendar"></i>
                 @((Model.Current.PublishDate ?? DateTime.Now).ToString("yyyy/MM/dd"))
             </span>
+            @if (Authorizer.Authorize(Easy.CMS.Article.PermissionKeys.ManageArticle))
+            {
+                <a href="@Url.Action("Edit", "Article", new { id = Model.Current.ID,ReturnUrl=Request.Url.PathAndQuery })">编辑</a>
+            }
         </div>
     </div>
     <div class="panel-body detail clearfix">
@@ -27,4 +31,3 @@
         @Html.Raw(Model.Current.ArticleContent)
     </div>
 </div>
-
