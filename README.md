@@ -79,7 +79,9 @@ ZKEACMS 的模板组件可以更方便的进行扩展。直接更换显示模板
 
 ## Theme/主题
 ZKEACMS 使用LESS，可以轻松的创建主题。
+
 ![主题](https://cloud.githubusercontent.com/assets/6006218/23801129/f5be52ee-05e9-11e7-8a7e-6465a4cb3c9f.jpg)
+
 ## 视频演示
 [http://www.zkea.net/zkeacms/videos](http://www.zkea.net/zkeacms/videos)
 
