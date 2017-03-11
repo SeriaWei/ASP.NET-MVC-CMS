@@ -15,6 +15,7 @@ using Easy.Web.CMS.WidgetTemplate;
 using Easy.Web.ValueProvider;
 using Newtonsoft.Json;
 using System.IO;
+using Easy.Web.CMS.PackageManger;
 
 namespace Easy.CMS.Common.Controllers
 {
@@ -24,12 +25,15 @@ namespace Easy.CMS.Common.Controllers
         private readonly IWidgetService _widgetService;
         private readonly IWidgetTemplateService _widgetTemplateService;
         private readonly ICookie _cookie;
+        private readonly IPackageInstallerProvider _packageInstallerProvider;
 
-        public WidgetController(IWidgetService widgetService, IWidgetTemplateService widgetTemplateService, ICookie cookie)
+        public WidgetController(IWidgetService widgetService, IWidgetTemplateService widgetTemplateService, 
+            ICookie cookie, IPackageInstallerProvider packageInstallerProvider)
         {
             _widgetService = widgetService;
             _widgetTemplateService = widgetTemplateService;
             _cookie = cookie;
+            _packageInstallerProvider = packageInstallerProvider;
         }
 
         [ViewDataZones]
@@ -218,8 +222,7 @@ namespace Easy.CMS.Common.Controllers
         {
             var widget = _widgetService.Get(ID);
             var widgetPackage = widget.CreateServiceInstance().PackWidget(widget) as WidgetPackage;
-            var json = JsonConvert.SerializeObject(widgetPackage);
-            return File(json.ToByte(), "Application/zip", widgetPackage.Widget.WidgetName + ".widget");
+            return File(widgetPackage.ToFilePackage(), "Application/zip", widgetPackage.Widget.WidgetName + ".widget");
         }
         [HttpPost]
         public ActionResult InstallWidgetTemplate(string returnUrl)
@@ -228,10 +231,8 @@ namespace Easy.CMS.Common.Controllers
             {
                 try
                 {
-                    StreamReader reader = new StreamReader(Request.Files[0].InputStream);
-                    var content = reader.ReadToEnd();
-                    var package = JsonConvert.DeserializeObject<WidgetPackage>(content);
-                    package.Content = content;
+                    WidgetPackage package;
+                    _packageInstallerProvider.CreateInstaller(Request.Files[0].InputStream, out package);
                     package.Widget.CreateServiceInstance().InstallWidget(package);
                 }
                 catch (Exception ex)

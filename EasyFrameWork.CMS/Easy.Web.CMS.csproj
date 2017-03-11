@@ -132,7 +132,9 @@
     <Compile Include="PackageManger\FilePackage.cs" />
     <Compile Include="PackageManger\FilePackageInstaller.cs" />
     <Compile Include="PackageManger\IPackageInstaller.cs" />
+    <Compile Include="PackageManger\IPackageInstallerProvider.cs" />
     <Compile Include="PackageManger\Package.cs" />
+    <Compile Include="PackageManger\PackageInstallerProvider.cs" />
     <Compile Include="Page\PageViewType.cs" />
     <Compile Include="PermissionDescriptor.cs" />
     <Compile Include="Product\Models\Product.cs" />

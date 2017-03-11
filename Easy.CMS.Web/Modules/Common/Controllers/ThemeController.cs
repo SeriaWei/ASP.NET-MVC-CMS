@@ -12,16 +12,20 @@ using Easy.Web.Controller;
 using EasyZip;
 using Newtonsoft.Json;
 using Easy.Extend;
+using Easy.Web.CMS.PackageManger;
 
 namespace Easy.CMS.Common.Controllers
 {
     [AdminTheme, DefaultAuthorize]
     public class ThemeController : BasicController<ThemeEntity, String, IThemeService>
     {
-        private const string ThemePath = "~/Themes";
-        public ThemeController(IThemeService service)
+
+        private readonly IPackageInstallerProvider _packageInstallerProvider;
+
+        public ThemeController(IThemeService service, IPackageInstallerProvider packageInstallerProvider)
             : base(service)
         {
+            _packageInstallerProvider = packageInstallerProvider;
         }
 
         public override ActionResult Index()
@@ -47,10 +51,11 @@ namespace Easy.CMS.Common.Controllers
             return Json(true);
         }
 
+
         public FileResult ThemePackage(string id)
         {
-            var package = new ThemePackageInstaller().Pack(id) as ThemePackage;
-            return File(JsonConvert.SerializeObject(package).ToByte(), "Application/zip", package.Theme.Title + ".theme");
+            var package = _packageInstallerProvider.CreateInstaller("ThemePackageInstaller").Pack(id) as ThemePackage;
+            return File(package.ToFilePackage(), "Application/zip", package.Theme.Title + ".theme");
         }
         [HttpPost]
         public JsonResult UploadTheme()
@@ -60,9 +65,9 @@ namespace Easy.CMS.Common.Controllers
             {
                 try
                 {
-                    StreamReader reader = new StreamReader(Request.Files[0].InputStream);
-                    var theme = JsonConvert.DeserializeObject<ThemePackage>(reader.ReadToEnd());
-                    new ThemePackageInstaller().Install(theme);
+                    ThemePackage package;
+                    var installer = _packageInstallerProvider.CreateInstaller(Request.Files[0].InputStream, out package);
+                    installer.Install(package);
                 }
                 catch (Exception ex)
                 {
