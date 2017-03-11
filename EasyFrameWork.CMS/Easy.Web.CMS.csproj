@@ -129,6 +129,10 @@
     <Compile Include="Layout\LayoutHtmlService.cs" />
     <Compile Include="Layout\ViewDataLayoutsAttribute.cs" />
     <Compile Include="Layout\LayoutService.cs" />
+    <Compile Include="PackageManger\FilePackage.cs" />
+    <Compile Include="PackageManger\FilePackageInstaller.cs" />
+    <Compile Include="PackageManger\IPackageInstaller.cs" />
+    <Compile Include="PackageManger\Package.cs" />
     <Compile Include="Page\PageViewType.cs" />
     <Compile Include="PermissionDescriptor.cs" />
     <Compile Include="Product\Models\Product.cs" />
@@ -140,8 +144,10 @@
     <Compile Include="Setting\ApplicationSetting.cs" />
     <Compile Include="Setting\ApplicationSettingService.cs" />
     <Compile Include="Setting\IApplicationSettingService.cs" />
+    <Compile Include="Theme\ThemePackage.cs" />
     <Compile Include="Theme\IThemeService.cs" />
     <Compile Include="Theme\ThemeEntity.cs" />
+    <Compile Include="Theme\ThemePackageInstaller.cs" />
     <Compile Include="Theme\ThemeService.cs" />
     <Compile Include="Media\IMediaService.cs" />
     <Compile Include="Media\MediaEntity.cs" />
@@ -170,6 +176,8 @@
     <Compile Include="Widget\HtmlWidgetService.cs" />
     <Compile Include="Widget\IWidgetService.cs" />
     <Compile Include="Widget\IWidgetPartDriver.cs" />
+    <Compile Include="Widget\WidgetPackage.cs" />
+    <Compile Include="Widget\WidgetPackageInstaller.cs" />
     <Compile Include="Widget\WidgetBase.cs" />
     <Compile Include="Widget\WidgetCollection.cs" />
     <Compile Include="Widget\WidgetPart.cs" />

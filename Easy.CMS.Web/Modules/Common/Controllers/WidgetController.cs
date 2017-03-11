@@ -13,6 +13,8 @@ using Easy.Web.CMS;
 using Easy.Web.CMS.Widget;
 using Easy.Web.CMS.WidgetTemplate;
 using Easy.Web.ValueProvider;
+using Newtonsoft.Json;
+using System.IO;
 
 namespace Easy.CMS.Common.Controllers
 {
@@ -215,8 +217,9 @@ namespace Easy.CMS.Common.Controllers
         public FileResult Pack(string ID)
         {
             var widget = _widgetService.Get(ID);
-            var file = _widgetService.PackWidget(ID);
-            return File(file, "Application/zip", widget.WidgetName + ".zip");
+            var widgetPackage = widget.CreateServiceInstance().PackWidget(widget) as WidgetPackage;
+            var json = JsonConvert.SerializeObject(widgetPackage);
+            return File(json.ToByte(), "Application/zip", widgetPackage.Widget.WidgetName + ".widget");
         }
         [HttpPost]
         public ActionResult InstallWidgetTemplate(string returnUrl)
@@ -225,7 +228,11 @@ namespace Easy.CMS.Common.Controllers
             {
                 try
                 {
-                    _widgetService.InstallPackWidget(Request.Files[0].InputStream);
+                    StreamReader reader = new StreamReader(Request.Files[0].InputStream);
+                    var content = reader.ReadToEnd();
+                    var package = JsonConvert.DeserializeObject<WidgetPackage>(content);
+                    package.Content = content;
+                    package.Widget.CreateServiceInstance().InstallWidget(package);
                 }
                 catch (Exception ex)
                 {

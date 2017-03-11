@@ -12,6 +12,7 @@ namespace Easy.CMS.Section.Models
     {
         public string SectionTitle { get; set; }
         public IEnumerable<SectionGroup> Groups { get; set; }
+        public SectionTemplate Template { get; set; }
     }
 
     class SectionWidgetMetaData : WidgetMetaData<SectionWidget>
@@ -20,6 +21,7 @@ namespace Easy.CMS.Section.Models
         {
             base.ViewConfigure();
             ViewConfig(m => m.SectionTitle).AsHidden();
+            ViewConfig(m => m.Template).AsHidden().Ignore();
         }
     }
 }

@@ -159,49 +159,49 @@ namespace Easy.Web.CMS.Widget
             return widgetPart;
         }
 
-        public MemoryStream PackWidget(string widgetId)
-        {
-            var widgetBase = Get(widgetId);
-            var zipfile = widgetBase.CreateServiceInstance().PackWidget(widgetBase);
-            var bytes = Encrypt(zipfile.ToMemoryStream().ToArray());
-            return new MemoryStream(bytes);
-        }
+        //public MemoryStream PackWidget(string widgetId)
+        //{
+        //    var widgetBase = Get(widgetId);
+        //    var zipfile = widgetBase.CreateServiceInstance().PackWidget(widgetBase);
+        //    var bytes = Encrypt(zipfile.ToMemoryStream().ToArray());
+        //    return new MemoryStream(bytes);
+        //}
 
-        public WidgetBase InstallPackWidget(Stream stream)
-        {
-            byte[] bytes = new byte[stream.Length];
-            stream.Read(bytes, 0, bytes.Length);
-            stream.Seek(0, SeekOrigin.Begin);
+        //public WidgetBase InstallPackWidget(Stream stream)
+        //{
+        //    byte[] bytes = new byte[stream.Length];
+        //    stream.Read(bytes, 0, bytes.Length);
+        //    stream.Seek(0, SeekOrigin.Begin);
 
-            ZipFile zipFile = new ZipFile();
+        //    ZipFile zipFile = new ZipFile();
 
-            var files = zipFile.ToFileCollection(new MemoryStream(Decrypt(bytes)));
-            foreach (ZipFileInfo item in files)
-            {
-                if (item.RelativePath.EndsWith("-widget.json"))
-                {
-                    try
-                    {
-                        var jsonStr = Encoding.UTF8.GetString(item.FileBytes);
-                        var widgetBase = JsonConvert.DeserializeObject<WidgetBase>(jsonStr);
-                        var service = widgetBase.CreateServiceInstance();
-                        var widget = service.UnPackWidget(files);
-                        widget.PageID = null;
-                        widget.LayoutID = null;
-                        widget.ZoneID = null;
-                        widget.IsSystem = false;
-                        widget.IsTemplate = true;
-                        service.AddWidget(widget);
-                    }
-                    catch (Exception ex)
-                    {
-                        Logger.Error(ex);
-                        return null;
-                    }
-                }
-            }
-            return null;
-        }
+        //    var files = zipFile.ToFileCollection(new MemoryStream(Decrypt(bytes)));
+        //    foreach (ZipFileInfo item in files)
+        //    {
+        //        if (item.RelativePath.EndsWith("-widget.json"))
+        //        {
+        //            try
+        //            {
+        //                var jsonStr = Encoding.UTF8.GetString(item.FileBytes);
+        //                var widgetBase = JsonConvert.DeserializeObject<WidgetBase>(jsonStr);
+        //                var service = widgetBase.CreateServiceInstance();
+        //                var widget = service.UnPackWidget(files);
+        //                widget.PageID = null;
+        //                widget.LayoutID = null;
+        //                widget.ZoneID = null;
+        //                widget.IsSystem = false;
+        //                widget.IsTemplate = true;
+        //                service.AddWidget(widget);
+        //            }
+        //            catch (Exception ex)
+        //            {
+        //                Logger.Error(ex);
+        //                return null;
+        //            }
+        //        }
+        //    }
+        //    return null;
+        //}
 
         private byte[] Encrypt(byte[] source)
         {
@@ -392,7 +392,7 @@ namespace Easy.Web.CMS.Widget
         }
 
         #region PackWidget
-        public virtual ZipFile PackWidget(WidgetBase widget)
+        public virtual WidgetPackage PackWidget(WidgetBase widget)
         {
             widget = GetWidget(widget);
             widget.PageID = null;
@@ -400,39 +400,17 @@ namespace Easy.Web.CMS.Widget
             widget.ZoneID = null;
             widget.IsSystem = false;
             widget.IsTemplate = true;
-            var jsonResult = JsonConvert.SerializeObject(widget);
-            string tempFile = ((CMSApplicationContext)ApplicationContext).MapPath(TempJsonFile.FormatWith(Guid.NewGuid().ToString("N")));
-            if (!Directory.Exists(((CMSApplicationContext)ApplicationContext).MapPath(TempFolder)))
-            {
-                Directory.CreateDirectory(((CMSApplicationContext)ApplicationContext).MapPath(TempFolder));
-            }
-            File.WriteAllText(tempFile, jsonResult);
-            ZipFile file = new ZipFile();
-            file.AddFile(new FileInfo(tempFile));
-            return file;
+            return new WidgetPackageInstaller().Pack(widget) as WidgetPackage;
         }
 
-        public virtual WidgetBase UnPackWidget(ZipFileInfoCollection pack)
+        public virtual void InstallWidget(WidgetPackage pack)
         {
-            WidgetBase result = null;
-            try
+            var widget = new WidgetPackageInstaller().Install(pack);
+            if (widget != null)
             {
-                foreach (ZipFileInfo item in pack)
-                {
-                    if (item.RelativePath.EndsWith("-widget.json"))
-                    {
-                        var jsonStr = Encoding.UTF8.GetString(item.FileBytes);
-                        var widgetBase = JsonConvert.DeserializeObject<WidgetBase>(jsonStr);
-                        var widget = JsonConvert.DeserializeObject(jsonStr, widgetBase.GetViewModelType()) as WidgetBase;
-                        result = widget;
-                    }
-                }
+                AddWidget(widget as WidgetBase);
             }
-            catch (Exception ex)
-            {
-                Logger.Error(ex);
-            }
-            return result;
+
         }
         #endregion
     }
@@ -461,7 +439,7 @@ namespace Easy.Web.CMS.Widget
         }
         public override IEnumerable<T> Get(DataFilter filter)
         {
-            List<WidgetBase> widgetBases = WidgetBaseService.Get(filter).ToList();  
+            List<WidgetBase> widgetBases = WidgetBaseService.Get(filter).ToList();
             for (int i = 0; i < widgetBases.Count; i++)
             {
                 yield return CopyTo(widgetBases[i], JsonConvert.DeserializeObject<T>(widgetBases[i].ExtendData));

@@ -11,6 +11,7 @@ using Easy.Web.CMS.Theme;
 using Easy.Web.Controller;
 using EasyZip;
 using Newtonsoft.Json;
+using Easy.Extend;
 
 namespace Easy.CMS.Common.Controllers
 {
@@ -48,22 +49,8 @@ namespace Easy.CMS.Common.Controllers
 
         public FileResult ThemePackage(string id)
         {
-            string path = Server.MapPath(ThemePath + "/" + id);
-            if (Directory.Exists(path))
-            {
-                var theme = Service.Get(id);
-                if (theme != null)
-                {
-                    string json = JsonConvert.SerializeObject(theme);
-                    var writer = System.IO.File.CreateText(path + "/info.json");
-                    writer.Write(json);
-                    writer.Dispose();
-                    ZipFile zipFile = new ZipFile();
-                    zipFile.AddDirectory(new DirectoryInfo(path));
-                    return File(zipFile.ToMemoryStream(), "application/zip", theme.Title + ".zip");
-                }
-            }
-            return null;
+            var package = new ThemePackageInstaller().Pack(id) as ThemePackage;
+            return File(JsonConvert.SerializeObject(package).ToByte(), "Application/zip", package.Theme.Title + ".theme");
         }
         [HttpPost]
         public JsonResult UploadTheme()
@@ -73,50 +60,14 @@ namespace Easy.CMS.Common.Controllers
             {
                 try
                 {
-                    var file = Request.Files[0];
-                    ZipFile zipFile = new ZipFile();
-                    var files = zipFile.ToFileCollection(file.InputStream);
-                    var themeInfo = files.FirstOrDefault(m => m.RelativePath.EndsWith("\\info.json"));
-                    string json = Encoding.UTF8.GetString(themeInfo.FileBytes);
-                    var newTheme = JsonConvert.DeserializeObject<ThemeEntity>(json);
-                    newTheme.IsActived = false;
-                    if (Service.Count(m => m.ID == newTheme.ID) == 0)
-                    {
-                        Service.Add(newTheme);
-                    }
-                    else
-                    {
-                        var oldTheme = Service.Get(newTheme.ID);
-                        if (oldTheme.IsActived)
-                        {
-                            newTheme.IsActived = true;
-                        }
-                        Service.Update(newTheme);
-                        result.Message = "主题已更新...";
-                    }
-                    var themePath = Server.MapPath(ThemePath);
-
-                    foreach (ZipFileInfo item in files)
-                    {
-                        string folder = Path.GetDirectoryName(themePath + item.RelativePath);
-                        if (!Directory.Exists(folder))
-                        {
-                            Directory.CreateDirectory(folder);
-                        }
-                        using (
-                            var fs =
-                                System.IO.File.Create(themePath + item.RelativePath)
-                            )
-                        {
-                            fs.Write(item.FileBytes, 0, item.FileBytes.Length);
-                        }
-                    }
-
+                    StreamReader reader = new StreamReader(Request.Files[0].InputStream);
+                    var theme = JsonConvert.DeserializeObject<ThemePackage>(reader.ReadToEnd());
+                    new ThemePackageInstaller().Install(theme);
                 }
                 catch (Exception ex)
                 {
                     Logger.Error(ex);
-                    result.Message = "上传的主题不正确！";
+                    result.Message = "上传的主题不正确！" + ex.Message;
                     result.Status = AjaxStatus.Error;
                     return Json(result);
                 }

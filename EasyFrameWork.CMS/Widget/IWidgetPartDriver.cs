@@ -13,8 +13,8 @@ namespace Easy.Web.CMS.Widget
         void Publish(WidgetBase widget);
         WidgetBase GetWidget(WidgetBase widget);
         WidgetPart Display(WidgetBase widget, ControllerContext controllerContext);
-        ZipFile PackWidget(WidgetBase widget);
-        WidgetBase UnPackWidget(ZipFileInfoCollection pack);
+        WidgetPackage PackWidget(WidgetBase widget);
+        void InstallWidget(WidgetPackage pack);
     }
 
 }

@@ -13,6 +13,8 @@ using Easy.Web.Attribute;
 using Easy.Web.Authorize;
 using Easy.Web.CMS.Widget;
 using Microsoft.Practices.ServiceLocation;
+using Newtonsoft.Json;
+using System.IO;
 
 namespace Easy.CMS.Section.Controllers
 {
@@ -99,7 +101,11 @@ namespace Easy.CMS.Section.Controllers
             {
                 try
                 {
-                    ServiceLocator.Current.GetInstance<IWidgetService>().InstallPackWidget(Request.Files[0].InputStream);
+                    StreamReader reader = new StreamReader(Request.Files[0].InputStream);
+                    var content = reader.ReadToEnd();
+                    var package = JsonConvert.DeserializeObject<WidgetPackage>(reader.ReadToEnd());
+                    package.Content = content;
+                    package.Widget.CreateServiceInstance().InstallWidget(package);
                 }
                 catch (Exception ex)
                 {

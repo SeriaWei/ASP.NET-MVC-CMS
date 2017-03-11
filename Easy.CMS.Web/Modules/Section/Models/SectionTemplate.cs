@@ -1,10 +1,11 @@
 /* http://www.zkea.net/ Copyright 2016 ZKEASOFT http://www.zkea.net/licenses */
 using Easy.MetaData;
 using Easy.Models;
+using System;
 
 namespace Easy.CMS.Section.Models
 {
-    [DataConfigure(typeof(SectionTemplateMetaData))]
+    [DataConfigure(typeof(SectionTemplateMetaData)), Serializable]
     public class SectionTemplate : EditorEntity
     {
         public string TemplateName { get; set; }
