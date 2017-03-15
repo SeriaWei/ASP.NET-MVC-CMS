@@ -37,19 +37,19 @@
       <publishTime>07/27/2015 08:41:42</publishTime>
     </File>
     <File Include="bin/Easy.CMS.Section.dll">
-      <publishTime>03/01/2017 10:37:08</publishTime>
+      <publishTime>03/15/2017 16:36:13</publishTime>
     </File>
     <File Include="bin/Easy.dll">
-      <publishTime>09/01/2016 09:36:24</publishTime>
+      <publishTime>03/15/2017 16:34:24</publishTime>
     </File>
     <File Include="bin/Easy.Web.CMS.dll">
-      <publishTime>03/01/2017 10:35:06</publishTime>
+      <publishTime>03/15/2017 16:34:25</publishTime>
     </File>
     <File Include="bin/Easy.Web.dll">
-      <publishTime>09/26/2016 08:13:13</publishTime>
+      <publishTime>03/15/2017 16:34:24</publishTime>
     </File>
     <File Include="bin/EasyZip.dll">
-      <publishTime>06/13/2016 15:52:48</publishTime>
+      <publishTime>03/15/2017 16:34:24</publishTime>
     </File>
     <File Include="bin/editor.cshtml.c59dd044.compiled">
       <publishTime>09/08/2015 09:27:17</publishTime>
@@ -178,10 +178,10 @@
       <publishTime>07/17/2015 10:18:58</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>09/26/2016 08:13:13</publishTime>
+      <publishTime>03/09/2017 12:25:16</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>03/01/2017 10:37:10</publishTime>
+      <publishTime>03/15/2017 16:41:50</publishTime>
     </File>
     <File Include="Views/SectionContentCallToAction/Form.cshtml">
       <publishTime>05/11/2016 08:25:13</publishTime>
@@ -206,6 +206,9 @@
     </File>
     <File Include="Views/SectionTemplate.Brand.cshtml">
       <publishTime>02/21/2017 12:42:58</publishTime>
+    </File>
+    <File Include="Views/SectionTemplate.CalendarEvent.cshtml">
+      <publishTime>03/03/2017 12:32:29</publishTime>
     </File>
     <File Include="Views/SectionTemplate.Column.cshtml">
       <publishTime>09/21/2016 12:01:59</publishTime>
@@ -308,6 +311,12 @@
     </File>
     <File Include="Views/Thumbnail/SectionTemplate.Brand.xml">
       <publishTime>06/22/2016 16:08:38</publishTime>
+    </File>
+    <File Include="Views/Thumbnail/SectionTemplate.CalendarEvent.png">
+      <publishTime>03/03/2017 09:56:01</publishTime>
+    </File>
+    <File Include="Views/Thumbnail/SectionTemplate.CalendarEvent.xml">
+      <publishTime>03/03/2017 12:27:54</publishTime>
     </File>
     <File Include="Views/Thumbnail/SectionTemplate.Column.png">
       <publishTime>06/29/2016 12:41:12</publishTime>
@@ -427,7 +436,7 @@
       <publishTime>09/21/2016 12:01:59</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>02/15/2017 15:28:53</publishTime>
+      <publishTime>03/15/2017 16:36:14</publishTime>
     </File>
   </ItemGroup>
 </Project>

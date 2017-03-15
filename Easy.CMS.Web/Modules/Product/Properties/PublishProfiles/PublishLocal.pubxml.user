@@ -28,19 +28,19 @@
       <publishTime>09/08/2015 09:27:02</publishTime>
     </File>
     <File Include="bin/Easy.CMS.Product.dll">
-      <publishTime>03/01/2017 10:36:59</publishTime>
+      <publishTime>03/15/2017 16:36:04</publishTime>
     </File>
     <File Include="bin/Easy.dll">
-      <publishTime>09/01/2016 09:36:24</publishTime>
+      <publishTime>03/15/2017 16:34:24</publishTime>
     </File>
     <File Include="bin/Easy.Web.CMS.dll">
-      <publishTime>03/01/2017 10:35:06</publishTime>
+      <publishTime>03/15/2017 16:34:25</publishTime>
     </File>
     <File Include="bin/Easy.Web.dll">
-      <publishTime>09/26/2016 08:13:13</publishTime>
+      <publishTime>03/15/2017 16:34:24</publishTime>
     </File>
     <File Include="bin/EasyZip.dll">
-      <publishTime>06/13/2016 15:52:48</publishTime>
+      <publishTime>03/15/2017 16:34:24</publishTime>
     </File>
     <File Include="bin/edit.cshtml.ab886a4d.compiled">
       <publishTime>09/08/2015 09:27:02</publishTime>
@@ -139,10 +139,10 @@
       <publishTime>08/18/2014 09:12:11</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>09/26/2016 08:13:13</publishTime>
+      <publishTime>03/09/2017 12:25:15</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>03/01/2017 10:37:01</publishTime>
+      <publishTime>03/15/2017 16:41:42</publishTime>
     </File>
     <File Include="Scripts/jquery-photowall/exit.gif">
       <publishTime>01/30/2015 22:48:00</publishTime>
@@ -172,7 +172,7 @@
       <publishTime>09/21/2016 12:01:59</publishTime>
     </File>
     <File Include="Views/Product/Index.cshtml">
-      <publishTime>09/21/2016 12:01:59</publishTime>
+      <publishTime>03/09/2017 13:02:21</publishTime>
     </File>
     <File Include="Views/ProductCategory/Create.cshtml">
       <publishTime>09/21/2016 12:01:59</publishTime>
@@ -181,7 +181,7 @@
       <publishTime>09/21/2016 12:01:59</publishTime>
     </File>
     <File Include="Views/ProductCategory/Index.cshtml">
-      <publishTime>09/21/2016 12:01:59</publishTime>
+      <publishTime>03/09/2017 12:31:30</publishTime>
     </File>
     <File Include="Views/Web.config">
       <publishTime>07/11/2016 08:44:53</publishTime>
@@ -190,7 +190,7 @@
       <publishTime>02/28/2017 16:51:20</publishTime>
     </File>
     <File Include="Views/Widget.ProductDetail.cshtml">
-      <publishTime>09/21/2016 12:01:59</publishTime>
+      <publishTime>03/09/2017 12:54:20</publishTime>
     </File>
     <File Include="Views/Widget.ProductList.cshtml">
       <publishTime>02/28/2017 16:52:20</publishTime>
@@ -202,7 +202,7 @@
       <publishTime>01/30/2015 22:48:00</publishTime>
     </File>
     <File Include="web.config">
-      <publishTime>02/15/2017 15:28:36</publishTime>
+      <publishTime>03/15/2017 16:36:04</publishTime>
     </File>
   </ItemGroup>
 </Project>

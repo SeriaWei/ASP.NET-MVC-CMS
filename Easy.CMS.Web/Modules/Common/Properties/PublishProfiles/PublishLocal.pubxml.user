@@ -67,19 +67,19 @@
       <publishTime>09/08/2015 09:26:45</publishTime>
     </File>
     <File Include="bin/Easy.CMS.Common.dll">
-      <publishTime>03/01/2017 10:36:47</publishTime>
+      <publishTime>03/15/2017 16:35:33</publishTime>
     </File>
     <File Include="bin/Easy.dll">
-      <publishTime>09/01/2016 09:36:24</publishTime>
+      <publishTime>03/15/2017 16:34:24</publishTime>
     </File>
     <File Include="bin/Easy.Web.CMS.dll">
-      <publishTime>03/01/2017 10:35:06</publishTime>
+      <publishTime>03/15/2017 16:34:25</publishTime>
     </File>
     <File Include="bin/Easy.Web.dll">
-      <publishTime>09/26/2016 08:13:13</publishTime>
+      <publishTime>03/15/2017 16:34:24</publishTime>
     </File>
     <File Include="bin/EasyZip.dll">
-      <publishTime>06/13/2016 15:52:48</publishTime>
+      <publishTime>03/15/2017 16:34:24</publishTime>
     </File>
     <File Include="bin/edit.cshtml.37f34e2f.compiled">
       <publishTime>09/08/2015 09:26:44</publishTime>
@@ -250,10 +250,10 @@
       <publishTime>10/23/2014 16:11:50</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>09/26/2016 08:13:13</publishTime>
+      <publishTime>03/09/2017 12:25:16</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>03/01/2017 10:36:49</publishTime>
+      <publishTime>03/15/2017 16:41:24</publishTime>
     </File>
     <File Include="Scripts/jquery-1.8.2.js">
       <publishTime>01/30/2015 22:48:00</publishTime>
@@ -382,7 +382,7 @@
       <publishTime>09/21/2016 12:01:59</publishTime>
     </File>
     <File Include="Views/ApplicationSetting/Index.cshtml">
-      <publishTime>09/21/2016 12:01:59</publishTime>
+      <publishTime>03/09/2017 13:03:10</publishTime>
     </File>
     <File Include="Views/Carousel/Create.cshtml">
       <publishTime>09/21/2016 12:01:59</publishTime>
@@ -391,7 +391,7 @@
       <publishTime>09/21/2016 12:01:59</publishTime>
     </File>
     <File Include="Views/Carousel/Index.cshtml">
-      <publishTime>09/21/2016 12:01:59</publishTime>
+      <publishTime>03/09/2017 13:03:28</publishTime>
     </File>
     <File Include="Views/Dashboard.Welcome.cshtml">
       <publishTime>09/21/2016 12:01:59</publishTime>
@@ -448,7 +448,7 @@
       <publishTime>09/21/2016 12:01:59</publishTime>
     </File>
     <File Include="Views/Navigation/Index.cshtml">
-      <publishTime>09/21/2016 12:01:59</publishTime>
+      <publishTime>03/09/2017 12:29:58</publishTime>
     </File>
     <File Include="Views/Page/Create.cshtml">
       <publishTime>09/21/2016 12:01:59</publishTime>
@@ -478,7 +478,7 @@
       <publishTime>09/21/2016 12:01:59</publishTime>
     </File>
     <File Include="Views/Roles/Index.cshtml">
-      <publishTime>09/21/2016 12:01:59</publishTime>
+      <publishTime>03/09/2017 13:04:00</publishTime>
     </File>
     <File Include="Views/Roles/Partal.Permissions.cshtml">
       <publishTime>09/21/2016 12:01:59</publishTime>
@@ -514,7 +514,7 @@
       <publishTime>09/21/2016 12:01:59</publishTime>
     </File>
     <File Include="Views/User/Index.cshtml">
-      <publishTime>09/21/2016 12:01:59</publishTime>
+      <publishTime>03/09/2017 13:04:12</publishTime>
     </File>
     <File Include="Views/Web.config">
       <publishTime>07/11/2016 08:44:53</publishTime>
@@ -559,7 +559,7 @@
       <publishTime>07/27/2015 16:34:27</publishTime>
     </File>
     <File Include="web.config">
-      <publishTime>02/15/2017 15:28:24</publishTime>
+      <publishTime>03/15/2017 16:35:34</publishTime>
     </File>
   </ItemGroup>
 </Project>

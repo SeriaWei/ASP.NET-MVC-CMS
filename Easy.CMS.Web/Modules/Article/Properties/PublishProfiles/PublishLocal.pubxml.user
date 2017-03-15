@@ -28,19 +28,19 @@
       <publishTime>09/08/2015 09:26:23</publishTime>
     </File>
     <File Include="bin/Easy.CMS.Article.dll">
-      <publishTime>03/01/2017 10:36:29</publishTime>
+      <publishTime>03/15/2017 16:35:12</publishTime>
     </File>
     <File Include="bin/Easy.dll">
-      <publishTime>09/01/2016 09:36:24</publishTime>
+      <publishTime>03/15/2017 16:34:24</publishTime>
     </File>
     <File Include="bin/Easy.Web.CMS.dll">
-      <publishTime>03/01/2017 10:35:06</publishTime>
+      <publishTime>03/15/2017 16:34:25</publishTime>
     </File>
     <File Include="bin/Easy.Web.dll">
-      <publishTime>09/26/2016 08:13:13</publishTime>
+      <publishTime>03/15/2017 16:34:24</publishTime>
     </File>
     <File Include="bin/EasyZip.dll">
-      <publishTime>06/13/2016 15:52:48</publishTime>
+      <publishTime>03/15/2017 16:34:24</publishTime>
     </File>
     <File Include="bin/edit.cshtml.1fab2d9e.compiled">
       <publishTime>09/08/2015 09:26:23</publishTime>
@@ -166,10 +166,10 @@
       <publishTime>10/23/2014 16:11:40</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>09/26/2016 08:13:13</publishTime>
+      <publishTime>03/09/2017 12:25:16</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>03/01/2017 10:36:31</publishTime>
+      <publishTime>03/15/2017 16:41:02</publishTime>
     </File>
     <File Include="Scripts/jquery-1.8.2.js">
       <publishTime>07/02/2014 22:06:45</publishTime>
@@ -214,10 +214,10 @@
       <publishTime>09/21/2016 12:01:59</publishTime>
     </File>
     <File Include="Views/Article/Edit.cshtml">
-      <publishTime>09/21/2016 12:01:59</publishTime>
+      <publishTime>03/01/2017 14:28:30</publishTime>
     </File>
     <File Include="Views/Article/Index.cshtml">
-      <publishTime>09/21/2016 12:01:59</publishTime>
+      <publishTime>03/09/2017 13:01:54</publishTime>
     </File>
     <File Include="Views/ArticleType/Create.cshtml">
       <publishTime>09/21/2016 12:01:59</publishTime>
@@ -226,13 +226,13 @@
       <publishTime>09/21/2016 12:01:59</publishTime>
     </File>
     <File Include="Views/ArticleType/Index.cshtml">
-      <publishTime>09/21/2016 12:01:59</publishTime>
+      <publishTime>03/09/2017 12:31:50</publishTime>
     </File>
     <File Include="Views/Web.config">
       <publishTime>07/11/2016 08:44:53</publishTime>
     </File>
     <File Include="Views/Widget.ArticleDetail.cshtml">
-      <publishTime>01/16/2017 16:00:47</publishTime>
+      <publishTime>03/09/2017 12:50:32</publishTime>
     </File>
     <File Include="Views/Widget.ArticleList-Snippet.cshtml">
       <publishTime>02/28/2017 15:36:12</publishTime>
@@ -250,7 +250,7 @@
       <publishTime>02/28/2017 16:53:50</publishTime>
     </File>
     <File Include="web.config">
-      <publishTime>02/15/2017 15:28:13</publishTime>
+      <publishTime>03/15/2017 16:35:13</publishTime>
     </File>
   </ItemGroup>
 </Project>
