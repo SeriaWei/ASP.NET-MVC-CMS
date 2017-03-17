@@ -21,36 +21,36 @@ namespace Easy.Web.CMS.Widget
             KnownWidgetModel = new Dictionary<string, Type>();
         }
         public string ID { get; set; }
-        [JsonIgnore]
+        
         public string WidgetName { get; set; }
-        [JsonIgnore]
+        
         public int? Position { get; set; }
-        [JsonIgnore]
+        
         public string LayoutID { get; set; }
-        [JsonIgnore]
+        
         public string PageID { get; set; }
-        [JsonIgnore]
+        
         public string ZoneID { get; set; }
-        [JsonIgnore]
+        
         public bool IsTemplate { get; set; }
-        [JsonIgnore]
+        
         public string Thumbnail { get; set; }
-        [JsonIgnore]
+        
         public bool IsSystem { get; set; }
-        [JsonIgnore]
+        
         public string PartialView { get; set; }
-        [JsonIgnore]
+        
         public string AssemblyName { get; set; }
-        [JsonIgnore]
+        
         public string ServiceTypeName { get; set; }
-        [JsonIgnore]
+        
         public string ViewModelTypeName { get; set; }
-        [JsonIgnore]
+        
         public string FormView { get; set; }
-        [JsonIgnore]
+        
         public string StyleClass { get; set; }
         private string _customClass;
-        [JsonIgnore]
+        
         public string CustomClass
         {
             get
@@ -64,7 +64,7 @@ namespace Easy.Web.CMS.Widget
             }
         }
         private string _customStyle;
-        [JsonIgnore]
+        
         public string CustomStyle
         {
             get
@@ -77,7 +77,7 @@ namespace Easy.Web.CMS.Widget
                 return _customStyle;
             }
         }
-        [JsonIgnore]
+        
         public string ExtendData { get; set; }
         private void InitStyleClass()
         {
