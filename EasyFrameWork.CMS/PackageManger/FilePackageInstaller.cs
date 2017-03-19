@@ -56,7 +56,12 @@ namespace Easy.Web.CMS.PackageManger
                 {
                     files.Each(file =>
                     {
-                        package.Files.Add(new FileInfo { FileName = file.Name, FilePath = file.FullName.Replace(HostingEnvironment.MapPath("~/"), "~/"), Content = File.ReadAllBytes(file.FullName) });
+                        package.Files.Add(new FileInfo
+                        {
+                            FileName = file.Name,
+                            FilePath = file.FullName.Replace(HostingEnvironment.MapPath("~/"), "~/").Replace("\\", "/"),
+                            Content = File.ReadAllBytes(file.FullName)
+                        });
                     });
                 }
             }
@@ -71,7 +76,12 @@ namespace Easy.Web.CMS.PackageManger
             directory.GetDirectories().Each(dir => CollectFiles(dir, package));
             directory.GetFiles().Each(file =>
             {
-                package.Files.Add(new FileInfo { FileName = file.Name, FilePath = file.FullName.Replace(HostingEnvironment.MapPath("~/"), "~/"), Content = File.ReadAllBytes(file.FullName) });
+                package.Files.Add(new FileInfo
+                {
+                    FileName = file.Name,
+                    FilePath = file.FullName.Replace(HostingEnvironment.MapPath("~/"), "~/").Replace("\\", "/"),
+                    Content = File.ReadAllBytes(file.FullName)
+                });
             });
         }
     }

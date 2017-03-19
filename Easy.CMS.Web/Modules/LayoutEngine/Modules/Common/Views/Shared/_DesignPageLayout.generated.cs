@@ -475,7 +475,7 @@ WriteLiteral(">\r\n                                <i");
 
 WriteLiteral(" class=\"glyphicon glyphicon-plus\"");
 
-WriteLiteral("></i>\r\n                                添加组件\r\n                            </a>\r\n  " +
+WriteLiteral("></i>\r\n                                添加内容\r\n                            </a>\r\n  " +
 "                          <a");
 
 WriteLiteral(" href=\"javascript:void(0)\"");

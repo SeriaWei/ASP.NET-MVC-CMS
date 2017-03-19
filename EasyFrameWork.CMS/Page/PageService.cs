@@ -127,7 +127,10 @@ namespace Easy.Web.CMS.Page
                 {
                     Publish(page);
                 }
-
+                else
+                {
+                    DataArchivedService.Delete(CacheTrigger.PageWidgetsArchivedKey.FormatWith(page.ReferencePageID));
+                }
             }
         }
         public override int Delete(DataFilter filter)
