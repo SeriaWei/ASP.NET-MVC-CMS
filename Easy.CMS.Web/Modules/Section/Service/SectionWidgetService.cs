@@ -12,6 +12,7 @@ using Easy.Web.CMS.Widget;
 using EasyZip;
 using Microsoft.Practices.ServiceLocation;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace Easy.CMS.Section.Service
 {
@@ -91,74 +92,50 @@ namespace Easy.CMS.Section.Service
             }
         }
 
-        public override ZipFile PackWidget(WidgetBase widget)
+        public override WidgetPackage PackWidget(WidgetBase widget)
         {
-            var sectionWidget = GetWidget(widget) as SectionWidget;
-            var zipFile = base.PackWidget(widget);
+            var package = base.PackWidget(widget);
+            var sectionWidget = package.Widget as SectionWidget;
+
             var rootPath = (ApplicationContext as CMSApplicationContext).MapPath("~/");
             var files = new[]
                {
                 "~/Modules/Section/Views/{0}.cshtml",
                 "~/Modules/Section/Views/Thumbnail/{0}.png",
-                "~/Modules/Section/Views/Thumbnail/{0}.xml",
-                "~/Modules/Section/Views/Thumbnail/{0}.json"
+                "~/Modules/Section/Views/Thumbnail/{0}.xml"
             };
             sectionWidget.Groups.Each(g =>
             {
-                var template = ServiceLocator.Current.GetInstance<ISectionTemplateService>().Get(g.PartialView);
-                string infoFile = (ApplicationContext as CMSApplicationContext).MapPath("~/Modules/Section/Views/Thumbnail/{0}.json".FormatWith(template.TemplateName));
-                using (var writer = File.CreateText(infoFile))
-                {
-                    writer.Write(JsonConvert.SerializeObject(template));
-                }
-                zipFile.AddFile(new FileInfo(infoFile), Path.GetDirectoryName(infoFile.Replace(rootPath, @"\")));
-
+                sectionWidget.Template = ServiceLocator.Current.GetInstance<ISectionTemplateService>().Get(g.PartialView);
                 files.Each(f =>
                 {
-                    string file = (ApplicationContext as CMSApplicationContext).MapPath(f.FormatWith(template.TemplateName));
+                    string file = (ApplicationContext as CMSApplicationContext).MapPath(f.FormatWith(sectionWidget.Template.TemplateName));
                     if (File.Exists(file))
                     {
-                        zipFile.AddFile(new FileInfo(file), Path.GetDirectoryName(file.Replace(rootPath, @"\")));
+                        FileInfo fileInfo = new FileInfo(file);
+                        package.Files.Add(new Web.CMS.PackageManger.FileInfo { FileName = fileInfo.Name, FilePath = fileInfo.FullName.Replace(rootPath, "~/"), Content = File.ReadAllBytes(file) });
                     }
                 });
 
             });
-
-            return zipFile;
+            return package;
         }
-        public override WidgetBase UnPackWidget(ZipFileInfoCollection pack)
+        public override void InstallWidget(WidgetPackage pack)
         {
-            SectionWidget widget = null;
-            foreach (ZipFileInfo item in pack)
+            pack.Widget = null;
+            base.InstallWidget(pack);
+            var widget = JsonConvert.DeserializeObject<SectionWidget>(JObject.Parse(pack.Content.ToString()).GetValue("Widget").ToString(), new SectionContentJsonConverter());
+            var sectionTemplateService = ServiceLocator.Current.GetInstance<ISectionTemplateService>();
+            if (sectionTemplateService.Count(new DataFilter().Where("TemplateName", OperatorType.Equal, widget.Template.TemplateName)) == 0)
             {
-                if (item.RelativePath.EndsWith("-widget.json"))
-                {
-                    widget = JsonConvert.DeserializeObject<SectionWidget>(Encoding.UTF8.GetString(item.FileBytes), new SectionContentJsonConverter());
-                    continue;
-                }
-
-                using (var fs = File.Create((ApplicationContext as CMSApplicationContext).MapPath("~" + item.RelativePath)))
-                {
-                    fs.Write(item.FileBytes, 0, item.FileBytes.Length);
-                }
-
-                if (item.RelativePath.EndsWith(".json"))
-                {
-                    var template = JsonConvert.DeserializeObject<SectionTemplate>(Encoding.UTF8.GetString(item.FileBytes));
-                    var sectionTemplateService =
-                        ServiceLocator.Current.GetInstance<ISectionTemplateService>();
-                    if (sectionTemplateService.Count(m => m.TemplateName == template.TemplateName) > 0)
-                    {
-                        sectionTemplateService.Update(template);
-                    }
-                    else
-                    {
-                        sectionTemplateService.Add(template);
-                    }
-                }
-
+                sectionTemplateService.Add(widget.Template);
             }
-            return widget;
+            widget.PageID = null;
+            widget.LayoutID = null;
+            widget.ZoneID = null;
+            widget.IsSystem = false;
+            widget.IsTemplate = true;
+            AddWidget(widget);
         }
     }
 }

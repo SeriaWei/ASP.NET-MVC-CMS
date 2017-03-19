@@ -13,6 +13,9 @@ using Easy.Web.Attribute;
 using Easy.Web.Authorize;
 using Easy.Web.CMS.Widget;
 using Microsoft.Practices.ServiceLocation;
+using Newtonsoft.Json;
+using System.IO;
+using Easy.Web.CMS.PackageManger;
 
 namespace Easy.CMS.Section.Controllers
 {
@@ -21,10 +24,14 @@ namespace Easy.CMS.Section.Controllers
     {
         private readonly ISectionGroupService _sectionGroupService;
         private readonly ISectionContentProviderService _sectionContentProviderService;
-        public SectionGroupController(ISectionGroupService sectionGroupService, ISectionContentProviderService sectionContentProviderService)
+        private readonly IPackageInstallerProvider _packageInstallerProvider;
+        public SectionGroupController(ISectionGroupService sectionGroupService, 
+            ISectionContentProviderService sectionContentProviderService,
+            IPackageInstallerProvider packageInstallerProvider)
         {
             _sectionGroupService = sectionGroupService;
             _sectionContentProviderService = sectionContentProviderService;
+            _packageInstallerProvider = packageInstallerProvider;
         }
 
         public ActionResult Create(string sectionWidgetId)
@@ -99,7 +106,9 @@ namespace Easy.CMS.Section.Controllers
             {
                 try
                 {
-                    ServiceLocator.Current.GetInstance<IWidgetService>().InstallPackWidget(Request.Files[0].InputStream);
+                    WidgetPackage package;
+                    _packageInstallerProvider.CreateInstaller(Request.Files[0].InputStream, out package);
+                    package.Widget.CreateServiceInstance().InstallWidget(package);
                 }
                 catch (Exception ex)
                 {
