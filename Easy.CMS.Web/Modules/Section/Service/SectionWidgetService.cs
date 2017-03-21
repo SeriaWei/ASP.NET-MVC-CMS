@@ -110,10 +110,16 @@ namespace Easy.CMS.Section.Service
                 files.Each(f =>
                 {
                     string file = (ApplicationContext as CMSApplicationContext).MapPath(f.FormatWith(sectionWidget.Template.TemplateName));
-                    if (File.Exists(file))
+                    string fileName = Path.GetFileName(file);
+                    if (File.Exists(file) && package.Files.All(m => m.FileName != fileName))
                     {
                         FileInfo fileInfo = new FileInfo(file);
-                        package.Files.Add(new Web.CMS.PackageManger.FileInfo { FileName = fileInfo.Name, FilePath = fileInfo.FullName.Replace(rootPath, "~/"), Content = File.ReadAllBytes(file) });
+                        package.Files.Add(new Web.CMS.PackageManger.FileInfo
+                        {
+                            FileName = fileInfo.Name,
+                            FilePath = fileInfo.FullName.Replace(rootPath, "~/").Replace("\\", "/"),
+                            Content = File.ReadAllBytes(file)
+                        });
                     }
                 });
 
@@ -122,8 +128,22 @@ namespace Easy.CMS.Section.Service
         }
         public override void InstallWidget(WidgetPackage pack)
         {
+            var pluginRootPath = (ApplicationContext as CMSApplicationContext).MapPath("~/Modules/Section");
+
+            pack.Files.Each(file =>
+            {
+                var pathArray = file.FilePath.Replace("\\", "/").Split('/');
+                file.FilePath = Path.Combine(pluginRootPath, pathArray[pathArray.Length - 1].EndsWith(".cshtml") ? "" : "Views", pathArray[pathArray.Length - 2], pathArray[pathArray.Length - 1]);
+
+                var directory = Path.GetDirectoryName(file.FilePath);
+                if (!Directory.Exists(directory))
+                {
+                    Directory.CreateDirectory(directory);
+                }
+                File.WriteAllBytes(file.FilePath, file.Content);
+
+            });
             pack.Widget = null;
-            base.InstallWidget(pack);
             var widget = JsonConvert.DeserializeObject<SectionWidget>(JObject.Parse(pack.Content.ToString()).GetValue("Widget").ToString(), new SectionContentJsonConverter());
             var sectionTemplateService = ServiceLocator.Current.GetInstance<ISectionTemplateService>();
             if (sectionTemplateService.Count(new DataFilter().Where("TemplateName", OperatorType.Equal, widget.Template.TemplateName)) == 0)

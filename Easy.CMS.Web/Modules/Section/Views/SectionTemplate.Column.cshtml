@@ -1,5 +1,4 @@
-﻿@using Easy.CMS.Section
-@model Easy.CMS.Section.Models.SectionGroup
+﻿@model SectionGroup
 @{
     int count = Model.SectionContents.Count() / 2 + 1;
     var contents = Model.SectionContents.OrderBy(m => m.Order);

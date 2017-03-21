@@ -1,6 +1,4 @@
-﻿@using Easy.CMS.Section
-@using Easy.CMS.Section.Models
-@model Easy.CMS.Section.Models.SectionGroup
+﻿@model SectionGroup
 <ul class="section-content-listgroup list-group">
     @foreach (SectionContent content in Model.SectionContents.OrderBy(m => m.Order))
     {
