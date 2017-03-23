@@ -830,8 +830,16 @@ WriteLiteral("></script>\r\n");
             
             #line default
             #line hidden
-WriteLiteral("</body>\r\n\r\n</html>");
+WriteLiteral("</body>\r\n\r\n</html>\r\n");
 
+            
+            #line 149 "..\..\Modules\Common\Views\Shared\_Layout.cshtml"
+   
+    ExecutePageFinish();
+
+            
+            #line default
+            #line hidden
         }
     }
 }

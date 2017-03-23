@@ -107,6 +107,7 @@
     <Compile Include="HttpActionResult\HttpForbiddenResult.cs" />
     <Compile Include="Attribute\HandleErrorToLogAttribute.cs" />
     <Compile Include="Authorize\DefaultAuthorizeAttribute.cs" />
+    <Compile Include="Page\IOnPageFinished.cs" />
     <Compile Include="ValueProvider\Cookie.cs" />
     <Compile Include="ValueProvider\ICookie.cs" />
     <Compile Include="Filter\ConfigureFilterBase.cs" />

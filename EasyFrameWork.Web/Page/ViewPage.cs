@@ -19,38 +19,42 @@ namespace Easy.Web.Page
         public const string PartScriptKey = "ViewDataKey_PartScript";
         public const string PartStyleKey = "ViewDataKey_PartStyle";
 
-        public IHtmlString ScriptAtHead()
+        public IHtmlString ScriptAtHead(bool includeRequired = true)
         {
-            return GetResource(PartScriptKey, ResourcePosition.Head);
+            return GetResource(PartScriptKey, ResourcePosition.Head, includeRequired);
         }
 
-        public IHtmlString ScriptAtFoot()
+        public IHtmlString ScriptAtFoot(bool includeRequired = true)
         {
-            return GetResource(PartScriptKey, ResourcePosition.Foot);
+            return GetResource(PartScriptKey, ResourcePosition.Foot, includeRequired);
         }
 
-        public IHtmlString StyleAtHead()
+        public IHtmlString StyleAtHead(bool includeRequired = true)
         {
-            return GetResource(PartStyleKey, ResourcePosition.Head);
+            return GetResource(PartStyleKey, ResourcePosition.Head, includeRequired);
         }
 
-        public IHtmlString StyleAtFoot()
+        public IHtmlString StyleAtFoot(bool includeRequired = true)
         {
-            return GetResource(PartStyleKey, ResourcePosition.Foot);
+            return GetResource(PartStyleKey, ResourcePosition.Foot, includeRequired);
         }
 
-        private IHtmlString GetResource(string key, ResourcePosition position)
+        private IHtmlString GetResource(string key, ResourcePosition position, bool includeRequired)
         {
             var writer = new HtmlStringWriter();
-            switch (key)
+            if (includeRequired)
             {
-                case PartScriptKey:
-                    ResourceManager.ScriptSource.Where(m => m.Value.Required && m.Value.Position == position)
-                        .Each(m => m.Value.Each(r => writer.WriteLine(r.ToSource(this, this.Context)))); break;
-                case PartStyleKey:
-                    ResourceManager.StyleSource.Where(m => m.Value.Required && m.Value.Position == position)
-                        .Each(m => m.Value.Each(r => writer.WriteLine(r.ToSource(this, this.Context)))); break;
+                switch (key)
+                {
+                    case PartScriptKey:
+                        ResourceManager.ScriptSource.Where(m => m.Value.Required && m.Value.Position == position)
+                            .Each(m => m.Value.Each(r => writer.WriteLine(r.ToSource(this, this.Context)))); break;
+                    case PartStyleKey:
+                        ResourceManager.StyleSource.Where(m => m.Value.Required && m.Value.Position == position)
+                            .Each(m => m.Value.Each(r => writer.WriteLine(r.ToSource(this, this.Context)))); break;
+                }
             }
+
             if (TempData.ContainsKey(key))
             {
                 var source = TempData[key] as Dictionary<string, ResourceCollection>;
@@ -112,6 +116,15 @@ namespace Easy.Web.Page
             get
             {
                 return _authorizer ?? (_authorizer = ServiceLocator.Current.GetInstance<IAuthorizer>());
+            }
+        }
+
+        public void ExecutePageFinish()
+        {
+            var finishes = ServiceLocator.Current.GetAllInstances<IOnPageFinished>();
+            if(finishes!=null && finishes.Any())
+            {
+                finishes.Each(m => m.Finish(this));
             }
         }
     }

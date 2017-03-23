@@ -74,10 +74,27 @@ namespace Easy.Web.CMS.Filter
         }
         public void OnActionExecuted(ActionExecutedContext filterContext)
         {
+
             //Page
             var page = GetPage(filterContext);
             if (page != null)
             {
+                if (GetPageViewMode() == PageViewMode.Publish)
+                {
+                    var cacheService = ServiceLocator.Current.GetInstance<IStaticPageCache>();
+                    if (cacheService != null)
+                    {
+                        var cache = cacheService.Get(page, filterContext.RequestContext.HttpContext.Request);
+                        if (cache != null)
+                        {
+                            var result = new ContentResult();
+                            result.Content = cache;
+                            result.ContentType = "text/html";
+                            filterContext.Result = result;
+                            return;
+                        }
+                    }
+                }
                 LayoutEntity layout = ServiceLocator.Current.GetInstance<ILayoutService>().Get(page.LayoutId);
                 layout.Page = page;
                 page.Favicon = ServiceLocator.Current.GetInstance<IApplicationSettingService>().Get(SettingKeys.Favicon, "~/favicon.ico");
