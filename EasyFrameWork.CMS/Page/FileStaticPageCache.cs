@@ -10,14 +10,9 @@ using Newtonsoft.Json;
 
 namespace Easy.Web.CMS.Page
 {
-    public class StaticPageCacheSetting
+    public class FileStaticPageCache : IStaticPageCache
     {
-        public bool Enable { get; set; }
-        public int CacheHours { get; set; }
-    }
-    public class StaticPageCache : IStaticPageCache
-    {
-        private const string CacheFolder = "~/CachePages/{0}";
+        private const string CacheFolder = "~/CachePages";
         private const string NameFormat = "{0}.page";
         private const string SettingFile = "setting.config";
         private string GetFileName(PageEntity page, HttpRequestBase request)
@@ -32,7 +27,7 @@ namespace Easy.Web.CMS.Page
         private string GetFolder()
         {
             var request = HttpContext.Current.Request;
-            return request.MapPath(CacheFolder.FormatWith(request.Url.Host));
+            return request.MapPath(CacheFolder);
         }
         public void Finish(WebViewPage page)
         {
@@ -70,12 +65,17 @@ namespace Easy.Web.CMS.Page
 
         public string Get(PageEntity page, HttpRequestBase request)
         {
-            if (GetSetting().Enable && (page.IsStaticCache ?? false) && !request.IsAuthenticated)
+            var setting = GetSetting();
+            if (setting.Enable && (page.IsStaticCache ?? false) && !request.IsAuthenticated)
             {
                 string file = Path.Combine(GetFolder(), GetFileName(page, request));
-                if (File.Exists(file))
+                FileInfo pageFile = new FileInfo(file);
+                if (pageFile.Exists && (setting.CacheHours == 0 || pageFile.LastWriteTime.AddHours(setting.CacheHours) > DateTime.Now))
                 {
-                    return File.ReadAllText(file);
+                    using (StreamReader reader = new StreamReader(pageFile.OpenRead()))
+                    {
+                        return reader.ReadToEnd();
+                    }
                 }
             }
             return null;

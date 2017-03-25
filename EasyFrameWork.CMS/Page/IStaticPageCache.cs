@@ -8,7 +8,7 @@ using System.Web;
 
 namespace Easy.Web.CMS.Page
 {
-    public interface IStaticPageCache : IOnPageFinished, IDependency
+    public interface IStaticPageCache : IOnPageFinished
     {
         string Get(PageEntity page, HttpRequestBase request);
         void Clear();
