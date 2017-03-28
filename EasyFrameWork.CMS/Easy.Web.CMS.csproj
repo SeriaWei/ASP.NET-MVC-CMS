@@ -135,9 +135,11 @@
     <Compile Include="PackageManger\IPackageInstallerProvider.cs" />
     <Compile Include="PackageManger\Package.cs" />
     <Compile Include="PackageManger\PackageInstallerProvider.cs" />
+    <Compile Include="Page\DataBasePageCache.cs" />
     <Compile Include="Page\IStaticPageCache.cs" />
     <Compile Include="Page\PageViewType.cs" />
-    <Compile Include="Page\StaticPageCache.cs" />
+    <Compile Include="Page\FileStaticPageCache.cs" />
+    <Compile Include="Page\StaticPageCacheSetting.cs" />
     <Compile Include="PermissionDescriptor.cs" />
     <Compile Include="Product\Models\Product.cs" />
     <Compile Include="Product\Models\ProductCategory.cs" />

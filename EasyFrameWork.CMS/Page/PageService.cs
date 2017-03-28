@@ -40,6 +40,12 @@ namespace Easy.Web.CMS.Page
         {
             get { return _dataArchivedService ?? (_dataArchivedService = ServiceLocator.Current.GetInstance<IDataArchivedService>()); }
         }
+        private IStaticPageCache _staticPageCache;
+
+        public IStaticPageCache StaticPageCache
+        {
+            get { return _staticPageCache ?? (_staticPageCache = ServiceLocator.Current.GetInstance<IStaticPageCache>()); }
+        }
         public override bool Update(PageEntity item, params object[] primaryKeys)
         {
             if (Count(m => m.ID != item.ID && m.Url == item.Url && m.IsPublishedPage == false) > 0)
@@ -59,6 +65,7 @@ namespace Easy.Web.CMS.Page
             //Delete(m => m.ReferencePageID == item.ID && m.IsPublishedPage == true);
 
             DataArchivedService.Delete(CacheTrigger.PageWidgetsArchivedKey.FormatWith(item.ID));
+            StaticPageCache.Delete(item.ID);
 
             item.ReferencePageID = item.ID;
             item.IsPublishedPage = true;
@@ -130,6 +137,7 @@ namespace Easy.Web.CMS.Page
                 else
                 {
                     DataArchivedService.Delete(CacheTrigger.PageWidgetsArchivedKey.FormatWith(page.ReferencePageID));
+                    StaticPageCache.Delete(page.ReferencePageID);
                 }
             }
         }
@@ -146,7 +154,11 @@ namespace Easy.Web.CMS.Page
                 var widgets = WidgetService.Get(new DataFilter().Where("PageID", OperatorType.In, deletes));
                 widgets.Each(m => m.CreateServiceInstance().DeleteWidget(m.ID));
 
-                deletes.Each(p => DataArchivedService.Delete(CacheTrigger.PageWidgetsArchivedKey.FormatWith(p)));
+                deletes.Each(p =>
+                {
+                    DataArchivedService.Delete(CacheTrigger.PageWidgetsArchivedKey.FormatWith(p));
+                    StaticPageCache.Delete(p);
+                });
             }
             return base.Delete(filter);
         }
@@ -163,6 +175,7 @@ namespace Easy.Web.CMS.Page
                     Delete(m => m.ReferencePageID == page.ID);
                 }
                 DataArchivedService.Delete(CacheTrigger.PageWidgetsArchivedKey.FormatWith(page.ID));
+                StaticPageCache.Delete(page.ID);
             }
 
 
@@ -177,6 +190,7 @@ namespace Easy.Web.CMS.Page
                 var widgets = WidgetService.Get(m => m.PageID == page.ID);
                 widgets.Each(m => m.CreateServiceInstance().DeleteWidget(m.ID));
                 DataArchivedService.Delete(CacheTrigger.PageWidgetsArchivedKey.FormatWith(page.ID));
+                StaticPageCache.Delete(page.ID);
             }
             base.Delete(ID);
         }

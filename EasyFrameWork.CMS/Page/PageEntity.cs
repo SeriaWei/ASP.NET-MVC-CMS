@@ -45,6 +45,7 @@ namespace Easy.Web.CMS.Page
         public bool IsPublish { get; set; }
         public IEnumerable<ExtendFieldEntity> ExtendFields { get; set; }
         public string Favicon { get; set; }
+        public bool? IsStaticCache { get; set; }
     }
     class PageBaseMetaData : DataViewMetaData<PageEntity>
     {
@@ -66,6 +67,7 @@ namespace Easy.Web.CMS.Page
             ViewConfig(m => m.LayoutId).AsDropDownList().DataSource(ViewDataKeys.Layouts, SourceType.ViewData);
             ViewConfig(m => m.Script).AsTextBox().AddClass(StringKeys.SelectMediaClass).AddProperty("data-url", Urls.SelectMedia);
             ViewConfig(m => m.Style).AsTextBox().AddClass(StringKeys.SelectMediaClass).AddProperty("data-url", Urls.SelectMedia);
+            ViewConfig(m => m.IsStaticCache).AsCheckBox();
             ViewConfig(m => m.ExtendFields).AsListEditor();
             ViewConfig(m => m.ParentId).AsHidden();
             ViewConfig(m => m.ID).AsHidden();

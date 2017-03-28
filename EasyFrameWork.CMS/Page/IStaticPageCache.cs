@@ -8,10 +8,12 @@ using System.Web;
 
 namespace Easy.Web.CMS.Page
 {
-    public interface IStaticPageCache : IOnPageFinished//, IDependency
+    public interface IStaticPageCache : IOnPageFinished
     {
         string Get(PageEntity page, HttpRequestBase request);
         void Clear();
-        void Delete(string key);
+        void Delete(string searchPattern);
+        StaticPageCacheSetting GetSetting();
+        void SaveSetting(StaticPageCacheSetting setting);
     }
 }
