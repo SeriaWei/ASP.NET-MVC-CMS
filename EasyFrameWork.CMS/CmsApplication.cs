@@ -66,7 +66,6 @@ namespace Easy.Web.CMS
             ContainerAdapter.RegisterType<ILanguageService, LanguageService>();
             ContainerAdapter.RegisterType<IAuthorizer, DefaultAuthorizer>();
             ContainerAdapter.RegisterType<IApplicationContext, CMSApplicationContext>(DependencyLifeTime.PerRequest);
-            ContainerAdapter.RegisterType<Page.IStaticPageCache, Page.DataBasePageCache>();
             //DisplayViewSupport.SupportMobileView();
             //DisplayViewSupport.SupportIEView();
         }

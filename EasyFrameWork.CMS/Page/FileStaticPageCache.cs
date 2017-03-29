@@ -27,7 +27,12 @@ namespace Easy.Web.CMS.Page
         private string GetFolder()
         {
             var request = HttpContext.Current.Request;
-            return request.MapPath(CacheFolder);
+            var folder= request.MapPath(CacheFolder);
+            if (!Directory.Exists(folder))
+            {
+                Directory.CreateDirectory(folder);
+            }
+            return folder;
         }
         public void Finish(WebViewPage page)
         {
@@ -38,19 +43,18 @@ namespace Easy.Web.CMS.Page
                 {
                     var html = page.Output.ToString();
                     string fileName = GetFileName(layout.Page, page.Request);
-                    var folder = GetFolder();
-                    if (!Directory.Exists(folder))
-                    {
-                        Directory.CreateDirectory(folder);
-                    }
-                    File.WriteAllText(Path.Combine(folder, fileName), html);
+                    File.WriteAllText(Path.Combine(GetFolder(), fileName), html);
                 }
             }
         }
 
         public void Clear()
         {
-            Directory.Delete(HttpContext.Current.Request.MapPath(CacheFolder.FormatWith(HttpContext.Current.Request.Url.Host)), true);
+            var dir = new DirectoryInfo(HttpContext.Current.Request.MapPath(CacheFolder.FormatWith(HttpContext.Current.Request.Url.Host)));
+            dir.GetFiles(NameFormat.FormatWith("*")).Each(file =>
+            {
+                file.Delete();
+            });
         }
 
         public void Delete(string searchPattern)
@@ -104,7 +108,11 @@ namespace Easy.Web.CMS.Page
         public long Count()
         {
             var dir = new DirectoryInfo(HttpContext.Current.Request.MapPath(CacheFolder.FormatWith(HttpContext.Current.Request.Url.Host)));
-            return dir.GetFiles(NameFormat.FormatWith("*")).Count();
+            if (dir.Exists)
+            {
+                return dir.GetFiles(NameFormat.FormatWith("*")).Count();
+            }
+            return 0;
         }
     }
 }
