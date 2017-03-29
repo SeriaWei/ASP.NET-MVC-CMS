@@ -7,7 +7,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{D1E0BEA0-D9BB-4330-9813-235FB8A447AF}</ProjectGuid>
+    <ProjectGuid>{FB132700-B44D-4E55-806F-08A92235EA68}</ProjectGuid>
     <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -43,14 +43,6 @@
   <ItemGroup>
     <Reference Include="Autofac, Version=3.5.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Autofac.3.5.2\lib\net40\Autofac.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Easy, Version=1.0.7.2, Culture=neutral, PublicKeyToken=2b89634455a72a39, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\EasyFrameWork.1.0.7.2\lib\net40\Easy.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Easy.Web, Version=1.0.9.1, Culture=neutral, PublicKeyToken=48e55983b3ecaefe, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\EasyFrameWork.Web.1.0.9.1\lib\net40\Easy.Web.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
@@ -129,6 +121,14 @@
     <ProjectReference Include="..\..\..\EasyFrameWork.CMS\Easy.Web.CMS.csproj">
       <Project>{2e8362ae-80d6-43e0-b3bf-cab6d888d154}</Project>
       <Name>Easy.Web.CMS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\EasyFrameWork.Web\Easy.Web.csproj">
+      <Project>{a1228125-f5c4-4001-ac7d-1accf1679828}</Project>
+      <Name>Easy.Web</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\EasyFrameWork\Easy.csproj">
+      <Project>{edb1baa7-ec61-4292-bbe5-3bc39eb171e4}</Project>
+      <Name>Easy</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -15,5 +15,6 @@ namespace Easy.Web.CMS.Page
         void Delete(string searchPattern);
         StaticPageCacheSetting GetSetting();
         void SaveSetting(StaticPageCacheSetting setting);
+        long Count();
     }
 }

@@ -10,6 +10,7 @@ obj
 /Easy.CMS.Web/Modules/Statistics
 /Easy.CMS.Web/Modules/SelfService_Provider
 /Easy.CMS.Web/Modules/SelfService_Register
+/Easy.CMS.Web/Modules/StaticCache
 /Easy.CMS.Web/Modules/Chart
 /Easy.CMS.Web/Modules/.svn
 /ZKEASOFT.Privite.CMS.Web.sln

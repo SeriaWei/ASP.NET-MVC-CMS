@@ -100,5 +100,11 @@ namespace Easy.Web.CMS.Page
             var file = Path.Combine(GetFolder(), SettingFile);
             File.WriteAllText(file, JsonConvert.SerializeObject(setting));
         }
+
+        public long Count()
+        {
+            var dir = new DirectoryInfo(HttpContext.Current.Request.MapPath(CacheFolder.FormatWith(HttpContext.Current.Request.Url.Host)));
+            return dir.GetFiles(NameFormat.FormatWith("*")).Count();
+        }
     }
 }

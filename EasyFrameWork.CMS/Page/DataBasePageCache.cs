@@ -89,5 +89,10 @@ namespace Easy.Web.CMS.Page
         {
             _dataArchivedService.Add(new DataArchived.DataArchived { ID = SettingKey, Data = JsonConvert.SerializeObject(setting) });
         }
+
+        public long Count()
+        {
+            return _dataArchivedService.Count(new Data.DataFilter().Where("ID", Data.OperatorType.StartWith, "PageHtmlContent:"));
+        }
     }
 }
