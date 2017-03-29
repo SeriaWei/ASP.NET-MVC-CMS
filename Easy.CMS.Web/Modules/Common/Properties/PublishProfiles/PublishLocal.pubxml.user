@@ -67,13 +67,13 @@
       <publishTime>09/08/2015 09:26:45</publishTime>
     </File>
     <File Include="bin/Easy.CMS.Common.dll">
-      <publishTime>03/27/2017 21:18:51</publishTime>
+      <publishTime>03/29/2017 23:23:28</publishTime>
     </File>
     <File Include="bin/Easy.dll">
       <publishTime>03/19/2017 21:25:36</publishTime>
     </File>
     <File Include="bin/Easy.Web.CMS.dll">
-      <publishTime>03/27/2017 21:15:37</publishTime>
+      <publishTime>03/29/2017 23:18:55</publishTime>
     </File>
     <File Include="bin/Easy.Web.dll">
       <publishTime>03/27/2017 21:15:36</publishTime>
@@ -253,7 +253,7 @@
       <publishTime>03/09/2017 22:00:25</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>03/27/2017 21:18:53</publishTime>
+      <publishTime>03/29/2017 23:23:34</publishTime>
     </File>
     <File Include="Scripts/jquery-1.8.2.js">
       <publishTime>08/28/2016 23:32:05</publishTime>
