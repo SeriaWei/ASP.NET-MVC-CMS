@@ -6,7 +6,7 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>D:\Projects\ASP.NET-MVC-CMS\Release\Application\Modules\Message</_PublishTargetUrl>
+    <_PublishTargetUrl>E:\GitHub\CMS\Easy.CMS.Web\Modules\Message\Properties\PublishProfiles\..\..\..\..\..\Release\Application\Modules\Message</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/App_Web_3t4fkr1c.dll">
@@ -19,7 +19,7 @@
       <publishTime>09/08/2015 09:27:02</publishTime>
     </File>
     <File Include="bin/Autofac.dll">
-      <publishTime>08/28/2016 23:33:20</publishTime>
+      <publishTime>07/27/2015 08:41:42</publishTime>
     </File>
     <File Include="bin/create.cshtml.ab886a4d.compiled">
       <publishTime>09/08/2015 09:27:02</publishTime>
@@ -28,19 +28,19 @@
       <publishTime>09/08/2015 09:27:02</publishTime>
     </File>
     <File Include="bin/Easy.CMS.Message.dll">
-      <publishTime>03/29/2017 23:24:03</publishTime>
+      <publishTime>03/30/2017 12:09:33</publishTime>
     </File>
     <File Include="bin/Easy.CMS.Product.dll">
       <publishTime>11/07/2015 13:41:31</publishTime>
     </File>
     <File Include="bin/Easy.dll">
-      <publishTime>03/19/2017 21:25:36</publishTime>
+      <publishTime>03/24/2017 16:30:26</publishTime>
     </File>
     <File Include="bin/Easy.Web.CMS.dll">
-      <publishTime>03/29/2017 23:18:55</publishTime>
+      <publishTime>03/30/2017 11:43:43</publishTime>
     </File>
     <File Include="bin/Easy.Web.dll">
-      <publishTime>03/27/2017 21:15:36</publishTime>
+      <publishTime>03/24/2017 16:30:27</publishTime>
     </File>
     <File Include="bin/EasyZip.dll">
       <publishTime>03/15/2017 16:34:24</publishTime>
@@ -58,16 +58,16 @@
       <publishTime>09/08/2015 09:27:02</publishTime>
     </File>
     <File Include="bin/Microsoft.Practices.ServiceLocation.dll">
-      <publishTime>08/28/2016 23:33:20</publishTime>
+      <publishTime>07/27/2015 08:41:42</publishTime>
     </File>
     <File Include="bin/Microsoft.Practices.Unity.Configuration.dll">
-      <publishTime>08/28/2016 23:33:38</publishTime>
+      <publishTime>07/27/2015 08:41:42</publishTime>
     </File>
     <File Include="bin/Microsoft.Practices.Unity.dll">
-      <publishTime>08/28/2016 23:33:38</publishTime>
+      <publishTime>07/27/2015 08:41:42</publishTime>
     </File>
     <File Include="bin/Microsoft.Web.Infrastructure.dll">
-      <publishTime>08/28/2016 23:33:24</publishTime>
+      <publishTime>07/22/2014 08:57:04</publishTime>
     </File>
     <File Include="bin/Microsoft.Web.Mvc.FixedDisplayModes.dll">
       <publishTime>07/02/2014 21:58:03</publishTime>
@@ -76,7 +76,7 @@
       <publishTime>08/31/2015 08:40:04</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
-      <publishTime>08/28/2016 23:33:31</publishTime>
+      <publishTime>01/20/2016 12:05:05</publishTime>
     </File>
     <File Include="bin/System.Net.Http.dll">
       <publishTime>07/10/2012 12:07:38</publishTime>
@@ -85,22 +85,22 @@
       <publishTime>07/10/2012 12:07:38</publishTime>
     </File>
     <File Include="bin/System.Web.Helpers.dll">
-      <publishTime>08/28/2016 23:33:24</publishTime>
+      <publishTime>07/22/2014 08:57:04</publishTime>
     </File>
     <File Include="bin/System.Web.Mvc.dll">
-      <publishTime>08/28/2016 23:33:21</publishTime>
+      <publishTime>07/27/2015 08:41:42</publishTime>
     </File>
     <File Include="bin/System.Web.Razor.dll">
-      <publishTime>08/28/2016 23:33:23</publishTime>
+      <publishTime>07/22/2014 08:57:04</publishTime>
     </File>
     <File Include="bin/System.Web.WebPages.Deployment.dll">
-      <publishTime>08/28/2016 23:33:24</publishTime>
+      <publishTime>07/22/2014 08:57:04</publishTime>
     </File>
     <File Include="bin/System.Web.WebPages.dll">
-      <publishTime>08/28/2016 23:33:24</publishTime>
+      <publishTime>07/22/2014 08:57:04</publishTime>
     </File>
     <File Include="bin/System.Web.WebPages.Razor.dll">
-      <publishTime>08/28/2016 23:33:24</publishTime>
+      <publishTime>07/22/2014 08:57:04</publishTime>
     </File>
     <File Include="bin/widget.productcategory.cshtml.65a2d1ee.compiled">
       <publishTime>09/08/2015 09:27:02</publishTime>
@@ -136,13 +136,13 @@
       <publishTime>07/02/2014 21:58:06</publishTime>
     </File>
     <File Include="CopyItems.xml">
-      <publishTime>03/01/2017 21:50:41</publishTime>
+      <publishTime>03/01/2017 14:12:55</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>03/09/2017 22:00:25</publishTime>
+      <publishTime>03/09/2017 12:25:16</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>03/29/2017 23:24:05</publishTime>
+      <publishTime>03/30/2017 12:09:34</publishTime>
     </File>
     <File Include="Scripts/jquery-photowall/exit.gif">
       <publishTime>01/30/2015 22:48:00</publishTime>
@@ -166,13 +166,13 @@
       <publishTime>08/28/2015 15:35:13</publishTime>
     </File>
     <File Include="Views/Message/Create.cshtml">
-      <publishTime>03/01/2017 21:50:41</publishTime>
+      <publishTime>03/01/2017 14:28:07</publishTime>
     </File>
     <File Include="Views/Message/Edit.cshtml">
-      <publishTime>03/01/2017 21:50:41</publishTime>
+      <publishTime>03/01/2017 14:28:22</publishTime>
     </File>
     <File Include="Views/Message/Index.cshtml">
-      <publishTime>03/09/2017 22:00:25</publishTime>
+      <publishTime>03/09/2017 13:01:17</publishTime>
     </File>
     <File Include="Views/Product/Create.cshtml">
       <publishTime>09/09/2015 16:13:21</publishTime>
@@ -193,13 +193,13 @@
       <publishTime>10/29/2015 11:51:40</publishTime>
     </File>
     <File Include="Views/Web.config">
-      <publishTime>03/01/2017 21:50:41</publishTime>
+      <publishTime>07/11/2016 08:44:53</publishTime>
     </File>
     <File Include="Views/Widget.Message.cshtml">
-      <publishTime>03/02/2017 22:05:46</publishTime>
+      <publishTime>03/02/2017 12:07:51</publishTime>
     </File>
     <File Include="Views/Widget.MessageBox.cshtml">
-      <publishTime>03/06/2017 22:48:26</publishTime>
+      <publishTime>03/03/2017 09:47:46</publishTime>
     </File>
     <File Include="Views/Widget.ProductCategory.cshtml">
       <publishTime>08/31/2015 08:40:02</publishTime>
@@ -211,7 +211,7 @@
       <publishTime>01/30/2015 22:48:00</publishTime>
     </File>
     <File Include="web.config">
-      <publishTime>03/19/2017 21:28:58</publishTime>
+      <publishTime>03/15/2017 16:35:54</publishTime>
     </File>
   </ItemGroup>
 </Project>
