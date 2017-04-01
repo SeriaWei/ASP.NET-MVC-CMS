@@ -31,7 +31,7 @@ namespace Easy.CMS.Section.Service
                     {
                         try
                         {
-                            var content = Activator.CreateInstance("Easy.CMS.Section", attr.Value).Unwrap() as SectionContent;
+                            var content = Activator.CreateInstance("Easy.CMS.Section", "Easy.CMS.Section.Models." + attr.Value).Unwrap() as SectionContent;
                             var properties = item.SelectNodes("property");
                             foreach (XmlNode property in properties)
                             {
