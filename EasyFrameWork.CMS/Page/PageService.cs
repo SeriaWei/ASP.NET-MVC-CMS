@@ -58,8 +58,11 @@ namespace Easy.Web.CMS.Page
                .Where("ID", OperatorType.Equal, item.ID));
 
             //Delete(m => m.ReferencePageID == item.ID && m.IsPublishedPage == true);
+            if (StaticPageCache != null)
+            {
+                StaticPageCache.Delete(item.ID);
+            }
             
-            StaticPageCache.Delete(item.ID);
 
             item.ReferencePageID = item.ID;
             item.IsPublishedPage = true;
@@ -130,7 +133,11 @@ namespace Easy.Web.CMS.Page
                 }
                 else
                 {
-                    StaticPageCache.Delete(page.ReferencePageID);
+                    if (StaticPageCache != null)
+                    {
+                        StaticPageCache.Delete(page.ReferencePageID);
+                    }
+                    
                 }
             }
         }
@@ -146,11 +153,13 @@ namespace Easy.Web.CMS.Page
             {
                 var widgets = WidgetService.Get(new DataFilter().Where("PageID", OperatorType.In, deletes));
                 widgets.Each(m => m.CreateServiceInstance().DeleteWidget(m.ID));
-
-                deletes.Each(p =>
+                if (StaticPageCache != null)
                 {
-                    StaticPageCache.Delete(p);
-                });
+                    deletes.Each(p =>
+                    {
+                        StaticPageCache.Delete(p);
+                    });
+                }
             }
             return base.Delete(filter);
         }
@@ -166,7 +175,10 @@ namespace Easy.Web.CMS.Page
                 {
                     Delete(m => m.ReferencePageID == page.ID);
                 }
-                StaticPageCache.Delete(page.ID);
+                if (StaticPageCache != null)
+                {
+                    StaticPageCache.Delete(page.ID);
+                }                
             }
 
 
@@ -180,7 +192,11 @@ namespace Easy.Web.CMS.Page
             {
                 var widgets = WidgetService.Get(m => m.PageID == page.ID);
                 widgets.Each(m => m.CreateServiceInstance().DeleteWidget(m.ID));
-                StaticPageCache.Delete(page.ID);
+                if (StaticPageCache != null)
+                {
+                    StaticPageCache.Delete(page.ID);
+                }
+                
             }
             base.Delete(ID);
         }
