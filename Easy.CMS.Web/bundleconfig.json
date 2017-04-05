@@ -160,5 +160,11 @@
     "inputFiles": [
       "Content/themes/Admin/script/admin.js"
     ]
+  },
+  {
+    "outputFileName": "Scripts/Statistics.min.js",
+    "inputFiles": [
+      "Scripts/Statistics.js"
+    ]
   }
 ]
