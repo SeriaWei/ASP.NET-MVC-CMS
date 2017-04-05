@@ -798,6 +798,9 @@
       <DependentUpon>lightbox.js</DependentUpon>
     </Content>
     <Content Include="Scripts\Statistics.js" />
+    <Content Include="Scripts\Statistics.min.js">
+      <DependentUpon>Statistics.js</DependentUpon>
+    </Content>
     <Content Include="Scripts\tinymce\langs\zh_CN.js" />
     <Content Include="Scripts\tinymce\license.txt" />
     <Content Include="Scripts\tinymce\plugins\advlist\plugin.min.js" />
