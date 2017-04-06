@@ -228,13 +228,14 @@ namespace Easy.ViewPort.Descriptor
         }
         public TextBoxDescriptor Email(string errorMsg)
         {
+            this.AddClass("Email");
             this.Validator.Add(new RegularValidator(Constant.RegularExpression.Email)
             {
                 ErrorMessage = errorMsg,
                 Property = this.Name,
                 DisplayName = this.DisplayName
             });
-            return this.Email();
+            return this;
         }
 
 
