@@ -227,4 +227,6 @@ $(function () {
         relative_urls: false,
         language_url: "http://cdn.zkeasoft.com/Scripts/tinymce/langs/zh_CN.js"
     });
+
+    $("#main-menu").slimscroll({height:$(window).height()-170});
 });

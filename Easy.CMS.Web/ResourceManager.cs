@@ -45,7 +45,7 @@ namespace Easy.CMS.Web
                 .Include("~/Scripts/tinymce/tinymce.min.js", "~/Scripts/tinymce/tinymce.min.js")
                 .Include("~/Scripts/CryptoJS/components/core.js", "~/Scripts/CryptoJS/components/core-min.js", Urls.CdnHost + "/Scripts/CryptoJS/components/core-min.js")
                 .Include("~/Scripts/CryptoJS/components/enc-base64.js", "~/Scripts/CryptoJS/components/enc-base64-min.js", Urls.CdnHost + "/Scripts/CryptoJS/components/enc-base64-min.js")
-                .Include("~/Scripts/Statistics.js", "~/Scripts/Statistics.min.js")
+                .Include("~/Scripts/jquery.slimscroll.js", "~/Scripts/jquery.slimscroll.min.js")
                 .Include("~/Scripts/bootstrap-datetimepicker/moment-with-locales.js", "~/Scripts/bootstrap-datetimepicker/moment-with-locales.min.js", Urls.CdnHost + "/Scripts/bootstrap-datetimepicker/moment-with-locales.min.js")
                 .Include("~/Scripts/bootstrap-datetimepicker/bootstrap-datetimepicker.js", "~/Scripts/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js", Urls.CdnHost + "/Scripts/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js");
 
