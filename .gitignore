@@ -5,6 +5,7 @@ obj
 /Easy.CMS.Web.sln.metaproj
 /Easy.CMS.Web.sln.metaproj.tmp
 *.suo
+/DataBase/App_Data
 /Easy.CMS.Web/UpLoad
 /Easy.CMS.Web/App_Data
 /Easy.CMS.Web/Modules/Statistics
