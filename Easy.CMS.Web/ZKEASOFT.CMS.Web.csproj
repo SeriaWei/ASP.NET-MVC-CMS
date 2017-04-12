@@ -643,7 +643,6 @@
     <Content Include="Scripts\jquery-ui\jquery-ui.theme.css" />
     <Content Include="Scripts\jquery-ui\jquery-ui.theme.min.css" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\jquery.slimscroll.js" />
     <Content Include="Scripts\jquery.slimscroll.min.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
