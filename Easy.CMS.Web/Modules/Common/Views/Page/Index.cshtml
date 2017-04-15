@@ -112,19 +112,19 @@
         }
         function Edit(node) {
             var id = node.reference.attr("id");
-            window.location.href = '@Url.Action("Edit", "Page", new { module = "admin" })' + '?ID=' + id;
+            window.location.href = '@Url.Action("Edit", "Page", new { module = "admin" })' + '/' + id;
         }
         function PreView(node) {
             var id = node.reference.attr("id");
-            window.location.href = '@Url.Action("RedirectView", "Page", new { module = "admin" })' + '?ID=' + id;
+            window.location.href = '@Url.Action("RedirectView", "Page", new { module = "admin" })' + '/' + id;
         }
         function View(node) {
             var id = node.reference.attr("id");
-            window.open('@Url.Action("RedirectView", "Page", new { module = "admin" })' + '?ID=' + id + "&preview=false");
+            window.open('@Url.Action("RedirectView", "Page", new { module = "admin" })' + '/' + id + "?preview=false");
         }
         function Design(node) {
             var id = node.reference.attr("id");
-            window.location.href = '@Url.Action("Design", "Page", new { module = "admin" })' + '?ID=' + id;
+            window.location.href = '@Url.Action("Design", "Page", new { module = "admin" })' + '/' + id;
         }
         function Publish(node) {
             var id = node.reference.attr("id");
