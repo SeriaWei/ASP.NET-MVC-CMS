@@ -128,7 +128,7 @@ WriteLiteral(" data-val=\"true\"");
 
 WriteLiteral(" data-val-required=\"请输入用户名\"");
 
-WriteLiteral("/>\r\n                <span");
+WriteLiteral(" />\r\n                <span");
 
 WriteLiteral(" class=\"field-validation-valid \"");
 
@@ -197,7 +197,7 @@ WriteLiteral("\r\n                </div>\r\n");
 
             
             #line 36 "..\..\Modules\Common\Views\Account\Login.cshtml"
-            }            
+            }
 
             
             #line default
@@ -220,32 +220,34 @@ WriteLiteral(" href=\"http://www.zkea.net/licenses\"");
 
 WriteLiteral(" target=\"_blank\"");
 
-WriteLiteral(">许可协议</a>\r\n            </p>\r\n            <p>\r\n                Copyright © 2015-");
+WriteLiteral(">许可协议</a>\r\n            </p>\r\n            <p>\r\n                ");
+
+WriteLiteral("\r\n                Copyright © 2015-");
 
             
-            #line 46 "..\..\Modules\Common\Views\Account\Login.cshtml"
+            #line 47 "..\..\Modules\Common\Views\Account\Login.cshtml"
                             Write(DateTime.Now.Year);
 
             
             #line default
             #line hidden
-WriteLiteral(" ZKEASOFT. All Rights Reserved | <a");
+WriteLiteral(" ZKEASOFT. All Rights Reserved |\r\n                Powered by <a");
 
 WriteLiteral(" href=\"http://www.zkea.net\"");
 
 WriteLiteral(" target=\"_blank\"");
 
-WriteLiteral(">www.zkea.net</a>\r\n            </p>\r\n        </div>\r\n    </div>\r\n");
+WriteLiteral(">ZKEASOFT</a>\r\n            </p>\r\n        </div>\r\n    </div>\r\n");
 
             
-            #line 50 "..\..\Modules\Common\Views\Account\Login.cshtml"
+            #line 52 "..\..\Modules\Common\Views\Account\Login.cshtml"
 }
 
             
             #line default
             #line hidden
             
-            #line 51 "..\..\Modules\Common\Views\Account\Login.cshtml"
+            #line 53 "..\..\Modules\Common\Views\Account\Login.cshtml"
  using (Script.AtFoot())
 {
 
@@ -263,7 +265,7 @@ WriteLiteral(" src=\"http://www.zkea.net/openstatistics\"");
 WriteLiteral("></script>\r\n");
 
             
-            #line 54 "..\..\Modules\Common\Views\Account\Login.cshtml"
+            #line 56 "..\..\Modules\Common\Views\Account\Login.cshtml"
 }
             
             #line default

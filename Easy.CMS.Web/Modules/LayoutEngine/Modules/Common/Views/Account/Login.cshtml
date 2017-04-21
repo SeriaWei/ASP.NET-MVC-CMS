@@ -20,7 +20,7 @@
             <p>请输入您的用户信息以登录系统</p>
             <div class="form-input">
                 <h4>用户名</h4>
-                <input type="text" id="userName" name="userName" class="form-control" data-val="true" data-val-required="请输入用户名"/>
+                <input type="text" id="userName" name="userName" class="form-control" data-val="true" data-val-required="请输入用户名" />
                 <span class="field-validation-valid " data-valmsg-for="userName" data-valmsg-replace="true"></span>
             </div>
             <div class="form-input">
@@ -33,7 +33,7 @@
                 <div class="text-center alert alert-danger">
                     @ViewBag.Errormessage
                 </div>
-            }            
+            }
             <div>
                 <input type="submit" class="btn btn-danger btn-login" value="登录" />
             </div>
@@ -43,7 +43,9 @@
                 <a href="http://www.zkea.net/licenses" target="_blank">许可协议</a>
             </p>
             <p>
-                Copyright © 2015-@DateTime.Now.Year ZKEASOFT. All Rights Reserved | <a href="http://www.zkea.net" target="_blank">www.zkea.net</a>
+                @*/*授权以后，可以修改Copyright，但是请保留Powered by*/*@
+                Copyright © 2015-@DateTime.Now.Year ZKEASOFT. All Rights Reserved |
+                Powered by <a href="http://www.zkea.net" target="_blank">ZKEASOFT</a>
             </p>
         </div>
     </div>
