@@ -5,6 +5,7 @@ using Easy.MetaData;
 using Easy.Web.CMS;
 using Easy.Web.CMS.MetaData;
 using Easy.Web.CMS.Widget;
+using Easy.Constant;
 
 namespace Easy.CMS.Article.Models
 {
@@ -22,17 +23,10 @@ namespace Easy.CMS.Article.Models
         {
             base.ViewConfigure();
             ViewConfig(m => m.SubTitle).AsTextBox().Order(NextOrder());
-            ViewConfig(m => m.Style).AsDropDownList().Order(NextOrder())
-                .DataSource(() =>
-                    new Dictionary<string, string> { 
-                    { "bs-callout-default", "默认" },
-                    { "bs-callout-danger", "危险" }, 
-                    { "bs-callout-warning", "警告" }, 
-                    { "bs-callout-info", "信息" } ,
-                    { "bs-callout-success", "成功" } 
-            }); ;
+            ViewConfig(m => m.Style).AsDropDownList().Order(NextOrder()).DataSource(SourceType.Dictionary);
             ViewConfig(m => m.DetailLink).AsTextBox().Order(NextOrder()).AddClass("select").AddProperty("data-url", Urls.SelectPage);
             ViewConfig(m => m.Summary).AsTextArea().Order(NextOrder()).AddClass("html");
+            ViewConfig(m => m.PartialView).AsDropDownList().Order(NextOrder()).DataSource(SourceType.Dictionary);
         }
     }
 

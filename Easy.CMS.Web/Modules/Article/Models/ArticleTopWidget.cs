@@ -35,18 +35,7 @@ namespace Easy.CMS.Article.Models
             ViewConfig(m => m.MoreLink).AsTextBox().Order(NextOrder()).AddClass("select").AddProperty("data-url", Urls.SelectPage);
             ViewConfig(m => m.DetailPageUrl).AsTextBox().Order(NextOrder()).AddClass("select").AddProperty("data-url", Urls.SelectPage);
 
-            ViewConfig(m => m.PartialView).AsDropDownList().Order(NextOrder()).DataSource(() =>
-            {
-                var path = (ServiceLocator.Current.GetInstance<IApplicationContext>() as CMSApplicationContext).MapPath("~/Modules/Article/Views");
-                Dictionary<string, string> templates = new Dictionary<string, string>();
-                Directory.GetFiles(path, "Widget.ArticleTops*.cshtml").Each(f =>
-                {
-                    string fileName = Path.GetFileNameWithoutExtension(f);
-                    templates.Add(fileName, fileName.Replace("Widget.", ""));
-
-                });
-                return templates;
-            });
+            ViewConfig(m => m.PartialView).AsDropDownList().Order(NextOrder()).DataSource(SourceType.Dictionary);
         }
     }
 

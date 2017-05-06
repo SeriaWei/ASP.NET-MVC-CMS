@@ -1,4 +1,7 @@
-/* http://www.zkea.net/ Copyright 2016 ZKEASOFT http://www.zkea.net/licenses */
+/* http://www.zkea.net/ 
+ * Copyright 2017 ZKEASOFT 
+ * http://www.zkea.net/licenses 
+ */
 using System;
 using System.Collections.Generic;
 using Easy.CMS.Common.Service;
@@ -7,6 +10,7 @@ using Easy.MetaData;
 using Easy.Web.CMS.MetaData;
 using Easy.Web.CMS.Widget;
 using Microsoft.Practices.ServiceLocation;
+using Easy.Constant;
 
 namespace Easy.CMS.Common.Models
 {
@@ -21,6 +25,7 @@ namespace Easy.CMS.Common.Models
         protected override void ViewConfigure()
         {
             base.ViewConfigure();
+            ViewConfig(m => m.PartialView).AsDropDownList().DataSource(SourceType.Dictionary);
             ViewConfig(m => m.ID).AsHidden();
             ViewConfig(m => m.CarouselID).AsDropDownList().Order(NextOrder()).DataSource(() =>
             {

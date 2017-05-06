@@ -157,6 +157,19 @@ namespace Easy.ViewPort.Descriptor
                 {
                     _data = _souceFunc.Invoke();
                 }
+                if (SourceType == SourceType.Dictionary)
+                {
+                    var dicService = ServiceLocator.Current.GetInstance<IDataDictionaryService>();
+                    if (dicService != null)
+                    {
+                        _data = new Dictionary<string, string>();
+
+                        foreach (DataDictionaryEntity item in dicService.GetDictionaryByType(SourceKey))
+                        {
+                            this._data.Add(item.DicValue, item.Title);
+                        }
+                    }
+                }
                 return _data ?? (_data = new Dictionary<string, string>());
             }
         }
@@ -171,7 +184,7 @@ namespace Easy.ViewPort.Descriptor
             }
             return builder.ToString();
         }
-        
+
         public DropDownListDescriptor DataSource(string Url)
         {
             if (this.Properties.ContainsKey("DataSource"))
@@ -184,13 +197,13 @@ namespace Easy.ViewPort.Descriptor
             }
             return this;
         }
-        
+
         public DropDownListDescriptor DataSource(IDictionary<string, string> Data)
         {
             this._data = Data;
             return this;
         }
-        
+
         public DropDownListDescriptor DataSource<T>()
         {
             Type dataType = typeof(T);
@@ -219,50 +232,18 @@ namespace Easy.ViewPort.Descriptor
 
             return this;
         }
-        
+
         public DropDownListDescriptor DataSource(string dictionaryType, SourceType sourceType)
         {
             this.SourceKey = dictionaryType;
             this.SourceType = sourceType;
-            if (sourceType == SourceType.Dictionary)
-            {
-                if (ServiceLocator.IsLocationProviderSet)
-                {
-                    IDataDictionaryService dicService = ServiceLocator.Current.GetInstance<IDataDictionaryService>();
-                    if (dicService != null)
-                    {
-                        if (this._data == null)
-                        {
-                            _data = new Dictionary<string, string>();
-                        }
-                        foreach (DataDictionaryEntity item in dicService.GetDictionaryByType(dictionaryType))
-                        {
-                            this._data.Add(item.ID.ToString(), item.Title);
-                        }
-                    }
-                }
-            }
             return this;
         }
-        
+
         public DropDownListDescriptor DataSource(SourceType type)
         {
-            string dictionaryType = this.ModelType.Name + "@" + this.Name;
-            if (type == SourceType.Dictionary)
-            {
-                var dicService = ServiceLocator.Current.GetInstance<IDataDictionaryService>();
-                if (dicService != null)
-                {
-                    if (this._data == null)
-                    {
-                        _data=new Dictionary<string, string>();
-                    }
-                    foreach (DataDictionaryEntity item in dicService.GetDictionaryByType(dictionaryType))
-                    {
-                        this._data.Add(item.DicValue, item.Title);
-                    }
-                }
-            }
+            this.SourceKey = this.ModelType.Name + "@" + this.Name;
+            this.SourceType = type;
             return this;
         }
 
