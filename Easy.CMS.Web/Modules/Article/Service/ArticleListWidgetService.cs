@@ -24,7 +24,7 @@ namespace Easy.CMS.Article.Service
             int category = controllerContext.RouteData.GetCategory();
             var filter = new DataFilter();
             filter.Where("IsPublish", OperatorType.Equal, true);
-            filter.OrderBy("CreateDate", OrderType.Descending);
+            filter.OrderBy("ID", OrderType.Descending);
             var articleService = ServiceLocator.Current.GetInstance<IArticleService>();
             var page = new Pagination { PageIndex = pageIndex, PageSize = currentWidget.PageSize ?? 20 };
             if (category != 0)
@@ -36,7 +36,7 @@ namespace Easy.CMS.Article.Service
                 var ids = articleTypeService.Get(new DataFilter().Where("ParentID", OperatorType.Equal, currentWidget.ArticleTypeID)).Select(m => m.ID);
                 if (ids.Any())
                 {
-                    filter.Where("ArticleTypeID", OperatorType.In, ids);
+                    filter.Where("ArticleTypeID", OperatorType.In, ids.Concat(new[] { currentWidget.ArticleTypeID }));
                 }
                 else
                 {

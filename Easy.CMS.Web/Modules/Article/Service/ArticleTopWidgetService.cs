@@ -7,6 +7,7 @@ using Easy.Web.CMS.Article.Service;
 using Easy.Web.CMS.Widget;
 using Microsoft.Practices.ServiceLocation;
 using System.Web.Mvc;
+using System.Linq;
 
 namespace Easy.CMS.Article.Service
 {
@@ -26,8 +27,19 @@ namespace Easy.CMS.Article.Service
             };
             var filter = new DataFilter();
             filter.Where("IsPublish", OperatorType.Equal, true);
-            filter.OrderBy("PublishDate", OrderType.Descending);
-            filter.Where("ArticleTypeID", OperatorType.Equal, currentWidget.ArticleTypeID);
+            filter.OrderBy("ID", OrderType.Descending);
+            var articleTypeService = ServiceLocator.Current.GetInstance<IArticleTypeService>();
+
+            var ids = articleTypeService.Get(new DataFilter().Where("ParentID", OperatorType.Equal, currentWidget.ArticleTypeID)).Select(m => m.ID);
+            if (ids.Any())
+            {
+                filter.Where("ArticleTypeID", OperatorType.In, ids.Concat(new[] { currentWidget.ArticleTypeID }));
+            }
+            else
+            {
+                filter.Where("ArticleTypeID", OperatorType.Equal, currentWidget.ArticleTypeID);
+            }
+            
             viewModel.Articles = ServiceLocator.Current.GetInstance<IArticleService>().Get(filter, page);
             return widget.ToWidgetPart(viewModel);
         }
