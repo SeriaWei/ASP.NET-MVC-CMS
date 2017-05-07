@@ -29,7 +29,7 @@ namespace Easy.CMS.Product.Service
             ProductListWidget pwidget = widget as ProductListWidget;
             var filter = new DataFilter();
             filter.Where("IsPublish", OperatorType.Equal, true);
-            filter.OrderBy("CreateDate", OrderType.Descending);
+            filter.OrderBy("ID", OrderType.Descending);
 
             int pageIndex = controllerContext.RouteData.GetPage();
             int category = controllerContext.RouteData.GetCategory();
@@ -44,7 +44,7 @@ namespace Easy.CMS.Product.Service
                 var ids = categoryService.Get(new DataFilter().Where("ParentID", OperatorType.Equal, pwidget.ProductCategoryID)).Select(m => m.ID);
                 if (ids.Any())
                 {
-                    filter.Where("ProductCategoryID", OperatorType.In, ids);
+                    filter.Where("ProductCategoryID", OperatorType.In, ids.Concat(new[] { pwidget.ProductCategoryID }));
                 }
                 else
                 {
