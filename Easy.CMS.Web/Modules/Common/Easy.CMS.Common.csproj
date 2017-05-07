@@ -164,6 +164,10 @@
     <Compile Include="ViewModels\NavigationWidgetViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\full-slide.css" />
+    <Content Include="Content\full-slide.min.css">
+      <DependentUpon>full-slide.css</DependentUpon>
+    </Content>
     <Content Include="Content\Images\login-bg.jpg" />
     <Content Include="Content\Login.css" />
     <Content Include="Content\Layout.css" />
@@ -241,6 +245,7 @@
       <DependentUpon>values.js</DependentUpon>
     </Content>
     <Content Include="Scripts\StyleEditor\index.html" />
+    <Content Include="Scripts\full-slide.js" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Layout\LayoutZones.cshtml" />
     <Content Include="Views\Page\PageZones.cshtml" />
@@ -273,6 +278,7 @@
     <Content Include="Views\ApplicationSetting\Index.cshtml" />
     <Content Include="Views\ApplicationSetting\Edit.cshtml" />
     <Content Include="Views\ApplicationSetting\Create.cshtml" />
+    <Content Include="Views\Widget.CarouselFullSlide.cshtml" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>

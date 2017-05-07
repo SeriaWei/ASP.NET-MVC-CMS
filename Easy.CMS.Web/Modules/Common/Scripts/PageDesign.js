@@ -1,4 +1,10 @@
-﻿$(function () {
+﻿/*!
+ * http://www.zkea.net/
+ * Copyright 2016 ZKEASOFT
+ * http://www.zkea.net/licenses
+ */
+
+$(function () {
     $(".zone").sortable({
         placeholder: "sorting",
         handle: ".sort-handle",

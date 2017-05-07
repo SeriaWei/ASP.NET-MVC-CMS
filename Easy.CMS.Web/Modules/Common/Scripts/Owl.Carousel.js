@@ -1,4 +1,10 @@
-﻿$(document).ready(function () {
+﻿/*!
+ * http://www.zkea.net/
+ * Copyright 2016 ZKEASOFT
+ * http://www.zkea.net/licenses
+ */
+
+$(document).ready(function () {
     var time = 4;
     var $progressBar,
       $bar,

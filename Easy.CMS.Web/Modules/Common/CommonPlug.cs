@@ -165,6 +165,8 @@ namespace Easy.CMS.Common
             script("OWL.Carousel").Include("~/Modules/Common/Scripts/OwlCarousel/owl.carousel.min.js", "~/Modules/Common/Scripts/OwlCarousel/owl.carousel.min.js", Urls.CdnHost + "/Modules/Common/Scripts/OwlCarousel/owl.carousel.min.js")
                 .Include("~/Modules/Common/Scripts/Owl.Carousel.js", "~/Modules/Common/Scripts/Owl.Carousel.min.js", Urls.CdnHost + "/Modules/Common/Scripts/Owl.Carousel.min.js");
 
+            script("FullSlide").Include("~/Modules/Common/Scripts/full-slide.js", "~/Modules/Common/Scripts/full-slide.js",Urls.CdnHost + "/Modules/Common/Scripts/full-slide.js");
+
             script("LayoutDesign").Include("~/Modules/Common/Scripts/LayoutDesign.js", "~/Modules/Common/Scripts/LayoutDesign.min.js", Urls.CdnHost + "/Modules/Common/Scripts/LayoutDesign.min.js");
             script("PageDesign").Include("~/Modules/Common/Scripts/PageDesign.js", "~/Modules/Common/Scripts/PageDesign.min.js", Urls.CdnHost + "/Modules/Common/Scripts/PageDesign.min.js");
         }
@@ -178,6 +180,8 @@ namespace Easy.CMS.Common
             style("OWL.Carousel")
                 .Include("~/Modules/Common/Scripts/OwlCarousel/owl.carousel.css", "~/Modules/Common/Scripts/OwlCarousel/owl.carousel.min.css", Urls.CdnHost + "/Modules/Common/Scripts/OwlCarousel/owl.carousel.min.css")
                 .Include("~/Modules/Common/Scripts/OwlCarousel/owl.transitions.css", "~/Modules/Common/Scripts/OwlCarousel/owl.transitions.min.css", Urls.CdnHost + "/Modules/Common/Scripts/OwlCarousel/owl.transitions.min.css");
+
+            style("FullSlide").Include("~/Modules/Common/Content/full-slide.css", "~/Modules/Common/Content/full-slide.min.css", Urls.CdnHost + "/Modules/Common/Content/full-slide.min.css");
         }
 
         public override IEnumerable<PermissionDescriptor> RegistPermission()

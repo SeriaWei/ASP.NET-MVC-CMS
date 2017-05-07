@@ -1,0 +1,23 @@
+﻿@using Easy.CMS.Common.Models
+@model Easy.CMS.Common.Models.CarouselWidget
+@{
+    if (Model.CarouselItems == null)
+    {
+        return;
+    }
+    Script.Reqiured("FullSlide").AtFoot();
+    Style.Reqiured("FullSlide").AtHead();
+    var carouselItems = Model.CarouselItems.ToList();
+}
+
+<div class="fullSlide">
+    <div class="bd">
+        <ul>
+            @foreach (CarouselItemEntity item in carouselItems)
+            {
+                <li _src="url('@Url.PathContent(item.ImageUrl)')"></li>
+            }
+        </ul>
+    </div>
+    <div class="hd"><ul></ul></div>
+</div>
