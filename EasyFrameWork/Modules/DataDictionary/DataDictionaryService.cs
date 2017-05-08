@@ -20,13 +20,6 @@ namespace Easy.Modules.DataDictionary
         {
             return rep.GetDictionaryType();
         }
-        public override void Add(DataDictionaryEntity item)
-        {
-            var parent = this.Get(item.Pid);
-            item.DicName = parent.DicName;
-            base.Add(item);
-        }
-
         public IEnumerable<DataDictionaryEntity> GetChildren(string dicType, long id)
         {
             var dicts = this.GetDictionaryByType(dicType);

@@ -16,6 +16,8 @@ using Easy.Web.ValueProvider;
 using Newtonsoft.Json;
 using System.IO;
 using Easy.Web.CMS.PackageManger;
+using Microsoft.Practices.ServiceLocation;
+using Easy.Modules.DataDictionary;
 
 namespace Easy.CMS.Common.Controllers
 {
@@ -27,7 +29,7 @@ namespace Easy.CMS.Common.Controllers
         private readonly ICookie _cookie;
         private readonly IPackageInstallerProvider _packageInstallerProvider;
 
-        public WidgetController(IWidgetService widgetService, IWidgetTemplateService widgetTemplateService, 
+        public WidgetController(IWidgetService widgetService, IWidgetTemplateService widgetTemplateService,
             ICookie cookie, IPackageInstallerProvider packageInstallerProvider)
         {
             _widgetService = widgetService;
@@ -224,6 +226,22 @@ namespace Easy.CMS.Common.Controllers
             var widgetPackage = widget.CreateServiceInstance().PackWidget(widget) as WidgetPackage;
             return File(widgetPackage.ToFilePackage(), "Application/zip", widgetPackage.Widget.WidgetName + ".widget");
         }
+        public FileResult PackDictionary(string ID, string filePath)
+        {
+
+            var dataDictionary = ServiceLocator.Current.GetInstance<IDataDictionaryService>().Get(ID);
+            var installer = new DataDictionaryPackageInstaller();
+            if (filePath.IsNotNullAndWhiteSpace())
+            {
+                filePath = Server.MapPath(filePath);
+                installer.OnPacking = () =>
+                {
+                    return new List<System.IO.FileInfo> { new System.IO.FileInfo(filePath) };
+                };
+            }
+
+            return File(installer.Pack(dataDictionary).ToFilePackage(), "Application/zip", dataDictionary.Title + ".widget");
+        }
         [HttpPost]
         public ActionResult InstallWidgetTemplate(string returnUrl)
         {
@@ -231,9 +249,18 @@ namespace Easy.CMS.Common.Controllers
             {
                 try
                 {
-                    WidgetPackage package;
-                    _packageInstallerProvider.CreateInstaller(Request.Files[0].InputStream, out package);
-                    package.Widget.CreateServiceInstance().InstallWidget(package);
+                    Package package;
+                    var installer = _packageInstallerProvider.CreateInstaller(Request.Files[0].InputStream, out package);
+                    if (installer is WidgetPackageInstaller)
+                    {
+                        var widgetPackage = JsonConvert.DeserializeObject<WidgetPackage>(package.Content.ToString());
+                        widgetPackage.Content = package.Content;
+                        widgetPackage.Widget.CreateServiceInstance().InstallWidget(widgetPackage);
+                    }
+                    else if (installer is DataDictionaryPackageInstaller)
+                    {
+                        installer.Install(JsonConvert.DeserializeObject<DataDictionaryPackage>(package.Content.ToString()));
+                    }
                 }
                 catch (Exception ex)
                 {
