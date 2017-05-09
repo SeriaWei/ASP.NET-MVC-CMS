@@ -39,5 +39,11 @@ namespace Easy.CMS.Product.Controllers
             var node = new Tree<ProductCategory>().Source(pages).ToNode(m => m.ID.ToString(), m => m.Title, m => m.ParentID.ToString(), "0");
             return Json(node, JsonRequestBehavior.AllowGet);
         }
+        [PopUp]
+        public ActionResult Select(int? selected)
+        {
+            ViewBag.Selected = selected;
+            return View();
+        }
     }
 }

@@ -168,6 +168,7 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Views\Widget.ArticleList-Snippet.cshtml" />
+    <Content Include="Views\ArticleType\Select.cshtml" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Web.Mvc;
+using Easy.Extend;
 
 namespace Easy.Web.Attribute
 {
@@ -13,7 +14,7 @@ namespace Easy.Web.Attribute
         public override void OnActionExecuted(ActionExecutedContext filterContext)
         {
             ViewResult viewResult = (filterContext.Result as ViewResult);
-            if (viewResult != null)
+            if (viewResult != null && viewResult.MasterName.IsNullOrEmpty())
             {
                 viewResult.MasterName = "~/Views/Shared/_AdminLayout.cshtml";
             }

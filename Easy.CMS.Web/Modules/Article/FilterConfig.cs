@@ -31,6 +31,7 @@ namespace Easy.CMS.Article
             Registry.Register<ArticleController, DefaultAuthorizeAttribute>(m => m.GetList(), auth => auth.SetPermissionKey(PermissionKeys.ViewArticle));
 
             Registry.Register<ArticleTypeController, DefaultAuthorizeAttribute>(m => m.Index(), auth => auth.SetPermissionKey(PermissionKeys.ViewArticleType));
+            Registry.Register<ArticleTypeController, DefaultAuthorizeAttribute>(m => m.Select(0), auth => auth.SetPermissionKey(PermissionKeys.ViewArticleType));
             Registry.Register<ArticleTypeController, DefaultAuthorizeAttribute>(m => m.Create(), auth => auth.SetPermissionKey(PermissionKeys.ManageArticleType));
             Registry.Register<ArticleTypeController, DefaultAuthorizeAttribute>(m => m.Create(null), auth => auth.SetPermissionKey(PermissionKeys.ManageArticleType));
             Registry.Register<ArticleTypeController, DefaultAuthorizeAttribute>(m => m.Edit(0), auth => auth.SetPermissionKey(PermissionKeys.ManageArticleType));

@@ -32,6 +32,7 @@ namespace Easy.CMS.Product
             Registry.Register<ProductController, DefaultAuthorizeAttribute>(m => m.GetList(), auth => auth.SetPermissionKey(PermissionKeys.ViewProduct));
 
             Registry.Register<ProductCategoryController, DefaultAuthorizeAttribute>(m => m.Index(), auth => auth.SetPermissionKey(PermissionKeys.ViewProductCategory));
+            Registry.Register<ProductCategoryController, DefaultAuthorizeAttribute>(m => m.Select(0), auth => auth.SetPermissionKey(PermissionKeys.ViewProductCategory));
             Registry.Register<ProductCategoryController, DefaultAuthorizeAttribute>(m => m.Create(), auth => auth.SetPermissionKey(PermissionKeys.ManageProductCategory));
             Registry.Register<ProductCategoryController, DefaultAuthorizeAttribute>(m => m.Create(null), auth => auth.SetPermissionKey(PermissionKeys.ManageProductCategory));
             Registry.Register<ProductCategoryController, DefaultAuthorizeAttribute>(m => m.Edit(0), auth => auth.SetPermissionKey(PermissionKeys.ManageProductCategory));

@@ -38,5 +38,11 @@ namespace Easy.CMS.Article.Controllers
             var node = new Tree<ArticleType>().Source(allNodes).ToNode(m => m.ID.ToString(), m => m.Title, m => m.ParentID.ToString(), "0");
             return Json(node, JsonRequestBehavior.AllowGet);
         }
+        [PopUp]
+        public ActionResult Select(int? selected)
+        {
+            ViewBag.Selected = selected;
+            return View();
+        }
     }
 }

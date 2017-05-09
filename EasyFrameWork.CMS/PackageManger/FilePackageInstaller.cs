@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Web.Hosting;
 using Easy.Extend;
+using Newtonsoft.Json;
 
 namespace Easy.Web.CMS.PackageManger
 {
@@ -83,6 +84,13 @@ namespace Easy.Web.CMS.PackageManger
                     Content = File.ReadAllBytes(file.FullName)
                 });
             });
+        }
+
+        public virtual object Install(string packageContent)
+        {
+            Package package = JsonConvert.DeserializeObject(packageContent, CreatePackage().GetType()) as Package;
+            package.Content = packageContent;
+            return Install(package);
         }
     }
 }

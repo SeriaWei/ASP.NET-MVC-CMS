@@ -226,17 +226,21 @@ namespace Easy.CMS.Common.Controllers
             var widgetPackage = widget.CreateServiceInstance().PackWidget(widget) as WidgetPackage;
             return File(widgetPackage.ToFilePackage(), "Application/zip", widgetPackage.Widget.WidgetName + ".widget");
         }
-        public FileResult PackDictionary(string ID, string filePath)
+        public FileResult PackDictionary(int ID, string[] filePath)
         {
 
             var dataDictionary = ServiceLocator.Current.GetInstance<IDataDictionaryService>().Get(ID);
             var installer = new DataDictionaryPackageInstaller();
-            if (filePath.IsNotNullAndWhiteSpace())
+            if (filePath != null && filePath.Any())
             {
-                filePath = Server.MapPath(filePath);
                 installer.OnPacking = () =>
                 {
-                    return new List<System.IO.FileInfo> { new System.IO.FileInfo(filePath) };
+                    List<System.IO.FileInfo> files = new List<System.IO.FileInfo>();
+                    foreach (var item in filePath)
+                    {
+                        files.Add(new System.IO.FileInfo(Server.MapPath(item)));
+                    }
+                    return files;
                 };
             }
 
@@ -257,9 +261,9 @@ namespace Easy.CMS.Common.Controllers
                         widgetPackage.Content = package.Content;
                         widgetPackage.Widget.CreateServiceInstance().InstallWidget(widgetPackage);
                     }
-                    else if (installer is DataDictionaryPackageInstaller)
+                    else
                     {
-                        installer.Install(JsonConvert.DeserializeObject<DataDictionaryPackage>(package.Content.ToString()));
+                        installer.Install(package.Content.ToString());
                     }
                 }
                 catch (Exception ex)
