@@ -9,6 +9,7 @@ using Easy.Extend;
 using Easy.Web.CMS.Widget;
 using Microsoft.Practices.ServiceLocation;
 using System.Web.Mvc;
+using System.Collections.Generic;
 
 namespace Easy.CMS.Common.Service
 {
@@ -16,7 +17,10 @@ namespace Easy.CMS.Common.Service
     {
         public override WidgetPart Display(WidgetBase widget, ControllerContext controllerContext)
         {
-            var navs = ServiceLocator.Current.GetInstance<INavigationService>().Get(new DataFilter().OrderBy("DisplayOrder", OrderType.Ascending)).Where(m => m.Status == (int)RecordStatus.Active);
+            var currentWidget = widget as NavigationWidget;
+            var navs = ServiceLocator.Current.GetInstance<INavigationService>().Get(new DataFilter().OrderBy("DisplayOrder", OrderType.Ascending))
+                .Where(m => m.Status == (int)RecordStatus.Active).ToList();
+
             string path = "~" + controllerContext.HttpContext.Request.Path.ToLower();
             NavigationEntity current = null;
             int length = 0;
@@ -34,7 +38,11 @@ namespace Easy.CMS.Common.Service
             {
                 current.IsCurrent = true;
             }
-            return widget.ToWidgetPart(new NavigationWidgetViewModel(navs, widget as NavigationWidget));
+            if (currentWidget.RootID.IsNullOrEmpty() || currentWidget.RootID == "root")
+            {
+                currentWidget.RootID = "#";
+            }
+            return widget.ToWidgetPart(new NavigationWidgetViewModel(navs, currentWidget));
         }
     }
 }

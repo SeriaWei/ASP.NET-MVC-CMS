@@ -279,6 +279,7 @@
     <Content Include="Views\ApplicationSetting\Edit.cshtml" />
     <Content Include="Views\ApplicationSetting\Create.cshtml" />
     <Content Include="Views\Widget.CarouselFullSlide.cshtml" />
+    <Content Include="Views\Navigation\Select.cshtml" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>

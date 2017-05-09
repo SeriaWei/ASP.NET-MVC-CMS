@@ -1,16 +1,16 @@
 ﻿@using Easy.CMS.Common.Models
 @model Easy.CMS.Common.ViewModels.NavigationWidgetViewModel
 @{
-    NavigationEntity homePage = Model.Navigations.FirstOrDefault(m => m.ParentId == "#");
-    if (homePage == null)
+
+    if (Model.Navigations == null || !Model.Navigations.Any())
     {
         return;
     }
 }
 @helper DropDown(IEnumerable<NavigationEntity> items)
 {
-    if (items != null && items.Any())
-    {
+if (items != null && items.Any())
+{
         <ul class="dropdown-menu">
             @foreach (NavigationEntity child in items)
             {
@@ -31,20 +31,20 @@
                 }
             }
         </ul>
-    }
+}
 }
 @helper MobileLi(string parentId = "#")
 {
-    foreach (var item in Model.Navigations.Where(m => m.ParentId == parentId))
+foreach (var item in Model.Navigations.Where(m => m.ParentId == parentId))
+{
+    if (item.IsMobile ?? false)
     {
-        if (item.IsMobile ?? false)
-        {
             <li class="pull-left @(item.IsCurrent ? "active" : "")">
                 @Html.SmartLink(Url.PathContent(item.Url), item.Title)
             </li>
-        }
-        @MobileLi(item.ID)
     }
+        @MobileLi(item.ID)
+}
 }
 <div class="navigation">
     <div class="navbar navbar-default @(Model.Widget.IsTopFix?"navbar-fixed-top":"")" role="navigation">
@@ -66,13 +66,13 @@
                 }
                 @{
                     <ul class="nav navbar-nav nav-mobile visible-xs">
-                       @MobileLi()
+                        @MobileLi(Model.Widget.RootID)
                     </ul>
                 }
             </div>
             <div class="navbar-collapse collapse navbar-responsive-collapse">
                 <ul class="nav navbar-nav @Model.Widget.AlignClass">
-                    @foreach (NavigationEntity item in Model.Navigations.Where(m => m.ParentId == "#"))
+                    @foreach (NavigationEntity item in Model.Navigations.Where(m => m.ParentId == Model.Widget.RootID))
                     {
                         if (Model.Navigations.Any(m => m.ParentId == item.ID))
                         {

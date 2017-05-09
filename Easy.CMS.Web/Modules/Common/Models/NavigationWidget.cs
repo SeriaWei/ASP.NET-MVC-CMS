@@ -5,6 +5,9 @@ using Easy.MetaData;
 using Easy.Web.CMS;
 using Easy.Web.CMS.MetaData;
 using Easy.Web.CMS.Widget;
+using Microsoft.Practices.ServiceLocation;
+using Easy.CMS.Common.Service;
+using Easy.Extend;
 
 namespace Easy.CMS.Common.Models
 {
@@ -15,6 +18,7 @@ namespace Easy.CMS.Common.Models
         public string CustomerClass { get; set; }
         public string AlignClass { get; set; }
         public bool IsTopFix { get; set; }
+        public string RootID { get; set; }
     }
     class NavigationWidgetMetaData : WidgetMetaData<NavigationWidget>
     {
@@ -44,6 +48,15 @@ namespace Easy.CMS.Common.Models
             }).Order(NextOrder());
             ViewConfig(m => m.IsTopFix).AsHidden();
             ViewConfig(m => m.Logo).AsTextBox().Order(NextOrder()).AddClass(StringKeys.SelectImageClass).AddProperty("data-url", Urls.SelectMedia);
+            ViewConfig(m => m.RootID).AsDropDownList().Order(NextOrder()).AddClass("select").AddProperty("data-url", "/admin/Navigation/Select").DataSource(() =>
+            {
+                Dictionary<string, string> navigations = new Dictionary<string, string>();
+                navigations.Add("root", "导航");
+                ServiceLocator.Current.GetInstance<INavigationService>().Get().Each(navigation => {
+                    navigations.Add(navigation.ID, navigation.Title);
+                });
+                return navigations;
+            });
         }
     }
 

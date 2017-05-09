@@ -36,16 +36,28 @@ namespace Easy.CMS.Common.Controllers
         }
         public JsonResult GetNavTree()
         {
-            var navs = Service.Get(new DataFilter().OrderBy("DisplayOrder", OrderType.Ascending));
+            var navs = Service.Get(new DataFilter().OrderBy("DisplayOrder", OrderType.Ascending)).ToList();
             var node = new Tree<NavigationEntity>().Source(navs).ToNode(m => m.ID, m => m.Title, m => m.ParentId, "#");
             return Json(node, JsonRequestBehavior.AllowGet);
         }
-
+        public JsonResult GetSelectNavTree()
+        {
+            var navs = Service.Get(new DataFilter().OrderBy("DisplayOrder", OrderType.Ascending)).ToList();
+            var node = new Tree<NavigationEntity>().Source(navs).ToNode(m => m.ID, m => m.Title, m => m.ParentId, "#");
+            Node root = new Node { id = "root", text = "µ¼º½", children = node, state = new State { opened = true }, a_attr = new { ID = "root" } };
+            return Json(root, JsonRequestBehavior.AllowGet);
+        }
         [HttpPost]
         public JsonResult MoveNav(string id, string parentId, int position, int oldPosition)
         {
             Service.Move(id, parentId, position, oldPosition);
             return Json(true);
+        }
+        [PopUp]
+        public ActionResult Select(string selected)
+        {
+            ViewBag.Selected = selected;
+            return View();
         }
     }
 }
