@@ -16,10 +16,10 @@
       <publishTime>07/02/2014 21:58:06</publishTime>
     </File>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>03/30/2017 11:43:54</publishTime>
+      <publishTime>05/09/2017 15:28:56</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>03/30/2017 11:43:54</publishTime>
+      <publishTime>05/09/2017 15:28:56</publishTime>
     </File>
     <File Include="bin/App_Web_dljcttax.dll">
       <publishTime>09/08/2015 09:16:14</publishTime>
@@ -58,25 +58,25 @@
       <publishTime>07/02/2014 21:58:05</publishTime>
     </File>
     <File Include="bin/Easy.CMS.LayoutEngine.dll">
-      <publishTime>03/30/2017 09:57:23</publishTime>
+      <publishTime>05/09/2017 15:28:44</publishTime>
     </File>
     <File Include="bin/Easy.CMS.Web.dll">
-      <publishTime>03/30/2017 11:43:45</publishTime>
+      <publishTime>05/09/2017 15:28:52</publishTime>
     </File>
     <File Include="bin/Easy.CMS.Web.Views.dll">
       <publishTime>09/08/2015 09:17:52</publishTime>
     </File>
     <File Include="bin/Easy.dll">
-      <publishTime>03/24/2017 16:30:26</publishTime>
+      <publishTime>05/09/2017 15:24:21</publishTime>
     </File>
     <File Include="bin/Easy.Web.CMS.dll">
-      <publishTime>03/30/2017 11:43:43</publishTime>
+      <publishTime>05/09/2017 15:28:51</publishTime>
     </File>
     <File Include="bin/Easy.Web.dll">
-      <publishTime>03/24/2017 16:30:27</publishTime>
+      <publishTime>05/09/2017 15:24:22</publishTime>
     </File>
     <File Include="bin/EasyZip.dll">
-      <publishTime>03/24/2017 16:30:26</publishTime>
+      <publishTime>05/09/2017 15:24:21</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>07/02/2014 21:57:58</publishTime>
@@ -481,7 +481,7 @@
       <publishTime>09/22/2016 13:07:57</publishTime>
     </File>
     <File Include="Content/themes/Admin/admin.css">
-      <publishTime>01/19/2017 16:59:57</publishTime>
+      <publishTime>05/08/2017 14:18:48</publishTime>
     </File>
     <File Include="Content/themes/Admin/admin.min.css">
       <publishTime>01/19/2017 16:59:57</publishTime>
@@ -499,10 +499,10 @@
       <publishTime>04/15/2016 09:38:58</publishTime>
     </File>
     <File Include="Content/themes/Admin/script/admin.js">
-      <publishTime>09/22/2016 13:09:05</publishTime>
+      <publishTime>05/08/2017 14:17:47</publishTime>
     </File>
     <File Include="Content/themes/Admin/script/admin.min.js">
-      <publishTime>09/22/2016 13:09:05</publishTime>
+      <publishTime>05/08/2017 14:17:41</publishTime>
     </File>
     <File Include="Content/themes/base/accordion.css">
       <publishTime>05/11/2016 08:25:13</publishTime>
@@ -931,7 +931,7 @@
       <publishTime>03/09/2017 12:25:14</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>03/30/2017 11:43:51</publishTime>
+      <publishTime>05/09/2017 15:28:54</publishTime>
     </File>
     <File Include="Scripts/angular/angular-animate.js">
       <publishTime>01/07/2016 15:49:06</publishTime>
@@ -1660,7 +1660,7 @@
       <publishTime>09/20/2016 16:15:10</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Easy.min.js">
-      <publishTime>09/20/2016 16:15:10</publishTime>
+      <publishTime>04/07/2017 10:48:04</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Easy.Tab.js">
       <publishTime>07/22/2014 19:48:17</publishTime>
@@ -1981,7 +1981,7 @@
       <publishTime>05/11/2016 08:25:13</publishTime>
     </File>
     <File Include="Scripts/jquery-2.2.3.min.js">
-      <publishTime>05/11/2016 08:25:13</publishTime>
+      <publishTime>04/12/2017 14:16:49</publishTime>
     </File>
     <File Include="Scripts/jquery-2.2.3.min.map">
       <publishTime>05/11/2016 08:25:13</publishTime>
@@ -2075,6 +2075,9 @@
     </File>
     <File Include="Scripts/jquery-ui/jquery-ui.theme.min.css">
       <publishTime>11/07/2015 12:46:33</publishTime>
+    </File>
+    <File Include="Scripts/jquery.slimscroll.min.js">
+      <publishTime>04/07/2017 12:47:11</publishTime>
     </File>
     <File Include="Scripts/jquery.unobtrusive-ajax.js">
       <publishTime>05/11/2016 08:25:13</publishTime>
@@ -2611,7 +2614,7 @@
       <publishTime>08/17/2015 10:09:02</publishTime>
     </File>
     <File Include="Scripts/tinymce/plugins/bootstrap/plugin.min.js">
-      <publishTime>09/19/2016 15:41:36</publishTime>
+      <publishTime>04/12/2017 15:04:48</publishTime>
     </File>
     <File Include="Scripts/tinymce/plugins/charmap/plugin.min.js">
       <publishTime>05/26/2016 08:27:22</publishTime>
@@ -2920,7 +2923,7 @@
       <publishTime>07/23/2014 22:54:35</publishTime>
     </File>
     <File Include="Scripts/_references.js">
-      <publishTime>05/11/2016 08:25:13</publishTime>
+      <publishTime>04/07/2017 10:48:04</publishTime>
     </File>
     <File Include="Themes/Cerulean/css/Article.less">
       <publishTime>06/27/2016 15:05:12</publishTime>
@@ -3388,7 +3391,7 @@
       <publishTime>05/13/2016 22:57:50</publishTime>
     </File>
     <File Include="Themes/Default/css/Theme.css">
-      <publishTime>09/28/2016 16:45:15</publishTime>
+      <publishTime>05/08/2017 08:43:32</publishTime>
     </File>
     <File Include="Themes/Default/css/Theme.css.map">
       <publishTime>09/28/2016 16:45:15</publishTime>
@@ -3397,7 +3400,7 @@
       <publishTime>09/28/2016 16:49:12</publishTime>
     </File>
     <File Include="Themes/Default/css/Theme.min.css">
-      <publishTime>09/28/2016 16:45:15</publishTime>
+      <publishTime>05/08/2017 08:43:32</publishTime>
     </File>
     <File Include="Themes/Default/css/widget.css">
       <publishTime>05/11/2016 20:39:59</publishTime>
@@ -4651,7 +4654,7 @@
       <publishTime>03/21/2016 08:52:52</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>03/30/2017 11:43:46</publishTime>
+      <publishTime>05/09/2017 15:24:24</publishTime>
     </File>
   </ItemGroup>
 </Project>

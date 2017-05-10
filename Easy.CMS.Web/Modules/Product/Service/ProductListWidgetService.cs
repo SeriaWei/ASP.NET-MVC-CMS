@@ -29,7 +29,7 @@ namespace Easy.CMS.Product.Service
             ProductListWidget pwidget = widget as ProductListWidget;
             var filter = new DataFilter();
             filter.Where("IsPublish", OperatorType.Equal, true);
-            filter.OrderBy("ID", OrderType.Descending);
+            filter.OrderBy("LastUpdateDate", OrderType.Descending);
 
             int pageIndex = controllerContext.RouteData.GetPage();
             int category = controllerContext.RouteData.GetCategory();

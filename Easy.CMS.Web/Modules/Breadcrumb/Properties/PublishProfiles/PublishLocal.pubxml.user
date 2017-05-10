@@ -28,19 +28,19 @@
       <publishTime>09/08/2015 09:27:02</publishTime>
     </File>
     <File Include="bin/Easy.CMS.Breadcrumb.dll">
-      <publishTime>03/30/2017 12:08:57</publishTime>
+      <publishTime>05/09/2017 15:29:17</publishTime>
     </File>
     <File Include="bin/Easy.CMS.Product.dll">
       <publishTime>11/07/2015 13:41:31</publishTime>
     </File>
     <File Include="bin/Easy.dll">
-      <publishTime>03/24/2017 16:30:26</publishTime>
+      <publishTime>05/09/2017 15:24:21</publishTime>
     </File>
     <File Include="bin/Easy.Web.CMS.dll">
-      <publishTime>03/30/2017 11:43:43</publishTime>
+      <publishTime>05/09/2017 15:28:51</publishTime>
     </File>
     <File Include="bin/Easy.Web.dll">
-      <publishTime>03/24/2017 16:30:27</publishTime>
+      <publishTime>05/09/2017 15:24:22</publishTime>
     </File>
     <File Include="bin/EasyZip.dll">
       <publishTime>03/15/2017 16:34:24</publishTime>
@@ -148,7 +148,7 @@
       <publishTime>03/09/2017 12:25:16</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>03/30/2017 12:08:58</publishTime>
+      <publishTime>05/09/2017 15:29:18</publishTime>
     </File>
     <File Include="Scripts/jquery-photowall/exit.gif">
       <publishTime>01/30/2015 22:48:00</publishTime>

@@ -24,7 +24,7 @@ namespace Easy.CMS.Article.Service
             int category = controllerContext.RouteData.GetCategory();
             var filter = new DataFilter();
             filter.Where("IsPublish", OperatorType.Equal, true);
-            filter.OrderBy("ID", OrderType.Descending);
+            filter.OrderBy("LastUpdateDate", OrderType.Descending);
             var articleService = ServiceLocator.Current.GetInstance<IArticleService>();
             var page = new Pagination { PageIndex = pageIndex, PageSize = currentWidget.PageSize ?? 20 };
             if (category != 0)
