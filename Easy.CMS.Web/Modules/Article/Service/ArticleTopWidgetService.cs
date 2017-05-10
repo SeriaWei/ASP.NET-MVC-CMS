@@ -27,7 +27,7 @@ namespace Easy.CMS.Article.Service
             };
             var filter = new DataFilter();
             filter.Where("IsPublish", OperatorType.Equal, true);
-            filter.OrderBy("ID", OrderType.Descending);
+            filter.OrderBy("CreateDate", OrderType.Descending);
             var articleTypeService = ServiceLocator.Current.GetInstance<IArticleTypeService>();
 
             var ids = articleTypeService.Get(new DataFilter().Where("ParentID", OperatorType.Equal, currentWidget.ArticleTypeID)).Select(m => m.ID);
