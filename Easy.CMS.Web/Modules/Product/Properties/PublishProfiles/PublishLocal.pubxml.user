@@ -28,7 +28,7 @@
       <publishTime>09/08/2015 09:27:02</publishTime>
     </File>
     <File Include="bin/Easy.CMS.Product.dll">
-      <publishTime>05/10/2017 09:35:42</publishTime>
+      <publishTime>05/10/2017 13:02:13</publishTime>
     </File>
     <File Include="bin/Easy.dll">
       <publishTime>05/09/2017 15:24:21</publishTime>
@@ -142,7 +142,7 @@
       <publishTime>03/09/2017 12:25:15</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>05/10/2017 09:35:43</publishTime>
+      <publishTime>05/10/2017 13:02:14</publishTime>
     </File>
     <File Include="Scripts/jquery-photowall/exit.gif">
       <publishTime>01/30/2015 22:48:00</publishTime>
