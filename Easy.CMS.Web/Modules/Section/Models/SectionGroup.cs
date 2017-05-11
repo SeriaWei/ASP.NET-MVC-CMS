@@ -35,7 +35,7 @@ namespace Easy.CMS.Section.Models
         {
             if (SectionContents != null)
             {
-                return SectionContents.Where(m => m != null && m.SectionContentType == (int)type).Cast<T>();
+                return SectionContents.Where(m => m != null && m.SectionContentType == (int)type).OrderBy(m => m.Order).Cast<T>();
             }
             return null;
         }
@@ -102,7 +102,7 @@ namespace Easy.CMS.Section.Models
         {
             if (_templateName.IsNullOrWhiteSpace())
             {
-                var template= ServiceLocator.Current.GetInstance<ISectionTemplateService>().Get(PartialView);
+                var template = ServiceLocator.Current.GetInstance<ISectionTemplateService>().Get(PartialView);
                 if (template != null)
                 {
                     _templateName = template.Title;
