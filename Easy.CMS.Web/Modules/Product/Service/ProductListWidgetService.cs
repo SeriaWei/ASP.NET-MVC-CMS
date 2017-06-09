@@ -26,10 +26,11 @@ namespace Easy.CMS.Product.Service
         }
         public override WidgetPart Display(WidgetBase widget, ControllerContext controllerContext)
         {
-            ProductListWidget pwidget = widget as ProductListWidget;
+            ProductListWidget currentWidget = widget as ProductListWidget;
             var filter = new DataFilter();
             filter.Where("IsPublish", OperatorType.Equal, true);
             filter.OrderBy("CreateDate", OrderType.Descending);
+            var categoryService = ServiceLocator.Current.GetInstance<IProductCategoryService>();
 
             int pageIndex = controllerContext.RouteData.GetPage();
             int category = controllerContext.RouteData.GetCategory();
@@ -40,37 +41,44 @@ namespace Easy.CMS.Product.Service
             }
             else
             {
-                var categoryService = ServiceLocator.Current.GetInstance<IProductCategoryService>();
-                var ids = categoryService.Get(new DataFilter().Where("ParentID", OperatorType.Equal, pwidget.ProductCategoryID)).Select(m => m.ID);
+                var ids = categoryService.Get(new DataFilter().Where("ParentID", OperatorType.Equal, currentWidget.ProductCategoryID)).Select(m => m.ID);
                 if (ids.Any())
                 {
-                    filter.Where("ProductCategoryID", OperatorType.In, ids.Concat(new[] { pwidget.ProductCategoryID }));
+                    filter.Where("ProductCategoryID", OperatorType.In, ids.Concat(new[] { currentWidget.ProductCategoryID }));
                 }
                 else
                 {
-                    filter.Where("ProductCategoryID", OperatorType.Equal, pwidget.ProductCategoryID);
+                    filter.Where("ProductCategoryID", OperatorType.Equal, currentWidget.ProductCategoryID);
                 }
             }
 
 
             var service = ServiceLocator.Current.GetInstance<IProductService>();
             IEnumerable<ProductEntity> products = null;
-            var page = new Pagination { PageIndex = pageIndex, PageSize = pwidget.PageSize ?? 20 };
-            if (pwidget.IsPageable)
+            var pagin = new Pagination { PageIndex = pageIndex, PageSize = currentWidget.PageSize ?? 20 };
+            if (currentWidget.IsPageable)
             {
-                products = service.Get(filter, page);
+                products = service.Get(filter, pagin);
             }
             else
             {
                 products = service.Get(filter);
             }
+
+            var categoryEntity = categoryService.Get(category == 0 ? currentWidget.ProductCategoryID : category);
+            if (categoryEntity != null)
+            {
+                var page = controllerContext.HttpContext.GetLayout().Page;
+                page.Title = (page.Title ?? "") + " - " + categoryEntity.Title;
+            }
+
             return widget.ToWidgetPart(new ProductListWidgetViewModel
             {
                 Products = products,
-                Page = page,
-                IsPageable = pwidget.IsPageable,
-                Columns = pwidget.Columns,
-                DetailPageUrl = pwidget.DetailPageUrl
+                Page = pagin,
+                IsPageable = currentWidget.IsPageable,
+                Columns = currentWidget.Columns,
+                DetailPageUrl = currentWidget.DetailPageUrl
             });
         }
     }
