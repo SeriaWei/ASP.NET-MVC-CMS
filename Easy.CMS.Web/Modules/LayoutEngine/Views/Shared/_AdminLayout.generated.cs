@@ -244,12 +244,12 @@ WriteLiteral(" target=\"_blank\"");
 WriteLiteral(">扩展插件</a>\r\n                        </li>\r\n                        <li>\r\n         " +
 "                   <a");
 
-WriteLiteral(" href=\"http://www.zkea.net/freewebsite/build\"");
+WriteLiteral(" href=\"http://www.zkea.net/zkeacms/document\"");
 
 WriteLiteral(" target=\"_blank\"");
 
-WriteLiteral(">云建站</a>\r\n                        </li>\r\n                    </ul>\r\n             " +
-"       <ul");
+WriteLiteral(">文档</a>\r\n                        </li>\r\n                    </ul>\r\n              " +
+"      <ul");
 
 WriteLiteral(" class=\"nav navbar-nav navbar-right\"");
 
@@ -279,14 +279,14 @@ WriteLiteral("></i>\r\n                                赞助\r\n               
 "                    </li>\r\n                        <li>\r\n                       " +
 "     <a");
 
-WriteAttribute("href", Tuple.Create(" href=\"", 3507), Tuple.Create("\"", 3546)
+WriteAttribute("href", Tuple.Create(" href=\"", 3505), Tuple.Create("\"", 3544)
             
             #line 86 "..\..\Views\Shared\_AdminLayout.cshtml"
-, Tuple.Create(Tuple.Create("", 3514), Tuple.Create<System.Object, System.Int32>(Url.Action("Logout", "Account")
+, Tuple.Create(Tuple.Create("", 3512), Tuple.Create<System.Object, System.Int32>(Url.Action("Logout", "Account")
             
             #line default
             #line hidden
-, 3514), false)
+, 3512), false)
 );
 
 WriteLiteral(" target=\"_self\"");
@@ -317,14 +317,14 @@ WriteLiteral(" class=\"userInfo\"");
 
 WriteLiteral(">\r\n                        <img");
 
-WriteAttribute("src", Tuple.Create(" src=\"", 4047), Tuple.Create("\"", 4110)
+WriteAttribute("src", Tuple.Create(" src=\"", 4045), Tuple.Create("\"", 4108)
             
             #line 100 "..\..\Views\Shared\_AdminLayout.cshtml"
-, Tuple.Create(Tuple.Create("", 4053), Tuple.Create<System.Object, System.Int32>(Url.PathContent(ApplicationContext.CurrentUser.PhotoUrl)
+, Tuple.Create(Tuple.Create("", 4051), Tuple.Create<System.Object, System.Int32>(Url.PathContent(ApplicationContext.CurrentUser.PhotoUrl)
             
             #line default
             #line hidden
-, 4053), false)
+, 4051), false)
 );
 
 WriteLiteral(" class=\"img-circle\"");
@@ -377,15 +377,15 @@ WriteLiteral(" href=\"#\"");
 
 WriteLiteral(">\r\n                                        <i");
 
-WriteAttribute("class", Tuple.Create(" class=\"", 4892), Tuple.Create("\"", 4920)
-, Tuple.Create(Tuple.Create("", 4900), Tuple.Create("glyphicon", 4900), true)
+WriteAttribute("class", Tuple.Create(" class=\"", 4890), Tuple.Create("\"", 4918)
+, Tuple.Create(Tuple.Create("", 4898), Tuple.Create("glyphicon", 4898), true)
             
             #line 113 "..\..\Views\Shared\_AdminLayout.cshtml"
-, Tuple.Create(Tuple.Create(" ", 4909), Tuple.Create<System.Object, System.Int32>(menu.Icon
+, Tuple.Create(Tuple.Create(" ", 4907), Tuple.Create<System.Object, System.Int32>(menu.Icon
             
             #line default
             #line hidden
-, 4910), false)
+, 4908), false)
 );
 
 WriteLiteral("></i>\r\n");
@@ -426,40 +426,40 @@ WriteLiteral(">\r\n");
             #line hidden
 WriteLiteral("                                            <a");
 
-WriteAttribute("id", Tuple.Create(" id=\"", 5409), Tuple.Create("\"", 5461)
-, Tuple.Create(Tuple.Create("", 5414), Tuple.Create("menu", 5414), true)
+WriteAttribute("id", Tuple.Create(" id=\"", 5407), Tuple.Create("\"", 5459)
+, Tuple.Create(Tuple.Create("", 5412), Tuple.Create("menu", 5412), true)
             
             #line 120 "..\..\Views\Shared\_AdminLayout.cshtml"
-, Tuple.Create(Tuple.Create("", 5418), Tuple.Create<System.Object, System.Int32>((child.Url ?? child.Title).GetHashCode()
+, Tuple.Create(Tuple.Create("", 5416), Tuple.Create<System.Object, System.Int32>((child.Url ?? child.Title).GetHashCode()
             
             #line default
             #line hidden
-, 5418), false)
+, 5416), false)
 );
 
 WriteLiteral(" class=\"b_9FDDF6 menu-item\"");
 
-WriteAttribute("href", Tuple.Create(" href=\"", 5489), Tuple.Create("\"", 5527)
+WriteAttribute("href", Tuple.Create(" href=\"", 5487), Tuple.Create("\"", 5525)
             
             #line 120 "..\..\Views\Shared\_AdminLayout.cshtml"
-                                                     , Tuple.Create(Tuple.Create("", 5496), Tuple.Create<System.Object, System.Int32>(Url.Content(child.Url ?? "~/")
+                                                     , Tuple.Create(Tuple.Create("", 5494), Tuple.Create<System.Object, System.Int32>(Url.Content(child.Url ?? "~/")
             
             #line default
             #line hidden
-, 5496), false)
+, 5494), false)
 );
 
 WriteLiteral(">\r\n                                                <i");
 
-WriteAttribute("class", Tuple.Create(" class=\"", 5581), Tuple.Create("\"", 5610)
-, Tuple.Create(Tuple.Create("", 5589), Tuple.Create("glyphicon", 5589), true)
+WriteAttribute("class", Tuple.Create(" class=\"", 5579), Tuple.Create("\"", 5608)
+, Tuple.Create(Tuple.Create("", 5587), Tuple.Create("glyphicon", 5587), true)
             
             #line 121 "..\..\Views\Shared\_AdminLayout.cshtml"
-, Tuple.Create(Tuple.Create(" ", 5598), Tuple.Create<System.Object, System.Int32>(child.Icon
+, Tuple.Create(Tuple.Create(" ", 5596), Tuple.Create<System.Object, System.Int32>(child.Icon
             
             #line default
             #line hidden
-, 5599), false)
+, 5597), false)
 );
 
 WriteLiteral("></i>\r\n");
@@ -497,40 +497,40 @@ WriteLiteral("                                    </div>\r\n                    
             #line hidden
 WriteLiteral("                            <li>\r\n                                <a");
 
-WriteAttribute("id", Tuple.Create(" id=\"", 6039), Tuple.Create("\"", 6089)
-, Tuple.Create(Tuple.Create("", 6044), Tuple.Create("menu", 6044), true)
+WriteAttribute("id", Tuple.Create(" id=\"", 6037), Tuple.Create("\"", 6087)
+, Tuple.Create(Tuple.Create("", 6042), Tuple.Create("menu", 6042), true)
             
             #line 132 "..\..\Views\Shared\_AdminLayout.cshtml"
-, Tuple.Create(Tuple.Create("", 6048), Tuple.Create<System.Object, System.Int32>((menu.Url ?? menu.Title).GetHashCode()
+, Tuple.Create(Tuple.Create("", 6046), Tuple.Create<System.Object, System.Int32>((menu.Url ?? menu.Title).GetHashCode()
             
             #line default
             #line hidden
-, 6048), false)
+, 6046), false)
 );
 
 WriteLiteral(" class=\"b_9FDDF6 menu-item\"");
 
-WriteAttribute("href", Tuple.Create(" href=\"", 6117), Tuple.Create("\"", 6154)
+WriteAttribute("href", Tuple.Create(" href=\"", 6115), Tuple.Create("\"", 6152)
             
             #line 132 "..\..\Views\Shared\_AdminLayout.cshtml"
-                                       , Tuple.Create(Tuple.Create("", 6124), Tuple.Create<System.Object, System.Int32>(Url.Content(menu.Url ?? "~/")
+                                       , Tuple.Create(Tuple.Create("", 6122), Tuple.Create<System.Object, System.Int32>(Url.Content(menu.Url ?? "~/")
             
             #line default
             #line hidden
-, 6124), false)
+, 6122), false)
 );
 
 WriteLiteral(">\r\n                                    <i");
 
-WriteAttribute("class", Tuple.Create(" class=\"", 6196), Tuple.Create("\"", 6224)
-, Tuple.Create(Tuple.Create("", 6204), Tuple.Create("glyphicon", 6204), true)
+WriteAttribute("class", Tuple.Create(" class=\"", 6194), Tuple.Create("\"", 6222)
+, Tuple.Create(Tuple.Create("", 6202), Tuple.Create("glyphicon", 6202), true)
             
             #line 133 "..\..\Views\Shared\_AdminLayout.cshtml"
-, Tuple.Create(Tuple.Create(" ", 6213), Tuple.Create<System.Object, System.Int32>(menu.Icon
+, Tuple.Create(Tuple.Create(" ", 6211), Tuple.Create<System.Object, System.Int32>(menu.Icon
             
             #line default
             #line hidden
-, 6214), false)
+, 6212), false)
 );
 
 WriteLiteral("></i>\r\n");
