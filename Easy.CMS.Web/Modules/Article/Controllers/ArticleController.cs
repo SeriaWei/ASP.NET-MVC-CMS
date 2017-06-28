@@ -40,14 +40,14 @@ namespace Easy.CMS.Article.Controllers
             if (entity.ActionType == ActionType.Publish)
             {
                 Service.Publish(entity.ID);
-                var returnUrl = Request.QueryString["ReturnUrl"];
-                if (returnUrl.IsNotNullAndWhiteSpace())
-                {
-                    return Redirect(returnUrl);
-                }
+            }
+            var returnUrl = Request.QueryString["ReturnUrl"];
+            if (returnUrl.IsNotNullAndWhiteSpace())
+            {
+                return Redirect(returnUrl);
             }
             return result;
         }
-      
+
     }
 }
