@@ -10,8 +10,8 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Easy.CMS.Message")]
-[assembly: AssemblyCopyright("ZKEASOFT 版权所有(C)  2017")]
+[assembly: AssemblyProduct("ZKEACMS.Message")]
+[assembly: AssemblyCopyright("Copyright ©  2017 深圳市纸壳软件科技有限公司 ZKEASOFT")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

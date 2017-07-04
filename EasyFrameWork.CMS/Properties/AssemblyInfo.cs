@@ -9,8 +9,8 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Easy.Web.CMS.Web")]
-[assembly: AssemblyCopyright("Copyright ©  2014")]
+[assembly: AssemblyProduct("ZKEACMS")]
+[assembly: AssemblyCopyright("Copyright ©  2017 深圳市纸壳软件科技有限公司 ZKEASOFT")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

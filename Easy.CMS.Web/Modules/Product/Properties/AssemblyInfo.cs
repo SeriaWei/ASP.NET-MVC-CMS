@@ -9,8 +9,8 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("PlugWeb.Product")]
-[assembly: AssemblyCopyright("ZKEASOFT 版权所有(C)  2014")]
+[assembly: AssemblyProduct("ZKEACMS.Product")]
+[assembly: AssemblyCopyright("Copyright ©  2017 深圳市纸壳软件科技有限公司 ZKEASOFT")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
