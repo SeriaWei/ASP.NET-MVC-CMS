@@ -32,7 +32,49 @@ $(function () {
             $($id).text(0);
         });
         updateDisplay();
-    });
+        });
+
+    if (document.addEventListener) {
+        document.querySelector("#background-image").addEventListener("paste", function (e) {
+            var target = e.target;
+            var cbData;
+            if (e.clipboardData) {
+                cbData = e.clipboardData;
+            } else if (window.clipboardData) {
+                cbData = window.clipboardData;
+            }
+            if (cbData && cbData.items) {
+                for (var i = 0; i < cbData.items.length; i++) {
+                    if (cbData.items[i].type.indexOf('image') !== -1) {
+                        target.parentNode.className = target.parentNode.className + " processing";
+                        target.value = "图片上传中...";
+                        var file = cbData.items[i].getAsFile();
+                        var xhr = new XMLHttpRequest();
+                        xhr.open("POST", "/admin/media/Upload");
+                        xhr.onload = function (data) {
+                            target.parentNode.className = target.parentNode.className.replace(" processing", "");
+                            var result = JSON.parse(data.target.response);
+                            if (result.ID) {
+                                target.value = result.Url;
+                                updateDisplay();
+                            }
+                        }
+                        xhr.onerror = function () {
+                            target.parentNode.className = target.parentNode.className.replace(" processing", "");
+                            target.value = "图片上传失败";
+                        }
+                        var formData = new FormData();
+                        formData.append('file', file);
+                        formData.append("folder", "图片");
+                        xhr.send(formData);
+                        break;
+                    }
+                }
+            }
+
+        });
+    }
+
     var target = window.top.$(".custom-style-target");
     var attrs = target.attr("style");
     if (target.hasClass("form-control")) {

@@ -798,6 +798,7 @@
     <Content Include="Scripts\lightbox\js\lightbox.min.js">
       <DependentUpon>lightbox.js</DependentUpon>
     </Content>
+    <Content Include="Scripts\tinymce\jquery.tinymce.min.js" />
     <Content Include="Scripts\tinymce\langs\zh_CN.js" />
     <Content Include="Scripts\tinymce\license.txt" />
     <Content Include="Scripts\tinymce\plugins\advlist\plugin.min.js" />
@@ -806,8 +807,13 @@
     <Content Include="Scripts\tinymce\plugins\autoresize\plugin.min.js" />
     <Content Include="Scripts\tinymce\plugins\autosave\plugin.min.js" />
     <Content Include="Scripts\tinymce\plugins\bbcode\plugin.min.js" />
-    <Content Include="Scripts\tinymce\plugins\bootstrap\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\bootstrap\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\bootstrap\plugin.min.js">
+      <DependentUpon>plugin.js</DependentUpon>
+    </Content>
     <Content Include="Scripts\tinymce\plugins\charmap\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\codesample\css\prism.css" />
+    <Content Include="Scripts\tinymce\plugins\codesample\plugin.min.js" />
     <Content Include="Scripts\tinymce\plugins\code\plugin.min.js" />
     <Content Include="Scripts\tinymce\plugins\colorpicker\plugin.min.js" />
     <Content Include="Scripts\tinymce\plugins\contextmenu\plugin.min.js" />
@@ -835,7 +841,10 @@
     <Content Include="Scripts\tinymce\plugins\filebrowser\plugin.min.js" />
     <Content Include="Scripts\tinymce\plugins\fullpage\plugin.min.js" />
     <Content Include="Scripts\tinymce\plugins\fullscreen\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\help\img\logo.png" />
+    <Content Include="Scripts\tinymce\plugins\help\plugin.min.js" />
     <Content Include="Scripts\tinymce\plugins\hr\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\imagetools\plugin.min.js" />
     <Content Include="Scripts\tinymce\plugins\image\plugin.min.js" />
     <Content Include="Scripts\tinymce\plugins\importcss\plugin.min.js" />
     <Content Include="Scripts\tinymce\plugins\insertdatetime\plugin.min.js" />
@@ -848,6 +857,8 @@
     <Content Include="Scripts\tinymce\plugins\nonbreaking\plugin.min.js" />
     <Content Include="Scripts\tinymce\plugins\noneditable\plugin.min.js" />
     <Content Include="Scripts\tinymce\plugins\pagebreak\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\pasteImage\plugin.js" />
+    <Content Include="Scripts\tinymce\plugins\pasteImage\plugin.min.js" />
     <Content Include="Scripts\tinymce\plugins\paste\plugin.min.js" />
     <Content Include="Scripts\tinymce\plugins\preview\plugin.min.js" />
     <Content Include="Scripts\tinymce\plugins\print\plugin.min.js" />
@@ -859,6 +870,7 @@
     <Content Include="Scripts\tinymce\plugins\template\plugin.min.js" />
     <Content Include="Scripts\tinymce\plugins\textcolor\plugin.min.js" />
     <Content Include="Scripts\tinymce\plugins\textpattern\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\toc\plugin.min.js" />
     <Content Include="Scripts\tinymce\plugins\visualblocks\css\visualblocks.css" />
     <Content Include="Scripts\tinymce\plugins\visualblocks\plugin.min.js" />
     <Content Include="Scripts\tinymce\plugins\visualchars\plugin.min.js" />
@@ -875,6 +887,7 @@
     <Content Include="Scripts\tinymce\skins\lightgray\img\trans.gif" />
     <Content Include="Scripts\tinymce\skins\lightgray\skin.ie7.min.css" />
     <Content Include="Scripts\tinymce\skins\lightgray\skin.min.css" />
+    <Content Include="Scripts\tinymce\themes\inlite\theme.min.js" />
     <Content Include="Scripts\tinymce\themes\modern\theme.min.js" />
     <Content Include="Scripts\tinymce\tinymce.min.js" />
     <Content Include="Themes\Default\css\Theme.css">

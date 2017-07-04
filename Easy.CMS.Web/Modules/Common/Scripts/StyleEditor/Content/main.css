@@ -26,6 +26,26 @@
 .input-group {
     margin-bottom: 10px;
 }
+    .input-group .form-control {
+        position: static;
+    }
+
+    .input-group.loading::before {
+        display: block;
+        content: " ";
+        position: absolute;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        background: red;
+    }
+
+    .input-group.loading.processing::before {
+        width: 100%;
+        transition: width 2s;
+    }
+
 .glyphicon-search {
     cursor: pointer;
 }

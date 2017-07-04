@@ -40,5 +40,11 @@
     "inputFiles": [
       "Content/full-slide.css"
     ]
+  },
+  {
+    "outputFileName": "Scripts/StyleEditor/Content/main.min.css",
+    "inputFiles": [
+      "Scripts/StyleEditor/Content/main.css"
+    ]
   }
 ]

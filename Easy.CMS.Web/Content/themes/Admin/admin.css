@@ -1,6 +1,6 @@
 ﻿/*!
  * http://www.zkea.net/
- * Copyright 2016 ZKEASOFT
+ * Copyright 2017 ZKEASOFT
  * http://www.zkea.net/licenses
  */
 
@@ -31,15 +31,69 @@ img {
     padding-right: 15px;
 }
 
-@media (min-width: 1300px) {
+    .form-horizontal .control-label {
+        display: block;
+        text-align: right;
+    }
+
+@media (max-width:1199px) {
+    .form-horizontal .control-label {
+        padding-top: 0;
+        margin-bottom: 7px;
+        text-align: left;
+    }
+}
+
+.field-validation-error {
+    top: 10px;
+    position: relative;
+    display: block;
+    background: #ca2026;
+    color: white;
+    padding: .5rem;
+    font-size: 14px;
+}
+
+    .field-validation-error:before {
+        content: " ";
+        display: block;
+        border-top: 2px solid transparent;
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        border-bottom: 8px solid #ca2026;
+        position: absolute;
+        left: 10px;
+        top: -10px;
+    }
+
+@media (min-width: 1440px) {
     .form-horizontal {
-        width: 70%;
+        width: 85%;
     }
 }
 
 
 .input-group .form-control {
     position: static;
+}
+.input-group.loading::before {
+    display: block;
+    content: " ";
+    position: absolute;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    background: red;
+}
+
+.input-group.loading.processing::before {
+    width: 100%;
+    transition: width 2s;
+}
+
+.form-control.required {
+    background-color: #fff0dd;
 }
 
 a.badge:hover {
@@ -275,7 +329,8 @@ a.badge:hover {
     content: " [未发布]";
 }
 
-.jstree a[ishomepage="true"] {
+.jstree a[ishomepage="true"],
+.jstree a[url="~/index"] {
     font-weight: bold;
     color: red;
 }
@@ -308,10 +363,6 @@ a.badge:hover {
 .ui-draggable-dragging {
     z-index: 1;
 }
-
-.simplePreview {
-}
-
     .simplePreview .simpleDesign .panel {
         margin: 5px;
     }

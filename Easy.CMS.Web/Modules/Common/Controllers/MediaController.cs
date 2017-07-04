@@ -12,6 +12,7 @@ using Easy.Web.CMS;
 using Easy.Web.CMS.Media;
 using Easy.Web.Controller;
 using Easy.Web.Extend;
+using System.Linq;
 
 namespace Easy.CMS.Common.Controllers
 {
@@ -87,10 +88,27 @@ namespace Easy.CMS.Common.Controllers
             return Json(entity);
         }
         [HttpPost]
-        public JsonResult Upload(string parentId)
+        public JsonResult Upload(string parentId, string folder)
         {
             if (Request.Files.Count > 0)
             {
+                if (folder.IsNotNullAndWhiteSpace())
+                {
+                    var parent = Service.Get(new DataFilter().Where("Title", OperatorType.Equal, folder).Where("MediaType", OperatorType.Equal, (int)MediaType.Folder))
+                        .FirstOrDefault();
+
+                    if (parent == null)
+                    {
+                        parent = new MediaEntity
+                        {
+                            Title = folder,
+                            MediaType = (int)MediaType.Folder,
+                            ParentID = "#"
+                        };
+                        Service.Add(parent);
+                    }
+                    parentId = parent.ID;
+                }
                 parentId = parentId ?? "#";
                 string fileName = Request.Files[0].FileName;
                 var entity = new MediaEntity
@@ -125,7 +143,7 @@ namespace Easy.CMS.Common.Controllers
         private void DeleteMedia(string mediaId)
         {
             var media = Service.Get(mediaId);
-            if (media != null && media.MediaType != (int) MediaType.Folder)
+            if (media != null && media.MediaType != (int)MediaType.Folder)
             {
                 if (media.Url.StartsWith("http://") || media.Url.StartsWith("https://"))
                 {

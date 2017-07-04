@@ -115,10 +115,10 @@ $(function () {
                 });
             }
         });
-    })
-        .on("submit", "form", function () {
-            Easy.Block();
-        });
+    }).on("submit", "form", function () {
+        Easy.Block();
+    });
+
     $(".form-group select#ZoneID,.form-group select.select").on("mousedown", false);
 
     var mainMenu = $("#main-menu");
@@ -210,7 +210,49 @@ $(function () {
             return null;
         },
         placement: "bottom"
-    });
+    }).parent().addClass("loading");;
+
+    if (document.addEventListener) {
+        document.addEventListener("paste", function (e) {
+            if (e.target.className && e.target.className.indexOf("select-image") >= 0) {
+                var target = e.target;
+                var cbData;
+                if (e.clipboardData) {
+                    cbData = e.clipboardData;
+                } else if (window.clipboardData) {
+                    cbData = window.clipboardData;
+                }
+                if (cbData && cbData.items) {
+                    for (var i = 0; i < cbData.items.length; i++) {
+                        if (cbData.items[i].type.indexOf('image') !== -1) {
+                            target.parentNode.className = target.parentNode.className + " processing";
+                            target.value = "图片上传中...";
+                            var file = cbData.items[i].getAsFile();
+                            var xhr = new XMLHttpRequest();
+                            xhr.open("POST", "/admin/media/Upload");
+                            xhr.onload = function (data) {
+                                target.parentNode.className = target.parentNode.className.replace(" processing", "");
+                                var result = JSON.parse(data.target.response);
+                                if (result.ID) {
+                                    target.value = "~" + result.Url;
+                                    $(target).blur().focus();
+                                }
+                            }
+                            xhr.onerror = function () {
+                                target.parentNode.className = target.parentNode.className.replace(" processing", "");
+                                target.value = "图片上传失败";
+                            }
+                            var formData = new FormData();
+                            formData.append('file', file);
+                            formData.append("folder", "图片");
+                            xhr.send(formData);
+                            break;
+                        }
+                    }
+                }
+            }
+        });
+    }
 
     $(".input-group .glyphicon.glyphicon-play").popover({
         trigger: "click",
@@ -229,21 +271,23 @@ $(function () {
         placement: "left"
     });
 
-    tinymce.init({
-        content_css: ["//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css", "//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap-theme.min.css"],
-        selector: "textarea.html",
-        verify_html: false,
-        plugins: [
-            "advlist autolink lists link image charmap print preview anchor",
-            "searchreplace visualblocks code fullscreen",
-            "insertdatetime media table contextmenu paste",
-            "filebrowser textcolor hr",
-            "bootstrap"
-        ],
-        toolbar: "insertfile undo redo | styleselect | bold italic forecolor backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | filebrowser",
-        height: 300,
-        relative_urls: false,
-        language_url: "http://cdn.zkeasoft.com/Scripts/tinymce/langs/zh_CN.js"
+    $.post("/admin/Theme/GetCurrentTheme", function (theme) {
+        tinymce.init({
+            content_css: [theme],
+            selector: "textarea.html",
+            verify_html: false,
+            plugins: [
+                "advlist autolink lists link image charmap print preview anchor",
+                "searchreplace visualblocks code fullscreen",
+                "insertdatetime media table contextmenu paste",
+                "filebrowser textcolor hr",
+                "bootstrap pasteImage"
+            ],
+            toolbar: "insertfile undo redo | styleselect | bold italic forecolor backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | filebrowser",
+            height: 300,
+            relative_urls: false,
+            language: "zh_CN"
+        });
     });
 
     $("#main-menu").slimscroll({ height: $(window).height() - 170 });

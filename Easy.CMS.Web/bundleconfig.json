@@ -60,12 +60,6 @@
     ]
   },
   {
-    "outputFileName": "Content/themes/Admin/admin.css",
-    "inputFiles": [
-      "Content/themes/Admin/admin.css"
-    ]
-  },
-  {
     "outputFileName": "Scripts/EasyPlug/Easy.Grid.js",
     "inputFiles": [
       "Scripts/EasyPlug/Easy.Grid.js"
@@ -165,6 +159,24 @@
     "outputFileName": "Scripts/Statistics.min.js",
     "inputFiles": [
       "Scripts/Statistics.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/themes/Admin/admin.min.css",
+    "inputFiles": [
+      "Content/themes/Admin/admin.css"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/tinymce/plugins/bootstrap/plugin.min.js",
+    "inputFiles": [
+      "Scripts/tinymce/plugins/bootstrap/plugin.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/tinymce/plugins/pasteImage/plugin.min.js",
+    "inputFiles": [
+      "Scripts/tinymce/plugins/pasteImage/plugin.js"
     ]
   }
 ]

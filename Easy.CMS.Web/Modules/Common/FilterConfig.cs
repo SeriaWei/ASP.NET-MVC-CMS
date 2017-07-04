@@ -61,7 +61,7 @@ namespace Easy.CMS.Common
             Registry.Register<MediaController, DefaultAuthorizeAttribute>(m => m.Create(), auth => auth.SetPermissionKey(PermissionKeys.ManageMedia));
             Registry.Register<MediaController, DefaultAuthorizeAttribute>(m => m.Create(null), auth => auth.SetPermissionKey(PermissionKeys.ManageMedia));
             Registry.Register<MediaController, DefaultAuthorizeAttribute>(m => m.Save(string.Empty, string.Empty, string.Empty), auth => auth.SetPermissionKey(PermissionKeys.ManageMedia));
-            Registry.Register<MediaController, DefaultAuthorizeAttribute>(m => m.Upload(string.Empty), auth => auth.SetPermissionKey(PermissionKeys.ManageMedia));
+            Registry.Register<MediaController, DefaultAuthorizeAttribute>(m => m.Upload(string.Empty, string.Empty), auth => auth.SetPermissionKey(PermissionKeys.ManageMedia));
             Registry.Register<MediaController, DefaultAuthorizeAttribute>(m => m.Delete(string.Empty), auth => auth.SetPermissionKey(PermissionKeys.ManageMedia));
 
             Registry.Register<NavigationController, DefaultAuthorizeAttribute>(m => m.Index(), auth => auth.SetPermissionKey(PermissionKeys.ViewNavigation));
