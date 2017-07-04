@@ -6,7 +6,7 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>E:\GitHub\CMS\Easy.CMS.Web\Properties\PublishProfiles\..\..\..\Release\Application</_PublishTargetUrl>
+    <_PublishTargetUrl>F:\GitHub\CMS\Easy.CMS.Web\Properties\PublishProfiles\..\..\..\Release\Application</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="App_Data/DataBase.mdb">
@@ -16,10 +16,10 @@
       <publishTime>07/02/2014 21:58:06</publishTime>
     </File>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>05/09/2017 15:28:56</publishTime>
+      <publishTime>07/04/2017 16:07:00</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>05/09/2017 15:28:56</publishTime>
+      <publishTime>07/04/2017 16:07:00</publishTime>
     </File>
     <File Include="bin/App_Web_dljcttax.dll">
       <publishTime>09/08/2015 09:16:14</publishTime>
@@ -58,25 +58,49 @@
       <publishTime>07/02/2014 21:58:05</publishTime>
     </File>
     <File Include="bin/Easy.CMS.LayoutEngine.dll">
-      <publishTime>05/09/2017 15:28:44</publishTime>
+      <publishTime>06/29/2017 10:49:12</publishTime>
     </File>
     <File Include="bin/Easy.CMS.Web.dll">
-      <publishTime>05/09/2017 15:28:52</publishTime>
+      <publishTime>07/04/2017 16:06:53</publishTime>
+    </File>
+    <File Include="bin/Easy.CMS.Web.pdb">
+      <publishTime>07/04/2017 16:06:53</publishTime>
     </File>
     <File Include="bin/Easy.CMS.Web.Views.dll">
       <publishTime>09/08/2015 09:17:52</publishTime>
     </File>
     <File Include="bin/Easy.dll">
-      <publishTime>05/09/2017 15:24:21</publishTime>
+      <publishTime>06/28/2017 15:46:34</publishTime>
+    </File>
+    <File Include="bin/Easy.dll.config">
+      <publishTime>03/07/2017 08:20:27</publishTime>
+    </File>
+    <File Include="bin/Easy.pdb">
+      <publishTime>06/28/2017 15:46:34</publishTime>
     </File>
     <File Include="bin/Easy.Web.CMS.dll">
-      <publishTime>05/09/2017 15:28:51</publishTime>
+      <publishTime>06/28/2017 15:46:36</publishTime>
+    </File>
+    <File Include="bin/Easy.Web.CMS.dll.config">
+      <publishTime>03/09/2017 12:25:15</publishTime>
+    </File>
+    <File Include="bin/Easy.Web.CMS.pdb">
+      <publishTime>06/28/2017 15:46:36</publishTime>
     </File>
     <File Include="bin/Easy.Web.dll">
-      <publishTime>05/09/2017 15:24:22</publishTime>
+      <publishTime>06/28/2017 15:46:35</publishTime>
+    </File>
+    <File Include="bin/Easy.Web.dll.config">
+      <publishTime>03/07/2017 08:20:27</publishTime>
+    </File>
+    <File Include="bin/Easy.Web.pdb">
+      <publishTime>06/28/2017 15:46:35</publishTime>
     </File>
     <File Include="bin/EasyZip.dll">
-      <publishTime>05/09/2017 15:24:21</publishTime>
+      <publishTime>06/28/2017 15:46:34</publishTime>
+    </File>
+    <File Include="bin/EasyZip.pdb">
+      <publishTime>06/28/2017 15:46:34</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>07/02/2014 21:57:58</publishTime>
@@ -139,6 +163,9 @@
       <publishTime>07/02/2014 21:58:06</publishTime>
     </File>
     <File Include="bin/Microsoft.Practices.ServiceLocation.dll">
+      <publishTime>07/27/2015 08:41:42</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.ServiceLocation.pdb">
       <publishTime>07/27/2015 08:41:42</publishTime>
     </File>
     <File Include="bin/Microsoft.Practices.Unity.Configuration.dll">
@@ -481,10 +508,10 @@
       <publishTime>09/22/2016 13:07:57</publishTime>
     </File>
     <File Include="Content/themes/Admin/admin.css">
-      <publishTime>05/08/2017 14:18:48</publishTime>
+      <publishTime>07/04/2017 14:07:17</publishTime>
     </File>
     <File Include="Content/themes/Admin/admin.min.css">
-      <publishTime>01/19/2017 16:59:57</publishTime>
+      <publishTime>07/04/2017 14:07:18</publishTime>
     </File>
     <File Include="Content/themes/Admin/images/dotted.png">
       <publishTime>12/13/2014 17:18:00</publishTime>
@@ -499,10 +526,10 @@
       <publishTime>04/15/2016 09:38:58</publishTime>
     </File>
     <File Include="Content/themes/Admin/script/admin.js">
-      <publishTime>05/08/2017 14:17:47</publishTime>
+      <publishTime>07/04/2017 14:07:17</publishTime>
     </File>
     <File Include="Content/themes/Admin/script/admin.min.js">
-      <publishTime>05/08/2017 14:17:41</publishTime>
+      <publishTime>07/04/2017 14:07:17</publishTime>
     </File>
     <File Include="Content/themes/base/accordion.css">
       <publishTime>05/11/2016 08:25:13</publishTime>
@@ -931,7 +958,7 @@
       <publishTime>03/09/2017 12:25:14</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>05/09/2017 15:28:54</publishTime>
+      <publishTime>07/04/2017 16:06:56</publishTime>
     </File>
     <File Include="Scripts/angular/angular-animate.js">
       <publishTime>01/07/2016 15:49:06</publishTime>
@@ -1660,7 +1687,7 @@
       <publishTime>09/20/2016 16:15:10</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Easy.min.js">
-      <publishTime>04/07/2017 10:48:04</publishTime>
+      <publishTime>07/04/2017 13:38:07</publishTime>
     </File>
     <File Include="Scripts/EasyPlug/Easy.Tab.js">
       <publishTime>07/22/2014 19:48:17</publishTime>
@@ -2077,7 +2104,7 @@
       <publishTime>11/07/2015 12:46:33</publishTime>
     </File>
     <File Include="Scripts/jquery.slimscroll.min.js">
-      <publishTime>04/07/2017 12:47:11</publishTime>
+      <publishTime>07/03/2017 17:13:02</publishTime>
     </File>
     <File Include="Scripts/jquery.unobtrusive-ajax.js">
       <publishTime>05/11/2016 08:25:13</publishTime>
@@ -2586,6 +2613,9 @@
     <File Include="Scripts/Statistics.js">
       <publishTime>09/23/2016 13:17:04</publishTime>
     </File>
+    <File Include="Scripts/tinymce/jquery.tinymce.min.js">
+      <publishTime>07/04/2017 14:07:17</publishTime>
+    </File>
     <File Include="Scripts/tinymce/langs/readme.md">
       <publishTime>08/28/2015 15:35:16</publishTime>
     </File>
@@ -2593,43 +2623,52 @@
       <publishTime>08/28/2015 09:46:44</publishTime>
     </File>
     <File Include="Scripts/tinymce/license.txt">
-      <publishTime>08/28/2015 15:35:16</publishTime>
+      <publishTime>07/04/2017 14:07:17</publishTime>
     </File>
     <File Include="Scripts/tinymce/plugins/advlist/plugin.min.js">
-      <publishTime>08/17/2015 10:09:02</publishTime>
+      <publishTime>07/04/2017 14:07:17</publishTime>
     </File>
     <File Include="Scripts/tinymce/plugins/anchor/plugin.min.js">
-      <publishTime>05/26/2016 08:27:22</publishTime>
+      <publishTime>07/04/2017 14:07:17</publishTime>
     </File>
     <File Include="Scripts/tinymce/plugins/autolink/plugin.min.js">
-      <publishTime>05/26/2016 08:27:22</publishTime>
+      <publishTime>07/04/2017 14:07:17</publishTime>
     </File>
     <File Include="Scripts/tinymce/plugins/autoresize/plugin.min.js">
-      <publishTime>05/26/2016 08:27:22</publishTime>
+      <publishTime>07/04/2017 14:07:17</publishTime>
     </File>
     <File Include="Scripts/tinymce/plugins/autosave/plugin.min.js">
-      <publishTime>08/17/2015 10:09:02</publishTime>
+      <publishTime>07/04/2017 14:07:17</publishTime>
     </File>
     <File Include="Scripts/tinymce/plugins/bbcode/plugin.min.js">
-      <publishTime>08/17/2015 10:09:02</publishTime>
+      <publishTime>07/04/2017 14:07:17</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/plugins/bootstrap/plugin.js">
+      <publishTime>07/04/2017 14:07:17</publishTime>
     </File>
     <File Include="Scripts/tinymce/plugins/bootstrap/plugin.min.js">
-      <publishTime>04/12/2017 15:04:48</publishTime>
+      <publishTime>07/04/2017 14:07:17</publishTime>
     </File>
     <File Include="Scripts/tinymce/plugins/charmap/plugin.min.js">
-      <publishTime>05/26/2016 08:27:22</publishTime>
+      <publishTime>07/04/2017 14:07:17</publishTime>
     </File>
     <File Include="Scripts/tinymce/plugins/code/plugin.min.js">
-      <publishTime>08/17/2015 10:09:02</publishTime>
+      <publishTime>07/04/2017 14:07:17</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/plugins/codesample/css/prism.css">
+      <publishTime>07/04/2017 14:07:17</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/plugins/codesample/plugin.min.js">
+      <publishTime>07/04/2017 14:07:17</publishTime>
     </File>
     <File Include="Scripts/tinymce/plugins/colorpicker/plugin.min.js">
-      <publishTime>08/17/2015 10:09:02</publishTime>
+      <publishTime>07/04/2017 14:07:17</publishTime>
     </File>
     <File Include="Scripts/tinymce/plugins/contextmenu/plugin.min.js">
-      <publishTime>05/26/2016 08:27:22</publishTime>
+      <publishTime>07/04/2017 14:07:17</publishTime>
     </File>
     <File Include="Scripts/tinymce/plugins/directionality/plugin.min.js">
-      <publishTime>08/17/2015 10:09:02</publishTime>
+      <publishTime>07/04/2017 14:07:17</publishTime>
     </File>
     <File Include="Scripts/tinymce/plugins/emoticons/img/smiley-cool.gif">
       <publishTime>08/17/2015 10:09:02</publishTime>
@@ -2680,7 +2719,7 @@
       <publishTime>08/17/2015 10:09:02</publishTime>
     </File>
     <File Include="Scripts/tinymce/plugins/emoticons/plugin.min.js">
-      <publishTime>08/17/2015 10:09:02</publishTime>
+      <publishTime>07/04/2017 14:07:17</publishTime>
     </File>
     <File Include="Scripts/tinymce/plugins/example/dialog.html">
       <publishTime>08/17/2015 10:09:02</publishTime>
@@ -2695,100 +2734,118 @@
       <publishTime>10/24/2016 14:05:11</publishTime>
     </File>
     <File Include="Scripts/tinymce/plugins/fullpage/plugin.min.js">
-      <publishTime>08/17/2015 10:09:02</publishTime>
+      <publishTime>07/04/2017 14:07:17</publishTime>
     </File>
     <File Include="Scripts/tinymce/plugins/fullscreen/plugin.min.js">
-      <publishTime>05/26/2016 08:27:22</publishTime>
+      <publishTime>07/04/2017 14:07:17</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/plugins/help/img/logo.png">
+      <publishTime>07/04/2017 14:07:17</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/plugins/help/plugin.min.js">
+      <publishTime>07/04/2017 14:07:17</publishTime>
     </File>
     <File Include="Scripts/tinymce/plugins/hr/plugin.min.js">
-      <publishTime>08/17/2015 10:09:02</publishTime>
+      <publishTime>07/04/2017 14:07:17</publishTime>
     </File>
     <File Include="Scripts/tinymce/plugins/image/plugin.min.js">
-      <publishTime>05/26/2016 08:27:22</publishTime>
+      <publishTime>07/04/2017 14:07:17</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/plugins/imagetools/plugin.min.js">
+      <publishTime>07/04/2017 14:07:17</publishTime>
     </File>
     <File Include="Scripts/tinymce/plugins/importcss/plugin.min.js">
-      <publishTime>05/26/2016 08:27:22</publishTime>
+      <publishTime>07/04/2017 14:07:17</publishTime>
     </File>
     <File Include="Scripts/tinymce/plugins/insertdatetime/plugin.min.js">
-      <publishTime>08/17/2015 10:09:02</publishTime>
+      <publishTime>07/04/2017 14:07:17</publishTime>
     </File>
     <File Include="Scripts/tinymce/plugins/layer/plugin.min.js">
       <publishTime>08/17/2015 10:09:02</publishTime>
     </File>
     <File Include="Scripts/tinymce/plugins/legacyoutput/plugin.min.js">
-      <publishTime>05/26/2016 08:27:22</publishTime>
+      <publishTime>07/04/2017 14:07:17</publishTime>
     </File>
     <File Include="Scripts/tinymce/plugins/link/plugin.min.js">
-      <publishTime>05/26/2016 08:27:22</publishTime>
+      <publishTime>07/04/2017 14:07:17</publishTime>
     </File>
     <File Include="Scripts/tinymce/plugins/lists/plugin.min.js">
-      <publishTime>05/26/2016 08:27:22</publishTime>
+      <publishTime>07/04/2017 14:07:17</publishTime>
     </File>
     <File Include="Scripts/tinymce/plugins/media/moxieplayer.swf">
       <publishTime>08/17/2015 10:09:02</publishTime>
     </File>
     <File Include="Scripts/tinymce/plugins/media/plugin.min.js">
-      <publishTime>05/26/2016 08:27:22</publishTime>
+      <publishTime>07/04/2017 14:07:17</publishTime>
     </File>
     <File Include="Scripts/tinymce/plugins/nonbreaking/plugin.min.js">
-      <publishTime>08/17/2015 10:09:02</publishTime>
+      <publishTime>07/04/2017 14:07:17</publishTime>
     </File>
     <File Include="Scripts/tinymce/plugins/noneditable/plugin.min.js">
-      <publishTime>05/26/2016 08:27:22</publishTime>
+      <publishTime>07/04/2017 14:07:17</publishTime>
     </File>
     <File Include="Scripts/tinymce/plugins/pagebreak/plugin.min.js">
-      <publishTime>05/26/2016 08:27:22</publishTime>
+      <publishTime>07/04/2017 14:07:17</publishTime>
     </File>
     <File Include="Scripts/tinymce/plugins/paste/plugin.min.js">
-      <publishTime>05/26/2016 08:27:22</publishTime>
+      <publishTime>07/04/2017 14:07:17</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/plugins/pasteImage/plugin.js">
+      <publishTime>07/04/2017 14:07:17</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/plugins/pasteImage/plugin.min.js">
+      <publishTime>07/04/2017 14:07:17</publishTime>
     </File>
     <File Include="Scripts/tinymce/plugins/preview/plugin.min.js">
-      <publishTime>05/26/2016 08:27:22</publishTime>
+      <publishTime>07/04/2017 14:07:17</publishTime>
     </File>
     <File Include="Scripts/tinymce/plugins/print/plugin.min.js">
-      <publishTime>08/17/2015 10:09:02</publishTime>
+      <publishTime>07/04/2017 14:07:17</publishTime>
     </File>
     <File Include="Scripts/tinymce/plugins/save/plugin.min.js">
-      <publishTime>05/26/2016 08:27:22</publishTime>
+      <publishTime>07/04/2017 14:07:17</publishTime>
     </File>
     <File Include="Scripts/tinymce/plugins/searchreplace/plugin.min.js">
-      <publishTime>05/26/2016 08:27:22</publishTime>
+      <publishTime>07/04/2017 14:07:17</publishTime>
     </File>
     <File Include="Scripts/tinymce/plugins/spellchecker/plugin.min.js">
-      <publishTime>05/26/2016 08:27:22</publishTime>
+      <publishTime>07/04/2017 14:07:17</publishTime>
     </File>
     <File Include="Scripts/tinymce/plugins/tabfocus/plugin.min.js">
-      <publishTime>05/26/2016 08:27:22</publishTime>
+      <publishTime>07/04/2017 14:07:17</publishTime>
     </File>
     <File Include="Scripts/tinymce/plugins/table/plugin.min.js">
-      <publishTime>05/26/2016 08:27:22</publishTime>
+      <publishTime>07/04/2017 14:07:17</publishTime>
     </File>
     <File Include="Scripts/tinymce/plugins/template/plugin.min.js">
-      <publishTime>05/26/2016 08:27:22</publishTime>
+      <publishTime>07/04/2017 14:07:17</publishTime>
     </File>
     <File Include="Scripts/tinymce/plugins/textcolor/plugin.min.js">
-      <publishTime>05/26/2016 08:27:22</publishTime>
+      <publishTime>07/04/2017 14:07:17</publishTime>
     </File>
     <File Include="Scripts/tinymce/plugins/textpattern/plugin.min.js">
-      <publishTime>08/17/2015 10:09:02</publishTime>
+      <publishTime>07/04/2017 14:07:17</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/plugins/toc/plugin.min.js">
+      <publishTime>07/04/2017 14:07:17</publishTime>
     </File>
     <File Include="Scripts/tinymce/plugins/visualblocks/css/visualblocks.css">
-      <publishTime>05/26/2016 08:27:22</publishTime>
+      <publishTime>07/04/2017 14:07:17</publishTime>
     </File>
     <File Include="Scripts/tinymce/plugins/visualblocks/plugin.min.js">
-      <publishTime>08/17/2015 10:09:02</publishTime>
+      <publishTime>07/04/2017 14:07:17</publishTime>
     </File>
     <File Include="Scripts/tinymce/plugins/visualchars/plugin.min.js">
-      <publishTime>08/17/2015 10:09:02</publishTime>
+      <publishTime>07/04/2017 14:07:17</publishTime>
     </File>
     <File Include="Scripts/tinymce/plugins/wordcount/plugin.min.js">
-      <publishTime>05/26/2016 08:27:22</publishTime>
+      <publishTime>07/04/2017 14:07:17</publishTime>
     </File>
     <File Include="Scripts/tinymce/skins/lightgray/content.inline.min.css">
-      <publishTime>05/26/2016 08:27:22</publishTime>
+      <publishTime>07/04/2017 14:07:17</publishTime>
     </File>
     <File Include="Scripts/tinymce/skins/lightgray/content.min.css">
-      <publishTime>08/11/2016 14:07:11</publishTime>
+      <publishTime>07/04/2017 14:07:17</publishTime>
     </File>
     <File Include="Scripts/tinymce/skins/lightgray/fonts/readme.md">
       <publishTime>08/28/2015 15:35:16</publishTime>
@@ -2800,7 +2857,7 @@
       <publishTime>05/26/2016 08:27:22</publishTime>
     </File>
     <File Include="Scripts/tinymce/skins/lightgray/fonts/tinymce-small.svg">
-      <publishTime>05/26/2016 08:27:22</publishTime>
+      <publishTime>07/04/2017 14:07:17</publishTime>
     </File>
     <File Include="Scripts/tinymce/skins/lightgray/fonts/tinymce-small.ttf">
       <publishTime>05/26/2016 08:27:22</publishTime>
@@ -2812,16 +2869,16 @@
       <publishTime>08/28/2015 15:35:16</publishTime>
     </File>
     <File Include="Scripts/tinymce/skins/lightgray/fonts/tinymce.eot">
-      <publishTime>05/26/2016 08:27:22</publishTime>
+      <publishTime>07/04/2017 14:07:17</publishTime>
     </File>
     <File Include="Scripts/tinymce/skins/lightgray/fonts/tinymce.svg">
-      <publishTime>05/26/2016 08:27:22</publishTime>
+      <publishTime>07/04/2017 14:07:17</publishTime>
     </File>
     <File Include="Scripts/tinymce/skins/lightgray/fonts/tinymce.ttf">
-      <publishTime>05/26/2016 08:27:22</publishTime>
+      <publishTime>07/04/2017 14:07:17</publishTime>
     </File>
     <File Include="Scripts/tinymce/skins/lightgray/fonts/tinymce.woff">
-      <publishTime>05/26/2016 08:27:22</publishTime>
+      <publishTime>07/04/2017 14:07:17</publishTime>
     </File>
     <File Include="Scripts/tinymce/skins/lightgray/img/anchor.gif">
       <publishTime>08/17/2015 10:09:02</publishTime>
@@ -2839,13 +2896,16 @@
       <publishTime>05/26/2016 08:27:22</publishTime>
     </File>
     <File Include="Scripts/tinymce/skins/lightgray/skin.min.css">
-      <publishTime>05/26/2016 08:27:22</publishTime>
+      <publishTime>07/04/2017 14:07:17</publishTime>
+    </File>
+    <File Include="Scripts/tinymce/themes/inlite/theme.min.js">
+      <publishTime>07/04/2017 14:07:17</publishTime>
     </File>
     <File Include="Scripts/tinymce/themes/modern/theme.min.js">
-      <publishTime>05/26/2016 08:27:22</publishTime>
+      <publishTime>07/04/2017 14:07:17</publishTime>
     </File>
     <File Include="Scripts/tinymce/tinymce.min.js">
-      <publishTime>05/26/2016 08:27:22</publishTime>
+      <publishTime>07/04/2017 14:07:17</publishTime>
     </File>
     <File Include="Scripts/zTree/css/img/diy/1_close.png">
       <publishTime>07/23/2014 22:54:35</publishTime>
@@ -4654,7 +4714,7 @@
       <publishTime>03/21/2016 08:52:52</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>05/09/2017 15:24:24</publishTime>
+      <publishTime>06/28/2017 15:47:09</publishTime>
     </File>
   </ItemGroup>
 </Project>

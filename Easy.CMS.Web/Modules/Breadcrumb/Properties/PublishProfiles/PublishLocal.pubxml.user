@@ -6,7 +6,7 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>E:\GitHub\CMS\Easy.CMS.Web\Modules\Breadcrumb\Properties\PublishProfiles\..\..\..\..\..\Release\Application\Modules\Breadcrumb</_PublishTargetUrl>
+    <_PublishTargetUrl>F:\GitHub\CMS\Easy.CMS.Web\Modules\Breadcrumb\Properties\PublishProfiles\..\..\..\..\..\Release\Application\Modules\Breadcrumb</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/App_Web_3t4fkr1c.dll">
@@ -28,19 +28,40 @@
       <publishTime>09/08/2015 09:27:02</publishTime>
     </File>
     <File Include="bin/Easy.CMS.Breadcrumb.dll">
-      <publishTime>05/09/2017 15:29:17</publishTime>
+      <publishTime>06/28/2017 15:47:46</publishTime>
+    </File>
+    <File Include="bin/Easy.CMS.Breadcrumb.pdb">
+      <publishTime>06/28/2017 15:47:46</publishTime>
     </File>
     <File Include="bin/Easy.CMS.Product.dll">
       <publishTime>11/07/2015 13:41:31</publishTime>
     </File>
     <File Include="bin/Easy.dll">
-      <publishTime>05/09/2017 15:24:21</publishTime>
+      <publishTime>06/28/2017 15:46:34</publishTime>
+    </File>
+    <File Include="bin/Easy.dll.config">
+      <publishTime>03/07/2017 08:20:27</publishTime>
+    </File>
+    <File Include="bin/Easy.pdb">
+      <publishTime>06/28/2017 15:46:34</publishTime>
     </File>
     <File Include="bin/Easy.Web.CMS.dll">
-      <publishTime>05/09/2017 15:28:51</publishTime>
+      <publishTime>06/28/2017 15:46:36</publishTime>
+    </File>
+    <File Include="bin/Easy.Web.CMS.dll.config">
+      <publishTime>03/09/2017 12:25:15</publishTime>
+    </File>
+    <File Include="bin/Easy.Web.CMS.pdb">
+      <publishTime>06/28/2017 15:46:36</publishTime>
     </File>
     <File Include="bin/Easy.Web.dll">
-      <publishTime>05/09/2017 15:24:22</publishTime>
+      <publishTime>06/28/2017 15:46:35</publishTime>
+    </File>
+    <File Include="bin/Easy.Web.dll.config">
+      <publishTime>03/07/2017 08:20:27</publishTime>
+    </File>
+    <File Include="bin/Easy.Web.pdb">
+      <publishTime>06/28/2017 15:46:35</publishTime>
     </File>
     <File Include="bin/EasyZip.dll">
       <publishTime>03/15/2017 16:34:24</publishTime>
@@ -58,6 +79,9 @@
       <publishTime>09/08/2015 09:27:02</publishTime>
     </File>
     <File Include="bin/Microsoft.Practices.ServiceLocation.dll">
+      <publishTime>07/27/2015 08:41:42</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.ServiceLocation.pdb">
       <publishTime>07/27/2015 08:41:42</publishTime>
     </File>
     <File Include="bin/Microsoft.Practices.Unity.Configuration.dll">
@@ -148,7 +172,7 @@
       <publishTime>03/09/2017 12:25:16</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>05/09/2017 15:29:18</publishTime>
+      <publishTime>07/04/2017 16:07:37</publishTime>
     </File>
     <File Include="Scripts/jquery-photowall/exit.gif">
       <publishTime>01/30/2015 22:48:00</publishTime>
@@ -193,7 +217,7 @@
       <publishTime>07/11/2016 08:44:53</publishTime>
     </File>
     <File Include="Views/Widget.Breadcrumb.cshtml">
-      <publishTime>09/21/2016 12:01:59</publishTime>
+      <publishTime>06/28/2017 13:51:48</publishTime>
     </File>
     <File Include="Views/Widget.ProductCategory.cshtml">
       <publishTime>08/31/2015 08:40:02</publishTime>
@@ -205,7 +229,7 @@
       <publishTime>01/30/2015 22:48:00</publishTime>
     </File>
     <File Include="web.config">
-      <publishTime>03/15/2017 16:35:23</publishTime>
+      <publishTime>06/28/2017 15:47:57</publishTime>
     </File>
   </ItemGroup>
 </Project>
