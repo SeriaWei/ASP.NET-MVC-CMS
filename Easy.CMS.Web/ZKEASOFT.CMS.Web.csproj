@@ -858,7 +858,9 @@
     <Content Include="Scripts\tinymce\plugins\noneditable\plugin.min.js" />
     <Content Include="Scripts\tinymce\plugins\pagebreak\plugin.min.js" />
     <Content Include="Scripts\tinymce\plugins\pasteImage\plugin.js" />
-    <Content Include="Scripts\tinymce\plugins\pasteImage\plugin.min.js" />
+    <Content Include="Scripts\tinymce\plugins\pasteImage\plugin.min.js">
+      <DependentUpon>plugin.js</DependentUpon>
+    </Content>
     <Content Include="Scripts\tinymce\plugins\paste\plugin.min.js" />
     <Content Include="Scripts\tinymce\plugins\preview\plugin.min.js" />
     <Content Include="Scripts\tinymce\plugins\print\plugin.min.js" />
