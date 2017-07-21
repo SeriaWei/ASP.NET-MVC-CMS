@@ -36,7 +36,7 @@ img {
         text-align: right;
     }
 
-@media (max-width:1199px) {
+@media (max-width:767px) {
     .form-horizontal .control-label {
         padding-top: 0;
         margin-bottom: 7px;
