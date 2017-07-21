@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("ZKEASOFT.CMS")]
-[assembly: AssemblyCopyright("版权所有(C)  2014")]
+[assembly: AssemblyCopyright("Copyright ©  2017 深圳市纸壳软件科技有限公司 ZKEASOFT")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

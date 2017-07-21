@@ -6,7 +6,7 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>E:\GitHub\CMS\Easy.CMS.Web\Modules\Common\Properties\PublishProfiles\..\..\..\..\..\Release\Application\Modules\Common</_PublishTargetUrl>
+    <_PublishTargetUrl>F:\GitHub\CMS\Easy.CMS.Web\Modules\Common\Properties\PublishProfiles\..\..\..\..\..\Release\Application\Modules\Common</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/App_Web_3e525ulu.dll">
@@ -67,19 +67,43 @@
       <publishTime>09/08/2015 09:26:45</publishTime>
     </File>
     <File Include="bin/Easy.CMS.Common.dll">
-      <publishTime>05/09/2017 15:29:25</publishTime>
+      <publishTime>07/04/2017 16:07:50</publishTime>
+    </File>
+    <File Include="bin/Easy.CMS.Common.pdb">
+      <publishTime>07/04/2017 16:07:50</publishTime>
     </File>
     <File Include="bin/Easy.dll">
-      <publishTime>05/09/2017 15:24:21</publishTime>
+      <publishTime>06/28/2017 15:46:34</publishTime>
+    </File>
+    <File Include="bin/Easy.dll.config">
+      <publishTime>03/07/2017 08:20:27</publishTime>
+    </File>
+    <File Include="bin/Easy.pdb">
+      <publishTime>06/28/2017 15:46:34</publishTime>
     </File>
     <File Include="bin/Easy.Web.CMS.dll">
-      <publishTime>05/09/2017 15:28:51</publishTime>
+      <publishTime>06/28/2017 15:46:36</publishTime>
+    </File>
+    <File Include="bin/Easy.Web.CMS.dll.config">
+      <publishTime>03/09/2017 12:25:15</publishTime>
+    </File>
+    <File Include="bin/Easy.Web.CMS.pdb">
+      <publishTime>06/28/2017 15:46:36</publishTime>
     </File>
     <File Include="bin/Easy.Web.dll">
-      <publishTime>05/09/2017 15:24:22</publishTime>
+      <publishTime>06/28/2017 15:46:35</publishTime>
+    </File>
+    <File Include="bin/Easy.Web.dll.config">
+      <publishTime>03/07/2017 08:20:27</publishTime>
+    </File>
+    <File Include="bin/Easy.Web.pdb">
+      <publishTime>06/28/2017 15:46:35</publishTime>
     </File>
     <File Include="bin/EasyZip.dll">
-      <publishTime>05/09/2017 15:24:21</publishTime>
+      <publishTime>06/28/2017 15:46:34</publishTime>
+    </File>
+    <File Include="bin/EasyZip.pdb">
+      <publishTime>06/28/2017 15:46:34</publishTime>
     </File>
     <File Include="bin/edit.cshtml.37f34e2f.compiled">
       <publishTime>09/08/2015 09:26:44</publishTime>
@@ -124,6 +148,9 @@
       <publishTime>09/08/2015 09:26:44</publishTime>
     </File>
     <File Include="bin/Microsoft.Practices.ServiceLocation.dll">
+      <publishTime>07/27/2015 08:41:42</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.ServiceLocation.pdb">
       <publishTime>07/27/2015 08:41:42</publishTime>
     </File>
     <File Include="bin/Microsoft.Practices.Unity.Configuration.dll">
@@ -232,7 +259,7 @@
       <publishTime>05/08/2017 08:43:32</publishTime>
     </File>
     <File Include="Content/full-slide.min.css">
-      <publishTime>05/08/2017 08:43:32</publishTime>
+      <publishTime>07/04/2017 14:07:17</publishTime>
     </File>
     <File Include="Content/Images/demoLayout.jpg">
       <publishTime>01/30/2015 22:48:00</publishTime>
@@ -244,13 +271,13 @@
       <publishTime>09/22/2016 13:05:09</publishTime>
     </File>
     <File Include="Content/Layout.min.css">
-      <publishTime>05/08/2017 08:43:31</publishTime>
+      <publishTime>07/04/2017 14:02:07</publishTime>
     </File>
     <File Include="Content/Login.css">
       <publishTime>09/22/2016 13:04:59</publishTime>
     </File>
     <File Include="Content/Login.min.css">
-      <publishTime>05/08/2017 08:43:32</publishTime>
+      <publishTime>07/04/2017 14:02:08</publishTime>
     </File>
     <File Include="CopyItems.xml">
       <publishTime>10/23/2014 16:11:50</publishTime>
@@ -259,7 +286,7 @@
       <publishTime>03/09/2017 12:25:16</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>05/09/2017 15:29:26</publishTime>
+      <publishTime>07/04/2017 16:07:52</publishTime>
     </File>
     <File Include="Scripts/full-slide.js">
       <publishTime>05/08/2017 08:43:32</publishTime>
@@ -304,7 +331,7 @@
       <publishTime>05/08/2017 08:43:32</publishTime>
     </File>
     <File Include="Scripts/PageDesign.min.js">
-      <publishTime>05/08/2017 08:43:32</publishTime>
+      <publishTime>07/04/2017 14:02:08</publishTime>
     </File>
     <File Include="Scripts/StyleEditor/Content/arrow.gif">
       <publishTime>05/26/2016 08:27:22</publishTime>
@@ -367,19 +394,19 @@
       <publishTime>05/30/2016 09:38:06</publishTime>
     </File>
     <File Include="Scripts/StyleEditor/Content/main.css">
-      <publishTime>05/30/2016 15:12:01</publishTime>
+      <publishTime>07/04/2017 14:07:17</publishTime>
     </File>
     <File Include="Scripts/StyleEditor/Content/main.min.css">
-      <publishTime>05/30/2016 15:12:01</publishTime>
+      <publishTime>07/04/2017 14:07:17</publishTime>
     </File>
     <File Include="Scripts/StyleEditor/Content/values.js">
-      <publishTime>07/11/2016 08:44:53</publishTime>
+      <publishTime>07/04/2017 14:07:17</publishTime>
     </File>
     <File Include="Scripts/StyleEditor/Content/values.min.js">
-      <publishTime>07/11/2016 08:44:53</publishTime>
+      <publishTime>07/04/2017 14:07:17</publishTime>
     </File>
     <File Include="Scripts/StyleEditor/index.html">
-      <publishTime>07/11/2016 08:44:53</publishTime>
+      <publishTime>07/04/2017 14:07:17</publishTime>
     </File>
     <File Include="Views/Account/Login.cshtml">
       <publishTime>05/11/2016 15:49:16</publishTime>
@@ -574,7 +601,7 @@
       <publishTime>07/27/2015 16:34:27</publishTime>
     </File>
     <File Include="web.config">
-      <publishTime>03/15/2017 16:35:34</publishTime>
+      <publishTime>06/28/2017 15:48:07</publishTime>
     </File>
   </ItemGroup>
 </Project>

@@ -6,7 +6,7 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>E:\GitHub\CMS\Easy.CMS.Web\Modules\Section\Properties\PublishProfiles\..\..\..\..\..\Release\Application\Modules\Section</_PublishTargetUrl>
+    <_PublishTargetUrl>F:\GitHub\CMS\Easy.CMS.Web\Modules\Section\Properties\PublishProfiles\..\..\..\..\..\Release\Application\Modules\Section</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/App_Web_1gyjwpmv.dll">
@@ -37,19 +37,43 @@
       <publishTime>07/27/2015 08:41:42</publishTime>
     </File>
     <File Include="bin/Easy.CMS.Section.dll">
-      <publishTime>05/09/2017 15:29:50</publishTime>
+      <publishTime>06/28/2017 15:48:42</publishTime>
+    </File>
+    <File Include="bin/Easy.CMS.Section.pdb">
+      <publishTime>06/28/2017 15:48:42</publishTime>
     </File>
     <File Include="bin/Easy.dll">
-      <publishTime>05/09/2017 15:24:21</publishTime>
+      <publishTime>06/28/2017 15:46:34</publishTime>
+    </File>
+    <File Include="bin/Easy.dll.config">
+      <publishTime>03/07/2017 08:20:27</publishTime>
+    </File>
+    <File Include="bin/Easy.pdb">
+      <publishTime>06/28/2017 15:46:34</publishTime>
     </File>
     <File Include="bin/Easy.Web.CMS.dll">
-      <publishTime>05/09/2017 15:28:51</publishTime>
+      <publishTime>06/28/2017 15:46:36</publishTime>
+    </File>
+    <File Include="bin/Easy.Web.CMS.dll.config">
+      <publishTime>03/09/2017 12:25:15</publishTime>
+    </File>
+    <File Include="bin/Easy.Web.CMS.pdb">
+      <publishTime>06/28/2017 15:46:36</publishTime>
     </File>
     <File Include="bin/Easy.Web.dll">
-      <publishTime>05/09/2017 15:24:22</publishTime>
+      <publishTime>06/28/2017 15:46:35</publishTime>
+    </File>
+    <File Include="bin/Easy.Web.dll.config">
+      <publishTime>03/07/2017 08:20:27</publishTime>
+    </File>
+    <File Include="bin/Easy.Web.pdb">
+      <publishTime>06/28/2017 15:46:35</publishTime>
     </File>
     <File Include="bin/EasyZip.dll">
-      <publishTime>05/09/2017 15:24:21</publishTime>
+      <publishTime>06/28/2017 15:46:34</publishTime>
+    </File>
+    <File Include="bin/EasyZip.pdb">
+      <publishTime>06/28/2017 15:46:34</publishTime>
     </File>
     <File Include="bin/editor.cshtml.c59dd044.compiled">
       <publishTime>09/08/2015 09:27:17</publishTime>
@@ -70,6 +94,9 @@
       <publishTime>09/08/2015 09:27:16</publishTime>
     </File>
     <File Include="bin/Microsoft.Practices.ServiceLocation.dll">
+      <publishTime>07/27/2015 08:41:42</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.ServiceLocation.pdb">
       <publishTime>07/27/2015 08:41:42</publishTime>
     </File>
     <File Include="bin/Microsoft.Practices.Unity.Configuration.dll">
@@ -181,7 +208,7 @@
       <publishTime>03/09/2017 12:25:16</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>05/09/2017 15:29:51</publishTime>
+      <publishTime>07/04/2017 16:08:36</publishTime>
     </File>
     <File Include="Views/SectionContentCallToAction/Form.cshtml">
       <publishTime>05/11/2016 08:25:13</publishTime>
@@ -229,7 +256,7 @@
       <publishTime>03/22/2017 12:25:54</publishTime>
     </File>
     <File Include="Views/SectionTemplate.JCarousel.cshtml">
-      <publishTime>03/22/2017 12:25:54</publishTime>
+      <publishTime>05/12/2017 14:03:41</publishTime>
     </File>
     <File Include="Views/SectionTemplate.LeftThreeIcon.cshtml">
       <publishTime>03/22/2017 12:25:54</publishTime>
@@ -355,10 +382,10 @@
       <publishTime>03/24/2017 08:27:09</publishTime>
     </File>
     <File Include="Views/Thumbnail/SectionTemplate.JCarousel.png">
-      <publishTime>07/19/2016 11:12:27</publishTime>
+      <publishTime>05/12/2017 14:03:41</publishTime>
     </File>
     <File Include="Views/Thumbnail/SectionTemplate.JCarousel.xml">
-      <publishTime>03/24/2017 08:27:09</publishTime>
+      <publishTime>05/12/2017 14:03:41</publishTime>
     </File>
     <File Include="Views/Thumbnail/SectionTemplate.LeftThreeIcon.png">
       <publishTime>06/13/2016 14:58:28</publishTime>
@@ -436,7 +463,7 @@
       <publishTime>03/22/2017 12:25:54</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>03/15/2017 16:36:14</publishTime>
+      <publishTime>06/28/2017 15:48:43</publishTime>
     </File>
   </ItemGroup>
 </Project>
