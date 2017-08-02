@@ -3,13 +3,11 @@
 ### 演示
 [http://demo.zkea.net/](http://demo.zkea.net/)
 
-#### [下载](http://www.zkea.net/zkeacms/download)
-
-![GitHub](http://cdn.zkeasoft.com/images/github.svg)
-#### [GitHub](https://github.com/SeriaWei/ASP.NET-MVC-CMS)
+### 下载
+[http://www.zkea.net/zkeacms/download](http://www.zkea.net/zkeacms/download)
 
 ### For .net core
-#### [ZKEACMS Core](https://github.com/SeriaWei/ZKEACMS.Core)
+[https://github.com/SeriaWei/ZKEACMS.Core](https://github.com/SeriaWei/ZKEACMS.Core)
 
 ### 简介
 ZKEACMS是基于EasyFrameWork，使用ASP.NET MVC4开发的开源CMS。
