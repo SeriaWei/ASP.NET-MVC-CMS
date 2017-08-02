@@ -107,4 +107,4 @@ ZKEACMS 使用LESS，可以轻松的创建主题。
 ### QQ群(493586356)
 ![QQ群493586356](http://ww3.sinaimg.cn/mw690/005zTNGqgw1f7l3g7ybdfj307609uq3m.jpg)
 ### License
-[许可协议](http://www.zkea.net/licenses)
+[http://www.zkea.net/licenses](http://www.zkea.net/licenses)
