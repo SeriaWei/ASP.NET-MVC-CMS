@@ -14,6 +14,7 @@ REM:http://www.zkea.net/zkeacms/document/issues
 @echo 在开始之前，我们需要收集一些您的数据库服务器的配置信息
 @echo 如果打算使用默认值，请直接按回车，共4步
 @echo -----------------------------------------------------------------------------
+@echo 当前工作目录 %cd%
 set /P server=1.输入服务器地址，默认(local):
 if "%server%"=="" set server=(local)
 set /P dataBase=2.输入数据库名称，默认(ZKEACMS):
