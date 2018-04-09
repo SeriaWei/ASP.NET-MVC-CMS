@@ -35,10 +35,13 @@ Microsoft VisualStudio 2013
 Microsoft Sql Server 2005 以上
 ### 创建页面的简单流程和基本思想
 [http://www.zkea.net/zkeacms/createpage](http://www.zkea.net/zkeacms/createpage)
+
 ### 简单演示
 ![简单演示](https://cloud.githubusercontent.com/assets/6006218/23800754/8513aafe-05e8-11e7-8578-dbf93eb94b91.jpg)
+
 ### 设计页面  
 ![简单演示](http://ww4.sinaimg.cn/mw690/005zTNGqgw1f5e6o2kejlg30dw08an3g.gif)
+
 ### 添加内容
 ![简单演示](http://ww3.sinaimg.cn/mw690/005zTNGqgw1f4wcc6gjqqg30dw08g4jr.gif)
 
@@ -92,21 +95,17 @@ ZKEACMS 使用LESS，可以轻松的创建主题。
 ### 官方网站
 [http://www.zkea.net/zkeacms](http://www.zkea.net/zkeacms)
 
-[安装和部署](http://blog.zkea.net/2015/09/install-ZKEACMS/)
+[发布](http://www.zkea.net/zkeacms/document/publish)
+
+[安装和部署](http://www.zkea.net/zkeacms/document/deploy)
 
 [开发文档](http://www.zkea.net/zkeacms/document)
 
-[主题](http://www.zkea.net/zkeacms/theme)
-
-[插件扩展](http://www.zkea.net/zkeacms/extend)
-
-[模板](http://www.zkea.net/zkeacms/templates)
 
 [赞助](http://www.zkea.net/zkeacms/donate)
 
 ### 关注微信(ZKEASOFT)
 ![关注微信](https://user-images.githubusercontent.com/6006218/38488843-418eed0a-3c17-11e8-939b-cb72bc42b001.png)
-
 
 
 ### QQ群(493586356)
