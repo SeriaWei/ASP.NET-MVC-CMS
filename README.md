@@ -1,15 +1,16 @@
 ﻿# ZKEACMS
 ![BuildSuccess](http://cdn.zkeasoft.com/images/buildsuccess.svg) 
-### 演示
-[http://demo.zkea.net/](http://demo.zkea.net/)
-
-### 下载
-[http://www.zkea.net/zkeacms/download](http://www.zkea.net/zkeacms/download)
 
 ### ZKEACMS Core (.Net Core 版本)
 .Net Core版本拥有更好的性能，更好的用户体验，更多功能，支持跨平台部署：
 
 [https://github.com/SeriaWei/ZKEACMS.Core](https://github.com/SeriaWei/ZKEACMS.Core)
+
+### 演示网站
+[http://demo.zkea.net/](http://demo.zkea.net/)
+
+### 下载发行版本
+[http://www.zkea.net/zkeacms/download](http://www.zkea.net/zkeacms/download)
 
 ### 简介
 ZKEACMS是基于EasyFrameWork，使用ASP.NET MVC4开发的开源CMS。
