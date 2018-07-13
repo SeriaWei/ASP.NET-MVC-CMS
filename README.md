@@ -1,4 +1,4 @@
-﻿# ZKEACMS
+﻿# ZKEACMS ASP.NET MVC 4
 ![BuildSuccess](http://cdn.zkeasoft.com/images/buildsuccess.svg) 
 
 # 我们推荐您使用 .Net Core 版本
