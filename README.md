@@ -109,9 +109,10 @@ ZKEACMS 使用LESS，可以轻松的创建主题。
 ![关注微信](https://user-images.githubusercontent.com/6006218/38488843-418eed0a-3c17-11e8-939b-cb72bc42b001.png)
 
 
-## QQ群(493586356)
+## QQ群
+纸壳CMS群1（493586356）满
 
-![QQ群493586356](http://ww3.sinaimg.cn/mw690/005zTNGqgw1f7l3g7ybdfj307609uq3m.jpg)
+纸壳CMS群2（869382969）
 
 ## License
 [http://www.zkea.net/licenses](http://www.zkea.net/licenses)
