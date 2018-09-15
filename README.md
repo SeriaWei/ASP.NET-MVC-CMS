@@ -114,5 +114,5 @@ ZKEACMS 使用LESS，可以轻松的创建主题。
 
 纸壳CMS群2（869382969）[点击加群](https://jq.qq.com/?_wv=1027&k=5A7a3Zt)
 
-## License
-[http://www.zkea.net/licenses](http://www.zkea.net/licenses)
+## Enterprise
+[Enterprise](http://www.zkea.net/licenses)
