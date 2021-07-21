@@ -1,10 +1,10 @@
 ﻿# ZKEACMS ASP.NET MVC 4
 ![BuildSuccess](http://cdn.zkeasoft.com/images/buildsuccess.svg) 
 
-# 我们推荐您使用 .Net Core 版本
+# 我们推荐您使用 .Net 5 版本
 .Net Core版本拥有更好的性能，更好的用户体验，更多功能，支持跨平台部署：
 
-[https://github.com/SeriaWei/ZKEACMS.Core](https://github.com/SeriaWei/ZKEACMS.Core)
+[https://github.com/SeriaWei/ZKEACMS](https://github.com/SeriaWei/ZKEACMS)
 
 ## 演示网站
 [http://demo.zkea.net/](http://demo.zkea.net/)
